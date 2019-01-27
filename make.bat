@@ -2,13 +2,14 @@
 
 pushd %~dp0
 
+
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set SOURCEDIR=source
-set BUILDDIR=docs
+set BUILDDIR= .
 
 if "%1" == "" goto help
 
@@ -30,6 +31,7 @@ goto end
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
+
 
 :end
 popd
