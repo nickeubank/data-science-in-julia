@@ -6,7 +6,15 @@
    "source": [
     "# Git and Github\n",
     "\n",
-    "What are they?"
+    "What are they?\n",
+    "\n",
+    "\n",
+    "## Git\n",
+    "\n",
+    "## Github\n",
+    "\n",
+    "## git-lfs\n",
+    "\n"
    ]
   },
   {
