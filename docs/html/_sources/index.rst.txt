@@ -17,13 +17,15 @@ In particular, this site provides tutorials on:
 
 (Eventually the TOC below will be:)
 
-## Data Science Tools and Skills
+Data Science Tools and Skills
+-----------------------------
 
 - **The Command Line:** that scary black text interface people are always using in movies to look intimidating (don't worry -- turns out it's not scary at all.)
 - **Git and Github:** The tools used around the world to collaborate on code and share software
 - **Getting Help Online:** There's more skill to this than you might think...
 
-## Computer Science for Data Science
+Computer Science for Data Science
+---------------------------------
 
 - **Defensive Programming:** How to write code that minimizes the likelihood you'll make mistakes and maximizes the likelihood that when you do make mistakes, you'll be able to catch them.
 - **How computers think about numbers and text:** learn why 42.0 doesn't always equal 42.0.
