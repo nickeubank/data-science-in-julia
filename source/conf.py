@@ -83,8 +83,11 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {'analytics_id': 'UA-133477154-1'}
 
+                      # 'github_button': 'true',
+                      # 'github_repo': 'https://github.com/nickeubank/cs_for_ds',
+                      # 'github_user': 'nickeubank',
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".

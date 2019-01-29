@@ -29,7 +29,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
@@ -38,13 +38,43 @@
        "\"0011111111110000000000000000000000000000000000000000000000000000\""
       ]
      },
-     "execution_count": 4,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "bitstring(1.0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "false"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(3/2) == 1/5"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Further reading / Resources: \n",
+    "\n",
+    "Computerphile Floating Point: https://www.youtube.com/watch?v=PZRI1IfStY0\n",
+    "Computerphile Unicode: https://www.youtube.com/watch?v=MijmeoH9LT4"
    ]
   },
   {

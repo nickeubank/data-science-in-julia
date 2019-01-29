@@ -14,7 +14,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "math|output_area", "processEscapes": true, "inlineMath": [["$", "$"], ["\\(", "\\)"]], "ignoreClass": "document"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Parallelism" href="parallelism.html" />
@@ -235,9 +235,6 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Defensive-Programming">
 <h1>Defensive Programming<a class="headerlink" href="#Defensive-Programming" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="Defensive-Programming">
-<h1>Defensive Programming<a class="headerlink" href="#Defensive-Programming" title="Permalink to this headline">¶</a></h1>
 <p>It’s natural to think that the reason we find problems in the code behind published papers is carelessness or inattention on behalf of authors, and that the key to minimizing problems in our code is to be more careful. The truth, I have come to believe, is more subtle: humans are effectively incapable of writing error-free code, and that if we wish to improve the quality of the code we write, we must start learning <em>and teaching</em> coding skills that help maximize the probability our mistakes will
 be found and corrected.</p>
 <p>I myself once firmly believed the fallacy that the key to preventing errors was “to be more careful.” Indeed, I fear this belief may have colored the tone of of my past work on this subject in unproductive ways. Over the last few years, however, my research has brought me into close contact with computer scientists, and I discovered that computer scientists’ mentality about programming is fundamentally different from the mental model I had been carrying around. Computer scientists <em>assume</em>
@@ -427,8 +424,7 @@ documents to data analysis applications can be tricky.</p>
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="data_types.html">How Computers Think About Numbers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Defensive Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Defensive-Programming">Defensive Programming</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Defensive Programming</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Defensive-Programming-Practices"><strong>Defensive Programming Practices</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#2.-Collaboration">2. Collaboration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#3.-Third-Party-Code-Review-by-Journals">3. Third-Party Code Review by Journals</a></li>
@@ -484,6 +480,22 @@ documents to data analysis applications can be tricky.</p>
 
     
 
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133477154-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
     
   </body>
 </html>

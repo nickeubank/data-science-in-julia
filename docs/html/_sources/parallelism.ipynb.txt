@@ -14,7 +14,39 @@
     "\n",
     "## How do I paralleize?\n",
     "\n",
-    "## Limits of Parallelism"
+    "## Limits of Parallelism\n",
+    "\n",
+    "### Amdahl's Law\n",
+    "\n",
+    "$$\\frac{1}{(1-P)+\\frac{P}{N}}$$\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%latex\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Further reading / resources: \n",
+    "\n",
+    "https://www.youtube.com/watch?v=zX4ZNfvw1cw"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![images/42-years-processor-trend.png](images/42-years-processor-trend.png)\n",
+    "\n",
+    "Source: https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/"
    ]
   },
   {
