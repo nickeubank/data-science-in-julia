@@ -14,7 +14,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "processClass": "math|output_area", "ignoreClass": "document"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "ignoreClass": "document", "processEscapes": true, "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Parallelism" href="parallelism.html" />
@@ -235,6 +235,10 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Defensive-Programming">
 <h1>Defensive Programming<a class="headerlink" href="#Defensive-Programming" title="Permalink to this headline">¶</a></h1>
+<p>It’s natural to think that the reason we find problems in the code behind published papers is carelessness or inattention on behalf of authors, and that the key to minimizing problems in our code is to be more careful. The truth, I have come to believe, is more subtle: humans are effectively incapable of writing error-free code, and that if we wish to improve the quality of the code we write, we must start learning and teaching coding skills that help maximize the probability our mistakes will
+be found and corrected.</p>
+<p>I myself once firmly believed the fallacy that the key to preventing errors was “to be more careful.” Indeed, I fear this belief may have colored the tone of of my past work on this subject in unproductive ways. Over the last few years, however, my research has brought me into close contact with computer scientists, and I discovered that computer scientists’ mentality about programming is fundamentally different from the mental model I had been carrying around. Computer scientists assume
+programmers will make mistakes, and instead of chiding people to “just be careful,” they have developed a battery of practices to address the problem. These practices – often referred to as “defensive programming” – are designed to (a) minimize the probability mistakes occur and (b) maximize the probability that mistakes that do occur are caught.</p>
 <div class="section" id="Adding-Tests">
 <h2><strong>Adding Tests</strong><a class="headerlink" href="#Adding-Tests" title="Permalink to this headline">¶</a></h2>
 <p>If we could only adopt one practice to improve the quality of our code, my vote would be for the addition of tests. Tests are simple true-false statements users place in their code. A test checks for a certain condition (like whether the sample size in a regression is what you expect), and if the condition is not met, stops your code and alerts you to the problem. Right now, many users may say “Yeah, I always check that kind of stuff by hand when I’m writing my code. Why do I need to add tests?”

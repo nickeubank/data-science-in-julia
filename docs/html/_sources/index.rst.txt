@@ -16,7 +16,11 @@ This resource is designed to provide an introduction to key computer science con
 - **Big Data and The Memory Hierarchy:** Why working with big data requires categorically different strategies than smaller datasets.
 - **Speed:** Why are some programming languages fast and others slow, how do I write code that runs quickly, and how to I evaluate the speed of my code?
 
-In addition to these core computer science concepts, this site also provides a set of topics pages on data science tools like the command line, git and github, getting help on stack overflow and more that are often left out of introductory data science classes and texts that just teach a core program like Stata, R, Python, or Julia. These pages both explain the *purpose* of these tools and why they may be of use to you, as well as tutorials and links to outside resources for further learning.
+In addition to these core computer science concepts, this site also provides a set of resources on **ancillary skills and tools** which are often overlooked in courses that emphasis either just the core data science languages (Stata, Matlab, Python, or Julia), or just the statistics of methods like machine learning. These pages both explain the *purpose* of these tools and why they may be of use to you, as well as tutorials and links to outside resources for further learning. In particular, pages are provided with information on:
+
+- **The Command Line**
+- **Git and Github**
+- **How to Get Help Online**
 
 This site is meant to be an *intermediate* data science resource. The world is full of "Intro to Data Science" texts, but it can be especially hard for people to take the next step of learning about all the tools and resources in the data science ecosystem and to develop a deeper understanding of how computers work to make troubleshooting easier and less scary. This site is meant to address that.
 
