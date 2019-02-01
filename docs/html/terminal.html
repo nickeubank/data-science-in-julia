@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>The Command Line &#8212; CS for DS  documentation</title>
+    <title>The Terminal &#8212; CS for DS  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,9 +14,11 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "math|output_area", "processEscapes": true, "inlineMath": [["$", "$"], ["\\(", "\\)"]], "ignoreClass": "document"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]], "processClass": "math|output_area", "processEscapes": true}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Jupyter Labs" href="jupyter.html" />
+    <link rel="prev" title="Speed" href="performance.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -231,15 +233,24 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="The-Command-Line">
-<h1>The Command Line<a class="headerlink" href="#The-Command-Line" title="Permalink to this headline">¶</a></h1>
-<p>It’s probably good to start by answering the question: What <em>is</em> the command line?</p>
-<p>The command line is a way to talk to your operating system (e.g.&nbsp;macOS, Windows, etc.) using text instead of by moving around a mouse and clicking on things. Just as you can use your mouse to open folders, move and rename files, and launch programs, so too can you use the command line to ask you operating system to do the same things.</p>
-<p>Before we get into the command line, though, a note on terminology. In this tutorial, we will be using a program called <code class="docutils literal notranslate"><span class="pre">bash</span></code> as our command line tool. <code class="docutils literal notranslate"><span class="pre">bash</span></code> is just a specific — extremely popular — program for talking with our operating system. But if you’re working on a Mac, you’d never know you were using <code class="docutils literal notranslate"><span class="pre">bash</span></code> because Apple wanted a cooler name, so they’ve renamed the program <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>. Also, <code class="docutils literal notranslate"><span class="pre">bash</span></code> is based on a program called <code class="docutils literal notranslate"><span class="pre">shell</span></code>, so you may also hear the term <code class="docutils literal notranslate"><span class="pre">shell</span></code>
-used to describe the tool we’ll be using today. But for all intents and purposes, the terms <code class="docutils literal notranslate"><span class="pre">bash</span></code>, <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>, and <code class="docutils literal notranslate"><span class="pre">shell</span></code> are basically interchangeable.</p>
-<p>We’re using <code class="docutils literal notranslate"><span class="pre">bash</span></code> because it’s the default command line tool on nearly all Macs and Linux computers (the operating systems of Mac and Linux computers are very similar, and are often just referred to as POSIX computers). That’s important, because almost all computers in the cloud run Linux (including not just companies like Amazon Web Services, but also university research clusters). And if you want to work directly with a computer in the cloud, you will almost never get to use a pretty
-graphical user interface and you’ll have to use the command line, making <code class="docutils literal notranslate"><span class="pre">bash</span></code> a great choice to learn on.</p>
-<p>This does mean that the specific commands we learn here <em>won’t</em> work on Windows, which has it’s own command line interface (DOS). If you’re working with Windows, click here for your options (Will add link to cygwin here <a class="reference external" href="https://cygwin.com/install.html">https://cygwin.com/install.html</a> ).</p>
+<div class="section" id="The-Terminal">
+<h1>The Terminal<a class="headerlink" href="#The-Terminal" title="Permalink to this headline">¶</a></h1>
+<p>It’s probably good to start by answering the question: What <em>is</em> the terminal?</p>
+<p>The terminal is a way to talk to your operating system (e.g.&nbsp;macOS, Windows, etc.) using text instead of by moving around a mouse and clicking on things. Just as you can use your mouse to open folders, move and rename files, and launch programs, so too can you use the terminal to ask you operating system to do the same things.</p>
+<div class="section" id="Terminology">
+<h2>Terminology<a class="headerlink" href="#Terminology" title="Permalink to this headline">¶</a></h2>
+<p>Before we get into the details of the terminal, though, a note on terminology: there are <em>lots</em> of names that float around that basically mean the same thing, including terminal, shell, command line, and bash. In this tutorial, the specific program we will be using is called <code class="docutils literal notranslate"><span class="pre">bash</span></code>. But if you’re working on a Mac, you’d never know you were using <code class="docutils literal notranslate"><span class="pre">bash</span></code> because Apple calls bash <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>. Also, <code class="docutils literal notranslate"><span class="pre">bash</span></code> is based on a program called <code class="docutils literal notranslate"><span class="pre">shell</span></code>, so you may also hear the term <code class="docutils literal notranslate"><span class="pre">shell</span></code> used to
+describe the tool we’ll be using today. But for all intents and purposes, the terms <code class="docutils literal notranslate"><span class="pre">bash</span></code>, <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">line</span></code>, <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>, and <code class="docutils literal notranslate"><span class="pre">shell</span></code> are basically interchangeable on a mac or linux computer.</p>
+<p>We’re using <code class="docutils literal notranslate"><span class="pre">bash</span></code> because it’s the default terminal program on nearly all Macs and Linux computers (the operating systems of Mac and Linux computers are very similar, and are often just referred to as POSIX computers). That’s important, because almost all computers in the cloud run Linux (including not just companies like Amazon Web Services, but also university research clusters). And if you want to work directly with a computer in the cloud, you will almost never get to use a pretty
+graphical user interface, so you’ll <em>have</em> to use a terminal, making <code class="docutils literal notranslate"><span class="pre">bash</span></code> a great choice to learn on.</p>
+<p>The one place this equivalence breaks down is on Windows. On windows, the program used for interacting with the computer via text is called <code class="docutils literal notranslate"><span class="pre">DOS</span></code> or <code class="docutils literal notranslate"><span class="pre">CMD</span></code> which is similar to <code class="docutils literal notranslate"><span class="pre">bash</span></code>, but has a different syntax. But to make this confusing, this will also sometimes be referred to as “the terminal” or “command line”. If you’re working with Windows, click here for your options (Will add link to cygwin here <a class="reference external" href="https://cygwin.com/install.html">https://cygwin.com/install.html</a> ).</p>
+<p>So in summary:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">bash</span></code> and <code class="docutils literal notranslate"><span class="pre">shell</span></code>: two (almost identical) programs for talking to you computer via text. Standard on Mac and Linux Systems.</li>
+<li><code class="docutils literal notranslate"><span class="pre">terminal</span></code>: sometimes used colloquially to refer to any system that lets you talk to you computer via text, but also the name Apple uses when you run <code class="docutils literal notranslate"><span class="pre">bash</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">DOS</span></code> and <code class="docutils literal notranslate"><span class="pre">CMD</span></code>: Window’s version of <code class="docutils literal notranslate"><span class="pre">bash</span></code> and <code class="docutils literal notranslate"><span class="pre">shell</span></code>. Same purpose, different syntax.</li>
+</ul>
+</div>
 <div class="section" id="But-if-it’s-just-like-using-my-mouse-to-click-pictures,-why-do-I-need-the-command-line?">
 <h2>But if it’s just like using my mouse to click pictures, why do I need the command line?<a class="headerlink" href="#But-if-it’s-just-like-using-my-mouse-to-click-pictures,-why-do-I-need-the-command-line?" title="Permalink to this headline">¶</a></h2>
 <p>There are three main reasons to learn to use the command line.</p>
@@ -397,12 +408,19 @@ total 8
 
 
 <h3>Navigation</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="data_types.html">How Computers Think About Numbers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallelism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory_hierarchy.html">Big Data and Memory Hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Speed</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Terminal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#But-if-it’s-just-like-using-my-mouse-to-click-pictures,-why-do-I-need-the-command-line?">But if it’s just like using my mouse to click pictures, why do I need the command line?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Navigating-the-file-system">Navigating the file system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Command-options">Command options</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Labs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
@@ -413,6 +431,8 @@ total 8
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="performance.html" title="previous chapter">Speed</a></li>
+      <li>Next: <a href="jupyter.html" title="next chapter">Jupyter Labs</a></li>
   </ul></li>
 </ul>
 </div>

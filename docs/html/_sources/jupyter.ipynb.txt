@@ -10,6 +10,13 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Customizations: https://www.youtube.com/watch?v=a9P7qv4P5LE"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
