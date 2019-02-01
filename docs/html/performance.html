@@ -14,7 +14,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "math|output_area", "processEscapes": true, "inlineMath": [["$", "$"], ["\\(", "\\)"]], "ignoreClass": "document"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="The Command Line" href="command_line.html" />
@@ -236,6 +236,76 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Speed">
 <h1>Speed<a class="headerlink" href="#Speed" title="Permalink to this headline">¶</a></h1>
 <p>Why are some programs fast and others slow?</p>
+<ul class="simple">
+<li>Develop <em>general</em> understanding of why code is fast and some is slow, and</li>
+<li>Develop <em>practical</em> skills for figuring out why <em>your</em> code is slow and how to fix it</li>
+</ul>
+<div class="section" id="General-Principles-of-Speed">
+<h2>General Principles of Speed<a class="headerlink" href="#General-Principles-of-Speed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Fast-languages-and-slow-languages">
+<h3>Fast languages and slow languages<a class="headerlink" href="#Fast-languages-and-slow-languages" title="Permalink to this headline">¶</a></h3>
+<p>Programs that are easier are easier because (implicitly) we’re asking the program to do part of our thinking for us, and that thinking takes time.</p>
+</div>
+<div class="section" id="De-referencing-and-Data-Structures">
+<h3>De-referencing and Data Structures<a class="headerlink" href="#De-referencing-and-Data-Structures" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="Practical-Skills">
+<h2>Practical Skills<a class="headerlink" href="#Practical-Skills" title="Permalink to this headline">¶</a></h2>
+<p>If you take nothing else away from this page, <em>please</em> read and remember this section!</p>
+<p>There’s no reason to tune a line of code that is only responsible for 1/100 of your running time, so before you invest in speeding up your code, figure out what’s slowing it down – a process known as “profiling” your code. Thankfully, because this is so important, there are lots of tools (called profilers) for measuring exactly how long your computer is spending doing each step in a block of code. * Profiling in R: the two packages I’ve seen used most are
+<a class="reference external" href="http://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/profilingEx.html">Rprof</a> and <a class="reference external" href="http://adv-r.had.co.nz/Profiling.html#measure-perf">lineprof</a>. * Profiling in Python: if you use Jupyter Notebooks or Jupyter Labs, you can use the <a class="reference external" href="http://pynash.org/2013/03/06/timing-and-profiling.html">prun tool</a>. If for some reason you’re not using Jupyter, here’s a <a class="reference external" href="https://zapier.com/engineering/profiling-python-boss/">guide to a few other tools</a>.</p>
+<div class="section" id="Profiling-Code">
+<h3>Profiling Code<a class="headerlink" href="#Profiling-Code" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="Making-Code-Faster">
+<h3>Making Code Faster<a class="headerlink" href="#Making-Code-Faster" title="Permalink to this headline">¶</a></h3>
+<p><strong>AFTER</strong> you’ve identified what parts of your code are running really slow by profiling them (as discussed above), the next question is how to make them run faster. The following fixes are provided in the order in which I would suggest pursuing them – the first fixes have high returns and are relatively easy, the later ones are harder to implement and should only be pursued if you’ve tried the preceding options!</p>
+<ol class="arabic simple">
+<li><strong>Check your memory use</strong> When your computer is manipulating data (defining variables, running regressions, etc), what its actually doing is grabbing a little bit of data from storage, moving it to the processor, doing math with it, and then putting it back in storage.</li>
+</ol>
+<p>To simplify somewhat, we can think of your computer as having two forms of storage – RAM (sometimes called main memory), and your harddrive. But these two forms of memory are very, very different. Your computer can grab data from RAM 100,000 times faster it can grab data on the harddrive. Because of this, your computer is much happier (and performs faster) when it’s able to keep all the data you’re working with in RAM. Indeed, if you’re moving data back and forth to your harddrive, it’s almost
+certainly the biggest bottleneck – doing actual computations is almost instantaneous compared to moving data back and forth to your harddrive on modern computers.</p>
+<p><em>Important:</em> Just because your dataset is small enough it seems like it should fit into RAM doesn’t mean this isn’t relevant for you! Programs often make copies of your data when they manipulate it, so even if your dataset is 2gb and your have 8gb of RAM, the program you’re using can very easy end up using all 8gb of RAM!</p>
+<ol class="arabic simple" start="2">
+<li><strong>Use other people’s (compiled) functions</strong></li>
+</ol>
+<p>As a general rule, code you write in R or Python is slow. But don’t worry, it’s not your fault; R and Python are fundamentally [[Programming Languages | slow languages]], so ‘’anything’’ written in R or Python is slow.</p>
+<p>But interestingly, commands that other people have written that are available in R or Python are actually usually written in faster (“compiled”) languages, like C++. As a result, whenever you have the choice between writing a function yourself or using a function in an established library, you’re almost always better off using the command someone else wrote.</p>
+<p>Now, using other people’s functions is not fool-proof – some people write their libraries in R or Python (not a compiled language like C++), so they may run as slowly as your own commands. So if you can, check the documentation for whatever library you want to use to see whether it was written in C / C++ or not!</p>
+<ol class="arabic simple" start="3">
+<li><strong>Vectorization</strong></li>
+</ol>
+<p>In R and Python, if you want to apply a function to each item in a matrix or vector, you would just create a loop that extracts each element of the vector, modifies it, and then moves to the next item. This will work in R or Python, but it is very slow. What you want to do instead is “vectorize” your function, which means you use a specific command to tell R or Python that you’re trying to apply your function to each item in the vector. When R/Python knows this is what you want to do, it has
+ways of making that function execute much more quickly behind the scenes.</p>
+<p>Both languages have a number of tools for this:</p>
+<ul class="simple">
+<li>in R, these come in a set of tools with names related to <code class="docutils literal notranslate"><span class="pre">apply()</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">apply()</span></code>, <code class="docutils literal notranslate"><span class="pre">lapply()</span></code>, <code class="docutils literal notranslate"><span class="pre">sapply()</span></code>), there’s a library called <code class="docutils literal notranslate"><span class="pre">dplyr</span></code>. But what matters most is not which one, but rather that you use <em>one</em> of them and never run loops over your vectors or matrices!</li>
+<li>In Python, the relevant tools are the “apply()”, “agg()”, “map()”, and “transform()” functions.</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><strong>Parallelization</strong></li>
+</ol>
+<p>Parallelization (which has it’s own page [[Parallelization]] here) is often the first thing social scientists turn to to speed up code. Whether this is the right decision depends a lot on your situation, but a few facts:</p>
+<ul class="simple">
+<li>Parallelization is “sub-linear”, meaning if you parallelize across two cores, you can except ~1.8x speedup at best. (More generally, for N cores, expect ~0.8*Nx speedups).</li>
+<li>Improving how your code is written can often yield much higher returns than parallelization, on the order of 5x, 10x, or 100x speed improvements.</li>
+<li>Using code that was written in C++ by someone else can yield 10x or 100x returns.</li>
+</ul>
+<p>So, parallelization certainly isn’t the best way to speed up your code. But if you read this and find yourself thinking “um, I still don’t really what makes code fast versus slow” or “I’ve already tried all that and it’s still too slow!”, it’s a good option.</p>
+<ol class="arabic simple" start="5">
+<li>Compile your own code</li>
+</ol>
+<p>So you’re sure you’re only using RAM, you’ve vectorized your functions, and you can’t find a library with the function you need to execute, and when you write it yourself it’s still too slow, even if you parallelize it? The last option is to compile your own code. This is a little complicated for this page, so if you get here, link here</p>
+</div>
+</div>
+<div class="section" id="Learn-about-Data-Structures:-If-you-REALLY-want-to-speed-up-your-code-=">
+<h2>Learn about Data Structures: If you REALLY want to speed up your code =<a class="headerlink" href="#Learn-about-Data-Structures:-If-you-REALLY-want-to-speed-up-your-code-=" title="Permalink to this headline">¶</a></h2>
+<p>If this were written for computer scientists, this section would be first. Different data structures – lists, matrices, dataframes, dictionaries, etc. – are all very different in terms of how they work at the lowest levels of your computer. As a result, they have ’‘’very’’’ different performance characteristics, and nothing will have more of an effect on the speed of your code than your choice of data structures.</p>
+<p>With that said, because most social scientists haven’t been taught much about the inner workings of computers, it is understandably hard for them to know which structure is best in each situation. If you ’‘’really’’’ want to get good performance though, it’s something to look into – [[Data Structures | check out a starter page here]].</p>
+<p>= Guides Written By Wiser Minds than Me = [<a class="reference external" href="http://adv-r.had.co.nz/Profiling.html">http://adv-r.had.co.nz/Profiling.html</a> Speeding up R Code]</p>
+<p>[<a class="reference external" href="https://wiki.python.org/moin/PythonSpeed/PerformanceTips">https://wiki.python.org/moin/PythonSpeed/PerformanceTips</a> Speeding up Python Code (note: written for Python, not Pandas. Pandas has some extra tricks)]</p>
+<p>[<a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/enhancingperf.html">http://pandas.pydata.org/pandas-docs/stable/enhancingperf.html</a> Improving Pandas (Python) Speed]</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -243,6 +313,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-julia notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -268,8 +339,14 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallelism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory_hierarchy.html">Big Data and Memory Hierarchy</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Speed</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Speed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#General-Principles-of-Speed">General Principles of Speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Practical-Skills">Practical Skills</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Learn-about-Data-Structures:-If-you-REALLY-want-to-speed-up-your-code-=">Learn about Data Structures: If you REALLY want to speed up your code =</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="command_line.html">The Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Labs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
 <li class="toctree-l1"><a class="reference internal" href="languages.html">Understanding Programming Language Ecosystem</a></li>

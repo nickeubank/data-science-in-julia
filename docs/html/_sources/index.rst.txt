@@ -35,6 +35,7 @@ Because of that goal, this site assumes that the reader is already comfortable d
    Big Data and Memory Hierarchy <memory_hierarchy>
    Speed <performance>
    The Command Line <command_line>
+   Jupyter Labs <jupyter>
    Git and Github <git_and_github>
    Getting Help Online <getting_help>
    Understanding Programming Language Ecosystem <languages>
