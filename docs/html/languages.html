@@ -14,7 +14,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"ignoreClass": "document", "processEscapes": true, "processClass": "math|output_area", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "ignoreClass": "document", "processEscapes": true, "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Getting Help Online" href="getting_help.html" />
@@ -259,12 +259,24 @@ weakness – Stata users often complain that the syntax is more complex than a s
 </div>
 <div class="section" id="Python">
 <h2>Python<a class="headerlink" href="#Python" title="Permalink to this headline">¶</a></h2>
-<p>Python is a full, general purpose programming language. Most python users actually aren’t data scientists, but rather software developers. Dropbox, for example, is written in Python. But in the last decade or so, Python has taken off in popularity for data science, and is the dominant choice among natural scientists and computer scientists.</p>
-<p>The main reason that Python has been getting increased attention is the creation of ‘’pandas’’, one of the newest tools for manipulating data in Python. Pandas is modeled on R, but was created by someone who was frustrated by R syntax and memory use. Pandas is relatively young, but it is built on a well-established foundation (numpy and python), and some people (this author included) really its programming syntax. It is not as easy to use as, say, Stata, but it can be extremely flexible.</p>
-<p>And finally, because Python is a general-purpose language, it’s already used for lots of things inside and outside the realm of social science and statistics, it integrates easily with tools like ArcGIS, other geospatial tools, network analysis tools, webscrapers, text analysis libraries, etc.</p>
+<p>Python was invented in the early 1990s to be a light, friendly, general purpose programming language. However, programmers found it so intuitive and easy to use, it quickly moved from being a tool for doing little jobs quickly into one of the dominant programming languages in the world. Dropbox, for example, is written in Python. And indeed, most Python programmers aren’t data scientists, they’re software developers or web developers. But in the last decade or so, Python has taken off in
+popularity for data science, and is currently the dominant language choice among natural scientists and computer scientists doing data science.</p>
+<p>Because of this centrality in any number of fields, almost anything you can imagine can be accessed through Python – it integrates easily with tools like ArcGIS, other geospatial tools, network analysis tools, webscrapers, text analysis libraries, etc.</p>
+<p>The main downside to data science in Python is that the language wasn’t initially developed with data science in mind, so to make it a good data science tool, two libraries were invented to expand it’s capabilities: <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Before <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, Python didn’t have vectors, matrices, or arrays, and was relatively slow when doing numerical work. <code class="docutils literal notranslate"><span class="pre">numpy</span></code> provides those functionalities. But <code class="docutils literal notranslate"><span class="pre">numpy</span></code> didn’t handle “heterogeneous tabular data”, meaning data that looks like a
+spreadsheet where one column might be strings (like people’s names) and another column is numeric (say, those people’s incomes). So <code class="docutils literal notranslate"><span class="pre">pandas</span></code> was developed on top of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to make that possible. As a result, you can now do most anything in Python (though statisticians still like R and Stata more, so the statistical libraries are a little better in those libraries), but it almost requires learning three languages: base Python, numpy, and then pandas. That’s not actually as bad as learning
+three languages (they <em>try</em> to have a consistent logic), but it’s definitely more complicated than something like R. With that said, learning Python will give you <em>very</em> generalizable programming skills since it’s a full general purpose language.</p>
+<p>One last note: If you’re working with really large datasets, want to connect to cloud services, need performance, or want to use something like Hadoop or Spark (don’t worry if you don’t know what those are), Python <em>crushes</em> R for flexibility and performance.</p>
 </div>
 <div class="section" id="Julia">
 <h2>Julia<a class="headerlink" href="#Julia" title="Permalink to this headline">¶</a></h2>
+<p>Julia is the new kid on the block. Though it was in development and use by risk-loving developers for many years, version 1.0 was only released in 2018. This is both it’s strength and it’s weakness.</p>
+<p>The advantage of being a really new language is that Julia has taken advantage of all sorts of modern technologies behind the scenes to develop a language that is basically as easy to use as R or Python (the syntax is a lot like basic Python, but it has matrices and vectors built in so no need to deal with extra layers like numpy and pandas in Python), but is <em>extremely</em> fast. Like… <a class="reference external" href="https://julialang.org/benchmarks/">tens or hundreds of times faster</a> than custom functions you might write in
+R and Python. Moreover, it’s built for the modern era, so things like parallel processing is easy, graphics are integrated, and it has learned from (and stolen the best features of) older languages like Python, R, and Matlab.</p>
+<p>Julia was also built for the sole purpose of doing <em>scientific computing</em> — the computer science term for statistics, numerical simulation, data analysis, etc. So everything was designed with data science in mind.</p>
+<p>The <em>downside</em> of being new is that while the core language is amazing, and there are lots of libraries already available (for example, statisticians love Julia, so there are lots of tools for statistical simulations and such), it does not have the full compliment currently available in a language like R or Python. Uptake of Julia has been fast, so that will change, but if you need specific functionalities, it’s best to look around to see what’s been developed before jumping in.</p>
+<p>Julia also has one really important advantage over other libraries. When working in R and Python, <em>most</em> of the time the tools you’re using weren’t actually written in R or Python; it was written in C or C++. You are just able to <em>access</em> those tools in R or Python. This is great in that it allows you to get the speed benefits of C without having to program in C (C is <em>awful</em>) so long as you’re using a standard library. But the downside is that if you ever want to see how a tool you’re using
+works, or want to modify the tool you’re writing, when you go look for the code it’ll be in a language that you can’t read, nevermind modify.</p>
+<p>Julia is different. While you can use C libraries in J</p>
 </div>
 <div class="section" id="Summary-of-Big-4">
 <h2>Summary of Big 4<a class="headerlink" href="#Summary-of-Big-4" title="Permalink to this headline">¶</a></h2>
@@ -397,7 +409,7 @@ olsResults <span class="o">&lt;-</span> lm<span class="p">(</span>income <span c
 <li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallelism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory_hierarchy.html">Big Data and Memory Hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Speed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="command_line.html">The Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminal.html">The Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Labs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
