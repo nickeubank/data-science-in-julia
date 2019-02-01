@@ -1,0 +1,467 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The Command Line &#8212; CS for DS  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "math|output_area", "processEscapes": true, "inlineMath": [["$", "$"], ["\\(", "\\)"]], "ignoreClass": "document"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="The-Command-Line">
+<h1>The Command Line<a class="headerlink" href="#The-Command-Line" title="Permalink to this headline">¶</a></h1>
+<p>It’s probably good to start by answering the question: What <em>is</em> the command line?</p>
+<p>The command line is a way to talk to your operating system (e.g.&nbsp;macOS, Windows, etc.) using text instead of by moving around a mouse and clicking on things. Just as you can use your mouse to open folders, move and rename files, and launch programs, so too can you use the command line to ask you operating system to do the same things.</p>
+<p>Before we get into the command line, though, a note on terminology. In this tutorial, we will be using a program called <code class="docutils literal notranslate"><span class="pre">bash</span></code> as our command line tool. <code class="docutils literal notranslate"><span class="pre">bash</span></code> is just a specific — extremely popular — program for talking with our operating system. But if you’re working on a Mac, you’d never know you were using <code class="docutils literal notranslate"><span class="pre">bash</span></code> because Apple wanted a cooler name, so they’ve renamed the program <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>. Also, <code class="docutils literal notranslate"><span class="pre">bash</span></code> is based on a program called <code class="docutils literal notranslate"><span class="pre">shell</span></code>, so you may also hear the term <code class="docutils literal notranslate"><span class="pre">shell</span></code>
+used to describe the tool we’ll be using today. But for all intents and purposes, the terms <code class="docutils literal notranslate"><span class="pre">bash</span></code>, <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>, and <code class="docutils literal notranslate"><span class="pre">shell</span></code> are basically interchangeable.</p>
+<p>We’re using <code class="docutils literal notranslate"><span class="pre">bash</span></code> because it’s the default command line tool on nearly all Macs and Linux computers (the operating systems of Mac and Linux computers are very similar, and are often just referred to as POSIX computers). That’s important, because almost all computers in the cloud run Linux (including not just companies like Amazon Web Services, but also university research clusters). And if you want to work directly with a computer in the cloud, you will almost never get to use a pretty
+graphical user interface and you’ll have to use the command line, making <code class="docutils literal notranslate"><span class="pre">bash</span></code> a great choice to learn on.</p>
+<p>This does mean that the specific commands we learn here <em>won’t</em> work on Windows, which has it’s own command line interface (DOS). If you’re working with Windows, click here for your options (Will add link to cygwin here <a class="reference external" href="https://cygwin.com/install.html">https://cygwin.com/install.html</a> ).</p>
+<div class="section" id="But-if-it’s-just-like-using-my-mouse-to-click-pictures,-why-do-I-need-the-command-line?">
+<h2>But if it’s just like using my mouse to click pictures, why do I need the command line?<a class="headerlink" href="#But-if-it’s-just-like-using-my-mouse-to-click-pictures,-why-do-I-need-the-command-line?" title="Permalink to this headline">¶</a></h2>
+<p>There are three main reasons to learn to use the command line.</p>
+<ol class="arabic simple">
+<li><strong>More tools are available through the command line than through graphical user interface.</strong> It turns out that it takes a lot of work to make a program that has pretty icons and windows that pop up, so lots of people make tools but don’t bother to make pretty graphical interfaces. This is especially true for free and open-source software. So by learning to use the command line, you gain access to <em>lots</em> of powerful tools that would otherwise be unavailable.</li>
+<li><strong>You won’t always have a graphical interface.</strong> If your work ever requires you to use a remote server with, say, more computing power, those systems probably won’t offer a graphical user interface.</li>
+<li><strong>Sometimes you want to do something OVER AND OVER.</strong> Renaming a file by clicking on it, deleting the name, typing in a new name, and hitting return is great if you only need to rename one file. But what if you want to rename hundreds? The command line gives you the ability to write little scripts to do this kind of work for you.</li>
+</ol>
+</div>
+<div class="section" id="Navigating-the-file-system">
+<h2>Navigating the file system<a class="headerlink" href="#Navigating-the-file-system" title="Permalink to this headline">¶</a></h2>
+<p>Just as you move around your file system normally by double clicking on folders to open them and see their content, so too can you explore your files from the command line.</p>
+<p>An important concept in navigating your files is the idea of a <em>working directory</em>. Just as there’s only ever one active window in your Graphical User Interface (GUI, the fancy name for having windows and icons you can click with a mouse), a <code class="docutils literal notranslate"><span class="pre">bash</span></code> session always has a “working directory” – the place in your file system your <code class="docutils literal notranslate"><span class="pre">bash</span></code> session thinks of as its current location.</p>
+<p>To see where your <code class="docutils literal notranslate"><span class="pre">bash</span></code> session thinks it’s located, just use the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command (short for “present working directory”).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">cd</span> /users/nick/github/cs_for_ds/Example_Data/command_line
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/users/nick/github/cs_for_ds/Example_Data/command_line
+</pre></div></div>
+</div>
+<p>In other words, your <code class="docutils literal notranslate"><span class="pre">bash</span></code> session thinks of itself as being located in the <code class="docutils literal notranslate"><span class="pre">command_line</span></code> folder in the <code class="docutils literal notranslate"><span class="pre">Example_Data</span></code> folder. As a result, all commands we execute are executed with that in mind. For example, if I want to list all the files in the current directory, I can just type <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span>ls
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Welcome_Materials       more_exercises
+</pre></div></div>
+</div>
+<p>See, it listed the contents of our folder! You can go look the way you normally would if you want to confirm.</p>
+<p>OK, why use <code class="docutils literal notranslate"><span class="pre">ls</span></code> for “list” and <code class="docutils literal notranslate"><span class="pre">pwd</span></code> for “present working directory” instead of something more expressive that would make sense to humans? Because <code class="docutils literal notranslate"><span class="pre">bash</span></code> was created back when memory was so scarce that using four letters to make a command called <code class="docutils literal notranslate"><span class="pre">list</span></code> instead of calling it <code class="docutils literal notranslate"><span class="pre">ls</span></code> was considered irresponsible. So yeah… there will be a lot of commands that are two or three letters, and thus hard to remember ahead…</p>
+<p>To move around, we use the “change directory” command – <code class="docutils literal notranslate"><span class="pre">cd</span></code>. So for example, if we want to open and move into the <code class="docutils literal notranslate"><span class="pre">Welcome_Materials</span></code> folder, we’d just type:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">cd</span> Welcome_Materials
+</pre></div>
+</div>
+</div>
+<p>Then to see what’s in this folder, we can use <code class="docutils literal notranslate"><span class="pre">ls</span></code> again</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span>ls
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+hello.txt
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Command-options">
+<h2>Command options<a class="headerlink" href="#Command-options" title="Permalink to this headline">¶</a></h2>
+<p>Let’s suppose we want to know a litte more about the contents of this folder other than just the names of the files it contains. We can change what <code class="docutils literal notranslate"><span class="pre">ls</span></code> does by asking it to print out a list-view instead of just the filenames. We do so with the option <code class="docutils literal notranslate"><span class="pre">-l</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span>ls -l
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+total 8
+-rw-r--r--@ 1 Nick  staff  41 Jan 27 20:44 hello.txt
+</pre></div></div>
+</div>
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">ls</span></code> has now provided a lot more information, including the file name (<code class="docutils literal notranslate"><span class="pre">hello.txt</span></code>), the file size (41 bytes), and the date and time it was last modified. Don’t worry about the stuff at the beginning – that’s operating-system permissions that we don’t need to worry about.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CS for DS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data_types.html">How Computers Think About Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallelism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory_hierarchy.html">Big Data and Memory Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Understanding Programming Language Ecosystem</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nick Eubank.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/terminal.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133477154-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

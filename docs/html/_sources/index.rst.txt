@@ -6,6 +6,10 @@
 Welcome to Computer Science for Data Science!
 =============================================
 
+**Warning: This site is very much a work in progress!**
+
+* Comments welcome at https://github.com/nickeubank/cs_for_ds *
+
 Computer science has much to offer the budding Data Scientist, but all too often computer science programs and texts just aren't designed with data science in mind. Computer science programs are full of useful concepts and topics, but they are often mixed in with lots of material that isn't relevant for non-academics or people not going into software development.
 
 This resource is designed to provide an introduction to key computer science concepts of relevance to data scientists in an applied, efficient manner, including:
@@ -18,7 +22,7 @@ This resource is designed to provide an introduction to key computer science con
 
 In addition to these core computer science concepts, this site also provides a set of resources on **ancillary skills and tools** which are often overlooked in courses that emphasis either just the core data science languages (Stata, Matlab, Python, or Julia), or just the statistics of methods like machine learning. These pages both explain the *purpose* of these tools and why they may be of use to you, as well as tutorials and links to outside resources for further learning. In particular, pages are provided with information on:
 
-- **The Command Line**
+- **The Terminal**
 - **Git and Github**
 - **How to Get Help Online**
 
@@ -34,7 +38,7 @@ Because of that goal, this site assumes that the reader is already comfortable d
    Parallelism <parallelism>
    Big Data and Memory Hierarchy <memory_hierarchy>
    Speed <performance>
-   The Command Line <command_line>
+   The Terminal <terminal>
    Jupyter Labs <jupyter>
    Git and Github <git_and_github>
    Getting Help Online <getting_help>
