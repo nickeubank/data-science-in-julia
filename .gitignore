@@ -4,3 +4,14 @@
 deps/deps.jl
 source/.ipynb_checkpoints/*
 
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.ent
+*.bbl
+*.blg
+*.pdfsync
+*.out
+*(busy)
+*.log
