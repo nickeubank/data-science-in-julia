@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'CS for DS'
+project = 'Programming for DS'
 copyright = '2019, Nick Eubank'
 author = 'Nick Eubank'
 
@@ -83,7 +83,7 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-html_theme_options = {'analytics_id': 'UA-133477154-1'}
+html_theme_options = {'analytics_id': 'UA-133829453-1'}
 
                       # 'github_button': 'true',
                       # 'github_repo': 'https://github.com/nickeubank/cs_for_ds',
