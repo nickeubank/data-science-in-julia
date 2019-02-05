@@ -6,15 +6,16 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Welcome to Computer Science for Data Science! &#8212; CS for DS  documentation</title>
+    <title>Welcome to Programming for Data Science! &#8212; Programming for DS  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "ignoreClass": "document", "processEscapes": true, "processClass": "math|output_area"}})</script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Defensive Programming" href="defensive_programming.html" />
@@ -30,17 +31,20 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-computer-science-for-data-science">
-<h1>Welcome to Computer Science for Data Science!<a class="headerlink" href="#welcome-to-computer-science-for-data-science" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-programming-for-data-science">
+<h1>Welcome to Programming for Data Science!<a class="headerlink" href="#welcome-to-programming-for-data-science" title="Permalink to this headline">¶</a></h1>
 <p><strong>Warning: This site is very much a work in progress!</strong></p>
-<p>Comments welcome at <a class="reference external" href="https://github.com/nickeubank/cs_for_ds">https://github.com/nickeubank/cs_for_ds</a></p>
+<p>Comments welcome at <a class="reference external" href="https://github.com/nickeubank/programming_for_ds">https://github.com/nickeubank/programming_for_ds</a></p>
 <p>Computer science has much to offer the budding Data Scientist, but all too often computer science programs and texts just aren’t designed with data science in mind. Computer science programs are full of useful concepts and topics, but they are often mixed in with lots of material that isn’t relevant for non-academics or people not going into software development.</p>
 <p>This resource is designed to provide an introduction to key computer science concepts of relevance to data scientists in an applied, efficient manner, including:</p>
 <ul class="simple">
 <li><strong>Defensive Programming:</strong> How to write code that minimizes the likelihood you’ll make mistakes and maximizes the likelihood that when you do make mistakes, you’ll be able to catch them.</li>
 <li><strong>How computers think about numbers and text:</strong> learn why 42.0 doesn’t always equal 42.0.</li>
+<li><strong>Variables as Pointers:</strong></li>
 <li><strong>Data Structures:</strong> Why do we have vectors, lists, sets, dictionaries, and all these different types of collections?</li>
 <li><strong>Parallelization:</strong> What is parallel computing, why is it becoming more and more important, and what are it’s limitations</li>
 <li><strong>Big Data and The Memory Hierarchy:</strong> Why working with big data requires categorically different strategies than smaller datasets.</li>
@@ -99,6 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="terminal.html#But-if-it’s-just-like-using-my-mouse-to-click-pictures,-why-do-I-need-the-command-line?">But if it’s just like using my mouse to click pictures, why do I need the command line?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="terminal.html#Navigating-the-file-system">Navigating the file system</a></li>
 <li class="toctree-l2"><a class="reference internal" href="terminal.html#Command-options">Command options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terminal.html#Slightly-better-interface">Slightly better interface</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Labs</a></li>
@@ -134,11 +139,12 @@
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">CS for DS</a></h1>
+<h1 class="logo"><a href="#">Programming for DS</a></h1>
 
 
 
@@ -182,6 +188,14 @@
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -190,8 +204,8 @@
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="_sources/index.rst.txt"
@@ -204,7 +218,7 @@
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-133477154-1']);
+      _gaq.push(['_setAccount', 'UA-133829453-1']);
       _gaq.push(['_setDomainName', 'none']);
       _gaq.push(['_setAllowLinker', true]);
       _gaq.push(['_trackPageview']);

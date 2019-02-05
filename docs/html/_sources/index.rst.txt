@@ -3,12 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Computer Science for Data Science!
+Welcome to Programming for Data Science!
 =============================================
 
 **Warning: This site is very much a work in progress!**
 
-Comments welcome at https://github.com/nickeubank/cs_for_ds 
+Comments welcome at https://github.com/nickeubank/programming_for_ds 
 
 Computer science has much to offer the budding Data Scientist, but all too often computer science programs and texts just aren't designed with data science in mind. Computer science programs are full of useful concepts and topics, but they are often mixed in with lots of material that isn't relevant for non-academics or people not going into software development.
 
@@ -16,6 +16,7 @@ This resource is designed to provide an introduction to key computer science con
 
 - **Defensive Programming:** How to write code that minimizes the likelihood you'll make mistakes and maximizes the likelihood that when you do make mistakes, you'll be able to catch them.
 - **How computers think about numbers and text:** learn why 42.0 doesn't always equal 42.0.
+- **Variables as Pointers:**
 - **Data Structures:** Why do we have vectors, lists, sets, dictionaries, and all these different types of collections?
 - **Parallelization:** What is parallel computing, why is it becoming more and more important, and what are it's limitations
 - **Big Data and The Memory Hierarchy:** Why working with big data requires categorically different strategies than smaller datasets.
@@ -37,7 +38,7 @@ Because of that goal, this site assumes that the reader is already comfortable d
 
    Defensive Programming <defensive_programming>
    How Computers Think About Numbers <data_types>
-   Data Structures <data_structures> 
+   Data Structures <data_structures>
    Parallelism <parallelism>
    Big Data and Memory Hierarchy <memory_hierarchy>
    Speed <performance>

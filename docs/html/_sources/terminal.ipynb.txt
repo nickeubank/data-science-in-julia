@@ -192,6 +192,15 @@
    "source": []
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Slightly better interface\n",
+    "\n",
+    "https://ohmyz.sh/"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
