@@ -1,0 +1,1452 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Creating vectors &#8212; Programming for DS  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data Science Languages: Why So Many?" href="languages.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Creating-vectors">
+<h1>Creating vectors<a class="headerlink" href="#Creating-vectors" title="Permalink to this headline">¶</a></h1>
+<p>We’ll create three types of vectors: numeric, character, and logical. Here are examples of each type:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+
+<span></span><span class="c1"># Numeric vectors</span>
+<span class="n">n1</span> <span class="o">&lt;-</span> <span class="m">20</span>
+<span class="n">n2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">20</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">55</span><span class="p">)</span>
+
+<span class="c1"># Character vectors</span>
+<span class="n">c1</span> <span class="o">&lt;-</span> <span class="s">&quot;Blue&quot;</span>
+<span class="n">c2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Red&quot;</span><span class="p">,</span> <span class="s">&quot;Green&quot;</span><span class="p">,</span> <span class="s">&quot;Purple&quot;</span><span class="p">)</span>
+
+<span class="c1"># Logical vectors</span>
+<span class="n">l1</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
+<span class="n">l2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Note that vectors can consist of one or many <em>elements</em>. Three common ways to create vectors with more than one element is to use <code class="docutils literal notranslate"><span class="pre">c()</span></code>, <code class="docutils literal notranslate"><span class="pre">seq()</span></code>, or <code class="docutils literal notranslate"><span class="pre">rep()</span></code>.</p>
+<blockquote>
+<div>c()</div></blockquote>
+<hr class="docutils" />
+<p>As illustrated above, one very common way to create vectors with more than one element is to use <code class="docutils literal notranslate"><span class="pre">c()</span></code> (“concatenate”), which simply combines whatever values you specify in the parentheses.</p>
+<blockquote>
+<div>seq()</div></blockquote>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">seq()</span></code> applies to numeric vectors only:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">n1</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>   <span class="c1">#using &#39;by&#39;</span>
+<span class="n">n1</span>
+<span class="n">n2</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span>   <span class="c1">#using &#39;length.out&#39;</span>
+<span class="n">n2</span>
+<span class="n">n3</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">0.1</span><span class="p">)</span>   <span class="c1">#no argument names specified; automatically uses &#39;from&#39;, &#39;to&#39;, &#39;by&#39;</span>
+<span class="n">n3</span>
+<span class="n">n4</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>    <span class="c1">#shortcut for integer sequence; same as &#39;seq(1, 5, 1)&#39;</span>
+<span class="n">n4</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0</li>
+    <li>2</li>
+    <li>4</li>
+    <li>6</li>
+    <li>8</li>
+    <li>10</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0</li>
+    <li>2.5</li>
+    <li>5</li>
+    <li>7.5</li>
+    <li>10</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>1</li>
+    <li>1.1</li>
+    <li>1.2</li>
+    <li>1.3</li>
+    <li>1.4</li>
+    <li>1.5</li>
+    <li>1.6</li>
+    <li>1.7</li>
+    <li>1.8</li>
+    <li>1.9</li>
+    <li>2</li>
+</ol></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ol></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">seq()</span></code> by default takes three parameters: starting value, end value, and a value that specifies how elements will be incremented (“by”), which can be substituted with “length.out”. Integer sequences can be created using a colon.</p>
+  <div class="general-note">
+
+General note about argument names: A function’s argument names need not be specified, as illustrated when we created ``n3``. If they are not specified, R uses arguments based on a default order. One way to learn about this order is to use ``?`` (e.g., ``?seq``). If you specify the argument names, the order doesn’t matter. Putting all this together, hopefully it’s obvious why ``seq(by = -1, from = 10, to = 2)`` is the same as ``seq(10, 2, -1)``.  </div>
+
+rep()<hr class="docutils" />
+<p>Vectors can also be created using <code class="docutils literal notranslate"><span class="pre">rep()</span></code>. As the name implies, this function is useful if you want to <em>repeat</em> an element or elements.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+<span class="nf">rep</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="nf">rep</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+    <li>1</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'blue'</li>
+    <li>'blue'</li>
+    <li>'blue'</li>
+</ol></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+</ol></div>
+</div>
+<p>As should be obvious, the first parameter in the function specifies the element to repeat, and the second the number of times to repeat it.</p>
+<div class="section" id="Using-more-than-one-function">
+<h2>Using more than one function<a class="headerlink" href="#Using-more-than-one-function" title="Permalink to this headline">¶</a></h2>
+<p>Perhaps the most powerful use of these functions comes from combining them. Here are a two examples:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="s">&quot;red&quot;</span><span class="p">),</span> <span class="m">3</span><span class="p">)</span>
+<span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="m">2</span><span class="p">),</span> <span class="m">4</span><span class="o">:</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'blue'</li>
+    <li>'red'</li>
+    <li>'blue'</li>
+    <li>'red'</li>
+    <li>'blue'</li>
+    <li>'red'</li>
+</ol></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0</li>
+    <li>2</li>
+    <li>4</li>
+    <li>6</li>
+    <li>0</li>
+    <li>2</li>
+    <li>4</li>
+    <li>6</li>
+    <li>4</li>
+    <li>3</li>
+    <li>2</li>
+    <li>1</li>
+</ol></div>
+</div>
+<p>The second example is somewhat hard to follow, and is probably at the limit of complexity in terms of how many functions we want to combine. Separating a task into multiple lines of codes can help.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">s</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="m">2</span><span class="p">)</span>
+<span class="nf">c</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="m">4</span><span class="o">:</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0</li>
+    <li>2</li>
+    <li>4</li>
+    <li>6</li>
+    <li>0</li>
+    <li>2</li>
+    <li>4</li>
+    <li>6</li>
+    <li>4</li>
+    <li>3</li>
+    <li>2</li>
+    <li>1</li>
+</ol></div>
+</div>
+</div>
+</div>
+<div class="section" id="Subsetting-vectors">
+<h1>Subsetting vectors<a class="headerlink" href="#Subsetting-vectors" title="Permalink to this headline">¶</a></h1>
+<p>Extracting a subset of elements from a vector is an extremely important task, not least because it generalizes nicely to datasets (which are at the heart of data science). This process — whether applied to a vector or a dataset — is often referred to as “taking a subset”, “subsetting”, or “filtering”. If there is one skill you need to master as quickly as possible, it’s this.</p>
+<p>In R, there are three ways to filter a vector: using a separate logical vector, using indexing, and using names. I tend to use the first method most, but all three are useful.</p>
+<div class="section" id="Subsetting-with-logicals">
+<h2>Subsetting with logicals<a class="headerlink" href="#Subsetting-with-logicals" title="Permalink to this headline">¶</a></h2>
+<p>Let’s jump right into an example. Say we have a character vector with only two elements (“apple” and “banana”). Subsetting it to “apple” could be done like so:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fruits</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">)</span>
+<span class="n">fruits</span><span class="nf">[c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span><span class="n">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+'apple'</div>
+</div>
+<p>Note the use of brackets, <code class="docutils literal notranslate"><span class="pre">[]</span></code> — this is common when filtering. Within these brackets is a vector with the same number of logical elements as there are elements in the vector you want to subset. Elements across the two vectors are matched by order: elements that match with <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> are kept while elements that match with <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> are dropped.</p>
+<p>This process is extremely useful when combined with a <em>logical operation</em>. Please familiarize yourself with the logical operations listed <a class="reference external" href="http://www.statmethods.net/management/operators.html">here</a>. For example, using a logical operation we can filter a large vector of oranges, apples and bananas:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create a vector with 30 fruits</span>
+<span class="n">fruits</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">),</span> <span class="m">10</span><span class="p">)</span>
+<span class="n">fruits</span>
+
+<span class="c1"># Create a logical vector for dropping bananas</span>
+<span class="c1"># Note: I&#39;m creating the exact same logical vector three times (overriding it each time)</span>
+<span class="c1"># This is for illustrative purposes; using one of these is sufficient</span>
+<span class="n">lv</span> <span class="o">&lt;-</span> <span class="n">fruits</span> <span class="o">==</span> <span class="s">&quot;orange&quot;</span> <span class="o">|</span> <span class="n">fruits</span> <span class="o">==</span> <span class="s">&quot;apple&quot;</span>
+<span class="n">lv</span> <span class="o">&lt;-</span> <span class="n">fruits</span> <span class="o">!=</span> <span class="s">&quot;banana&quot;</span>
+<span class="n">lv</span> <span class="o">&lt;-</span> <span class="n">fruits</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">)</span>
+<span class="n">lv</span>
+
+<span class="c1"># Carry out the subset</span>
+<span class="n">fruits[lv]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+    <li>TRUE</li>
+    <li>TRUE</li>
+    <li>FALSE</li>
+</ol></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+</ol></div>
+</div>
+<p>We applied the same logic as above: We have a vector (<code class="docutils literal notranslate"><span class="pre">fruits</span></code>) that we want to subset. We do so using a logical vector (<code class="docutils literal notranslate"><span class="pre">lv</span></code>), where elements that match with <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> are kept. The only difference here is that we create the logical vector with a logical operation. The logical operators (e.g., <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>) used here are discussed in the link above, with the exception of <code class="docutils literal notranslate"><span class="pre">%in%</span></code>.</p>
+  <div class="general-note">
+
+General note about ``%in%``: This operator is extremely useful as an alternative for repeated “or” (``|``) statements. For example, say you have a vector with 10 types of fruits and you want to keep elements that are equal to “orange”, “apple”, “mango”, “mandarin”, or “kiwi”. You could accomplish this by creating a logical vector like so: ``lv <- fruits == "orange" | fruits == "apple" | fruits == "mango" | fruits == "mandarin" | fruits == "kiwi"``. What a nighmarishly long statement compared to<p>the <code class="docutils literal notranslate"><span class="pre">%in%</span></code> option that accomplishes the exact same thing: <code class="docutils literal notranslate"><span class="pre">lv</span> <span class="pre">&lt;-</span> <span class="pre">fruits</span> <span class="pre">%in%</span> <span class="pre">c(&quot;orange&quot;,</span> <span class="pre">&quot;apple&quot;,</span> <span class="pre">&quot;mango&quot;,</span> <span class="pre">&quot;mandarin&quot;,</span> <span class="pre">&quot;kiwi&quot;)</span></code>.</p>
+</div><p>Of course, subsetting using logicals can also be done on numeric vectors. Here are a few examples:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create a numeric vector</span>
+<span class="n">numbers</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+<span class="n">numbers</span>
+
+<span class="c1"># Illustrate three different filters</span>
+<span class="n">numbers[numbers</span> <span class="o">&lt;=</span> <span class="m">50</span> <span class="o">&amp;</span> <span class="n">numbers</span> <span class="o">!=</span> <span class="m">30</span><span class="n">]</span>
+<span class="n">numbers[numbers</span> <span class="o">==</span> <span class="m">0</span> <span class="o">|</span> <span class="n">numbers</span> <span class="o">==</span> <span class="m">100</span><span class="n">]</span>
+<span class="n">numbers[numbers</span> <span class="o">&gt;</span> <span class="m">100</span><span class="n">]</span> <span class="c1">#returns an empty vector</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0</li>
+    <li>10</li>
+    <li>20</li>
+    <li>30</li>
+    <li>40</li>
+    <li>50</li>
+    <li>60</li>
+    <li>70</li>
+    <li>80</li>
+    <li>90</li>
+    <li>100</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0</li>
+    <li>10</li>
+    <li>20</li>
+    <li>40</li>
+    <li>50</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0</li>
+    <li>100</li>
+</ol></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+</div>
+</div>
+<p>Note that I didn’t create logical objects to carry out the subsets here, as opposed to above where we explicitly defined <code class="docutils literal notranslate"><span class="pre">lv</span></code>. I find it more compact and intuitive to take subsets without first creating a logical vector.</p>
+</div>
+<div class="section" id="Subsetting-using-indexing">
+<h2>Subsetting using indexing<a class="headerlink" href="#Subsetting-using-indexing" title="Permalink to this headline">¶</a></h2>
+<p>A different way to subset a vector is to specify the index or indeces you want to keep, again using brackets. Here are a few examples:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fruits</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">)</span>
+<span class="n">fruits[1]</span>
+<span class="n">fruits</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">),</span> <span class="m">10</span><span class="p">)</span>
+<span class="n">fruits</span><span class="nf">[c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span><span class="n">]</span>
+<span class="n">fruits</span><span class="nf">[seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span><span class="n">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+'apple'</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'orange'</li>
+    <li>'apple'</li>
+</ol></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'orange'</li>
+    <li>'banana'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'banana'</li>
+    <li>'apple'</li>
+</ol></div>
+</div>
+<p>I sometimes use this when I want to inspect or modify an element that I know occurs at a specific index in the vector, a more manual approach than using logical statements.</p>
+<p>Subsetting using indexing can also be used in <em>random sampling</em>, which has many important applications — for example, in experiments and when you want to test-run code on a representative subset of your data. So, let’s introduce the <code class="docutils literal notranslate"><span class="pre">sample()</span></code> function:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Draw 10 elements at random from 1 to 100</span>
+<span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>79</li>
+    <li>12</li>
+    <li>66</li>
+    <li>68</li>
+    <li>63</li>
+    <li>30</li>
+    <li>97</li>
+    <li>94</li>
+    <li>88</li>
+    <li>43</li>
+</ol></div>
+</div>
+<p>The function takes a vector of values (often successive integer values) and an argument that specifies how many values to draw at random from this vector. We can use the resulting values as indeces to subset another vector:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fruits</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">),</span> <span class="m">10</span><span class="p">)</span>
+<span class="n">fruits</span><span class="nf">[sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">30</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span><span class="n">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'banana'</li>
+    <li>'apple'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+</ol></div>
+</div>
+<p>Here, we’re drawing a random sample of five elements from the vector <code class="docutils literal notranslate"><span class="pre">fruits</span></code>. Why did I specify <code class="docutils literal notranslate"><span class="pre">1:30</span></code>? Well, <code class="docutils literal notranslate"><span class="pre">fruits</span></code> consists of 30 elements, so specifying something like <code class="docutils literal notranslate"><span class="pre">1:100</span></code> likely would have resulted in sampled values outside the bounds of the vector (e.g., <code class="docutils literal notranslate"><span class="pre">fruits[35]</span></code> doesn’t exist). Specifying <code class="docutils literal notranslate"><span class="pre">1:30</span></code> gives every element in <code class="docutils literal notranslate"><span class="pre">fruits</span></code> an equal chance of being included in the sample.</p>
+</div>
+<div class="section" id="Subsetting-using-names">
+<h2>Subsetting using names<a class="headerlink" href="#Subsetting-using-names" title="Permalink to this headline">¶</a></h2>
+<p>Lastly, we can assign names to each element in a vector and take a subset based on the names.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">age</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">55</span><span class="p">,</span> <span class="m">80</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;mom&quot;</span><span class="p">,</span> <span class="s">&quot;dad&quot;</span><span class="p">,</span> <span class="s">&quot;grandpa&quot;</span><span class="p">)</span>
+<span class="n">age</span> <span class="c1">#note that values now have names</span>
+<span class="n">age</span><span class="nf">[c</span><span class="p">(</span><span class="s">&quot;dad&quot;</span><span class="p">,</span> <span class="s">&quot;grandpa&quot;</span><span class="p">)</span><span class="n">]</span> <span class="c1">#subset</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<dl class=dl-horizontal>
+    <dt>mom</dt>
+            <dd>50</dd>
+    <dt>dad</dt>
+            <dd>55</dd>
+    <dt>grandpa</dt>
+            <dd>80</dd>
+</dl></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<dl class=dl-horizontal>
+    <dt>dad</dt>
+            <dd>55</dd>
+    <dt>grandpa</dt>
+            <dd>80</dd>
+</dl></div>
+</div>
+<p>That is, we have a vector representing the age of three family members. We assign names to each value, and then keep the values associated with two of the family members.</p>
+</div>
+</div>
+<div class="section" id="Modifying-vectors">
+<h1>Modifying vectors<a class="headerlink" href="#Modifying-vectors" title="Permalink to this headline">¶</a></h1>
+<p>The subsetting logic from above can be used to modify vectors. The idea here is that instead of keeping elements that meet a logical condition or occur at a specific index, we can change them. For example, what if we had mis-entered grandpa’s age above? We can fix it using indexing, a logical statement, or naming.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Recreate vector with age values from above</span>
+<span class="n">age</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">55</span><span class="p">,</span> <span class="m">80</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;mom&quot;</span><span class="p">,</span> <span class="s">&quot;dad&quot;</span><span class="p">,</span> <span class="s">&quot;grandpa&quot;</span><span class="p">)</span>
+
+<span class="c1"># Three ways of changing grandpa&#39;s age</span>
+<span class="c1"># Note: you&#39;d only need to use one of these</span>
+<span class="n">age[age</span> <span class="o">==</span> <span class="m">80</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="m">82</span> <span class="c1">#using a logical statement</span>
+<span class="n">age[3]</span> <span class="o">&lt;-</span> <span class="m">82</span> <span class="c1">#using indexing</span>
+<span class="n">age[</span><span class="s">&quot;grandpa&quot;</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="m">82</span> <span class="c1">#using naming</span>
+<span class="n">age</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<dl class=dl-horizontal>
+    <dt>mom</dt>
+            <dd>50</dd>
+    <dt>dad</dt>
+            <dd>55</dd>
+    <dt>grandpa</dt>
+            <dd>82</dd>
+</dl></div>
+</div>
+<p>A logical statement is most efficient when we need to change a lot of elements.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fruits</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;bamama&quot;</span><span class="p">),</span> <span class="m">5</span><span class="p">)</span>
+<span class="n">fruits</span> <span class="c1">#bamamas anyone?</span>
+
+<span class="c1"># Let&#39;s fix the misspelled element</span>
+<span class="n">fruits[fruits</span> <span class="o">==</span> <span class="s">&quot;bamama&quot;</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&quot;banana&quot;</span>
+<span class="n">fruits</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'bamama'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'bamama'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'bamama'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'bamama'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'bamama'</li>
+</ol></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+</ol></div>
+</div>
+<div class="section" id="Vector-arithmetics">
+<h2>Vector arithmetics<a class="headerlink" href="#Vector-arithmetics" title="Permalink to this headline">¶</a></h2>
+<p>We can modify or create new numeric vectors using arithmetic operations. Three common types of operations involve:</p>
+<ol class="arabic simple">
+<li>A vector with more than one element and a vector with only one element.</li>
+<li>Two vectors with the same number of elements. Elements are matched based on index.</li>
+<li>A vector modified by a function.</li>
+</ol>
+<p>In all cases, we can modify all elements of a vector or only a subset of elements using the bracket notation we learned above.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">numbers</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="n">numbers</span>
+
+<span class="c1"># One value modifying all values in a vector</span>
+<span class="n">numbers</span> <span class="o">&lt;-</span> <span class="n">numbers</span> <span class="o">/</span> <span class="m">10</span>
+<span class="n">numbers</span>
+
+<span class="c1"># One value modifying a subset of a vector</span>
+<span class="n">numbers[numbers</span> <span class="o">&gt;</span> <span class="m">0.5</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="n">numbers[numbers</span> <span class="o">&gt;</span> <span class="m">0.5</span><span class="n">]</span> <span class="o">*</span> <span class="m">100</span>
+<span class="n">numbers</span>
+
+<span class="c1"># Two vectors with the same number of elements</span>
+<span class="n">numbers1</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="n">numbers2</span> <span class="o">&lt;-</span> <span class="m">10</span><span class="o">:</span><span class="m">1</span>
+<span class="n">numbers3</span> <span class="o">&lt;-</span> <span class="n">numbers2</span> <span class="o">-</span> <span class="n">numbers1</span>
+<span class="n">numbers3</span>
+
+<span class="c1"># Replacing a subset of a vector using another vector</span>
+<span class="n">numbers</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="n">numbers[numbers</span> <span class="o">&gt;</span> <span class="m">5</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="m">5</span><span class="o">:</span><span class="m">1</span>
+<span class="n">numbers</span>
+
+<span class="c1"># Modify a vector (or a subset of a vector) using a function</span>
+<span class="n">numbers</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="nf">sqrt</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#square root</span>
+<span class="nf">exp</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#exponentiate</span>
+<span class="nf">log</span><span class="p">(</span><span class="n">numbers</span><span class="nf">[c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span><span class="n">]</span><span class="p">)</span> <span class="c1">#natural log</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0.1</li>
+    <li>0.2</li>
+    <li>0.3</li>
+    <li>0.4</li>
+    <li>0.5</li>
+    <li>0.6</li>
+    <li>0.7</li>
+    <li>0.8</li>
+    <li>0.9</li>
+    <li>1</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0.1</li>
+    <li>0.2</li>
+    <li>0.3</li>
+    <li>0.4</li>
+    <li>0.5</li>
+    <li>60</li>
+    <li>70</li>
+    <li>80</li>
+    <li>90</li>
+    <li>100</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>9</li>
+    <li>7</li>
+    <li>5</li>
+    <li>3</li>
+    <li>1</li>
+    <li>-1</li>
+    <li>-3</li>
+    <li>-5</li>
+    <li>-7</li>
+    <li>-9</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>5</li>
+    <li>4</li>
+    <li>3</li>
+    <li>2</li>
+    <li>1</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>1</li>
+    <li>1.4142135623731</li>
+    <li>1.73205080756888</li>
+    <li>2</li>
+    <li>2.23606797749979</li>
+    <li>2.44948974278318</li>
+    <li>2.64575131106459</li>
+    <li>2.82842712474619</li>
+    <li>3</li>
+    <li>3.16227766016838</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>2.71828182845905</li>
+    <li>7.38905609893065</li>
+    <li>20.0855369231877</li>
+    <li>54.5981500331442</li>
+    <li>148.413159102577</li>
+    <li>403.428793492735</li>
+    <li>1096.63315842846</li>
+    <li>2980.95798704173</li>
+    <li>8103.08392757538</li>
+    <li>22026.4657948067</li>
+</ol></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>0</li>
+    <li>1.6094379124341</li>
+    <li>2.30258509299405</li>
+</ol></div>
+</div>
+<p>Vector arithmetics can also be carried out in R on two multi-value vectors with different number of elements. Such operations use the <a class="reference external" href="http://www.r-tutor.com/r-introduction/vector/vector-arithmetics">recycling rule</a>.</p>
+</div>
+</div>
+<div class="section" id="Summarizing-vectors">
+<h1>Summarizing vectors<a class="headerlink" href="#Summarizing-vectors" title="Permalink to this headline">¶</a></h1>
+<p>We often want to get summary statistics from a vector — that is, learn something general about it by looking beyond its constituent elements. If we have a vector in which each element represents a person’s height, we may want to know who the shortest or tallest person is, what the median or mean height is, what the standard deviation is, etc. Here are common summary facts for vectors:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">numbers</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+<span class="n">numbers</span>
+
+<span class="nf">class</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#check the class</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#number of elements</span>
+<span class="nf">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#maximum value</span>
+<span class="nf">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#minimum value</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#sum of all values in the vector</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#mean</span>
+<span class="nf">median</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#median</span>
+<span class="nf">var</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#variance</span>
+<span class="nf">sd</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#standard deviation</span>
+<span class="nf">quantile</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#percentiles in intervals of .25</span>
+<span class="nf">quantile</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0.1</span><span class="p">))</span> <span class="c1">#percentiles in invervals of 0.1</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="c1">#function that contains many summary stats from above</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>582</li>
+    <li>914</li>
+    <li>51</li>
+    <li>180</li>
+    <li>224</li>
+    <li>376</li>
+    <li>718</li>
+    <li>533</li>
+    <li>209</li>
+    <li>345</li>
+</ol></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+'integer'</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+10</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+914</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+51</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+4132</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+413.2</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+360.5</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+72849.9555555556</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+269.907309192537</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<dl class=dl-horizontal>
+    <dt>0%</dt>
+            <dd>51</dd>
+    <dt>25%</dt>
+            <dd>212.75</dd>
+    <dt>50%</dt>
+            <dd>360.5</dd>
+    <dt>75%</dt>
+            <dd>569.75</dd>
+    <dt>100%</dt>
+            <dd>914</dd>
+</dl></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<dl class=dl-horizontal>
+    <dt>0%</dt>
+            <dd>51</dd>
+    <dt>10%</dt>
+            <dd>167.1</dd>
+    <dt>20%</dt>
+            <dd>203.2</dd>
+    <dt>30%</dt>
+            <dd>219.5</dd>
+    <dt>40%</dt>
+            <dd>296.6</dd>
+    <dt>50%</dt>
+            <dd>360.5</dd>
+    <dt>60%</dt>
+            <dd>438.8</dd>
+    <dt>70%</dt>
+            <dd>547.7</dd>
+    <dt>80%</dt>
+            <dd>609.2</dd>
+    <dt>90%</dt>
+            <dd>737.6</dd>
+    <dt>100%</dt>
+            <dd>914</dd>
+</dl></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+51.0   212.8   360.5   413.2   569.8   914.0
+</pre></div>
+</div>
+</div>
+<p>If you forget one of these functions or if I haven’t included one here that you need, google almost surely has the answer for you. Also note that some of the operations above — most notably <code class="docutils literal notranslate"><span class="pre">class()</span></code> and <code class="docutils literal notranslate"><span class="pre">length()</span></code> — apply to non-numeric vectors.</p>
+<div class="section" id="Code-generalization">
+<h2>Code generalization<a class="headerlink" href="#Code-generalization" title="Permalink to this headline">¶</a></h2>
+<p>We want our code to be as general as possible so that it can be reapplied to a different coding task or if the data change. Commands that summarize vectors can be useful to accomplish this.</p>
+<p>Remember above when we found a random sample of <code class="docutils literal notranslate"><span class="pre">fruits</span></code>? Here is more or less the code we used:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fruits</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">),</span> <span class="m">10</span><span class="p">)</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="n">random_sample</span> <span class="o">&lt;-</span> <span class="n">fruits</span><span class="nf">[sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">30</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span><span class="n">]</span>
+<span class="n">random_sample</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+30</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'orange'</li>
+    <li>'banana'</li>
+    <li>'apple'</li>
+    <li>'apple'</li>
+    <li>'orange'</li>
+</ol></div>
+</div>
+<p>The third line, where we create <code class="docutils literal notranslate"><span class="pre">random_sample</span></code>, is not very general. Why? In this case, <code class="docutils literal notranslate"><span class="pre">fruits</span></code> has 30 elements. What if it instead had 50 elements? <em>Then the third line would not give us a random sample.</em> Or more precisely, this line would give us a random sample of the 30 first elements of fruits — the last 20 elements would not have a chance of being included. We could modify the third line to read <code class="docutils literal notranslate"><span class="pre">random_sample</span> <span class="pre">&lt;-</span> <span class="pre">fruits[sample(1:50,</span> <span class="pre">size</span> <span class="pre">=</span> <span class="pre">5)]</span></code>. But if we then modified <code class="docutils literal notranslate"><span class="pre">fruits</span></code>
+to have a different number of elements again we’d end up with the same problem.</p>
+<p>Here’s the solution: find the number of elements of fruits using <code class="docutils literal notranslate"><span class="pre">length()</span></code> and then input this as an argument in the <code class="docutils literal notranslate"><span class="pre">sample()</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fruits</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">),</span> <span class="m">100</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="c1">#store the result of length() in an object</span>
+<span class="n">n</span>
+
+<span class="n">random_sample</span> <span class="o">&lt;-</span> <span class="n">fruits</span><span class="nf">[sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span><span class="n">]</span> <span class="c1">#now use &#39;n&#39; in the sample() function</span>
+<span class="n">random_sample</span>
+
+<span class="c1"># Or we could have used length() directly in the sample() function</span>
+<span class="c1"># Note: Accomplishes the same thing as first creating &#39;n&#39;</span>
+<span class="n">random_sample</span> <span class="o">&lt;-</span> <span class="n">fruits</span><span class="nf">[sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">fruits</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span><span class="n">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+300</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<ol class=list-inline>
+    <li>'orange'</li>
+    <li>'apple'</li>
+    <li>'banana'</li>
+    <li>'orange'</li>
+    <li>'apple'</li>
+</ol></div>
+</div>
+<div style="margin-top: 15px"></div></div>
+</div>
+<div class="section" id="Exercises">
+<h1>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h1>
+<p>Create a vector that represents the age of at least four different family members or friends. You can name it whatever you want.</p>
+<ol class="arabic simple">
+<li>What is the mean age of the people in your vector? Find out in two ways, with and without using the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> command.</li>
+<li>How old is the youngest person in your vector? (Use an R command to find out.)</li>
+<li>What is the age gap between the youngest person and the oldest person in your vector? (Again use R to find out, and try to be as general as possible in the sense that your code should work even if the elements in your vector, or their order, change.)</li>
+<li>How many people in your vector are above age 25? (Again, try to make your code work even in the case that your vector changes.)</li>
+<li>Replace the age of the oldest person in your vector with the age of someone else you know.</li>
+<li>Create a new vector that indicates how old each person in your vector will be in 10 years.</li>
+<li>Create a new vector that indicates what year each person in your vector will turn 100 years old.</li>
+<li>Create a new vector with a random sample of 3 individuals from your original vector. What is the mean age of the people in this new vector?</li>
+</ol>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Programming for DS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_types.html">How Computers Think About Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallelism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory_hierarchy.html">Big Data and Memory Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Speed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminal.html">The Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Understanding Programming Language Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Creating vectors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Using-more-than-one-function">Using more than one function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Subsetting-vectors">Subsetting vectors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Subsetting-with-logicals">Subsetting with logicals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Subsetting-using-indexing">Subsetting using indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Subsetting-using-names">Subsetting using names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Modifying-vectors">Modifying vectors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Vector-arithmetics">Vector arithmetics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Summarizing-vectors">Summarizing vectors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Code-generalization">Code generalization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Exercises">Exercises</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="languages.html" title="previous chapter">Data Science Languages: Why So Many?</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nick Eubank.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/vectors.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133829453-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

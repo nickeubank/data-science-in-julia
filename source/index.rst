@@ -8,7 +8,7 @@ Welcome to Programming for Data Science!
 
 **Warning: This site is very much a work in progress!**
 
-Comments welcome at https://github.com/nickeubank/programming_for_ds 
+Comments welcome at https://github.com/nickeubank/programming_for_ds
 
 Computer science has much to offer the budding Data Scientist, but all too often computer science programs and texts just aren't designed with data science in mind. Computer science programs are full of useful concepts and topics, but they are often mixed in with lots of material that isn't relevant for non-academics or people not going into software development.
 
@@ -47,7 +47,7 @@ Because of that goal, this site assumes that the reader is already comfortable d
    Git and Github <git_and_github>
    Getting Help Online <getting_help>
    Understanding Programming Language Ecosystem <languages>
-
+   vectors
 
 Indices and tables
 ==================
