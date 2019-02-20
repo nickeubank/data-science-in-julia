@@ -34,7 +34,8 @@ This site is meant to be an *intermediate* data science resource. The world is f
 Because of that goal, this site assumes that the reader is already comfortable doing basic data manipulations (e.g. loading CSVs, tabulating data, merging data) in a language like Stata, R, Python, or Julia. If you don't have that background, there are lots of great resources for getting started with these programs. And if you want to know more about *why* there are so many of these data science programs and how they compare, you can jump here (put in link eventually).
 
 .. toctree::
-   :maxdepth: 2
+   :caption: Programming
+   :maxdepth: 1
 
    Defensive Programming <defensive_programming>
    How Computers Think About Numbers <data_types>
@@ -42,12 +43,16 @@ Because of that goal, this site assumes that the reader is already comfortable d
    Parallelism <parallelism>
    Big Data and Memory Hierarchy <memory_hierarchy>
    Speed <performance>
+
+.. toctree::
+   :caption: DS Tools
+   :maxdepth: 1
+
    The Terminal <terminal>
    Jupyter Labs <jupyter>
    Git and Github <git_and_github>
    Getting Help Online <getting_help>
-   Understanding Programming Language Ecosystem <languages>
-   vectors
+   Programming Languages <languages>
 
 Indices and tables
 ==================
