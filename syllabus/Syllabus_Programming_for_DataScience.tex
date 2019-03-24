@@ -39,6 +39,7 @@
 \usepackage{epigraph}
 \usepackage{appendix}
 
+\usepackage{enumitem}
 
 \renewcommand{\topfraction}{.85}
 \renewcommand{\bottomfraction}{.7}
@@ -115,20 +116,42 @@ In addition to working with R, this course will also provide training in a numbe
 	\item Git and Github (for collaboration and project management)
 	\item The Command Line / Terminal
 	\item Getting Help Online (no seriously -- there's more to it than you may think!)
+	\item Troubleshooting problems and debugging
 \end{itemize}
 
 
 \section{Learning Goals}
-By the end of Programming for Data Science, our goal is for you to be able to:
+
+By the end of Programming for Data Science, our goal is for you to be able to do all of the following: \\
+
+\textbf{R Learning Goals}
+
+The following are our R-specific learning goals. Learning these skills in R will make learning to do these things in other language much easier, but our focus in this class will just be to empower you to do these things in R.
 
 \begin{itemize}
-    \item Load data in R
+    \item Load data of various formats into R
     \item Manipulate the data in basic ways (like tabulating results)
 	\item Clean and merge \emph{real world dirty data} for analysis
+\end{itemize}
+
+\textbf{General Programming Goals}
+
+These are goals we will explore in R, but which are inherently more general, and the skills you learn here apply as-learned in other languages and contexts.
+
+\begin{itemize}
 	\item Organize your workflow for a project
 	\item Program in a manner that minimizes the likelihood of mistakes, and maximizes the likelihood that when mistakes occur, you will catch them
-    \item Find help online when you get stuck
+	\item Find and fix problems (debug) your code
+\end{itemize}
+
+\textbf{Ancillary Programming Skills}
+
+These are skills that are rarely taught in classes, but which are absolutely critical to being a successful data scientists in the real world.
+
+\begin{itemize}
 	\item Collaborate with others using git and github
+	\item Comfortably do basic operations in the command line / terminal.
+	\item Find help online when you get stuck
 \end{itemize}
 
 \section{Required Programming Background}
@@ -139,7 +162,8 @@ We have \emph{absolutely no expectations that students will have any experience 
 
 If do have experience with a programming language, however, worry not: in my experience, most people who learned to use tools like R, Stata, or Matlab did so in a somewhat haphazard manner. They were given some code, they learned to emulate it, and they can now stitch together code that does what they want. But most students were never taught any of the organizing principles of programming. So if you are one of those students, you may find parts of this course easier than other students, but you will still come away with a new, deeper understanding of these tools that should make you more comfortable and productive in your life as a data scientist.
 
-Not that at times during this course, I may make statements about how the tools we're learning (like R) compare to different tools (like Stata or Python) if there are students with experience in these other tools in the class. However, if we make those comparisons, it is only to help those students the traps one can fall in if one's background is in another language. It is in no way because we \emph{expect} all students to have experience with other tools.
+Note that at times during this course, I may make statements about how the tools we're learning (like R) compare to different tools (like Stata or Python) if there are students with experience in these other tools in the class. However, if we make those comparisons, it is only to help those students the traps one can fall in if one's background is in another language. It is in no way because we \emph{expect} all students to have experience with other tools.
+
 
 \section{R}
 
@@ -147,9 +171,9 @@ In this class we will be focused on teaching you to use a program for statistica
 
 Why R? Because it's currently one of the two most-used programs in data science (the other being Python, which we'll work with in Advanced Programming for Data Science), which means there is a good chance you'll be called upon to use it when working in teams. Moreover, it's a much easier tool to get started with than a language like Python.
 
-It is worth emphasizing that we're not teaching you R because we think it is the best. The reality is that there are lots of tools for statistical programming, and each has its own strengths and weaknesses (e.g. R, Stata, SPSS, Python, Julia, Matlab, etc.). People develop really strong opinions about what language is \emph{best}, and sometimes pass judgement on people who use other languages. We would like to discourage this type of thinking. Personally, I (Nick) regularly work in at least four different programming languages depending on which is best suited to the task at hand, so I think I have reasonable authority to say: there is no single \emph{best} language for all purposes.
+It is worth emphasizing that we're not learning R because it is necessarily the ``the best'' language. The reality is that there are \emph{lots} of tools for statistical programming, and each has its own strengths and weaknesses (e.g. R, Stata, SPSS, Python, Julia, Matlab, etc., etc.). People often develop strong opinions about which language is \emph{best}, and sometimes pass judgement on people who use other languages. Every programming language has its strengths and weaknesses, and what is ``best'' depends on your use-case (the types of things you are using the language to do). This is true not only because languages themselves have strengths and weaknesses, but also because the tools and packages that have been created for use in different languages differ (e.g. people just haven't made a good package for doing geo-spatial work in Julia yet, for example). And if you're working on teams, you'll also have to make decisions based on the backgrounds of your tool sets. All of which is to say: there is no single \emph{best} language for all purposes. But R is a very popular, strong, general purpose language, so will serve as a great starting point.
 
-As a result, over the course of your career you may find yourself gravitating to one tool or another as required by your research. But in providing you with a firm foundation in a very popular language like R, we feel confident that we will not only be providing you with tools that will allow you to do most everything you'll want to do in graduate school, but we will also be providing you with \emph{generalizable} skills around data manipulation that you will find useful if you later change platforms.
+As a result, over the course of your career you may find yourself gravitating to one tool or another as required by your research. But in providing you with a firm foundation in a very popular language like R, you will not only be learning a tool that will allow you to do most everything you'll want to do in graduate school, but you will also be providing yourself with a solid foundation in \emph{generalizable} skills that you will find useful if you later change platforms.
 
 \section{Class Organization}
 
@@ -208,6 +232,9 @@ In this class we will be ``flipping the classroom'' -- that means that most week
 
 \section{Course Schedule}
 
+\setlist[enumerate,2]{leftmargin=0.5cm}
+\setlist[itemize,1]{leftmargin=0cm}
+
 
 \vspace{.4in}
 \begin{center}
@@ -215,15 +242,77 @@ In this class we will be ``flipping the classroom'' -- that means that most week
 \end{center}
 \vspace{.2in}
 
-\begin{itemize}
-	\item Week 1: Getting to Know R; Variables
-	\item Week 2: Vectors and DataFrames
-	\item Week 3: Data Cleaning and Manipulation with dplyr
-	\item Week 4: Merging Data; For-Loops
-	\item Week 5: Plotting
-	\item Week 6: Functions
-	\item Week 7: Lists, [other?]
-\end{itemize}
+\begin{enumerate}[label=\textbf{Week \arabic*:}]
+	\item \textbf{Intro to R}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Getting to Know R
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/introduction.html}{Welcome to R!}
+		\end{itemize}
+		\item Vectors
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/vectors.html}{Vectors}
+		\end{itemize}
+	\end{enumerate}
+
+	\item \textbf{Intro to R (Continued); Cleaning and Manipulation}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Datasets
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/dataframes.html}{dataframes}
+		\end{itemize}
+		\item Manipulating Data
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/modifying-data.html}{Manipulating Data}
+		\end{itemize}
+	\end{enumerate}
+
+	\item \textbf{Merging Data; Plotting}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Merging Data
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/merging-appending.html}{Merging Data}
+		\end{itemize}
+		\item Plotting
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/plotting.html}{Plotting Data}
+		\end{itemize}
+	\end{enumerate}
+
+	\item \textbf{Loops and Functions}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item For-Loops
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/loops.html}{Loops}
+		\end{itemize}
+		\item Functions
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/functions.html}{Functions}
+		\end{itemize}
+	\end{enumerate}
+
+	\item \textbf{Collapsing and Reshaping; Functions}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Collapsing and Reshaping
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/collapsing.html}{Collapsing}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/reshaping.html}{Reshaping}
+		\end{itemize}
+		\item Functions
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/functions.html}{Functions}
+		\end{itemize}
+	\end{enumerate}
+
+	\item \textbf{R Wrap-Up}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Lists
+		\begin{itemize}
+			\item Read Before Class: \href{https://nickeubank.github.io/rfordatascience/html/lists.html}{Lists}
+		\end{itemize}
+		\item To Be Decided...
+	\end{enumerate}
+\end{enumerate}
 
 \vspace{.4in}
 \begin{center}
@@ -231,12 +320,38 @@ In this class we will be ``flipping the classroom'' -- that means that most week
 \end{center}
 \vspace{.2in}
 
-\begin{itemize}
-	\item Week 8: The Terminal / Command Line
-	\item Week 9: Git and Github
-	\item Week 10: Getting help online; Jupyter Labs
-	\item Week 11: Workflow management
-\end{itemize}
+\begin{enumerate}[label=\textbf{Week \arabic*:}]
+	\setcounter{enumi}{7}
+	\item \textbf{The Terminal / Command Line}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Command Line Basics
+		\begin{itemize}
+			\item Read: \href{https://www.programming4ds.com/html/terminal.html}{What is the terminal?}
+			\item Do: \href{https://campus.datacamp.com/courses/introduction-to-shell-for-data-science/}{DataCamp Intro to Shell for Data Science, Parts 1 (Modifying Files and Directories) and 2 (Manipulating Data)}
+		\end{itemize}
+		\item R \& Anaconda
+		\begin{itemize}
+			\item Find intro to anaconda or something??
+		\end{itemize}
+	\end{enumerate}
+
+	\item \textbf{Git and Github}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Git Basics
+		\begin{itemize}
+			\item Read: \href{https://www.programming4ds.com/html/git_and_github.html}{Git and Github}
+			\item Do: \href{http://jlord.us/git-it/}{Git-It Tutorial}
+			\item Maybe: \href{http://swcarpentry.github.io/git-novice/03-create/index.html}{Software carpentry?}
+		\end{itemize}
+		\item Collaborating on Github
+		\begin{itemize}
+			\item Find materials!
+		\end{itemize}
+	\end{enumerate}
+	\item \textbf{Getting help online; Jupyter Labs}
+	\item \textbf{Debugging and Troubleshooting}
+	\item \textbf{Workflow management}
+\end{enumerate}
 
 \vspace{.4in}
 \begin{center}
@@ -245,8 +360,19 @@ In this class we will be ``flipping the classroom'' -- that means that most week
 \vspace{.2in}
 
 \begin{itemize}
-	\item Week 12: Defensive Programming, Decomposition
-	\item Week 13: Data Types (Floats, Ints, Strings, etc.)
+	\item Week 13: Defensive Programming, Decomposition
+		\begin{itemize}
+			\item Read: \href{http://www.programming4ds.com/html/defensive_programming.html}{Defensive Programming}
+			\item Do: Exercises??
+		\end{itemize}
+
+
+	\item Week 14: More on Data Types (Floats, Ints, Strings, etc.)
+	\begin{itemize}
+		\item Read: \href{http://www.programming4ds.com/html/data_types.html}{Data Types}
+		\item Do: Exercises??
+	\end{itemize}
+
 \end{itemize}
 
 \vspace{.4in}
@@ -256,8 +382,8 @@ In this class we will be ``flipping the classroom'' -- that means that most week
 \vspace{.2in}
 
 \begin{itemize}
-	\item Week 14: Trade-offs of Different languages; Python
-	\item Week 15: Python Libraries for Data Science (numpy, pandas)
+	\item Week 15: Trade-offs of Different languages; Python
+	\item Week 16: Python Libraries for Data Science (numpy, pandas)
 \end{itemize}
 
 
