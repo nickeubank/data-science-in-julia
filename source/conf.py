@@ -83,7 +83,9 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-html_theme_options = {'analytics_id': 'UA-133829453-1'}
+html_theme_options = {'analytics_id': 'UA-133829453-1',
+                      'font_family': 'Garamond'
+}
 
                       # 'github_button': 'true',
                       # 'github_repo': 'https://github.com/nickeubank/cs_for_ds',
