@@ -48,11 +48,13 @@ Because of that goal, this site assumes that the reader is already comfortable d
    :caption: DS Tools
    :maxdepth: 1
 
+   Workflow Management <workflow>
    The Terminal <terminal>
    Jupyter Labs <jupyter>
    Git and Github <git_and_github>
    Getting Help Online <getting_help>
    Programming Languages <languages>
+
 
 Indices and tables
 ==================
