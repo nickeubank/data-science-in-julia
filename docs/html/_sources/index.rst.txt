@@ -35,7 +35,7 @@ Because of that goal, this site assumes that the reader is already comfortable d
 
 .. toctree::
    :caption: Programming
-   :maxdepth: 1
+   :maxdepth: 2
 
    Defensive Programming <defensive_programming>
    How Computers Think About Numbers <data_types>
@@ -46,7 +46,7 @@ Because of that goal, this site assumes that the reader is already comfortable d
 
 .. toctree::
    :caption: DS Tools
-   :maxdepth: 1
+   :maxdepth: 2
 
    Workflow Management <workflow>
    The Terminal <terminal>
