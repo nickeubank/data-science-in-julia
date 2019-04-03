@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Git and Github &#8212; Programming for DS  documentation</title>
+    <title>Workflow Management &#8212; Programming for DS  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -18,8 +18,6 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Help Online" href="getting_help.html" />
-    <link rel="prev" title="Jupyter Labs" href="jupyter.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -236,48 +234,63 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="Git-and-Github">
-<h1>Git and Github<a class="headerlink" href="#Git-and-Github" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="What-Is-Git(hub)-&amp;-Why-Should-I-Learn-It?">
-<h2>What Is Git(hub) &amp; Why Should I Learn It?<a class="headerlink" href="#What-Is-Git(hub)-&-Why-Should-I-Learn-It?" title="Permalink to this headline">¶</a></h2>
-<p>Git and github are a set of tools designed to facilitate collaboration on code. They make it possible for multiple people (in some cases, dozens or even hundreds of people) to work on code at the same time without getting in one another’s way. (Note: as we’ll discuss below, git and github are technically two different things, but you’ll almost certainly use them together, so I’m just going to call them “git” for now).</p>
-<p>It is no exaggeration to say that git (and other forms of <em>version control</em> software) underlie the entire world of open source software, and are central to the operation of nearly every tech company on the planet. Git is just a central part of how software is developed today.</p>
-<p>Git is less commonly used in Data Science, however, where people are often working in groups that are small enough they feel comfortable just keeping their code on Dropbox and trying to make sure that collaborators never work on the same file at the same time (in the hopes of never creating a dreaded <code class="docutils literal notranslate"><span class="pre">Conflicted</span> <span class="pre">Copy</span></code> file). But git and github have much to offer the modern data scientist, even if they only work on small teams and don’t want to contribute to larger software projects. In
-particular, here are the main benefits I see for git and github in order of likelihood of relevance for an applied data scientist (the sort who answers ad hoc questions like an academic researcher, rather than writes data analysis routines into widely distributed software):</p>
+<div class="section" id="Workflow-Management">
+<h1>Workflow Management<a class="headerlink" href="#Workflow-Management" title="Permalink to this headline">¶</a></h1>
+<p>A key part of being a successful data scientist is keep track of all the data that goes into a project, the various manipulations that are performed on that data, and final results. In this tutorial, I outline some principles and pratices that I have found exceedingly useful in managing my workflows over the years. Workflow management can be very personal, so feel free to take from this what you will.</p>
+<div class="section" id="1.-File-Numbering">
+<h2>1. File Numbering<a class="headerlink" href="#1.-File-Numbering" title="Permalink to this headline">¶</a></h2>
+<p>A key feature of data science workflows is that they are often sequential: code for importing data is meant to be run before code for cleaning data, and code for cleaning is meant to be run before analysis. With that in mind, I am an advocate of pre-fixing all files with a number. For example, a small project might have three files of the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="n">_import_data</span><span class="o">.</span><span class="n">py</span>
+<span class="mi">20</span><span class="n">_clean_data</span><span class="o">.</span><span class="n">py</span>
+<span class="mi">30</span><span class="n">_analyze_data</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Why 10, 20, 30 and not 1, 2, 3? Because another key feature of data science is that projects never quite end up looking the way we expect them to when we start, and numbering by tens makes it easy to add files between existing files without having to re-number everything.</p>
+<p>For example, suppose I realize that before cleaning my data, I need to export some summary statistics about cleanliness issues. With this file structure, I can easily add a new file in the middle of the existing files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="n">_import_data</span><span class="o">.</span><span class="n">py</span>
+<span class="mi">15</span><span class="n">_export_cleanliness_report</span><span class="o">.</span><span class="n">py</span>
+<span class="mi">20</span><span class="n">_clean_data</span><span class="o">.</span><span class="n">py</span>
+<span class="mi">30</span><span class="n">_analyze_data</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="2.-Use-lots-of-small-files">
+<h2>2. Use lots of small files<a class="headerlink" href="#2.-Use-lots-of-small-files" title="Permalink to this headline">¶</a></h2>
+<p>OK, you might ask, but why do I need lots of files at all? Why not just one big “project” file? The answer is twofold.</p>
+<p>The first is that it’s easier to debug small files. The only way to <em>really</em> know if your code works is to run it from start to finish in a clean session of whatever program you’re using (R, Stata, Python, Julia). That way you know that if the code works, it works because everything you need is in the file, and that the code isn’t running because you manually created an important variable that’s not in the code, but is already in memory. But if you’re entire project is in one many-thousand-line
+file, running that file takes forever. Moreover, when a problem occurs in that giant file, it could have lots of sources. Working with smaller files (a couple hundred lines at most) makes it much easier to test the file quickly, and makes it easier to find the source of problems when they occur. Moreover, small files with descriptive titles make it easier to navigate your project. That means if at some point you realize there’s a problem with your data imports (wait, why am I missing three days
+of data??), it’s very clear where you need to make changes.</p>
+<p>The second reason is perhaps even more important. In my experience, we aren’t really smart enough to work with files that do more than one or two things. Your computer is more than happy to save thousands of lines of code in a single file called <code class="docutils literal notranslate"><span class="pre">my_data_science_project.py</span></code>. The problem is that it’s very hard for <em>you</em> to look at a file with thousands of lines of code and answer the question “is the code in this file accomplishing what I want this file to accomplish?”. If, by contrast, you
+have a smaller file that does one thing in much less code, it’s easier to evaluate that small chunk of code and decide if it accomplishes the goal set-out by the file’s title (importing your data).</p>
+</div>
+<div class="section" id="3.-Carefully-manage-your-source-data">
+<h2>3. Carefully manage your source data<a class="headerlink" href="#3.-Carefully-manage-your-source-data" title="Permalink to this headline">¶</a></h2>
+<p><strong>Every</strong> data science project should have a folder called something like <code class="docutils literal notranslate"><span class="pre">source_data</span></code> (or, if you’re also numbering folders, <code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>). This is the folder where you keep the input data for your project, the data you got from somewhere else you wish to analyze. This may be the raw results from a survey, data you downloaded from a government source, or data provided to you from another department.</p>
+<p><strong>YOU SHOULD NEVER, EVER, EVER MODIFY THE FILES IN THIS FOLDER</strong></p>
+<p>Files in this folder are sacrosanct. You can <em>read</em> them into your programs (obviously, you have to), but you should never <em>re-save</em> them. After you read them in, if you need to save anything, <em>you save it somewhere else</em>.</p>
+<p>The reason is that you never want to risk corrupting your source data. If you have raw survey data, you never want to, say, modify those results directly, because what if you make a mistake? Your survey data is now corrupted, and (a) there’s no record of that corruption, and (b) if you didn’t keep backups of your raw data (which you should!) you’ve lost irreplaceable data.</p>
+</div>
+<div class="section" id="3.-Folder-Strutures">
+<h2>3. Folder Strutures<a class="headerlink" href="#3.-Folder-Strutures" title="Permalink to this headline">¶</a></h2>
+<p>With that mind, I usually work with the following top-level folder structure in my projects:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>: Raw inputs to this project, taken from other sources. Data in this folder should never be modified by code in this project.</li>
+<li><code class="docutils literal notranslate"><span class="pre">10_code</span></code>: All code for analysis</li>
+<li><code class="docutils literal notranslate"><span class="pre">20_intermediate_files</span></code>: data files created by code in this repository (presumably code that processes data found in <code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">30_results</span></code>: tables, figures, maps, etc. that will later be used in papers</li>
+<li><code class="docutils literal notranslate"><span class="pre">40_docs</span></code>: Paper write-ups</li>
+</ul>
+<p>One nice thing about this structure is it makes easy to test the reproducibility of your project: if you’ve done everything right, then you should be able to:</p>
 <ol class="arabic simple">
-<li><strong>Keep an archive of every version of your project:</strong> Git works by logging the work you do on your project into a series of discrete sets of changes called “commits”. Crucially, it remembers <em>all</em> of your commits, making it possible to easily go back to a previous version of the project any time you want. Suddenly discover that your co-author deleted the code for your favorite graph weeks ago and you didn’t notice till now? No problem! You can easily recover the version of that file that
-existed before your co-author’s mistake.</li>
-<li><strong>All you and your co-authors to work at the same time:</strong> Git is <em>much</em> more forgiving when it comes to allowing people to edit the same document at the same time. Git treats each line in a text document separately, so if your co-author is editing the introduction of your paper (assuming it’s in a text format like <span class="math notranslate nohighlight">\(\LaTeX\)</span>) while you’re editing the conclusion, git can easily integrate your simultaneous edits. Moreover, if you <em>do</em> both edit the same line of code or text, then git will
-help you resolve those conflicting edits in a very efficient manner instead of what dropbox does: create a <code class="docutils literal notranslate"><span class="pre">Confliced</span> <span class="pre">Copy</span></code>, and leave you to figure out what changes conflicted and how to integrate both authors’ changes.</li>
-<li><strong>You can easily see what changes you’re co-author has made:</strong> Because git is organized around keeping track of <em>changes</em> (again, called commits), when your co-author makes changes to a document, git allows you to easily see <em>just the changes</em> your co-author has made. This makes it much easier for colleagues to be aware of how their project is changing to watch out of problems (e.g.&nbsp;you can easily see if your co-author recoded a variable in a way that is problematic for code you wrote later).
-For example, here’s an example of a github report on changes a co-author made in a shared project, where the (red) text on the left is what the code used to say, while the (green) text on the right is what it now says. And github even allows you to comment directly on changes if you want:</li>
+<li>Delete everything your <code class="docutils literal notranslate"><span class="pre">20_intermediate_files</span></code> folder and everything in your <code class="docutils literal notranslate"><span class="pre">30_results</span></code> folder,</li>
+<li>Re-run all the code in your <code class="docutils literal notranslate"><span class="pre">10_code</span></code> (which starts by reading in data from <code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>)</li>
 </ol>
-<p><img alt="git_diff_example" src="_images/git_example1.png" /></p>
-<p>Much more helpful than a Drobox “[Name] made changes to [File]” notification. :)</p>
-<ol class="arabic simple" start="4">
-<li><strong>Allows you to contribute to open source projects:</strong> This may not be something you’re planning to jump into, but learning git will make this an option. If you find that a package you use doesn’t have a feature you need, the ability to use git will make it possible for you to add that feature to the package, not only allowing you to do what you want to do, but also making that fix available to the broader community.</li>
-<li><strong>Allows you to make your project open source so others can contribute to your project:</strong> The time may come when you want to write a software package and share it with the world. If you know git, you can also share that code in a way that makes it easy for other people to contribute code and improve that package. Open source isn’t just for big things like Python programming language – it’s also used for lots of little projects, like packages for <a class="reference external" href="https://github.com/mggg/GerryChain">simulating electoral boundaries to study
-gerrymandering</a>, or tools to make it easy to <a class="reference external" href="https://github.com/fecgov/openFEC">access campaign finance data</a> (sorry, I’m a political scientist, so I’m doing poli sci examples, but you get the idea). And you’ll be amazed how many people contribute to these kinds of projects. Indeed, even these tutorials have a <a class="reference external" href="https://github.com/nickeubank/programming4ds">github repositoriy where people can submit improvements!</a></li>
-</ol>
-<p>OK, now the bad news: there’s a reason I put so much energy into motivating the value of git before getting into how it works: learning git kinda sucks. I mean, it’s not painful like <a class="reference external" href="https://en.wikipedia.org/wiki/Leonid_Rogozov">performing an appendectomy on yourself without anesthesia</a>, and it’s not hard like quantum mechanics or geometric topology; it’s definitely something anyone can learn. But there’s no pretending that git is user friendly, and you’re sure to have a couple of moments
-when you’ll find yourself thinking (rightly) “why on Earth did they do it like that?”. So before you dive in, it’s good to have the expectation that there’s a initial uphill slog to learning git before it becomes really useful. But I promise: it pays off <em>big time</em>.</p>
-</div>
-<div class="section" id="Git-versus-Github">
-<h2>Git versus Github<a class="headerlink" href="#Git-versus-Github" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="Git">
-<h2>Git<a class="headerlink" href="#Git" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="Github">
-<h2>Github<a class="headerlink" href="#Github" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="git-lfs">
-<h2>git-lfs<a class="headerlink" href="#git-lfs" title="Permalink to this headline">¶</a></h2>
+<p>And have all the results you want for your paper re-appear in your <code class="docutils literal notranslate"><span class="pre">30_results</span></code> folder. And if not all your results reappear (i.e.&nbsp;aren’t generated when you run your code), you know that you have some files in there that aren’t actually being created by code you currently have in the project (meaning those results aren’t reproducible).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
 </div>
@@ -312,10 +325,10 @@ when you’ll find yourself thinking (rightly) “why on Earth did they do it li
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Speed</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DS Tools</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="terminal.html">The Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Labs</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
 <li class="toctree-l1"><a class="reference internal" href="languages.html">Programming Languages</a></li>
 </ul>
@@ -324,8 +337,6 @@ when you’ll find yourself thinking (rightly) “why on Earth did they do it li
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="jupyter.html" title="previous chapter">Jupyter Labs</a></li>
-      <li>Next: <a href="getting_help.html" title="next chapter">Getting Help Online</a></li>
   </ul></li>
 </ul>
 </div>
@@ -361,7 +372,7 @@ when you’ll find yourself thinking (rightly) “why on Earth did they do it li
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/git_and_github.ipynb.txt"
+      <a href="_sources/workflow.ipynb.txt"
           rel="nofollow">Page source</a>
     </div>
 
