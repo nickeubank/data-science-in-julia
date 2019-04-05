@@ -36,210 +36,10 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    background: #f5f5f5;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<div class="section" id="Git-and-Github">
+  <div class="section" id="Git-and-Github">
 <h1>Git and Github<a class="headerlink" href="#Git-and-Github" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="What-Is-Git(hub)-&amp;-Why-Should-I-Learn-It?">
-<h2>What Is Git(hub) &amp; Why Should I Learn It?<a class="headerlink" href="#What-Is-Git(hub)-&-Why-Should-I-Learn-It?" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="1.-What-Is-Git(hub)-&amp;-Why-Should-I-Learn-It?">
+<h2>1. What Is Git(hub) &amp; Why Should I Learn It?<a class="headerlink" href="#1.-What-Is-Git(hub)-&-Why-Should-I-Learn-It?" title="Permalink to this headline">¶</a></h2>
 <p>Git and github are a set of tools designed to facilitate collaboration on code. They make it possible for multiple people (in some cases, dozens or even hundreds of people) to work on code at the same time without getting in one another’s way. (Note: as we’ll discuss below, git and github are technically two different things, but you’ll almost certainly use them together, so I’m just going to call them “git” for now).</p>
 <p>It is no exaggeration to say that git (and other forms of <em>version control</em> software) underlie the entire world of open source software, and are central to the operation of nearly every tech company on the planet. Git is just a central part of how software is developed today.</p>
 <p>Git is less commonly used in Data Science, however, where people are often working in groups that are small enough they feel comfortable just keeping their code on Dropbox and trying to make sure that collaborators never work on the same file at the same time (in the hopes of never creating a dreaded <code class="docutils literal notranslate"><span class="pre">Conflicted</span> <span class="pre">Copy</span></code> file). But git and github have much to offer the modern data scientist, even if they only work on small teams and don’t want to contribute to larger software projects. In
@@ -259,29 +59,57 @@ For example, here’s an example of a github report on changes a co-author made 
 <li><strong>Allows you to make your project open source so others can contribute to your project:</strong> The time may come when you want to write a software package and share it with the world. If you know git, you can also share that code in a way that makes it easy for other people to contribute code and improve that package. Open source isn’t just for big things like Python programming language – it’s also used for lots of little projects, like packages for <a class="reference external" href="https://github.com/mggg/GerryChain">simulating electoral boundaries to study
 gerrymandering</a>, or tools to make it easy to <a class="reference external" href="https://github.com/fecgov/openFEC">access campaign finance data</a> (sorry, I’m a political scientist, so I’m doing poli sci examples, but you get the idea). And you’ll be amazed how many people contribute to these kinds of projects. Indeed, even these tutorials have a <a class="reference external" href="https://github.com/nickeubank/programming4ds">github repositoriy where people can submit improvements!</a></li>
 </ol>
-<p>OK, now the bad news: there’s a reason I put so much energy into motivating the value of git before getting into how it works: learning git kinda sucks. I mean, it’s not painful like <a class="reference external" href="https://en.wikipedia.org/wiki/Leonid_Rogozov">performing an appendectomy on yourself without anesthesia</a>, and it’s not hard like quantum mechanics or geometric topology; it’s definitely something anyone can learn. But there’s no pretending that git is user friendly, and you’re sure to have a couple of moments
+<p>OK, now the bad news: there’s a reason I put so much energy into discussing the value of git before getting into how it works: learning git kinda sucks. I mean, it’s not painful like <a class="reference external" href="https://en.wikipedia.org/wiki/Leonid_Rogozov">performing an appendectomy on yourself without anesthesia</a>, and it’s not hard like quantum mechanics or geometric topology; it’s definitely something anyone can learn. But there’s no pretending that git is user friendly, and you’re sure to have a couple of moments
 when you’ll find yourself thinking (rightly) “why on Earth did they do it like that?”. So before you dive in, it’s good to have the expectation that there’s a initial uphill slog to learning git before it becomes really useful. But I promise: it pays off <em>big time</em>.</p>
-</div>
 <div class="section" id="Git-versus-Github">
-<h2>Git versus Github<a class="headerlink" href="#Git-versus-Github" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="Git">
-<h2>Git<a class="headerlink" href="#Git" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="Github">
-<h2>Github<a class="headerlink" href="#Github" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="git-lfs">
-<h2>git-lfs<a class="headerlink" href="#git-lfs" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
+<h3>Git versus Github<a class="headerlink" href="#Git-versus-Github" title="Permalink to this headline">¶</a></h3>
+<p>As I eluded to earlier, though they’re almost always used together, git and github are actually two different things:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">git</span></code> is the program that keeps track of changes in your code and helps you manage multiple people working on code at the same time.</li>
+<li><code class="docutils literal notranslate"><span class="pre">github</span></code> is a service that hosts a copy of your project in the cloud so you and your co-authors can easily share project changes. In addition, <code class="docutils literal notranslate"><span class="pre">github</span></code> also has a great interface for reviewing changes to a project in a user friendly manner, and it has an “issue tracker” system for hosting conversations about things that need to be done in a project.</li>
+</ul>
+<p>And when it comes to what is user-friendly and what is not, <code class="docutils literal notranslate"><span class="pre">git</span></code> is the kinda awful thing to learn, and <code class="docutils literal notranslate"><span class="pre">github</span></code> is magical.</p>
 </div>
 </div>
+<div class="section" id="2.-Learning-Git">
+<h2>2. Learning Git<a class="headerlink" href="#2.-Learning-Git" title="Permalink to this headline">¶</a></h2>
+<p>Because it’s such a central tool in software development, there are <em>lots</em> of tutorials online for learning git, and it would be silly for me to try and write my own. However, I think most do a so-so job of offering users a general sense of what working with git is like. With that in mind, below is a simple overview of working with git, after which is a link to what I think is probably the best git tutorial I’ve found. Once you’ve completed the tutorial, please come back here to learn a little
+bit more about data-science-specific git issues (like how to put datasets into a git repository).</p>
+<div class="section" id="Initializing-a-git-repo">
+<h3>Initializing a git repo<a class="headerlink" href="#Initializing-a-git-repo" title="Permalink to this headline">¶</a></h3>
+<p>Much of the first part of a git tutorial will be configuring your installation and creating a new git repo (repo is short for repository, which is what one calls a git project). Here’s the good news: you don’t have to remember any of this. If for any reason you have to change you configuration some day, you can google directions, and you can do the same when you need to make a new project. So don’t stress this part.</p>
+</div>
+<div class="section" id="A-Normal-Day-Working-with-Git">
+<h3>A Normal Day Working with Git<a class="headerlink" href="#A-Normal-Day-Working-with-Git" title="Permalink to this headline">¶</a></h3>
+<p>Once your team has a git repository setup, a normal day goes like this:</p>
+<ul class="simple">
+<li>You starting by using the <code class="docutils literal notranslate"><span class="pre">pull</span></code> command to integrate the most recent changes your co-authors have made off github. This keeps you up to date.</li>
+<li>You edit the code you want to edit.</li>
+<li>You then <code class="docutils literal notranslate"><span class="pre">commit</span></code> these changes to the project (i.e.&nbsp;tell git you feel good about the changes you’ve made and want them to really be part of the project). You do this by <code class="docutils literal notranslate"><span class="pre">staging</span></code> the files you want in the commit (you can include as many changes as you want in a commit – it could be 8 new analysis files, or a single change to one line of code in a single file). Then formally <code class="docutils literal notranslate"><span class="pre">commit</span></code> those staged changes.</li>
+<li>When you’re done, you <code class="docutils literal notranslate"><span class="pre">push</span></code> those changes, which is when the changes you’ve committed on your own computer are shared with the project on github.</li>
+<li>If by some chance a co-author has also been working at the same time as you, you may have to <code class="docutils literal notranslate"><span class="pre">pull</span></code> their new changes first, and if by some chance you both edited the same lines of code (or same lines of a latex or text document), you may have to then “resolve conflicts” and push again.</li>
+</ul>
+<p>That’s it! There are <em>lots</em> of other things one can do in git (like spinning of parallel versions of the project so you can experiment without ruining the main project (called <code class="docutils literal notranslate"><span class="pre">branching</span></code>), reverting to old versions (if you realized you screwed something up and just want to go back to what you had last week), and more, but those are kinda secondary.</p>
+</div>
+<div class="section" id="Command-line-versus-Graphical-User-Interface">
+<h3>Command line versus Graphical User Interface<a class="headerlink" href="#Command-line-versus-Graphical-User-Interface" title="Permalink to this headline">¶</a></h3>
+<p>Git is most commonly used from the command line (also named the <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> on macs): the text-based interface for your operating system. There are graphical user interfaces for git, but most don’t quite implement all of gits features, so most tutorials teach git as a command line tool.</p>
+<p>If you have any comfort with the command line, learning git from the command line is probably the best way to start. You can later move to a graphical user interface, but knowing how to use the command line version means you can always do anything git can do, and online help will be easier to find.</p>
+<p>If you aren’t comfortable with the command line, you have two choices:</p>
+<ul class="simple">
+<li>Learn the basics of command lines. I recommend skimming <a class="reference internal" href="terminal.html"><span class="doc">this</span></a>, then completing <a class="reference external" href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science">first section of this tutorial: Introduction to Shell for Data Science</a> (the first section is just called “Manipulating Files and Directories”. Don’t go past that section).</li>
+<li>Try to find a good graphical user interface-based tutorial (and if you find one, let me know? I haven’t found one.. :( ).</li>
+</ul>
+<p>If you do eventually want a GUI, I recommend either <a class="reference external" href="https://desktop.github.com/">Github Desktop</a> (very clean and easy, but can’t do everything git can do) or <a class="reference external" href="https://www.sourcetreeapp.com/">Sourcetree</a> (busy, but more powerful and flexible.</p>
+</div>
+<div class="section" id="Tutorials">
+<h3>Tutorials<a class="headerlink" href="#Tutorials" title="Permalink to this headline">¶</a></h3>
+<p>I recommend <a class="reference external" href="https://github.com/jlord/git-it-electron">git-it</a>. Unlike many other tutorials, it asks you to do things on your own computer, not an unrealistically easy to use terminal in the web-browswer, which gives a more authentic tutorial experience. Just follow <a class="reference external" href="https://github.com/jlord/git-it-electron">the directions here</a> to get started.</p>
+</div>
+</div>
+<div class="section" id="3.-git-lfs">
+<h2>3. git-lfs<a class="headerlink" href="#3.-git-lfs" title="Permalink to this headline">¶</a></h2>
+<p>On thing that’s unique to using git for data science is that we often want to put datasets into our git repositories. Unfortunately, <code class="docutils literal notranslate"><span class="pre">git</span></code> by itself can’t really handle datasets efficiently. To solve this problem, we use <code class="docutils literal notranslate"><span class="pre">git-lfs</span></code> (git Large File System). You can learn all about it <a class="reference external" href="https://www.youtube.com/watch?v=uLR1RNqJ1Mw">here</a>!</p>
 </div>
 </div>
 
@@ -313,9 +141,15 @@ when you’ll find yourself thinking (rightly) “why on Earth did they do it li
 </ul>
 <p class="caption"><span class="caption-text">DS Tools</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="terminal.html">The Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Labs</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Git and Github</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Git and Github</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#1.-What-Is-Git(hub)-&amp;-Why-Should-I-Learn-It?">1. What Is Git(hub) &amp; Why Should I Learn It?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-Learning-Git">2. Learning Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#3.-git-lfs">3. git-lfs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
 <li class="toctree-l1"><a class="reference internal" href="languages.html">Programming Languages</a></li>
 </ul>
