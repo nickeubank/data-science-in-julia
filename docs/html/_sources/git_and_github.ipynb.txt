@@ -74,7 +74,7 @@
     "\n",
     "If you aren't comfortable with the command line, you have two choices:\n",
     "\n",
-    "- Learn the basics of command lines. I recommend skimming [this](terminal.ipynb), then completing [first section of this tutorial: Introduction to Shell for Data Science](https://www.datacamp.com/courses/introduction-to-shell-for-data-science) (the first section is just called \"Manipulating Files and Directories\". Don't go past that section). \n",
+    "- Learn the basics of command lines. I recommend first doing [the command line basics page of this site](command_line_page1.ipynb) including completing the [first section of this tutorial: Introduction to Shell for Data Science](https://www.datacamp.com/courses/introduction-to-shell-for-data-science) (the first section is just called \"Manipulating Files and Directories\". Don't go past that section). \n",
     "- Try to find a good graphical user interface-based tutorial (and if you find one, let me know? I haven't found one.. :( ). \n",
     "\n",
     "If you do eventually want a GUI, I recommend either [Github Desktop](https://desktop.github.com/) (very clean and easy, but can't do everything git can do) or [Sourcetree](https://www.sourcetreeapp.com/) (busy, but more powerful and flexible. \n",
@@ -87,6 +87,13 @@
     "\n",
     "On thing that's unique to using git for data science is that we often want to put datasets into our git repositories. Unfortunately, `git` by itself can't really handle datasets efficiently. To solve this problem, we use `git-lfs` (git Large File System). You can learn all about it [here](https://www.youtube.com/watch?v=uLR1RNqJ1Mw)! "
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {

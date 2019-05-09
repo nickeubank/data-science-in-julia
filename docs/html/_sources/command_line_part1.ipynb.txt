@@ -1,0 +1,331 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# The Command Line Basics"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It's probably good to start by answering the question: What *is* the command line?\n",
+    "\n",
+    "The command line is a tool for talking to your operating system (e.g. macOS, Windows, etc.) using text instead of by moving around a mouse and clicking on things. Just as you can use your mouse to open folders, move and rename files, and launch programs, so too can you use the terminal to ask you operating system to do the same things. \n",
+    "\n",
+    "\n",
+    "## 1. Terminology\n",
+    "\n",
+    "Before we get into the details of the terminal, though, a note on terminology: there are *lots* of names that float around that basically mean the same thing, including terminal, shell, command line, and bash. In this tutorial, the specific program we will be using is called `bash`. But if you're working on a Mac, you'd never know you were using `bash` because Apple calls bash `Terminal`. Also, `bash` is based on a program called `shell`, so you may also hear the term `shell` used to describe the tool we'll be using today. But for all intents and purposes, the terms `bash`, `command line`, `Terminal`, and `shell` are basically interchangeable on a mac or linux computer.\n",
+    "\n",
+    "We're using `bash` because it's the default terminal program on nearly all Macs and Linux computers (the operating systems of Mac and Linux computers are very similar, and are often just referred to as POSIX computers). That's important, because almost all computers in the cloud run Linux (including not just companies like Amazon Web Services, but also university research clusters). And if you want to work directly with a computer in the cloud, you will almost never get to use a pretty graphical user interface, so you'll *have* to use a terminal, making `bash` a great choice to learn on. \n",
+    "\n",
+    "**The one place this equivalence breaks down is on Windows.** By default, Windows does not use `bash`, but instead one of several windows-specific tools (like `CMD` or `PowerShell`) to allow this kind of text-based interaction with your operating system. But to make life confusing, these will also often be referred to as \"the terminal\" or \"command line\". Thankfully, we can install `bash` on Windows! So, **IF YOU ARE USING WINDOWS, GO TO THIS [PAGE FOR DIRECTIONS ON MAKING BASH AVAILABLE ON WINDOWS!](bash_on_windows.ipynb)** before starting any exercises."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "So in summary:\n",
+    "\n",
+    "- `bash` and `shell`: two (almost identical) programs for talking to you computer via text. Standard on Mac and Linux Systems. \n",
+    "- `terminal`: sometimes used colloquially to refer to any system that lets you talk to you computer via text, but also the name Apple uses when you run `bash`. \n",
+    "- `DOS` and `CMD`: Window's version of `bash` and `shell`. Same purpose, different syntax. \n",
+    "\n",
+    "## 2. Why Should I Learn The Command Line?\n",
+    "\n",
+    "There are three main reasons to learn to use the command line. \n",
+    "\n",
+    "1) **More tools are available through the command line than through graphical user interface.** It turns out that it takes a lot of work to make a program that has pretty icons and windows that pop up, so lots of people make tools but don't bother to make pretty graphical interfaces. This is especially true for free and open-source software. So by learning to use the command line, you gain access to *lots* of powerful tools that would otherwise be unavailable.\n",
+    "\n",
+    "2) **You won't always have a graphical interface.** If your work ever requires you to use a remote server with, say, more computing power, those systems probably won't offer a graphical user interface. \n",
+    "\n",
+    "3) **Sometimes you want to do something OVER AND OVER.** Renaming a file by clicking on it, deleting the name, typing in a new name, and hitting return is great if you only need to rename one file. But what if you want to rename hundreds? The command line gives you the ability to write little scripts to do this kind of work for you. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 3. Learning Command Line Basics\n",
+    "\n",
+    "Now that you have a sense of what the command line is about, I recommend you try out [this tutorial (\"Introduction to Shell for Data Science\")](https://www.datacamp.com/courses/introduction-to-shell-for-data-science) to get some experience working with it (the command line is used enough that people have already created great tutorials -- I won't insult their work by trying to re-create them). \n",
+    "\n",
+    "The first section of that tutorial (\"Manipulating Files and Directories\") is *free* (though you do have to create an account) and will give you a pretty good introduction. If you *want* you can keep going and get better at manipulating files and things in the command line, but that's not usually a first-order need. \n",
+    "\n",
+    "Once you're done, come back here and we'll talk a little about general principles of the command line. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 4. Command Line Syntax\n",
+    "\n",
+    "While that tutorial has hopefully given you a sense of how, when working in the command line, there's some sense that you are always \"located\" somewhere in you file structure. Moreover, it's hopefully given you a sense of some basic tools, like `cd`, `ls`. But it's a little light on \"principles\", so here are a few:\n",
+    "\n",
+    "1:  **The first thing you type into the shell is actually just the name of a program.** This may not be clear, but `cd` and `ls` are actually just little programs. But later on in life, you'll find yourself using more familiar programs, like `python` or `git`.\n",
+    "\n",
+    "2: **The things that come after the program being called are called \"arguments\", and they give the program being called extra information (what exactly a program wants depends on the program).** For example, if you were to run `python my_file.py`, what you are doing is calling the program `python` and passing it the name of a file, which it assumes you want it to run. \n",
+    "\n",
+    "3: **The shell is very sensitive to spaces.** If you have filenames with spaces, you'll need to use quotes or escape the spaces in the file names by preceding them with a `\\` (e.g. `open this\\ is\\ my\\ file.txt`).\n",
+    "\n",
+    "4: **Many programs have options that are activated with \"flags\"**. A flag is usually single dash followed by a single letter. For example, you can ask the `ls` function to display the contents of a directory in a list format using the flag `-l`. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Welcome_Materials\thello.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Normal `ls` display:\n",
+    "cd ~/github/programming4ds/Example_Data/command_line\n",
+    "ls"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total 16\n",
+      "drwxr-xr-x  2 Nick  staff  64 Apr 11 14:05 a_folder_with_stuff\n",
+      "-rw-r--r--@ 1 Nick  staff  41 Feb  5 12:41 hello.txt\n",
+      "-rw-r--r--  1 Nick  staff  40 Apr 11 14:08 just_another_file.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "# With the `-l` flag, it also shows file sizes, when last modified, and all sorts of operating\n",
+    "# system information that you don't need to worry about. \n",
+    "ls -l"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Many flags also have a longer (easier to read version) that you call with two dashes. Basically, if a shell command sees one dash, it knows that *each letter* immediately afterwards is a different flag. If it sees two dashes, it knows that *everything after the dash before the first space* is a single flag name. \n",
+    "\n",
+    "To illustrate, consider the `mv` (move) command. By default, it won't move a file to a location if there's already another file there by the same name. But you can force it to make a move anyway with the `-f` flag (single dash) or the `--force` flag (two dashes, followed by a full word). \n",
+    "\n",
+    "Note that because a single dash tells the shell that what follows is a single letter flag, you can actually pile up flags after a single dash. For exmaple, we already know that `-l` tells `ls` to show files in a list. `-h` says to include a (human readable) file size. But you can't do this with double dashes. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total 16\n",
+      "drwxr-xr-x  4 Nick  staff   128B Apr 11 14:13 a_folder_with_stuff\n",
+      "-rw-r--r--@ 1 Nick  staff    41B Feb  5 12:41 hello.txt\n",
+      "-rw-r--r--  1 Nick  staff    40B Apr 11 14:08 just_another_file.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can use these separately \n",
+    "ls -l -h"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total 16\n",
+      "drwxr-xr-x  4 Nick  staff   128B Apr 11 14:13 a_folder_with_stuff\n",
+      "-rw-r--r--@ 1 Nick  staff    41B Feb  5 12:41 hello.txt\n",
+      "-rw-r--r--  1 Nick  staff    40B Apr 11 14:08 just_another_file.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Or together!\n",
+    "ls -lh"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 5. Getting Help\n",
+    "\n",
+    "Most commands have help hidden in one of two places (besides google. Google will usually solve all your problems. :)). \n",
+    "\n",
+    "The first is that very old commands like `ls` and `mv` have manuals you can access by typing `man` followed by the command you want help for (e.g. `man ls` or `man mv`). To illustrate, `man ls` brings up:\n",
+    "\n",
+    "```\n",
+    "LS(1)                     BSD General Commands Manual                    LS(1)\n",
+    "\n",
+    "NAME\n",
+    "     ls -- list directory contents\n",
+    "\n",
+    "SYNOPSIS\n",
+    "     ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [file ...]\n",
+    "\n",
+    "DESCRIPTION\n",
+    "     For each operand that names a file of a type other than directory, ls\n",
+    "     displays its name as well as any requested, associated information.  For\n",
+    "     each operand that names a file of type directory, ls displays the names\n",
+    "     of files contained within that directory, as well as any requested, asso-\n",
+    "     ciated information.\n",
+    "...\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "While more modern commands (like python or git) have a `-h` or `--help` flag that bring up help. For example, `python -h` or `python --help` bring up: \n",
+    "\n",
+    "\n",
+    "```\n",
+    "usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...\n",
+    "Options and arguments (and corresponding environment variables):\n",
+    "-b     : issue warnings about str(bytes_instance), str(bytearray_instance)\n",
+    "         and comparing bytes/bytearray with str. (-bb: issue errors)\n",
+    "-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x\n",
+    "-c cmd : program passed in as string (terminates option list)\n",
+    "-d     : debug output from parser; also PYTHONDEBUG=x\n",
+    "-E     : ignore PYTHON* environment variables (such as PYTHONPATH)\n",
+    "-h     : print this help message and exit (also --help)\n",
+    "-i     : inspect interactively after running script; forces a prompt even\n",
+    "         if stdin does not appear to be a terminal; also PYTHONINSPECT=x\n",
+    "```         "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 6. Invisible Files\n",
+    "\n",
+    "Now that you're comfortable with the command line, it's time to introduce you to a dark secret of modern operating systems: there are invisible files *everywhere*. When a programmer needs to put a file in a folder, but doesn't want to show it to the user, (s)he prefixes the file name with a single period (`.`). The operating sytem then hides this files from the user. \n",
+    "\n",
+    "But now you can see them using the command line. Just use the `-a` flag (short for \"all\") for the `ls` command to have it show you all the files that are there:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total 16\n",
+      "drwxr-xr-x  4 Nick  staff  128 Apr 11 14:13 a_folder_with_stuff\n",
+      "-rw-r--r--@ 1 Nick  staff   41 Feb  5 12:41 hello.txt\n",
+      "-rw-r--r--  1 Nick  staff   40 Apr 11 14:08 just_another_file.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You thought you knew what was in this folder:\n",
+    "ls -l"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total 24\n",
+      "drwxr-xr-x  6 Nick  staff  192 Apr 11 14:09 .\n",
+      "drwxr-xr-x  4 Nick  staff  128 Feb  5 12:41 ..\n",
+      "-rw-r--r--  1 Nick  staff  179 Apr 11 14:09 .this_file_is_invisible.txt\n",
+      "drwxr-xr-x  4 Nick  staff  128 Apr 11 14:13 a_folder_with_stuff\n",
+      "-rw-r--r--@ 1 Nick  staff   41 Feb  5 12:41 hello.txt\n",
+      "-rw-r--r--  1 Nick  staff   40 Apr 11 14:08 just_another_file.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "# But there was more hiding!\n",
+    "ls -al"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Yup! There's a file called `.this_file_is_invisible.txt` that's been there all along! And you do whatever you want with it -- you can move it, rename it, or open it (with the `open .this_file_is_invisible.txt` command, though what `open` does will depend on the default on your computer -- it's like double clicking the file).  \n",
+    "\n",
+    "This trick is useful to know, because in some programs (like git), you'll want to be able to access hidden files and folders. And now you know how! "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 7. Making the Command Line Friendlier\n",
+    "\n",
+    "OK, the basic command line is ugly, and doesn't offer much of an interface. That's why I recommend installing a slightly nicer program like [Oh My Z!](https://ohmyz.sh/) that causes your terminal to offer slightly more information than the default shell, especially if you use git. For example:\n",
+    "\n",
+    "Default Terminal:\n",
+    "\n",
+    "![bash](images/default_shell.png)\n",
+    "\n",
+    "With Oh My Z!:\n",
+    "\n",
+    "![zsh](images/zsh.png)\n",
+    "\n",
+    "See how it now shows the folder I'm in on the left; shows that I'm in a git project when I navigate into `programming4ds` and tells me the branch (don't worry if that doesn't mean much to you), and highlights folders in blue so you can tell what's a folder and what's a file? Just helps keep you sane. :)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Bash",
+   "language": "bash",
+   "name": "bash"
+  },
+  "language_info": {
+   "codemirror_mode": "shell",
+   "file_extension": ".sh",
+   "mimetype": "text/x-sh",
+   "name": "bash"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
