@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Programming for DS'
+project = 'Practical Data Science'
 copyright = '2019, Nick Eubank'
 author = 'Nick Eubank'
 

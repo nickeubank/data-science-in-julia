@@ -1,0 +1,1 @@
+setwd("ad <- read.csv("http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv")")

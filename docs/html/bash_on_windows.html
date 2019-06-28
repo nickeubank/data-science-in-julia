@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>The Command Line on Windows / Installing Bash &#8212; Programming for DS  documentation</title>
+    <title>The Command Line on Windows / Installing Bash &#8212; Practical Data Science  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -241,10 +241,12 @@ daily basis run Linux. Your personal computer may be a mac (which also uses <cod
 will run Linux. So there’s a lot of good reasons to learn <code class="docutils literal notranslate"><span class="pre">bash</span></code>.</p>
 <p><strong>But</strong>: <code class="docutils literal notranslate"><span class="pre">bash</span></code> is not the default on windows, so on this page, I’ll show you how to set up a system that lets you work with <code class="docutils literal notranslate"><span class="pre">bash</span></code> on your windows computer. Note that because <code class="docutils literal notranslate"><span class="pre">bash</span></code> is not the default windows tool, there will be a few little wrinkles in how this is done, and it will never work quite as seamlessly as the default windows command line tools (<code class="docutils literal notranslate"><span class="pre">PowerShell</span></code> and <code class="docutils literal notranslate"><span class="pre">CMD</span></code>).</p>
 <p><strong>If you are a passionate windows user or someone who plans to only use windows, you are probably better off learning to use the default windows command line tools!</strong></p>
-<div class="section" id="1.-Install-Git-for-Windows">
-<h2>1. Install Git for Windows<a class="headerlink" href="#1.-Install-Git-for-Windows" title="Permalink to this headline">¶</a></h2>
-<p>To get a good bash interface in windows, we just need to <a class="reference external" href="https://gitforwindows.org/">install Git for Windows by going here and running the installer</a>. This also has the benefit of installing <code class="docutils literal notranslate"><span class="pre">git</span></code>, which we discuss <a class="reference internal" href="git_and_github.html"><span class="doc">elsewhere on this site</span></a>.</p>
-<p>Once installed, you’ll have a new program called <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">bash</span></code> – this is a <code class="docutils literal notranslate"><span class="pre">bash</span></code> interface in windows! Yay!!! Now you can go forth with the tutorials. There will be a few little idiosyncracies that come up because of how it integrates bash into windows, but on the whole it works really well.</p>
+<div class="section" id="1.-Install-Cmder">
+<h2>1. Install Cmder<a class="headerlink" href="#1.-Install-Cmder" title="Permalink to this headline">¶</a></h2>
+<p>To get a good bash interface in windows, we just need to <a class="reference external" href="https://cmder.net/">install Cmder!</a>. Make sure to select the <strong>Full Install</strong> (or you won’t get Bash). Note this will also install <code class="docutils literal notranslate"><span class="pre">git</span></code>, which we discuss <a class="reference internal" href="git_and_github.html"><span class="doc">elsewhere on this site</span></a>.</p>
+<p>Once installed, you’ll have a new program called <code class="docutils literal notranslate"><span class="pre">Cmder</span></code> available! By default, <code class="docutils literal notranslate"><span class="pre">Cmder</span></code> is a kinda of hybrid interface that lets you use most commands people use in <code class="docutils literal notranslate"><span class="pre">bash</span></code> <em>and</em> the commands people use when working with the default Windows command line tool (<code class="docutils literal notranslate"><span class="pre">CMD</span></code>). This is nice for people with some windows command line experience, but it does mean that <code class="docutils literal notranslate"><span class="pre">Cmder</span></code> doesn’t quite work like <code class="docutils literal notranslate"><span class="pre">bash</span></code>.</p>
+<p>With that in mind, for the moment I would suggest using <code class="docutils literal notranslate"><span class="pre">Cmder</span></code> in pure <code class="docutils literal notranslate"><span class="pre">bash</span></code> mode by clicking on Settings (the three horizontal bars on the bottom right), then changing the “startup task” to <code class="docutils literal notranslate"><span class="pre">{bash::bash}</span></code> (see pic below). You can always change this later once you’re comfortable with <code class="docutils literal notranslate"><span class="pre">bash</span></code>, or open a single window in <code class="docutils literal notranslate"><span class="pre">Cmder</span></code>’s default mode by clicking the <code class="docutils literal notranslate"><span class="pre">+</span></code> in the bottom right and selecting the <code class="docutils literal notranslate"><span class="pre">{cmd::Cmder}</span></code> option.</p>
+<p><img alt="selectbash" src="_images/change_cmder_default.png" /></p>
 </div>
 <div class="section" id="2.-If-you-use-Anaconda-/-Miniconda-for-Python">
 <h2>2. If you use Anaconda / Miniconda for Python<a class="headerlink" href="#2.-If-you-use-Anaconda-/-Miniconda-for-Python" title="Permalink to this headline">¶</a></h2>
@@ -265,7 +267,7 @@ will run Linux. So there’s a lot of good reasons to learn <code class="docutil
 </div>
 <p>Personally, I used miniconda, so the path to my installation is <code class="docutils literal notranslate"><span class="pre">C:\Users\Nick\Miniconda3</span></code>, and so after adding these files, my list looks like:</p>
 <p><img alt="additions" src="_images/additions.png" /></p>
-<p>After you’re done, if you open a new session of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">bash</span></code> (you have to close any open windows and open new ones), you should be able to type <code class="docutils literal notranslate"><span class="pre">conda</span></code> and get your usual <code class="docutils literal notranslate"><span class="pre">conda</span></code> functionality, or type python and get your normal python functionality!</p>
+<p>After you’re done, if you open a new session of <code class="docutils literal notranslate"><span class="pre">Cmder</span></code> (you have to close any open windows and open new ones), you should be able to type <code class="docutils literal notranslate"><span class="pre">conda</span></code> and get your usual <code class="docutils literal notranslate"><span class="pre">conda</span></code> functionality, or type python and get your normal python functionality!</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -285,7 +287,7 @@ will run Linux. So there’s a lot of good reasons to learn <code class="docutil
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Programming for DS</a></h1>
+<h1 class="logo"><a href="index.html">Practical Data Science</a></h1>
 
 
 

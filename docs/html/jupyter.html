@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Jupyter Labs &#8212; Programming for DS  documentation</title>
+    <title>The Jupyter Project &#8212; Practical Data Science  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Git and Github" href="git_and_github.html" />
-    <link rel="prev" title="The Terminal" href="terminal.html" />
+    <link rel="prev" title="Advanced Command Line Tutorial" href="command_line_part2.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -36,218 +36,64 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    background: #f5f5f5;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<div class="section" id="Jupyter-Labs">
-<h1>Jupyter Labs<a class="headerlink" href="#Jupyter-Labs" title="Permalink to this headline">¶</a></h1>
-<p>The tools for switching seamlessly from language to language (bash, R, Python, Julia) and mixing code with text!</p>
-<p>Customizations: <a class="reference external" href="https://www.youtube.com/watch?v=a9P7qv4P5LE">https://www.youtube.com/watch?v=a9P7qv4P5LE</a></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
+  <div class="section" id="The-Jupyter-Project">
+<h1>The Jupyter Project<a class="headerlink" href="#The-Jupyter-Project" title="Permalink to this headline">¶</a></h1>
+<p>Today, if you use more than one programming language for data science, you probably also also use different programs to edit and interact with those programs. R users, for example, often use RStudio, Python users use Spyder, and Julia users use Juno.</p>
+<p>But in recent years, an amazing efforts has been underway to provide a single set of tools that work with nearly <em>any</em> underlying programming language: Jupyter (as in <strong>Ju</strong> (Julia) - <strong>py</strong> (Python) - te<strong>R</strong> (R)).</p>
+<p>The idea of Jupyter is to seperate the interface you are working with from the underlying programming language doing your analysis. This makes it possible to create one interface (a text editor, a window where results are displayed, etc.) that can be used to run your analyses in any number of different programs. In the Jupyter ecosystem, the program being used to actually run your analysis (i.e.&nbsp;Python, R) is referred to as a <strong>kernel</strong>.</p>
+<p>Jupyter was originally focused on unifying Julia, Python, and R, it actually now supports dozens and dozens of different <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">kernels</a> including javascript, Go, Haskell, Matlab, Stata, bash, Scala, and so much more.</p>
+<p>(Note: Jupyter Notebooks used to be called IPython Notebooks before they expanded to support more languages, so if you see people talking about IPython Notebooks, just think of that as an early, Python specific version of Jupyter Notebooks).</p>
+<div class="section" id="1.-Jupyter-Interfaces">
+<h2>1. Jupyter Interfaces<a class="headerlink" href="#1.-Jupyter-Interfaces" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter provides two major tools for data scientists: Jupyter Notebooks and Jupyter Labs.</p>
+<p><strong>Jupyter Notebooks:</strong></p>
+<p>Jupyter notebooks are a tool for easily integrating text, code, and code output into a single document. This not only makes them <em>incredibly</em> useful for instructional materials (this entire site is actually built with Jupyter Notebooks), but also makes them useful as a method of sharing analyses. Using Jupyter Notebooks, you can not only share the conclusions of your analysis with colleagues, but also the code that generated those analyses, making it easy for others to see how you reached your
+conclusions and, crucially, play with that code to see what happens if the analysis is changed slightly. Indeed, Notebooks are so useful for sharing analyses that they’ve become the <em>de facto</em> standard for sharing information at many companies, including <a class="reference external" href="https://medium.com/netflix-techblog/notebook-innovation-591ee3221233">Netflix</a>.</p>
+<p>OK, I know, that all sounds really abstract. What makes Jupyter Notebooks special is their interactivity, so to see what they’re about, go watch this <a class="reference external" href="https://www.youtube.com/watch?v=q_BzsPxwLOE">quick (8 minute) video</a> to see what it looks like to work with Jupyter Notebooks. Don’t worry about absorbing every detail, the goal is just to give you a sense of how Jupyter Notebooks work. Then you’ll have a chance to actually work with Jupyter Notebooks in the exercises below.</p>
+<p><strong>Jupyter Lab:</strong></p>
+<p>Notebooks have been around since 2014, but while they are great for instructional materials and sharing analyses, they weren’t appropriate for managing full projects. In 2018, though, Jupyter launched a new tool: Jupyter Lab.</p>
+<p>Jupyter Lab is meant to be an all-in-one data science interface:</p>
+<ul class="simple">
+<li>Easily run and write Jupyter Notebooks (and do things you couldn’t do before, like drag cells from one notebook to another, collapse cells, etc.).</li>
+<li>Work with a text-editor in one pane and an active kernel session in another, just like you do in RStudio or Spyder.</li>
+<li>Edit popular data science file formats with live preview, such as Markdown, JSON, CSV, Vega, VegaLite, and more.</li>
+</ul>
+<p>Again, this is all a little abstract for a tool that’s fundamentally about interactivity, so watch this <a class="reference external" href="https://www.youtube.com/watch?v=ctOM-Gza04Y">excellent 10 minute video</a> to see what Jupyter Lab is all about. Then we’ll do some exercises below! Again, don’t worry about absorbing every detail, the goal is just to give you a sense of how Jupyter Lab works generally.</p>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
+<div class="section" id="2.-Is-Jupyter-the-best-tool-for-data-science?">
+<h2>2. Is Jupyter the best tool for data science?<a class="headerlink" href="#2.-Is-Jupyter-the-best-tool-for-data-science?" title="Permalink to this headline">¶</a></h2>
+<p>Where Jupyter Lab really shines is in it’s support for <em>interactive</em> programming and data analysis, and in providing a single interface for working in different programming languages. But whether that makes it the <em>best</em> tool depends on how you like to work, and what you’re doing. The reality is that every tool has strengths and weaknesses, so what’s <strong>best</strong> depends on what you are doing <em>and</em> your personal preferences. But there are some use cases for which I think Jupyter is really valueable.</p>
+<p>In the introduction of this course, we talked about the two big branches of data science: the software development branch, and the data analysis branch.</p>
+<p>The way people in these different branches work is <em>very</em> different. People who work in the software development branch of data science are writing generalized software that will be packaged up, shipped out, and run on other computers somewhere. And as a result, the code they write is often “non-linear” (it isn’t meant to be run one line after the other sequentially). Instead it’s full of different functions and routines that may get called at different times depending on the input data.
+Moreover, when writing this kind of code, you get to assume the data entering your program has some kind of initial structure, making it easier to predict what your code will do when executed. As a result, people doing this type of data science tend to prefer more developed text editors (Atom, Emacs, Vim, etc.) that don’t provide as much support for interactivity, but offer better tools for things like debugging software packages.</p>
+<p>People in the data analysis branch, by contrast, often want to see the result of each line of code they write. That’s because when analyzing data for the first time, you may know what your code is doing in an abstract sense (say, calculating the average of a variable), but you don’t know what the output of that code will be! Moreover, you never <em>really</em> know the structure of real-world your data until you’ve cleaned the heck out of it, so you want to look at it often to see what issues are
+coming up. And when cleaning data, you are often writing very linear (this-line-runs-after-the-last-line) scripts where you want to check your efforts to clean your data after each line. When doing this kind of work (especially if you spend a lot of time moving between programming languages), having one program that will work with different kernels and allows for rich, interactive programming like Jupyter can be very valuable.</p>
+<p>So if you do a lot of interactive data analysis, I would encourage you to give Jupyter Notebooks and Jupyter Labs a try. It might not be the tool you use for everything you do, but its used by enough people and has enough advantages, I think it’s a tool most Data Scientists should have a working familiarity with.</p>
 </div>
+<div class="section" id="3.-Setting-Up-R-with-Jupyter">
+<h2>3. Setting Up R with Jupyter<a class="headerlink" href="#3.-Setting-Up-R-with-Jupyter" title="Permalink to this headline">¶</a></h2>
+<p>When you <a class="reference internal" href="setup_environment.html"><span class="doc">installed Anaconda</span></a>, you actually also installed Jupyter, and you so you can already open up Jupyter and use it with a Python Kernel. However, since most people taking this course are Duke MIDS students who are also doing coursework in R, let’s set up Jupyter to work with R as well.</p>
+<ol class="arabic simple">
+<li>If you do <em>not</em> have R installed, <a class="reference external" href="https://cloud.r-project.org/">download and install it here</a>. If you have R installed, skip to step 2.</li>
+<li>Open R</li>
+<li>Run <code class="docutils literal notranslate"><span class="pre">install.packages(&quot;irkernel&quot;)</span></code></li>
+<li>After installation is complete, execute the command: <code class="docutils literal notranslate"><span class="pre">IRkernel::installspec()</span></code> in R.</li>
+</ol>
+<p>That’s it! As we’ll see in the next set of exercises, you can now run R in Jupyter Lab!</p>
+</div>
+<div class="section" id="4.-Make-sure-Jupyter-Is-Installed">
+<h2>4. Make sure Jupyter Is Installed<a class="headerlink" href="#4.-Make-sure-Jupyter-Is-Installed" title="Permalink to this headline">¶</a></h2>
+<p>To launch Jupyter Lab, open a new command line session and type: <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>. The terminal should end up looking something like this:</p>
+<p><img alt="jupyter_launch_terminal.png" src="_images/jupyter_launch_terminal.png" /></p>
+<p><strong>DON’T CLOSE THAT TERMINAL</strong>. You have to keep that terminal open to keep Jupyter Labs open.</p>
+<p>In addition, a page should open on your default web browser that, hopefully, looks something like this (though on your computer you will probably only see buttons for “Python 3” and “R” under Notebook and Console):</p>
+<p><img alt="jupyter_launch_page" src="_images/jupyter_launch_page.png" /></p>
+<p>If you don’t see a button for <code class="docutils literal notranslate"><span class="pre">R</span></code>, make sure you completed Step 3!</p>
+<p>If you got an error when you tried to run <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> like <code class="docutils literal notranslate"><span class="pre">&quot;Error</span> <span class="pre">executing</span> <span class="pre">Jupyter</span> <span class="pre">command</span> <span class="pre">'lab':</span> <span class="pre">[Errno</span> <span class="pre">2]</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found:</span> <span class="pre">jupyter</span></code> (this might happen if you didn’t install a new installation of Anaconda because you already had it installed, or if you’re using Minicoda), you can make sure Jupyter Lab is installed by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code> from the command line.</p>
+</div>
+<div class="section" id="Jupyter-Lab-Exercises!">
+<h2>Jupyter Lab Exercises!<a class="headerlink" href="#Jupyter-Lab-Exercises!" title="Permalink to this headline">¶</a></h2>
+<p>Click here for some <a class="reference internal" href="exercises/Exercise_jupyterlab.html"><span class="doc">Jupyter Lab exercises</span></a>!</p>
 </div>
 </div>
 
@@ -258,7 +104,7 @@ div.rendered_html tbody tr:hover {
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Programming for DS</a></h1>
+<h1 class="logo"><a href="index.html">Practical Data Science</a></h1>
 
 
 
@@ -268,30 +114,22 @@ div.rendered_html tbody tr:hover {
 
 
 <h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Programming</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_types.html">How Computers Think About Numbers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallelism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="memory_hierarchy.html">Big Data and Memory Hierarchy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Speed</a></li>
-</ul>
-<p class="caption"><span class="caption-text">DS Tools</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="terminal.html">The Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html">Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter Labs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
 <li class="toctree-l1"><a class="reference internal" href="languages.html">Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="terminal.html" title="previous chapter">The Terminal</a></li>
+      <li>Previous: <a href="command_line_part2.html" title="previous chapter">Advanced Command Line Tutorial</a></li>
       <li>Next: <a href="git_and_github.html" title="next chapter">Git and Github</a></li>
   </ul></li>
 </ul>
@@ -324,7 +162,7 @@ div.rendered_html tbody tr:hover {
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

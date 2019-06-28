@@ -40,6 +40,7 @@
 \usepackage{appendix}
 
 \usepackage{enumitem}
+\setlist{nosep}
 
 \renewcommand{\topfraction}{.85}
 \renewcommand{\bottomfraction}{.7}
@@ -91,9 +92,9 @@
 \vspace{.35in}
 
 \begin{center}
-	\textbf{\LARGE{Programming for} }\\
+	\textbf{\LARGE{Practical Data Science:} }\\
 	\vspace*{.05in}
-	\textbf{\LARGE{Data Science} }
+	\textbf{\large{Wrestling with Data \& Answering Questions }}
 \end{center}
 
 
@@ -106,78 +107,123 @@
 
 \section{Course Description}
 
-The aim of this course is to provide an introduction to the principles and concepts of programming. While there will be many similarities between this course and an introductory computer science course, this course is designed specifically for data science, and as such will emphasize methods for analyzing real world data rather than the ``software development'' skills (learning to write applications and programs) often taught in computer science introductory courses.
+Data Science is an intrinsically applied field, and yet all too often students are taught the advanced math and statistics behind data science tools, but are left to fend for themselves when it comes to learning the tools we use to do data science on a day-to-day basis or how to manage actual projects.
 
-The course will be focused in large part on teaching students R, an extremely popular statistical programming language. However, this is not a course \emph{about} R; rather, while we will use R in this course, we will be doing so as a means of teaching generalizable principles that will apply in any programming language.
+This course is designed to fill that gap by (a) providing students the opportunity to learn about and practice working with a variety of tools like the command line, git, github, python, anaconda, and jupyter lab, and (b) helping students develop practical skills for developing data science projects and managing data science workflows. By providing this training, our goal is to ensure all MIDS students (and non-MIDS students interested in data science) have a shared comfort with data science tools, data in all its forms, and project development.
 
-In addition to working with R, this course will also provide training in a number of ancillary tools that are often overlooked in the training of data scientists, but which are absolutely critical to the day-to-day life of a data scientist, including:
+This course will be divided into two parts:
 
 \begin{itemize}
-	\item Git and Github (for collaboration and project management)
-	\item The Command Line / Terminal
-	\item Getting Help Online (no seriously -- there's more to it than you may think!)
-	\item Troubleshooting problems and debugging
+	\item \textbf{Part 1: Data}
+	\item \textbf{Part 2: Science}: This course adopts the view that Data Science is the study of how best to \emph{answer questions} about the world \emph{using quantitative data}.
 \end{itemize}
 
+
+
+
+This course is not be for everyone. If you were a computer science major as an undergraduate or worked in a job that made intense use of Python for Data Science applications, please speak to me after class. With that said, even students who have taken computer science courses may find that this class offers a very different perspective on familiar tools. CS programs tend to be oriented towards a style of programming best suited for software development which can differ substantially from the tools and style used in data science.
+
+\subsection{Pre-Requisites}
+
+This course is intended intended for incoming Masters in Data Science (MIDS) students. As such, the \textbf{only} pre-requisites are two things taught in the MIDS student boot-camp:
+\begin{itemize}
+	\item a familiarity with basic python
+	\item A familiarity with git and github
+\end{itemize}
+
+\emph{MIDS students:}
+The only knowledge assumed is the portion of these topics covered in boot-camp, so unless you skipped (the mandatory) bootcamp, you should be good.
+
+\emph{For non-MIDS students:}
+By ``basic python'' I mean a familiarity with the core Python programming language, including concepts like variables, loops, lists, and dictionaries. Unfortunately, if you haven't worked with Python before, I'm afraid this course may not be for you. (This course will \emph{not} assume familiarity with the Python data science stack (e.g. \texttt{numpy}, \texttt{pandas}), although incoming MIDS students will have had some basic exposure to these packages, and so some lessons may be more challenging for those seeing this material for the first time.)
+
+Git and github are a lot easier to learn than Python, though, so if you know Python but not git and github, talk to me and we can figure something out.
+
+But again, basic familiarity with Python and git are the \textbf{only} pre-requisite. The goal of this course is to ensure all students are comfortable with the tools being taught, regardless of educational or professional background. As such, we will assume \emph{zero} knowledge beyond basic Python and git (and that only because we know it is something to which all MIDS students have already been exposed).
 
 \section{Learning Goals}
 
-By the end of Programming for Data Science, our goal is for you to be able to do all of the following: \\
-
-\textbf{R Learning Goals}
-
-The following are our R-specific learning goals. Learning these skills in R will make learning to do these things in other language much easier, but our focus in this class will just be to empower you to do these things in R.
-
+In Data Science today, the only constant is change. With that in mind, in this course we will not only learn \emph{how} popular tools work, but also:
 \begin{itemize}
-    \item Load data of various formats into R
-    \item Manipulate the data in basic ways (like tabulating results)
-	\item Clean and merge \emph{real world dirty data} for analysis
+	\item the logic that underlies their operation (so when new situations arise you will have a \emph{generalized} understanding of the tool you can use to reason through your problem), and
+	\item how to find help on your own.
 \end{itemize}
 
-\textbf{General Programming Goals}
+In particular, by the end of this course, you will have developed the following abilities in each topic area:
 
-These are goals we will explore in R, but which are inherently more general, and the skills you learn here apply as-learned in other languages and contexts.
-
+\textbf{The Command Line}\\
+\emph{Main Takeaway: The Command Line is just a way to interact with your operating system with text instead of with a mouse.}
 \begin{itemize}
-	\item Organize your workflow for a project
-	\item Program in a manner that minimizes the likelihood of mistakes, and maximizes the likelihood that when mistakes occur, you will catch them
-	\item Find and fix problems (debug) your code
+	\item Explain the value of the command line
+	\item Manipulate files and work with command-line-only tools
+	\item Anticipate the likely syntax of new tools you may come across
 \end{itemize}
 
-\textbf{Ancillary Programming Skills}
-
-These are skills that are rarely taught in classes, but which are absolutely critical to being a successful data scientists in the real world.
-
+\textbf{\texttt{numpy}}\\
+\emph{Main Takeaway: numpy is what makes Python useable for data science.}
 \begin{itemize}
-	\item Collaborate with others using git and github
-	\item Comfortably do basic operations in the command line / terminal.
-	\item Find help online when you get stuck
+	\item Explain \emph{why} numpy and pandas are so crucial to data science in Python
+	\item Manipulate vectors and matrices with \texttt{numpy}
 \end{itemize}
 
-\section{Required Programming Background}
+\textbf{\texttt{pandas}}\\
+\emph{Main Takeaway: pandas is a hack, so if it drives you nuts, it's not your fault.}
+\begin{itemize}
+	\item Read in data of various formats with \texttt{pandas}
+	\item Clean, organize, and reshape real-world data with \texttt{pandas}
+	\item Move back and forth from \texttt{pandas} to \texttt{numpy}
+	\item Pass data from \texttt{pandas} and \texttt{numpy} to \texttt{scikit-learn} functions
+\end{itemize}
 
-{\color{red}\textbf{None.}}
-
-We have \emph{absolutely no expectations that students will have any experience with programming!} This is an introductory course, and save MIDS bootcamp programs, we fully recognize that many students have never worked with statistical software. That's FINE! If you know how to use google and email, you have plenty of experience -- everything else we'll take care of.
-
-If do have experience with a programming language, however, worry not: in my experience, most people who learned to use tools like R, Stata, or Matlab did so in a somewhat haphazard manner. They were given some code, they learned to emulate it, and they can now stitch together code that does what they want. But most students were never taught any of the organizing principles of programming. So if you are one of those students, you may find parts of this course easier than other students, but you will still come away with a new, deeper understanding of these tools that should make you more comfortable and productive in your life as a data scientist.
-
-Note that at times during this course, I may make statements about how the tools we're learning (like R) compare to different tools (like Stata or Python) if there are students with experience in these other tools in the class. However, if we make those comparisons, it is only to help those students the traps one can fall in if one's background is in another language. It is in no way because we \emph{expect} all students to have experience with other tools.
+\textbf{Git and Github}\\
+\emph{Main Takeaway: Bundling changes into discrete chunks is incredibly powerful}
+\begin{itemize}
+	\item Not sure yet...
+\end{itemize}
 
 
-\section{R}
+\textbf{Getting Help Online}\\
+\emph{Main Takeaway: Asking for help effectively takes effort}
+\begin{itemize}
+	\item Find appropriate forums for different types of questions
+	\item Compose requests for help that are likely to get useful responses using Minimal Working Examples (MWEs) and proofs of effort.
+\end{itemize}
 
-In this class we will be focused on teaching you to use a program for statistical analysis called \emph{R} (yup, just the letter).
+\textbf{Debugging}\\
+\emph{Main Takeaway: Debugging as an \textbf{active} exercise}
+\begin{itemize}
+	\item Isolate and analyze bugs quickly
+\end{itemize}
 
-Why R? Because it's currently one of the two most-used programs in data science (the other being Python, which we'll work with in Advanced Programming for Data Science), which means there is a good chance you'll be called upon to use it when working in teams. Moreover, it's a much easier tool to get started with than a language like Python.
+\textbf{Workflow Management}\\
+\emph{Main Takeaway: Projects change, so a good workflow must be adaptive}
+\begin{itemize}
+	\item Organize data science projects in a manner that is robust to future changes
+	\item Organize, document, and comment projects to allow others (and your future self) to easily understand project organization
+\end{itemize}
 
-It is worth emphasizing that we're not learning R because it is necessarily the ``the best'' language. The reality is that there are \emph{lots} of tools for statistical programming, and each has its own strengths and weaknesses (e.g. R, Stata, SPSS, Python, Julia, Matlab, etc., etc.). People often develop strong opinions about which language is \emph{best}, and sometimes pass judgement on people who use other languages. Every programming language has its strengths and weaknesses, and what is ``best'' depends on your use-case (the types of things you are using the language to do). This is true not only because languages themselves have strengths and weaknesses, but also because the tools and packages that have been created for use in different languages differ (e.g. people just haven't made a good package for doing geo-spatial work in Julia yet, for example). And if you're working on teams, you'll also have to make decisions based on the backgrounds of your tool sets. All of which is to say: there is no single \emph{best} language for all purposes. But R is a very popular, strong, general purpose language, so will serve as a great starting point.
+\textbf{Defensive Programming}\\
+\emph{Main Takeaway: To err is human, so we must develop practices to protect ourselves from ourselves}
+\begin{itemize}
+	\item Understand the futility of ``just trying to be careful''
+	\item Compose code that is less likely to contains errors, and where errors that do occur are more likely to be caught.
+\end{itemize}
 
-As a result, over the course of your career you may find yourself gravitating to one tool or another as required by your research. But in providing you with a firm foundation in a very popular language like R, you will not only be learning a tool that will allow you to do most everything you'll want to do in graduate school, but you will also be providing yourself with a solid foundation in \emph{generalizable} skills that you will find useful if you later change platforms.
+\section{Python}
+
+In this class we will primarily be working with Python.
+
+Why Python? Because it's currently one of the two most-used programs in data science (the other being R, which you'll be working with in other classes), which means there is a good chance you'll be called upon to use it when working in teams.
+
+It is worth emphasizing that we're not learning Python because it is necessarily the ``the best'' language. The reality is that there are \emph{lots} of tools for statistical programming, and each has its own strengths and weaknesses (e.g. R, Stata, SPSS, Python, Julia, Matlab, etc., etc.). People often develop strong opinions about which language is \emph{best}, and sometimes pass judgement on people who use other languages. Every programming language has its strengths and weaknesses, and what is ``best'' depends on your use-case (the types of things you are using the language to do). This is true not only because languages themselves have strengths and weaknesses, but also because the tools and packages that have been created for use in different languages differ (e.g. people just haven't made a good package for doing geo-spatial work in Julia yet, for example). And if you're working on teams, you'll also have to make decisions based on the backgrounds of your tool sets. All of which is to say: there is no single \emph{best} language for all purposes. But Python is a very popular, strong, general purpose language, so will serve as a great starting point.
+
+As a result, over the course of your career you may find yourself gravitating to one tool or another as required by your research. But in providing you with a firm foundation in a very popular language like Python, you will not only be learning a tool that will allow you to do most everything you'll want to do in graduate school, but you will also be providing yourself with a solid foundation in \emph{generalizable} skills that you will find useful if you later change platforms.
 
 \section{Class Organization}
 
-In this class we will be ``flipping the classroom'' -- that means that most weeks, you will be \textbf{required} to review tutorials between classes so we can spend our class time doing hands-on programming exercises in an environment where help will be available. These tutorials will not generally be very long, and I \textbf{strongly} recommend that while you read through them you do so with an open programming session so you can just play around a little, trying out the things you learn. The research on learning to program is exceedingly clear on this point: \textbf{the only way to learn to program is to actually program}, so the more time you spend playing with the tools we are using, making mistakes, and troubleshooting, the more you will learn.
+Because data science is an applied discipline, this will be an intensely applied class with \emph{lots} of hands-on exercises.
+
+Because of the importance of practice (and working through problems as they come up), in this class we will be ``flipping the classroom'': most weeks you will be expected to read instructional materials before class, and in class we will do hands-on programming exercises in an environment where help will be available.
 
 
 % \section{Schedule}
