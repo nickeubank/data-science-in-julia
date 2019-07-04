@@ -69,13 +69,6 @@
     "After you're done, if you open a new session of `Cmder` (you have to close any open windows and open new ones), you should be able to type `conda` and get your usual `conda` functionality, or type python and get your normal python functionality!\n",
     "\n"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {

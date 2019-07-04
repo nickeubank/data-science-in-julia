@@ -24,23 +24,77 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "First, let's open the file \"analyze_health.R\" by navigating to where you downloaded `jupyter_lab_exercise` using the file navigator on the left hand pane. If the file navigator not immediately visible, you can open it by clicking the folder icon in at the top of the left sidebar. \n",
+    "First, let's open the file `analyze_health_and_income.R` (make sure it's the `.R` file) by navigating to where you downloaded `jupyter_lab_exercise` using the file navigator on the left hand pane. If the file navigator not immediately visible, you can open it by clicking the folder icon in at the top of the left sidebar. \n",
     "\n",
     "This has now opened a text editor window. To pair it with an active kernel (i.e. a running session of R), we need to right click somewhere inside the file and select \"Create Console for Editor\", then choose to open an R kernel. This will open a new window with the same name as your current text file (\"analyze_health.R\"), but with a different icon (there should be a blue box with a cursor).\n",
     "\n",
-    "This window is your interface to an active R session, and the setup you have now is basically the same as in RStudio. You can enter commands directly into the console window, or you can run a block of code from your text-editor window by highlighting it and hitting Shift-Enter. \n",
+    "This window is your interface to an active R session, and the setup you have now is basically the same as in RStudio:\n",
+    "\n",
+    "![rstudio](../images/rstudio_layout.png)\n",
+    "\n",
+    "You can enter commands directly into the console window, or you can run a block of code from your text-editor window by highlighting it and hitting Shift-Enter. \n",
     "\n",
     "**Exercise 1.1:** run `print('hi')` by typing it directly into your console session.\n",
     "\n",
-    "**Exercise 1.2:** Now run the first few lines of \"analyze_health.R\" by selecting the text and hitting Shift-Enter."
+    "**Exercise 1.2:** Now run the first few lines of \"analyze_health_and_income.R\" by selecting the text and hitting Shift-Enter."
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
+   "cell_type": "markdown",
    "metadata": {},
-   "outputs": [],
-   "source": []
+   "source": [
+    "## Exercise 2: Replicate Spyder Interface\n",
+    "\n",
+    "I will confess I've never loved having the console below the text file, so let's also explore having them side-by-side (in a scheme that looks like the scheme used by Spyder). First, grab the tab of the `analyze_health_and_income` console tab and drag it to the right side of the text window: \n",
+    "\n",
+    "![converting_to_spyder](../images/converting_to_spyder.png)\n",
+    "\n",
+    "Then you'll get something like this:\n",
+    "\n",
+    "![spyder_layout](../images/spyder_layout.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exercise 3: Multiple Kernels\n",
+    "\n",
+    "Now let's open `analyze_health_and_income.py` (note the `py` file suffix: this is a Python file not R file). Create a kernel for this file as well by right clicking on the text file and clicking \"Create A Console for Editor\". This time select Python 3.\n",
+    "\n",
+    "(By default the new console will appear along the bottom, so move it on top of the other console to organize your space:\n",
+    "\n",
+    "![moving_second_console](../images/moving_second_console.png)\n",
+    "\n",
+    "![two_tabs](../images/two_tabs.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exercise 4: Run python code\n",
+    "\n",
+    "Now run your Python code by highlighting text and hitting shift return! Look at that, R and Python, side by side. \n",
+    "\n",
+    "One quirk of Jupyter Lab is that because you can have many open consoles, each text file will only send code to the console specifically created to work with that file. This is different from RStudio, where all executed code runs in one open kernel, and from Spyder, where code runs in whatever session is currently the front-most tab. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exercise 5: Jupyter Notebooks"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Jupyter Lab can also be used to manage your Jupyter Notebooks. In order to get some experience working with a Jupyter Notebook, lets move the analysis we do in this `analyze_health_and_income.py` into a Jupyter Notebook.\n",
+    "\n",
+    "First, download the starter notebook for this exercise here. "
+   ]
   },
   {
    "cell_type": "code",
