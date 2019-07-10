@@ -12,32 +12,20 @@ import numpy as np
 # Download World Development Indicators
 wdi = pd.read_csv("https://media.githubusercontent.com/media/nickeubank/MIDS_Data/master/World_Development_Indicators/wdi_small.csv")
 
-# Get Mortality and GDP per capita for 2015
+# Pivot data
+wdi = wdi[['Country Name', 'Country Code', 'Indicator Name', 'Indicator Code', '2015']]
+wdi = wdi.pivot(index='Country Name', columns='Indicator Name', values='2015')
+wdi = wdi.reset_index()
 
-
-wdi = wdi.rename(columns={'Indicator Name': 'Indicator_Name', 
-                          'Country Name': 'Country_Name',
-                          'Indicator Code': 'Indicator_Code'})
-mortality_and_income = wdi.query("Indicator_Name == 'Mortality rate, under-5 (per 1,000 live births)' | Indicator_Name == 'GDP per capita (constant 2010 US$)'")
-
-mortality_and_income = mortality_and_income[['Country_Name', '2015', "Indicator_Code"]]
-
-# Reshape 
-mortality_and_income = mortality_and_income.pivot(index='Country_Name', 
-                                                  columns='Indicator_Code', 
-                                                  values=['2015'])
-mortality_and_income = mortality_and_income.droplevel(0, axis='columns')
-mortality_and_income = mortality_and_income.reset_index()
-
-
-mortality_and_income['loggdppercap'] = np.log(mortality_and_income['NY.GDP.PCAP.KD'])
+# GDP Per Capita has a REALLY long right tail, so we want to log it for readability. 
+wdi['Log GDP Per Capita'] = np.log(wdi['GDP per capita (constant 2010 US$)'])
 
 # Plot
 from plotnine import *
 
-(ggplot(mortality_and_income, 
-        aes('loggdppercap', 'SH.DYN.MORT')) + 
+(ggplot(wdi, 
+        aes('Log GDP Per Capita', 'Mortality rate, under-5 (per 1,000 live births)')) + 
         geom_point() + 
-        geom_label(aes(label='Country_Name'), size=8) + 
+        geom_label(aes(label='Country Name'), size=8) + 
         geom_smooth()
     )

@@ -1,0 +1,461 @@
+\documentclass[12pt]{article}
+
+
+
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{multirow}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{subfloat}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+% \usepackage[document]{ragged2e}
+\usepackage{verbatim, rotating, paralist}
+\usepackage{enumerate}
+
+\usepackage{natbib}
+
+
+\usepackage{pdfsync}
+\usepackage{latexsym}
+\usepackage{amsthm}
+\usepackage{mathabx}
+
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+\usepackage{dsfont}
+\usepackage{fancyhdr}
+\usepackage{color}
+
+\usepackage{parskip}
+\usepackage{anysize, indentfirst, setspace}
+\usepackage[right=1.75cm, left=1.75cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{epigraph}
+\usepackage{appendix}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.7}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.66}
+\renewcommand{\dbltopfraction}{.66}
+\renewcommand{\dblfloatpagefraction}{.66}
+
+
+
+
+\pagestyle{fancyplain}
+\rhead{\hfill \small \emph{MIDS NUMBER -- Fall 2019}}
+\cfoot{}
+
+\renewcommand{\headrulewidth}{0pt}
+
+
+
+%-------------------------- BEGIN DOCUMENT ----------------------------------%
+\begin{document}
+
+
+\singlespacing
+
+
+
+
+
+
+%------------------------- HEADER ---------------------------------%
+\thispagestyle{empty}
+\begin{minipage}[t]{.5\textwidth}
+	Nicholas Eubank \\
+	 Assistant Research Professor\\
+     \vspace*{0.1cm}
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+	\begin{flushright}  MIDS NUMBER\\
+	Fall \& 2019\\
+    \vspace*{0.1cm}
+\end{flushright}
+\end{minipage}
+
+
+% line
+\line(1,0){499}
+
+\vspace{.35in}
+
+\begin{center}
+	\textbf{\LARGE{Practical Data Science:} }\\
+	\vspace*{.05in}
+	\textbf{\large{Wrangling Data \& Answering Questions }}
+\end{center}
+
+
+
+
+
+
+
+%--------------------------------------------COURSE DESCRIPTION--------------------------------------------------%
+
+\section{Course Description}
+
+Data Science is an intrinsically applied field, and yet all too often students are taught the advanced math and statistics behind data science tools, but are left to fend for themselves when it comes to learning the tools we use to do data science on a day-to-day basis or how to manage actual projects.
+
+This course is designed to fill that gap.
+
+The first portion of the course will provide you with extensive hands-on experience manipulating real (often messy, error ridden, and poorly documented) data using the a range of bread-and-butter data science tools (like the command line, git, github, python, pandas, anaconda, jupyter notebooks, stack overflow, and more). The goal of these exercises is to make you comfortable working with data in most any form using a range of tools. Not only are these skills critical to being an applied data scientist (as any data scientist will tell you, wrestling with data is at least 75\% of what we do every day), but will also help ensure that when you take advanced statistics of machine learning courses, you can focus on understanding concepts being taught instead of staying up all night trying to figure out how to reshape the dataset you need to use to finish the problem set.
+
+In the second portion of the class, we will take a step back from the nuts and bolts of data manipulation and talk about how to approach the central task of data science: answering questions about the world. In particular, we'll discuss how to use backwards design to plan your data science projects, how to refine questions to ensure they are answerable, how to evaluate whether you've actually answered the question you set out to answer, and how to pick the \emph{most appropriate} data science tool based on the question you seek to answer.
+
+
+\subsection{Pre-Requisites}
+
+This course is intended intended for incoming Masters in Data Science (MIDS) students. As such, the \textbf{only} pre-requisites are two things taught in the MIDS student boot-camp:
+\begin{itemize}
+	\item a familiarity with Python, \texttt{numpy}, and \texttt{pandas}
+	\item A familiarity with git and github
+\end{itemize}
+
+\emph{MIDS students:}
+The aim of this course is, in part, to ensure that everyone has a solid foundation from which to build in the program. With that in mind, my goal is to meet you where you are. That means that provided you put an honest effort into the summer courses you were assigned and attended bootcamp, you have met the pre-reqs. If there is material you feel you weren't able to learn from those experiences, the point of this class is to help address those gaps (indeed, that's why we asked you to take a Python Knowledge Self-Assessment -- not to see if you know enough to take this class, but to see what gaps exist in your understanding so that we can tailor the material in this course to meet your needs).
+
+
+\emph{For non-MIDS students:}
+The MIDS students coming into this course have had a reasonable amount of training in (standard) Python, as well as exposure to two important python libraries: \texttt{numpy} and \texttt{pandas}. If you know Python but are not familiar with these libraries, it is definitely possible to keep up in this class, but it will take some extra work on your part. Please come talk to me if this is your situation.
+
+MIDS students also have some experience with git and github. These are easier to pick up than \texttt{numpy} and \texttt{pandas}, but again will require some extra effort on your part.
+
+If you do not have any experience with Python, however, this course is probably not for you, sorry!
+
+\section{Learning Goals}
+
+
+\subsection{Learning Goals for \emph{Data Wrangling} Component}
+
+In Data Science today, the only constant is change. With that in mind, in this course we will not only learn \emph{how} popular tools work, but also:
+\begin{itemize}
+	\item the logic that underlies their operation (so when new situations arise you will have a \emph{generalized} understanding of the tool you can use to reason through your problem), and
+	\item how to find help on your own.
+\end{itemize}
+
+In particular, by the end of this course, you will have developed the following abilities in each topic area:
+
+\textbf{The Command Line}\\
+\emph{Main Takeaway: The Command Line is just a way to interact with your operating system with text instead of with a mouse.}
+\begin{itemize}
+	\item Explain the value of the command line
+	\item Manipulate files and work with command-line-only tools
+	\item Anticipate the likely syntax of new tools you may come across
+\end{itemize}
+
+\textbf{\texttt{numpy}}\\
+\emph{Main Takeaway: numpy is what makes Python useable for data science.}
+\begin{itemize}
+	\item Explain \emph{why} numpy and pandas are so crucial to data science in Python
+	\item Manipulate vectors and matrices with \texttt{numpy}
+\end{itemize}
+
+\textbf{\texttt{pandas}}\\
+\emph{Main Takeaway: pandas is a hack, so if it drives you nuts, it's not your fault.}
+\begin{itemize}
+	\item Read in data of various formats with \texttt{pandas}
+	\item Clean, organize, and reshape real-world data with \texttt{pandas}
+	\item Move back and forth from \texttt{pandas} to \texttt{numpy}
+	\item Pass data from \texttt{pandas} and \texttt{numpy} to \texttt{scikit-learn} functions
+\end{itemize}
+
+\textbf{Git and Github}\\
+\emph{Main Takeaway: Bundling changes into discrete chunks is incredibly powerful}
+\begin{itemize}
+	\item Not sure yet...
+\end{itemize}
+
+
+\textbf{Getting Help Online}\\
+\emph{Main Takeaway: Asking for help effectively takes effort}
+\begin{itemize}
+	\item Find appropriate forums for different types of questions
+	\item Compose requests for help that are likely to get useful responses using Minimal Working Examples (MWEs) and proofs of effort.
+\end{itemize}
+
+\textbf{Workflow Management}\\
+\emph{Main Takeaway: Projects change, so a good workflow must be adaptive}
+\begin{itemize}
+	\item Organize data science projects in a manner that is robust to future changes
+	\item Organize, document, and comment projects to allow others (and your future self) to easily understand project organization
+\end{itemize}
+
+\textbf{Defensive Programming}\\
+\emph{Main Takeaway: To err is human, so we must develop practices to protect ourselves from ourselves}
+\begin{itemize}
+	\item Understand the futility of ``just trying to be careful''
+	\item Compose code that is less likely to contains errors, and where errors that do occur are more likely to be caught.
+\end{itemize}
+
+\subsection{Learning Goals for \emph{Answering Questions} Component}
+
+\section{A Note on Python}
+
+In this class we will primarily be working with Python.
+
+Why Python? Because it's currently one of the two most-used programs in data science (the other being R, which you'll be working with in other classes), which means there is a good chance you'll be called upon to use it when working in teams.
+
+It is worth emphasizing that we're not learning Python because it is necessarily the ``the best'' language. The reality is that there are \emph{lots} of tools for statistical programming, and each has its own strengths and weaknesses (e.g. R, Stata, SPSS, Python, Julia, Matlab, etc., etc.). People often develop strong opinions about which language is \emph{best}, and sometimes pass judgement on people who use other languages. Every programming language has its strengths and weaknesses, and what is ``best'' depends on your use-case (the types of things you are using the language to do). This is true not only because languages themselves have strengths and weaknesses, but also because the tools and packages that have been created for use in different languages differ (e.g. people just haven't made a good package for doing geo-spatial work in Julia yet, for example). And if you're working on teams, you'll also have to make decisions based on the backgrounds of your tool sets. All of which is to say: there is no single \emph{best} language for all purposes. But Python is a very popular, strong, general purpose language, so will serve as a great starting point.
+
+As a result, over the course of your career you may find yourself gravitating to one tool or another as required by your research. But in providing you with a firm foundation in a very popular language like Python, you will not only be learning a tool that will allow you to do most everything you'll want to do in graduate school, but you will also be providing yourself with a solid foundation in \emph{generalizable} skills that you will find useful if you later change platforms.
+
+\section{Class Organization}
+
+Because data science is an applied discipline, this will be an intensely applied class with \emph{lots} of hands-on exercises.
+
+Because of the importance of practice (and working through problems as they come up), in this class we will be ``flipping the classroom'': most weeks you will be expected to read instructional materials before class, and in class we will do hands-on programming exercises in an environment where help will be available.
+
+
+\section{Schedule}
+
+\subsection{Part 1: Data Wrangling}
+
+Because the goal of this class is to ensure everyone has a solid foundation for their time in MIDS, the exact topics we cover and the speed we move will depend largely on what students need. And because the MIDS program radically changed its summer course-work recently, the truth is we're not quite sure what those needs will be. With that in mind, the schedule for the first portion of this course is \emph{extremely} tentative.
+
+\begin{itemize}
+	\item Command Line Basics
+	\item Advanced Command Line  (nano, PATH, etc.)
+	\item Git
+	\item Jupyter Lab \& Notebooks
+	\item Getting Help Online
+	\item Python v. R / variables as pointers
+	\item Anaconda
+	\item Pandas Basics
+	\item Numeric Data Types
+	\item Series
+	\item DataFrames
+	\item IO and Cleaning
+	\item Workflow management
+	\item Merging
+	\item Reshaping
+	\item scikit-learn
+	\item matplotlib \& seaborn / altair
+\end{itemize}
+
+
+\subsection{Part 2: Answering Questions}
+
+\begin{itemize}
+	\item Classes of Questions
+	\item Backwards Project Design
+	\item Tool Selection
+\end{itemize}
+
+
+%--------------------------------------------COURSE ASSIGNMENTS------------------------------------------------%
+% \section{Assignments \& Grading}
+%
+% \subsection{Hands-On Stata Exercises and Problems Sets (25\% of Grade)}
+%
+% Though problem sets can test many important concepts we will cover in this class, our learning goal is for you, the student, to be able to work with real data by the end of this course, and developing that skill requires practice. Throughout the course you will be asked to do several take-home assignments that involve doing basic analyses on real data using Stata.
+%
+% Part of learning to work with real data is learning to work through problems, so these assignments are \emph{individual efforts} -- please do not work with other students. Once you've seen someone else's code, it's very hard to duplicate it and short-circuit the learning process. In light of this, I will hold regular office hours where you are welcome to come and work on the coding exercises and seek help from me as needed.
+%
+% \subsection{Mid-Term Exam.  25\%}
+%
+% \subsection{Final Empirical Research Paper. 25\%}
+%
+% The final project for the class will be an empirical research paper, in which each student (or pair of students if you wish to work in a group of two) provides a basic analysis of real world data. Given the introductory nature of the course, we do not expect these analyses to be too complex, but students are expected to (a) develop a hypothesis about a political science question, (b) use Stata to analyze real data in the service of testing their hypothesis, and (c) discuss some of the limitations of their analysis (especially with respect to the validity of any \emph{causal} inferences they may wish to draw) and how in a perfect world with unlimited time and resources they might address those concerns.
+%
+% \subsection{Participation (25\% of Grade)}
+%
+% While the first portion of the class will consist primarily of learning statistics and Stata, in the second portion of the class there will be lots of in class discussions. So we can make the most of our time together, students should arrive in class having completed their readings and be prepared to discuss the material at hand. With that in mind, participation will be  25\% of your grade in the class.
+%
+% Participation will be graded as follows:\footnote{I borrow this excellent rubric more or less verbatim from the Stanford University Political Science Teaching Liaison Adriane Fresh.}
+%
+% \textbf{A range.}  You are fully \emph{and consistently} engaged in class discussion and activities.  You both listen and contribute actively.  You are well prepared for class.  Having done more than merely read the material, you have spent time thinking \emph{carefully and deeply} about the material's relationship to other materials and ideas presented in previous classes.  Your ideas about the material are \emph{substantive} (either constructive or critical); and they stimulate class discussions.  You question in addition to stating, and you do more than simply offering your opinion, but rather ground opinions that you may offer in the course materials and ideas.  You provide space for other students to share their ideas.  You \emph{build} on the contributions of your fellow students, and you listen and respond respectfully.  \\
+%
+% \textbf{B range.}  You are engaged in class discussion and activities.  You listen and contribute regularly.  You come well-prepared to class having read the material and your contributions show your familiarity, but your level of engagement lacks the depth accumulated through extra time spent thinking about the material.  You show interest and are respectful of the contributions of your fellow students.  \\
+%
+% \textbf{C range.}  You have met the minimum requirements of participation.  You are usually, but not always prepared.  You participate sometimes, but not regularly.  The comments that you offer show a basic familiarity with the materials, but do not help to build a coherent or productive discussion.  Your engagement with the contributions of your fellow students is minimal.  \\
+%
+% \textbf{D range.}  You have not met the minimum requirements of participation.  You are unprepared for class.  You have not read with the material with sufficient engagement to know even the most basic elements.  The contributions that you offer derail discussion, or you do not make contributions.  You are not engaged in actively listening or responding to the contributions of your fellow students.   \\
+%
+% \textbf{As should be clear from this rubric, above all it is important to emphasize that participation is evaluated on the basis of \emph{quality} and \emph{consistently}, \emph{not} quantity. }
+%
+%
+%
+%
+% \subsection{Late Assignments, Make Up Exams and Extra Credit}
+%
+%
+% \textbf{Grading}
+% All assignments will be given a numerical score on a 0-100 scale.  These scores will be multiplied by the value of the assignment (see above) and the following scale will be used to assign a final letter grade.  \\
+%
+% \hspace*{.2in} 98-100 A+ 	\hspace*{.6in}  88-80.9 B+  	\hspace*{.57in} 78-79.9 C+  		\hspace*{.44in} 60-70 D  	\\
+% \hspace*{.2in} 93-97.9 A	\hspace*{.68in} 83-87.9 B  	\hspace*{.695in} 73-77.9 C		\hspace*{.57in} below 60 D\\
+% \hspace*{.2in} 90-92.9 A- 	\hspace*{.63in} 	80-82.9 B- 	\hspace*{.64in} 70-72.9 C-	\\
+%
+%
+% \section{Course Schedule}
+%
+% \setlist[enumerate,2]{leftmargin=0.5cm}
+% \setlist[itemize,1]{leftmargin=0cm}
+%
+%
+% \vspace{.4in}
+% \begin{center}
+% 	\textbf{PART I. R}
+% \end{center}
+% \vspace{.2in}
+%
+% \begin{enumerate}[label=\textbf{Week \arabic*:}]
+% 	\item \textbf{Intro to R}
+% 	\begin{enumerate}[label=Class \arabic*:]
+% 		\item Getting to Know R
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/introduction.html}{Welcome to R!}
+% 		\end{itemize}
+% 		\item Vectors
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/vectors.html}{Vectors}
+% 		\end{itemize}
+% 	\end{enumerate}
+%
+% 	\item \textbf{Intro to R (Continued); Cleaning and Manipulation}
+% 	\begin{enumerate}[label=Class \arabic*:]
+% 		\item Datasets
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/dataset-basics.html}{dataframes}
+% 		\end{itemize}
+% 		\item Manipulating Data
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/modifying-data.html}{Manipulating Data}
+% 		\end{itemize}
+% 	\end{enumerate}
+%
+% 	\item \textbf{Merging Data; Plotting}
+% 	\begin{enumerate}[label=Class \arabic*:]
+% 		\item Merging Data
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/merging-appending.html}{Merging Data}
+% 		\end{itemize}
+% 		\item Plotting
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/plotting.html}{Plotting Data}
+% 		\end{itemize}
+% 	\end{enumerate}
+%
+% 	\item \textbf{Loops and Functions}
+% 	\begin{enumerate}[label=Class \arabic*:]
+% 		\item For-Loops
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/loops.html}{Loops}
+% 		\end{itemize}
+% 		\item Functions
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/functions.html}{Functions}
+% 		\end{itemize}
+% 	\end{enumerate}
+%
+% 	\item \textbf{Collapsing and Reshaping; Functions}
+% 	\begin{enumerate}[label=Class \arabic*:]
+% 		\item Collapsing and Reshaping
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/collapsing.html}{Collapsing}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/reshaping.html}{Reshaping}
+% 		\end{itemize}
+% 		\item Functions
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/functions.html}{Functions}
+% 		\end{itemize}
+% 	\end{enumerate}
+%
+% 	\item \textbf{R Wrap-Up}
+% 	\begin{enumerate}[label=Class \arabic*:]
+% 		\item Lists
+% 		\begin{itemize}
+% 			\item Read Before Class: \href{https://learnr4ds.com/html/lists.html}{Lists}
+% 		\end{itemize}
+% 		\item To Be Decided...
+% 	\end{enumerate}
+% \end{enumerate}
+
+\vspace{.4in}
+\begin{center}
+	\textbf{PART II. The Tools of Data Science No One Taught You}
+\end{center}
+\vspace{.2in}
+
+\begin{enumerate}[label=\textbf{Week \arabic*:}]
+	\setcounter{enumi}{7}
+	\item \textbf{The Terminal / Command Line}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Command Line Basics
+		\begin{itemize}
+			\item Read: \href{https://www.programming4ds.com/html/terminal.html}{What is the terminal?}
+			\item Do: \href{https://campus.datacamp.com/courses/introduction-to-shell-for-data-science/}{DataCamp Intro to Shell for Data Science, Parts 1 (Modifying Files and Directories) and 2 (Manipulating Data)}
+		\end{itemize}
+		\item R \& Anaconda
+		\begin{itemize}
+			\item Find intro to anaconda or something??
+		\end{itemize}
+	\end{enumerate}
+
+	\item \textbf{Git and Github}
+	\begin{enumerate}[label=Class \arabic*:]
+		\item Git Basics
+		\begin{itemize}
+			\item Read: \href{https://www.programming4ds.com/html/git_and_github.html}{Git and Github}
+			\item Do: \href{http://jlord.us/git-it/}{Git-It Tutorial}
+			\item Maybe: \href{http://swcarpentry.github.io/git-novice/03-create/index.html}{Software carpentry?}
+		\end{itemize}
+		\item Collaborating on Github
+		\begin{itemize}
+			\item Find materials!
+		\end{itemize}
+	\end{enumerate}
+	\item \textbf{Getting help online; Jupyter Labs}
+	\item \textbf{Debugging and Troubleshooting}
+	\item \textbf{Workflow management}
+\end{enumerate}
+
+% \vspace{.4in}
+% \begin{center}
+% 	\textbf{PART III. Programming, a CS Perspective}
+% \end{center}
+% \vspace{.2in}
+%
+% \begin{itemize}
+% 	\item Week 13: Defensive Programming, Decomposition
+% 		\begin{itemize}
+% 			\item Read: \href{http://www.programming4ds.com/html/defensive_programming.html}{Defensive Programming}
+% 			\item Do: Exercises??
+% 		\end{itemize}
+%
+%
+% 	\item Week 14: More on Data Types (Floats, Ints, Strings, etc.)
+% 	\begin{itemize}
+% 		\item Read: \href{http://www.programming4ds.com/html/data_types.html}{Data Types}
+% 		\item Do: Exercises??
+% 	\end{itemize}
+%
+% \end{itemize}
+
+\vspace{.4in}
+\begin{center}
+	\textbf{PART IV. Other Languages}
+\end{center}
+\vspace{.2in}
+
+\begin{itemize}
+	\item Week 15: Trade-offs of Different languages; Python
+	\item Week 16: Python Libraries for Data Science (numpy, pandas)
+\end{itemize}
+
+
+
+\end{document}
