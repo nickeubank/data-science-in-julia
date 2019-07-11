@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Practical Data Science'
+project = 'Practical DS'
 copyright = '2019, Nick Eubank'
 author = 'Nick Eubank'
 
@@ -115,7 +115,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'CSforDSdoc'
+htmlhelp_basename = 'PracticalDS'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -142,7 +142,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'CSforDS.tex', 'CS for DS Documentation',
+    (master_doc, 'practicalDS.tex', 'Practical Data Science Documentation',
      'Nick Eubank', 'manual'),
 ]
 
@@ -163,8 +163,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'CSforDS', 'CS for DS Documentation',
-     author, 'CSforDS', 'One line description of project.',
+    (master_doc, 'PracticalDS', 'PracticalDS',
+     author, 'CSforDS', 'PracticalDS',
      'Miscellaneous'),
 ]
 
