@@ -43,7 +43,7 @@ Reminders:
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :hidden:
 
     Command Line Basics <command_line_part1>
