@@ -6,22 +6,20 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>But what are pointers really? &#8212; Practical Data Science  documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <title>Variables as Pointers Exercises &#8212; Practical DS  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How Computers Think About Numbers" href="ints_and_floats.html" />
-    <link rel="prev" title="The Jupyter Project" href="jupyter.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -236,46 +234,13 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<p>Variables as Pointers</p>
+<div class="section" id="Variables-as-Pointers-Exercises">
+<h1>Variables as Pointers Exercises<a class="headerlink" href="#Variables-as-Pointers-Exercises" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-julia notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-julia notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-julia notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="But-what-are-pointers-really?">
-<h1>But what are pointers <em>really</em>?<a class="headerlink" href="#But-what-are-pointers-really?" title="Permalink to this headline">¶</a></h1>
-<p>Imagine an old woman sitting in a small room. She is <em>very</em> smart — if you give her a math problem she can do it almost instantly — but she’s also really bad a multi-tasking, and has a terrible memory. In fact, she can only remember about 16 numbers at a time.</p>
-<p>This old woman is your processor. And I’m not joking about only remembering 16 numbers at a time – that’s all your processor has immediate access to: 16 numbers in tiny memory banks called “registers”.</p>
-<p>Outside the room where this woman sits is a vast library with shelves upon shelves of books. The woman knows this library exists, but certainly has no way of remembering where everything is. This is your computer memory.</p>
-<p>The woman is assisted by a small team of children. If the woman wants a book, she can give a child the call-number of a book, and the child can go get it. But she has to know the call number first. This is the process of retreiving data from memory – if the processor wants to, say, modify a variable, she has to first get the memory address of the variable, then send a child to go get it. And this can take a <em>lot</em> of time compared to how long it takes for the woman to do actual calculations.</p>
-<p>Finally, when there’s a job to be done, the woman is given a big book of instructions. This is the code she’s being asked to execute. This code will often provide the call-numbers the woman needs to start a job, allowing her to get started.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-julia notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
 </div>
@@ -289,7 +254,7 @@ div.rendered_html tbody tr:hover {
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Practical Data Science</a></h1>
+<h1 class="logo"><a href="../index.html">Practical DS</a></h1>
 
 
 
@@ -299,32 +264,30 @@ div.rendered_html tbody tr:hover {
 
 
 <h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html">Command Line Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup_environment.html">Setting Up Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python v. R</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html">Numbers in Computers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
-<li class="toctree-l1"><a class="reference internal" href="languages.html">Programming Languages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part1.html"> Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part2.html"> Command Line, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_environment.html"> Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html"> Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">How Computers Think About Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html#Exercises!">Exercises!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git_and_github.html"> Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help.html"> Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html"> Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../defensive_programming.html"> Defensive Programming</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="jupyter.html" title="previous chapter">The Jupyter Project</a></li>
-      <li>Next: <a href="ints_and_floats.html" title="next chapter">How Computers Think About Numbers</a></li>
+  <li><a href="../index.html">Documentation overview</a><ul>
   </ul></li>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
@@ -353,7 +316,7 @@ div.rendered_html tbody tr:hover {
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/pointers.ipynb.txt"
+      <a href="../_sources/exercises/Exercise_variables_as_pointers.ipynb.txt"
           rel="nofollow">Page source</a>
     </div>
 

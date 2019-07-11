@@ -3,8 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Course Site for Practical Data Science!
-==================================================
+Welcome to Practical Data Science!
+==================================
+
+**The course site for Duke MIDS Fall 2019 Practical Data Science Course**
 
 **Warning: This site is a work in progress!**
 
@@ -22,91 +24,33 @@ In the second portion of the class, we will take a step back from the nuts and b
 Course Syllabus
 ---------------
 
-`The full syllabus for this course can be downloaded here <https://github.com/nickeubank/programming4ds/raw/master/syllabus/Syllabus_PracticalDataScience.pdf>`_. Please note that this syllabus is subject to change up until he first day of class. 
+`The full syllabus for this course can be downloaded here <https://github.com/nickeubank/practicaldatascience/raw/master/syllabus/Syllabus_PracticalDataScience.pdf>`_. Please note that this syllabus is subject to change up until he first day of class. 
 
 Class Schedule
 --------------
 
 
-+--------------------+---------+---------+------------------------------------------+
-| Week Starting Date | Week    | Class   | Topic                                    |
-+--------------------+---------+---------+------------------------------------------+
-| 26-Aug             | Week 1  | Class 1 | Intro                                    |
-+--------------------+---------+---------+------------------------------------------+
-| 26-Aug             | Week 1  | Class 2 | Command Line Basics                      |
-+--------------------+---------+---------+------------------------------------------+
-| 2-Sep              | Week 2  | Class 1 | Advanced Command Line                    |
-+--------------------+---------+---------+------------------------------------------+
-| 2-Sep              | Week 2  | Class 2 | Jupyter Lab / Notebooks                  |
-+--------------------+---------+---------+------------------------------------------+
-| 9-Sep              | Week 3  | Class 1 | Python v. R / variables as pointers      |
-+--------------------+---------+---------+------------------------------------------+
-| 9-Sep              | Week 3  | Class 2 | Numpy Basics                             |
-+--------------------+---------+---------+------------------------------------------+
-| 16-Sep             | Week 4  | Class 1 | Numpy Numeric Data Types                 |
-+--------------------+---------+---------+------------------------------------------+
-| 16-Sep             | Week 4  | Class 2 | Pandas: Series & DataFrames              |
-+--------------------+---------+---------+------------------------------------------+
-| 23-Sep             | Week 5  | Class 1 | Pandas: Indices & Missing                |
-+--------------------+---------+---------+------------------------------------------+
-| 23-Sep             | Week 5  | Class 2 | Pandas: Loading and saving data          |
-+--------------------+---------+---------+------------------------------------------+
-| 30-Sep             | Week 6  | Class 1 | Pandas: Cleaning                         |
-+--------------------+---------+---------+------------------------------------------+
-| 30-Sep             | Week 6  | Class 2 | Pandas: Merging                          |
-+--------------------+---------+---------+------------------------------------------+
-| 7-Oct              | Week 7  | Class 1 | FALL BREAK                               |
-+--------------------+---------+---------+------------------------------------------+
-| 7-Oct              | Week 7  | Class 2 | Pandas: Groupby / Split Apply Combine    |
-+--------------------+---------+---------+------------------------------------------+
-| 14-Oct             | Week 8  | Class 1 | Pandas: Reshaping                        |
-+--------------------+---------+---------+------------------------------------------+
-| 14-Oct             | Week 8  | Class 2 | Pandas: Categorical Data; Eval and Query |
-+--------------------+---------+---------+------------------------------------------+
-| 21-Oct             | Week 9  | Class 1 | Collaborating using Github               |
-+--------------------+---------+---------+------------------------------------------+
-| 21-Oct             | Week 9  | Class 2 | Getting Help Online                      |
-+--------------------+---------+---------+------------------------------------------+
-| 28-Oct             | Week 10 | Class 1 | Defensive Programming                    |
-+--------------------+---------+---------+------------------------------------------+
-| 28-Oct             | Week 10 | Class 2 | Plotting with plotnine                   |
-+--------------------+---------+---------+------------------------------------------+
-| 4-Nov              | Week 11 | Class 1 | Statistics with statsmodels              |
-+--------------------+---------+---------+------------------------------------------+
-| 4-Nov              | Week 11 | Class 2 | Machine Learning with sckikit-learn      |
-+--------------------+---------+---------+------------------------------------------+
-| 11-Nov             | Week 12 | Class 1 | Strings                                  |
-+--------------------+---------+---------+------------------------------------------+
-| 11-Nov             | Week 12 | Class 2 | UNSCHEDULED FOR FLEXIBILITY              |
-+--------------------+---------+---------+------------------------------------------+
-| 18-Nov             | Week 13 | Class 1 | UNSCHEDULED FOR FLEXIBILITY              |
-+--------------------+---------+---------+------------------------------------------+
-| 18-Nov             | Week 13 | Class 2 | Data Science: Questions                  |
-+--------------------+---------+---------+------------------------------------------+
-| 25-Nov             | Week 14 | Class 1 | Data Science: Backwards Design           |
-+--------------------+---------+---------+------------------------------------------+
-| 25-Nov             | Week 14 | Class 2 | THANKSGIVING BREAK                       |
-+--------------------+---------+---------+------------------------------------------+
-| 2-Dec              | Week 15 | Class 1 | Data Science: Backwards Design II        |
-+--------------------+---------+---------+------------------------------------------+
-| 2-Dec              | Week 15 | Class 2 | Project Proposal Workshopping            |
-+--------------------+---------+---------+------------------------------------------+
-| 9-Dec              | Week 16 | Class 1 | Project Proposal Workshopping            |
-+--------------------+---------+---------+------------------------------------------+
-| 9-Dec              | Week 16 |         | FINALS BEGIN DEC 11TH                    |
-+--------------------+---------+---------+------------------------------------------+
+.. csv-table:: 
+   :file: class_schedule.csv
+   :widths: 15, 15, 35, 35
+   :header-rows: 1
+
+Reminders: 
+
+- **JVP**: `Python Data Science Handbook: Essential Tools for Working with Data <https://www.amazon.com/Python-Data-Science-Handbook-Essential-dp-1491912057/dp/1491912057>`_ by Jake VanderPlas.
+- **WM**: `Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, Second Edition <https://www.amazon.com/gp/product/1491957662>`_ by Wes McKinney.
 
 
-Website TOC: 
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
     Command Line Basics <command_line_part1>
     Command Line, Advanced  <command_line_part2>
     Setting Up Python <setup_environment>
     Jupyter <jupyter>
-    Python v. R <pointers>
+    Python v. R: Pointers <pointers>
     Numbers in Computers <ints_and_floats>
     Git and Github <git_and_github>
     Getting Help Online <getting_help>
