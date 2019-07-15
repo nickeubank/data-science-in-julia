@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Workflow Management &#8212; Practical DS  documentation</title>
+    <title>Workflow Management &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -18,6 +18,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Numbers in Computers" href="ints_and_floats.html" />
+    <link rel="prev" title="Defensive Programming" href="defensive_programming.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -237,8 +239,8 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Workflow-Management">
 <h1>Workflow Management<a class="headerlink" href="#Workflow-Management" title="Permalink to this headline">¶</a></h1>
 <p>A key part of being a successful data scientist is keep track of all the data that goes into a project, the various manipulations that are performed on that data, and final results. In this tutorial, I outline some principles and pratices that I have found exceedingly useful in managing my workflows over the years. Workflow management can be very personal, so feel free to take from this what you will.</p>
-<div class="section" id="1.-File-Numbering">
-<h2>1. File Numbering<a class="headerlink" href="#1.-File-Numbering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="File-Numbering">
+<h2>File Numbering<a class="headerlink" href="#File-Numbering" title="Permalink to this headline">¶</a></h2>
 <p>A key feature of data science workflows is that they are often sequential: code for importing data is meant to be run before code for cleaning data, and code for cleaning is meant to be run before analysis. With that in mind, I am an advocate of pre-fixing all files with a number. For example, a small project might have three files of the following structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="n">_import_data</span><span class="o">.</span><span class="n">py</span>
 <span class="mi">20</span><span class="n">_clean_data</span><span class="o">.</span><span class="n">py</span>
@@ -254,8 +256,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="2.-Use-lots-of-small-files">
-<h2>2. Use lots of small files<a class="headerlink" href="#2.-Use-lots-of-small-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Use-lots-of-small-files">
+<h2>Use lots of small files<a class="headerlink" href="#Use-lots-of-small-files" title="Permalink to this headline">¶</a></h2>
 <p>OK, you might ask, but why do I need lots of files at all? Why not just one big “project” file? The answer is twofold.</p>
 <p>The first is that it’s easier to debug small files. The only way to <em>really</em> know if your code works is to run it from start to finish in a clean session of whatever program you’re using (R, Stata, Python, Julia). That way you know that if the code works, it works because everything you need is in the file, and that the code isn’t running because you manually created an important variable that’s not in the code, but is already in memory. But if you’re entire project is in one many-thousand-line
 file, running that file takes forever. Moreover, when a problem occurs in that giant file, it could have lots of sources. Working with smaller files (a couple hundred lines at most) makes it much easier to test the file quickly, and makes it easier to find the source of problems when they occur. Moreover, small files with descriptive titles make it easier to navigate your project. That means if at some point you realize there’s a problem with your data imports (wait, why am I missing three days
@@ -263,15 +265,15 @@ of data??), it’s very clear where you need to make changes.</p>
 <p>The second reason is perhaps even more important. In my experience, we aren’t really smart enough to work with files that do more than one or two things. Your computer is more than happy to save thousands of lines of code in a single file called <code class="docutils literal notranslate"><span class="pre">my_data_science_project.py</span></code>. The problem is that it’s very hard for <em>you</em> to look at a file with thousands of lines of code and answer the question “is the code in this file accomplishing what I want this file to accomplish?”. If, by contrast, you
 have a smaller file that does one thing in much less code, it’s easier to evaluate that small chunk of code and decide if it accomplishes the goal set-out by the file’s title (importing your data).</p>
 </div>
-<div class="section" id="3.-Carefully-manage-your-source-data">
-<h2>3. Carefully manage your source data<a class="headerlink" href="#3.-Carefully-manage-your-source-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Carefully-manage-your-source-data">
+<h2>Carefully manage your source data<a class="headerlink" href="#Carefully-manage-your-source-data" title="Permalink to this headline">¶</a></h2>
 <p><strong>Every</strong> data science project should have a folder called something like <code class="docutils literal notranslate"><span class="pre">source_data</span></code> (or, if you’re also numbering folders, <code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>). This is the folder where you keep the input data for your project, the data you got from somewhere else you wish to analyze. This may be the raw results from a survey, data you downloaded from a government source, or data provided to you from another department.</p>
 <p><strong>YOU SHOULD NEVER, EVER, EVER MODIFY THE FILES IN THIS FOLDER</strong></p>
 <p>Files in this folder are sacrosanct. You can <em>read</em> them into your programs (obviously, you have to), but you should never <em>re-save</em> them. After you read them in, if you need to save anything, <em>you save it somewhere else</em>.</p>
 <p>The reason is that you never want to risk corrupting your source data. If you have raw survey data, you never want to, say, modify those results directly, because what if you make a mistake? Your survey data is now corrupted, and (a) there’s no record of that corruption, and (b) if you didn’t keep backups of your raw data (which you should!) you’ve lost irreplaceable data.</p>
 </div>
-<div class="section" id="3.-Folder-Strutures">
-<h2>3. Folder Strutures<a class="headerlink" href="#3.-Folder-Strutures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Folder-Strutures">
+<h2>Folder Strutures<a class="headerlink" href="#Folder-Strutures" title="Permalink to this headline">¶</a></h2>
 <p>With that mind, I usually work with the following top-level folder structure in my projects:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>: Raw inputs to this project, taken from other sources. Data in this folder should never be modified by code in this project.</li>
@@ -315,22 +317,31 @@ have a smaller file that does one thing in much less code, it’s easier to eval
 
 
 <h3>Navigation</h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html"> Command Line Basics</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html"> Command Line, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part2.html"> Command Line, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_environment.html"> Setting Up Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html"> Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html"> Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html"> Plotting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html"> Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html"> Getting Help Online</a></li>
-<li class="toctree-l1"><a class="reference internal" href="languages.html"> Programming Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html"> Defensive Programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> Workflow Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#File-Numbering">File Numbering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Use-lots-of-small-files">Use lots of small files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Carefully-manage-your-source-data">Carefully manage your source data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Folder-Strutures">Folder Strutures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html"> Numbers in Computers</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="defensive_programming.html" title="previous chapter">Defensive Programming</a></li>
+      <li>Next: <a href="ints_and_floats.html" title="next chapter">Numbers in Computers</a></li>
   </ul></li>
 </ul>
 </div>

@@ -14,7 +14,7 @@
     "\n",
     "\n",
     "\n",
-    "## **Adding Tests**\n",
+    "## Adding Tests\n",
     "\n",
     "If we could only adopt one practice to improve the quality of our code, my vote would be for the addition of tests. Tests are simple true-false statements users place in their code. A test checks for a certain condition (like whether the sample size in a regression is what you expect), and if the condition is not met, stops your code and alerts you to the problem. Right now, many users may say \"Yeah, I always check that kind of stuff by hand when I'm writing my code. Why do I need to add tests?\" The answer is four-fold:\n",
     "\n",
@@ -23,7 +23,7 @@
     "3.  **Catch your problems faster.** This is less about code integrity than sanity, but a great upside to tests is that they ensure that if a mistake slips into your code, you become aware of it quickly, making it easier to identify and fix the changes that caused the problem.\n",
     "4.  **Tests catch more than anticipated problems.** When problems emerge in code, they often manifest in lots of different ways. Duplicate observations, for example, will not only lead to inaccurate observation counts, but may also give rise to bizarre summary statistics, bad subsequent merges, etc. Thus adding tests not only guards against errors we've thought of, but may also guard against errors we don't anticipate during the test writing process.\n",
     "\n",
-    "### **Writing Tests**\n",
+    "### Writing Tests\n",
     "\n",
     "Tests are easy to write in any language. In Stata, for example, tests can be performed using the `assert` statement. For example, to test whether your data set has 100 observations or that a variable meant to hold percentages has reasonable values, you could write:\n",
     "\n",
@@ -45,7 +45,7 @@
     "stopifnot(df$percent_employed > 0 & df$percent_employed < 100)\n",
     "```\n",
     "\n",
-    "## **Never Transcribe**\n",
+    "## Never Transcribe\n",
     "\n",
     "We've already covered tricks to maximize the probability we catch our mistakes, but how do we minimize the probability they will occur? If there is anything we learned at the _QJPS_, it is that authors should never transcribe numbers from their statistical software into their papers by hand. This was _easily_ the largest source of replication issues we encountered, as doing so introduced two types of errors:\n",
     "\n",
@@ -54,7 +54,7 @@
     "\n",
     "How do you avoid this problem? For LaTeX users, I strongly suggest tools that export `.tex` files that can be pulled directly into LaTeX documents. I also suggest users not only do this for tables - which is increasingly common - but also statistics that appear in text. In your code, generate the number you want to cite, convert it to a string, and save it as a `.tex` file (e.g. `exported_statistic.tex`). Then in your paper, simply add a `\\input{exported_statistic.tex}`call, and LaTeX will insert the contents of that `.tex` file verbatim into your paper. Directly integrating output is somewhat harder to do if you work in Word, but is still feasible. For example, most packages that generate`.tex` files that can be easily integrated into LaTeX also often have options to export to `.txt` or `.rtf` files that you can easily use in Word. `write.table()` in R or `esttab` in Stata, for example, will both create output of this type you can put in a Word document. These tools can be used to generate tables can either be (a) copied whole-cloth into Word by hand (minimizing the risk of mis-transcriptions that may occur when typing individual values), or (b) using Word's _[Link to Existing File](https://support.office.com/en-us/article/Insert-an-object-in-Word-or-Outlook-8fc1ea53-0e01-4603-a4cf-98c49b6ea3f5)_ feature to connect your Word document to the output of your code in a way that ensures the Word doc loads the most recent version of the table every time Word is opened. Some great tips for combining R with Word [can be found here](http://stanford.edu/~ejdemyr/r-tutorials/tables-in-r/).\n",
     "\n",
-    "## **Style Matters**\n",
+    "## Style Matters\n",
     "\n",
     "Formatting isn't just about aesthetics, it also makes it easier to read your code and thus recognize potential problems. Here are a few tips:\n",
     "\n",
@@ -73,7 +73,7 @@
     "\n",
     "[A full style guide for R can be found here](http://adv-r.had.co.nz/Style.html), and a [Stata style guide can be found here](https://michaelshill.net/2015/07/31/in-stata-coding-style-is-the-essential/).\n",
     "\n",
-    "## **Don't Duplicate Information**\n",
+    "## Don't Duplicate Information\n",
     "\n",
     "Tricks to minimize the probability of errors often require a little more sophisticated programming, so they won't be for everyone (tests, I feel, are more accessible to everyone). Nevertheless, here's another valuable practice: **Never replicate information.** Information should only be expressed once in a file. For example, say you want to drop observations if the value of a set of variables is greater than a common cutoff (just assume this is something you want to do -- the specific operation is not important). In Stata, for example, you could do this by:\n",
     "\n",
@@ -129,15 +129,6 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "stopifnot(1==1)"
-   ]
-  },
-  {
-   "cell_type": "code",
    "execution_count": null,
    "metadata": {},
    "outputs": [],
@@ -160,5 +151,5 @@
   }
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }

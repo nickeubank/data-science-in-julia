@@ -18,7 +18,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 1. Installing Anaconda\n",
+    "## Installing Anaconda\n",
     "\n",
     "The first thing we need to do is download the Anaconda Python distribution. The Anaconda distribution is not the only way to get Python – indeed, there’s a good chance a version of Python is already installed on your computer – but the Anaconda installation does a number of very nice things:\n",
     "\n",
@@ -41,7 +41,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 2. Change the Default Channel\n",
+    "## Change the Default Channel\n",
     "\n",
     "One of the main purposes of Anaconda is to help you install and manage Python packages. When installing and updated packages, the Anaconda software actually has the ability to pull packages from any number of sources. As of mid-2019, there's one group that provides the best source for packages: `conda-forge`. So to make that your system's default, open the command line (after installing Anaconda -- if it was open while installing this won't work) and type the following two commands:\n",
     "\n",

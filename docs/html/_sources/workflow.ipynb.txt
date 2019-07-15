@@ -13,7 +13,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 1. File Numbering\n",
+    "## File Numbering\n",
     "\n",
     "A key feature of data science workflows is that they are often sequential: code for importing data is meant to be run before code for cleaning data, and code for cleaning is meant to be run before analysis. With that in mind, I am an advocate of pre-fixing all files with a number. For example, a small project might have three files of the following structure:\n",
     "\n",
@@ -39,7 +39,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 2. Use lots of small files\n",
+    "## Use lots of small files\n",
     "\n",
     "OK, you might ask, but why do I need lots of files at all? Why not just one big \"project\" file? The answer is twofold. \n",
     "\n",
@@ -52,7 +52,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 3. Carefully manage your source data\n",
+    "## Carefully manage your source data\n",
     "\n",
     "**Every** data science project should have a folder called something like `source_data` (or, if you're also numbering folders, `00_source_data`). This is the folder where you keep the input data for your project, the data you got from somewhere else you wish to analyze. This may be the raw results from a survey, data you downloaded from a government source, or data provided to you from another department. \n",
     "\n",
@@ -67,7 +67,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 3. Folder Strutures\n",
+    "## Folder Strutures\n",
     "\n",
     "With that mind, I usually work with the following top-level folder structure in my projects:\n",
     "\n",
@@ -112,9 +112,9 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.8"
+   "version": "3.7.3"
   }
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }

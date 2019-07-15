@@ -1,41 +1,42 @@
-﻿Week of,Class,Topic,Do Before Class
-26-Aug,Class 1,Intro,N/A
-26-Aug,Class 2,Command Line Basics,"- `Command Line Basics <command_line_part1.ipynb>`_
+﻿Week of,Day,Topic,Do Before Class,In-Class Exercise
+26-Aug,Mon,Intro,N/A,
+26-Aug,Wed,Command Line Basics,"- `Command Line Basics <command_line_part1.ipynb>`_
 - Read and sign syllabus
-"
-2-Sep,Class 1,Advanced Command Line,"- `Advanced Command Line <command_line_part2.ipynb>`_
-"
-2-Sep,Class 2,Jupyter Lab / Notebooks,"- `Setup Python <setup_environment.ipynb>`_
-- `Jupyter Tutorial <jupyter.ipynb>`_"
-9-Sep,Class 1,Python v. R / variables as pointers,- `Python v R: Pointers <python_v_r.ipynb>`_
-9-Sep,Class 2,Numpy Basics,"- Why Numpy?
-- JVP pp 33-77"
-16-Sep,Class 1,Numpy Numeric Data Types,- `Numbers in Computer <ints_and_floats.ipynb>`_
-16-Sep,Class 2,Pandas: Series & DataFrames,- JVP pp 98 - 114
-23-Sep,Class 1,Pandas: Indices & Missing,- JVP pp 115-139
-23-Sep,Class 2,Pandas: Loading and saving data,- WM Chapter 6
-30-Sep,Class 1,Pandas: Cleaning,- WM Chapter 7
-30-Sep,Class 2,Pandas: Merging,- JVP pp 149 - 157
-7-Oct,Class 1,FALL BREAK,
-7-Oct,Class 2,Pandas: Reshaping,- WM 8.3
-14-Oct,Class 1,Pandas: Groupby / Split Apply Combine,- WM Chapter 10
-14-Oct,Class 2,Pandas: Categorical Data; Eval and Query,"- WM 12.1
-- JVP pp 208 - 213"
-21-Oct,Class 1,Collaborating using Github,
-21-Oct,Class 2,Getting Help Online,"Forums, MWE"
-28-Oct,Class 1,Defensive Programming,https://thepoliticalmethodologist.com/2016/06/06/embrace-your-fallibility-thoughts-on-code-integrity/
-28-Oct,Class 2,Plotting with plotnine,
-4-Nov,Class 1,Statistics with statsmodels,- WM Chapter 13
-4-Nov,Class 2,Machine Learning with sckikit-learn,- JVP pp 331 - 359
-11-Nov,Class 1,Strings,"- https://docs.python.org/3/tutorial/introduction.html#strings
-- https://realpython.com/python-data-types/#strings
-- Computerphile: https://www.youtube.com/watch?v=MijmeoH9LT4"
-16-Sep,Class 2,UNSCHEDULED FOR FLEXIBILITY,
-18-Nov,Class 1,UNSCHEDULED FOR FLEXIBILITY,
-18-Nov,Class 2,Data Science: Questions,
-25-Nov,Class 1,Data Science: Backwards Design,
-25-Nov,Class 2,THANKSGIVING BREAK,
-2-Dec,Class 1,Data Science: Backwards Design II,
-2-Dec,Class 2,Data Science: Tool Selection,
-9-Dec,Class 1,Project Proposal Workshopping,
-9-Dec,,FINALS BEGIN DEC 11TH,
+",`Link <exercises/Exercise_CommandLine_1_Basics.ipynb>`_
+2-Sep,Mon,Advanced Command Line,"- `Advanced Command Line <command_line_part2.ipynb>`_
+",`Link <exercises/Exercise_CommandLine_2_Advanced.ipynb>`_
+2-Sep,Wed,Jupyter Lab / Notebooks,"- `Setup Python <setup_environment.ipynb>`_
+- `Jupyter Tutorial <jupyter.ipynb>`_",`Link <exercises/Exercise_jupyterlab.ipynb>`_
+9-Sep,Mon,Python v. R / variables as pointers,- `Python v R: Pointers <python_v_r.ipynb>`_,`Link <exercises/Exercise_variables_as_pointers.ipynb>`_
+9-Sep,Wed,Numpy Basics,"- Why Numpy?
+- JVP pp 33-77",
+16-Sep,Mon,Pandas: Series & DataFrames,- JVP pp 98 - 114,
+16-Sep,Wed,Plotting with plotnine,- `Plotting in Python <plotting.ipynb>`_,
+23-Sep,Mon,Pandas: Indices & Missing,- JVP pp 115-139,
+23-Sep,Wed,Pandas: Loading and saving data,- WM Chapter 6,
+30-Sep,Mon,Pandas: Cleaning,- WM Chapter 7,
+30-Sep,Wed,Pandas: Merging,- JVP pp 149 - 157,
+7-Oct,Mon,FALL BREAK,,
+7-Oct,Wed,Pandas: Reshaping,- WM 8.3,
+14-Oct,Mon,Pandas: Groupby / Split Apply Combine,- WM Chapter 10,
+14-Oct,Wed,Pandas: Categorical Data; Eval and Query,"- WM 12.1
+- JVP pp 208 - 213",
+21-Oct,Mon,Collaborating using Github,,
+21-Oct,Wed,Getting Help Online,"Forums, MWE",
+28-Oct,Mon,Defensive Programming,"- `Defensive Programming <defensive_programming.ipynb>`_
+- `Workflow Management <workflow.ipynb>`_",
+28-Oct,Wed,Statistics with statsmodels,- WM Chapter 13,
+4-Nov,Mon,Machine Learning with sckikit-learn,- JVP pp 331 - 359,
+4-Nov,Wed,Numeric Data Types,- `Numbers in Computer <ints_and_floats.ipynb>`_,
+11-Nov,Mon,Strings,"- `Python Strings <https://docs.python.org/3/tutorial/introduction.html#strings>`_
+- `More Python Strings <https://realpython.com/python-data-types/#strings>`_
+- `Computerphile Unicode <https://www.youtube.com/watch?v=MijmeoH9LT4>`_",
+16-Sep,Wed,UNSCHEDULED FOR FLEXIBILITY,,
+18-Nov,Mon,UNSCHEDULED FOR FLEXIBILITY,,
+18-Nov,Wed,Data Science: Questions,,
+25-Nov,Mon,Data Science: Backwards Design,,
+25-Nov,Wed,THANKSGIVING BREAK,,
+2-Dec,Mon,Data Science: Backwards Design II,,
+2-Dec,Wed,Data Science: Tool Selection,,
+9-Dec,Mon,Project Proposal Workshopping,,
+9-Dec,,FINALS BEGIN DEC 11TH,,

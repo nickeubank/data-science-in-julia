@@ -116,6 +116,8 @@ html_static_path = ['_static']
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'PracticalDS'
+html_title = "Practical Data Science"
+
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -142,7 +144,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'practicalDS.tex', 'Practical Data Science Documentation',
+    (master_doc, 'practicalDS.tex', 'Practical Data Science',
      'Nick Eubank', 'manual'),
 ]
 
@@ -152,7 +154,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'csfords', 'CS for DS Documentation',
+    (master_doc, 'PracticalDS', 'Practical Data Science',
      [author], 1)
 ]
 
@@ -164,7 +166,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'PracticalDS', 'PracticalDS',
-     author, 'CSforDS', 'PracticalDS',
+     author, 'PracticalDS', 'PracticalDS',
      'Miscellaneous'),
 ]
 

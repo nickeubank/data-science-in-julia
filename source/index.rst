@@ -1,7 +1,4 @@
-.. CS for DS documentation master file, created by
-   sphinx-quickstart on Sat Jan 26 15:59:43 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+
 
 Welcome to Practical Data Science!
 ==================================
@@ -24,18 +21,18 @@ In the second portion of the class, we will take a step back from the nuts and b
 Course Syllabus
 ---------------
 
-`The full syllabus for this course can be downloaded here <https://github.com/nickeubank/practicaldatascience/raw/master/syllabus/Syllabus_PracticalDataScience.pdf>`_. Please note that this syllabus is subject to change up until he first day of class. 
+`The full syllabus for this course can be downloaded here <https://github.com/nickeubank/practicaldatascience/raw/master/syllabus/Syllabus_PracticalDataScience.pdf>`_. Please note that this syllabus is subject to change up until he first day of class.
 
 Class Schedule
 --------------
 
 
-.. csv-table:: 
+.. csv-table::
    :file: class_schedule.csv
-   :widths: 15, 15, 35, 35
+   :widths: 10, 7, 30, 35, 10
    :header-rows: 1
 
-Reminders: 
+Reminders:
 
 - **JVP**: `Python Data Science Handbook: Essential Tools for Working with Data <https://www.amazon.com/Python-Data-Science-Handbook-Essential-dp-1491912057/dp/1491912057>`_ by Jake VanderPlas.
 - **WM**: `Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, Second Edition <https://www.amazon.com/gp/product/1491957662>`_ by Wes McKinney.
@@ -46,13 +43,14 @@ Reminders:
    :maxdepth: 2
    :hidden:
 
-    Command Line Basics <command_line_part1>
+    Command Line, Basics <command_line_part1>
     Command Line, Advanced  <command_line_part2>
     Setting Up Python <setup_environment>
     Jupyter <jupyter>
     Python v. R: Pointers <pointers>
-    Numbers in Computers <ints_and_floats>
+    Plotting <plotting>
     Git and Github <git_and_github>
     Getting Help Online <getting_help>
-    Programming Languages <languages>
     Defensive Programming <defensive_programming>
+    Workflow Management <workflow>
+    Numbers in Computers <ints_and_floats>

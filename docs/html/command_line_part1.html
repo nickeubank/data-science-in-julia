@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>The Command Line Basics &#8212; Practical DS  documentation</title>
+    <title>The Command Line, Basics &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -236,12 +236,12 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="The-Command-Line-Basics">
-<h1>The Command Line Basics<a class="headerlink" href="#The-Command-Line-Basics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="The-Command-Line,-Basics">
+<h1>The Command Line, Basics<a class="headerlink" href="#The-Command-Line,-Basics" title="Permalink to this headline">¶</a></h1>
 <p>It’s probably good to start by answering the question: What <em>is</em> the command line?</p>
 <p>The command line is a tool for talking to your operating system (e.g.&nbsp;macOS, Windows, etc.) using text instead of by moving around a mouse and clicking on things. Just as you can use your mouse to open folders, move and rename files, and launch programs, so too can you use the terminal to ask you operating system to do the same things.</p>
-<div class="section" id="1.-Terminology">
-<h2>1. Terminology<a class="headerlink" href="#1.-Terminology" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Terminology">
+<h2>Terminology<a class="headerlink" href="#Terminology" title="Permalink to this headline">¶</a></h2>
 <p>Before we get into the details of the terminal, though, a note on terminology: there are <em>lots</em> of names that float around that basically mean the same thing, including terminal, shell, command line, and bash. In this tutorial, the specific program we will be using is called <code class="docutils literal notranslate"><span class="pre">bash</span></code>. But if you’re working on a Mac, you’d never know you were using <code class="docutils literal notranslate"><span class="pre">bash</span></code> because Apple calls bash <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>. Also, <code class="docutils literal notranslate"><span class="pre">bash</span></code> is based on a program called <code class="docutils literal notranslate"><span class="pre">shell</span></code>, so you may also hear the term <code class="docutils literal notranslate"><span class="pre">shell</span></code> used to
 describe the tool we’ll be using today. But for all intents and purposes, the terms <code class="docutils literal notranslate"><span class="pre">bash</span></code>, <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">line</span></code>, <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>, and <code class="docutils literal notranslate"><span class="pre">shell</span></code> are basically interchangeable on a mac or linux computer.</p>
 <p>We’re using <code class="docutils literal notranslate"><span class="pre">bash</span></code> because it’s the default terminal program on nearly all Macs and Linux computers (the operating systems of Mac and Linux computers are very similar, and are often just referred to as POSIX computers). That’s important, because almost all computers in the cloud run Linux (including not just companies like Amazon Web Services, but also university research clusters). And if you want to work directly with a computer in the cloud, you will almost never get to use a pretty
@@ -255,8 +255,8 @@ AVAILABLE ON WINDOWS!</span></a> before starting any exercises.</p>
 <li><code class="docutils literal notranslate"><span class="pre">DOS</span></code> and <code class="docutils literal notranslate"><span class="pre">CMD</span></code>: Window’s version of <code class="docutils literal notranslate"><span class="pre">bash</span></code> and <code class="docutils literal notranslate"><span class="pre">shell</span></code>. Same purpose, different syntax.</li>
 </ul>
 </div>
-<div class="section" id="2.-Why-Should-I-Learn-The-Command-Line?">
-<h2>2. Why Should I Learn The Command Line?<a class="headerlink" href="#2.-Why-Should-I-Learn-The-Command-Line?" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Why-Should-I-Learn-The-Command-Line?">
+<h2>Why Should I Learn The Command Line?<a class="headerlink" href="#Why-Should-I-Learn-The-Command-Line?" title="Permalink to this headline">¶</a></h2>
 <p>There are three main reasons to learn to use the command line.</p>
 <ol class="arabic simple">
 <li><strong>More tools are available through the command line than through graphical user interface.</strong> It turns out that it takes a lot of work to make a program that has pretty icons and windows that pop up, so lots of people make tools but don’t bother to make pretty graphical interfaces. This is especially true for free and open-source software. So by learning to use the command line, you gain access to <em>lots</em> of powerful tools that would otherwise be unavailable. For example, you basically <em>have</em>
@@ -272,14 +272,14 @@ to use the command line* to:</li>
 <li><strong>Sometimes you want to do something OVER AND OVER.</strong> Renaming a file by clicking on it, deleting the name, typing in a new name, and hitting return is great if you only need to rename one file. But what if you want to rename hundreds? The command line gives you the ability to write little scripts to do this kind of work for you.</li>
 </ol>
 </div>
-<div class="section" id="3.-Learning-Command-Line-Basics">
-<h2>3. Learning Command Line Basics<a class="headerlink" href="#3.-Learning-Command-Line-Basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Learning-Command-Line-Basics">
+<h2>Learning Command Line Basics<a class="headerlink" href="#Learning-Command-Line-Basics" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have a sense of what the command line is about, I recommend you try out <a class="reference external" href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science">this tutorial (“Introduction to Shell for Data Science”)</a> to get some experience working with it (the command line is used enough that people have already created great tutorials – I won’t insult their work by trying to re-create them).</p>
 <p>The first section of that tutorial (“Manipulating Files and Directories”) is <em>free</em> (though you do have to create an account) and will give you a pretty good introduction. If you <em>want</em> you can keep going and get better at manipulating files and things in the command line, but that’s not usually a first-order need.</p>
 <p>Once you’re done, come back here and we’ll talk a little about general principles of the command line.</p>
 </div>
-<div class="section" id="4.-Making-the-Command-Line-Friendlier">
-<h2>4. Making the Command Line Friendlier<a class="headerlink" href="#4.-Making-the-Command-Line-Friendlier" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Making-the-Command-Line-Friendlier">
+<h2>Making the Command Line Friendlier<a class="headerlink" href="#Making-the-Command-Line-Friendlier" title="Permalink to this headline">¶</a></h2>
 <p><strong>If you installed ``Cmder`` on windows, as suggested above, ignore this section!</strong></p>
 <p>OK, if you’re using a Mac or Linux machine, the basic command line is ugly, and doesn’t offer much of an interface. That’s why I recommend installing a slightly nicer program like <a class="reference external" href="https://ohmyz.sh/">Oh My Zsh!</a> that causes your terminal to offer slightly more information than the default shell, especially if you use git. For example:</p>
 <p>Default Terminal:</p>
@@ -288,8 +288,8 @@ to use the command line* to:</li>
 <p><img alt="zsh" src="_images/zsh.png" /></p>
 <p>See how it now shows the folder I’m in on the left; shows that I’m in a git project when I navigate into <code class="docutils literal notranslate"><span class="pre">programming4ds</span></code> and tells me the branch (don’t worry if that doesn’t mean much to you), and highlights folders in blue so you can tell what’s a folder and what’s a file? Just helps keep you sane. :)</p>
 </div>
-<div class="section" id="5.-Tab-Completion">
-<h2>5. Tab-Completion<a class="headerlink" href="#5.-Tab-Completion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Tab-Completion">
+<h2>Tab-Completion<a class="headerlink" href="#Tab-Completion" title="Permalink to this headline">¶</a></h2>
 <p>If you’ve installed either <code class="docutils literal notranslate"><span class="pre">oh-my-zsh!</span></code> (mac) or <code class="docutils literal notranslate"><span class="pre">Cmder</span></code> (windows) then your command line now has a <em>very</em> useful ability: tab-completion! If you start to type the name of a file then hit tab, the command line will try and fill in the full file name.</p>
 <p>To illustrate, suppose you are looking at the following folder:</p>
 <div class="nbinput docutils container">
@@ -315,8 +315,8 @@ example_csvs            just_another_file.txt
 <p>Note that the command line can only fill in a file once you typed enough letters that there’s only one full name that would work. For example, if you are in a folder with files called <code class="docutils literal notranslate"><span class="pre">my_file1.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">my_file2.txt</span></code>, and <code class="docutils literal notranslate"><span class="pre">my_file3.txt</span></code> and you type <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">my_</span></code> [tab], the command line can’t fill in the file name because <code class="docutils literal notranslate"><span class="pre">my_</span></code> could be the beginning of any of these file names.</p>
 <p>If you end up in this situation your command line will first try and fill in as much as it can (so it will fill in <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">my_</span></code> to <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">my_file</span></code>) and wait; if you hit tab again, it will list out the files that it can’t decide between.</p>
 </div>
-<div class="section" id="6.-Command-Line-Exercises">
-<h2>6. Command Line Exercises<a class="headerlink" href="#6.-Command-Line-Exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Command-Line-Exercises">
+<h2>Command Line Exercises<a class="headerlink" href="#Command-Line-Exercises" title="Permalink to this headline">¶</a></h2>
 <p>OK, got all that? Let’s do some exercises!</p>
 <p><a class="reference internal" href="exercises/Exercise_CommandLine_1_Basics.html"><span class="doc">Command Line Basics Exercises</span></a></p>
 <p>* <em>There are some graphical user interfaces that are meant to reduce the need to use the command line for things like managing python packages and git repositories, but as of 2019, they are not yet full replacements for command line tools</em>.</p>
@@ -341,23 +341,24 @@ example_csvs            just_another_file.txt
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"> Command Line Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#1.-Terminology">1. Terminology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#2.-Why-Should-I-Learn-The-Command-Line?">2. Why Should I Learn The Command Line?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#3.-Learning-Command-Line-Basics">3. Learning Command Line Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#4.-Making-the-Command-Line-Friendlier">4. Making the Command Line Friendlier</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#5.-Tab-Completion">5. Tab-Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#6.-Command-Line-Exercises">6. Command Line Exercises</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> Command Line, Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Why-Should-I-Learn-The-Command-Line?">Why Should I Learn The Command Line?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Learning-Command-Line-Basics">Learning Command Line Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Making-the-Command-Line-Friendlier">Making the Command Line Friendlier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tab-Completion">Tab-Completion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Command-Line-Exercises">Command Line Exercises</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part2.html"> Command Line, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_environment.html"> Setting Up Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html"> Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html"> Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html"> Plotting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html"> Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html"> Getting Help Online</a></li>
-<li class="toctree-l1"><a class="reference internal" href="languages.html"> Programming Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html"> Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html"> Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html"> Numbers in Computers</a></li>
 </ul>
 
 <div class="relations">
