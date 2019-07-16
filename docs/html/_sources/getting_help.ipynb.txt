@@ -42,6 +42,8 @@
     "\n",
     "People get surprisingly bent out of shape if you add small talk (\"Hi! OK, here's my problem...\"). Personally, I still often add a \"Thanks!\" at the end of posts, but even that is a little dangerous. In general, you *only* want to state your question.\n",
     "\n",
+    "Relatedly, **don't be surprised if people are *really* short with you in the comments / responses. They're not being rude, just efficient.** The people who provide help on these forums often help *dozens* of people a day, so they tend to like to type only the absolute minimum required. \n",
+    "\n",
     "**Try to provide a Minimal Working Example (MWE):** \n",
     "\n",
     "- If you're trying to figure out an error or problem you don't understand, try to include a reproducible example of the problem your experiencing: Nothing will make it more likely you get help than if you can post a chunk of code (5-20 lines?) that someone else can copy and paste into Python to recreate the problem. This is what's referred to as a Minimal Working Example (MWE). This isn’t always possible of course, but really do try.\n",
@@ -82,10 +84,17 @@
     "\n",
     "With that in mind, there is a case to be made for using gender-neutral usernames and images when posting on these forums. `randomuser123` is likely to be treated better than `lucy82`, and a user with a random geometric user icon is likely to be treated better than a person with a picture that identifies the user as a person of color.\n",
     "\n",
-    "Of course, there is also tremendous value in having better representation from women and people of color in these forums. Moreover, many forums now have [Community Guidelines](https://julialang.org/community/standards/) and a process for reporting (and sanctioning) abusive behavior, but these communities will likely only be forced to stand up for these principles (and kick out bad apples) if women and people of color are present and visible. \n",
+    "Of course, there is also tremendous value in having better representation from women and people of color in these forums (other women and people of color are likely to feel more comfortable if they see other people who look like them present). Moreover, many forums now have [Community Guidelines](https://julialang.org/community/standards/) and a process for reporting (and sanctioning) abusive behavior, but these communities will likely only be forced to stand up for these principles (and kick out bad apples) if women and people of color are present and visible. \n",
     "\n",
     "But whether one wishes to just use these forums like everyone else, or risk facing disgusting behavior in order to try and induce change is a deeply personal choice. I bring this up not to advocate for one choice or the other, but rather to ensure students understand the potential consequences of each choice so each student can make the choice that is best for them personally. "
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
