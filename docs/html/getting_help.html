@@ -18,7 +18,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Science Languages: Why So Many?" href="languages.html" />
+    <link rel="next" title="Defensive Programming" href="defensive_programming.html" />
     <link rel="prev" title="Git and Github" href="git_and_github.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -36,223 +36,70 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    background: #f5f5f5;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<div class="section" id="Getting-Help-Online">
+  <div class="section" id="Getting-Help-Online">
 <h1>Getting Help Online<a class="headerlink" href="#Getting-Help-Online" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Art-of-the-Minimal-Working-Example-(MWE)">
-<h2>Art of the Minimal Working Example (MWE)<a class="headerlink" href="#Art-of-the-Minimal-Working-Example-(MWE)" title="Permalink to this headline">¶</a></h2>
+<p>The only constant in Data Science today is change. Packages are constantly being modified, and new tools emerge almost every week. As a result, you will never reach a point where you have “learned everything,” and so learning to get help when you need it is a critical part of being a data scientist, and its a skill with more nuance than you might expect.</p>
+<div class="section" id="Looking-for-Answers">
+<h2>Looking for Answers<a class="headerlink" href="#Looking-for-Answers" title="Permalink to this headline">¶</a></h2>
+<p>When you hit a problem <em>by far</em> your best chance for finding a solution is to just google your problem.</p>
+<p>When googling here are a few suggestions for what search terms to use:</p>
+<ul class="simple">
+<li><strong>Always include the language or package you are using:</strong> Googling “how do I get the average of all the rows in a matrix” is much less likely to be helpful than “how do I get the average of all the rows in numpy”.</li>
+<li><strong>If you get an error message, google the error message (along with package):</strong> odds are someone has had the same problem you’re having, and has already asked about it somewhere.</li>
+</ul>
+</div>
+<div class="section" id="How-To-Ask-for-Help">
+<h2>How To Ask for Help<a class="headerlink" href="#How-To-Ask-for-Help" title="Permalink to this headline">¶</a></h2>
+<p>Unfortunately, sometimes you have a problem that google won’t solve. When that happens, it’s time to move from looking for help to asking for help.</p>
+<p>First, the good news: the internet is magic. Seriously. The amount of time people are willing to spend helping other people solve their programming problems absolutely blows my mind every time I think about it.</p>
+<p>Now the bad news: while people can be <em>incredibly</em> helpful, they can also get unreasonably grumpy when someone asks for help in a manner that violates community norms (which I’ll discuss below). The norms that exist are there for a reason, this this isn’t entirely unreasonable, but this can make it hard for a new programmer who doesn’t know the “rules” of community forums.</p>
+<div class="section" id="Community-Norms">
+<h3>Community Norms<a class="headerlink" href="#Community-Norms" title="Permalink to this headline">¶</a></h3>
+<p>Here are a few of the community norms around asking for help:</p>
+<p><strong>Show your work:</strong></p>
+<p>People like to help people who are stuck, but hate spending time assisting someone with a problem they could have solved with google. So to get the best help, make sure to include in your request for help:</p>
+<ul class="simple">
+<li>Description of things you’ve tried yourself</li>
+<li>Links to other sites you’ve visited that seem like might help but don’t: People are often quick to say “hey, this has been asked elsewhere” and throw a link at you, so add links to the other sites you’ve check and some information about why those solutions don’t work.</li>
+</ul>
+<p><strong>Don’t add small talk:</strong></p>
+<p>People get surprisingly bent out of shape if you add small talk (“Hi! OK, here’s my problem…”). Personally, I still often add a “Thanks!” at the end of posts, but even that is a little dangerous. In general, you <em>only</em> want to state your question.</p>
+<p><strong>Try to provide a Minimal Working Example (MWE):</strong></p>
+<ul class="simple">
+<li>If you’re trying to figure out an error or problem you don’t understand, try to include a reproducible example of the problem your experiencing: Nothing will make it more likely you get help than if you can post a chunk of code (5-20 lines?) that someone else can copy and paste into Python to recreate the problem. This is what’s referred to as a Minimal Working Example (MWE). This isn’t always possible of course, but really do try.<ul>
+<li>Writing a MWE is also great practice because the practice of trying to identify the smalled bit of code required to generate your problem often helps you understand the cause of your problem, and sometimes will even lead you to solving your own problem.</li>
+</ul>
+</li>
+<li>If you are trying to figure out how to do something, try to give an example of the data you currently have, and an example of what you want to have in the end. By virtue of not being sure how to do it, you obviously can’t provide code to accomplish your goal, but by writing out exactly what you want, it makes it easier for others to help you.<ul>
+<li>Here’s a <a class="reference external" href="https://stackoverflow.com/questions/48828484/pandas-reshape-dataframe-every-n-rows-to-columns">great example post</a>: someone gave example data, showed what they’re starting with, then took the time to make a fake table showing what they wanted to achieve, <em>and</em> showed that they had tried using <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, but that it hadn’t worked.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="Places-to-Ask-Questions">
+<h2>Places to Ask Questions<a class="headerlink" href="#Places-to-Ask-Questions" title="Permalink to this headline">¶</a></h2>
+<p>There are a few places to ask for programming help, and the quality of help you get often depends on where you go.</p>
+<p><strong>Questions Related To Big Packages or Language:</strong> If you have a question about a really, really popular piece of software (python, R, ArcGIS, numpy, pandas, ggplot), then its often best to go to <a class="reference external" href="https://stackoverflow.com/">StackOverflow</a>. StackOverflow is… crazy. People contribute more time to helping others there than you could ever imagine. But it’s also the place where the community norms discussed above are most important, so craft your request for help carefully before posting.</p>
+<ul class="simple">
+<li>If you are posting on Stack Overflow, make sure to also tag the relevant packages. Many people who manage packages watch stackoverflow for posts that are tagged for their package.</li>
+</ul>
+<p><strong>Questions about Smaller Packages:</strong> If you have a question about a package that’s less developed, a question on StackOverflow is likely to get lost in the noise. In these situations, trying finding a “Get Help” section on the package’s homepage or github repository, as these will often direct you to a dedicated mailing list or message board. Note that to use a mailing list you’ll usually have to subscribe, which will result in a bunch of unwanted emails for a couple days. Just bite the bullet,
+subscribe, ask your question, wait for an answer, then unsubscribe. Examples of great mailing lists:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://groups.google.com/forum/#!forum/pydata">PyData</a>: For questions about pandas.</li>
+<li><a class="reference external" href="https://lists.nongnu.org/mailman/listinfo/igraph-help">iGraph</a>: For questions about the iGraph network analysis library.</li>
+<li><a class="reference external" href="https://www.scipy.org/scipylib/mailing-lists.html">Numpy and Scipy</a>: For numpy and scipy.</li>
+</ul>
+<p>Finally, if you don’t see a mailing list, try creating a new issue on the package’s github repository.</p>
 </div>
 <div class="section" id="Gender-issues">
 <h2>Gender issues<a class="headerlink" href="#Gender-issues" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://stackoverflow.blog/2018/04/26/stack-overflow-isnt-very-welcoming-its-time-for-that-to-change/">https://stackoverflow.blog/2018/04/26/stack-overflow-isnt-very-welcoming-its-time-for-that-to-change/</a></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-julia notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
+<p>A last and deeply unfortunate note about getting help online: though they’ve mostly been getting better in recent years, all too often programming forums are awful to women and people of color. For example, here’s a recent mea culpa from <a class="reference external" href="https://stackoverflow.blog/2018/04/26/stack-overflow-isnt-very-welcoming-its-time-for-that-to-change/">Stack Overflow</a>. This isn’t uniformally the case: many younger communities (like the community around the Julia programming language) seem to be taking
+inclusiveness really seriously, and do better than most groups, but on the whole, women and people of color should be aware (ok, are probably already painfully aware) that the internet is not always equally welcoming to everyone.</p>
+<p>With that in mind, there is a case to be made for using gender-neutral usernames and images when posting on these forums. <code class="docutils literal notranslate"><span class="pre">randomuser123</span></code> is likely to be treated better than <code class="docutils literal notranslate"><span class="pre">lucy82</span></code>, and a user with a random geometric user icon is likely to be treated better than a person with a picture that identifies the user as a person of color.</p>
+<p>Of course, there is also tremendous value in having better representation from women and people of color in these forums. Moreover, many forums now have <a class="reference external" href="https://julialang.org/community/standards/">Community Guidelines</a> and a process for reporting (and sanctioning) abusive behavior, but these communities will likely only be forced to stand up for these principles (and kick out bad apples) if women and people of color are present and visible.</p>
+<p>But whether one wishes to just use these forums like everyone else, or risk facing disgusting behavior in order to try and induce change is a deeply personal choice. I bring this up not to advocate for one choice or the other, but rather to ensure students understand the potential consequences of each choice so each student can make the choice that is best for them personally.</p>
 </div>
 </div>
 
@@ -274,19 +121,22 @@ div.rendered_html tbody tr:hover {
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html"> Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html"> Command Line, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part2.html"> Command Line, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_environment.html"> Setting Up Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html"> Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html"> Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html"> Plotting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html"> Git and Github</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"> Getting Help Online</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Art-of-the-Minimal-Working-Example-(MWE)">Art of the Minimal Working Example (MWE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Looking-for-Answers">Looking for Answers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#How-To-Ask-for-Help">How To Ask for Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Places-to-Ask-Questions">Places to Ask Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Gender-issues">Gender issues</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="languages.html"> Programming Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html"> Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html"> Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html"> Numbers in Computers</a></li>
 </ul>
 
 <div class="relations">
@@ -294,7 +144,7 @@ div.rendered_html tbody tr:hover {
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="git_and_github.html" title="previous chapter">Git and Github</a></li>
-      <li>Next: <a href="languages.html" title="next chapter">Data Science Languages: Why So Many?</a></li>
+      <li>Next: <a href="defensive_programming.html" title="next chapter">Defensive Programming</a></li>
   </ul></li>
 </ul>
 </div>

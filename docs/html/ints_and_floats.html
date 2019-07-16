@@ -18,8 +18,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Git and Github" href="git_and_github.html" />
-    <link rel="prev" title="The Jupyter Project" href="jupyter.html" />
+    <link rel="prev" title="Workflow Management" href="workflow.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -309,7 +308,7 @@ div.rendered_html tbody tr:hover {
 <h3>Interger Overflows <em>in numpy and pandas</em><a class="headerlink" href="#Interger-Overflows-in-numpy-and-pandas" title="Permalink to this headline">¶</a></h3>
 <p>The problem with what Python does with integers is that, while convenient, it’s slow. Asking Python to add two integers doesn’t just require the computer to add two integers; it requires it to <em>also</em> check the size of the result, and if that size is so big it won’t fit in the existing number of bits that have been allocated, it has to allocate more bits. This makes adding integers in Python much, much slower than it could be. Like… 10x slower.</p>
 <p>That’s why libraries like <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> – which are designed for performance when working with huge datasets – don’t check for integer overflows. This makes them <em>much</em> faster, but if you add two really big integers in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (or add even small numbers to a <em>really</em> big number) and the result is bigger than what fits in the available bits, you’ll just end up with a negative number.</p>
-<p>How much faster? Here’s a comparison of adding up all the integers from 1 to 1,000,000 using regular Python integers (which check for overflows) and using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> tools (which do not):</p>
+<p>How much faster? Here’s a comparison of adding up all the integers from 1 to 1,000,000 using regular Python integers (which check for overflows) and using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> tools (which do not). Some of this difference is coming from things other than over-flowing checking, but this gives you a sense of the performance cost of making integers safer in regular Python:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
@@ -542,10 +541,15 @@ as shown in the help file).</p>
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html"> Command Line Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html"> Command Line, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part2.html"> Command Line, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_environment.html"> Setting Up Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html"> Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html"> Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_and_github.html"> Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html"> Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html"> Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html"> Workflow Management</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"> Numbers in Computers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#The-Two-Classes-of-Numbers:-Integers-and-Floating-Point-Numbers">The Two Classes of Numbers: Integers and Floating Point Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Numeric-Hazards-in-Python,-Numpy,-and-Pandas">Numeric Hazards in Python, Numpy, and Pandas</a></li>
@@ -553,18 +557,13 @@ as shown in the help file).</p>
 <li class="toctree-l2"><a class="reference internal" href="#Exercises!">Exercises!</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="git_and_github.html"> Git and Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_help.html"> Getting Help Online</a></li>
-<li class="toctree-l1"><a class="reference internal" href="languages.html"> Programming Languages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html"> Defensive Programming</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="jupyter.html" title="previous chapter">The Jupyter Project</a></li>
-      <li>Next: <a href="git_and_github.html" title="next chapter">Git and Github</a></li>
+      <li>Previous: <a href="workflow.html" title="previous chapter">Workflow Management</a></li>
   </ul></li>
 </ul>
 </div>
