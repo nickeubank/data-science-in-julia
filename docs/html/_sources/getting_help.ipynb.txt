@@ -48,8 +48,7 @@
     "\n",
     "- If you're trying to figure out an error or problem you don't understand, try to include a reproducible example of the problem your experiencing: Nothing will make it more likely you get help than if you can post a chunk of code (5-20 lines?) that someone else can copy and paste into Python to recreate the problem. This is what's referred to as a Minimal Working Example (MWE). This isn’t always possible of course, but really do try.\n",
     "    - Writing a MWE is also great practice because the practice of trying to identify the smalled bit of code required to generate your problem often helps you understand the cause of your problem, and sometimes will even lead you to solving your own problem. \n",
-    "- If you are trying to figure out how to do something, try to give an example of the data you currently have, and an example of what you want to have in the end. By virtue of not being sure how to do it, you obviously can't provide code to accomplish your goal, but by writing out exactly what you want, it makes it easier for others to help you. \n",
-    "    - Here's a [great example post](https://stackoverflow.com/questions/48828484/pandas-reshape-dataframe-every-n-rows-to-columns): someone gave example data, showed what they're starting with, then took the time to make a fake table showing what they wanted to achieve, *and* showed that they had tried using `numpy`, but that it hadn't worked. "
+    "- If you are trying to figure out how to do something, try to give an example of the data you currently have, and an example of what you want to have in the end. By virtue of not being sure how to do it, you obviously can't provide code to accomplish your goal, but by writing out exactly what you want, it makes it easier for others to help you. \n"
    ]
   },
   {
@@ -58,9 +57,8 @@
    "source": [
     "## Good and Bad Exampls\n",
     "\n",
-    "Good Examples:\n",
-    "\n",
-    "- [Pretty Good](https://stackoverflow.com/questions/18250298/how-to-check-if-a-value-is-in-the-list-in-selection-from-pandas-data-frame): Shows solution that user doesn't like, shows what they've tried. Tagged with `pandas` and `python`. Could be better if they had provided one more line of data to generate `df_new` before trying to work with it so others could more easily replicate."
+    "- [Excellent](https://stackoverflow.com/questions/48828484/pandas-reshape-dataframe-every-n-rows-to-columns) The poster gave example data, showed what they're starting with, then took the time to make a fake table showing what they wanted to achieve, *and* showed that they had tried using `numpy` (to show they had been trying to solve themselves before asking for help), but that it hadn't worked. \n",
+    "- [Pretty Good](https://stackoverflow.com/questions/18250298/how-to-check-if-a-value-is-in-the-list-in-selection-from-pandas-data-frame): Shows solution that user doesn't like, shows what they've tried. Tagged with `pandas` and `python`. Could be better if they had provided one more line of data to generate `df_new` before trying to work with it so others could more easily replicate.\n"
    ]
   },
   {
