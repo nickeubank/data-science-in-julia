@@ -115,7 +115,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 1,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -213,7 +213,7 @@
        "4  Afghanistan  1972  13079460.0      Asia   36.088  739.981106"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 1,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -255,7 +255,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 2,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -265,6 +265,15 @@
     }
    },
    "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/scales/scale.py:93: MatplotlibDeprecationWarning: \n",
+      "The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.\n",
+      "  if cbook.iterable(self.breaks) and cbook.iterable(self.labels):\n"
+     ]
+    },
     {
      "data": {
       "image/png": "iVBORw0KGgoAAAANSUhEUgAAAi8AAAGuCAYAAABY0OakAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAPYQAAD2EBqD+naQAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjEsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy8QZhcZAAAgAElEQVR4nO3deXRU9d3H8c9kspCERITEhIokQawgIGiBElExLClHREQWwaWEE4Jgte4eWaq0Byi2Uk8VF0BWJQgaQI6IWBRciIgCYtxapFmsrCPBQEIymcl9/vBhZEiQMU6Y/G7er3M4Zu7cuXyH3+TM2zvJjMOyLEsAAACGCAv1AAAAAD8H8QIAAIxCvAAAAKMQLwAAwCjES4BcLpfmzp0rl8sV6lEQZKytvbG+9sXaNl3ES4BcLpfmz5/PN4kNsbb2xvraF2vbdBEvAADAKMQLAAAwSnioB2gIDXEKMSwsTFlZWQoLC2sypygjIyPldrtDPUaDY23tjfW1L9bWfhISEgLaz2HHd9htiAex0+nUueeeq9LSUnm93qAfvzGKi4vT0aNHQz1Gg2Nt7Y31tS/W1n4CjRdeNgIAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYJD/UAknTgwAHNnTtXX331lZxOp3r06KHx48erWbNmKi4u1lNPPaWioiIlJydr4sSJ6tSpU6hHBgAAIdIozrw888wzat68uRYtWqSnn35a3377rVasWCGPx6Pp06crPT1dy5cv17BhwzRjxgwdO3Ys1CMDAIAQaRTxsn//fl199dWKiopSfHy8evXqpeLiYhUUFKiqqkpDhw5VRESEMjIylJSUpPz8/FCPDAAAQqRRxMv111+vd955R5WVlTpy5Ig++OADde/eXSUlJUpJSVFY2I9jpqWlqaSkJITTAgCAUGoUP/PSpUsXvfXWWxo1apRqamrUo0cPZWZm6pVXXlFsbKzfvrGxsaqoqPDb5nK55HK5fJfDwsKUmJgY1BmdTqfff5sCh8PRJO4va2tvrK99sbb2c+rzeUJCghISEmrtF/J48Xq9mjZtmvr3769Zs2bJ4/Fo/vz5+sc//qGLL764VqhUVFQoOjrab1teXp7mz5/vu5yVlaU777yzQeaNj49vkOM2VpGRkaEe4axhbe2N9bUv1tY+5s6d6/d8npOTo9tvv73WfiGPl/LycrlcLl133XWKjIxUZGSkrr32Wk2ZMkUDBgzQqlWrVFNT43vpqLCwUAMHDvQ7xrBhw9SnTx/f5bCwMJWWlgZ1TqfTqfj4eJWVlcnr9Qb12I1VbGysysvLQz1Gg2Nt7Y31tS/W1n5OfT6v66yL1AjiJT4+XsnJyXr99dc1bNgweb1ebdiwQampqerSpYsiIiK0Zs0aDR48WPn5+dq/f7/S09P9jnHqaSWXy9VgD2Sv19tkvkksy2oy91Vibe2O9bUv1tY+Tvcy0alCHi+SNGnSJC1YsEBr166VJHXo0EH33nuvwsPDNXXqVM2ZM0e5ublKSkrS5MmTFRcXF+KJAQBAqDSKeElLS9P06dPrvC41NVWPP/74WZ4IAAA0Vo3iV6UBAAACRbwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADCKw7IsK9RDBFtZWZmioqKCekyHw6HIyEi53W7Z8J+sTuHh4fJ4PKEeo8GxtvbG+toXa2s/gT53hzfwHCHhdrvldruDekyn06nIyEiVl5fL6/UG9diNVVxcnI4ePRrqMRoca2tvrK99sbb2E2i88LIRAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMEh7qAU7Iz89Xbm6uDhw4oPj4eGVnZ+uKK65QcXGxnnrqKRUVFSk5OVkTJ05Up06dQj0uAAAIkUYRL7t27dLzzz+vBx54QB06dFBZWZkqKyvl8Xg0ffp0DRw4UH/961/1/vvva8aMGZo3b56aN28e6rEBAEAINIqXjXJzc3XTTTfpkksuUVhYmFq0aKHk5GQVFBSoqqpKQ4cOVUREhDIyMpSUlKT8/PxQjwwAAEIk5GdevF6vdu/ere7du2v8+PFyu93q2rWrcnJyVFJSopSUFIWF/dhYaWlpKikpCeHEAAAglEIeL0eOHJHH49H777+vmTNnqlmzZpo9e7bmz5+v1q1bKzY21m//2NhYVVRU+G1zuVxyuVy+y2FhYUpMTAzqnE6n0++/TYHD4WgS95e1tTfW175YW/s59fk8ISFBCQkJtfYLebxERUVJkgYNGuQbcMSIEZo5c6ZGjBhRK1QqKioUHR3tty0vL0/z58/3Xc7KytKdd97ZIPPGx8c3yHEbq8jIyFCPcNawtvbG+toXa2sfc+fO9Xs+z8nJ0e23315rv5DHS/PmzZWQkCCHw1HrurZt22rVqlWqqanxvXRUWFiogQMH+u03bNgw9enTx3c5LCxMpaWlQZ3T6XQqPj5eZWVl8nq9QT12YxUbG6vy8vJQj9HgWFt7Y33ti7W1n1Ofz+s66yI1gniRpMzMTK1bt07du3dXVFSU8vLy1LNnT3Xp0kURERFas2aNBg8erPz8fO3fv1/p6el+tz/1tJLL5WqwB7LX620y3ySWZTWZ+yqxtnbH+toXa2sfp3uZ6FSNIl5GjBihsrIy/eEPf5DT6VT37t01btw4hYeHa+rUqZozZ45yc3OVlJSkyZMnKy4uLtQjAwCAEHFYlmWFeohgO/mHfYLF6XTq3HPPVWlpqa2r92RxcXE6evRoqMdocKytvbG+9sXa2k8gZ12kRvI+LwAAAIEiXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABG+cXxYlmWDh06JBu+US8AAGiE6h0vb775pq688kpFR0crOTlZ0dHR6t27tzZs2BDM+QAAAPzUK14WLVqkgQMHyul0atasWXrhhRc0a9YsOZ1OXXvttVq4cGGw5wQAAJBUzw9mTEtLU9++fbVgwYJa140dO1abN29WYWFhUAasDz6YMTjs/gFgJ7C29sb62hdraz8N+sGMBw8e1KhRo+q8bvTo0Tp48GB9DgsAAHBG9YqXXr16aceOHXVet2PHDvXs2fMXDQUAAHA64fW50cyZMzV69GhVVlbqhhtu0HnnnaeDBw9q9erVWrp0qZYvX67Dhw/79m/ZsmXQBgYAAE1bvX7mJSzsxxM2DofD9/WJQ528TdJZfy2Sn3kJDru/tnoCa2tvrK99sbb2E+jPvNTrzMvChQtrBQoAAMDZUK94ycrKCvIYAAAAganXD+yuX7/+J69/4okn6jUMAADAmdQrXgYNGqQ77rhDFRUVfttLSkqUkZGhSZMmBWU4AACAU9UrXlauXKmXX35Z3bp104cffihJWrx4sbp06aJDhw7pgw8+COqQAAAAJ9QrXoYPH65PP/1U7du311VXXaVevXpp3LhxGjdunLZv367LLrss2HMCAABI+gUfzNi6dWtNmDBBTqdT27Zt06WXXqqHHnpIUVFRwZwPAADAT73ipby8XDk5ORo6dKhuvfVWbdy4UeXl5ercubNeeeWVYM8IAADgU69flb700ktVUVGhNWvWaPDgwZKkTz75RPfff79Gjhypm2++WS+++GJQBwUAAJDqeeala9euKigo8IWLJEVHR+uZZ57R+vXrtXnz5mDNBwAA4KdeZ15WrVp12ut+97vf6bPPPqv3QAAAAD8l4DMve/fulcfjOeN+R48e1aeffvqLhgIAADidgOPlggsu0I4dO3yXa2pq1K5dO33++ed++33xxRfKyMgI3oQAAAAnCTheTv3wacuyVFRUpKqqqqAPBQAAcDr1fp8XAACAUCBeAACAUYgXAABglJ/1q9KzZ89WUlKSpB9/Bubvf/+7EhMTffscOHAgiOMBAAD4Czhe2rZtq23btvltS0lJ0datW+vcFwAAoCEEHC9FRUUNOAYAAEBg+JkXAABglHrHS3V1tZ577jllZ2crMzNTu3fvliStWLFCX375ZdAGBAAAOFm9Ptvov//9r/r3769Dhw6pa9eu+uCDD3T06FFJ0rvvvqs33nhDixYtCuqgAAAAUj3PvPzxj39UYmKiCgsLtXnzZr933+3Tp4/efffdoA0IAABwsnqdedm8ebOWL1+uhIQEeb1ev+uSk5O1b9++oAwHAABwqnqdeQkPD6/1WUcnHDhwQM2bN/9FQwEAAJxOveKlT58+mj17tqqrq33bHA6HLMvSvHnz1K9fv6ANCAAAcLJ6vWw0a9Ys9e7dWx07dtSQIUPkcDj09NNP67PPPtPu3btrvZkdAABAsNTrzEvHjh21fft29e7dW8uXL5fT6dRrr72m9u3ba9u2bbrwwguDPScAAICkn3Hm5cknn9SoUaN03nnnqaSkRG3atNGSJUsacjYAAIBaAj7zcu+996q4uFiSlJaWpp07dzbYUAAAAKcTcLy0atVKe/bskfTDJ0o7HI4GGwoAAOB0An7ZaNCgQfr973+vhx9+WA6HQzfccIOioqLq3NfhcPhCBwAAIJgCjpd58+YpPT1dX3zxhZ588kn17t1bSUlJDTkbAABALQHHS0REhMaPHy9JevXVVzVlyhR17dq1wQYDAACoi8M63VvlGqysrOy0L2nVl8PhUGRkpNxu92nfXdhuwsPD5fF4Qj1Gg2Nt7Y31tS/W1n4Cfe4O+MzLqlWr1LdvX7Vo0UKrVq064/433nhjoIcOOrfbLbfbHdRjOp1ORUZGqry8vNbnOdlVXFyc79PC7Yy1tTfW175YW/sJerwMHz5cW7duVc+ePTV8+PCf3NfhcDSZBxIAADi7Ao6XwsJCtW7d2vc1AABAKAQcLykpKXV+DQAAcDYFHC9xcXEBvzGdw+HQ999/X++hAAAATifgeLn//vt5V10AABByAcfLtGnTGnAMAACAwAT82UYAAACNAfECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECAACMQrwAAACjEC8AAMAoxAsAADAK8QIAAIxCvAAAAKMQLwAAwCiNKl7Kysp0yy236IEHHvBtKy4u1gMPPKDhw4frzjvv1Oeffx7CCQEAQKg1qnhZuHChUlNTfZc9Ho+mT5+u9PR0LV++XMOGDdOMGTN07Nix0A0JAABCqtHES0FBgfbv36+MjAy/bVVVVRo6dKgiIiKUkZGhpKQk5efnh3BSAAAQSo0iXqqrqzV37lxNmDBBDofDt72kpEQpKSkKC/txzLS0NJWUlIRiTAAA0AiEh3oASXr55Zd12WWXKTU1VXv27PFtP378uGJjY/32jY2NVUVFhd82l8sll8vluxwWFqbExMSgzuh0Ov3+2xQ4HI4mcX9ZW3tjfe2LtbWfU5/PExISlJCQUGu/kMfL3r17tXnzZv3zn/+sdV10dHStUKmoqFB0dLTftry8PM2fP993OSsrS3feeWeDzBsfH98gx22sIiMjQz3CWcPa2hvra1+srX3MnTvX7/k8JydHt99+e639Qh4vX375pb777juNGzdO0g8/pOt2u3XLLbforrvuUnFxsWpqanwvHRUWFmrgwIF+xxg2bJj69OnjuxwWFqbS0tKgzul0OhUfH6+ysjJ5vd6gHruxio2NVXl5eajHaHCsrb2xvvbF2trPqc/ndZ11kRpBvFx55ZXq2rWr7/KWLVu0adMmTZ06VS1atFBERITWrFmjwYMHKz8/X/v371d6errfMU49reRyuRrsgez1epvMN4llWU3mvkqsrd2xvvbF2trH6V4mOlXI4yUqKkpRUVG+y82bN1d4eLhv+KlTp2rOnDnKzc1VUlKSJk+erLi4uFCNCwAAQizk8XKqfv36qV+/fr7Lqampevzxx0M4EQAAaEwaxa9KAwAABIp4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFIdlWVaohwi2srIyRUVFBfWYDodDkZGRcrvdsuE/WZ3Cw8Pl8XhCPUaDY23tjfW1L9bWfgJ97g5v4DlCwu12y+12B/WYTqdTkZGRKi8vl9frDeqxG6u4uDgdPXo01GM0ONbW3lhf+2Jt7SfQeOFlIwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARiFeAACAUYgXAABgFOIFAAAYhXgBAABGIV4AAIBRiBcAAGAU4gUAABiFeAEAAEYhXgAAgFGIFwAAYBTiBQAAGIV4AQAARnFYlmWFeggTuFwu5eXladiwYUpISAj1OAgi1tbeWF/7Ym2bLs68BMjlcmn+/PlyuVyhHgVBxtraG+trX6xt00W8AAAAoxAvAADAKM5p06ZNC/UQpoiOjlb37t0VExMT6lEQZKytvbG+9sXaNk38wC4AADAKLxsBAACjEC8AAMAo4aEewATHjh3T008/rR07dig6OlojR47UtddeG+qx8P/mzJmjjz/+WMePH1dcXJwyMzM1cuRISVJxcbGeeuopFRUVKTk5WRMnTlSnTp18t92yZYsWL16sI0eOqGPHjrr77rvVqlUr3/Uvvvii1q9fr5qaGl111VUaP368wsN/+LbhcXF25OfnKzc3VwcOHFB8fLyys7N1xRVXsLY2sHfvXj333HPavXu3YmJidNNNNykzM1MS37s4Awtn9Pjjj1szZsywysvLra+//tq6+eabrV27doV6LPy/4uJiq7Ky0rIsyzp48KB1xx13WO+9955VXV1tjRs3znrllVcst9ttvf3229bo0aOto0ePWpZlWd988401cuRIa+fOnVZlZaX17LPPWg8//LDvuBs2bLBycnKs/fv3W0eOHLHuv/9+a9myZb7reVw0vE8++cQaO3as9fnnn1ter9cqLS219u3bx9ragMfjsSZOnGitWLHC8ng81u7du61Ro0ZZBQUFrC/OiJeNzqCyslJbtmzRrbfeqpiYGF144YXq27evNm7cGOrR8P/atm2rqKgo32WHw6G9e/eqoKBAVVVVGjp0qCIiIpSRkaGkpCTl5+dLkjZt2qTLL79c3bp1U1RUlG655RZ99dVX2rdvnyRp48aNuuGGG5SUlKRzzjlHI0eO9K07j4uzIzc3VzfddJMuueQShYWFqUWLFkpOTmZtbeDbb7/VwYMHNXz4cDmdTrVv3169evXSv/71L9YXZ0S8nMG3334r6YcnyBPatWun4uLiUI2EOixZskQjRoxQdna2KisrlZGRoZKSEqWkpCgs7MeHeVpamkpKSiT9cFo6LS3Nd11cXJwSExN9a1tSUqLU1FS/27pcLpWXl/O4OAu8Xq92796tsrIyjR8/XllZWXriiSd07Ngx1tYGampqJEnWSb/walmWioqKWF+cEfFyBpWVlYqOjvbbFhsbq+PHj4doItRlzJgxWrlypWbPnq1rrrnGt0axsbF++528dpWVlbXeG+LU60++/Ymvjx8/zuPiLDhy5Ig8Ho/ef/99zZw5U3PmzFFZWZnmz5/P2tpAmzZtdO655+rll19WdXW1/v3vf2vr1q1yu92sL86IeDmDZs2a1XpQl5eX13rwI/QcDocuuugihYeHa/ny5YqOjlZFRYXfPhUVFb61a9asWa3rT17bU68/8XV0dDSPi7PgxEuBgwYNUkJCgpo3b64RI0Zo+/btrK0NhIeHa8qUKSooKFBWVpYWLFigfv36qVWrVqwvzoh4OYPzzz9fkvTNN9/4thUWFiolJSVUI+EMampqtG/fPrVt21bFxcW+09PSD2t34nRxSkqKioqKfNcdO3ZMLpfLt7Zt27ZVYWGh320TEhIUGxvL4+IsaN68uRISEuRwOGpdx9raQ2pqqmbMmKFly5bpb3/7m44cOaKLL76Y9cUZES9n0KxZM/Xu3VvLli1TRUWFCgsL9dZbb6lfv36hHg364f+YNm3apIqKCtXU1OiLL77Q+vXr1a1bN3Xp0kURERFas2aNqqur9c4772j//v1KT0+XJF1zzTXavn27du3apaqqKi1btkwXX3yxWrduLUnq16+f1q5dq4MHD6qsrEwrVqxQ//79JfG4OFsyMzO1bt06lZaWqqKiQnl5eerZsydraxNFRUWqqqqS2+3Wxo0btWvXLg0ZMoT1xRnx8QABOHbsmObMmaMdO3YoJiaG9wRoRCoqKjRz5kzt2bNHNTU1atmypfr3768bb7xRDodDRUVFmjNnjoqKipSUlKSJEyeqc+fOvtu///77WrJkiUpLS3XJJZf4vVeEZVlatmyZ1q9fL6/Xq6uvvrrWe0XwuGhYXq9XCxYs0ObNm+V0OtW9e3fl5OQoJiaGtbWBJUuWaMOGDfJ4PGrfvr3GjRundu3aSRLri59EvAAAAKPwshEAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKMQLAAAwCvECIGCvvPKK72MXfo7NmzfL4XD4/sTFxenyyy/XwoULxZt8A/i5wkM9AICmY9GiRerQoYOOHDmiBQsWKDs7W263WxMmTAj1aAAMwpkXAGdN586d1atXLw0cOFAvvfSSfv3rX2vOnDm/6JiWZamqqipIEwIwAfECNFFz585VSkqKYmJi1K9fP3344YdyOBxavHixJKm6ulr33HOPWrZsqXPOOUfZ2dkqLy/3O0ZRUZEcDoeWLFmi7OxsnXPOOWrZsqXuu+8+eTyen/z7nU6nunbtqsLCQt+2qqoqTZ48WSkpKYqKilLHjh2Vm5vrd7usrCx17txZr7/+urp27aqoqCitXbtWknTkyBHdddddatOmjaKiopSWlqZJkyb5brtu3ToNGDBA5513nuLj4/Xb3/5Wb7zxht/xFy9eLIfDoa1bt6pv376KiYlRamqqFi5c+LP/jQE0DOIFaILWrl2rCRMmKDMzU6tXr9aAAQN08803++0zadIkPfPMM3rwwQe1cuVKeTweTZkypc7jTZ48WTU1NVq5cqUefPBBPfXUU5o6deoZ5ygsLNSvfvUr3+WRI0dq7ty5uv/++/Xaa69p4MCBuvXWW7V+/Xq/2+3du1d333237rvvPr3xxhvq1q2bqqqq1LdvXy1btkwPPvig1q9fr2nTpsnlcvn9fYMHD9YLL7ygvLw89e7dW9dee602b95ca7ZRo0ZpwIABWr16tTIyMpSdnV0rdACEiAWgyenRo4fVt29fv22PPvqoJclatGiR9d1331nR0dHWn/70J799rrjiCkuSVVhYaFmWZRUWFlqSrKuuuspvv6lTp1oxMTHW4cOHLcuyrE2bNlmSrK1bt1rV1dWWy+WyZsyYYUmyJk2aZFmWZb399tuWJGvDhg1+xxoxYoTVo0cP3+UxY8ZYkqwPP/zQb7958+ZZkqz8/PyA/g28Xq9VXV1tZWZmWqNHj/ZtX7RokSWp1n2/6qqrrPT09ICODaBhceYFaGK8Xq927typ66+/3m/7kCFDfF8XFBTo+PHjGjp0qN8+w4YNq/OYp+x6xCUAAARuSURBVO534403qqKiQgUFBX7be/XqpYiICCUkJOjRRx/VhAkT9Mgjj0iS3nzzTbVs2VJ9+/aVx+Px/enXr5927twpr9frO05CQoJ69uzpd+y33npLHTt2VHp6+mnv+//+9z+NGTNG559/vsLDwxUREaE333xT//nPf854n4YOHaqPP/7Ybw4AocFvGwFNzKFDh+TxeJSYmOi3/bzzzvN9vW/fvlrbJCkpKanOY56634nLJ45zwtKlS9WxY0fFx8crNTVVkZGRvutcLpcOHz6siIiIOv+Offv2qU2bNnX+fZL03Xff+b0Edaqamhpdf/31+v777/WXv/xF7du3V2xsrB555BGVlJQEdJ+qq6vlcrlO++8A4OwgXoAmJjExUeHh4Tp06JDf9oMHD/q+bt26tW/b+eef79t+4MCBOo958m1PvnziOCd07NhR3bt3r/MYLVu2VGJiol5//fU6rz85JhwOR63rW7VqpU8//bTO20rS119/rZ07d2rNmjV+Z5mOHz9e5/6n3veDBw/6zhoBCC1eNgKaGKfTqcsuu0yvvvqq3/Y1a9b4vu7SpYuio6O1evVqv33y8vLqPOap+61atUoxMTHq0qVLwHP1799fhw4dUmRkpLp3717rz8lnaU53+y+//FJbt26t8/oTkXLycYqLi7Vly5aA7tPq1av1m9/8Rk6nM+D7BKBhcOYFaIKmTp2qIUOGKCcnRyNGjNDOnTv1wgsvSJLCwsLUsmVLTZgwQbNmzVJ0dLQuv/xy5ebmqri4uM7j7dmzR2PHjtWoUaO0Y8cOPfbYY7rnnnt07rnnBjzTgAEDNHjwYA0cOFAPPfSQLr30UpWXl+vzzz/X119/reeff/4nb3/bbbfpmWee0XXXXadHH31UnTt31rfffqt3331X8+bNU4cOHdSmTRs9/PDD8nq9Ki8v16OPPup3duVkS5cu9d33l156Se+9957WrVsX8P0B0IBC/RPDAELj2WeftS644AKrWbNmVp8+faz169dbkqw1a9ZYlmVZVVVV1l133WW1aNHCio+Pt8aMGeP7TZxTf9to0aJF1pgxY6y4uDirRYsW1t1332253W7f33Xit40++uijn5ypqqrK+vOf/2xddNFFVmRkpJWYmGhlZGRYS5cu9e0zZswYq1OnTnXe/vDhw9bEiROt5ORkKzIy0mrXrp01ZcoU3/Xbtm2zevToYTVr1sy66KKLrCVLltQ63on7mJ+fb/Xp08dq1qyZ1bZtW2vevHk/+98YQMNwWBYfLAJAev7555WTk6PCwkKlpqYGdJuioiKlpaXp5Zdf1vDhwxt2wLNk8eLFGjt2rA4dOsTPtwCNFC8bAU3Q4cOH9ec//1l9+/ZVXFycPvroI82YMUNDhgwJOFwAIFSIF6AJioiI0J49e7R8+XKVlpYqMTFRt912mx577LFQjwYAZ8TLRgAAwCj8qjQAADAK8QIAAIxCvAAAAKMQLwAAwCjECwAAMArxAgAAjEK8AAAAoxAvAADAKP8H4kkaAWskq8IAAAAASUVORK5CYII=\n",
@@ -278,10 +287,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7556888710)>"
+       "<ggplot: (7541526024)>"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 2,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -299,7 +308,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -323,7 +332,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 4,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -346,10 +355,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (-9223372029297867120)>"
+       "<ggplot: (7541531491)>"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -387,7 +396,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 5,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -410,10 +419,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7556950255)>"
+       "<ggplot: (7541526059)>"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -440,7 +449,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 6,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -456,7 +465,7 @@
        "array(['Asia', 'Europe', 'Africa', 'Americas', 'Oceania'], dtype=object)"
       ]
      },
-     "execution_count": 14,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -467,7 +476,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 7,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -490,10 +499,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7557021718)>"
+       "<ggplot: (-9223372029312882723)>"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -516,7 +525,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 8,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -539,10 +548,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (-9223372029297371946)>"
+       "<ggplot: (-9223372029313258415)>"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -577,7 +586,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 9,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -600,10 +609,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7556888584)>"
+       "<ggplot: (-9223372029312625299)>"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 9,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -616,7 +625,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 10,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -639,10 +648,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (-9223372029297886983)>"
+       "<ggplot: (7541675910)>"
       ]
      },
-     "execution_count": 18,
+     "execution_count": 10,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -655,7 +664,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 11,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -678,10 +687,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (-9223372029300106920)>"
+       "<ggplot: (-9223372029312888302)>"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 11,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -694,7 +703,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 78,
+   "execution_count": 12,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -715,10 +724,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7556859186)>"
+       "<ggplot: (7541648760)>"
       ]
      },
-     "execution_count": 78,
+     "execution_count": 12,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -755,7 +764,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 13,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -769,7 +778,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 14,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -790,10 +799,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (-9223372029297010386)>"
+       "<ggplot: (-9223372029312629956)>"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 14,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -813,7 +822,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 15,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -834,10 +843,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7557512410)>"
+       "<ggplot: (-9223372029312645660)>"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -860,7 +869,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 16,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -881,10 +890,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7557896733)>"
+       "<ggplot: (-9223372029312645800)>"
       ]
      },
-     "execution_count": 26,
+     "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -907,7 +916,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 17,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -928,10 +937,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7558565724)>"
+       "<ggplot: (7542991659)>"
       ]
      },
-     "execution_count": 27,
+     "execution_count": 17,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -966,7 +975,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 18,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -987,10 +996,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (-9223372029297154076)>"
+       "<ggplot: (-9223372029312856274)>"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 18,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1028,7 +1037,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 19,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -1049,10 +1058,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7555177434)>"
+       "<ggplot: (-9223372029312635420)>"
       ]
      },
-     "execution_count": 20,
+     "execution_count": 19,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1101,7 +1110,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 20,
    "metadata": {
     "collapsed": false,
     "jupyter": {
@@ -1122,10 +1131,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (-9223372029296100657)>"
+       "<ggplot: (7542991743)>"
       ]
      },
-     "execution_count": 28,
+     "execution_count": 20,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1163,7 +1172,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 76,
+   "execution_count": 21,
    "metadata": {
     "collapsed": false,
     "deletable": true,
@@ -1186,10 +1195,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (7557540072)>"
+       "<ggplot: (7543731818)>"
       ]
      },
-     "execution_count": 76,
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1232,26 +1241,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 22,
    "metadata": {
     "collapsed": false,
     "jupyter": {
      "outputs_hidden": false
     }
    },
-   "outputs": [
-    {
-     "ename": "NameError",
-     "evalue": "name 'ggplot' is not defined",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-1-e76936d7709b>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     18\u001b[0m         \u001b[0mscale_size\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrange\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;36m0.1\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m10\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m+\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m         \u001b[0;31m# add a nicer theme\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 20\u001b[0;31m         \u001b[0mtheme_classic\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m+\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     21\u001b[0m         \u001b[0;31m# place legend at top and grey axis lines\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     22\u001b[0m         theme(axis_line=element_line(color=\"grey\"),\n",
-      "\u001b[0;31mNameError\u001b[0m: name 'ggplot' is not defined"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "p = (ggplot(gapminder_2007) +\n",
     "        # add scatter points\n",

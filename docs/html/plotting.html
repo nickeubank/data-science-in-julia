@@ -297,7 +297,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <h2>Basic plotnine<a class="headerlink" href="#Basic-plotnine" title="Permalink to this headline">¶</a></h2>
 <p>In this section, we are going to make our first plot. This plot will be based on the gapminder dataset on country wealth, demographics, and health outcomes. Below, we show the first 5 rows of the gapminder dataset.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -314,7 +314,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -398,7 +398,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <p>Below, we define our first ggplot object using the <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> function, with data on country wealth (GDP per capita) and life expectancy from <a class="reference external" href="https://www.gapminder.org/">GapMinder</a> and the x and y aesthetics defined by the <code class="docutils literal notranslate"><span class="pre">gdpPercap</span></code> and <code class="docutils literal notranslate"><span class="pre">lifeExp</span></code> variables, respectively.</p>
 <p>The output of this function is a grid with <code class="docutils literal notranslate"><span class="pre">gdpPercap</span></code> as the x-axis and <code class="docutils literal notranslate"><span class="pre">lifeExp</span></code> as the y-axis. However, we have not yet told ggplot what type of geometric object the data will be mapped to, so no data has been displayed.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -409,22 +409,32 @@ objects you want to place on axes, all three of these alternative libraries allo
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/scales/scale.py:93: MatplotlibDeprecationWarning:
+The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+  if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
 <div class="output_area docutils container">
-<img alt="_images/plotting_8_0.png" src="_images/plotting_8_0.png" />
+<img alt="_images/plotting_8_1.png" src="_images/plotting_8_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7556888710)&gt;
+<span></span>&lt;ggplot: (7541526024)&gt;
 </pre></div>
 </div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> currently throws a few depreciation warnings (just telling the package authors that their code needs to be updated at some point soon), so I will suppress those warnings here. Don’t worry about them if you see them – they’ll be addressed in the next release of <code class="docutils literal notranslate"><span class="pre">plotnine</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -438,7 +448,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <p>What we have done is map each country (row) in the data to a point in the space defined by the GDP and life expectancy value. The end result is an ugly blob of points. Fortunately, there are many things that we can do to make this blob of points prettier.</p>
 <p>For example, we can change the transparency of all points by setting the alpha argument to a low value, changing the color of the points to be blue instead of black, and making the points smaller.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -461,18 +471,18 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029297867120)&gt;
+<span></span>&lt;ggplot: (7541531491)&gt;
 </pre></div>
 </div>
 </div>
 <p>What we have done is map each country (row) in the data to a point in the space defined by the GDP and life expectancy value. The end result is an ugly blob of points. Fortunately, there are many things that we can do to make this blob of points prettier.</p>
 <p>For example, we can change the transparency of all points by setting the alpha argument to a low value, changing the color of the points to be blue instead of black, and making the points smaller.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -490,11 +500,11 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7556950255)&gt;
+<span></span>&lt;ggplot: (7541526059)&gt;
 </pre></div>
 </div>
 </div>
@@ -502,7 +512,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <p>One of the truly powerful features of ggplot2 is the ability to change these aesthetics based on the data itself. For example, perhaps we want to color each point by its <code class="docutils literal notranslate"><span class="pre">continent</span></code>. Instead of separating the data into five different subsets (based on the possible values of continent), and adding the different colored points separately, we can simply add all the points once and add an colour aesthetic map for <code class="docutils literal notranslate"><span class="pre">continent</span></code>.</p>
 <p>Note that whenever we are using a variable from the data to describe an aesthetic property of a geom, this aesthetic property needs to be included in the <code class="docutils literal notranslate"><span class="pre">aes()</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -511,7 +521,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -520,7 +530,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -538,17 +548,17 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7557021718)&gt;
+<span></span>&lt;ggplot: (-9223372029312882723)&gt;
 </pre></div>
 </div>
 </div>
 <p>We could also add aesthetic mappings for other features such as shape, size, transparancy (alpha), and more! For example, changing the size based on population:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -566,11 +576,11 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029297371946)&gt;
+<span></span>&lt;ggplot: (-9223372029313258415)&gt;
 </pre></div>
 </div>
 </div>
@@ -586,7 +596,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <li>smoothed curves</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -604,16 +614,16 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7556888584)&gt;
+<span></span>&lt;ggplot: (-9223372029312625299)&gt;
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -631,16 +641,16 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029297886983)&gt;
+<span></span>&lt;ggplot: (7541675910)&gt;
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -658,16 +668,16 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029300106920)&gt;
+<span></span>&lt;ggplot: (-9223372029312888302)&gt;
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -688,11 +698,11 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7556859186)&gt;
+<span></span>&lt;ggplot: (7541648760)&gt;
 </pre></div>
 </div>
 </div>
@@ -704,7 +714,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <p>To remind you, this scatterplot showed GDP per capita against life expectancy for each country colored by continent and sized by population.</p>
 <p>To keep things simple, let’s filter to a single year.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -713,7 +723,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -731,17 +741,17 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029297010386)&gt;
+<span></span>&lt;ggplot: (-9223372029312629956)&gt;
 </pre></div>
 </div>
 </div>
 <p>The scale of a plot describes the features of the space in which it is plotted. Arguably, it would be better to show <code class="docutils literal notranslate"><span class="pre">gdpPercap</span></code> on a logarithmic scale, rather than in its raw form. Fortunately, this is easy to do using a <code class="docutils literal notranslate"><span class="pre">scale</span></code> function, which can be considered another layer that transforms our plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -760,18 +770,18 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7557512410)&gt;
+<span></span>&lt;ggplot: (-9223372029312645660)&gt;
 </pre></div>
 </div>
 </div>
 <p>The default x- (and y-) axes scales are <code class="docutils literal notranslate"><span class="pre">scale_x_continuous</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_y_continuous</span></code>, but other options include <code class="docutils literal notranslate"><span class="pre">scale_x_sqrt</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_x_reverse</span></code>.</p>
 <p>Each of these scale functions has many options including changing the limits, the breaks, etc. For example in the plot below, we manipulate the x-axis by providing arguments to our <code class="docutils literal notranslate"><span class="pre">scale</span></code> function of choice.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -792,17 +802,17 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7557896733)&gt;
+<span></span>&lt;ggplot: (-9223372029312645800)&gt;
 </pre></div>
 </div>
 </div>
 <p>We could also manipulate the scale of the size variable. Below, we expand the range of sizes and clean up the variable name. Since the variable we provided for size is a continuous variable (<code class="docutils literal notranslate"><span class="pre">pop</span></code>) we use the <code class="docutils literal notranslate"><span class="pre">scale_size_continuous</span></code> argument.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -827,11 +837,11 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7558565724)&gt;
+<span></span>&lt;ggplot: (7542991659)&gt;
 </pre></div>
 </div>
 </div>
@@ -841,7 +851,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <h2>Changing Labels<a class="headerlink" href="#Changing-Labels" title="Permalink to this headline">¶</a></h2>
 <p>Notice that in the last plot, we changed the name of the x-axis using the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument in <code class="docutils literal notranslate"><span class="pre">scale_x_log10()</span></code>. If you want to play with all your labels in one place, though, we can use the <code class="docutils literal notranslate"><span class="pre">labs</span></code> option. As an example, below we add a title and change the name of the y-axis and legends using the <code class="docutils literal notranslate"><span class="pre">labs</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -868,11 +878,11 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029297154076)&gt;
+<span></span>&lt;ggplot: (-9223372029312856274)&gt;
 </pre></div>
 </div>
 </div>
@@ -882,7 +892,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <p>Sometimes we want to be able to make multiple plots of the same thing across different categories. This can be achieved with minimal repetition using faceting.</p>
 <p>In the example below, we will remake the plot above individually for each continent.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -914,11 +924,11 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7555177434)&gt;
+<span></span>&lt;ggplot: (-9223372029312635420)&gt;
 </pre></div>
 </div>
 </div>
@@ -928,7 +938,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <p>One of the first things I usually do when I make a ggplot is edit the default theme. I actually really don’t like the grey background, nor do I like having a grid unless it really helps with the plot interpretation.</p>
 <p>One of the simplest themes is <code class="docutils literal notranslate"><span class="pre">theme_classic</span></code>, however there are several other themes to choose from. The <code class="docutils literal notranslate"><span class="pre">ggthemes</span></code> package offers many additional themes, but you could also make your own using the <code class="docutils literal notranslate"><span class="pre">theme()</span></code> function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -961,11 +971,11 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029296100657)&gt;
+<span></span>&lt;ggplot: (7542991743)&gt;
 </pre></div>
 </div>
 </div>
@@ -975,7 +985,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 <li>add some text annotations (add <code class="docutils literal notranslate"><span class="pre">geom_text</span></code> layer)</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1014,11 +1024,11 @@ objects you want to place on axes, all three of these alternative libraries allo
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7557540072)&gt;
+<span></span>&lt;ggplot: (7543731818)&gt;
 </pre></div>
 </div>
 </div>
@@ -1026,8 +1036,8 @@ objects you want to place on axes, all three of these alternative libraries allo
 <div class="section" id="Saving-your-plots">
 <h2>Saving your plots<a class="headerlink" href="#Saving-your-plots" title="Permalink to this headline">¶</a></h2>
 <p>You can save your plots using the <code class="docutils literal notranslate"><span class="pre">ggsave()</span></code> function.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1059,23 +1069,6 @@ objects you want to place on axes, all three of these alternative libraries allo
 <span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;images/beautiful_plot_from_notebook.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-1-e76936d7709b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     18</span>         scale_size<span class="ansi-blue-fg">(</span>range <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0.1</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span>
-<span class="ansi-green-intense-fg ansi-bold">     19</span>         <span class="ansi-red-fg"># add a nicer theme</span>
-<span class="ansi-green-fg">---&gt; 20</span><span class="ansi-red-fg">         </span>theme_classic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span>
-<span class="ansi-green-intense-fg ansi-bold">     21</span>         <span class="ansi-red-fg"># place legend at top and grey axis lines</span>
-<span class="ansi-green-intense-fg ansi-bold">     22</span>         theme(axis_line=element_line(color=&#34;grey&#34;),
-
-<span class="ansi-red-fg">NameError</span>: name &#39;ggplot&#39; is not defined
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="ggplot2-Cheatsheet!">
