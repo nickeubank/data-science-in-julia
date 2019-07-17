@@ -21,7 +21,7 @@
 14-Oct,Wed,Pandas: Groupby / Split Apply Combine,- WM Chapter 10,
 21-Oct,Mon,Pandas: Categorical Data; Eval and Query,"- WM 12.1
 - JVP pp 208 - 213",
-21-Oct,Wed,Collaborating using Github,,
+21-Oct,Wed,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,
 28-Oct,Mon,Getting Help Online,- `Getting Help <getting_help.ipynb>`_,
 28-Oct,Wed,Defensive Programming,"- `Defensive Programming <defensive_programming.ipynb>`_
 - `Workflow Management <workflow.ipynb>`_",

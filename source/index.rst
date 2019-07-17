@@ -50,6 +50,7 @@ Reminders:
    Plotting, Basics <plotting_part1>
    Plotting, Advanced <plotting_part2>
    Getting Help Online <getting_help>
+   Git and Github <git_and_github>
    Defensive Programming <defensive_programming>
    Workflow Management <workflow>
    Numbers in Computers <ints_and_floats>
