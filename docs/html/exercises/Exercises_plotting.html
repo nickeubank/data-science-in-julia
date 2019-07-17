@@ -452,56 +452,6 @@ strong multicollinearity or other numerical problems.
 <p>Interesting. It seems that there’s are a lot of rich, undemocratic countries that all have something in common: they’re oil-rich, small, Middle Eastern countries.</p>
 <p>Let’s see what happens if we exclude the ten countries with the highest per-capita oil production from our data: Qatar, Kuwait, Equatorial Guinea, United Arab Emirates (UAE), Norway, Brunei, Saudi Arabia, Libya, Oman, and Gabon. (Note this was in 2007!)</p>
 <p>To do this, I would recomment creating a new variable called <code class="docutils literal notranslate"><span class="pre">bigproducer</span></code> that is <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">country</span></code> matches a name in that list, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. You may find <cite>the ``isin`</cite> method useful. &lt;<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.isin.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.isin.html</a>&gt;`__</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">wdi</span><span class="p">[</span><span class="s1">&#39;loggdp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">wdi</span><span class="o">.</span><span class="n">gdppcap08</span><span class="p">)</span>
-<span class="n">wdi</span><span class="p">[</span><span class="s1">&#39;bigproducer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wdi</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Qatar&quot;</span><span class="p">,</span> <span class="s2">&quot;Kuwait&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;Equatorial Guinea&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;UAE&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;Norway&quot;</span><span class="p">,</span> <span class="s2">&quot;Brunei&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;Saudi Arabia&quot;</span><span class="p">,</span> <span class="s2">&quot;Libya&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;Oman&quot;</span><span class="p">,</span> <span class="s2">&quot;Gabon&quot;</span><span class="p">])</span>
-
-<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">wdi</span><span class="p">[</span><span class="n">wdi</span><span class="o">.</span><span class="n">bigproducer</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;polityIV&#39;</span><span class="p">))</span> <span class="o">+</span>
-        <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_text</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/scales/scale.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:146: UserWarning: Confidence intervals are not yet implementedfor lowess smoothings.
-  warnings.warn(&#34;Confidence intervals are not yet implemented&#34;
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/utils.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  return cbook.iterable(var) and not is_string(var)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/exercises_Exercise_plotting_21_1.png" src="../_images/exercises_Exercise_plotting_21_1.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7568773110)&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Exercise-13">
 <h2>Exercise 13<a class="headerlink" href="#Exercise-13" title="Permalink to this headline">¶</a></h2>
@@ -510,82 +460,23 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <div class="section" id="Exercise-14">
 <h2>Exercise 14<a class="headerlink" href="#Exercise-14" title="Permalink to this headline">¶</a></h2>
 <p>How does the relationship between GDP per capita and Polity look without those oil producers? Does it look the same as it did without the oil producers?</p>
+</div>
 <div class="section" id="Exercise-15">
-<h3>Exercise 15<a class="headerlink" href="#Exercise-15" title="Permalink to this headline">¶</a></h3>
+<h2>Exercise 15<a class="headerlink" href="#Exercise-15" title="Permalink to this headline">¶</a></h2>
 <p>Now that we’ve gotten a good sense of the relationship between wealth and democracy for non-oil producers, can we draw any conclusions about the relationship between polity scores and wealth for the oil producers? Plot the polity / GDP per capita relationship <em>just</em> for the oil producers.</p>
 </div>
 <div class="section" id="Exercise-16">
-<h3>Exercise 16<a class="headerlink" href="#Exercise-16" title="Permalink to this headline">¶</a></h3>
-<p>Look a</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">country</span> <span class="o">!=</span><span class="s2">&quot;Qatar&quot;</span><span class="p">][[</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="s1">&#39;polityIV&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>gdppcap08</th>
-      <th>polityIV</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>gdppcap08</th>
-      <td>1.000000</td>
-      <td>0.317762</td>
-    </tr>
-    <tr>
-      <th>polityIV</th>
-      <td>0.317762</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
+<h2>Exercise 16<a class="headerlink" href="#Exercise-16" title="Permalink to this headline">¶</a></h2>
+<p>Look back to your answer for Exercise 7. Do you still believe the result of your linear model? What did you learn from plotting. Write down your answers with your partner.</p>
+<div class="section" id="Take-aways">
+<h3>Take-aways<a class="headerlink" href="#Take-aways" title="Permalink to this headline">¶</a></h3>
+<p>One of our main jobs as data scientists is to <em>summarize</em> data. In fact, its such an obvious part of our jobs we often don’t think about it very much. In reality, however, this is one of the most difficult things we do.</p>
+<p>Summarization means taking rich, complex data and trying to tell readers about what is going on in that data using simple statistics. In the process of summarization, therefore, we must necessarily throw away much of the richness of the original data. When done well, this simplification makes data easier to understand, but only if we throw away the <em>right</em> data. You can <em>always</em> calulate the average value of a variable, or fit a linear model, but whether doing so generates a summary statistic
+that properly represents the essence of the data being studied depends on the data itself.</p>
+<p>Plotting is one fo the best tools we have as data scientists for evaluating whether we are throwing away the <em>right</em> data. As we learned from Part 1 of this exercise, just looking at means and standard deviations can mask tremendous variation. Each of our example datasets looked the same when we examined our summary statistics, but they were all radically different when plotted.</p>
+<p>Similarly, a simple linear model would “tell” us that if GDP per capita increases by $10,000, we would expect Polity scores to increase by about 1 (i.e.&nbsp;the coefficent on the linear model was 9.602e-05). But when we plot the data, not only can we that the data is definitely <em>not</em> linear (and so that slope doesn’t really mean anything), but we can also see that oil producing countries seem to defy the overall trend, and so should maybe be studied separately.</p>
+<p>Moreover, we can see that if we just look at oil producers, there is no clear story: some are rich and democratic, while others are rich and autocratic (indeed, <a class="reference external" href="https://www.jstor.org/stable/41480824">this observation is the foundation of some great research on the political consequences of resource wealth</a>!)</p>
+<p>So remember this: tools for summarizing data will always give you an answer, but it’s up to you as a data scientist to make sure that the summaries you pass on to other people properly represent the data you’re using. And there is perhaps no better way to do this than with plotting!</p>
 </div>
 </div>
 </div>
@@ -659,7 +550,7 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/exercises/Exercise_plotting.ipynb.txt"
+      <a href="../_sources/exercises/Exercises_plotting.ipynb.txt"
           rel="nofollow">Page source</a>
     </div>
 
