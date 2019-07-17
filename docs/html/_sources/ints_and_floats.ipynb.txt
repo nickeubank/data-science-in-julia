@@ -148,7 +148,29 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 52,
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([9223372036854775807, 9223372036854775807])"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "a = np.array([2**63-1, 2**63-1], dtype='int')\n",
+    "a"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
@@ -157,14 +179,12 @@
        "array([-9223372036854775808, -9223372036854775808])"
       ]
      },
-     "execution_count": 52,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "import numpy as np\n",
-    "a = np.array([2**63 - 1, 2**63 - 1], dtype='int')\n",
     "a + 1"
    ]
   },
@@ -177,7 +197,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 51,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
@@ -186,7 +206,7 @@
        "-32767"
       ]
      },
-     "execution_count": 51,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -205,7 +225,28 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 61,
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([2], dtype=uint64)"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = np.array([2], dtype='uint64')\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -214,13 +255,12 @@
        "array([18446744073709551615], dtype=uint64)"
       ]
      },
-     "execution_count": 61,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "x = np.array([2], dtype='uint64')\n",
     "x - 3"
    ]
   },
@@ -364,13 +404,6 @@
     "\n",
     "do exercises"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {

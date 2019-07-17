@@ -1232,14 +1232,26 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 77,
+   "execution_count": 1,
    "metadata": {
     "collapsed": false,
     "jupyter": {
      "outputs_hidden": false
     }
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'ggplot' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-1-e76936d7709b>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     18\u001b[0m         \u001b[0mscale_size\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrange\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;36m0.1\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m10\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m+\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m         \u001b[0;31m# add a nicer theme\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 20\u001b[0;31m         \u001b[0mtheme_classic\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m+\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     21\u001b[0m         \u001b[0;31m# place legend at top and grey axis lines\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     22\u001b[0m         theme(axis_line=element_line(color=\"grey\"),\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'ggplot' is not defined"
+     ]
+    }
+   ],
    "source": [
     "p = (ggplot(gapminder_2007) +\n",
     "        # add scatter points\n",
@@ -1267,6 +1279,15 @@
     ")\n",
     "# save the plot\n",
     "p.save(\"images/beautiful_plot_from_notebook.png\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## ggplot2 Cheatsheet!\n",
+    "\n",
+    "Having trouble remembering all the options available? While written for `ggplot2` in R, given the packages are nearly the same, just use [this excellent cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) for R."
    ]
   }
  ],

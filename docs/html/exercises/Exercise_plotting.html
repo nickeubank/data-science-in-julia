@@ -1,0 +1,865 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Plotting Exercise &#8212; Practical Data Science</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Plotting-Exercise">
+<h1>Plotting Exercise<a class="headerlink" href="#Plotting-Exercise" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>Create a pandas dataframe from the “Datasaurus.txt” file using the code:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/nickeubank/practicaldatascience/master/Example_Data/Datasaurus.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Note that the file being downloaded is <em>not</em> actually a CSV file. It is tab-delimited, meaning that within each row, columns are separated by tabs rather than commas. We communicate this to pandas with the <code class="docutils literal notranslate"><span class="pre">delimiter=&quot;\t&quot;</span></code> option (<code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code> is how we write a tab, as we will discuss in future lessons).</p>
+</div>
+<div class="section" id="Exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>This dataset actually contains 13 separate example datasets, each with two variables named <code class="docutils literal notranslate"><span class="pre">example[number]_x</span></code> and <code class="docutils literal notranslate"><span class="pre">example[number]_y</span></code>.</p>
+<p>In order to get a better sense of what these datasets look like, write a loop that iterates over each example dataset (numbered 1 to 13) and print out the mean and standard deviation for <code class="docutils literal notranslate"><span class="pre">example[number]_x</span></code> and <code class="docutils literal notranslate"><span class="pre">example[number]_y</span></code> for each dataset.</p>
+<p>For example, the first iteration of this loop might return something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Example</span> <span class="n">Dataset</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Mean</span> <span class="n">x</span><span class="p">:</span> <span class="mf">54.26609978429576</span><span class="p">,</span> <span class="n">Mean</span> <span class="n">y</span><span class="p">:</span> <span class="mf">47.83472062494366</span><span class="p">,</span> <span class="n">Std</span> <span class="n">Dev</span> <span class="n">x</span><span class="p">:</span> <span class="mf">16.769824954043756</span><span class="p">,</span> <span class="n">Std</span> <span class="n">Dev</span> <span class="n">y</span><span class="p">:</span> <span class="mf">26.939743419267103</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Exercise-3">
+<h2>Exercise 3<a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h2>
+<p>Based only on these results, discuss what might you conclude about these example datasets with your partner. Write down your thoughts.</p>
+</div>
+<div class="section" id="Execise-4">
+<h2>Execise 4<a class="headerlink" href="#Execise-4" title="Permalink to this headline">¶</a></h2>
+<p>Write a loop that iterates over these example datasets, and using the <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> library, plot a simple scatter plot of each dataset with the <code class="docutils literal notranslate"><span class="pre">x</span></code> variable on the x-axis and the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable on the y-axis. Save these plots as PDFs somewhere you can find them.</p>
+<p>Hint: When writing this type of code, it is often best to start by writing code to do what you want for the first iteration of the loop. Once you have code that works for the first example dataset, then write the full loop around it.</p>
+</div>
+<div class="section" id="Exercise-5">
+<h2>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h2>
+<p>Review you plots. How does your impression of how these datasets differ from what you wrote down in Exercise 3?</p>
+</div>
+<div class="section" id="Exercise-6">
+<h2>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h2>
+<p>Now we’ll begin working with data collected by the US Census Bureau. This is not the actual “US Census” (which is meant to literally survey every person in the United States), but rather than American Community Survey, which has more questions and is administered to a random sample of Americans every year. For now, we’ll just be working with a small sample from this dataset.</p>
+<p>This data can be found at <a class="reference external" href="https://github.com/nickeubank/MIDS_Data/raw/master/US_AmericanCommunitySurvey/US_ACS_2017_10pct_sample.dta">https://github.com/nickeubank/MIDS_Data/raw/master/US_AmericanCommunitySurvey/US_ACS_2017_10pct_sample.dta</a> . The file ending <code class="docutils literal notranslate"><span class="pre">.dta</span></code> indicates that this is a file created in a program called Stata, and which can be read by <code class="docutils literal notranslate"><span class="pre">pandas</span></code> using the command <code class="docutils literal notranslate"><span class="pre">read_stata</span></code>. Please download this data.</p>
+<p>As we are now starting to work with real data, you will find this dataset is full of <em>lots</em> of variables (and even this is just a small subset of those in the master files), and variable names may not always have obvious meanings. You can find more information about all the variables in this data in the documentation files at <a class="reference external" href="https://github.com/nickeubank/MIDS_Data/tree/master/US_AmericanCommunitySurvey">https://github.com/nickeubank/MIDS_Data/tree/master/US_AmericanCommunitySurvey</a>. We will work with this data a lot this semester.</p>
+<p>In this data, every observation is a single individual.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">wdi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://media.githubusercontent.com/media/nickeubank/MIDS_Data/master/World_Development_Indicators/wdi_small.csv&quot;</span><span class="p">)</span>
+<span class="n">wdi</span> <span class="o">=</span> <span class="n">wdi</span><span class="p">[[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Indicator Name&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Indicator Code&#39;</span><span class="p">,</span> <span class="s1">&#39;2015&#39;</span><span class="p">]]</span>
+<span class="n">wdi</span> <span class="o">=</span> <span class="n">wdi</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Indicator Name&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;2015&#39;</span><span class="p">)</span>
+<span class="n">wdi</span> <span class="o">=</span> <span class="n">wdi</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">wdi</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">wdi</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Country Name
+Adolescent fertility rate (births per 1,000 women ages 15-19)
+Antiretroviral therapy coverage for PMTCT (% of pregnant women living with HIV)
+Battle-related deaths (number of people)
+CPIA building human resources rating (1=low to 6=high)
+CPIA business regulatory environment rating (1=low to 6=high)
+CPIA debt policy rating (1=low to 6=high)
+CPIA economic management cluster average (1=low to 6=high)
+CPIA efficiency of revenue mobilization rating (1=low to 6=high)
+CPIA equity of public resource use rating (1=low to 6=high)
+CPIA financial sector rating (1=low to 6=high)
+CPIA fiscal policy rating (1=low to 6=high)
+CPIA gender equality rating (1=low to 6=high)
+CPIA macroeconomic management rating (1=low to 6=high)
+CPIA policies for social inclusion/equity cluster average (1=low to 6=high)
+CPIA policy and institutions for environmental sustainability rating (1=low to 6=high)
+CPIA property rights and rule-based governance rating (1=low to 6=high)
+CPIA public sector management and institutions cluster average (1=low to 6=high)
+CPIA quality of budgetary and financial management rating (1=low to 6=high)
+CPIA quality of public administration rating (1=low to 6=high)
+CPIA social protection rating (1=low to 6=high)
+CPIA structural policies cluster average (1=low to 6=high)
+CPIA trade rating (1=low to 6=high)
+CPIA transparency, accountability, and corruption in the public sector rating (1=low to 6=high)
+Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions (% of total)
+Completeness of infant death reporting (% of reported infant deaths to estimated infant deaths)
+Completeness of total death reporting (% of reported total deaths to estimated total deaths)
+Contraceptive prevalence, any methods (% of women ages 15-49)
+Contraceptive prevalence, modern methods (% of women ages 15-49)
+Demand for family planning satisfied by modern methods (% of married women with demand for family planning)
+Droughts, floods, extreme temperatures (% of population, average 1990-2009)
+GDP per capita (constant 2010 US$)
+GDP per capita (constant LCU)
+GDP per capita (current LCU)
+GDP per capita (current US$)
+GDP per capita growth (annual %)
+GDP per capita, PPP (constant 2011 international $)
+GDP per capita, PPP (current international $)
+Government expenditure per student, primary (% of GDP per capita)
+Government expenditure per student, secondary (% of GDP per capita)
+Government expenditure per student, tertiary (% of GDP per capita)
+Increase in poverty gap at $1.90 ($ 2011 PPP) poverty line due to out-of-pocket health care expenditure (% of poverty line)
+Increase in poverty gap at $1.90 ($ 2011 PPP) poverty line due to out-of-pocket health care expenditure (USD)
+Increase in poverty gap at $3.10 ($ 2011 PPP) poverty line due to out-of-pocket health care expenditure (% of poverty line)
+Increase in poverty gap at $3.10 ($ 2011 PPP) poverty line due to out-of-pocket health care expenditure (USD)
+Lifetime risk of maternal death (%)
+Lifetime risk of maternal death (1 in: rate varies by country)
+Literacy rate, adult female (% of females ages 15 and above)
+Literacy rate, adult male (% of males ages 15 and above)
+Literacy rate, adult total (% of people ages 15 and above)
+Literacy rate, youth (ages 15-24), gender parity index (GPI)
+Literacy rate, youth female (% of females ages 15-24)
+Literacy rate, youth male (% of males ages 15-24)
+Literacy rate, youth total (% of people ages 15-24)
+Maternal mortality ratio (modeled estimate, per 100,000 live births)
+Maternal mortality ratio (national estimate, per 100,000 live births)
+Merchandise exports to low- and middle-income economies outside region (% of total merchandise exports)
+Merchandise exports to low- and middle-income economies within region (% of total merchandise exports)
+Merchandise imports from low- and middle-income economies outside region (% of total merchandise imports)
+Merchandise imports from low- and middle-income economies within region (% of total merchandise imports)
+Mortality caused by road traffic injury (per 100,000 people)
+Mortality from CVD, cancer, diabetes or CRD between exact ages 30 and 70 (%)
+Mortality from CVD, cancer, diabetes or CRD between exact ages 30 and 70, female (%)
+Mortality from CVD, cancer, diabetes or CRD between exact ages 30 and 70, male (%)
+Mortality rate attributed to household and ambient air pollution, age-standardized (per 100,000 population)
+Mortality rate attributed to household and ambient air pollution, age-standardized, female (per 100,000 female population)
+Mortality rate attributed to household and ambient air pollution, age-standardized, male (per 100,000 male population)
+Mortality rate attributed to unintentional poisoning (per 100,000 population)
+Mortality rate attributed to unintentional poisoning, female (per 100,000 female population)
+Mortality rate attributed to unintentional poisoning, male (per 100,000 male population)
+Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (per 100,000 population)
+Mortality rate, adult, female (per 1,000 female adults)
+Mortality rate, adult, male (per 1,000 male adults)
+Mortality rate, infant (per 1,000 live births)
+Mortality rate, infant, female (per 1,000 live births)
+Mortality rate, infant, male (per 1,000 live births)
+Mortality rate, neonatal (per 1,000 live births)
+Mortality rate, under-5 (per 1,000 live births)
+Mortality rate, under-5, female (per 1,000 live births)
+Mortality rate, under-5, male (per 1,000 live births)
+Nonpregnant and nonnursing women can do the same jobs as men (1=yes; 0=no)
+Number of deaths ages 5-14 years
+Number of infant deaths
+Number of maternal deaths
+Number of neonatal deaths
+Number of people pushed below the $1.90 ($ 2011 PPP) poverty line by out-of-pocket health care expenditure
+Number of people pushed below the $3.10 ($ 2011 PPP) poverty line by out-of-pocket health care expenditure
+Number of under-five deaths
+Population, female
+Population, female (% of total population)
+Population, male
+Population, male (% of total population)
+Population, total
+Poverty gap at $1.90 a day (2011 PPP) (%)
+Poverty gap at $3.20 a day (2011 PPP) (%)
+Poverty gap at $5.50 a day (2011 PPP) (%)
+Poverty gap at national poverty lines (%)
+Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population)
+Poverty headcount ratio at $3.20 a day (2011 PPP) (% of population)
+Poverty headcount ratio at $5.50 a day (2011 PPP) (% of population)
+Poverty headcount ratio at national poverty lines (% of population)
+Pregnant women receiving prenatal care (%)
+Prevalence of anemia among non-pregnant women (% of women ages 15-49)
+Prevalence of anemia among pregnant women (%)
+Prevalence of anemia among women of reproductive age (% of women ages 15-49)
+Proportion of population pushed below the $1.90 ($ 2011 PPP) poverty line by out-of-pocket health care expenditure (%)
+Proportion of population pushed below the $3.10 ($ 2011 PPP) poverty line by out-of-pocket health care expenditure (%)
+Proportion of seats held by women in national parliaments (%)
+Proportion of women subjected to physical and/or sexual violence in the last 12 months (% of women age 15-49)
+Rural poverty gap at national poverty lines (%)
+Rural poverty headcount ratio at national poverty lines (% of rural population)
+Suicide mortality rate (per 100,000 population)
+Suicide mortality rate, female (per 100,000 female population)
+Suicide mortality rate, male (per 100,000 male population)
+Teenage mothers (% of women ages 15-19 who have had children or are currently pregnant)
+Unmet need for contraception (% of married women ages 15-49)
+Urban poverty gap at national poverty lines (%)
+Urban poverty headcount ratio at national poverty lines (% of urban population)
+Women making their own informed decisions regarding sexual relations, contraceptive use and reproductive health care  (% of women age 15-49)
+Women participating in the three decisions (own health care, major household purchases, and visiting family) (% of women age 15-49)
+Women who believe a husband is justified in beating his wife (any of five reasons) (%)
+Women who believe a husband is justified in beating his wife when she argues with him (%)
+Women who believe a husband is justified in beating his wife when she burns the food (%)
+Women who believe a husband is justified in beating his wife when she goes out without telling him (%)
+Women who believe a husband is justified in beating his wife when she neglects the children (%)
+Women who believe a husband is justified in beating his wife when she refuses sex with him (%)
+Women who were first married by age 15 (% of women ages 20-24)
+Women who were first married by age 18 (% of women ages 20-24)
+Women&#39;s share of population ages 15+ living with HIV (%)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>datanum</th>
+      <th>serial</th>
+      <th>cbserial</th>
+      <th>numprec</th>
+      <th>subsamp</th>
+      <th>hhwt</th>
+      <th>hhtype</th>
+      <th>repwt</th>
+      <th>cluster</th>
+      <th>...</th>
+      <th>repwtp71</th>
+      <th>repwtp72</th>
+      <th>repwtp73</th>
+      <th>repwtp74</th>
+      <th>repwtp75</th>
+      <th>repwtp76</th>
+      <th>repwtp77</th>
+      <th>repwtp78</th>
+      <th>repwtp79</th>
+      <th>repwtp80</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2017</td>
+      <td>1</td>
+      <td>177686</td>
+      <td>2.017001e+12</td>
+      <td>9</td>
+      <td>64</td>
+      <td>55</td>
+      <td>female householder, no husband present</td>
+      <td>1</td>
+      <td>2.017002e+12</td>
+      <td>...</td>
+      <td>83</td>
+      <td>77</td>
+      <td>85</td>
+      <td>29</td>
+      <td>24</td>
+      <td>24</td>
+      <td>89</td>
+      <td>149</td>
+      <td>90</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2017</td>
+      <td>1</td>
+      <td>1200045</td>
+      <td>2.017001e+12</td>
+      <td>6</td>
+      <td>79</td>
+      <td>25</td>
+      <td>male householder, no wife present</td>
+      <td>1</td>
+      <td>2.017012e+12</td>
+      <td>...</td>
+      <td>65</td>
+      <td>15</td>
+      <td>19</td>
+      <td>50</td>
+      <td>16</td>
+      <td>18</td>
+      <td>67</td>
+      <td>61</td>
+      <td>47</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2017</td>
+      <td>1</td>
+      <td>70831</td>
+      <td>2.017000e+12</td>
+      <td>1 person record</td>
+      <td>36</td>
+      <td>57</td>
+      <td>male householder, living alone</td>
+      <td>1</td>
+      <td>2.017001e+12</td>
+      <td>...</td>
+      <td>88</td>
+      <td>106</td>
+      <td>55</td>
+      <td>66</td>
+      <td>56</td>
+      <td>58</td>
+      <td>60</td>
+      <td>16</td>
+      <td>65</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2017</td>
+      <td>1</td>
+      <td>557128</td>
+      <td>2.017001e+12</td>
+      <td>2</td>
+      <td>10</td>
+      <td>98</td>
+      <td>married-couple family household</td>
+      <td>1</td>
+      <td>2.017006e+12</td>
+      <td>...</td>
+      <td>99</td>
+      <td>92</td>
+      <td>155</td>
+      <td>95</td>
+      <td>114</td>
+      <td>180</td>
+      <td>113</td>
+      <td>90</td>
+      <td>87</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2017</td>
+      <td>1</td>
+      <td>614890</td>
+      <td>2.017001e+12</td>
+      <td>4</td>
+      <td>96</td>
+      <td>54</td>
+      <td>married-couple family household</td>
+      <td>1</td>
+      <td>2.017006e+12</td>
+      <td>...</td>
+      <td>49</td>
+      <td>14</td>
+      <td>12</td>
+      <td>43</td>
+      <td>45</td>
+      <td>39</td>
+      <td>43</td>
+      <td>45</td>
+      <td>72</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 266 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="s1">&#39;polityIV&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gdppcap08</th>
+      <th>polityIV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>gdppcap08</th>
+      <td>1.000000</td>
+      <td>0.215749</td>
+    </tr>
+    <tr>
+      <th>polityIV</th>
+      <td>0.215749</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;polityIV&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_text</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">))</span>
+
+<span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">country</span> <span class="o">!=</span><span class="s2">&quot;Qatar&quot;</span><span class="p">],</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;polityIV&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_text</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">))</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/scales/scale.py:93: MatplotlibDeprecationWarning:
+The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+  if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:146: UserWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  warnings.warn(&#34;Confidence intervals are not yet implemented&#34;
+/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/utils.py:553: MatplotlibDeprecationWarning:
+The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+  return cbook.iterable(var) and not is_string(var)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Exercise_plotting_12_1.png" src="../_images/exercises_Exercise_plotting_12_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (7560821845)&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">country</span> <span class="o">!=</span><span class="s2">&quot;Qatar&quot;</span><span class="p">][[</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="s1">&#39;polityIV&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gdppcap08</th>
+      <th>polityIV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>gdppcap08</th>
+      <td>1.000000</td>
+      <td>0.317762</td>
+    </tr>
+    <tr>
+      <th>polityIV</th>
+      <td>0.317762</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Practical DS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part1.html">Command Line, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part2.html">Command Line, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_environment.html">Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_list.html">All Exercises</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nick Eubank.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/exercises/Exercise_plotting.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133829453-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

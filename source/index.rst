@@ -39,19 +39,18 @@ Reminders:
 - **WM**: `Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, Second Edition <https://www.amazon.com/gp/product/1491957662>`_ by Wes McKinney.
 
 
-
-.. toctree::
+.. toctree:: 
    :maxdepth: 2
    :hidden:
 
-    Command Line, Basics <command_line_part1>
-    Command Line, Advanced  <command_line_part2>
-    Setting Up Python <setup_environment>
-    Jupyter <jupyter>
-    Python v. R: Pointers <pointers>
-    Plotting <plotting>
-    Git and Github <git_and_github>
-    Getting Help Online <getting_help>
-    Defensive Programming <defensive_programming>
-    Workflow Management <workflow>
-    Numbers in Computers <ints_and_floats>
+   Command Line, Basics <command_line_part1>
+   Command Line, Advanced  <command_line_part2>
+   Setting Up Python <setup_environment>
+   Jupyter <jupyter>
+   Python v. R: Pointers <pointers>
+   Plotting <plotting>
+   Getting Help Online <getting_help>
+   Defensive Programming <defensive_programming>
+   Workflow Management <workflow>
+   Numbers in Computers <ints_and_floats>
+   All Exercises <exercise_list>

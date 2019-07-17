@@ -249,9 +249,8 @@ div.rendered_html tbody tr:hover {
 <li><code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> [Folder containing all CSVs from Thursdays and Fridays]</li>
 </ul>
 <p>If this is NOT the directory structure that you currently have, then the first exercise is to move around your files and folders until they have this structure.</p>
-</div>
 <div class="section" id="Exercise-1:-Checking-Files">
-<h2>Exercise 1: Checking Files<a class="headerlink" href="#Exercise-1:-Checking-Files" title="Permalink to this headline">¶</a></h2>
+<h3>Exercise 1: Checking Files<a class="headerlink" href="#Exercise-1:-Checking-Files" title="Permalink to this headline">¶</a></h3>
 <p>When doing data work, it is important to always check your assumptions. For example, we <em>think</em> that we have data from every Thursday and Friday in the <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> directory. But are we sure?</p>
 <p>To check, let’s quickly google “how many thursdays were there in 2018” and “how many fridays were there in 2018” (there are 52 weeks in a year so it’s probably 52 of each, but important to be sure as 365 is not evenly divided by 52).</p>
 <p>Then let’s count the number of files we have in the <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> directory. Hint: to do this, we need one command to list out the names of all the files in <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> (<code class="docutils literal notranslate"><span class="pre">ls</span></code>), a second command to count the number of files reported (<code class="docutils literal notranslate"><span class="pre">wc</span></code>), and some way to pass data from one to the other.</p>
@@ -276,19 +275,19 @@ ls -1 <span class="p">|</span> wc -l
 </div>
 </div>
 <div class="section" id="Exercise-2:-Combining-files">
-<h2>Exercise 2: Combining files<a class="headerlink" href="#Exercise-2:-Combining-files" title="Permalink to this headline">¶</a></h2>
+<h3>Exercise 2: Combining files<a class="headerlink" href="#Exercise-2:-Combining-files" title="Permalink to this headline">¶</a></h3>
 <p>Having all these individual files is not very efficient. Instead, we’d like to merge all these files into a single large CSV file we can import into Python and analyze.</p>
 <p>As you may recall, the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command is often used to print the contents of a file out to the screen. But <code class="docutils literal notranslate"><span class="pre">cat</span></code> actually stands for concatenate: if you give the command multiple files, it will join them together one after the other.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">cat</span></code> to merge all the files in <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> into a single CSV called <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays.csv</span></code>.</p>
 </div>
 <div class="section" id="Exercise-3:-Viewing-your-Results">
-<h2>Exercise 3: Viewing your Results<a class="headerlink" href="#Exercise-3:-Viewing-your-Results" title="Permalink to this headline">¶</a></h2>
+<h3>Exercise 3: Viewing your Results<a class="headerlink" href="#Exercise-3:-Viewing-your-Results" title="Permalink to this headline">¶</a></h3>
 <p>Great! Now we have a single CSV file with all our data for Thursdays and Fridays. But there’s a problem: none of the columns are labeled.</p>
 <p><strong>Take a look at the first few lines of our file using either ``less`` or ``head``.</strong> Head is a new tool! It’s like <code class="docutils literal notranslate"><span class="pre">cat</span></code> in that it just prints the contents of a file to the screen, but unlike <code class="docutils literal notranslate"><span class="pre">cat</span></code> it only prints a few lines. There’s also a command called <code class="docutils literal notranslate"><span class="pre">tail</span></code> that shows you the last few lines of a file.</p>
 <p><strong>Try also confirming this by openning ``thursdays_and_fridays.csv`` in Excel.</strong> As you will discover, it’s a very slow process. This is another advantage of the command line: when working with big files, being able to quickly look at a few lines of a file in the command line is very efficient.</p>
 </div>
 <div class="section" id="Exercise-4:-Editing">
-<h2>Exercise 4: Editing<a class="headerlink" href="#Exercise-4:-Editing" title="Permalink to this headline">¶</a></h2>
+<h3>Exercise 4: Editing<a class="headerlink" href="#Exercise-4:-Editing" title="Permalink to this headline">¶</a></h3>
 <p>In <code class="docutils literal notranslate"><span class="pre">NYC311_calls_2018</span></code> is a file called <code class="docutils literal notranslate"><span class="pre">NYC311_column_names.txt</span></code>. It has all the column names for our CSVs.</p>
 <p>We can add these column names by concatenating the column name file to the top of our CSV, but only if it is properly formatted, which it is not – when the column names were exported, they included square brackets at the start and end of the column names:</p>
 <div class="nbinput docutils container">
@@ -313,6 +312,7 @@ head NYC311_column_names.txt
 <p>Then concatenate your column names with your CSV to create a new file called <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays_w_columnnames.csv</span></code>.</p>
 </div>
 </div>
+</div>
 
 
           </div>
@@ -332,15 +332,16 @@ head NYC311_column_names.txt
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../command_line_part1.html"> Command Line Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../command_line_part2.html"> Command Line, Advanced</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../setup_environment.html"> Setting Up Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter.html"> Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html"> Numbers in Computers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../git_and_github.html"> Git and Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_help.html"> Getting Help Online</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../languages.html"> Programming Languages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../defensive_programming.html"> Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part1.html">Command Line, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part2.html">Command Line, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_environment.html">Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_list.html">All Exercises</a></li>
 </ul>
 
 <div class="relations">
