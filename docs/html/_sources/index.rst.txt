@@ -48,7 +48,8 @@ Reminders:
    Setting Up Python <setup_environment>
    Jupyter <jupyter>
    Python v. R: Pointers <pointers>
-   Plotting <plotting>
+   Plotting, Basics <plotting_part1>
+   Plotting, Advanced <plotting_part2>
    Getting Help Online <getting_help>
    Defensive Programming <defensive_programming>
    Workflow Management <workflow>
