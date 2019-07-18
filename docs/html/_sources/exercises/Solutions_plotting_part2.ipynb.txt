@@ -386,7 +386,7 @@
     "\n",
     "Let's see what happens if we exclude the ten countries with the highest per-capita oil production from our data: Qatar, Kuwait, Equatorial Guinea, United Arab Emirates (UAE), Norway, Brunei, Saudi Arabia, Libya, Oman, and Gabon. (Note this was in 2007!)\n",
     "\n",
-    "To do this, I would recomment creating a new variable called `bigproducer` that is `True` if `country` matches a name in that list, and `False` otherwise. You may find [the `isin` method useful.](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.isin.html) "
+    "To do this, I would recomment creating a new variable called `bigproducer` that is `True` if `country` matches a name in that list, and `False` otherwise. If you're struggling to find a good way to do this, googling \"How to check if a value is in the list in selection from pandas data frame?\" might help you out... "
    ]
   },
   {
