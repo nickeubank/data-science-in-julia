@@ -4,16 +4,29 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## If you've never seen Python before\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "# Welcome non-Duke MIDS Students!\n",
     "\n",
     "In designing this course, I've endeavored to make all the materials and resources accessible to students anywhere. However, the materials in this course *are* tailored to meet the needs of incoming Duke Masters in Data Science (MIDS) students, and so if you are not an incoming Duke MIDS student, there are a couple things you should know about how the course has been designed. \n",
     "\n",
     "In short: \n",
     "\n",
-    "- This course assumes a familiarity with (regular) Python. \n",
-    "- MIDS students have also seen the two Python data science packages we'll use a lot in this course: `numpy`, and `pandas`. As a result, this course is not optimally designed for those who have no exposure to these tools. A person who knows Python but has never seen `numpy` and `pandas` can still learn all they need from the materials in this course, but for reasons discussed below, it may be harder than is really necessary. Guidance for students in this position follows.\n",
-    "- No experience or past exposure is assumed for topic areas other than `numpy` and `pandas`.\n",
-    "\n",
+    "- This course assumes a familiarity with (regular) Python. *Guidance for those new to Python below.*\n",
+    "- MIDS students have also seen the two Python data science packages we'll use a lot in this course: `numpy`, and `pandas`. As a result, this course is not optimally designed for those who have no exposure to these tools. A person who knows Python but has never seen `numpy` and `pandas` can still learn all they need from the materials in this course, but for reasons discussed below, it may be harder than is really necessary. *Guidance for students in this position below.*\n",
+    "- No experience or past exposure is assumed for topic areas other than `numpy` and `pandas`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## How Python, Numpy and Pandas are Taught\n",
     "\n",
     "Over the summer before they arrive, Duke MIDS students are asked to complete some summer coursework to prepare them for their first year. Part of that training is completing a a set of DataCamp tutorials on Data Science in Python, which introduce the basics of using Python for data science (namely, it introduces `python`, `numpy`, and `pandas`). In addition, they get some additional training in (regular) Python the week they arrive on campus. \n",
@@ -22,7 +35,14 @@
     "\n",
     "But in teaching, an important concept is the difference between \"the logic of a subject\" and the \"logic of learning\". Subjects often have their own logic, which (once understood) seem to flow from basic ideas (e.g. what is the most basic way to represent data) and then build up to fancy concepts (how to merge datasets and fit models). The problem is that teaching a course by following this \"logic of the subject\" turns out not to be the best way to help people learn. Instead, it's often useful to start from the middle (doing basic data manipulations) so students see the goal of the tools they are learning about before they double back and enrich their understanding by learning about the deep internal logic of a tool. \n",
     "\n",
-    "The DataCamp courses that MIDS students completed was a \"start from the middle\" introduction, and so in this course we're not doubling back and teaching the logic of these libraries from the bottom up. That means we will cover everything on needs to know about these libraries, but maybe not in the most learning friendly way. \n",
+    "The DataCamp courses that MIDS students completed was a \"start from the middle\" introduction, and so in this course we're not doubling back and teaching the logic of these libraries from the bottom up. That means we will cover everything on needs to know about these libraries, but maybe not in the most learning friendly way. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## If you've never seen `numpy` or `pandas` before\n",
     "\n",
     "So: if you have never worked with `numpy` or `pandas`, before you work through this course, I would strongly recommend that (if you can afford it), you do what we asked the MIDS student to do: go complete the following excellent DataCamp courses:\n",
     "\n",
@@ -30,7 +50,16 @@
     "- [Intermediate Python for Data Science](https://www.datacamp.com/courses/intermediate-python-for-data-science) (Takes about 4 hours)\n",
     "- Complete module 1 (Data Ingestion) and module 2 (Exploratory Data Analsysis) from the [pandas Foundations course](https://www.datacamp.com/courses/pandas-foundations)\n",
     "\n",
-    "DataCamp's courses are really well designed, and crucially their entirely interactive (and research shows that *active* learning is the best way to learn). They're a tremendous resource, and you should definitely start there if you can affort their service (\\$30 a month in the US). \n"
+    "DataCamp's courses are really well designed, and crucially their entirely interactive (and research shows that *active* learning is the best way to learn). They're a tremendous resource, and you should definitely start there if you can affort their service (\\$30 a month in the US). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## If you've never used `python` before\n",
+    "\n",
+    "The DataCamp courses listed above include a good introduction to Python, so that is definitely where I would start. **I *think* that the Python covered in those courses will be sufficient to support you in the course.** However, I will confess that because MIDS students also take a little  Python bootcamp when they arrive, it's hard for me to know if that's quite sufficient... If you take those courses then try to complete the materials in this course, please let me know how it goes either [by email](mailto:nick@nickeubank.com) or by openning an issue on [this site's github repo](https://github.com/nickeubank/practicaldatascience/issues)!)"
    ]
   },
   {
