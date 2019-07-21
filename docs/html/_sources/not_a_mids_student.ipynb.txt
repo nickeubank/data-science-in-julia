@@ -4,14 +4,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## If you've never seen Python before\n",
-    "\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "# Welcome non-Duke MIDS Students!\n",
     "\n",
     "In designing this course, I've endeavored to make all the materials and resources accessible to students anywhere. However, the materials in this course *are* tailored to meet the needs of incoming Duke Masters in Data Science (MIDS) students, and so if you are not an incoming Duke MIDS student, there are a couple things you should know about how the course has been designed. \n",
