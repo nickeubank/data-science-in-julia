@@ -42,6 +42,7 @@ Reminders:
    :maxdepth: 2
    :hidden:
 
+   Not a MIDS Student? <not_a_mids_student>
    Command Line, Basics <command_line_part1>
    Command Line, Advanced  <command_line_part2>
    Setting Up Python <setup_environment>
@@ -54,4 +55,5 @@ Reminders:
    Defensive Programming <defensive_programming>
    Workflow Management <workflow>
    Numbers in Computers <ints_and_floats>
+   Performance <performance>
    All Exercises <exercise_list>

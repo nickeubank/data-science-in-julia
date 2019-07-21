@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Not a Duke MIDS Student? &#8212; Practical Data Science</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="Not-a-Duke-MIDS-Student?">
+<h1>Not a Duke MIDS Student?<a class="headerlink" href="#Not-a-Duke-MIDS-Student?" title="Permalink to this headline">¶</a></h1>
+<p>Welcome!</p>
+<p>In designing this course, I’ve endeavored to make all the materials and resources accessible to students anywhere. However, the materials in this course were tailored to meet the needs of incoming Duke Masters in Data Science (MIDS) students, and so if you are not an incoming Duke MIDS student, there are a couple things you should know about how the course has been designed. In short: MIDS students have seen <code class="docutils literal notranslate"><span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> before, so this course is not optimally designed
+for those who have never seen these tools before (though a person who has never seen <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> could still learn all they need from the materials in this course); in other subject areas, no experience or past exposure is assumed.</p>
+<div class="section" id="How-Python,-Numpy-and-Pandas-are-Taught">
+<h2>How Python, Numpy and Pandas are Taught<a class="headerlink" href="#How-Python,-Numpy-and-Pandas-are-Taught" title="Permalink to this headline">¶</a></h2>
+<p>Over the summer before they arrive, Duke MIDS students are asked to complete some summer coursework to prepare them for their first year. Part of that training is completing a a set of DataCamp tutorials on Data Science in Python, which introduce the basics of using Python for data science (namely, it introduces <code class="docutils literal notranslate"><span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>). In addition, they get some additional training in (regular) Python the week they arrive on campus.</p>
+<p>As a result, the material on <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> in this course is written assuming that students have completed those DataCamp courses (the specific classes are provided below). <strong>Now to be clear, one need not have taken those courses to be able to suceed in this class: the readings we do on ``numpy`` and ``pandas`` essentially explain those libraries from the ground up.</strong> The only thing that this course definitely will not teach is the basics of Python, so you should think of that as an
+actual pre-requisite (more on resources for learning Python below).</p>
+<p>But in teaching, an important concept is the difference between “the logic of a subject” and the “logic of learning”. Subjects often have their own logic, which (once understood) seem to flow from basic ideas (e.g.&nbsp;what is the most basic way to represent data) and then build up to fancy concepts (how to merge datasets and fit models). The problem is that teaching a course by following this “logic of the subject” turns out not to be the best way to help people learn. Instead, it’s often useful to
+start from the middle (doing basic data manipulations) so students see the goal of the tools they are learning about before they double back and enrich their understanding by learning about the deep internal logic of a tool.</p>
+<p>The DataCamp courses that MIDS students completed was a “start from the middle” introduction, and so in this course we’re not doubling back and teaching the logic of these libraries from the bottom up. That means we will cover everything on needs to know about these libraries, but maybe not in the most learning friendly way.</p>
+<p>So: if you have never worked with <code class="docutils literal notranslate"><span class="pre">numpy</span></code> or <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, before you work through this course, I would strongly recommend that (if you can afford it), you do what we asked the MIDS student to do: go complete the following excellent DataCamp courses:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.datacamp.com/courses/introduction-to-data-science-in-python">Introduction to Data Science in Python</a> (Takes about 4 hours)</li>
+<li><a class="reference external" href="https://www.datacamp.com/courses/intermediate-python-for-data-science">Intermediate Python for Data Science</a> (Takes about 4 hours)</li>
+<li>Complete module 1 (Data Ingestion) and module 2 (Exploratory Data Analsysis) from the <a class="reference external" href="https://www.datacamp.com/courses/pandas-foundations">pandas Foundations course</a></li>
+</ul>
+<p>DataCamp’s courses are really well designed, and crucially their entirely interactive (and research shows that <em>active</em> learning is the best way to learn). They’re a tremendous resource, and you should definitely start there if you can affort their service ($30 a month in the US).</p>
+</div>
+<div class="section" id="How-Other-Topics-Are-Taught">
+<h2>How Other Topics Are Taught<a class="headerlink" href="#How-Other-Topics-Are-Taught" title="Permalink to this headline">¶</a></h2>
+<p>While some knowledge is assumed for <code class="docutils literal notranslate"><span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, no knowledge is assumed in other areas. As a result, all the other resources on this site should be totally accessible to all readers (and if they’re not, then please let me know by openning an issue on <a class="reference external" href="https://github.com/nickeubank/practicaldatascience/issues">this site’s github repo</a>!).</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Practical DS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html">Command Line, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_environment.html">Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_part1.html">Plotting, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_part2.html">Plotting, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html">Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise_list.html">All Exercises</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nick Eubank.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/not_a_mids_student.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133829453-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
