@@ -4,11 +4,15 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Not a Duke MIDS Student?\n",
+    "# Welcome non-Duke MIDS Students!\n",
     "\n",
-    "Welcome!\n",
+    "In designing this course, I've endeavored to make all the materials and resources accessible to students anywhere. However, the materials in this course *are* tailored to meet the needs of incoming Duke Masters in Data Science (MIDS) students, and so if you are not an incoming Duke MIDS student, there are a couple things you should know about how the course has been designed. \n",
     "\n",
-    "In designing this course, I've endeavored to make all the materials and resources accessible to students anywhere. However, the materials in this course were tailored to meet the needs of incoming Duke Masters in Data Science (MIDS) students, and so if you are not an incoming Duke MIDS student, there are a couple things you should know about how the course has been designed. In short: MIDS students have seen `python`, `numpy`, and `pandas` before, so this course is not optimally designed for those who have never seen these tools before (though a person who has never seen `numpy` and `pandas` could still learn all they need from the materials in this course); in other subject areas, no experience or past exposure is assumed. \n",
+    "In short: \n",
+    "\n",
+    "- This course assumes a familiarity with (regular) Python. \n",
+    "- MIDS students have also seen the two Python data science packages we'll use a lot in this course: `numpy`, and `pandas`. As a result, this course is not optimally designed for those who have no exposure to these tools. A person who knows Python but has never seen `numpy` and `pandas` can still learn all they need from the materials in this course, but for reasons discussed below, it may be harder than is really necessary. Guidance for students in this position follows.\n",
+    "- No experience or past exposure is assumed for topic areas other than `numpy` and `pandas`.\n",
     "\n",
     "## How Python, Numpy and Pandas are Taught\n",
     "\n",
@@ -35,8 +39,7 @@
    "source": [
     "## How Other Topics Are Taught\n",
     "\n",
-    "While some knowledge is assumed for `python`, `numpy` and `pandas`, no knowledge is assumed in other areas. As a result, all the other resources on this site should be totally accessible to all readers (and if they're not, then please let me know by openning an issue on [this site's github repo](https://github.com/nickeubank/practicaldatascience/issues)!).\n",
-    "\n"
+    "While some knowledge is assumed for `python`, `numpy` and `pandas`, no knowledge is assumed in other areas. As a result, all the other resources on this site should be totally accessible to all readers (and if they're not, then please let me know by openning an issue on [this site's github repo](https://github.com/nickeubank/practicaldatascience/issues)!)."
    ]
   }
  ],
