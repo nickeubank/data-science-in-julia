@@ -1,0 +1,241 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Estimating Labor Market Returns to Education &#8212; Practical Data Science</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="Estimating-Labor-Market-Returns-to-Education">
+<h1>Estimating Labor Market Returns to Education<a class="headerlink" href="#Estimating-Labor-Market-Returns-to-Education" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> Most students taking this class are Duke MIDS students who have worked with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> previously. As a result, these exercises are very light on basic pandas Series and DataFrame manipulations. If you are new to <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, I would advise looking into some addition practice opportunities with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, as discussed in the <a class="reference internal" href="../not_a_mids_student.html"><span class="doc">Advice for Non-MIDS Students</span></a> page.</p>
+<p>In this exercise, we’re going to use data from the <a class="reference external" href="https://usa.ipums.org/usa/acs.shtml">American Communities Survey (ACS)</a> to study the relationship betwen educational attainment and wages. The ACS is a survey conducted by the United States Census Bureau (though it is not “The Census”, which is a counting of every person in the United States that takes place every 10 years) to measure numerous features of the US population. The data we will be working with includes about 100 variables from
+the 2017 ACS survey, and is composed of only 10% of all the people actually surveyed by the ACS. This data comes from <a class="reference external" href="https://usa.ipums.org/usa/">IPUMS</a>, which provides a very useful tool for getting subsets of major survey datasets, not just from the US, but <a class="reference external" href="https://international.ipums.org/international-action/sample_details">from government statistical agencies the world over</a>.</p>
+<p>This is <em>real</em> data, meaning that you are being provided the data as it is provided by IPUMS.</p>
+<p>Within this data is information on both the educational background and current earnings of a representative sample of Americans. We will now use this data to estimate the labor-market returns to graduating high school and college, and to learn something about the meaning of an educational degree.</p>
+<div class="section" id="Exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>Data for these <a class="reference external" href="https://github.com/nickeubank/MIDS_Data/tree/master/US_AmericanCommunitySurvey">exercises can be found here</a>. First, download <code class="docutils literal notranslate"><span class="pre">US_ACS_2017_10pct_sample.dta</span></code>.</p>
+</div>
+<div class="section" id="Exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>Now import <code class="docutils literal notranslate"><span class="pre">US_ACS_2017_10pct_sample.dta</span></code> into a pandas DataFrame. This can be done with the command <code class="docutils literal notranslate"><span class="pre">pd.read_stata</span></code>, which will read in files created in the program Stata (and which uses the file suffix <code class="docutils literal notranslate"><span class="pre">.dta</span></code>.</p>
+</div>
+<div class="section" id="Exercise-3">
+<h2>Exercise 3<a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h2>
+<p>It can be difficult to get an easy overview of all the variables included in a large DataFrame. First, try to see them all using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">acs</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+<p>As you will see, <code class="docutils literal notranslate"><span class="pre">python</span></code> doesn’t like to print out all the different variables. To get everything printed out, we can loop over all the columns and print them one at a time with the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">acs</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Try it.</p>
+</div>
+<div class="section" id="Exercise-4">
+<h2>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h2>
+<p>To understand the relationship between education and wages, we need variables for:</p>
+<ul class="simple">
+<li>Age</li>
+<li>Income</li>
+<li>Education</li>
+<li>Employment status (is the person actually working)</li>
+</ul>
+<p>These quantities of interest correspond to the following variables in our data: <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">inctot</span></code>, <code class="docutils literal notranslate"><span class="pre">educ</span></code>, and <code class="docutils literal notranslate"><span class="pre">empstat</span></code>.</p>
+</div>
+<div class="section" id="Exercise-5">
+<h2>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h2>
+<p>Once you have found the right variables, subset your DataFrame so you only have the variables you need. This will make the DataFrame easier to work with.</p>
+</div>
+<div class="section" id="Exercise-6">
+<h2>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h2>
+<p>Look at your data using the <code class="docutils literal notranslate"><span class="pre">.sample()</span></code> command. <code class="docutils literal notranslate"><span class="pre">.sample()</span></code> will give you a random subset of rows from a DataFrame, and is a very good way to eye-ball your data. Try <code class="docutils literal notranslate"><span class="pre">.sample(10)</span></code> to get 10 random rows. Do you see any immediate problems? Write them down with your partner.</p>
+</div>
+<div class="section" id="Exercise-7">
+<h2>Exercise 7<a class="headerlink" href="#Exercise-7" title="Permalink to this headline">¶</a></h2>
+<p>One obvious problem is that many people seem to have incomes of $9,999,999. Moreover, people with those incomes seem to be very young children.</p>
+<p>What you are seeing is one method (a relatively old one) for representing missing data. In this case, 9999999 is a method of saying “this person is too young to work, so their income value is missing”.</p>
+<p>So let’s begin by dropping anyone who has <code class="docutils literal notranslate"><span class="pre">inctot</span></code> equal to 9999999.</p>
+</div>
+<div class="section" id="Exercise-8">
+<h2>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h2>
+<p>OK, the other thing we want to do is only consider people who are employed. So subset the dataset for the people for whom <code class="docutils literal notranslate"><span class="pre">empstat</span></code> is equal to “employed”.</p>
+<p>Note that our decision to only look at people who are employed impacts how we should interpret the relationship we estimate between education and income. Because we are only looked at employed people, we will be estimating the relationship between education and income <em>for people who are employed</em>. That means that if education affects the <em>likelihood</em> someone is employed, we won’t capture that in this analysis.</p>
+</div>
+<div class="section" id="Exercise-9">
+<h2>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h2>
+<p>When we dropped anyone with <code class="docutils literal notranslate"><span class="pre">inctot</span> <span class="pre">==</span> <span class="pre">9999999</span></code>, we assumed we’d dropped all the children in the data (since when we looked at the data, those values seemed to appear for children). But we never checked the age cutoff being used. Let’s check now: what’s the minimium age of people still in our current data?</p>
+</div>
+<div class="section" id="Exercise-10">
+<h2>Exercise 10<a class="headerlink" href="#Exercise-10" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s turn to education. The <code class="docutils literal notranslate"><span class="pre">educ</span></code> variable seems to have a lot of discrete values. Let’s see what values exist, and their distribution, using the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> method. This is an <em>extremely</em> useful tool you’ll use a lot! Try the following code (modified for the name of your dataset, of course):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Exercise-11">
+<h2>Exercise 11<a class="headerlink" href="#Exercise-11" title="Permalink to this headline">¶</a></h2>
+<p>There are a lot of values in here, so let’s just check a couple. What is the average value of <code class="docutils literal notranslate"><span class="pre">inctot</span></code> for people whose highest grade level is “grade 12” (in the US, that is someone who has graduated high school)?</p>
+</div>
+<div class="section" id="Exercise-12">
+<h2>Exercise 12<a class="headerlink" href="#Exercise-12" title="Permalink to this headline">¶</a></h2>
+<p>What is the average income of someone who graduated college (“4 years of college”)? What does that suggest is the value of getting a college degree after graduating high school?</p>
+</div>
+<div class="section" id="Exercise-13">
+<h2>Exercise 13<a class="headerlink" href="#Exercise-13" title="Permalink to this headline">¶</a></h2>
+<p>What is the average income for someone who has not finished high school? What does that suggest is the value of a high school diploma?</p>
+</div>
+<div class="section" id="Exercise-14">
+<h2>Exercise 14<a class="headerlink" href="#Exercise-14" title="Permalink to this headline">¶</a></h2>
+<p>Complete the following table:</p>
+<ul class="simple">
+<li>Average income for someone who has not finished high school: _________</li>
+<li>Average income for someone who only completed 9th grade: _________</li>
+<li>Average income for someone who only completed 10th grade: _________</li>
+<li>Average income for someone who only completed 11th grade: _________</li>
+<li>Average income for someone who finished high school (12th grade) but never started college: _________</li>
+<li>Average income for someone who completed 4 year of college (in the US, this means graduating college): _________</li>
+</ul>
+</div>
+<div class="section" id="Exercise-15">
+<h2>Exercise 15<a class="headerlink" href="#Exercise-15" title="Permalink to this headline">¶</a></h2>
+<p>Why do you think there is no benefit from moving from grade 9 to grade 10, or grade 10 to grade 11, but there is a huge benefit to moving from grade 11 to graduating high school (grade 12)?</p>
+<div class="section" id="Take-aways">
+<h3>Take-aways<a class="headerlink" href="#Take-aways" title="Permalink to this headline">¶</a></h3>
+<p>Congratulations! You just discovered “the sheepskin effect!:” people with degrees tend to earn more than people who have the same education, but don’t have the certificate of completion.</p>
+<p>In economics, this is viewed as evidence that the reason employers pay people with high school degrees more than those without degree is that they think graduating high school demonstrates grit and determination, <em>not</em> because employers think high school graduates have learned specific, useful skills. After all, if employers were paying for specific skills, then someone who completes 10th grade should earn more than someone who only finished 9th, and someone who completed 11th grade should earn
+almost as much as someone who finished 12th grade.</p>
+<p>Finishing high school, in other words, isn’t about accumulating specific knowledge; it’s about showing that you <em>are the kind of person</em> who can rise to the challenge of finishing high school, also suggesting you are also the kind of person who can succeed as an employee. (Obviously, this data does not tell us whether that is an <em>accurate</em> inference, just that that seems to be how employeers think.)</p>
+<p>The high school degree, in other words, is a <em>signal</em> about the kind of person you are (an idea that earned <a class="reference external" href="https://en.wikipedia.org/wiki/Michael_Spence">Michael Spence</a> a Nobel Prize in Economics).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Practical DS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../not_a_mids_student.html">Not a MIDS Student?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part1.html">Command Line, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part2.html">Command Line, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_environment.html">Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views_and_copies_in_pandas.html">Views in Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting_part1.html">Plotting, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting_part2.html">Plotting, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git_and_github.html">Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise_list.html">All Exercises</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nick Eubank.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/exercises/Exercise_series_df.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133829453-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
