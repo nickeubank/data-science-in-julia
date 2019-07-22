@@ -19,11 +19,11 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## How Python, Numpy and Pandas are Taught\n",
+    "## How `python`, `numpy` and `pandas` are taught\n",
     "\n",
     "Over the summer before they arrive, Duke MIDS students are asked to complete some summer coursework to prepare them for their first year. Part of that training is completing a a set of DataCamp tutorials on Data Science in Python, which introduce the basics of using Python for data science (namely, it introduces `python`, `numpy`, and `pandas`). In addition, they get some additional training in (regular) Python the week they arrive on campus. \n",
     "\n",
-    "As a result, the material on `numpy` and `pandas` in this course is written assuming that students have completed those DataCamp courses (the specific classes are provided below). **Now to be clear, one need not have taken those courses to be able to suceed in this class: the readings we do on `numpy` and `pandas` essentially explain those libraries from the ground up.** The only thing that this course definitely will not teach is the basics of Python, so you should think of that as an actual pre-requisite (more on resources for learning Python below). \n",
+    "As a result, the material on `numpy` and `pandas` in this course is written assuming that students have completed those DataCamp courses (the specific classes are provided below). **Now to be clear, one need not have taken those courses to be able to suceed in this class: the readings we do on numpy and pandas essentially explain those libraries from the ground up.** The only thing that this course definitely will not teach is the basics of Python, so you should think of that as an actual pre-requisite (more on resources for learning Python below). \n",
     "\n",
     "But in teaching, an important concept is the difference between \"the logic of a subject\" and the \"logic of learning\". Subjects often have their own logic, which (once understood) seem to flow from basic ideas (e.g. what is the most basic way to represent data) and then build up to fancy concepts (how to merge datasets and fit models). The problem is that teaching a course by following this \"logic of the subject\" turns out not to be the best way to help people learn. Instead, it's often useful to start from the middle (doing basic data manipulations) so students see the goal of the tools they are learning about before they double back and enrich their understanding by learning about the deep internal logic of a tool. \n",
     "\n",
@@ -58,10 +58,17 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## How Other Topics Are Taught\n",
+    "## How other topics are taught\n",
     "\n",
     "While some knowledge is assumed for `python`, `numpy` and `pandas`, no knowledge is assumed in other areas. As a result, all the other resources on this site should be totally accessible to all readers (and if they're not, then please let me know by openning an issue on [this site's github repo](https://github.com/nickeubank/practicaldatascience/issues)!)."
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {

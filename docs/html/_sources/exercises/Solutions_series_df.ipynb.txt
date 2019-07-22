@@ -4,7 +4,19 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Pandas Series and DataFrames Exercises"
+    "# Pandas Series and DataFrames Exercises\n",
+    "\n",
+    "**Note:** Most students taking this class are Duke MIDS students who have worked with `pandas` previously. As a result, these exercises are very light on basic pandas Series and DataFrame manipulations. If you are new to `pandas`, I would advise looking into some addition practice opportunities with `pandas`, as discussed in the [Advice for Non-MIDS Students](../not_a_mids_student.ipynb) page. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np"
    ]
   },
   {

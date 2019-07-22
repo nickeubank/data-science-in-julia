@@ -50,6 +50,7 @@ Reminders:
    Setting Up Python <setup_environment>
    Jupyter <jupyter>
    Python v. R: Pointers <pointers>
+   Views in Pandas <views_and_copies_in_pandas>
    Plotting, Basics <plotting_part1>
    Plotting, Advanced <plotting_part2>
    Getting Help Online <getting_help>
