@@ -240,7 +240,7 @@ div.rendered_html tbody tr:hover {
 <h2>Wealth and Democracy<a class="headerlink" href="#Wealth-and-Democracy" title="Permalink to this headline">¶</a></h2>
 <p>Let’s now pivot from working with example data to real data. Load the World Development Indicator data you worked with over the summer. This is country-level data that includes information on both countries’ GDP per capita (a measure of wealth) and the Polity IV scores (a measure of how democratic a country is – countries with higher scores are liberal democracies, countries with low scores are autocratic.). Use the code below to download the data.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -251,7 +251,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Your data should look like this:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -260,7 +260,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -338,7 +338,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -359,8 +359,8 @@ div.rendered_html tbody tr:hover {
 Dep. Variable:               polityIV   R-squared:                       0.047
 Model:                            OLS   Adj. R-squared:                  0.040
 Method:                 Least Squares   F-statistic:                     6.981
-Date:                Wed, 17 Jul 2019   Prob (F-statistic):            0.00915
-Time:                        14:38:40   Log-Likelihood:                -475.14
+Date:                Tue, 23 Jul 2019   Prob (F-statistic):            0.00915
+Time:                        14:01:24   Log-Likelihood:                -475.14
 No. Observations:                 145   AIC:                             954.3
 Df Residuals:                     143   BIC:                             960.2
 Df Model:                           1
@@ -394,7 +394,7 @@ strong multicollinearity or other numerical problems.
 <h3>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h3>
 <p>Now let’s plot the relationship you just estimated statistically. First, use <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> to create a scatter plot of <code class="docutils literal notranslate"><span class="pre">polityIV</span></code> and <code class="docutils literal notranslate"><span class="pre">gdppcap08</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -419,16 +419,17 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<img alt="../_images/exercises_Solutions_plotting_part2_9_1.png" src="../_images/exercises_Solutions_plotting_part2_9_1.png" />
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;Figure size 640x480 with 1 Axes&gt;
+</pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7548295863)&gt;
+<span></span>&lt;ggplot: (7547290197)&gt;
 </pre></div>
 </div>
 </div>
@@ -437,7 +438,7 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <h3>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h3>
 <p>Now overlay the linear model you just estimated. You can do this by adding a <code class="docutils literal notranslate"><span class="pre">geom_smooth()</span></code> layer, where the <code class="docutils literal notranslate"><span class="pre">method</span></code> argument is set to <code class="docutils literal notranslate"><span class="pre">'lm'</span></code> (for linear model).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -468,11 +469,11 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029306363406)&gt;
+<span></span>&lt;ggplot: (7547905249)&gt;
 </pre></div>
 </div>
 </div>
@@ -485,7 +486,7 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <h3>Exercise 11<a class="headerlink" href="#Exercise-11" title="Permalink to this headline">¶</a></h3>
 <p>Linear models impose a very strict <em>functional form</em> on the model they use: they try to draw a straight line through the data, no matter what. Let’s consider a more flexible functional form. Change the <code class="docutils literal notranslate"><span class="pre">method</span></code> in your <code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;lowess&quot;</span></code>. This is a form of local polynomial regression that is designed to be flexible in how it fits the data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -518,11 +519,11 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029306167096)&gt;
+<span></span>&lt;ggplot: (-9223372029306815509)&gt;
 </pre></div>
 </div>
 </div>
@@ -534,10 +535,10 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <div class="section" id="Exercise-13">
 <h3>Exercise 13<a class="headerlink" href="#Exercise-13" title="Permalink to this headline">¶</a></h3>
 <p>Interesting. It seems that there’s are a lot of rich, undemocratic countries that all have something in common: they’re oil-rich, small, Middle Eastern countries.</p>
-<p>Let’s see what happens if we exclude the ten countries with the highest per-capita oil production from our data: Qatar, Kuwait, Equatorial Guinea, United Arab Emirates (UAE), Norway, Brunei, Saudi Arabia, Libya, Oman, and Gabon. (Note this was in 2007!)</p>
+<p>Let’s see what happens if we exclude the ten countries with the highest per-capita oil production from our data: Qatar, Kuwait, Equatorial Guinea, United Arab Emirates (UAE), Norway, Saudi Arabia, Libya, Oman, Gabon, and Angola. (Note this was in 2007, and excludes very small countries!)</p>
 <p>To do this, I would recomment creating a new variable called <code class="docutils literal notranslate"><span class="pre">bigproducer</span></code> that is <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">country</span></code> matches a name in that list, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. If you’re struggling to find a good way to do this, googling “How to check if a value is in the list in selection from pandas data frame?” might help you out…</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -546,7 +547,7 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <span class="n">wdi</span><span class="p">[</span><span class="s1">&#39;bigproducer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wdi</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Qatar&quot;</span><span class="p">,</span> <span class="s2">&quot;Kuwait&quot;</span><span class="p">,</span>
                                           <span class="s2">&quot;Equatorial Guinea&quot;</span><span class="p">,</span>
                                           <span class="s2">&quot;UAE&quot;</span><span class="p">,</span>
-                                          <span class="s2">&quot;Norway&quot;</span><span class="p">,</span> <span class="s2">&quot;Brunei&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;Norway&quot;</span><span class="p">,</span> <span class="s2">&quot;Angola&quot;</span><span class="p">,</span>
                                           <span class="s2">&quot;Saudi Arabia&quot;</span><span class="p">,</span> <span class="s2">&quot;Libya&quot;</span><span class="p">,</span>
                                           <span class="s2">&quot;Oman&quot;</span><span class="p">,</span> <span class="s2">&quot;Gabon&quot;</span><span class="p">])</span>
 
@@ -578,18 +579,36 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7568773110)&gt;
+<span></span>&lt;ggplot: (-9223372029306489989)&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="Exercise-13">
 <h3>Exercise 13<a class="headerlink" href="#Exercise-13" title="Permalink to this headline">¶</a></h3>
-<p>Let’s make sure that you accurately identified all 10 of the oil producers. Is the value of <code class="docutils literal notranslate"><span class="pre">wdi['bigproducer'].sum()</span></code> 10? If not, can you figure out what you did wroon</p>
+<p>Let’s make sure that you accurately identified all 10 of the oil producers. Write a line of code to count up how many big producers you have identified. If you do not get 10, can you figure out what you did wrong?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">wdi</span><span class="p">[</span><span class="s1">&#39;bigproducer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>10
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Exercise-14">
 <h3>Exercise 14<a class="headerlink" href="#Exercise-14" title="Permalink to this headline">¶</a></h3>
@@ -599,79 +618,6 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <div class="section" id="Exercise-15">
 <h2>Exercise 15<a class="headerlink" href="#Exercise-15" title="Permalink to this headline">¶</a></h2>
 <p>Now that we’ve gotten a good sense of the relationship between wealth and democracy for non-oil producers, can we draw any conclusions about the relationship between polity scores and wealth for the oil producers? Plot the polity / GDP per capita relationship <em>just</em> for the oil producers.</p>
-</div>
-<div class="section" id="Exercise-16">
-<h2>Exercise 16<a class="headerlink" href="#Exercise-16" title="Permalink to this headline">¶</a></h2>
-<p>Look a</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">country</span> <span class="o">!=</span><span class="s2">&quot;Qatar&quot;</span><span class="p">][[</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="s1">&#39;polityIV&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>gdppcap08</th>
-      <th>polityIV</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>gdppcap08</th>
-      <td>1.000000</td>
-      <td>0.317762</td>
-    </tr>
-    <tr>
-      <th>polityIV</th>
-      <td>0.317762</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -707,6 +653,7 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheatsheets.html">Cheatsheets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exercise_list.html">All Exercises</a></li>
 </ul>
 

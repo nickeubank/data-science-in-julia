@@ -14,7 +14,7 @@ Data Science is an intrinsically applied field, and yet all too often students a
 This course will be divided into two parts:
 
 - **Part 1: Data Wrangling**: In Part 1 of this course, students will develop hands-on experience manipulating real world data using a range of data science tools (including the command line, python, jupyter, git, and github).
-- **Part 2: Answering Questions**: This course adopts the view that Data Science is the study of how best to **answer questions** about the world **using quantitative data**. In Part 2 of this course, students will learn to develop data science projects to answer meaningful questions via backwards design, and to manage projects from inception to presentation of results.
+- **Part 2: Answering Questions**: This course adopts the view that Data Science is about **answering important questions using quantitative data**. In Part 2 of this course, students will learn to develop data science projects that achieve this goal via backwards design, and learn tips for managing projects from inception to presentation of results.
 
 The first portion of the course will provide students with extensive hands-on experience manipulating real (often messy, error ridden, and poorly documented) data using the a range of bread-and-butter data science tools (like the command line, git, python (especially numpy and pandas), jupyter notebooks, and more). The goal of these exercises is to ensure students are comfortable working with data in most any form. In addition to being of intrinsic value, developing these skills will also ensure that in advanced statistics or machine learning courses, students can focus on understanding the concepts being taught rather than having to split their attention between concepts and the nuts and bolts of data manipulation required to complete assignments.
 
@@ -59,4 +59,5 @@ Reminders:
    Workflow Management <workflow>
    Numbers in Computers <ints_and_floats>
    Performance <performance>
+   Cheatsheets <cheatsheets>
    All Exercises <exercise_list>
