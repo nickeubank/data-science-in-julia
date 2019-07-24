@@ -239,7 +239,7 @@ div.rendered_html tbody tr:hover {
 <p><strong>Note:</strong> Most students taking this class are Duke MIDS students who have worked with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> previously. As a result, these exercises are very light on basic pandas Series and DataFrame manipulations. If you are new to <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, I would advise looking into some addition practice opportunities with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, as discussed in the <a class="reference internal" href="../not_a_mids_student.html"><span class="doc">Advice for Non-MIDS Students</span></a> page.</p>
 <p>In this exercise, we’re going to use data from the <a class="reference external" href="https://usa.ipums.org/usa/acs.shtml">American Communities Survey (ACS)</a> to study the relationship betwen educational attainment and wages. The ACS is a survey conducted by the United States Census Bureau (though it is not “The Census”, which is a counting of every person in the United States that takes place every 10 years) to measure numerous features of the US population. The data we will be working with includes about 100 variables from
 the 2017 ACS survey, and is composed of only 10% of all the people actually surveyed by the ACS. This data comes from <a class="reference external" href="https://usa.ipums.org/usa/">IPUMS</a>, which provides a very useful tool for getting subsets of major survey datasets, not just from the US, but <a class="reference external" href="https://international.ipums.org/international-action/sample_details">from government statistical agencies the world over</a>.</p>
-<p>This is <em>real</em> data, meaning that you are being provided the data as it is provided by IPUMS.</p>
+<p>This is <em>real</em> data, meaning that you are being provided the data as it is provided by IPUMS. Documentation for all variables used in this data can be found <a class="reference external" href="https://usa.ipums.org/usa-action/variables/group">here</a> (you can either search by variable name to figure out the meaning of a variable in this data, or search for something you want to see if a variable with the right name is in this data).</p>
 <p>Within this data is information on both the educational background and current earnings of a representative sample of Americans. We will now use this data to estimate the labor-market returns to graduating high school and college, and to learn something about the meaning of an educational degree.</p>
 <div class="section" id="Exercise-1">
 <h2>Exercise 1<a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h2>
@@ -249,7 +249,7 @@ the 2017 ACS survey, and is composed of only 10% of all the people actually surv
 <h2>Exercise 2<a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
 <p>Now import <code class="docutils literal notranslate"><span class="pre">US_ACS_2017_10pct_sample.dta</span></code> into a pandas DataFrame. This can be done with the command <code class="docutils literal notranslate"><span class="pre">pd.read_stata</span></code>, which will read in files created in the program Stata (and which uses the file suffix <code class="docutils literal notranslate"><span class="pre">.dta</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -268,7 +268,7 @@ the 2017 ACS survey, and is composed of only 10% of all the people actually surv
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -277,7 +277,7 @@ the 2017 ACS survey, and is composed of only 10% of all the people actually surv
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -561,74 +561,74 @@ diffhear
   </thead>
   <tbody>
     <tr>
-      <th>51701</th>
-      <td>32</td>
-      <td>not in labor force</td>
-      <td>0</td>
-      <td>grade 12</td>
-    </tr>
-    <tr>
-      <th>28927</th>
-      <td>39</td>
+      <th>268994</th>
+      <td>48</td>
       <td>employed</td>
-      <td>63400</td>
-      <td>5+ years of college</td>
-    </tr>
-    <tr>
-      <th>221662</th>
-      <td>26</td>
-      <td>not in labor force</td>
-      <td>40240</td>
-      <td>grade 12</td>
-    </tr>
-    <tr>
-      <th>155642</th>
-      <td>70</td>
-      <td>not in labor force</td>
-      <td>37800</td>
-      <td>grade 12</td>
-    </tr>
-    <tr>
-      <th>125168</th>
-      <td>45</td>
-      <td>employed</td>
-      <td>35000</td>
-      <td>grade 12</td>
-    </tr>
-    <tr>
-      <th>313335</th>
-      <td>94</td>
-      <td>not in labor force</td>
-      <td>13500</td>
+      <td>463000</td>
       <td>4 years of college</td>
     </tr>
     <tr>
-      <th>112181</th>
-      <td>86</td>
-      <td>not in labor force</td>
-      <td>31200</td>
-      <td>grade 11</td>
-    </tr>
-    <tr>
-      <th>249730</th>
-      <td>79</td>
-      <td>not in labor force</td>
-      <td>14900</td>
-      <td>grade 12</td>
-    </tr>
-    <tr>
-      <th>226638</th>
-      <td>12</td>
-      <td>n/a</td>
-      <td>9999999</td>
+      <th>22778</th>
+      <td>64</td>
+      <td>employed</td>
+      <td>10400</td>
       <td>grade 5, 6, 7, or 8</td>
     </tr>
     <tr>
-      <th>77383</th>
-      <td>61</td>
+      <th>9955</th>
+      <td>16</td>
       <td>employed</td>
-      <td>20000</td>
+      <td>400</td>
+      <td>grade 10</td>
+    </tr>
+    <tr>
+      <th>4183</th>
+      <td>50</td>
+      <td>employed</td>
+      <td>74000</td>
+      <td>5+ years of college</td>
+    </tr>
+    <tr>
+      <th>110647</th>
+      <td>17</td>
+      <td>employed</td>
+      <td>50</td>
+      <td>grade 11</td>
+    </tr>
+    <tr>
+      <th>15465</th>
+      <td>66</td>
+      <td>not in labor force</td>
+      <td>37600</td>
+      <td>4 years of college</td>
+    </tr>
+    <tr>
+      <th>89556</th>
+      <td>56</td>
+      <td>not in labor force</td>
+      <td>0</td>
+      <td>grade 11</td>
+    </tr>
+    <tr>
+      <th>176654</th>
+      <td>6</td>
+      <td>n/a</td>
+      <td>9999999</td>
+      <td>nursery school to grade 4</td>
+    </tr>
+    <tr>
+      <th>30743</th>
+      <td>56</td>
+      <td>not in labor force</td>
+      <td>8400</td>
       <td>grade 12</td>
+    </tr>
+    <tr>
+      <th>81110</th>
+      <td>1</td>
+      <td>n/a</td>
+      <td>9999999</td>
+      <td>n/a or no schooling</td>
     </tr>
   </tbody>
 </table>
@@ -695,74 +695,74 @@ diffhear
   </thead>
   <tbody>
     <tr>
-      <th>175130</th>
+      <th>90386</th>
       <td>24</td>
       <td>employed</td>
-      <td>50000</td>
+      <td>61000</td>
       <td>4 years of college</td>
     </tr>
     <tr>
-      <th>286294</th>
-      <td>38</td>
+      <th>136386</th>
+      <td>69</td>
       <td>employed</td>
-      <td>42200</td>
+      <td>385000</td>
+      <td>4 years of college</td>
+    </tr>
+    <tr>
+      <th>24531</th>
+      <td>53</td>
+      <td>employed</td>
+      <td>20000</td>
       <td>2 years of college</td>
     </tr>
     <tr>
-      <th>225621</th>
-      <td>48</td>
+      <th>289124</th>
+      <td>33</td>
       <td>employed</td>
-      <td>117000</td>
+      <td>50000</td>
       <td>5+ years of college</td>
     </tr>
     <tr>
-      <th>277512</th>
-      <td>44</td>
+      <th>317254</th>
+      <td>40</td>
       <td>employed</td>
-      <td>36900</td>
-      <td>1 year of college</td>
+      <td>36700</td>
+      <td>5+ years of college</td>
     </tr>
     <tr>
-      <th>14380</th>
-      <td>67</td>
-      <td>employed</td>
-      <td>31350</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>120951</th>
-      <td>46</td>
-      <td>employed</td>
-      <td>68000</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>272275</th>
-      <td>49</td>
+      <th>211490</th>
+      <td>26</td>
       <td>employed</td>
       <td>38000</td>
+      <td>4 years of college</td>
+    </tr>
+    <tr>
+      <th>59049</th>
+      <td>49</td>
+      <td>employed</td>
+      <td>136040</td>
+      <td>4 years of college</td>
+    </tr>
+    <tr>
+      <th>282437</th>
+      <td>52</td>
+      <td>employed</td>
+      <td>60000</td>
+      <td>4 years of college</td>
+    </tr>
+    <tr>
+      <th>143354</th>
+      <td>20</td>
+      <td>employed</td>
+      <td>21500</td>
       <td>grade 12</td>
     </tr>
     <tr>
-      <th>170413</th>
-      <td>46</td>
+      <th>317498</th>
+      <td>51</td>
       <td>employed</td>
-      <td>295000</td>
-      <td>5+ years of college</td>
-    </tr>
-    <tr>
-      <th>278062</th>
-      <td>65</td>
-      <td>employed</td>
-      <td>75000</td>
-      <td>5+ years of college</td>
-    </tr>
-    <tr>
-      <th>166874</th>
-      <td>56</td>
-      <td>employed</td>
-      <td>43000</td>
-      <td>grade 12</td>
+      <td>70000</td>
+      <td>1 year of college</td>
     </tr>
   </tbody>
 </table>
