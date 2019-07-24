@@ -17,5 +17,5 @@ source/.ipynb_checkpoints/*
 *.log
 
 .ipynb_checkpoints/*
-
+**/ipynb_checkpoints
 ~$*
