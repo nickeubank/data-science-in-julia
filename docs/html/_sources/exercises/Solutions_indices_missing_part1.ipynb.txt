@@ -15,7 +15,7 @@
    "source": [
     "## Index alignment\n",
     "\n",
-    "To illustrate how index alignment can sometimes lead to problems, let's consider the following example: suppose we're throwing a party, and we plan to give people prizes based on the order in which they arrive. The first person to arrive at the party will get \\\\$20, the second will get \\\\$10, and the third person doesn't get anything. \n",
+    "To illustrate how index alignment can sometimes lead to problems, let's consider the following example: suppose we're throwing a party, and we plan to give people prizes based on the order in which they arrive. The first person to arrive at the party will get 20, the second will get 10, and the third person doesn't get anything. \n",
     "\n",
     "To keep track of how many prizes everyone gets, we build a DataFrame with all the party attendees, their arrival order, and a column for keeping track of how much they've received in prizes. \n",
     "\n",
@@ -64,8 +64,15 @@
     "\n",
     "Now let's look at the result. Does it look like what you expected? Do you know what went wrong?\n",
     "\n",
-    "After you've formulated your thoughts, continue to [Part 2](exercise_indices_and_missing_part2.ipynb). \n"
+    "After you've formulated your thoughts, continue to [Discussion](exercise_indices_and_missing_discussion.ipynb). \n"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
