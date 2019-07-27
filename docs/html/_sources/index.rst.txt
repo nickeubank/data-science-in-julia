@@ -29,7 +29,6 @@ Course Syllabus
 Class Schedule
 --------------
 
-
 .. csv-table::
    :file: class_schedule.csv
    :widths: 10, 7, 30, 35, 10
@@ -59,5 +58,5 @@ Reminders:
    Workflow Management <workflow>
    Numbers in Computers <ints_and_floats>
    Performance <performance>
-   Cheatsheets <cheatsheets>
+   Cheat Sheets <cheatsheets>
    All Exercises <exercise_list>

@@ -17,5 +17,6 @@ source/.ipynb_checkpoints/*
 *.log
 
 .ipynb_checkpoints/*
-**/ipynb_checkpoints
+**/ipynb_checkpoints/*
+source/exercises/.ipynb_checkpoints/*
 ~$*

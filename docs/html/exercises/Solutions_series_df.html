@@ -249,7 +249,7 @@ the 2017 ACS survey, and is composed of only 10% of all the people actually surv
 <h2>Exercise 2<a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
 <p>Now import <code class="docutils literal notranslate"><span class="pre">US_ACS_2017_10pct_sample.dta</span></code> into a pandas DataFrame. This can be done with the command <code class="docutils literal notranslate"><span class="pre">pd.read_stata</span></code>, which will read in files created in the program Stata (and which uses the file suffix <code class="docutils literal notranslate"><span class="pre">.dta</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -260,15 +260,17 @@ the 2017 ACS survey, and is composed of only 10% of all the people actually surv
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Exercise-3">
-<h2>Exercise 3<a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h2>
-<p>It can be difficult to get an easy overview of all the variables included in a large DataFrame. First, try to see them all using the command:</p>
+<div class="section" id="Getting-to-Know-Your-Data">
+<h3>Getting to Know Your Data<a class="headerlink" href="#Getting-to-Know-Your-Data" title="Permalink to this headline">¶</a></h3>
+<p>When you get a new dataset like this, it’s good to start by trying to get a feel for its contents and organization. Toy datasets you sometimes get in classes are often very small, and easy to look at, but this is a pretty large dataset, so you can’t just open it up and get a good sense of it. Here are some ways to get to know your data.</p>
+<p><strong>3)</strong> How many rows are in your data?</p>
+<p><strong>4)</strong> How many columns are in your data?</p>
+<p><strong>5)</strong> Let’s see what variables are in this dataset. First, try to see them all using the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">acs</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -277,7 +279,7 @@ the 2017 ACS survey, and is composed of only 10% of all the people actually surv
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -296,7 +298,7 @@ the 2017 ACS survey, and is composed of only 10% of all the people actually surv
 </div>
 <p>Try it.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -415,10 +417,7 @@ diffeye
 diffhear
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Exercise-4">
-<h2>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h2>
-<p>To understand the relationship between education and wages, we need variables for:</p>
+<p><strong>4)</strong> That’s a <em>lot</em> of variables, and definitely more than we need. In general, life is easier when working with these kinds of huge datasets if you can narrow down the number of variables a little. In this exercise, we will be looking at the relationship between education and wages, we need variables for:</p>
 <ul class="simple">
 <li>Age</li>
 <li>Income</li>
@@ -426,12 +425,9 @@ diffhear
 <li>Employment status (is the person actually working)</li>
 </ul>
 <p>These quantities of interest correspond to the following variables in our data: <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">inctot</span></code>, <code class="docutils literal notranslate"><span class="pre">educ</span></code>, and <code class="docutils literal notranslate"><span class="pre">empstat</span></code>.</p>
-</div>
-<div class="section" id="Exercise-5">
-<h2>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h2>
-<p>Once you have found the right variables, subset your DataFrame so you only have the variables you need. This will make the DataFrame easier to work with.</p>
+<p>Let’s subset our data to just those variables.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -439,90 +435,10 @@ diffhear
 </pre></div>
 </div>
 </div>
+<p><strong>5)</strong> Now that we have a more manageable number of variables, it’s often very useful to look at a handful of rows of your data. The easiest way to do this is probably the <code class="docutils literal notranslate"><span class="pre">.head()</span></code> method (which will show you the first five rows), or the <code class="docutils literal notranslate"><span class="pre">tail()</span></code> method, which will show you the last five rows.</p>
+<p>But to get a good sense of your data, it’s often better to use the <code class="docutils literal notranslate"><span class="pre">sample()</span></code> command, as the first and last rows are sometimes not representative. Try looking at a random sample of 10 rows.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">acs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>empstat</th>
-      <th>inctot</th>
-      <th>educ</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>4</td>
-      <td>n/a</td>
-      <td>9999999</td>
-      <td>nursery school to grade 4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>17</td>
-      <td>employed</td>
-      <td>6000</td>
-      <td>grade 11</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>63</td>
-      <td>employed</td>
-      <td>6150</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>66</td>
-      <td>not in labor force</td>
-      <td>14000</td>
-      <td>grade 12</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1</td>
-      <td>n/a</td>
-      <td>9999999</td>
-      <td>n/a or no schooling</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-</div>
-<div class="section" id="Exercise-6">
-<h2>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h2>
-<p>Look at your data using the <code class="docutils literal notranslate"><span class="pre">.sample()</span></code> command. <code class="docutils literal notranslate"><span class="pre">.sample()</span></code> will give you a random subset of rows from a DataFrame, and is a very good way to eye-ball your data. Try <code class="docutils literal notranslate"><span class="pre">.sample(10)</span></code> to get 10 random rows. Do you see any immediate problems? Write them down with your partner.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -531,7 +447,7 @@ diffhear
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -561,101 +477,96 @@ diffhear
   </thead>
   <tbody>
     <tr>
-      <th>268994</th>
-      <td>48</td>
-      <td>employed</td>
-      <td>463000</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>22778</th>
-      <td>64</td>
-      <td>employed</td>
-      <td>10400</td>
-      <td>grade 5, 6, 7, or 8</td>
-    </tr>
-    <tr>
-      <th>9955</th>
-      <td>16</td>
-      <td>employed</td>
-      <td>400</td>
-      <td>grade 10</td>
-    </tr>
-    <tr>
-      <th>4183</th>
-      <td>50</td>
-      <td>employed</td>
-      <td>74000</td>
-      <td>5+ years of college</td>
-    </tr>
-    <tr>
-      <th>110647</th>
-      <td>17</td>
-      <td>employed</td>
-      <td>50</td>
-      <td>grade 11</td>
-    </tr>
-    <tr>
-      <th>15465</th>
-      <td>66</td>
+      <th>126287</th>
+      <td>67</td>
       <td>not in labor force</td>
-      <td>37600</td>
-      <td>4 years of college</td>
+      <td>35500</td>
+      <td>grade 12</td>
     </tr>
     <tr>
-      <th>89556</th>
-      <td>56</td>
+      <th>10561</th>
+      <td>16</td>
       <td>not in labor force</td>
       <td>0</td>
       <td>grade 11</td>
     </tr>
     <tr>
-      <th>176654</th>
-      <td>6</td>
-      <td>n/a</td>
-      <td>9999999</td>
-      <td>nursery school to grade 4</td>
+      <th>280582</th>
+      <td>61</td>
+      <td>employed</td>
+      <td>75000</td>
+      <td>grade 9</td>
     </tr>
     <tr>
-      <th>30743</th>
-      <td>56</td>
-      <td>not in labor force</td>
-      <td>8400</td>
+      <th>266002</th>
+      <td>28</td>
+      <td>employed</td>
+      <td>25000</td>
       <td>grade 12</td>
     </tr>
     <tr>
-      <th>81110</th>
-      <td>1</td>
+      <th>285971</th>
+      <td>47</td>
+      <td>employed</td>
+      <td>70000</td>
+      <td>grade 12</td>
+    </tr>
+    <tr>
+      <th>119645</th>
+      <td>75</td>
+      <td>not in labor force</td>
+      <td>35500</td>
+      <td>grade 12</td>
+    </tr>
+    <tr>
+      <th>24109</th>
+      <td>31</td>
+      <td>employed</td>
+      <td>18000</td>
+      <td>grade 12</td>
+    </tr>
+    <tr>
+      <th>150766</th>
+      <td>5</td>
       <td>n/a</td>
       <td>9999999</td>
       <td>n/a or no schooling</td>
+    </tr>
+    <tr>
+      <th>238174</th>
+      <td>30</td>
+      <td>employed</td>
+      <td>40000</td>
+      <td>1 year of college</td>
+    </tr>
+    <tr>
+      <th>9211</th>
+      <td>20</td>
+      <td>employed</td>
+      <td>3200</td>
+      <td>grade 12</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="Exercise-7">
-<h2>Exercise 7<a class="headerlink" href="#Exercise-7" title="Permalink to this headline">¶</a></h2>
-<p>One obvious problem is that many people seem to have incomes of $9,999,999. Moreover, people with those incomes seem to be very young children.</p>
+<p><strong>6)</strong> Do you see any immediate problems? Write them down with your partner.</p>
+<p><strong>7)</strong> One problem is that many people seem to have incomes of $9,999,999. Moreover, people with those incomes seem to be very young children.</p>
 <p>What you are seeing is one method (a relatively old one) for representing missing data. In this case, 9999999 is a method of saying “this person is too young to work, so their income value is missing”.</p>
 <p>So let’s begin by dropping anyone who has <code class="docutils literal notranslate"><span class="pre">inctot</span></code> equal to 9999999.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">acs</span> <span class="o">=</span> <span class="n">acs</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;inctot != 9999999&#39;</span><span class="p">)</span>
+<span></span><span class="n">acs</span> <span class="o">=</span> <span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;inctot&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">9999999</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Exercise-8">
-<h2>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h2>
-<p>OK, the other thing we want to do is only consider people who are employed. So subset the dataset for the people for whom <code class="docutils literal notranslate"><span class="pre">empstat</span></code> is equal to “employed”.</p>
+<p><strong>8)</strong> OK, the other potential problem is that our data includes lots of people who are unemployed and people who are not in the labor force (this means they not only don’t have a job, but also aren’t looking for a job). For this analysis, we to focus on the wages of people who are currently employed. So subset the dataset for the people for whom <code class="docutils literal notranslate"><span class="pre">empstat</span></code> is equal to “employed”.</p>
 <p>Note that our decision to only look at people who are employed impacts how we should interpret the relationship we estimate between education and income. Because we are only looked at employed people, we will be estimating the relationship between education and income <em>for people who are employed</em>. That means that if education affects the <em>likelihood</em> someone is employed, we won’t capture that in this analysis.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -665,7 +576,7 @@ diffhear
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -695,92 +606,85 @@ diffhear
   </thead>
   <tbody>
     <tr>
-      <th>90386</th>
-      <td>24</td>
-      <td>employed</td>
-      <td>61000</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>136386</th>
-      <td>69</td>
-      <td>employed</td>
-      <td>385000</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>24531</th>
-      <td>53</td>
+      <th>10711</th>
+      <td>25</td>
       <td>employed</td>
       <td>20000</td>
-      <td>2 years of college</td>
-    </tr>
-    <tr>
-      <th>289124</th>
-      <td>33</td>
-      <td>employed</td>
-      <td>50000</td>
-      <td>5+ years of college</td>
-    </tr>
-    <tr>
-      <th>317254</th>
-      <td>40</td>
-      <td>employed</td>
-      <td>36700</td>
-      <td>5+ years of college</td>
-    </tr>
-    <tr>
-      <th>211490</th>
-      <td>26</td>
-      <td>employed</td>
-      <td>38000</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>59049</th>
-      <td>49</td>
-      <td>employed</td>
-      <td>136040</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>282437</th>
-      <td>52</td>
-      <td>employed</td>
-      <td>60000</td>
-      <td>4 years of college</td>
-    </tr>
-    <tr>
-      <th>143354</th>
-      <td>20</td>
-      <td>employed</td>
-      <td>21500</td>
       <td>grade 12</td>
     </tr>
     <tr>
-      <th>317498</th>
-      <td>51</td>
+      <th>24877</th>
+      <td>48</td>
       <td>employed</td>
-      <td>70000</td>
+      <td>22000</td>
+      <td>grade 5, 6, 7, or 8</td>
+    </tr>
+    <tr>
+      <th>121973</th>
+      <td>65</td>
+      <td>employed</td>
+      <td>24000</td>
+      <td>5+ years of college</td>
+    </tr>
+    <tr>
+      <th>177890</th>
+      <td>36</td>
+      <td>employed</td>
+      <td>18000</td>
+      <td>5+ years of college</td>
+    </tr>
+    <tr>
+      <th>280058</th>
+      <td>47</td>
+      <td>employed</td>
+      <td>28000</td>
+      <td>grade 12</td>
+    </tr>
+    <tr>
+      <th>143279</th>
+      <td>65</td>
+      <td>employed</td>
+      <td>113000</td>
       <td>1 year of college</td>
+    </tr>
+    <tr>
+      <th>246142</th>
+      <td>41</td>
+      <td>employed</td>
+      <td>35500</td>
+      <td>grade 9</td>
+    </tr>
+    <tr>
+      <th>126240</th>
+      <td>44</td>
+      <td>employed</td>
+      <td>20000</td>
+      <td>4 years of college</td>
+    </tr>
+    <tr>
+      <th>270395</th>
+      <td>41</td>
+      <td>employed</td>
+      <td>101000</td>
+      <td>5+ years of college</td>
+    </tr>
+    <tr>
+      <th>34756</th>
+      <td>26</td>
+      <td>employed</td>
+      <td>48000</td>
+      <td>4 years of college</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="Exercise-9">
-<h2>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h2>
-<p>When we dropped anyone with <code class="docutils literal notranslate"><span class="pre">inctot</span> <span class="pre">==</span> <span class="pre">9999999</span></code>, we assumed we’d dropped all the children in the data (since when we looked at the data, those values seemed to appear for children). But we never checked the age cutoff being used. Let’s check now: what’s the minimium age of people still in our current data?</p>
-</div>
-<div class="section" id="Exercise-10">
-<h2>Exercise 10<a class="headerlink" href="#Exercise-10" title="Permalink to this headline">¶</a></h2>
-<p>Now let’s turn to education. The <code class="docutils literal notranslate"><span class="pre">educ</span></code> variable seems to have a lot of discrete values. Let’s see what values exist, and their distribution, using the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> method. This is an <em>extremely</em> useful tool you’ll use a lot! Try the following code (modified for the name of your dataset, of course):</p>
+<p><strong>9)</strong> Now let’s turn to education. The <code class="docutils literal notranslate"><span class="pre">educ</span></code> variable seems to have a lot of discrete values. Let’s see what values exist, and their distribution, using the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> method. This is an <em>extremely</em> useful tool you’ll use a lot! Try the following code (modified for the name of your dataset, of course):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -789,7 +693,7 @@ diffhear
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -808,12 +712,9 @@ Name: educ, dtype: int64
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Exercise-11">
-<h2>Exercise 11<a class="headerlink" href="#Exercise-11" title="Permalink to this headline">¶</a></h2>
-<p>There are a lot of values in here, so let’s just check a couple. What is the average value of <code class="docutils literal notranslate"><span class="pre">inctot</span></code> for people whose highest grade level is “grade 12” (in the US, that is someone who has graduated high school)?</p>
+<p><strong>10)</strong> There are a lot of values in here, so let’s just check a couple. What is the average value of <code class="docutils literal notranslate"><span class="pre">inctot</span></code> for people whose highest grade level is “grade 12” (in the US, that is someone who has graduated high school)?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -822,7 +723,7 @@ Name: educ, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -830,18 +731,9 @@ Name: educ, dtype: int64
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Exercise-12">
-<h2>Exercise 12<a class="headerlink" href="#Exercise-12" title="Permalink to this headline">¶</a></h2>
-<p>What is the average income of someone who graduated college (“4 years of college”)? What does that suggest is the value of getting a college degree after graduating high school?</p>
-</div>
-<div class="section" id="Exercise-13">
-<h2>Exercise 13<a class="headerlink" href="#Exercise-13" title="Permalink to this headline">¶</a></h2>
-<p>What is the average income for someone who has not finished high school? What does that suggest is the value of a high school diploma?</p>
-</div>
-<div class="section" id="Exercise-14">
-<h2>Exercise 14<a class="headerlink" href="#Exercise-14" title="Permalink to this headline">¶</a></h2>
-<p>Complete the following table:</p>
+<p><strong>11)</strong> What is the average income of someone who graduated college (“4 years of college”)? What does that suggest is the value of getting a college degree after graduating high school?</p>
+<p><strong>12)</strong> What is the average income for someone who has not finished high school? What does that suggest is the value of a high school diploma?</p>
+<p><strong>13)</strong> Complete the following table:</p>
 <ul class="simple">
 <li>Average income for someone who has not finished high school: _________</li>
 <li>Average income for someone who only completed 9th grade: _________</li>
@@ -851,97 +743,60 @@ Name: educ, dtype: int64
 <li>Average income for someone who completed 4 year of college (in the US, this means graduating college): _________</li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">acs</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;educ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span></span><span class="c1"># Hasn&#39;t finished:</span>
+<span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;n/a or no schooling&#39;</span><span class="p">)</span> <span class="o">|</span>
+         <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;nursery school to grade 4&#39;</span><span class="p">)</span> <span class="o">|</span>
+         <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;grade 5, 6, 7, or 8&#39;</span><span class="p">)</span> <span class="o">|</span>
+         <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;grade 9&#39;</span><span class="p">)</span> <span class="o">|</span>
+         <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;grade 10&#39;</span><span class="p">)</span> <span class="o">|</span>
+         <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;grade 11&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;inctot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>inctot</th>
-    </tr>
-    <tr>
-      <th>educ</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>n/a or no schooling</th>
-      <td>32276.878389</td>
-    </tr>
-    <tr>
-      <th>nursery school to grade 4</th>
-      <td>27592.649573</td>
-    </tr>
-    <tr>
-      <th>grade 5, 6, 7, or 8</th>
-      <td>30684.196941</td>
-    </tr>
-    <tr>
-      <th>grade 9</th>
-      <td>27171.907752</td>
-    </tr>
-    <tr>
-      <th>grade 10</th>
-      <td>23018.795812</td>
-    </tr>
-    <tr>
-      <th>grade 11</th>
-      <td>21541.686931</td>
-    </tr>
-    <tr>
-      <th>grade 12</th>
-      <td>38957.760682</td>
-    </tr>
-    <tr>
-      <th>1 year of college</th>
-      <td>43123.872571</td>
-    </tr>
-    <tr>
-      <th>2 years of college</th>
-      <td>48679.305392</td>
-    </tr>
-    <tr>
-      <th>4 years of college</th>
-      <td>75485.052933</td>
-    </tr>
-    <tr>
-      <th>5+ years of college</th>
-      <td>110013.221338</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>26226.45692998571
+</pre></div>
 </div>
 </div>
-<div class="section" id="Exercise-15">
-<h2>Exercise 15<a class="headerlink" href="#Exercise-15" title="Permalink to this headline">¶</a></h2>
-<p>Why do you think there is no benefit from moving from grade 9 to grade 10, or grade 10 to grade 11, but there is a huge benefit to moving from grade 11 to graduating high school (grade 12)?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;grade 9&#39;</span><span class="p">,</span> <span class="s1">&#39;grade 10&#39;</span><span class="p">,</span> <span class="s1">&#39;grade 11&#39;</span><span class="p">,</span> <span class="s1">&#39;grade 12&#39;</span><span class="p">,</span> <span class="s1">&#39;4 years of college&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;educ&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">level</span><span class="p">,</span> <span class="s1">&#39;inctot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+grade 9
+27171.907751937986
+grade 10
+23018.795811518325
+grade 11
+21541.68693119767
+grade 12
+38957.76068179442
+4 years of college
+75485.05293301983
+</pre></div></div>
+</div>
+<p><strong>14)</strong> Why do you think there is no benefit from moving from grade 9 to grade 10, or grade 10 to grade 11, but there is a huge benefit to moving from grade 11 to graduating high school (grade 12)?</p>
+</div>
 <div class="section" id="Take-aways">
 <h3>Take-aways<a class="headerlink" href="#Take-aways" title="Permalink to this headline">¶</a></h3>
 <p>Congratulations! You just discovered “the sheepskin effect!:” people with degrees tend to earn more than people who have the same education, but don’t have the certificate of completion.</p>
@@ -985,7 +840,7 @@ school are the <em>kind of people</em> who are likely to succeed. Finishing high
 <li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cheatsheets.html">Cheatsheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheatsheets.html">Cheat Sheets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exercise_list.html">All Exercises</a></li>
 </ul>
 
