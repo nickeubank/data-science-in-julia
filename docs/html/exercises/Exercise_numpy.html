@@ -292,55 +292,10 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Exercise-4">
 <h2>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h2>
 <p><strong>Close Python</strong>. On a piece of paper, write down the final result of the following code:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">first_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first_matrix</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[[1 2 3]
- [4 5 6]]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">second_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">second_matrix</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[1 2 3]
-</pre></div></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">first_matrix</span> <span class="o">+</span> <span class="n">second_matrix</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="Execise-5">
 <h2>Execise 5<a class="headerlink" href="#Execise-5" title="Permalink to this headline">¶</a></h2>
 <p><strong>Keep Python Closed!</strong> Write down the final result of the following code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<span class="n">selection</span> <span class="o">=</span> <span class="n">my_vector</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
-<span class="n">my_vector</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="Exercise-6">
 <h2>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h2>
@@ -351,7 +306,7 @@ div.rendered_html tbody tr:hover {
 <p>This is similar to the idea that variables are just pointers, and that different variables may point to the same object (discussed in the <a class="reference external" href="%5B../python_v_r.ipynb%5D">Python v. R / Variables as Pointers tutorial</a>.) But it is slightly different in that if two variables both point to the same <code class="docutils literal notranslate"><span class="pre">set</span></code>, where the two variables behave the same way. But one variable points to an array, and a second variable is a <em>slice</em> of that array, they are both accessing the same data in the same array, but they
 present it differently. For example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -362,7 +317,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -371,7 +326,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -381,7 +336,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -391,7 +346,7 @@ present it differently. For example:</p>
 </div>
 <p>Since <code class="docutils literal notranslate"><span class="pre">my_array</span></code> and <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> are both pointing to the same array, changes to one will propagate to the other. For example, if I modify the <code class="docutils literal notranslate"><span class="pre">2</span></code> entry in <code class="docutils literal notranslate"><span class="pre">my_slice</span></code>, it will appear in <code class="docutils literal notranslate"><span class="pre">my_array</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -401,7 +356,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -410,7 +365,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -419,7 +374,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -429,7 +384,7 @@ present it differently. For example:</p>
 </div>
 <p>But while <code class="docutils literal notranslate"><span class="pre">my_array</span></code> and <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> are accessing the same underlying data, they are indexed differently. We changed the first item (index <code class="docutils literal notranslate"><span class="pre">0</span></code> in <code class="docutils literal notranslate"><span class="pre">my_slice</span></code>, but that change impacted the entry in the second position of <code class="docutils literal notranslate"><span class="pre">my_array</span></code> (index <code class="docutils literal notranslate"><span class="pre">1</span></code>):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -438,7 +393,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -448,7 +403,7 @@ present it differently. For example:</p>
 </div>
 <p>It is also worth emphasizing at this point that while slices will get you a view of an array, <strong>if you slice a Python list, you get a new object.</strong> This behavior is entirely limited to <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -460,7 +415,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -469,7 +424,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -478,7 +433,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -490,10 +445,15 @@ present it differently. For example:</p>
 <div class="section" id="When-do-you-get-a-view,-and-when-do-you-get-a-copy?">
 <h3>When do you get a view, and when do you get a copy?<a class="headerlink" href="#When-do-you-get-a-view,-and-when-do-you-get-a-copy?" title="Permalink to this headline">¶</a></h3>
 <p>OK, now the <em>really</em> annoying thing: when do I get a view, and when do I get a copy?</p>
-<p>Generally speaking, <strong>you get a view if you do a plain, basic slice of an array, and the view remains a view few if you edit it by modifying it using basic indexing.</strong> Outside of those two behaviors, you will usually get a copy.</p>
+<p>Generally speaking:</p>
+<ul class="simple">
+<li><strong>you get a view if you do a plain, basic slice of an array,</strong> and</li>
+<li><strong>the view remains a view if you edit it by modifying it using basic indexing (i.e.&nbsp;you use ``[]`` on the left side of the assignment operator).</strong></li>
+</ul>
+<p>Outside of those two behaviors, you will usually get a copy.</p>
 <p>So, for example, this slice will get you a view:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -505,7 +465,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -515,7 +475,7 @@ present it differently. For example:</p>
 </div>
 <p>But if you use “fancy indexing” (where you pass a list when making your slice), you will NOT get a view:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -527,7 +487,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -537,7 +497,7 @@ present it differently. For example:</p>
 </div>
 <p>Similarly, if you edit using basic indexing (like we did above), those edits will propogate from the slice back to the originally array (or the other way around). But if you modify a slice without using basic indexing, you get a copy, so changes won’t propagate:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -549,7 +509,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -558,7 +518,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -567,7 +527,7 @@ present it differently. For example:</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -575,42 +535,62 @@ present it differently. For example:</p>
 </pre></div>
 </div>
 </div>
+<p>(If you want to do a full-array manipulation and preserve your view, always use square brackets on the left side of the assignment operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">my_slice</span> <span class="o">=</span> <span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">my_slice</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">my_slice</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">my_slice</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([4, 6])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([1, 4, 6])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="How-to-Manage-Views-In-Your-Work">
 <h3>How to Manage Views In Your Work<a class="headerlink" href="#How-to-Manage-Views-In-Your-Work" title="Permalink to this headline">¶</a></h3>
-<p>Let’s be really up front honest about this: I think this behavior is <em>insane</em>, and causes far, far more problems than it is worth.</p>
-<p>Views exist because they are more memory efficient (a view doesn’t require making a new copy of data) and faster (again, no copying required). And if you’re doing super-computer simulations where every milisecond counts, or working with truely huge datasets, this is important. But for most data scientists, it’s just a trap waiting to get you in trouble, especially since there’s no reliable way to know for certain if two arrays are views of one another except by modifying one and seeing if the
-other changes. (You may find people saying otherwise; don’t trust them!). The way we use <code class="docutils literal notranslate"><span class="pre">is</span></code> in regular Python to see if two variables point at the same object doesn’t work for numpy arrays.</p>
-<p><strong>UNLESS YOU REALLY NEED A VIEW AND ARE BEING SUPER CAREFUL: don’t use views for anything but looking at data. If you ever want to modify or work with a sub-array, just make a copy to be safe.</strong> Computers are fast enough and ram is plentiful enough, it’s almost never a problem.</p>
+<p>Views exist because they are more memory efficient (a view doesn’t require making a new copy of data) and faster (again, no copying required). And if you’re doing super-computer simulations where every milisecond counts, or working with truely huge datasets, this is important. But for most data scientists, I tend to see it as a a trap waiting to get you in trouble.</p>
+<p>This is especially since there’s no reliable way to check if two arrays are views of one another except by modifying one and seeing if the other changes. (You may find people saying otherwise; don’t trust them!). The way we use <code class="docutils literal notranslate"><span class="pre">is</span></code> in regular Python to see if two variables point at the same object doesn’t work for numpy arrays. Thus its on you to remember the rules.</p>
+<p><strong>My advice on copies:</strong> UNLESS YOU REALLY NEED A VIEW AND ARE BEING SUPER CAREFUL: don’t use views for anything but <em>looking</em> at data. If you ever want to <em>modify</em> or <em>work with</em> a sub-array, just make a copy to be safe. Computers are fast enough and ram is plentiful enough that for most applications, it’s almost never a problem.</p>
 </div>
 </div>
 <div class="section" id="Exercise-7">
 <h2>Exercise 7<a class="headerlink" href="#Exercise-7" title="Permalink to this headline">¶</a></h2>
 <p><strong>Close your computer / laptop</strong>. Let’s try and work out a few problems in our heads to test our understanding of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> views. Let’s start with the following array:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[[1 2 3]
- [4 5 6]]
-</pre></div></div>
-</div>
 <p>Now, on a piece of paper write down the value of <code class="docutils literal notranslate"><span class="pre">my_slice</span> <span class="pre">=</span> <span class="pre">my_array[:,</span> <span class="pre">1:3]</span></code>.</p>
 </div>
 <div class="section" id="Exercise-8">
 <h2>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h2>
-<p>Now suppose we run the code <code class="docutils literal notranslate"><span class="pre">my_array[:,</span> <span class="pre">:]</span> <span class="pre">=</span> <span class="pre">my_array[:,</span> <span class="pre">:]</span> <span class="pre">*</span> <span class="pre">2</span></code>. Now what does <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> look like?</p>
+<p>Now suppose we run the code <code class="docutils literal notranslate"><span class="pre">my_array[:,</span> <span class="pre">:]</span> <span class="pre">=</span> <span class="pre">my_array</span> <span class="pre">*</span> <span class="pre">2</span></code>. Now what does <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> look like?</p>
 </div>
 <div class="section" id="Exercise-9">
 <h2>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h2>
@@ -624,7 +604,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 <h2>Exercise 11<a class="headerlink" href="#Exercise-11" title="Permalink to this headline">¶</a></h2>
 <p>OK, let’s close Python again and go back to pen and paper. Let’s also reset <code class="docutils literal notranslate"><span class="pre">my_array</span></code> and start over with the following code:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -643,7 +623,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -661,12 +641,12 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
  [5 6]]
 </pre></div></div>
 </div>
-<p>Now suppose we run the following code: <code class="docutils literal notranslate"><span class="pre">my_array[:,</span> <span class="pre">:]</span> <span class="pre">=</span> <span class="pre">my_array[:,</span> <span class="pre">:]</span> <span class="pre">*</span> <span class="pre">2</span></code>. What does <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> look like?</p>
+<p>Now suppose we run the following code: <code class="docutils literal notranslate"><span class="pre">my_array[:,</span> <span class="pre">:]</span> <span class="pre">=</span> <span class="pre">my_array</span> <span class="pre">*</span> <span class="pre">2</span></code>. What does <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> look like?</p>
 <div class="section" id="Note:-Don’t-trust-my_array.base">
 <h3>Note: Don’t trust my_array.base<a class="headerlink" href="#Note:-Don’t-trust-my_array.base" title="Permalink to this headline">¶</a></h3>
 <p>You will find some tutorials online that suggest you can test if one array is a view of another with the code <code class="docutils literal notranslate"><span class="pre">my_slice.base</span> <span class="pre">is</span> <span class="pre">my_array</span></code>. The problem is… this doesn’t always work. It does sometimes:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -677,7 +657,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -687,7 +667,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 <p>But not always. Here’s an example where <code class="docutils literal notranslate"><span class="pre">my_array</span></code> and <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> point to the same data, but <code class="docutils literal notranslate"><span class="pre">my_slice.base</span> <span class="pre">is</span> <span class="pre">my_array</span></code> returns false.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -699,7 +679,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -708,7 +688,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -717,7 +697,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -726,7 +706,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -735,7 +715,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -744,7 +724,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -755,7 +735,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -765,7 +745,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 <p>(The reason is that the <code class="docutils literal notranslate"><span class="pre">.base</span></code> property can be defined recursively. In this case, the slicing of <code class="docutils literal notranslate"><span class="pre">my_array</span></code> made <code class="docutils literal notranslate"><span class="pre">my_array</span></code> a view on data you can no longer access, so they actually do both point to the same data, but that data is not <code class="docutils literal notranslate"><span class="pre">my_array</span></code>, it’s <code class="docutils literal notranslate"><span class="pre">my_array.base</span></code>. So:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -774,7 +754,7 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -782,8 +762,8 @@ other changes. (You may find people saying otherwise; don’t trust them!). The 
 </pre></div>
 </div>
 </div>
-<p>In practice, you can get infinite changes of <code class="docutils literal notranslate"><span class="pre">.base.base...</span></code>.</p>
-<p>And yes, if this is making your head hurt, that’s because you’re doing it right. This is insane. 😡🤯</p>
+<p>In practice, you can get infinite chains of <code class="docutils literal notranslate"><span class="pre">.base.base...</span></code>.</p>
+<p>And yes, if this is making your head hurt, that’s because you’re doing it right. :)</p>
 </div>
 </div>
 </div>
