@@ -20,7 +20,6 @@ The first portion of the course will provide students with extensive hands-on ex
 
 In the second portion of the class, we will take a step back from the nuts and bolts of data manipulation and talk about how to approach the central task of data science: answering questions about the world. In particular, we'll discuss how to use backwards design to plan data science projects, how to refine questions to ensure they are answerable, how to evaluate whether you've actually answered the question you set out to answer, and how to pick the **most appropriate** data science tool based on the question you seek to answer.
 
-
 Course Syllabus
 ---------------
 
@@ -51,7 +50,7 @@ Reminders:
    Python v. R: Pointers <pointers>
    Pandas 1: Series <pandas_series>
    Pandas 2: Series <pandas_dataframes>
-   Views in Pandas <views_and_copies_in_pandas>
+   Pandas 3: Views <views_and_copies_in_pandas>
    Plotting, Basics <plotting_part1>
    Plotting, Advanced <plotting_part2>
    Getting Help Online <getting_help>
