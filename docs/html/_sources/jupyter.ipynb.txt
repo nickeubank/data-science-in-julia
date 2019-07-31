@@ -90,6 +90,13 @@
     "\n",
     "Click here for some [Jupyter Lab exercises](exercises/Exercise_jupyterlab.ipynb)!"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {

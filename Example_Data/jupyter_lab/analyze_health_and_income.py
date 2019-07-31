@@ -10,12 +10,7 @@ import pandas as pd
 import numpy as np
 
 # Download World Development Indicators
-wdi = pd.read_csv("https://media.githubusercontent.com/media/nickeubank/MIDS_Data/master/World_Development_Indicators/wdi_small.csv")
-
-# Pivot data
-wdi = wdi[['Country Name', 'Country Code', 'Indicator Name', 'Indicator Code', '2015']]
-wdi = wdi.pivot(index='Country Name', columns='Indicator Name', values='2015')
-wdi = wdi.reset_index()
+wdi = pd.read_csv("https://media.githubusercontent.com/media/nickeubank/MIDS_Data/master/World_Development_Indicators/wdi_small_tidy_2015.csv")
 
 # GDP Per Capita has a REALLY long right tail, so we want to log it for readability. 
 wdi['Log GDP Per Capita'] = np.log(wdi['GDP per capita (constant 2010 US$)'])

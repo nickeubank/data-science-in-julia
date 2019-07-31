@@ -49,6 +49,8 @@ Reminders:
    Setting Up Python <setup_environment>
    Jupyter <jupyter>
    Python v. R: Pointers <pointers>
+   Pandas 1: Series <pandas_series>
+   Pandas 2: Series <pandas_dataframes>
    Views in Pandas <views_and_copies_in_pandas>
    Plotting, Basics <plotting_part1>
    Plotting, Advanced <plotting_part2>
