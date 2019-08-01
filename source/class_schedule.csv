@@ -9,7 +9,8 @@
 ",`Link <exercises/Exercise_CommandLine_2_Advanced.ipynb>`_
 2-Sep,Wed,Jupyter Lab / Notebooks,"- `Setup Python <setup_environment.ipynb>`_
 - `Jupyter Tutorial <jupyter.ipynb>`_",`Link <exercises/Exercise_jupyterlab.ipynb>`_
-9-Sep,Mon,Python v. R / variables as pointers,"- `Follow this link <https://gke.mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb>`_ , then click ""Ipython - Beyond plain python"" and read that notebook. 
+9-Sep,Mon,"- IPython
+- Python v. R / variables as pointers","- `Follow this link <https://gke.mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb>`_ , then click ""Ipython - Beyond plain python"" and read that notebook. 
 - `Python v R: Pointers <python_v_r.ipynb>`_",
 9-Sep,Wed,Numpy Basics,"- JVP pp 33-77
 - IF did not complete DataCamp: Do Numpy Section",`Link <exercises/Exercise_numpy.ipynb>`_
