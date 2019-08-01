@@ -2,16 +2,19 @@
 26-Aug,Mon,Intro,N/A,
 26-Aug,Wed,Command Line Basics,"- `Command Line Basics <command_line_part1.ipynb>`_
 - Read and sign syllabus
+- Register with IPUMS <https://uma.pop.umn.edu/usa/user/new>`_
+- Register for DataCamp
 ",`Link <exercises/Exercise_CommandLine_1_Basics.ipynb>`_
 2-Sep,Mon,Advanced Command Line,"- `Advanced Command Line <command_line_part2.ipynb>`_
 ",`Link <exercises/Exercise_CommandLine_2_Advanced.ipynb>`_
 2-Sep,Wed,Jupyter Lab / Notebooks,"- `Setup Python <setup_environment.ipynb>`_
 - `Jupyter Tutorial <jupyter.ipynb>`_",`Link <exercises/Exercise_jupyterlab.ipynb>`_
 9-Sep,Mon,Python v. R / variables as pointers,"- `Follow this link <https://gke.mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb>`_ , then click ""Ipython - Beyond plain python"" and read that notebook. 
-- `Python v R: Pointers <python_v_r.ipynb>`_",`Link <exercises/Exercise_variables_as_pointers.ipynb>`_
-9-Sep,Wed,Numpy Basics,- JVP pp 33-77,`Link <exercises/Exercise_numpy.ipynb>`_
-16-Sep,Mon,Pandas: Series,- `Pandas 1: Series <pandas_series.ipynb>`_,
-16-Sep,Wed,Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_series_df.ipynb>`_
+- `Python v R: Pointers <python_v_r.ipynb>`_",
+9-Sep,Wed,Numpy Basics,"- JVP pp 33-77
+- IF did not complete DataCamp: Do Numpy Section",`Link <exercises/Exercise_numpy.ipynb>`_
+16-Sep,Mon,Pandas: Series,- `Pandas 1: Series <pandas_series.ipynb>`_,`Link <exercises/Exercise_series.ipynb>`_
+16-Sep,Wed,Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_df.ipynb>`_
 23-Sep,Mon,Intro to Plotting with PlotNine,"- `Plotting in Python, Part 1 <plotting_part1.ipynb>`_",`Link <exercises/Exercise_plotting_part1.ipynb>`_
 23-Sep,Wed,Advanced Plotting,"- `Plotting in Python, Part 2 <plotting_part2.ipynb>`_",`Link <exercises/Exercise_plotting_part2.ipynb>`_
 30-Sep,Mon,Pandas: Indices & Missing,"- JVP pp 115-139
