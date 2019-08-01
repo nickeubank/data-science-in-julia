@@ -90,7 +90,9 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {'analytics_id': 'UA-133829453-1',
-                      'font_family': 'Garamond'
+                      'font_family': 'Garamond',
+                      'code_font_size': '12px',
+                      'font_size': '17px'
 }
 
                       # 'github_button': 'true',

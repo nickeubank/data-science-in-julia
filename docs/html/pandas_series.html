@@ -837,6 +837,7 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+<p>(If it’s not clear to you why <code class="docutils literal notranslate"><span class="pre">attendance[attendance</span> <span class="pre">&gt;</span> <span class="pre">100]</span></code> is a test with an index: Python first evaluates <code class="docutils literal notranslate"><span class="pre">attendance</span> <span class="pre">&gt;</span> <span class="pre">100</span></code>. That generates a new Series of booleans with the same index as <code class="docutils literal notranslate"><span class="pre">attendance</span></code>. Then Python evaluates the <code class="docutils literal notranslate"><span class="pre">attendance[]</span></code> part of the problem.)</p>
 <p><strong>BUT</strong>: <em>if</em> your Series index is not integer based, <em>and</em> if you pass integers into the square brackets, it will act like you’re using <code class="docutils literal notranslate"><span class="pre">iloc</span></code>:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
@@ -1536,6 +1537,11 @@ dtype: object
 </div>
 <p>This is good to know because every now and then you my find a tool that works with <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays but <em>not</em> <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. And when that happens, you now know how to pull out the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array underlying your Series and use it directly!</p>
 </div>
+<div class="section" id="6.-Exercises!">
+<h2>6. Exercises!<a class="headerlink" href="#6.-Exercises!" title="Permalink to this headline">¶</a></h2>
+<p><em>If you are enrolled in Practical Data Science at Duke, don’t do these exercises on your own – we’ll do them in class!</em></p>
+<p><a class="reference internal" href="exercises/Exercise_series.html"><span class="doc">Series Exercises</span></a></p>
+</div>
 </div>
 
 
@@ -1569,12 +1575,13 @@ dtype: object
 <li class="toctree-l2"><a class="reference internal" href="#3.-Series-Arithmetics">3. Series Arithmetics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#4.-Modifying-Series-Elements">4. Modifying Series Elements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#5.-numpy-Under-The-Hood">5. numpy Under The Hood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#6.-Exercises!">6. Exercises!</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pandas_dataframes.html">Pandas 2: Series</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views_and_copies_in_pandas.html">Pandas 3: Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_dataframes.html">Pandas 2: DataFrames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting_part1.html">Plotting, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting_part2.html">Plotting, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="views_and_copies_in_pandas.html">Pandas 3: Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>

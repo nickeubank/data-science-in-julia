@@ -7,7 +7,7 @@ Welcome to Practical Data Science!
 
 **If you are not a Duke Masters in Data Science student, please see** `this page <not_a_mids_student.ipynb>`_ **about how best to use this site!**
 
-**Warning: This site is a work in progress!**
+**Warning: This site is a work in progress and is subject to change**
 
 Data Science is an intrinsically applied field, and yet all too often students are taught the advanced math and statistics behind data science tools, but are left to fend for themselves when it comes to learning the tools we use to do data science on a day-to-day basis or how to manage actual projects. This course is designed to fill that gap.
 
@@ -49,10 +49,10 @@ Reminders:
    Jupyter <jupyter>
    Python v. R: Pointers <pointers>
    Pandas 1: Series <pandas_series>
-   Pandas 2: Series <pandas_dataframes>
-   Pandas 3: Views <views_and_copies_in_pandas>
+   Pandas 2: DataFrames <pandas_dataframes>
    Plotting, Basics <plotting_part1>
    Plotting, Advanced <plotting_part2>
+   Pandas 3: Views <views_and_copies_in_pandas>
    Getting Help Online <getting_help>
    Git and Github <git_and_github>
    Defensive Programming <defensive_programming>
