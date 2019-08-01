@@ -3,8 +3,7 @@
 29-Aug,Thurs,Command Line Basics,"- `Command Line Basics <command_line_part1.ipynb>`_
 - Read and sign syllabus
 - `Register with IPUMS <https://uma.pop.umn.edu/usa/user/new>`_
-- Register for DataCamp
-",`Link <exercises/Exercise_CommandLine_1_Basics.ipynb>`_
+- Register for DataCamp",`Link <exercises/Exercise_CommandLine_1_Basics.ipynb>`_
 3-Sep,Tues,Advanced Command Line,"- `Advanced Command Line <command_line_part2.ipynb>`_
 ",`Link <exercises/Exercise_CommandLine_2_Advanced.ipynb>`_
 5-Sep,Thurs,Jupyter Lab / Notebooks,"- `Setup Python <setup_environment.ipynb>`_
@@ -13,7 +12,8 @@
 - Python v. R / variables as pointers","- `Follow this link <https://gke.mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb>`_ , then click ""Ipython - Beyond plain python"" and read that notebook. 
 - `Python v R: Pointers <python_v_r.ipynb>`_",
 12-Sep,Thurs,Numpy Basics,"- JVP pp 33-77
-- IF did not complete DataCamp: Do Numpy Section",`Link <exercises/Exercise_numpy.ipynb>`_
+- IF did not complete DataCamp: Do Numpy Section
+- `Numbers in Computer <ints_and_floats.ipynb>`_",`Link <exercises/Exercise_numpy.ipynb>`_
 17-Sep,Tues,Pandas: Series,- `Pandas 1: Series <pandas_series.ipynb>`_,`Link <exercises/Exercise_series.ipynb>`_
 19-Sep,Thurs,Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_df.ipynb>`_
 24-Sep,Tues,Intro to Plotting with PlotNine,"- `Plotting in Python, Part 1 <plotting_part1.ipynb>`_",`Link <exercises/Exercise_plotting_part1.ipynb>`_
@@ -21,27 +21,25 @@
 1-Oct,Tues,Pandas: Indices & Missing,"- JVP pp 115-139
 - `Views and Copies in Pandas <views_and_copies_in_pandas.ipynb>`_","`Link <exercises/Exercise_missing.ipynb>`_
 `Link <exercises/Exercise_indices.ipynb>`_"
-3-Oct,Thurs,Pandas: Loading and saving data,- WM Chapter 6,
-8-Oct,Tues,Pandas: Cleaning,"- WM Chapter 7
+3-Oct,Thurs,"- Pandas: Loading and saving data
+- Pandas: Cleaning","- WM Chapter 6
+- WM Chapter 7
 - `Python Strings <https://realpython.com/python-data-types/#strings>`_",`Link <exercises/Exercise_cleaning.ipynb>`_
+8-Oct,Tues,- Pandas: Merging,- JVP pp 149 - 157,
 10-Oct,Thurs,FALL BREAK,,
-15-Oct,Tues,Pandas: Merging,- JVP pp 149 - 157,
-17-Oct,Thurs,Pandas: Reshaping,- WM 8.3,
-22-Oct,Tues,Pandas: Groupby / Split Apply Combine,- WM Chapter 10,
-24-Oct,Thurs,Pandas: Categorical Data; Eval and Query,"- WM 12.1
-- JVP pp 208 - 213",
-29-Oct,Tues,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,
-31-Oct,Thurs,Getting Help Online,- `Getting Help <getting_help.ipynb>`_,
-5-Nov,Tues,Defensive Programming,"- `Defensive Programming <defensive_programming.ipynb>`_
+15-Oct,Tues,Pandas: Reshaping,- WM 8.3,
+17-Oct,Thurs,Pandas: Groupby / Split Apply Combine,- WM Chapter 10,
+22-Oct,Tues,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,
+24-Oct,Thurs,Defensive Programming,"- `Defensive Programming <defensive_programming.ipynb>`_
 - `Workflow Management <workflow.ipynb>`_",
-7-Nov,Thurs,Statistics with statsmodels,- WM Chapter 13,
-12-Nov,Tues,Weighting,,
-14-Nov,Thurs,Machine Learning with sckikit-learn,- JVP pp 331 - 359,
-19-Nov,Tues,Numeric Data Types,- `Numbers in Computer <ints_and_floats.ipynb>`_,
-21-Nov,Thurs,Data Science: Questions,,
-26-Nov,Tues,Data Science: Backwards Design,,
+29-Oct,Tues,Getting Help Online,- `Getting Help <getting_help.ipynb>`_,
+31-Oct,Thurs,Pandas: Categorical Data; Eval and Query,"- WM 12.1
+- JVP pp 208 - 213",
+5-Nov,Tues,Statistics with statsmodels,- WM Chapter 13,
+7-Nov,Thurs,Machine Learning with sckikit-learn,- JVP pp 331 - 359,
+12-Nov,Tues,Data Science: Questions,,
+14-Nov,Thurs,Data Science: Backwards Design,,
+19-Nov,Tues,Data Science: Backwards Design II,,
+21-Nov,Thurs,Data Science: Tool Selection,,
+26-Nov,Tues,Project Proposal Workshopping,,
 28-Nov,Thurs,THANKSGIVING BREAK,,
-3-Dec,Tues,Data Science: Backwards Design II,,
-5-Dec,Thurs,Data Science: Tool Selection,,
-10-Dec,Tues,Project Proposal Workshopping,,
-12-Dec,,FINALS BEGIN DEC 11TH,,
