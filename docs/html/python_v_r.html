@@ -723,116 +723,6 @@ itself.</p>
 </div>
 </div>
 </div>
-<div class="section" id="copy-versus-deepcopy">
-<h2><code class="docutils literal notranslate"><span class="pre">copy</span></code> versus <code class="docutils literal notranslate"><span class="pre">deepcopy</span></code><a class="headerlink" href="#copy-versus-deepcopy" title="Permalink to this headline">¶</a></h2>
-<p>One of the useful things about Python collections is that they are <em>recursive</em>, meaning that a list can contain other lists! For example:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
-<span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[42, 3.14, [1, 2, 3]]
-</pre></div>
-</div>
-</div>
-<p>Here, the third element of our list <code class="docutils literal notranslate"><span class="pre">x</span></code> is itself a list:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>list
-</pre></div>
-</div>
-</div>
-<p>Moreover, we can point other variables at the list <em>within</em> our list if we want:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[1, 2, 3, -1, -1, -1]
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[42, 3.14, [1, 2, 3, -1, -1, -1]]
-</pre></div>
-</div>
-</div>
-<p>Visually, we can think of this as looking like this:</p>
-<p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[42,</span> <span class="pre">3.14,</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]]</span></code>:</p>
-<p><img alt="recursive_1" src="_images/recursive_3.png" /></p>
-<p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x[2]</span></code>:</p>
-<p><img alt="recursive_1" src="_images/recursive_3.png" /></p>
-<p><code class="docutils literal notranslate"><span class="pre">y.append(-1)</span></code>:</p>
-<p><img alt="recursive_1" src="_images/recursive_3.png" /></p>
-<p>Now, understanding this kind of recursive structure is important because it affects how <code class="docutils literal notranslate"><span class="pre">copy</span></code> works.</p>
-<p>If you <em>just</em> copy a list, you get all the “object references” in that list. So if I run:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<p>What I get is this:</p>
-<p><img alt="recursive_copy" src="_images/recursive_copy.png" /></p>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">copy</span></code> copied the <em>arrow</em> from our first list (42, 3.14) to the second list (1, 2, 3), but it did <em>not</em> create a copy of the second list (<code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>). If you modify this second list through <code class="docutils literal notranslate"><span class="pre">x</span></code>, that change will also be evident in <code class="docutils literal notranslate"><span class="pre">y</span></code>!</p>
-<p>If you want a “deep copy”, we have to use the code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>which will generate this situation:</p>
-<p><img alt="recursive_deepcopy" src="_images/recursive_deepcopy.png" /></p>
-</div>
 <div class="section" id="Confused?">
 <h2>Confused?<a class="headerlink" href="#Confused?" title="Permalink to this headline">¶</a></h2>
 <p>Yeah, that’s reasonable. This is really tricky. Honestly, you probably won’t feel like you “get” this until you play around with it a lot (as we’ll do in the exercises below).</p>
@@ -872,7 +762,6 @@ itself.</p>
 <li class="toctree-l2"><a class="reference internal" href="#What’s-mutable,-and-what’s-immutable?">What’s mutable, and what’s immutable?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Only-some-manipulations-are-mutations">Only some manipulations are mutations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Functions-and-Object-References">Functions and Object References</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#copy-versus-deepcopy"><code class="docutils literal notranslate"><span class="pre">copy</span></code> versus <code class="docutils literal notranslate"><span class="pre">deepcopy</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Confused?">Confused?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Exercises">Exercises</a></li>
 </ul>
