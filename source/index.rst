@@ -22,7 +22,7 @@ The first portion of the course will culminate in students completing the full d
 
 In the second portion of the class, we will take a step back from the nuts and bolts of data manipulation and talk about how to approach the central task of data science: answering questions about the world. In particular, we'll discuss how to use backwards design to plan data science projects, how to refine questions to ensure they are answerable, how to evaluate whether you've actually answered the question you set out to answer, and how to pick the **most appropriate** data science tool based on the question you seek to answer (this will be a bit of preview of material we will engage with even more in Practical Data Science II in Spring 2020). 
 
-This portion of the course will culminate in students picking a topic, developing an *answerable* question they might wish to answer, thinking about what (in very concerte terms) an answer to that question would look like, figuring out what tools they would employ to generate that answer, and developing a plan for finding the data they would need to actually execute their project. 
+This portion of the course will culminate in students picking a topic, developing an *answerable* question, thinking about what (in very concerte terms) an answer to that question would look like, figuring out what tools they would employ to generate that answer, and developing a plan for finding the data they would need to actually execute their project. 
 
 
 
