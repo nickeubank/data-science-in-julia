@@ -25,7 +25,6 @@ In the second portion of the class, we will take a step back from the nuts and b
 This portion of the course will culminate in students picking a topic, developing an *answerable* question, thinking about what (in very concerte terms) an answer to that question would look like, figuring out what tools they would employ to generate that answer, and developing a plan for finding the data they would need to actually execute their project. 
 
 
-
 Course Syllabus
 ---------------
 
@@ -53,7 +52,8 @@ Reminders:
    Command Line, Advanced  <command_line_part2>
    Setting Up Python <setup_environment>
    Jupyter <jupyter>
-   Variables v Objects <python_v_r>
+   Python / R Differences <python_v_r>
+   Python: Vars v Objects <vars_v_objects>
    Pandas 1: Series <pandas_series>
    Pandas 2: DataFrames <pandas_dataframes>
    Plotting, Basics <plotting_part1>

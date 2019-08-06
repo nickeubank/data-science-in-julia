@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Python v R: Variables vs Objects &#8212; Practical Data Science</title>
+    <title>Python v R: Important Differences To Be Aware Of &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Pandas Lesson 1: Series" href="pandas_series.html" />
+    <link rel="next" title="Python: Variables vs Objects" href="vars_v_objects.html" />
     <link rel="prev" title="The Jupyter Project" href="jupyter.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -236,9 +236,9 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="Python-v-R:-Variables-vs-Objects">
-<h1>Python v R: Variables vs Objects<a class="headerlink" href="#Python-v-R:-Variables-vs-Objects" title="Permalink to this headline">¶</a></h1>
-<p>R and Python have a lot of similarities, but there are some important differences. The biggest, discussed below, is the idea of “variables as pointers”. But before we dive into that, a few smaller differences that tend to get people tripped up:</p>
+<div class="section" id="Python-v-R:-Important-Differences-To-Be-Aware-Of">
+<h1>Python v R: Important Differences To Be Aware Of<a class="headerlink" href="#Python-v-R:-Important-Differences-To-Be-Aware-Of" title="Permalink to this headline">¶</a></h1>
+<p>R and Python have a lot of similarities, but there are some important differences. The biggest, discussed below, is the idea that there is a distinction between a variables and the object associated with it. But before we dive into that, a few smaller differences that tend to get people tripped up:</p>
 <ul class="simple">
 <li><strong>The analogue of ``data.frames`` and ``vectors`` are in ``numpy`` and ``pandas`` libraries, not Python itself</strong>: When you watch basic Python tutorials, you’ll find yourself wondering where the vectors and data.frames are – don’t worry! They exist, but they’re in distinct libraries called <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, so basic Python tutorials won’t talk about them.</li>
 <li><strong>Periods are operators in Python</strong>: In R, it’s common to use periods in variable names (like: <code class="docutils literal notranslate"><span class="pre">my.list</span></code>). There are many syntax differences between R and Python, but for some reason people really struggle with this one – periods are an operator in Python, so don’t use them in names! The convention is to use underscores, like: <code class="docutils literal notranslate"><span class="pre">my_list</span></code>.</li>
@@ -246,7 +246,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 <div class="section" id="Variables-vs-Objects">
 <h2>Variables vs Objects<a class="headerlink" href="#Variables-vs-Objects" title="Permalink to this headline">¶</a></h2>
-<p>Now the big conceptual difference between Python and R: variables versus objects.</p>
+<p>Now the big conceptual difference between Python and R: the variable / object distinction.</p>
 <p>Say you make a new vector as follows:</p>
 <p><code class="docutils literal notranslate"><span class="pre">my.list</span> <span class="pre">&lt;-</span> <span class="pre">list(1,2,3)</span></code></p>
 <p>In R, there’s no difference between a variable (<code class="docutils literal notranslate"><span class="pre">my.list</span></code>) and the object associated with it (the list 1, 2, 3). But this is actually a slight of hand used by R to hide something fundamental about how computers work, and it does not happen in Python.</p>
@@ -302,434 +302,7 @@ itself.</p>
 </pre></div>
 </div>
 </div>
-<p>If it’s helpful, here’s a visual depiction of what’s going on taken from the the <a class="reference external" href="http://www.pythontutor.com/visualize.html">Python Tutor Visualizer, which we’ll work with in our exercises for this section</a>:</p>
-<p>First we create a list associated with <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
-<p><img alt="vars_v_objects_1" src="_images/vars_v_objects_11.png" /></p>
-<p>Then we create a var <code class="docutils literal notranslate"><span class="pre">y</span></code> also pointed at that same list:</p>
-<p><img alt="vars_v_objects_2" src="_images/vars_v_objects_21.png" /></p>
-<p>Then we modify the list <em>through</em> <code class="docutils literal notranslate"><span class="pre">x</span></code>, creating a change also visible through <code class="docutils literal notranslate"><span class="pre">y</span></code>:</p>
-<p><img alt="vars_v_objects_3" src="_images/vars_v_objects_31.png" /></p>
-<p>If what you want to do is make a <em>copy</em> of x, you use the <code class="docutils literal notranslate"><span class="pre">copy()</span></code> command. This makes an entirely new list (a new object that looks the same as the old one, but which can be put on a different shelf) so that changes to <code class="docutils literal notranslate"><span class="pre">x</span></code> won’t impact the list associated with <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">y_copy</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">y_copy</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[1, 2, 3]
-</pre></div>
-</div>
-</div>
-<p>Visually, this code sequence looks like this:</p>
-<p>Start with <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as before:</p>
-<p><img alt="vars_v_objects_2" src="_images/vars_v_objects_21.png" /></p>
-<p>Then we make <code class="docutils literal notranslate"><span class="pre">y_copy</span></code>:</p>
-<p><img alt="vars_v_objects_4" src="_images/vars_v_objects_4.png" /></p>
-<p>And modify <code class="docutils literal notranslate"><span class="pre">x</span></code>, changing what we get when we call <code class="docutils literal notranslate"><span class="pre">y</span></code>, but not <code class="docutils literal notranslate"><span class="pre">y_copy</span></code>:</p>
-<p><img alt="vars_v_objects_5" src="_images/vars_v_objects_5.png" /></p>
-<p>If you want to see if two variables point to the same thing, you can use the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator, which tests whether two variables are pointed at the same place in memory / same shelf:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="ow">is</span> <span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="ow">is</span> <span class="n">y_copy</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>False
-</pre></div>
-</div>
-</div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">is</span></code> is not the same as <code class="docutils literal notranslate"><span class="pre">==</span></code>. <code class="docutils literal notranslate"><span class="pre">==</span></code> asks if the <em>entries</em> in the lists the two variables point at have the same values, while <code class="docutils literal notranslate"><span class="pre">is</span></code> asks if the two variables are pointing to <em>the exact same object</em>. So:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="c1"># Since we made a copy, x and y aren&#39;t pointing to the same thing...</span>
-<span class="n">x</span> <span class="ow">is</span> <span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>False
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># But as x and y both point to lists with the entries 1, 2, 3, they point to lists that are equal in terms of their entries</span>
-<span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="Mutable-versus-Immutable-Types">
-<h2>Mutable versus Immutable Types<a class="headerlink" href="#Mutable-versus-Immutable-Types" title="Permalink to this headline">¶</a></h2>
-<p>Now a wrinkle.</p>
-<p>Certain data types in Python are called “immutable”. That means an object, once created, can’t be actually modified. As a result, if you want to do something that looks like modifying the object, Python has to actually create <em>an entirely new object</em> and lives in a new location.</p>
-<p>Strings, for example, are “immutable”. So if we create a string, then try and modify it, what we’re actually doing is creating a new string that has the features we want.</p>
-<p>To illustrate, we can use the <code class="docutils literal notranslate"><span class="pre">id()</span></code> function. Every object in Python has a unique <code class="docutils literal notranslate"><span class="pre">id()</span></code>, and so when two variables point to the same object, then <code class="docutils literal notranslate"><span class="pre">id()</span></code> of those variables will also return the same thing:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Make x a simple string, then make y point to that same string</span>
-<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;my string&quot;</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-
-<span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>4416454256
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>4416454256
-</pre></div>
-</div>
-</div>
-<p>As we can see, x and y point to the same object. But now let’s see what happens if we modify that string:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;MY STRING&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>4442614704
-</pre></div>
-</div>
-</div>
-<p>As we can see, <code class="docutils literal notranslate"><span class="pre">x</span></code> now has a new value of ID. That’s because calling <code class="docutils literal notranslate"><span class="pre">x</span></code> actually created a new string that was the uppercase version of “my string”, then made <code class="docutils literal notranslate"><span class="pre">x</span></code> point to that new object.</p>
-<p>But what happened to <code class="docutils literal notranslate"><span class="pre">y</span></code>?</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;my string&#39;
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>4442514928
-</pre></div>
-</div>
-</div>
-<p>As we can see, <code class="docutils literal notranslate"><span class="pre">y</span></code> is still pointing at the old string and still has the same <code class="docutils literal notranslate"><span class="pre">id()</span></code>. Visually, this can be visualized as <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> both pointing to the same string:</p>
-<p><img alt="var_v_object_string_1" src="_images/var_v_object_string_1.png" /></p>
-<p>Then <code class="docutils literal notranslate"><span class="pre">x</span></code> being redirected to a new object (“MY STRING”) because strings are immutable (meaning the original value of “my string” couldn’t just be modified in place).</p>
-<p><img alt="var_v_object_string_2" src="_images/var_v_object_string_2.png" /></p>
-<p>This illustrates one of the naunces of Python: <strong>if you mutate a mutable object, that change will propagate to all variables that point at said object. But if you modify an immutable object, a new object will actually be created, so that change will not be accessible to variables pointing at the old object.</strong></p>
-</div>
-<div class="section" id="What’s-mutable,-and-what’s-immutable?">
-<h2>What’s mutable, and what’s immutable?<a class="headerlink" href="#What’s-mutable,-and-what’s-immutable?" title="Permalink to this headline">¶</a></h2>
-<p>Here’s quick list of data types you’re likely to encounter that are <em>immutable</em>:</p>
-<ul class="simple">
-<li>int</li>
-<li>float</li>
-<li>decimal</li>
-<li>complex</li>
-<li>bool</li>
-<li>string</li>
-<li>tuple</li>
-</ul>
-<p>And here are common datatypes that are <em>mutable</em>:</p>
-<ul class="simple">
-<li>lists</li>
-<li>sets</li>
-<li>dictionaries</li>
-<li>user defined objects</li>
-<li>numpy arrays</li>
-<li>pandas objects</li>
-</ul>
-<p>How do you remember this? It is <em>nearly</em> accurate to say that <strong>anything that is a collection of other objects is mutable, except ``tuples``</strong>. There are some weird datatypes that are also collections that are immutable (<em>frozensets</em>, which as the name implies are “frozen” and thus can’t be changed), but you’re unlikely to ever use those, and if you do, it’s because you know you want something immutable.</p>
-</div>
-<div class="section" id="Only-some-manipulations-are-mutations">
-<h2>Only some manipulations are mutations<a class="headerlink" href="#Only-some-manipulations-are-mutations" title="Permalink to this headline">¶</a></h2>
-<p>OK, now an important nuance: <strong>not all manipulations of mutable objects change the object rather than create a new object.</strong> Sometimes when you do something to a mutable object, you get back a new object. Manipulations that change an existing object, rather than create a new one, are referred to as “inplace mutations” or just “mutations”. So:</p>
-<ul class="simple">
-<li><em>All</em> manipulations of immutable types create new objects</li>
-<li><em>Some</em> manipulations of mutable types create new objects</li>
-</ul>
-<p>For example, appending something to the end of a list is an <em>in-place mutation</em> (the existing list is changed). But doing things like doubling up lists using the <code class="docutils literal notranslate"><span class="pre">*</span></code> create new lists:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[2, 5, 3, 2, 5, 3]
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[2, 5, 3]
-</pre></div>
-</div>
-</div>
-<p>Similarly, taking a slice of a list gets you a new list:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[2, 5]
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[2, 5, 3]
-</pre></div>
-</div>
-</div>
-<p>A function’s documentation will almost always tell you if a function mutates a list in-place or note, and over time you’ll get a feel for what mutates and what doesn’t, but unfortunately in Python, there is no obvious way to be sure.</p>
-</div>
-<div class="section" id="Functions-and-Object-References">
-<h2>Functions and Object References<a class="headerlink" href="#Functions-and-Object-References" title="Permalink to this headline">¶</a></h2>
-<p>Another important thing to know is that the fact that different variables may all be pointing at the same object is preserved through function calls (a behavior known as “pass by object-reference”). So if you pass a list to a function, and that function manipulates that list using an in-place mutation, that change will affect any variable that was pointing to that same object outside the function.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-
-<span class="k">def</span> <span class="nf">append_42</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
-    <span class="n">input_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">input_list</span>
-
-<span class="n">append_42</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[1, 2, 3, 42]
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[1, 2, 3, 42]
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[1, 2, 3, 42]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="Confused?">
-<h2>Confused?<a class="headerlink" href="#Confused?" title="Permalink to this headline">¶</a></h2>
-<p>Yeah, that’s reasonable. This is really tricky. Honestly, you probably won’t feel like you “get” this until you play around with it a lot (as we’ll do in the exercises below).</p>
-</div>
-<div class="section" id="Exercises">
-<h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="exercises/Exercise_variables_v_objects.html"><span class="doc">Variables v Objects Exercises</span></a></p>
+<p>This is a HUGE place to get in trouble, so please go read the full tutorial on <a class="reference internal" href="vars_v_objects.html"><span class="doc">this topic here</span></a>!</p>
 </div>
 </div>
 
@@ -756,16 +329,11 @@ itself.</p>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_environment.html">Setting Up Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Variables v Objects</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python / R Differences</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Variables-vs-Objects">Variables vs Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Mutable-versus-Immutable-Types">Mutable versus Immutable Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#What’s-mutable,-and-what’s-immutable?">What’s mutable, and what’s immutable?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Only-some-manipulations-are-mutations">Only some manipulations are mutations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Functions-and-Object-References">Functions and Object References</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Confused?">Confused?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Exercises">Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="vars_v_objects.html">Python: Vars v Objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_series.html">Pandas 1: Series</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_dataframes.html">Pandas 2: DataFrames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting_part1.html">Plotting, Basics</a></li>
@@ -786,7 +354,7 @@ itself.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="jupyter.html" title="previous chapter">The Jupyter Project</a></li>
-      <li>Next: <a href="pandas_series.html" title="next chapter">Pandas Lesson 1: Series</a></li>
+      <li>Next: <a href="vars_v_objects.html" title="next chapter">Python: Variables vs Objects</a></li>
   </ul></li>
 </ul>
 </div>
