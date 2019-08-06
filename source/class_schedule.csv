@@ -10,7 +10,7 @@
 - `Jupyter Tutorial <jupyter.ipynb>`_",`Link <exercises/Exercise_jupyterlab.ipynb>`_
 10-Sep,Tues,"- IPython
 - Python v. R / variables as pointers","- `Follow this link <https://gke.mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb>`_ , then click ""Ipython - Beyond plain python"" and read that notebook. 
-- `Python v R: Pointers <python_v_r.ipynb>`_",
+- `variables v objects <python_v_r.ipynb>`_",`Link <exercises/Exercise_variables_v_objects.ipynb>`_
 12-Sep,Thurs,Numpy Basics,"- JVP pp 33-77
 - IF did not complete DataCamp: Do Numpy Section
 - `Numbers in Computer <ints_and_floats.ipynb>`_",`Link <exercises/Exercise_numpy.ipynb>`_
@@ -18,7 +18,8 @@
 19-Sep,Thurs,Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_df.ipynb>`_
 24-Sep,Tues,Intro to Plotting with PlotNine,"- `Plotting in Python, Part 1 <plotting_part1.ipynb>`_",`Link <exercises/Exercise_plotting_part1.ipynb>`_
 26-Sep,Thurs,Advanced Plotting,"- `Plotting in Python, Part 2 <plotting_part2.ipynb>`_",`Link <exercises/Exercise_plotting_part2.ipynb>`_
-1-Oct,Tues,Pandas: Indices & Missing,"- JVP pp 115-139
+1-Oct,Tues,Pandas: Indices & Missing,"- WM pp 136-142
+- JVP pp 115-139
 - `Views and Copies in Pandas <views_and_copies_in_pandas.ipynb>`_","`Link <exercises/Exercise_missing.ipynb>`_
 `Link <exercises/Exercise_indices.ipynb>`_"
 3-Oct,Thurs,"- Pandas: Loading and saving data

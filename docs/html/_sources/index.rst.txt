@@ -47,7 +47,7 @@ Reminders:
    Command Line, Advanced  <command_line_part2>
    Setting Up Python <setup_environment>
    Jupyter <jupyter>
-   Python v. R: Pointers <pointers>
+   Variables v Objects <python_v_r>
    Pandas 1: Series <pandas_series>
    Pandas 2: DataFrames <pandas_dataframes>
    Plotting, Basics <plotting_part1>

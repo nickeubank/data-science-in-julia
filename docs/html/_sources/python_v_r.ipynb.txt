@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Python v R: Variables as Pointers"
+    "# Python v R: Variables vs Objects"
    ]
   },
   {
@@ -17,9 +17,9 @@
     "* **Periods are operators in Python**: In R, it's common to use periods in variable names (like: `my.list`). There are many syntax differences between R and Python, but for some reason people really struggle with this one -- periods are an operator in Python, so don't use them in names! The convention is to use underscores, like: `my_list`.\n",
     "* **In Python you always count starting at 0, not 1** For example, to get the first entry in a list, you type `my_list[0]`, not `my_list[1]`. `my_list[1]` will get you the *second* entry in the list. \n",
     "\n",
-    "## Variables as Pointers \n",
+    "## Variables vs Objects\n",
     "\n",
-    "Now the big conceptual difference between Python and R: variables as pointers. \n",
+    "Now the big conceptual difference between Python and R: variables versus objects. \n",
     "\n",
     "Say you make a new vector as follows:\n",
     "\n",
@@ -36,7 +36,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [
     {
@@ -45,7 +45,7 @@
        "[1, 2, 3, 4]"
       ]
      },
-     "execution_count": 2,
+     "execution_count": 1,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -63,16 +63,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "[1, 2, 3]"
+       "[1, 2, 3, 4]"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -90,12 +90,31 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "If it's helpful, here's a visual depiction of what's going on taken from the the [Python Tutor Visualizer, which we'll work with in our exercises for this section](http://www.pythontutor.com/visualize.html): \n",
+    "\n",
+    "First we create a list associated with `x`:\n",
+    "\n",
+    "![vars_v_objects_1](images/vars_v_objects_1.png)\n",
+    "\n",
+    "Then we create a var `y` also pointed at that same list:\n",
+    "\n",
+    "![vars_v_objects_2](images/vars_v_objects_2.png)\n",
+    "\n",
+    "Then we modify the list *through* `x`, creating a change also visible through `y`:\n",
+    "\n",
+    "![vars_v_objects_3](images/vars_v_objects_3.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "If what you want to do is make a *copy* of x, you use the `copy()` command. This makes an entirely new list (a new object that looks the same as the old one, but which can be put on a different shelf) so that changes to `x` won't impact the list associated with `y`. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
@@ -104,7 +123,7 @@
        "[1, 2, 3]"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -121,7 +140,26 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Last, if you want to see if two variables point to the same thing, you can use the `is` operator, which tests whether two variables are pointed at the same place in memory / same shelf:"
+    "Visually, this code sequence looks like this:\n",
+    "\n",
+    "Start with `x` and `y` as before: \n",
+    "\n",
+    "![vars_v_objects_2](images/vars_v_objects_2.png)\n",
+    "\n",
+    "Then we make `y_copy`: \n",
+    "\n",
+    "![vars_v_objects_4](images/vars_v_objects_4.png)\n",
+    "\n",
+    "And modify `x`, changing what we get when we call `y`, but not `y_copy`:\n",
+    "\n",
+    "![vars_v_objects_5](images/vars_v_objects_5.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If you want to see if two variables point to the same thing, you can use the `is` operator, which tests whether two variables are pointed at the same place in memory / same shelf:"
    ]
   },
   {
@@ -232,16 +270,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "4442514928"
+       "4416454256"
       ]
      },
-     "execution_count": 41,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -256,16 +294,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 42,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "4442514928"
+       "4416454256"
       ]
      },
-     "execution_count": 42,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -375,9 +413,20 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "As we can see, `y` is still pointing at the old string and still has the same `id()`. \n",
+    "As we can see, `y` is still pointing at the old string and still has the same `id()`. Visually, this can be visualized as `x` and `y` both pointing to the same string: \n",
     "\n",
-    "This illustrates one of the naunces of Python: **if you modify a mutable object, that change will propagate to all variables that point at said object. But if you modify an immutable object, a new object will actually be created, so that change will not be accessible to variables pointing at the old object.**"
+    "![var_v_object_string_1](images/var_v_object_string_1.png)\n",
+    "\n",
+    "Then `x` being redirected to a new object (\"MY STRING\") because strings are immutable (meaning the original value of \"my string\" couldn't just be modified in place).\n",
+    "\n",
+    "![var_v_object_string_2](images/var_v_object_string_2.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This illustrates one of the naunces of Python: **if you mutate a mutable object, that change will propagate to all variables that point at said object. But if you modify an immutable object, a new object will actually be created, so that change will not be accessible to variables pointing at the old object.**"
    ]
   },
   {
@@ -403,27 +452,384 @@
     "- dictionaries\n",
     "- user defined objects\n",
     "- numpy arrays\n",
+    "- pandas objects\n",
     "\n",
     "How do you remember this? It is *nearly*  accurate to say that **anything that is a collection of other objects is mutable, except `tuples`**. There are some weird datatypes that are also collections that are immutable (*frozensets*, which as the name implies are \"frozen\" and thus can't be changed), but you're unlikely to ever use those, and if you do, it's because you know you want something immutable. \n",
     "\n",
+    "## Only some manipulations are mutations\n",
     "\n",
+    "OK, now an important nuance: **not all manipulations of mutable objects change the object rather than create a new object.** Sometimes when you do something to a mutable object, you get back a new object. Manipulations that change an existing object, rather than create a new one, are referred to as \"inplace mutations\" or just \"mutations\". So:\n",
     "\n",
-    "## Confused?\n",
+    "- *All* manipulations of immutable types create new objects\n",
+    "- *Some* manipulations of mutable types create new objects\n",
     "\n",
-    "Yeah, that's reasonable. This is really tricky. Honestly, you probably won't feel like you \"get\" this until you play around with it a lot (as we'll do in the exercises below), but [here's another great discussion of this](https://www.pythonforthelab.com/blog/mutable-and-immutable-objects/) which I would recommend if you want to see this all explained in a slightly different way. \n",
-    "\n",
-    "## Exercises\n",
-    "\n",
-    "[Variables as Pointers Exercises](exercises/exercise_variables_as_pointers.ipynb)\n",
-    "\n"
+    "For example, appending something to the end of a list is an *in-place mutation* (the existing list is changed). But doing things like doubling up lists using the `*` create new lists: "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 5, 3, 2, 5, 3]"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = [2, 5, 3]\n",
+    "y = x\n",
+    "x = x * 2\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 5, 3]"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Similarly, taking a slice of a list gets you a new list:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 5]"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = [2, 5, 3]\n",
+    "y = x\n",
+    "x = x[0:2]\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 5, 3]"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A function's documentation will almost always tell you if a function mutates a list in-place or note, and over time you'll get a feel for what mutates and what doesn't, but unfortunately in Python, there is no obvious way to be sure."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Functions and Object References\n",
+    "\n",
+    "Another important thing to know is that the fact that different variables may all be pointing at the same object is preserved through function calls (a behavior known as \"pass by object-reference\"). So if you pass a list to a function, and that function manipulates that list using an in-place mutation, that change will affect any variable that was pointing to that same object outside the function."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 42]"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = [1, 2, 3]\n",
+    "y = x\n",
+    "\n",
+    "def append_42(input_list):\n",
+    "    input_list.append(42)\n",
+    "    return input_list\n",
+    "\n",
+    "append_42(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 42]"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 42]"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## `copy` versus `deepcopy`\n",
+    "\n",
+    "One of the useful things about Python collections is that they are *recursive*, meaning that a list can contain other lists! For example:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[42, 3.14, [1, 2, 3]]"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = [42, 3.14, [1, 2, 3]]\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Here, the third element of our list `x` is itself a list:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "list"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(x[2])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Moreover, we can point other variables at the list *within* our list if we want:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, -1, -1, -1]"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y = x[2]\n",
+    "y.append(-1)\n",
+    "y"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[42, 3.14, [1, 2, 3, -1, -1, -1]]"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Visually, we can think of this as looking like this: \n",
+    "\n",
+    "`x = [42, 3.14, [1, 2, 3]]`:\n",
+    "\n",
+    "![recursive_1](images/recursive_1.png)\n",
+    "\n",
+    "`y = x[2]`:\n",
+    "\n",
+    "![recursive_1](images/recursive_2.png)\n",
+    "\n",
+    "`y.append(-1)`:\n",
+    "\n",
+    "![recursive_1](images/recursive_3.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now, understanding this kind of recursive structure is important because it affects how `copy` works. \n",
+    "\n",
+    "If you *just* copy a list, you get all the \"object references\" in that list. So if I run:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "x = [42, 3.14, [1, 2, 3]]\n",
+    "y = x.copy()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "What I get is this:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![recursive_copy](images/recursive_copy.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note that `copy` copied the *arrow* from our first list (42, 3.14) to the second list (1, 2, 3), but it did *not* create a copy of the second list (`[1, 2, 3]`). If you modify this second list through `x`, that change will also be evident in `y`!\n",
+    "\n",
+    "If you want a \"deep copy\", we have to use the code:\n",
+    "\n",
+    "```python\n",
+    "import copy\n",
+    "x = copy.deepcopy(x)\n",
+    "```\n",
+    "\n",
+    "which will generate this situation:\n",
+    "\n",
+    "![recursive_deepcopy](images/recursive_deepcopy.png)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Confused?\n",
+    "\n",
+    "Yeah, that's reasonable. This is really tricky. Honestly, you probably won't feel like you \"get\" this until you play around with it a lot (as we'll do in the exercises below).\n",
+    "\n",
+    "## Exercises\n",
+    "\n",
+    "[Variables v Objects Exercises](exercises/Exercise_variables_v_objects.ipynb)"
+   ]
   }
  ],
  "metadata": {
