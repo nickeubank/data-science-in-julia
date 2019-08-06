@@ -18,7 +18,13 @@ This course will be divided into two parts:
 
 The first portion of the course will provide students with extensive hands-on experience manipulating real (often messy, error ridden, and poorly documented) data using the a range of bread-and-butter data science tools (like the command line, git, python (especially numpy and pandas), jupyter notebooks, and more). The goal of these exercises is to ensure students are comfortable working with data in most any form. In addition to being of intrinsic value, developing these skills will also ensure that in advanced statistics or machine learning courses, students can focus on understanding the concepts being taught rather than having to split their attention between concepts and the nuts and bolts of data manipulation required to complete assignments.
 
-In the second portion of the class, we will take a step back from the nuts and bolts of data manipulation and talk about how to approach the central task of data science: answering questions about the world. In particular, we'll discuss how to use backwards design to plan data science projects, how to refine questions to ensure they are answerable, how to evaluate whether you've actually answered the question you set out to answer, and how to pick the **most appropriate** data science tool based on the question you seek to answer.
+The first portion of the course will culminate in students completing the full data manipulation and analysis component of a data science project (the goal of the project will be provided). This will include everything from gathering data from third parties, cleaning and merging different data sources, and analyzing the resultant data. These projects will be completed in teams using Git and Github to give students experience managing github working flows. 
+
+In the second portion of the class, we will take a step back from the nuts and bolts of data manipulation and talk about how to approach the central task of data science: answering questions about the world. In particular, we'll discuss how to use backwards design to plan data science projects, how to refine questions to ensure they are answerable, how to evaluate whether you've actually answered the question you set out to answer, and how to pick the **most appropriate** data science tool based on the question you seek to answer (this will be a bit of preview of material we will engage with even more in Practical Data Science II in Spring 2020). 
+
+This portion of the course will culminate in students picking a topic, developing an *answerable* question they might wish to answer, thinking about what (in very concerte terms) an answer to that question would look like, figuring out what tools they would employ to generate that answer, and developing a plan for finding the data they would need to actually execute their project. 
+
+
 
 Course Syllabus
 ---------------
