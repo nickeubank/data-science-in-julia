@@ -15,7 +15,7 @@
 - IF did not complete DataCamp: Do Numpy Section
 - `Numbers in Computer <ints_and_floats.ipynb>`_",`Link <exercises/Exercise_numpy.ipynb>`_
 17-Sep,Tues,Pandas: Series,- `Pandas 1: Series <pandas_series.ipynb>`_,`Link <exercises/Exercise_series.ipynb>`_
-19-Sep,Thurs,Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_df.ipynb>`_
+19-Sep,Thurs,Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_dataframe.ipynb>`_
 24-Sep,Tues,Intro to Plotting with PlotNine,"- `Plotting in Python, Part 1 <plotting_part1.ipynb>`_",`Link <exercises/Exercise_plotting_part1.ipynb>`_
 26-Sep,Thurs,Advanced Plotting,"- `Plotting in Python, Part 2 <plotting_part2.ipynb>`_",`Link <exercises/Exercise_plotting_part2.ipynb>`_
 1-Oct,Tues,Pandas: Indices & Missing,"- WM pp 136-142
