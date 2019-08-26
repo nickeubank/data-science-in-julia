@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Welcome non-Duke MIDS Students! &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -41,16 +39,16 @@
 <p>In designing this course, I’ve endeavored to make all the materials and resources accessible to students anywhere. However, the materials in this course <em>are</em> tailored to meet the needs of incoming Duke Masters in Data Science (MIDS) students, and so if you are not an incoming Duke MIDS student, there are a couple things you should know about how the course has been designed.</p>
 <p>In short:</p>
 <ul class="simple">
-<li>This course assumes a familiarity with (regular) Python. <em>Guidance for those new to Python below.</em></li>
-<li>MIDS students have also seen the two Python data science packages we’ll use a lot in this course: <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. As a result, this course is not optimally designed for those who have no exposure to these tools. A person who knows Python but has never seen <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can still learn all they need from the materials in this course, but for reasons discussed below, it may be harder than is really necessary. <em>Guidance for students in this position below.</em></li>
-<li>No experience or past exposure is assumed for topic areas other than <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</li>
+<li><p>This course assumes a familiarity with (regular) Python. <em>Guidance for those new to Python below.</em></p></li>
+<li><p>MIDS students have also seen the two Python data science packages we’ll use a lot in this course: <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. As a result, this course is not optimally designed for those who have no exposure to these tools. A person who knows Python but has never seen <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can still learn all they need from the materials in this course, but for reasons discussed below, it may be harder than is really necessary. <em>Guidance for students in this position below.</em></p></li>
+<li><p>No experience or past exposure is assumed for topic areas other than <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
 </ul>
 <div class="section" id="How-python,-numpy-and-pandas-are-taught">
 <h2>How <code class="docutils literal notranslate"><span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> are taught<a class="headerlink" href="#How-python,-numpy-and-pandas-are-taught" title="Permalink to this headline">¶</a></h2>
 <p>Over the summer before they arrive, Duke MIDS students are asked to complete some summer coursework to prepare them for their first year. Part of that training is completing a a set of DataCamp tutorials on Data Science in Python, which introduce the basics of using Python for data science (namely, it introduces <code class="docutils literal notranslate"><span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>). In addition, they get some additional training in (regular) Python the week they arrive on campus.</p>
 <p>As a result, the material on <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> in this course is written assuming that students have completed those DataCamp courses (the specific classes are provided below). <strong>Now to be clear, one need not have taken those courses to be able to suceed in this class: the readings we do on numpy and pandas essentially explain those libraries from the ground up.</strong> The only thing that this course definitely will not teach is the basics of Python, so you should think of that as an actual
 pre-requisite (more on resources for learning Python below).</p>
-<p>But in teaching, an important concept is the difference between “the logic of a subject” and the “logic of learning”. Subjects often have their own logic, which (once understood) seem to flow from basic ideas (e.g.&nbsp;what is the most basic way to represent data) and then build up to fancy concepts (how to merge datasets and fit models). The problem is that teaching a course by following this “logic of the subject” turns out not to be the best way to help people learn. Instead, it’s often useful to
+<p>But in teaching, an important concept is the difference between “the logic of a subject” and the “logic of learning”. Subjects often have their own logic, which (once understood) seem to flow from basic ideas (e.g. what is the most basic way to represent data) and then build up to fancy concepts (how to merge datasets and fit models). The problem is that teaching a course by following this “logic of the subject” turns out not to be the best way to help people learn. Instead, it’s often useful to
 start from the middle (doing basic data manipulations) so students see the goal of the tools they are learning about before they double back and enrich their understanding by learning about the deep internal logic of a tool.</p>
 <p>The DataCamp courses that MIDS students completed was a “start from the middle” introduction, and so in this course we’re not doubling back and teaching the logic of these libraries from the bottom up. That means we will cover everything on needs to know about these libraries, but we may not be doing it in the most efficient way for newcomers.</p>
 </div>
@@ -58,9 +56,9 @@ start from the middle (doing basic data manipulations) so students see the goal 
 <h2>If you’ve never seen <code class="docutils literal notranslate"><span class="pre">numpy</span></code> or <code class="docutils literal notranslate"><span class="pre">pandas</span></code> before<a class="headerlink" href="#If-you’ve-never-seen-numpy-or-pandas-before" title="Permalink to this headline">¶</a></h2>
 <p>So: if you have never worked with <code class="docutils literal notranslate"><span class="pre">numpy</span></code> or <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, before you work through this course, I would strongly recommend that (if you can afford it), you do what we asked the MIDS student to do: go complete the following excellent DataCamp courses:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.datacamp.com/courses/introduction-to-data-science-in-python">Introduction to Data Science in Python</a> (Takes about 4 hours)</li>
-<li><a class="reference external" href="https://www.datacamp.com/courses/intermediate-python-for-data-science">Intermediate Python for Data Science</a> (Takes about 4 hours)</li>
-<li>Complete module 1 (Data Ingestion) and module 2 (Exploratory Data Analsysis) from the <a class="reference external" href="https://www.datacamp.com/courses/pandas-foundations">pandas Foundations course</a></li>
+<li><p><a class="reference external" href="https://www.datacamp.com/courses/introduction-to-data-science-in-python">Introduction to Data Science in Python</a> (Takes about 4 hours)</p></li>
+<li><p><a class="reference external" href="https://www.datacamp.com/courses/intermediate-python-for-data-science">Intermediate Python for Data Science</a> (Takes about 4 hours)</p></li>
+<li><p>Complete module 1 (Data Ingestion) and module 2 (Exploratory Data Analsysis) from the <a class="reference external" href="https://www.datacamp.com/courses/pandas-foundations">pandas Foundations course</a></p></li>
 </ul>
 <p>DataCamp’s courses are really well designed, and crucially their entirely interactive (and research shows that <em>active</em> learning is the best way to learn). They’re a tremendous resource, and you should definitely start there if you can affort their service ($30 a month in the US).</p>
 </div>
@@ -78,9 +76,9 @@ email</a> or by openning an issue on <a class="reference external" href="https:/
 <p>This course is taught (for in-person students) as a flipped classroom: students are required to read instructional materials at home before class, then students spend class time is spent doing exercises in pairs.</p>
 <p>For non-Duke students looking to use this website to develop their data science skills, there are two consequences of this organization:</p>
 <ul class="simple">
-<li>Duke students are using the <em>exact</em> same instructional materials you are. You aren’t missing lecture materials.</li>
-<li>Duke students are being <em>required</em> to do the exercises associated with each topic, and they are integral to the course in two ways. First, there are lessons that come up in the exercises that aren’t covered (or aren’t covered as well as I’d like) in instructional materials. If you don’t do the exercises, you will miss important take-aways. And second, programming is a skilled learned by doing. Requiring students to do the exercises in class is a way of making sure that they get appropriate
-attention. There’s no way to make them “mandatory” online, but I hope you will take to heart my strong encouragement that you complete the exercises that follow each lesson if you want to get the most out of this site.</li>
+<li><p>Duke students are using the <em>exact</em> same instructional materials you are. You aren’t missing lecture materials.</p></li>
+<li><p>Duke students are being <em>required</em> to do the exercises associated with each topic, and they are integral to the course in two ways. First, there are lessons that come up in the exercises that aren’t covered (or aren’t covered as well as I’d like) in instructional materials. If you don’t do the exercises, you will miss important take-aways. And second, programming is a skilled learned by doing. Requiring students to do the exercises in class is a way of making sure that they get appropriate
+attention. There’s no way to make them “mandatory” online, but I hope you will take to heart my strong encouragement that you complete the exercises that follow each lesson if you want to get the most out of this site.</p></li>
 </ul>
 </div>
 </div>
@@ -142,13 +140,11 @@ attention. There’s no way to make them “mandatory” online, but I hope you 
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -169,7 +165,7 @@ attention. There’s no way to make them “mandatory” online, but I hope you 
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Git and Github &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -245,19 +243,19 @@ div.rendered_html tbody tr:hover {
 <p>Git is less commonly used in Data Science, however, where people are often working in groups that are small enough they feel comfortable just keeping their code on Dropbox and trying to make sure that collaborators never work on the same file at the same time (in the hopes of never creating a dreaded <code class="docutils literal notranslate"><span class="pre">Conflicted</span> <span class="pre">Copy</span></code> file). But git and github have much to offer the modern data scientist, even if they only work on small teams and don’t want to contribute to larger software projects. In
 particular, here are the main benefits I see for git and github in order of likelihood of relevance for an applied data scientist (the sort who answers ad hoc questions like an academic researcher, rather than writes data analysis routines into widely distributed software):</p>
 <ol class="arabic simple">
-<li><strong>Keep an archive of every version of your project:</strong> Git works by logging the work you do on your project into a series of discrete sets of changes called “commits”. Crucially, it remembers <em>all</em> of your commits, making it possible to easily go back to a previous version of the project any time you want. Suddenly discover that your co-author deleted the code for your favorite graph weeks ago and you didn’t notice till now? No problem! You can easily recover the version of that file that
-existed before your co-author’s mistake.</li>
-<li><strong>All you and your co-authors to work at the same time:</strong> Git is <em>much</em> more forgiving when it comes to allowing people to edit the same document at the same time. Git treats each line in a text document separately, so if your co-author is editing the introduction of your paper (assuming it’s in a text format like <span class="math notranslate nohighlight">\(\LaTeX\)</span>) while you’re editing the conclusion, git can easily integrate your simultaneous edits. Moreover, if you <em>do</em> both edit the same line of code or text, then git will
-help you resolve those conflicting edits in a very efficient manner instead of what dropbox does: create a <code class="docutils literal notranslate"><span class="pre">Confliced</span> <span class="pre">Copy</span></code>, and leave you to figure out what changes conflicted and how to integrate both authors’ changes.</li>
-<li><strong>You can easily see what changes you’re co-author has made:</strong> Because git is organized around keeping track of <em>changes</em> (again, called commits), when your co-author makes changes to a document, git allows you to easily see <em>just the changes</em> your co-author has made. This makes it much easier for colleagues to be aware of how their project is changing to watch out of problems (e.g.&nbsp;you can easily see if your co-author recoded a variable in a way that is problematic for code you wrote later).
-For example, here’s an example of a github report on changes a co-author made in a shared project, where the (red) text on the left is what the code used to say, while the (green) text on the right is what it now says. And github even allows you to comment directly on changes if you want:</li>
+<li><p><strong>Keep an archive of every version of your project:</strong> Git works by logging the work you do on your project into a series of discrete sets of changes called “commits”. Crucially, it remembers <em>all</em> of your commits, making it possible to easily go back to a previous version of the project any time you want. Suddenly discover that your co-author deleted the code for your favorite graph weeks ago and you didn’t notice till now? No problem! You can easily recover the version of that file that
+existed before your co-author’s mistake.</p></li>
+<li><p><strong>All you and your co-authors to work at the same time:</strong> Git is <em>much</em> more forgiving when it comes to allowing people to edit the same document at the same time. Git treats each line in a text document separately, so if your co-author is editing the introduction of your paper (assuming it’s in a text format like <span class="math notranslate nohighlight">\(\LaTeX\)</span>) while you’re editing the conclusion, git can easily integrate your simultaneous edits. Moreover, if you <em>do</em> both edit the same line of code or text, then git will
+help you resolve those conflicting edits in a very efficient manner instead of what dropbox does: create a <code class="docutils literal notranslate"><span class="pre">Confliced</span> <span class="pre">Copy</span></code>, and leave you to figure out what changes conflicted and how to integrate both authors’ changes.</p></li>
+<li><p><strong>You can easily see what changes you’re co-author has made:</strong> Because git is organized around keeping track of <em>changes</em> (again, called commits), when your co-author makes changes to a document, git allows you to easily see <em>just the changes</em> your co-author has made. This makes it much easier for colleagues to be aware of how their project is changing to watch out of problems (e.g. you can easily see if your co-author recoded a variable in a way that is problematic for code you wrote later).
+For example, here’s an example of a github report on changes a co-author made in a shared project, where the (red) text on the left is what the code used to say, while the (green) text on the right is what it now says. And github even allows you to comment directly on changes if you want:</p></li>
 </ol>
 <p><img alt="git_diff_example" src="_images/git_example1.png" /></p>
 <p>Much more helpful than a Drobox “[Name] made changes to [File]” notification. :)</p>
 <ol class="arabic simple" start="4">
-<li><strong>Allows you to contribute to open source projects:</strong> This may not be something you’re planning to jump into, but learning git will make this an option. If you find that a package you use doesn’t have a feature you need, the ability to use git will make it possible for you to add that feature to the package, not only allowing you to do what you want to do, but also making that fix available to the broader community.</li>
-<li><strong>Allows you to make your project open source so others can contribute to your project:</strong> The time may come when you want to write a software package and share it with the world. If you know git, you can also share that code in a way that makes it easy for other people to contribute code and improve that package. Open source isn’t just for big things like Python programming language – it’s also used for lots of little projects, like packages for <a class="reference external" href="https://github.com/mggg/GerryChain">simulating electoral boundaries to study
-gerrymandering</a>, or tools to make it easy to <a class="reference external" href="https://github.com/fecgov/openFEC">access campaign finance data</a> (sorry, I’m a political scientist, so I’m doing poli sci examples, but you get the idea). And you’ll be amazed how many people contribute to these kinds of projects. Indeed, even these tutorials have a <a class="reference external" href="https://github.com/nickeubank/programming4ds">github repositoriy where people can submit improvements!</a></li>
+<li><p><strong>Allows you to contribute to open source projects:</strong> This may not be something you’re planning to jump into, but learning git will make this an option. If you find that a package you use doesn’t have a feature you need, the ability to use git will make it possible for you to add that feature to the package, not only allowing you to do what you want to do, but also making that fix available to the broader community.</p></li>
+<li><p><strong>Allows you to make your project open source so others can contribute to your project:</strong> The time may come when you want to write a software package and share it with the world. If you know git, you can also share that code in a way that makes it easy for other people to contribute code and improve that package. Open source isn’t just for big things like Python programming language – it’s also used for lots of little projects, like packages for <a class="reference external" href="https://github.com/mggg/GerryChain">simulating electoral boundaries to study
+gerrymandering</a>, or tools to make it easy to <a class="reference external" href="https://github.com/fecgov/openFEC">access campaign finance data</a> (sorry, I’m a political scientist, so I’m doing poli sci examples, but you get the idea). And you’ll be amazed how many people contribute to these kinds of projects. Indeed, even these tutorials have a <a class="reference external" href="https://github.com/nickeubank/programming4ds">github repositoriy where people can submit improvements!</a></p></li>
 </ol>
 <p>OK, now the bad news: there’s a reason I put so much energy into discussing the value of git before getting into how it works: learning git kinda sucks. I mean, it’s not painful like <a class="reference external" href="https://en.wikipedia.org/wiki/Leonid_Rogozov">performing an appendectomy on yourself without anesthesia</a>, and it’s not hard like quantum mechanics or geometric topology; it’s definitely something anyone can learn. But there’s no pretending that git is user friendly, and you’re sure to have a couple of moments
 when you’ll find yourself thinking (rightly) “why on Earth did they do it like that?”. So before you dive in, it’s good to have the expectation that there’s a initial uphill slog to learning git before it becomes really useful. But I promise: it pays off <em>big time</em>.</p>
@@ -265,8 +263,8 @@ when you’ll find yourself thinking (rightly) “why on Earth did they do it li
 <h3>Git versus Github<a class="headerlink" href="#Git-versus-Github" title="Permalink to this headline">¶</a></h3>
 <p>As I eluded to earlier, though they’re almost always used together, git and github are actually two different things:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">git</span></code> is the program that keeps track of changes in your code and helps you manage multiple people working on code at the same time.</li>
-<li><code class="docutils literal notranslate"><span class="pre">github</span></code> is a service that hosts a copy of your project in the cloud so you and your co-authors can easily share project changes. In addition, <code class="docutils literal notranslate"><span class="pre">github</span></code> also has a great interface for reviewing changes to a project in a user friendly manner, and it has an “issue tracker” system for hosting conversations about things that need to be done in a project.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span></code> is the program that keeps track of changes in your code and helps you manage multiple people working on code at the same time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">github</span></code> is a service that hosts a copy of your project in the cloud so you and your co-authors can easily share project changes. In addition, <code class="docutils literal notranslate"><span class="pre">github</span></code> also has a great interface for reviewing changes to a project in a user friendly manner, and it has an “issue tracker” system for hosting conversations about things that need to be done in a project.</p></li>
 </ul>
 <p>And when it comes to what is user-friendly and what is not, <code class="docutils literal notranslate"><span class="pre">git</span></code> is the kinda awful thing to learn, and <code class="docutils literal notranslate"><span class="pre">github</span></code> is magical.</p>
 </div>
@@ -283,11 +281,11 @@ bit more about data-science-specific git issues (like how to put datasets into a
 <h3>A Normal Day Working with Git<a class="headerlink" href="#A-Normal-Day-Working-with-Git" title="Permalink to this headline">¶</a></h3>
 <p>Once your team has a git repository setup, a normal day goes like this:</p>
 <ul class="simple">
-<li>You starting by using the <code class="docutils literal notranslate"><span class="pre">pull</span></code> command to integrate the most recent changes your co-authors have made off github. This keeps you up to date.</li>
-<li>You edit the code you want to edit.</li>
-<li>You then <code class="docutils literal notranslate"><span class="pre">commit</span></code> these changes to the project (i.e.&nbsp;tell git you feel good about the changes you’ve made and want them to really be part of the project). You do this by <code class="docutils literal notranslate"><span class="pre">staging</span></code> the files you want in the commit (you can include as many changes as you want in a commit – it could be 8 new analysis files, or a single change to one line of code in a single file). Then formally <code class="docutils literal notranslate"><span class="pre">commit</span></code> those staged changes.</li>
-<li>When you’re done, you <code class="docutils literal notranslate"><span class="pre">push</span></code> those changes, which is when the changes you’ve committed on your own computer are shared with the project on github.</li>
-<li>If by some chance a co-author has also been working at the same time as you, you may have to <code class="docutils literal notranslate"><span class="pre">pull</span></code> their new changes first, and if by some chance you both edited the same lines of code (or same lines of a latex or text document), you may have to then “resolve conflicts” and push again.</li>
+<li><p>You starting by using the <code class="docutils literal notranslate"><span class="pre">pull</span></code> command to integrate the most recent changes your co-authors have made off github. This keeps you up to date.</p></li>
+<li><p>You edit the code you want to edit.</p></li>
+<li><p>You then <code class="docutils literal notranslate"><span class="pre">commit</span></code> these changes to the project (i.e. tell git you feel good about the changes you’ve made and want them to really be part of the project). You do this by <code class="docutils literal notranslate"><span class="pre">staging</span></code> the files you want in the commit (you can include as many changes as you want in a commit – it could be 8 new analysis files, or a single change to one line of code in a single file). Then formally <code class="docutils literal notranslate"><span class="pre">commit</span></code> those staged changes.</p></li>
+<li><p>When you’re done, you <code class="docutils literal notranslate"><span class="pre">push</span></code> those changes, which is when the changes you’ve committed on your own computer are shared with the project on github.</p></li>
+<li><p>If by some chance a co-author has also been working at the same time as you, you may have to <code class="docutils literal notranslate"><span class="pre">pull</span></code> their new changes first, and if by some chance you both edited the same lines of code (or same lines of a latex or text document), you may have to then “resolve conflicts” and push again.</p></li>
 </ul>
 <p>That’s it! There are <em>lots</em> of other things one can do in git (like spinning of parallel versions of the project so you can experiment without ruining the main project (called <code class="docutils literal notranslate"><span class="pre">branching</span></code>), reverting to old versions (if you realized you screwed something up and just want to go back to what you had last week), and more, but those are kinda secondary.</p>
 </div>
@@ -297,8 +295,8 @@ bit more about data-science-specific git issues (like how to put datasets into a
 <p>If you have any comfort with the command line, learning git from the command line is probably the best way to start. You can later move to a graphical user interface, but knowing how to use the command line version means you can always do anything git can do, and online help will be easier to find.</p>
 <p>If you aren’t comfortable with the command line, you have two choices:</p>
 <ul class="simple">
-<li>Learn the basics of command lines. I recommend first doing <a class="reference external" href="command_line_page1.ipynb">the command line basics page of this site</a> including completing the <a class="reference external" href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science">first section of this tutorial: Introduction to Shell for Data Science</a> (the first section is just called “Manipulating Files and Directories”. Don’t go past that section).</li>
-<li>Try to find a good graphical user interface-based tutorial (and if you find one, let me know? I haven’t found one.. :( ).</li>
+<li><p>Learn the basics of command lines. I recommend first doing <a class="reference external" href="command_line_page1.ipynb">the command line basics page of this site</a> including completing the <a class="reference external" href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science">first section of this tutorial: Introduction to Shell for Data Science</a> (the first section is just called “Manipulating Files and Directories”. Don’t go past that section).</p></li>
+<li><p>Try to find a good graphical user interface-based tutorial (and if you find one, let me know? I haven’t found one.. :( ).</p></li>
 </ul>
 <p>If you do eventually want a GUI, I recommend either <a class="reference external" href="https://desktop.github.com/">Github Desktop</a> (very clean and easy, but can’t do everything git can do) or <a class="reference external" href="https://www.sourcetreeapp.com/">Sourcetree</a> (busy, but more powerful and flexible.</p>
 </div>
@@ -377,13 +375,11 @@ bit more about data-science-specific git issues (like how to put datasets into a
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -404,7 +400,7 @@ bit more about data-science-specific git issues (like how to put datasets into a
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

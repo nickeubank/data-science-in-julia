@@ -20,3 +20,7 @@ source/.ipynb_checkpoints/*
 **/ipynb_checkpoints/*
 source/exercises/.ipynb_checkpoints/*
 ~$*
+
+
+Solutions_*.ipynb
+.DS_Store

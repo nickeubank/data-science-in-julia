@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Python v R: Important Differences To Be Aware Of &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -240,9 +238,9 @@ div.rendered_html tbody tr:hover {
 <h1>Python v R: Important Differences To Be Aware Of<a class="headerlink" href="#Python-v-R:-Important-Differences-To-Be-Aware-Of" title="Permalink to this headline">¶</a></h1>
 <p>R and Python have a lot of similarities, but there are some important differences. The biggest, discussed below, is the idea that there is a distinction between a variables and the object associated with it. But before we dive into that, a few smaller differences that tend to get people tripped up:</p>
 <ul class="simple">
-<li><strong>The analogue of ``data.frames`` and ``vectors`` are in ``numpy`` and ``pandas`` libraries, not Python itself</strong>: When you watch basic Python tutorials, you’ll find yourself wondering where the vectors and data.frames are – don’t worry! They exist, but they’re in distinct libraries called <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, so basic Python tutorials won’t talk about them.</li>
-<li><strong>Periods are operators in Python</strong>: In R, it’s common to use periods in variable names (like: <code class="docutils literal notranslate"><span class="pre">my.list</span></code>). There are many syntax differences between R and Python, but for some reason people really struggle with this one – periods are an operator in Python, so don’t use them in names! The convention is to use underscores, like: <code class="docutils literal notranslate"><span class="pre">my_list</span></code>.</li>
-<li><strong>In Python you always count starting at 0, not 1</strong> For example, to get the first entry in a list, you type <code class="docutils literal notranslate"><span class="pre">my_list[0]</span></code>, not <code class="docutils literal notranslate"><span class="pre">my_list[1]</span></code>. <code class="docutils literal notranslate"><span class="pre">my_list[1]</span></code> will get you the <em>second</em> entry in the list.</li>
+<li><p><strong>The analogue of ``data.frames`` and ``vectors`` are in ``numpy`` and ``pandas`` libraries, not Python itself</strong>: When you watch basic Python tutorials, you’ll find yourself wondering where the vectors and data.frames are – don’t worry! They exist, but they’re in distinct libraries called <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, so basic Python tutorials won’t talk about them.</p></li>
+<li><p><strong>Periods are operators in Python</strong>: In R, it’s common to use periods in variable names (like: <code class="docutils literal notranslate"><span class="pre">my.list</span></code>). There are many syntax differences between R and Python, but for some reason people really struggle with this one – periods are an operator in Python, so don’t use them in names! The convention is to use underscores, like: <code class="docutils literal notranslate"><span class="pre">my_list</span></code>.</p></li>
+<li><p><strong>In Python you always count starting at 0, not 1</strong> For example, to get the first entry in a list, you type <code class="docutils literal notranslate"><span class="pre">my_list[0]</span></code>, not <code class="docutils literal notranslate"><span class="pre">my_list[1]</span></code>. <code class="docutils literal notranslate"><span class="pre">my_list[1]</span></code> will get you the <em>second</em> entry in the list.</p></li>
 </ul>
 <div class="section" id="Variables-vs-Objects">
 <h2>Variables vs Objects<a class="headerlink" href="#Variables-vs-Objects" title="Permalink to this headline">¶</a></h2>
@@ -359,13 +357,11 @@ itself.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -386,7 +382,7 @@ itself.</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Workflow Management &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -276,18 +274,18 @@ have a smaller file that does one thing in much less code, it’s easier to eval
 <h2>Folder Strutures<a class="headerlink" href="#Folder-Strutures" title="Permalink to this headline">¶</a></h2>
 <p>With that mind, I usually work with the following top-level folder structure in my projects:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>: Raw inputs to this project, taken from other sources. Data in this folder should never be modified by code in this project.</li>
-<li><code class="docutils literal notranslate"><span class="pre">10_code</span></code>: All code for analysis</li>
-<li><code class="docutils literal notranslate"><span class="pre">20_intermediate_files</span></code>: data files created by code in this repository (presumably code that processes data found in <code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>)</li>
-<li><code class="docutils literal notranslate"><span class="pre">30_results</span></code>: tables, figures, maps, etc. that will later be used in papers</li>
-<li><code class="docutils literal notranslate"><span class="pre">40_docs</span></code>: Paper write-ups</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>: Raw inputs to this project, taken from other sources. Data in this folder should never be modified by code in this project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10_code</span></code>: All code for analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">20_intermediate_files</span></code>: data files created by code in this repository (presumably code that processes data found in <code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">30_results</span></code>: tables, figures, maps, etc. that will later be used in papers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">40_docs</span></code>: Paper write-ups</p></li>
 </ul>
 <p>One nice thing about this structure is it makes easy to test the reproducibility of your project: if you’ve done everything right, then you should be able to:</p>
 <ol class="arabic simple">
-<li>Delete everything your <code class="docutils literal notranslate"><span class="pre">20_intermediate_files</span></code> folder and everything in your <code class="docutils literal notranslate"><span class="pre">30_results</span></code> folder,</li>
-<li>Re-run all the code in your <code class="docutils literal notranslate"><span class="pre">10_code</span></code> (which starts by reading in data from <code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>)</li>
+<li><p>Delete everything your <code class="docutils literal notranslate"><span class="pre">20_intermediate_files</span></code> folder and everything in your <code class="docutils literal notranslate"><span class="pre">30_results</span></code> folder,</p></li>
+<li><p>Re-run all the code in your <code class="docutils literal notranslate"><span class="pre">10_code</span></code> (which starts by reading in data from <code class="docutils literal notranslate"><span class="pre">00_source_data</span></code>)</p></li>
 </ol>
-<p>And have all the results you want for your paper re-appear in your <code class="docutils literal notranslate"><span class="pre">30_results</span></code> folder. And if not all your results reappear (i.e.&nbsp;aren’t generated when you run your code), you know that you have some files in there that aren’t actually being created by code you currently have in the project (meaning those results aren’t reproducible).</p>
+<p>And have all the results you want for your paper re-appear in your <code class="docutils literal notranslate"><span class="pre">30_results</span></code> folder. And if not all your results reappear (i.e. aren’t generated when you run your code), you know that you have some files in there that aren’t actually being created by code you currently have in the project (meaning those results aren’t reproducible).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -356,13 +354,11 @@ have a smaller file that does one thing in much less code, it’s easier to eval
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -383,7 +379,7 @@ have a smaller file that does one thing in much less code, it’s easier to eval
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

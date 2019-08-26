@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Missing Values Exercises &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -400,7 +398,7 @@ Name: inctot, Length: 8471, dtype: float64
 <h2>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h2>
 <p>OK, now we’ve been able to get a reasonable average income number. As we can see, a major advantage of using <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> is that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> knows that <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> observations should just be ignored when we are calculating means.</p>
 <p>But it’s not enough to just get rid of the people who had <code class="docutils literal notranslate"><span class="pre">inctot</span></code> values of 9999999. We also need to know why those values were missing. Suppose, for example, that the value of 9999999 was used for anyone who made more than 100,000 dollars: if we just dropped those people, then our estimate of average income wouldn’t mean much, would it?</p>
-<p>So let’s make sure we understand <em>why</em> data is missing for some people. If you recall from our last exercise, it seemed to be the case that most of the people who had incomes of 9999999 were children. Let’s make sure that’s true by looking at the distribution of the variable <code class="docutils literal notranslate"><span class="pre">age</span></code> for people for whom <code class="docutils literal notranslate"><span class="pre">inctot</span></code> is missing (i.e.&nbsp;subset the data to people with <code class="docutils literal notranslate"><span class="pre">inctot</span></code> missing, then look at the values of <code class="docutils literal notranslate"><span class="pre">age</span></code> with <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code>).</p>
+<p>So let’s make sure we understand <em>why</em> data is missing for some people. If you recall from our last exercise, it seemed to be the case that most of the people who had incomes of 9999999 were children. Let’s make sure that’s true by looking at the distribution of the variable <code class="docutils literal notranslate"><span class="pre">age</span></code> for people for whom <code class="docutils literal notranslate"><span class="pre">inctot</span></code> is missing (i.e. subset the data to people with <code class="docutils literal notranslate"><span class="pre">inctot</span></code> missing, then look at the values of <code class="docutils literal notranslate"><span class="pre">age</span></code> with <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code>).</p>
 <p>Then do the opposite: look at the distribution of the <code class="docutils literal notranslate"><span class="pre">age</span></code> variable for people who whom <code class="docutils literal notranslate"><span class="pre">inctot</span></code> is <em>not</em> missing.</p>
 <p>Can you determine when 9999999 was being used? Is it ok we’re excluding those people from our analysis?</p>
 <p>Note: In this data, Python doesn’t understand <code class="docutils literal notranslate"><span class="pre">age</span></code> is a number; it thinks it is a string because the original data has categories like “90 (90+ in 1980 and 1990)” and “less than 1 year old”. So you can’t just use <code class="docutils literal notranslate"><span class="pre">min()</span></code> or <code class="docutils literal notranslate"><span class="pre">max()</span></code>. We’ll discuss converting string variables into numbers in a future class.</p>
@@ -770,13 +768,11 @@ Name: race, dtype: int64
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -797,7 +793,7 @@ Name: race, dtype: int64
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Memory Hierarchies and Big Data &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -255,8 +253,8 @@ almost certainly the biggest bottleneck – doing actual computations is almost 
 <h3>How do I know if my data is fitting into RAM?<a class="headerlink" href="#How-do-I-know-if-my-data-is-fitting-into-RAM?" title="Permalink to this headline">¶</a></h3>
 <p>Oddly, this is not actually a straight-forward question for two reasons:</p>
 <ul class="simple">
-<li>Since programs often make copies of your data when they manipulate it, if you aren’t careful about watching your memory, your program may start storing things on your harddrive, which can result in a program that would take seconds requiring days or more to run.</li>
-<li>The size of data changes as you change its format. For example, if you’re reading data from an inefficient file format (like a .csv text file), it may be the case that your large file may actually be quite small once you import it into a program like R or Stata that knows how to store data more efficiently.</li>
+<li><p>Since programs often make copies of your data when they manipulate it, if you aren’t careful about watching your memory, your program may start storing things on your harddrive, which can result in a program that would take seconds requiring days or more to run.</p></li>
+<li><p>The size of data changes as you change its format. For example, if you’re reading data from an inefficient file format (like a .csv text file), it may be the case that your large file may actually be quite small once you import it into a program like R or Stata that knows how to store data more efficiently.</p></li>
 </ul>
 </div>
 <div class="section" id="So-how-do-I-check-to-see-if-my-data-is-fitting-in-memory?">
@@ -264,9 +262,9 @@ almost certainly the biggest bottleneck – doing actual computations is almost 
 <p>Unfortunately, if your program starts using more space than you have RAM, your operating system will usually just start using the harddrive for extra space without telling you (this is called “virtual memory”). As a result, you may be moving into the world where your program is going to run very slow without even knowing it.</p>
 <p>To avoid this, use one of the tools provided by your operating system to monitor whether it’s using the harddrive:</p>
 <ul class="simple">
-<li><strong>OSX:</strong> OSX comes with a program called [<a class="reference external" href="http://support.apple.com/en-us/HT201464">http://support.apple.com/en-us/HT201464</a> “Activity Monitor”] in the Applications &gt; Utilities folder. In 10.10 (Yosemite), the memory tab of Activity Monitor has a graph at the bottom called “Memory Pressure”. If this is green, you’re good. If it’s yellow or red, you’re actively going back and forth to your harddrive. (Note your computer may be using “virtual memory” without affecting performance if it’s just storing away things you aren’t actively
-using).</li>
-<li><strong>Windows 7 / 8:</strong> Windows has a program called [<a class="reference external" href="http://en.wikipedia.org/wiki/Resource_Monitor">http://en.wikipedia.org/wiki/Resource_Monitor</a> “Resource Monitor”] that shows data on memory use. If the “Hard Faults” graph under the memory tab is spiking, your computer is using the harddrive.</li>
+<li><p><strong>OSX:</strong> OSX comes with a program called [<a class="reference external" href="http://support.apple.com/en-us/HT201464">http://support.apple.com/en-us/HT201464</a> “Activity Monitor”] in the Applications &gt; Utilities folder. In 10.10 (Yosemite), the memory tab of Activity Monitor has a graph at the bottom called “Memory Pressure”. If this is green, you’re good. If it’s yellow or red, you’re actively going back and forth to your harddrive. (Note your computer may be using “virtual memory” without affecting performance if it’s just storing away things you aren’t actively
+using).</p></li>
+<li><p><strong>Windows 7 / 8:</strong> Windows has a program called [<a class="reference external" href="http://en.wikipedia.org/wiki/Resource_Monitor">http://en.wikipedia.org/wiki/Resource_Monitor</a> “Resource Monitor”] that shows data on memory use. If the “Hard Faults” graph under the memory tab is spiking, your computer is using the harddrive.</p></li>
 </ul>
 </div>
 </div>
@@ -274,16 +272,16 @@ using).</li>
 <h2>Strategies for Working with Big Data<a class="headerlink" href="#Strategies-for-Working-with-Big-Data" title="Permalink to this headline">¶</a></h2>
 <p>If you have big data, you basically have three options:</p>
 <ul class="simple">
-<li>Format and trim your data so it fits in memory or get more RAM;</li>
-<li>Chunk your data yourself;</li>
-<li>Use specialized software.</li>
+<li><p>Format and trim your data so it fits in memory or get more RAM;</p></li>
+<li><p>Chunk your data yourself;</p></li>
+<li><p>Use specialized software.</p></li>
 </ul>
 <div class="section" id="Avoid-Spillover">
 <h3>Avoid Spillover<a class="headerlink" href="#Avoid-Spillover" title="Permalink to this headline">¶</a></h3>
 <p>Working with data that doesn’t fit into RAM is a ‘’headache’’. If there’s anyway you can avoid it, you should, which can potentially be accomplished via two methods:</p>
 <ul class="simple">
-<li><strong>Drop variables or store them more efficiently:</strong>’’’ If you’re used to small datasets, you may be in the habit of always carrying around all the variables in a survey or dataset. But if you only keep the variables you absolutely need, or find ways to store them more efficiently, you can often stay within your size limits. For example, String variables take up lots of space – if you can, turn them into numeric variables (see [[Data Types]] for more on data types).</li>
-<li><strong>Get more RAM</strong>: RAM isn’t cheap, but nor is your time, and buying more RAM can save you an amazing amount of trouble. And if you can’t afford to buy your own, you may find that it’s cheaper to rent a computer with more RAM from cloud services like Amazon, which are often surprisingly affordable! For more, see the page on [[Cloud Computing Resources]].</li>
+<li><p><strong>Drop variables or store them more efficiently:</strong>’’’ If you’re used to small datasets, you may be in the habit of always carrying around all the variables in a survey or dataset. But if you only keep the variables you absolutely need, or find ways to store them more efficiently, you can often stay within your size limits. For example, String variables take up lots of space – if you can, turn them into numeric variables (see [[Data Types]] for more on data types).</p></li>
+<li><p><strong>Get more RAM</strong>: RAM isn’t cheap, but nor is your time, and buying more RAM can save you an amazing amount of trouble. And if you can’t afford to buy your own, you may find that it’s cheaper to rent a computer with more RAM from cloud services like Amazon, which are often surprisingly affordable! For more, see the page on [[Cloud Computing Resources]].</p></li>
 </ul>
 </div>
 <div class="section" id="Chunking">
@@ -364,13 +362,11 @@ Computing]] page for more information.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -391,7 +387,7 @@ Computing]] page for more information.</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Data Science Languages: Why So Many? &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -244,8 +242,8 @@ div.rendered_html tbody tr:hover {
 <p>Stata is one of the most popular tools among applied economists, and for good reason. It is an extremely powerful tool for data manipulation and econometric analysis. Its syntax is simpler than that of R, has lots of in-built statistical tools, lots of good add-ones, is very good for data-cleaning, and has a strong support community (the <a class="reference external" href="http://www.statalist.org/forums/help">statalist community</a> can solve almost any problem you have).</p>
 <p>Basically, Stata was designed specifically for doing statistical analysises of <em>tabular data</em>. Tabular data is data that looks like a spreadsheet where each row is an observation and each column is a different variable. And because of this focus, it has a syntax that is very specialized for this purpose (and thus much simpler and easier to read than, say, R), and <em>tons</em> of inbuilt tools for statistics. But this focus does come at a bit of a cost. In particular:</p>
 <ul class="simple">
-<li>It doesn’t really work for anything <em>BUT</em> tabular data manipulations and statistical, so it’s not a good choice if your interest is in spatial analyses, network analysis, or text analysis.</li>
-<li>Stata’s programming language is easy to read and work with, but it’s also a little unusual. As a result, people with programming experience tend to hate it, and learning to code in Stata doesn’t do a great job of setting you up for working in another language in the future.</li>
+<li><p>It doesn’t really work for anything <em>BUT</em> tabular data manipulations and statistical, so it’s not a good choice if your interest is in spatial analyses, network analysis, or text analysis.</p></li>
+<li><p>Stata’s programming language is easy to read and work with, but it’s also a little unusual. As a result, people with programming experience tend to hate it, and learning to code in Stata doesn’t do a great job of setting you up for working in another language in the future.</p></li>
 </ul>
 <p>But if you just want to do econometrics, and don’t have a lot of programming background, Stata is hard to beat!</p>
 </div>
@@ -425,13 +423,11 @@ you don’t yet know these languages, don’t worry too much if not everything m
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -452,7 +448,7 @@ you don’t yet know these languages, don’t worry too much if not everything m
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

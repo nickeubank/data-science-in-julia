@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Speed &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,15 +38,15 @@
 <h1>Speed<a class="headerlink" href="#Speed" title="Permalink to this headline">¶</a></h1>
 <p>Why are some programs fast and others slow? In this tutorial, we’ll try and discuss two things:</p>
 <ul class="simple">
-<li>Develop <em>general</em> understanding of why code is fast and some is slow, and</li>
-<li>Develop <em>practical</em> skills for figuring out why <em>your</em> code is slow and how to fix it</li>
+<li><p>Develop <em>general</em> understanding of why code is fast and some is slow, and</p></li>
+<li><p>Develop <em>practical</em> skills for figuring out why <em>your</em> code is slow and how to fix it</p></li>
 </ul>
 <div class="section" id="General-Principles-of-Speed">
 <h2>General Principles of Speed<a class="headerlink" href="#General-Principles-of-Speed" title="Permalink to this headline">¶</a></h2>
 <p>There are two primary factors that determine the speed of a program:</p>
 <ul class="simple">
-<li>The number of actions the computer has to take (i.e.&nbsp;the number of commands it has to execute)</li>
-<li>The amount it has to access and move data around.</li>
+<li><p>The number of actions the computer has to take (i.e. the number of commands it has to execute)</p></li>
+<li><p>The amount it has to access and move data around.</p></li>
 </ul>
 <div class="section" id="Fast-languages-and-slow-languages">
 <h3>Fast languages and slow languages<a class="headerlink" href="#Fast-languages-and-slow-languages" title="Permalink to this headline">¶</a></h3>
@@ -73,39 +71,39 @@
 <h3>Making Code Faster<a class="headerlink" href="#Making-Code-Faster" title="Permalink to this headline">¶</a></h3>
 <p><strong>AFTER</strong> you’ve identified what parts of your code are running really slow by profiling them (as discussed above), the next question is how to make them run faster. The following fixes are provided in the order in which I would suggest pursuing them – the first fixes have high returns and are relatively easy, the later ones are harder to implement and should only be pursued if you’ve tried the preceding options!</p>
 <ol class="arabic simple">
-<li><strong>Check your memory use</strong> When your computer is manipulating data (defining variables, running regressions, etc), what its actually doing is grabbing a little bit of data from storage, moving it to the processor, doing math with it, and then putting it back in storage.</li>
+<li><p><strong>Check your memory use</strong> When your computer is manipulating data (defining variables, running regressions, etc), what its actually doing is grabbing a little bit of data from storage, moving it to the processor, doing math with it, and then putting it back in storage.</p></li>
 </ol>
 <p>To simplify somewhat, we can think of your computer as having two forms of storage – RAM (sometimes called main memory), and your harddrive. But these two forms of memory are very, very different. Your computer can grab data from RAM 100,000 times faster it can grab data on the harddrive. Because of this, your computer is much happier (and performs faster) when it’s able to keep all the data you’re working with in RAM. Indeed, if you’re moving data back and forth to your harddrive, it’s almost
 certainly the biggest bottleneck – doing actual computations is almost instantaneous compared to moving data back and forth to your harddrive on modern computers.</p>
 <p><em>Important:</em> Just because your dataset is small enough it seems like it should fit into RAM doesn’t mean this isn’t relevant for you! Programs often make copies of your data when they manipulate it, so even if your dataset is 2gb and your have 8gb of RAM, the program you’re using can very easy end up using all 8gb of RAM!</p>
 <ol class="arabic simple" start="2">
-<li><strong>Use other people’s (compiled) functions</strong></li>
+<li><p><strong>Use other people’s (compiled) functions</strong></p></li>
 </ol>
 <p>As a general rule, code you write in R or Python is slow. But don’t worry, it’s not your fault; R and Python are fundamentally [[Programming Languages | slow languages]], so ‘’anything’’ written in R or Python is slow.</p>
 <p>But interestingly, commands that other people have written that are available in R or Python are actually usually written in faster (“compiled”) languages, like C++. As a result, whenever you have the choice between writing a function yourself or using a function in an established library, you’re almost always better off using the command someone else wrote.</p>
 <p>Now, using other people’s functions is not fool-proof – some people write their libraries in R or Python (not a compiled language like C++), so they may run as slowly as your own commands. So if you can, check the documentation for whatever library you want to use to see whether it was written in C / C++ or not!</p>
 <ol class="arabic simple" start="3">
-<li><strong>Vectorization</strong></li>
+<li><p><strong>Vectorization</strong></p></li>
 </ol>
 <p>In R and Python, if you want to apply a function to each item in a matrix or vector, you would just create a loop that extracts each element of the vector, modifies it, and then moves to the next item. This will work in R or Python, but it is very slow. What you want to do instead is “vectorize” your function, which means you use a specific command to tell R or Python that you’re trying to apply your function to each item in the vector. When R/Python knows this is what you want to do, it has
 ways of making that function execute much more quickly behind the scenes.</p>
 <p>Both languages have a number of tools for this:</p>
 <ul class="simple">
-<li>in R, these come in a set of tools with names related to <code class="docutils literal notranslate"><span class="pre">apply()</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">apply()</span></code>, <code class="docutils literal notranslate"><span class="pre">lapply()</span></code>, <code class="docutils literal notranslate"><span class="pre">sapply()</span></code>), there’s a library called <code class="docutils literal notranslate"><span class="pre">dplyr</span></code>. But what matters most is not which one, but rather that you use <em>one</em> of them and never run loops over your vectors or matrices!</li>
-<li>In Python, the relevant tools are the “apply()”, “agg()”, “map()”, and “transform()” functions.</li>
+<li><p>in R, these come in a set of tools with names related to <code class="docutils literal notranslate"><span class="pre">apply()</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">apply()</span></code>, <code class="docutils literal notranslate"><span class="pre">lapply()</span></code>, <code class="docutils literal notranslate"><span class="pre">sapply()</span></code>), there’s a library called <code class="docutils literal notranslate"><span class="pre">dplyr</span></code>. But what matters most is not which one, but rather that you use <em>one</em> of them and never run loops over your vectors or matrices!</p></li>
+<li><p>In Python, the relevant tools are the “apply()”, “agg()”, “map()”, and “transform()” functions.</p></li>
 </ul>
 <ol class="arabic simple" start="4">
-<li><strong>Parallelization</strong></li>
+<li><p><strong>Parallelization</strong></p></li>
 </ol>
 <p>Parallelization (which has it’s own page [[Parallelization]] here) is often the first thing social scientists turn to to speed up code. Whether this is the right decision depends a lot on your situation, but a few facts:</p>
 <ul class="simple">
-<li>Parallelization is “sub-linear”, meaning if you parallelize across two cores, you can except ~1.8x speedup at best. (More generally, for N cores, expect ~0.8*Nx speedups).</li>
-<li>Improving how your code is written can often yield much higher returns than parallelization, on the order of 5x, 10x, or 100x speed improvements.</li>
-<li>Using code that was written in C++ by someone else can yield 10x or 100x returns.</li>
+<li><p>Parallelization is “sub-linear”, meaning if you parallelize across two cores, you can except ~1.8x speedup at best. (More generally, for N cores, expect ~0.8*Nx speedups).</p></li>
+<li><p>Improving how your code is written can often yield much higher returns than parallelization, on the order of 5x, 10x, or 100x speed improvements.</p></li>
+<li><p>Using code that was written in C++ by someone else can yield 10x or 100x returns.</p></li>
 </ul>
 <p>So, parallelization certainly isn’t the best way to speed up your code. But if you read this and find yourself thinking “um, I still don’t really what makes code fast versus slow” or “I’ve already tried all that and it’s still too slow!”, it’s a good option.</p>
 <ol class="arabic simple" start="5">
-<li><strong>Compile your own code</strong></li>
+<li><p><strong>Compile your own code</strong></p></li>
 </ol>
 <p>So you’re sure you’re only using RAM, you’ve vectorized your functions, and you can’t find a library with the function you need to execute, and when you write it yourself it’s still too slow, even if you parallelize it? The last option is to compile your own code. This is a little complicated for this page, so if you get here, link here</p>
 </div>
@@ -175,13 +173,11 @@ ways of making that function execute much more quickly behind the scenes.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -202,7 +198,7 @@ ways of making that function execute much more quickly behind the scenes.</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

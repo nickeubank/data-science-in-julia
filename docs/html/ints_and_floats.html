@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Numbers in Computers &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -255,8 +253,8 @@ div.rendered_html tbody tr:hover {
 <p>So how do we deal with decimals and really big numbers? Floating point numbers!</p>
 <p>To learn about floating point numbers, please:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.youtube.com/watch?v=pQs_wx8eoQ8">Watch this video</a></li>
-<li><a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues">Read this short note</a></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=pQs_wx8eoQ8">Watch this video</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues">Read this short note</a></p></li>
 </ul>
 </div>
 </div>
@@ -264,9 +262,9 @@ div.rendered_html tbody tr:hover {
 <h2>Numeric Hazards in Python, Numpy, and Pandas<a class="headerlink" href="#Numeric-Hazards-in-Python,-Numpy,-and-Pandas" title="Permalink to this headline">¶</a></h2>
 <p>So in general terms, the dangers to integers and floating points are:</p>
 <ul class="simple">
-<li>Integers can overflow, resulting in situations where adding two big numbers results in a … negative number.</li>
-<li>Floating point numbers are always imprecise, resulting in situations where apparently simple math breaks (e.g.&nbsp;in Python <code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.1</span> <span class="pre">==</span> <span class="pre">0.3</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>)</li>
-<li>Floating point numbers can only keep track of so many leading digits, meaning that you can’t work with BOTH very large and very small floating points at the same time (e.g.&nbsp;in Python, <code class="docutils literal notranslate"><span class="pre">2.32781**55</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">==</span> <span class="pre">2.32781**55</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>).</li>
+<li><p>Integers can overflow, resulting in situations where adding two big numbers results in a … negative number.</p></li>
+<li><p>Floating point numbers are always imprecise, resulting in situations where apparently simple math breaks (e.g. in Python <code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.1</span> <span class="pre">==</span> <span class="pre">0.3</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p>Floating point numbers can only keep track of so many leading digits, meaning that you can’t work with BOTH very large and very small floating points at the same time (e.g. in Python, <code class="docutils literal notranslate"><span class="pre">2.32781**55</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">==</span> <span class="pre">2.32781**55</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
 </ul>
 <p>But when we we need to worry about these issues?</p>
 <p>The answer is that it depends on whether you’re using regular, vanilla Python, or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> / <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
@@ -406,7 +404,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </pre></div>
 </div>
 </div>
-<p>Also, note that <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> have “unsigned” integers (<code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>). These are like regular integers, except they don’t allocate half their values to negative numbers, so their upper limit is 2x the same sized regular integer. In general, though, it’s good to avoid <code class="docutils literal notranslate"><span class="pre">uints</span></code>, as it’s too easy to <em>underflow</em> by hitting the <em>bottom</em> of the values it can tolerate (i.e.&nbsp;going below zero):</p>
+<p>Also, note that <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> have “unsigned” integers (<code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>). These are like regular integers, except they don’t allocate half their values to negative numbers, so their upper limit is 2x the same sized regular integer. In general, though, it’s good to avoid <code class="docutils literal notranslate"><span class="pre">uints</span></code>, as it’s too easy to <em>underflow</em> by hitting the <em>bottom</em> of the values it can tolerate (i.e. going below zero):</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -607,13 +605,11 @@ as shown in the help file).</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -634,7 +630,7 @@ as shown in the help file).</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

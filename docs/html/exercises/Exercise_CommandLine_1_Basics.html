@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Welcome to the Command Line Basics Exercises! &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -40,23 +38,23 @@
 <p>You can find the 311 data we’ll be working with in a zipped file called <code class="docutils literal notranslate"><span class="pre">NYC_311calls_2018.zip</span></code> <a class="reference external" href="https://github.com/nickeubank/MIDS_Data/blob/master/NYC_311_ServiceRequests/NYC_311calls_2018.zip">here</a>. Please download the file and place it somewhere easy to remember (desktop, downloads, etc.).</p>
 <div class="section" id="Navigating-Folders">
 <h2>Navigating Folders<a class="headerlink" href="#Navigating-Folders" title="Permalink to this headline">¶</a></h2>
-<p>As previously discussed in <a class="reference external" href="../command_line.ipynb">Command Line Basics</a>, the command line is just a tool for interacting with your computer using text commands rather than by clicking around with a mouse on pictures of folders (i.e.&nbsp;using your Graphical User Interface, or GUI). That means that most of the principles you’re familiar with (like the way files are organized into folders) apply on the command line just like in your more familiar graphical user interface. In this section, we’ll
+<p>As previously discussed in <a class="reference external" href="../command_line.ipynb">Command Line Basics</a>, the command line is just a tool for interacting with your computer using text commands rather than by clicking around with a mouse on pictures of folders (i.e. using your Graphical User Interface, or GUI). That means that most of the principles you’re familiar with (like the way files are organized into folders) apply on the command line just like in your more familiar graphical user interface. In this section, we’ll
 briefly review how to nagivate your folder structure using the command line.</p>
 <p>There are two main ways to navigate your file system:</p>
 <p>The first <strong>step-by-step</strong>: analogous to how you would find a file using the operating system GUI:</p>
 <ol class="arabic simple">
-<li>Check where you are currently located with the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command (short for print working directory).</li>
-<li>Use <code class="docutils literal notranslate"><span class="pre">ls</span></code> to see what folders and files are in your current directory.</li>
-<li>If the file you want to find is in one of the folders in your current directory, move into that folder with the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command (e.g. <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">FOLDERNAME</span></code>). Then return to Step 2.</li>
-<li>If the file you want is <em>not</em> somewhere inside your current folder, you can move your working directory up one folder by typing <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>. Then return to Step 2.</li>
+<li><p>Check where you are currently located with the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command (short for print working directory).</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">ls</span></code> to see what folders and files are in your current directory.</p></li>
+<li><p>If the file you want to find is in one of the folders in your current directory, move into that folder with the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command (e.g. <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">FOLDERNAME</span></code>). Then return to Step 2.</p></li>
+<li><p>If the file you want is <em>not</em> somewhere inside your current folder, you can move your working directory up one folder by typing <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>. Then return to Step 2.</p></li>
 </ol>
 <p>The second is using an <strong>absolute path</strong>. This requires knowing the exact path of the folder where you want to work, but if you know it, you can just type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/THE/PATH/TO/WHERE/YOU/WANT/TO/GO</span></code>.</p>
 <p><strong>Important Things to Remember</strong>:</p>
 <ul class="simple">
-<li>Recall that if you start a path with a <code class="docutils literal notranslate"><span class="pre">/</span></code>, your are specifying an <em>absolute path</em>. When you use an absolute path, your current working directory doesn’t matter. An absolute path is like a street address: it fully specifies where you want to go. For example, the absolute path to my desktop is <code class="docutils literal notranslate"><span class="pre">/users/nick/desktop</span></code>.</li>
-<li>If you don’t start with a <code class="docutils literal notranslate"><span class="pre">/</span></code>, you’re specifying a <em>relative path</em>. Wen you use a relative path, that path is interpreted with respect to your current directory. In this sense, a relative path is like the directions you give a lost driver (“from where we’re standing, go one block north, then take a left”). <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">FOLDERNAME</span></code>, for example, says to your computer “I want you to make your new working directory the folder <em>in the current directory</em> named FOLDERNAME.</li>
-<li><code class="docutils literal notranslate"><span class="pre">~</span></code> is a shortcut for your user directory. If you get lost, <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code> will always take you back to your home directory. Also, any path that starts with <code class="docutils literal notranslate"><span class="pre">~</span></code> is actually an absolute path, even though it doesn’t start with a <code class="docutils literal notranslate"><span class="pre">/</span></code> since <code class="docutils literal notranslate"><span class="pre">~</span></code> always refers to a single (absolute) location on your computer.</li>
-<li>Remember that if file or folder name has a space in it, you have to put a <code class="docutils literal notranslate"><span class="pre">\</span></code> before the space. So to move into a folder called “My Folder”, you would type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">My\</span> <span class="pre">Folder</span></code>.</li>
+<li><p>Recall that if you start a path with a <code class="docutils literal notranslate"><span class="pre">/</span></code>, your are specifying an <em>absolute path</em>. When you use an absolute path, your current working directory doesn’t matter. An absolute path is like a street address: it fully specifies where you want to go. For example, the absolute path to my desktop is <code class="docutils literal notranslate"><span class="pre">/users/nick/desktop</span></code>.</p></li>
+<li><p>If you don’t start with a <code class="docutils literal notranslate"><span class="pre">/</span></code>, you’re specifying a <em>relative path</em>. Wen you use a relative path, that path is interpreted with respect to your current directory. In this sense, a relative path is like the directions you give a lost driver (“from where we’re standing, go one block north, then take a left”). <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">FOLDERNAME</span></code>, for example, says to your computer “I want you to make your new working directory the folder <em>in the current directory</em> named FOLDERNAME.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> is a shortcut for your user directory. If you get lost, <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code> will always take you back to your home directory. Also, any path that starts with <code class="docutils literal notranslate"><span class="pre">~</span></code> is actually an absolute path, even though it doesn’t start with a <code class="docutils literal notranslate"><span class="pre">/</span></code> since <code class="docutils literal notranslate"><span class="pre">~</span></code> always refers to a single (absolute) location on your computer.</p></li>
+<li><p>Remember that if file or folder name has a space in it, you have to put a <code class="docutils literal notranslate"><span class="pre">\</span></code> before the space. So to move into a folder called “My Folder”, you would type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">My\</span> <span class="pre">Folder</span></code>.</p></li>
 </ul>
 <div class="section" id="Exercise-1">
 <h3>Exercise 1<a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h3>
@@ -85,7 +83,7 @@ file, the whole file will just print out to your screen and you’ll end up over
 <h3>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h3>
 <p>Now let’s do the same with <code class="docutils literal notranslate"><span class="pre">CE-20170824.pdf</span></code>. If <code class="docutils literal notranslate"><span class="pre">less</span></code> asks you a question, just type <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <p>What happened?! Unfortunately, <code class="docutils literal notranslate"><span class="pre">CE-20170824.pdf</span></code> was <em>not</em> a plain text file, but instead is what is referred to as a binary file. This distinction between plain text files and binary files will come up a lot, so let’s discuss it briefly.</p>
-<p>The names “plain text” and “binary” are misnomers since <em>everything</em> on your computer is stored as 1s and 0s (i.e.&nbsp;binary), so don’t read too much into the name. The actual distinction between plain text and binary files is what those 1s and 0s are meant to represent. In a plain text file, the 1s and 0s just encode numbers and letters based on simple, commonly used codes (like ASCII or Unicode). Not only do these files not contain anything complicated (pictures, media, etc.), they don’t even
+<p>The names “plain text” and “binary” are misnomers since <em>everything</em> on your computer is stored as 1s and 0s (i.e. binary), so don’t read too much into the name. The actual distinction between plain text and binary files is what those 1s and 0s are meant to represent. In a plain text file, the 1s and 0s just encode numbers and letters based on simple, commonly used codes (like ASCII or Unicode). Not only do these files not contain anything complicated (pictures, media, etc.), they don’t even
 include information like fonts, or formatting. But this simplicity makes them easy for simple systems to read, and thus they’re commonly used in programming because they’re so universal.</p>
 <p>In a binary file, by contrast, the 1s and 0s encode much more complicated information. In this case, <code class="docutils literal notranslate"><span class="pre">CE-20170824.pdf</span></code> is a PDF file that includes images, different fonts, careful formatting, etc. As a result, it can only be openned by a PDF reader (like Preview or Adobe Reader) that knows how to interprete the file’s complicated content. If you open it with <code class="docutils literal notranslate"><span class="pre">less</span></code>, <code class="docutils literal notranslate"><span class="pre">less</span></code> <em>tries</em> to treat the 0s and 1s like they were just encoding simple letters and numbers, but since they don’t, the
 result is just gobblygook.</p>
@@ -164,13 +162,11 @@ probably need to <em>make</em> a new folder to put the files into first.)</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -191,7 +187,7 @@ probably need to <em>make</em> a new folder to put the files into first.)</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

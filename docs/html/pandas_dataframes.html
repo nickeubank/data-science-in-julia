@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Pandas Lesson 2: Dataframes &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -385,11 +383,11 @@ div.rendered_html tbody tr:hover {
 <h3>Constructing DataFrames<a class="headerlink" href="#Constructing-DataFrames" title="Permalink to this headline">¶</a></h3>
 <p>As with Series, there are many ways to construct a DataFrame. Honestly, by far the most common is that you’ll read in a dataset from a file. Pandas offers lots of tools for doing this depending on the format of the data you’re importing. We’ll discuss this more in future lessons, but here are just a few methods to know about:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>: Read in comma-seperated-value spreadsheets</li>
-<li><code class="docutils literal notranslate"><span class="pre">pd.read_excel</span></code>: Read in excel (<code class="docutils literal notranslate"><span class="pre">.xls</span></code> and <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>) spreadsheets</li>
-<li><code class="docutils literal notranslate"><span class="pre">pd.read_stata</span></code>: Read stata (<code class="docutils literal notranslate"><span class="pre">.dta</span></code>) datasets</li>
-<li><code class="docutils literal notranslate"><span class="pre">pd.read_hdf</span></code>: Read HDF (<code class="docutils literal notranslate"><span class="pre">.hdf</span></code>) datasets</li>
-<li><code class="docutils literal notranslate"><span class="pre">pd.read_sql</span></code>: Read from SQL database</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>: Read in comma-seperated-value spreadsheets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_excel</span></code>: Read in excel (<code class="docutils literal notranslate"><span class="pre">.xls</span></code> and <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>) spreadsheets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_stata</span></code>: Read stata (<code class="docutils literal notranslate"><span class="pre">.dta</span></code>) datasets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_hdf</span></code>: Read HDF (<code class="docutils literal notranslate"><span class="pre">.hdf</span></code>) datasets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_sql</span></code>: Read from SQL database</p></li>
 </ul>
 <p>You can find a full list of <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">IO methods here</a>!</p>
 <p>But you can also construct DataFrames by hand. The easiest (and most common) way is by passing in a Dictionary, where the keys will become column names and the values are column values:</p>
@@ -1583,10 +1581,10 @@ Name: country, dtype: object
 <h3>Logical Tests<a class="headerlink" href="#Logical-Tests" title="Permalink to this headline">¶</a></h3>
 <p>Subsetting with logical tests also works in a familiar manner for DataFrames:</p>
 <ul class="simple">
-<li>If you pass a single boolean array to <code class="docutils literal notranslate"><span class="pre">.loc</span></code>, it will subset on rows.</li>
-<li>If the boolean array has an Index (i.e.&nbsp;if it’s a Series), then alignment will take place on index values</li>
-<li>If the boolean array does NOT have an idex (i.e.&nbsp;it’s a list of booleans), then alignment will take place on row order.</li>
-<li>To subset columns based on a test, you have to use <code class="docutils literal notranslate"><span class="pre">.loc[:,</span> <span class="pre">YOUR_TEST_HERE]</span></code>.</li>
+<li><p>If you pass a single boolean array to <code class="docutils literal notranslate"><span class="pre">.loc</span></code>, it will subset on rows.</p></li>
+<li><p>If the boolean array has an Index (i.e. if it’s a Series), then alignment will take place on index values</p></li>
+<li><p>If the boolean array does NOT have an idex (i.e. it’s a list of booleans), then alignment will take place on row order.</p></li>
+<li><p>To subset columns based on a test, you have to use <code class="docutils literal notranslate"><span class="pre">.loc[:,</span> <span class="pre">YOUR_TEST_HERE]</span></code>.</p></li>
 </ul>
 <p>To illustrate, let’s start by shuffling our DataFrame so that index values and row numbers aren’t the same:</p>
 <div class="nbinput docutils container">
@@ -1873,10 +1871,11 @@ Name: country, dtype: object
 <p>With that said, as summarized below, <code class="docutils literal notranslate"><span class="pre">[]</span></code> is actually much safer on DataFrames than on Series.</p>
 <p>The rules of <code class="docutils literal notranslate"><span class="pre">[]</span></code> in DataFrames are:</p>
 <ul class="simple">
-<li>If your entry is a <em>single</em> column name, or a list of column names, it will return those columns.</li>
-<li>If your entry is a slice, it will work like <code class="docutils literal notranslate"><span class="pre">iloc</span></code> and select rows based on row order.</li>
-<li>If your entry is a boolean array, <em>and</em> of exactly the same length as the number of rows in your data, it will subset rows.<ul>
-<li>Note this means that <code class="docutils literal notranslate"><span class="pre">[]</span></code> does not do the same thing we saw <code class="docutils literal notranslate"><span class="pre">.loc</span></code> do above where, if passed a short boolean array, it will assume any row without an entry in the boolean array should be dropped.</li>
+<li><p>If your entry is a <em>single</em> column name, or a list of column names, it will return those columns.</p></li>
+<li><p>If your entry is a slice, it will work like <code class="docutils literal notranslate"><span class="pre">iloc</span></code> and select rows based on row order.</p></li>
+<li><p>If your entry is a boolean array, <em>and</em> of exactly the same length as the number of rows in your data, it will subset rows.</p>
+<ul>
+<li><p>Note this means that <code class="docutils literal notranslate"><span class="pre">[]</span></code> does not do the same thing we saw <code class="docutils literal notranslate"><span class="pre">.loc</span></code> do above where, if passed a short boolean array, it will assume any row without an entry in the boolean array should be dropped.</p></li>
 </ul>
 </li>
 </ul>
@@ -2210,10 +2209,10 @@ Name: country, dtype: object
 </div>
 <p>This method of getting columns is very easy and intuitive (given how often we use dot-notation in Python more broadly), but it has a couple significant pit-falls:</p>
 <ul class="simple">
-<li>Only works for column names without spaces or punctuation</li>
-<li>You can’t pass a variable to dot-notation, you have to write out the column explicity (so you can’t write generalized code).</li>
-<li>Only works if the column name isn’t the same as an existing method (i.e.&nbsp;df.count will call the <code class="docutils literal notranslate"><span class="pre">count</span></code> method, even if you have a column named “count”)</li>
-<li>Causes big problems if you try to put it on the left side of the equals sign.</li>
+<li><p>Only works for column names without spaces or punctuation</p></li>
+<li><p>You can’t pass a variable to dot-notation, you have to write out the column explicity (so you can’t write generalized code).</p></li>
+<li><p>Only works if the column name isn’t the same as an existing method (i.e. df.count will call the <code class="docutils literal notranslate"><span class="pre">count</span></code> method, even if you have a column named “count”)</p></li>
+<li><p>Causes big problems if you try to put it on the left side of the equals sign.</p></li>
 </ul>
 <p>Of these, the reasons for the first and second aren’t complicated, but the third and fourth concerns bear exploring.</p>
 <p>Suppose we added a column to our data called <code class="docutils literal notranslate"><span class="pre">rank</span></code> that gave each country’s GDP rank (this code is a little convoluted because there is an easier way to do this, but this works):</p>
@@ -2600,8 +2599,8 @@ Name: country, dtype: object
 <p>See now <code class="docutils literal notranslate"><span class="pre">rank_doubled</span></code> wasn’t added to your DataFrame? It just disappears. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> does now raise a warning, but warnings don’t stop your code from running, so if you don’t see it, you can corrupt your data.</p>
 <p><strong>My advice on dot-notation:</strong></p>
 <ul class="simple">
-<li>Never, just <em>never</em> use dot-notation on the left-side of the assignment operator. It’s just begging for trouble.</li>
-<li>Try not to use it on the right side of the assignment operator. It’s safer than using it on the left side of the assignment operator, but none of us will ever memorize all the names of methods in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and if your column happens to have the same name as a method, you may not notice the error.</li>
+<li><p>Never, just <em>never</em> use dot-notation on the left-side of the assignment operator. It’s just begging for trouble.</p></li>
+<li><p>Try not to use it on the right side of the assignment operator. It’s safer than using it on the left side of the assignment operator, but none of us will ever memorize all the names of methods in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and if your column happens to have the same name as a method, you may not notice the error.</p></li>
 </ul>
 </div>
 <div class="section" id="5.-DataFrames:-Collection-of-Series">
@@ -2756,13 +2755,11 @@ Name: country, dtype: object
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -2783,7 +2780,7 @@ Name: country, dtype: object
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

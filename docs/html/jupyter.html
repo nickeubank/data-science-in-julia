@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>The Jupyter Project &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -240,7 +238,7 @@ div.rendered_html tbody tr:hover {
 <h1>The Jupyter Project<a class="headerlink" href="#The-Jupyter-Project" title="Permalink to this headline">¶</a></h1>
 <p>Today, if you use more than one programming language for data science, you probably also also use different programs to edit and interact with those programs. R users, for example, often use RStudio, Python users use Spyder, and Julia users use Juno.</p>
 <p>But in recent years, an amazing efforts has been underway to provide a single set of tools that work with nearly <em>any</em> underlying programming language: Jupyter (as in <strong>Ju</strong> (Julia) - <strong>py</strong> (Python) - te<strong>R</strong> (R)).</p>
-<p>The idea of Jupyter is to seperate the interface you are working with from the underlying programming language doing your analysis. This makes it possible to create one interface (a text editor, a window where results are displayed, etc.) that can be used to run your analyses in any number of different programs. In the Jupyter ecosystem, the program being used to actually run your analysis (i.e.&nbsp;Python, R) is referred to as a <strong>kernel</strong>.</p>
+<p>The idea of Jupyter is to seperate the interface you are working with from the underlying programming language doing your analysis. This makes it possible to create one interface (a text editor, a window where results are displayed, etc.) that can be used to run your analyses in any number of different programs. In the Jupyter ecosystem, the program being used to actually run your analysis (i.e. Python, R) is referred to as a <strong>kernel</strong>.</p>
 <p>Jupyter was originally focused on unifying Julia, Python, and R, it actually now supports dozens and dozens of different <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">kernels</a> including javascript, Go, Haskell, Matlab, Stata, bash, Scala, and so much more.</p>
 <p>(Note: Jupyter Notebooks used to be called IPython Notebooks before they expanded to support more languages, so if you see people talking about IPython Notebooks, just think of that as an early, Python specific version of Jupyter Notebooks).</p>
 <div class="section" id="Jupyter-Notebooks">
@@ -259,9 +257,9 @@ conclusions and, crucially, play with that code to see what happens if the analy
 <p>Notebooks have been around since 2014, but while they are great for instructional materials and sharing analyses, they weren’t appropriate for managing full projects. In 2018, though, Jupyter launched a new tool: Jupyter Lab.</p>
 <p>Jupyter Lab is meant to be an all-in-one data science interface:</p>
 <ul class="simple">
-<li>Easily run and write Jupyter Notebooks (and do things you couldn’t do before, like drag cells from one notebook to another, collapse cells, etc.).</li>
-<li>Work with a text-editor in one pane and an active kernel session in another, just like you do in RStudio or Spyder.</li>
-<li>Edit popular data science file formats with live preview, such as Markdown, JSON, CSV, Vega, VegaLite, and more.</li>
+<li><p>Easily run and write Jupyter Notebooks (and do things you couldn’t do before, like drag cells from one notebook to another, collapse cells, etc.).</p></li>
+<li><p>Work with a text-editor in one pane and an active kernel session in another, just like you do in RStudio or Spyder.</p></li>
+<li><p>Edit popular data science file formats with live preview, such as Markdown, JSON, CSV, Vega, VegaLite, and more.</p></li>
 </ul>
 <p>Again, this is all a little abstract for a tool that’s fundamentally about interactivity, so to see Jupyter Lab in action, watch <a class="reference external" href="https://youtu.be/Gzun8PpyBCo?t=542">this video</a> <strong>starting 9 minutes in</strong> and <strong>stopping 30 minutes in (when they switch speakers)</strong>. Don’t worry about absorbing every detail — we’ll get lots of practice with Jupyter Lab below — the goal is just to give you a sense of how Jupyter Lab works generally.</p>
 <div class="line-block">
@@ -283,10 +281,10 @@ coming up. And when cleaning data, you are often writing very linear (this-line-
 <h2>Setting Up R with Jupyter<a class="headerlink" href="#Setting-Up-R-with-Jupyter" title="Permalink to this headline">¶</a></h2>
 <p>When you <a class="reference internal" href="setup_environment.html"><span class="doc">installed Anaconda</span></a>, you actually also installed Jupyter, and you so you can already open up Jupyter and use it with a Python Kernel. However, since most people taking this course are Duke MIDS students who are also doing coursework in R, let’s set up Jupyter to work with R as well.</p>
 <ol class="arabic simple">
-<li>If you do <em>not</em> have R installed, <a class="reference external" href="https://cloud.r-project.org/">download and install it here</a>. If you have R installed, skip to step 2.</li>
-<li>Open R</li>
-<li>Run <code class="docutils literal notranslate"><span class="pre">install.packages(&quot;IRkernel&quot;)</span></code></li>
-<li>After installation is complete, execute the command: <code class="docutils literal notranslate"><span class="pre">IRkernel::installspec()</span></code> in R.</li>
+<li><p>If you do <em>not</em> have R installed, <a class="reference external" href="https://cloud.r-project.org/">download and install it here</a>. If you have R installed, skip to step 2.</p></li>
+<li><p>Open R</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">install.packages(&quot;IRkernel&quot;)</span></code></p></li>
+<li><p>After installation is complete, execute the command: <code class="docutils literal notranslate"><span class="pre">IRkernel::installspec()</span></code> in R.</p></li>
 </ol>
 <p>That should be it. To see if R installed correctly, open a new session of Jupyter Lab (open a new console and type <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>), and you should see buttons for both “Python 3” and “R” (though you won’t have Bash, Julia, or Stata listed like I do):</p>
 <p><img alt="jupyter_launch_page" src="_images/jupyter_launch_page.png" /></p>
@@ -364,13 +362,11 @@ coming up. And when cleaning data, you are often writing very linear (this-line-
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -391,7 +387,7 @@ coming up. And when cleaning data, you are often writing very linear (this-line-
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

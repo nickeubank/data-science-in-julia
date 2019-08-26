@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Advanced Command Line Exercises &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -241,12 +239,12 @@ div.rendered_html tbody tr:hover {
 <p>When we finished our last set of <a class="reference external" href="Exercise_CommandLine_1_basics.ipynb">Command Line Exercises</a>, we had moved all the CSVs that had data from Thursdays and Fridays into their own folder. In this exercise, we’ll continue to work with that data, and we will assume that the folder currently has the following structure:</p>
 <p><code class="docutils literal notranslate"><span class="pre">NYC_311calls_2018</span></code>:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">311_SR_Data_Dictionary_2018.xlsx</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">CE-20170824.pdf</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">NYC311_column_names.txt</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">README.md</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">data</span></code> [Folder containing CSVs from all days except Thursdays and Fridays]</li>
-<li><code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> [Folder containing all CSVs from Thursdays and Fridays]</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">311_SR_Data_Dictionary_2018.xlsx</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CE-20170824.pdf</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NYC311_column_names.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">data</span></code> [Folder containing CSVs from all days except Thursdays and Fridays]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> [Folder containing all CSVs from Thursdays and Fridays]</p></li>
 </ul>
 <p>If this is NOT the directory structure that you currently have, then the first exercise is to move around your files and folders until they have this structure.</p>
 <div class="section" id="Exercise-1:-Checking-Files">
@@ -362,13 +360,11 @@ head NYC311_column_names.txt
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -389,7 +385,7 @@ head NYC311_column_names.txt
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

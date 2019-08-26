@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Return Values and Object Mutations &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -260,8 +258,8 @@ div.rendered_html tbody tr:hover {
 <p>We know that the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> will end up pointing at the new list (<code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>). That’s because a function or method that creates a new object “returns” that object.</p>
 <p>But when we <em>mutate</em> an object, the newly mutated object won’t be returned to us. Instead, the method will return either nothing (<code class="docutils literal notranslate"><span class="pre">None</span></code>), or sometimes it will return something entirely different. For example, the command <code class="docutils literal notranslate"><span class="pre">x.pop(0)</span></code> would actually do two things:</p>
 <ol class="arabic simple">
-<li>Remove the item at index 0 from the list <code class="docutils literal notranslate"><span class="pre">x</span></code> (mutating it in place)</li>
-<li>Return whatever item has been removed.</li>
+<li><p>Remove the item at index 0 from the list <code class="docutils literal notranslate"><span class="pre">x</span></code> (mutating it in place)</p></li>
+<li><p>Return whatever item has been removed.</p></li>
 </ol>
 <p>So if we run:</p>
 <div class="nbinput docutils container">
@@ -378,13 +376,11 @@ div.rendered_html tbody tr:hover {
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -405,7 +401,7 @@ div.rendered_html tbody tr:hover {
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

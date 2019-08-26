@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Python: Variables vs Objects &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -538,22 +536,22 @@ itself.</p>
 <h2>What’s mutable, and what’s immutable?<a class="headerlink" href="#What’s-mutable,-and-what’s-immutable?" title="Permalink to this headline">¶</a></h2>
 <p>Here’s quick list of data types you’re likely to encounter that are <em>immutable</em>:</p>
 <ul class="simple">
-<li>int</li>
-<li>float</li>
-<li>decimal</li>
-<li>complex</li>
-<li>bool</li>
-<li>string</li>
-<li>tuple</li>
+<li><p>int</p></li>
+<li><p>float</p></li>
+<li><p>decimal</p></li>
+<li><p>complex</p></li>
+<li><p>bool</p></li>
+<li><p>string</p></li>
+<li><p>tuple</p></li>
 </ul>
 <p>And here are common datatypes that are <em>mutable</em>:</p>
 <ul class="simple">
-<li>lists</li>
-<li>sets</li>
-<li>dictionaries</li>
-<li>user defined objects</li>
-<li>numpy arrays</li>
-<li>pandas objects</li>
+<li><p>lists</p></li>
+<li><p>sets</p></li>
+<li><p>dictionaries</p></li>
+<li><p>user defined objects</p></li>
+<li><p>numpy arrays</p></li>
+<li><p>pandas objects</p></li>
 </ul>
 <p>How do you remember this? It is <em>nearly</em> accurate to say that <strong>anything that is a collection of other objects is mutable, except ``tuples``</strong>. There are some weird datatypes that are also collections that are immutable (<em>frozensets</em>, which as the name implies are “frozen” and thus can’t be changed), but you’re unlikely to ever use those, and if you do, it’s because you know you want something immutable.</p>
 </div>
@@ -561,8 +559,8 @@ itself.</p>
 <h2>Only some manipulations are mutations<a class="headerlink" href="#Only-some-manipulations-are-mutations" title="Permalink to this headline">¶</a></h2>
 <p>OK, now an important nuance: <strong>not all manipulations of mutable objects change the object rather than create a new object.</strong> Sometimes when you do something to a mutable object, you get back a new object. Manipulations that change an existing object, rather than create a new one, are referred to as “inplace mutations” or just “mutations”. So:</p>
 <ul class="simple">
-<li><em>All</em> manipulations of immutable types create new objects</li>
-<li><em>Some</em> manipulations of mutable types create new objects</li>
+<li><p><em>All</em> manipulations of immutable types create new objects</p></li>
+<li><p><em>Some</em> manipulations of mutable types create new objects</p></li>
 </ul>
 <p>For example, appending something to the end of a list is an <em>in-place mutation</em> (the existing list is changed). But doing things like doubling up lists using the <code class="docutils literal notranslate"><span class="pre">*</span></code> create new lists:</p>
 <div class="nbinput docutils container">
@@ -779,13 +777,11 @@ itself.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -806,7 +802,7 @@ itself.</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

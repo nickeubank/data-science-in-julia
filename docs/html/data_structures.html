@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Data Structures &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -238,80 +236,82 @@ div.rendered_html tbody tr:hover {
 <h1>Data Structures<a class="headerlink" href="#Data-Structures" title="Permalink to this headline">¶</a></h1>
 <p>Why do we have so many ways of gathering collections of things?</p>
 <blockquote>
-<div>I […] claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important.</div></blockquote>
+<div><p>I […] claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important.</p>
+</div></blockquote>
 <p>Linus Torvalds</p>
 <blockquote>
-<div>Smart data structures and dumb code works a lot better than the other way around.</div></blockquote>
+<div><p>Smart data structures and dumb code works a lot better than the other way around.</p>
+</div></blockquote>
 <p>Eric S. Raymond, The Cathedral and The Bazaar</p>
 <div class="section" id="What-data-structures-exist?">
 <h2>What data structures exist?<a class="headerlink" href="#What-data-structures-exist?" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Arrays / Vectors:</li>
-<li>Lists:</li>
-<li>Dictionaries: (also sometimes called “maps”)</li>
-<li>Sets:</li>
+<li><p>Arrays / Vectors:</p></li>
+<li><p>Lists:</p></li>
+<li><p>Dictionaries: (also sometimes called “maps”)</p></li>
+<li><p>Sets:</p></li>
 </ul>
 </div>
 <div class="section" id="Relative-merits">
 <h2>Relative merits<a class="headerlink" href="#Relative-merits" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="8%" />
-<col width="13%" />
-<col width="11%" />
-<col width="14%" />
-<col width="15%" />
-<col width="13%" />
-<col width="15%" />
-<col width="11%" />
+<col style="width: 8%" />
+<col style="width: 13%" />
+<col style="width: 11%" />
+<col style="width: 14%" />
+<col style="width: 15%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+<col style="width: 11%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Type</th>
-<th class="head">Adding to Start</th>
-<th class="head">Adding to End</th>
-<th class="head">Adding to Middle</th>
-<th class="head">Lookup from Start</th>
-<th class="head">Lookup from End</th>
-<th class="head">Lookup from Middle</th>
-<th class="head">Finding Value</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Adding to Start</p></th>
+<th class="head"><p>Adding to End</p></th>
+<th class="head"><p>Adding to Middle</p></th>
+<th class="head"><p>Lookup from Start</p></th>
+<th class="head"><p>Lookup from End</p></th>
+<th class="head"><p>Lookup from Middle</p></th>
+<th class="head"><p>Finding Value</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Array</td>
-<td>Slow</td>
-<td>Fast</td>
-<td>Slow</td>
-<td>Fastest</td>
-<td>Fastest</td>
-<td>Fastest</td>
-<td>Slow</td>
+<tbody>
+<tr class="row-even"><td><p>Array</p></td>
+<td><p>Slow</p></td>
+<td><p>Fast</p></td>
+<td><p>Slow</p></td>
+<td><p>Fastest</p></td>
+<td><p>Fastest</p></td>
+<td><p>Fastest</p></td>
+<td><p>Slow</p></td>
 </tr>
-<tr class="row-odd"><td>List</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Slow</td>
-<td>Slow</td>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Slow</p></td>
+<td><p>Slow</p></td>
 </tr>
-<tr class="row-even"><td>Dictionary</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Slow</td>
+<tr class="row-even"><td><p>Dictionary</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Slow</p></td>
 </tr>
-<tr class="row-odd"><td>Set</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
-<td>Fast</td>
+<tr class="row-odd"><td><p>Set</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
+<td><p>Fast</p></td>
 </tr>
 </tbody>
 </table>
@@ -378,13 +378,11 @@ div.rendered_html tbody tr:hover {
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -405,7 +403,7 @@ div.rendered_html tbody tr:hover {
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

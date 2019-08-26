@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Plotting with plotnine &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -241,9 +239,9 @@ div.rendered_html tbody tr:hover {
 <p>The linchpin library for plotting in Python is without a doubt <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. While infinitely flexible, however, for many applications <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> lacks user-friendly tools for quickly making common types of figures (scatter plots, linear fits, histograms, etc.). With that in mind, several other packages (most of which are actually built on <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>) have been created to provide a more user-friendly interface. Unlike in <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, where you have to think in terms of the geometric
 objects you want to place on axes, all three of these alternative libraries allow for higher-level, more “declarative” code:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://plotnine.readthedocs.io/en/stable/index.html">plotnine</a> <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> is designed to replicate the syntax of the extremely popular R package <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> in Python. In most cases it works wonderfully. As a result, if you are already familiar with <code class="docutils literal notranslate"><span class="pre">ggplot</span></code>, <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> is hard to beat.</li>
-<li><a class="reference external" href="https://altair-viz.github.io/">altair</a>: <code class="docutils literal notranslate"><span class="pre">altair</span></code>, like <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> also has a clear philosophy that underlies its syntax, and seems to be relatively popular among pure python users.</li>
-<li><a class="reference external" href="https://seaborn.pydata.org/">seaborn</a>: <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is also a declarative plotting language, although its syntax is a little less modular than <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> or <code class="docutils literal notranslate"><span class="pre">altair</span></code> – e.g.&nbsp;there is a distinct command for plotting histograms, a command for kernel densities, a command for bivariate fits, etc. But still <em>much</em> easier than <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</li>
+<li><p><a class="reference external" href="https://plotnine.readthedocs.io/en/stable/index.html">plotnine</a> <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> is designed to replicate the syntax of the extremely popular R package <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> in Python. In most cases it works wonderfully. As a result, if you are already familiar with <code class="docutils literal notranslate"><span class="pre">ggplot</span></code>, <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> is hard to beat.</p></li>
+<li><p><a class="reference external" href="https://altair-viz.github.io/">altair</a>: <code class="docutils literal notranslate"><span class="pre">altair</span></code>, like <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> also has a clear philosophy that underlies its syntax, and seems to be relatively popular among pure python users.</p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/">seaborn</a>: <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is also a declarative plotting language, although its syntax is a little less modular than <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> or <code class="docutils literal notranslate"><span class="pre">altair</span></code> – e.g. there is a distinct command for plotting histograms, a command for kernel densities, a command for bivariate fits, etc. But still <em>much</em> easier than <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></li>
 </ul>
 <p>Given that many data scientists work in both R and Python (and indeed, this is required of MIDS students), in this course we will focus on <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> to minimize the number of new tools students are required to learn.</p>
 <div class="section" id="Tutorial-Attribution">
@@ -254,9 +252,9 @@ objects you want to place on axes, all three of these alternative libraries allo
 <h2>Materials Outline<a class="headerlink" href="#Materials-Outline" title="Permalink to this headline">¶</a></h2>
 <p>I will begin by providing an overview of the layered grammar of graphics upon which <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> is built. I will then teach <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> by layering examples ontop of one another. Finally, I will introduce some advanced topics such as faceting and themes.</p>
 <ol class="arabic simple" start="0">
-<li><code class="docutils literal notranslate"><span class="pre">plotnine</span></code> for people already accustomed to <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code></li>
-<li>Layered grammar of graphics</li>
-<li>Basic <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> plot types</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plotnine</span></code> for people already accustomed to <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code></p></li>
+<li><p>Layered grammar of graphics</p></li>
+<li><p>Basic <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> plot types</p></li>
 </ol>
 <p>In <a class="reference internal" href="plotting_part2.html"><span class="doc">Plotting, Part 2</span></a>, well also get into different scales, axes, legend settings, faceting, themes, and other customizations. By the end of these two tutorials, you will be able to produce beautiful graphics such as this:</p>
 </div>
@@ -264,8 +262,8 @@ objects you want to place on axes, all three of these alternative libraries allo
 <h2><code class="docutils literal notranslate"><span class="pre">plotnine</span></code> for <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code> users<a class="headerlink" href="#plotnine-for-ggplot2-users" title="Permalink to this headline">¶</a></h2>
 <p>If you have lots of experience with <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>, then good news: <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> is nearly identical (so much so that I intially assumed that the library was actually just running <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code> in the background). As far as I can tell, the only two syntax differences to be aware of are:</p>
 <ol class="arabic simple">
-<li><strong>You have to wrap everything in parenthesis:</strong> If a line in R ends in a plus sign, it recognizes that the code must continue onto the next line. Python treats this as an error. So when chaining layers, wrap your whole function with parenthesis (which results in Python recognizing code continues on the next line</li>
-<li><strong>You have to make column names strings:</strong> Because of a quirk in R, you can write the name of a column as a function argument without any quotation marks around it. But if Python sees a word without quotes, it assumes it’s a variable, and throws an error.</li>
+<li><p><strong>You have to wrap everything in parenthesis:</strong> If a line in R ends in a plus sign, it recognizes that the code must continue onto the next line. Python treats this as an error. So when chaining layers, wrap your whole function with parenthesis (which results in Python recognizing code continues on the next line</p></li>
+<li><p><strong>You have to make column names strings:</strong> Because of a quirk in R, you can write the name of a column as a function argument without any quotation marks around it. But if Python sees a word without quotes, it assumes it’s a variable, and throws an error.</p></li>
 </ol>
 <p>So basically instead of R code that looks like this:</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">gapminder</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">gdpPercap</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">lifeExp</span><span class="p">))</span> <span class="o">+</span>
@@ -285,9 +283,9 @@ objects you want to place on axes, all three of these alternative libraries allo
 <p>Hadley Wickham built ggplot2 based on a set of principles outlines in his <em>layered grammar of graphics</em> (inspired by Wilkinson’s orginal <em>grammar of graphics</em>). The basic idea is that a statistical graphic is a mapping from data to aesthetic attributes (such as colour, shape, and size) of geometric objects (such as points, lines, and bars).</p>
 <p>We will use some of this terminology as we progess and discover that each piece of terminology corresponds to a type of object in ggplot2.</p>
 <ul class="simple">
-<li><strong>data</strong>: a data frame containing the variables that you want to visualize</li>
-<li><strong>geoms</strong>: geometric objects (circles, lines, text) that you will actually see</li>
-<li><strong>aesthetics</strong>: the mapping from the data to the geographic objects (e.g.&nbsp;by describing position, size, colour, etc)</li>
+<li><p><strong>data</strong>: a data frame containing the variables that you want to visualize</p></li>
+<li><p><strong>geoms</strong>: geometric objects (circles, lines, text) that you will actually see</p></li>
+<li><p><strong>aesthetics</strong>: the mapping from the data to the geographic objects (e.g. by describing position, size, colour, etc)</p></li>
 </ul>
 </div>
 <div class="section" id="Basic-plotnine">
@@ -391,7 +389,7 @@ objects you want to place on axes, all three of these alternative libraries allo
 </table>
 </div></div>
 </div>
-<p>The first argument we will use is the <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> function. This function allows us to define the data that we will be using to make the plot, as well as the aesthetic properties that will be mapped to the geometric objects. That is, we will tell ggplot which data (a data frame) we are interested in and how each of the variables in our dataset will be used (e.g.&nbsp;as an x or y coordinate, as a coloring variable or a size variable, etc).</p>
+<p>The first argument we will use is the <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> function. This function allows us to define the data that we will be using to make the plot, as well as the aesthetic properties that will be mapped to the geometric objects. That is, we will tell ggplot which data (a data frame) we are interested in and how each of the variables in our dataset will be used (e.g. as an x or y coordinate, as a coloring variable or a size variable, etc).</p>
 <p>Below, we define our first ggplot object using the <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> function, with data on country wealth (GDP per capita) and life expectancy from <a class="reference external" href="https://www.gapminder.org/">GapMinder</a> and the x and y aesthetics defined by the <code class="docutils literal notranslate"><span class="pre">gdpPercap</span></code> and <code class="docutils literal notranslate"><span class="pre">lifeExp</span></code> variables, respectively.</p>
 <p>The output of this function is a grid with <code class="docutils literal notranslate"><span class="pre">gdpPercap</span></code> as the x-axis and <code class="docutils literal notranslate"><span class="pre">lifeExp</span></code> as the y-axis. However, we have not yet told ggplot what type of geometric object the data will be mapped to, so no data has been displayed.</p>
 <div class="nbinput docutils container">
@@ -586,11 +584,11 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 <h3>Types of layers<a class="headerlink" href="#Types-of-layers" title="Permalink to this headline">¶</a></h3>
 <p>So far, we have only seen scatterplots (point geoms), however, there are many other geoms we could add, including:</p>
 <ul class="simple">
-<li>lines</li>
-<li>histograms</li>
-<li>boxplots and violin plots</li>
-<li>barplots</li>
-<li>smoothed curves</li>
+<li><p>lines</p></li>
+<li><p>histograms</p></li>
+<li><p>boxplots and violin plots</p></li>
+<li><p>barplots</p></li>
+<li><p>smoothed curves</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -795,13 +793,11 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -822,7 +818,7 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

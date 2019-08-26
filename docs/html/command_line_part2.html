@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Advanced Command Line Tutorial &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -239,7 +237,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Advanced-Command-Line-Tutorial">
 <h1>Advanced Command Line Tutorial<a class="headerlink" href="#Advanced-Command-Line-Tutorial" title="Permalink to this headline">¶</a></h1>
 <p>In the last section, we practiced using a few tools and introduced the idea that the command line is just a way of talking to your operating system using text commands rather than by clicking on icons. In this section, we’ll introduce some more advanced tools, and discuss general principles that will help you during your data science career.</p>
-<p>Like everything in this course, this section will focus on tools that are most relevant for an applied data scientist. We will not try and cover advanced bash programming (loops, function definitions, etc.), because anything you can do that way you will also be able to do in Python, for which you are receiving lots of additional training. If you want to learn those skills, there are lots of great tutorials out there (e.g.&nbsp;the full <a class="reference external" href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science">DataCamp
+<p>Like everything in this course, this section will focus on tools that are most relevant for an applied data scientist. We will not try and cover advanced bash programming (loops, function definitions, etc.), because anything you can do that way you will also be able to do in Python, for which you are receiving lots of additional training. If you want to learn those skills, there are lots of great tutorials out there (e.g. the full <a class="reference external" href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science">DataCamp
 tutorial</a>). Instead, the focus here is on skills you’re likely to use when using git, managing packages in Python, or getting stuff set up on remote servers so you can run your R or Python scripts.</p>
 <p>In the examples below, we’ll be working with the example data in the <code class="docutils literal notranslate"><span class="pre">Example_Data/command_line</span></code> folder in this repository, which you can download if you wish to follow along.</p>
 <div class="section" id="Command-Line-Syntax:-General-Principles">
@@ -248,7 +246,7 @@ tutorial</a>). Instead, the focus here is on skills you’re likely to use when 
 <p>1: <strong>The first thing you type into the shell is actually just the name of a program.</strong> This may not be obvious, but when you type <code class="docutils literal notranslate"><span class="pre">cd</span></code> and <code class="docutils literal notranslate"><span class="pre">ls</span></code>, you’re actually asking your operating system to find and execute programs with those names. If you wanted to, you could actually find individual files called <code class="docutils literal notranslate"><span class="pre">cd</span></code> and <code class="docutils literal notranslate"><span class="pre">ls</span></code> that the operating system is running when you use those commands. And later on, you’ll spend a lot of time using the commands <code class="docutils literal notranslate"><span class="pre">python</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span></code>, which is just a way of
 asking the operating system to execute those programs.</p>
 <p>2: <strong>The things that come after the program being called are called “arguments”, and they are passed to the program being called.</strong> For example, if you were to run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_file.py</span></code>, you are calling the program <code class="docutils literal notranslate"><span class="pre">python</span></code> and passing it the name of a file as an argument (which it will then execute). What arguments a function accepts or requires depends on the program.</p>
-<p>3: <strong>The shell is very sensitive to spaces.</strong> If you have filenames with spaces, you’ll need to use quotes or escape the spaces in the file names by preceding them with a <code class="docutils literal notranslate"><span class="pre">\</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">less</span> <span class="pre">this\</span> <span class="pre">is\</span> <span class="pre">my\</span> <span class="pre">file.txt</span></code>).</p>
+<p>3: <strong>The shell is very sensitive to spaces.</strong> If you have filenames with spaces, you’ll need to use quotes or escape the spaces in the file names by preceding them with a <code class="docutils literal notranslate"><span class="pre">\</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">less</span> <span class="pre">this\</span> <span class="pre">is\</span> <span class="pre">my\</span> <span class="pre">file.txt</span></code>).</p>
 <p>4: <strong>Many programs have options that are activated with “flags”</strong>. A flag is usually single dash followed by a single letter. For example, you can ask the <code class="docutils literal notranslate"><span class="pre">ls</span></code> function to display the contents of a directory in a list format using the flag <code class="docutils literal notranslate"><span class="pre">-l</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -393,9 +391,9 @@ cp: a_folder is a directory (not copied).
 <p>To get tools that only work on files to work on folders, we use the <code class="docutils literal notranslate"><span class="pre">-r</span></code>. <code class="docutils literal notranslate"><span class="pre">r</span></code> stands for “recursive”, and basically it says “do what I’m asking you to do to this directory to every file in this directory.”</p>
 <p>Places this comes up a lot:</p>
 <ul class="simple">
-<li>Deleting folders requires <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code></li>
-<li>Copying folders requires <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code></li>
-<li>Compress a folder with zip requires <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-r</span></code></li>
+<li><p>Deleting folders requires <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code></p></li>
+<li><p>Copying folders requires <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code></p></li>
+<li><p>Compress a folder with zip requires <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-r</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="Invisible-Files">
@@ -670,8 +668,8 @@ wc -l ~/files_in_folder.txt
 <h3>Why this is useful to know<a class="headerlink" href="#Why-this-is-useful-to-know" title="Permalink to this headline">¶</a></h3>
 <p>In a perfect world, you’ll never have to worry about your PATH variable, but there are a couple situations where knowing about your PATH variable can be helpful. In particular:</p>
 <ul class="simple">
-<li>If downloaded a program, but you can’t run it from the command line, that probably means that it’s location isn’t in the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable.</li>
-<li>If you find that when you type a command like <code class="docutils literal notranslate"><span class="pre">python</span></code>, the command line isn’t running the <strong>version</strong> of python you want it to run, that’s probably because a different version of python appears <strong>earlier</strong> in the PATH variable (since the command line will stop looking through these folders as soon as it finds a match). Note you can diagnose this problem by typing <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">COMMANDNAME</span></code>, which will tell you the folder from which COMMANDNAME is being run.</li>
+<li><p>If downloaded a program, but you can’t run it from the command line, that probably means that it’s location isn’t in the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable.</p></li>
+<li><p>If you find that when you type a command like <code class="docutils literal notranslate"><span class="pre">python</span></code>, the command line isn’t running the <strong>version</strong> of python you want it to run, that’s probably because a different version of python appears <strong>earlier</strong> in the PATH variable (since the command line will stop looking through these folders as soon as it finds a match). Note you can diagnose this problem by typing <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">COMMANDNAME</span></code>, which will tell you the folder from which COMMANDNAME is being run.</p></li>
 </ul>
 </div>
 <div class="section" id="Modifying-your-PATH-Variable">
@@ -679,7 +677,7 @@ wc -l ~/files_in_folder.txt
 <p>How you modify your PATH variable depends a little on your operating system.</p>
 <p><strong>Configuration File on macOS and Linux</strong></p>
 <p>In Linux or macOS, the easiest way to modify your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable is using your command line configuration file. This is a small script that runs in the background whenever you open a new command line window. If you add a modification to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable here, that modification will always be loaded when you open a new command line session.</p>
-<p>The exact name of your configuration file will depend a little on what command line tool you’re using. If you haven’t changed your default terminal program (i.e.&nbsp;haven’t installed oh-my-zsh, as suggested in the <a class="reference internal" href="command_line_part1.html"><span class="doc">last tutorial</span></a>, your configuration file will be located in your home directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code>) and is named either <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. Note that the name starts with a <code class="docutils literal notranslate"><span class="pre">.</span></code> so it’s invisible by default! You’ll have to use your <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> trick to
+<p>The exact name of your configuration file will depend a little on what command line tool you’re using. If you haven’t changed your default terminal program (i.e. haven’t installed oh-my-zsh, as suggested in the <a class="reference internal" href="command_line_part1.html"><span class="doc">last tutorial</span></a>, your configuration file will be located in your home directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code>) and is named either <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. Note that the name starts with a <code class="docutils literal notranslate"><span class="pre">.</span></code> so it’s invisible by default! You’ll have to use your <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> trick to
 see and open it.</p>
 <p>If you installed <code class="docutils literal notranslate"><span class="pre">oh-my-zsh</span></code>, then the file will still be located in your home directory but will now be called <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code>.</p>
 <p><strong>Configuration File on Windows</strong></p>
@@ -766,13 +764,11 @@ see and open it.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -793,7 +789,7 @@ see and open it.</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
