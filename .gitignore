@@ -15,6 +15,7 @@ source/.ipynb_checkpoints/*
 *.out
 *(busy)
 *.log
+*.nav 
 
 .ipynb_checkpoints/*
 **/ipynb_checkpoints/*
