@@ -53,7 +53,7 @@
    "source": [
     "### Exercise 2\n",
     "\n",
-    "Using whatever strategy you would like to move around, change your working directory to the folder where you saved `NYC_311calls_2018`."
+    "Using whatever strategy you would like to move around, change your working directory to the folder where you saved `NYC_311calls_2018.zip`. Then run the command `unzip NYC_311calls_2018.zip` to decompress the file. "
    ]
   },
   {
@@ -62,12 +62,13 @@
    "source": [
     "## Exploring Files\n",
     "\n",
-    "Once you've made `NYC_311calls_2018` your working directory, use `ls` to look at what's in the folder. What you see should look something like this: \n",
+    "Once you've unzipped `NYC_311calls_2018`, use `cd` to navigate into the folder so it is now your working directory. Then use `ls` to look at what's in the folder. What you see should look something like this: \n",
     "\n",
     "```\n",
     "$ ls\n",
-    "311_SR_Data_Dictionary_2018.xlsx   NYC311_column_names.txt            raw data\n",
-    "CE-20170824.pdf                    README.md                          ~$311_SR_Data_Dictionary_2018.xlsx\n",
+    "311_SR_Data_Dictionary_2018.xlsx README.md                        raw data\n",
+    "CE-20170824.pdf                  just_the_letter_a.docx\n",
+    "NYC311_column_names.txt          just_the_letter_a.txt\n",
     "```\n",
     "\n",
     "Up until now, we've just been moving around at the level of the filesystem, seeing file names but not their contents. But if a file is a plain text file, we can also look at it's contents. There are actually a few ways to do this, but the two most used options are `cat` (which will print the contents of the files to your screen), or `less` (which will open a small program to allow you to read through the document in a controlled manner). `cat` is quicker, but if you use `cat` with a big file, the whole file will just print out to your screen and you'll end up overwhelmed (though you'll be fine for a small file here).   "
@@ -88,22 +89,24 @@
    "source": [
     "### Exercise 4\n",
     "\n",
-    "Now let's do the same with `CE-20170824.pdf`. If `less` asks you a question, just type `y`.\n",
+    "Now let's do the same with `CE-20170824.pdf`: run `less CE-20170824.pdf`. If `less` asks you a question, just type `y`.\n",
     "\n",
     "What happened?! Unfortunately, `CE-20170824.pdf` was *not* a plain text file, but instead is what is referred to as a binary file. This distinction between plain text files and binary files will come up a lot, so let's discuss it briefly. \n",
     "\n",
-    "The names \"plain text\" and \"binary\" are misnomers since *everything* on your computer is stored as 1s and 0s (i.e. binary), so don't read too much into the name. The actual distinction between plain text and binary files is what those 1s and 0s are meant to represent. In a plain text file, the 1s and 0s just encode numbers and letters based on simple, commonly used codes (like ASCII or Unicode). Not only do these files not contain anything complicated (pictures, media, etc.), they don't even include information like fonts, or formatting. But this simplicity makes them easy for simple systems to read, and thus they're commonly used in programming because they're so universal.  \n",
+    "The terms \"plain text\" and \"binary\" are a little misleading since *everything* on your computer is stored as 1s and 0s (i.e. binary). What differentiates plain text and binary files is what those 1s and 0s are meant to represent. \n",
     "\n",
-    "In a binary file, by contrast, the 1s and 0s encode much more complicated information. In this case, `CE-20170824.pdf` is a PDF file that includes images, different fonts, careful formatting, etc. As a result, it can only be openned by a PDF reader (like Preview or Adobe Reader) that knows how to interprete the file's complicated content. If you open it with `less`, `less` *tries* to treat the 0s and 1s like they were just encoding simple letters and numbers, but since they don't, the result is just gobblygook. "
+    "**In a plain text file,** the 1s and 0s of the file encode numbers and letters based on simple, commonly used codes (like [ASCII](https://en.wikipedia.org/wiki/ASCII) or [Unicode](https://en.wikipedia.org/wiki/Unicode). These files also do not contain anything complicated (pictures, media, etc.), and in fact don't even include information like fonts, or formatting. This simplicity makes plaintext files universally compatible, and easy to work with, so are a favorite of programmers. Any code you've ever written has probably been saved as a plaintext file. \n",
+    "\n",
+    "**In a binary file,** by contrast, the 1s and 0s encode much more complicated information. In this case, `CE-20170824.pdf` is a PDF file that includes images, different fonts, careful formatting, etc. As a result, it can only be openned by a PDF reader (like Preview or Adobe Reader) that knows how to interprete the file's complicated content. If you open it with `less`, `less` *tries* to treat the 0s and 1s like they were just encoding simple letters and numbers, but since they don't, the result is just gobblygook. "
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Exercise 5 \n",
+    "### Exercise 5\n",
     "\n",
-    "Just because it's not plain text doesn't mean we don't want to know what it is! So let's use the `open` command. `open FILENAME` just asks your computer to do whatever it would do if you double-clicked on FILENAME. So if you type `open CE-20170824.pdf`, your computer will open the PDF in your default PDF reader. "
+    "Lets actually *see* the difference between plaintext and binary files. In your folder are two files called `just_the_letter_a`, one with a .txt suffix, and one with a .docx suffix. Using your normal operating system interface, open both files (assuming you have Microsoft Word installed). You should see that both files include nothing except a lower-case letter \"a\". "
    ]
   },
   {
@@ -111,6 +114,39 @@
    "metadata": {},
    "source": [
     "### Exercise 6\n",
+    "\n",
+    "You can see the actual 1's and 0's that underlay a file from the command line using the command `xxd -b [filename]`. First, use this to see what's in `just_the_letter_a.txt` file.\n",
+    "\n",
+    "What you will see is a counter on the left, a colon, then the actual contents of the file grouped into sets of 8 bits (what's called a byte). The first is the code for a lower case \"a\" (`01100001`). The second is the code that says \"this is the end of the current line\". And that's it! Congratulations, you can now read binary! "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercise 7\n",
+    "\n",
+    "Now let use `xxd -b [filename]` do the same for the Microsoft Word doc that also encodes just a single letter \"a\". Does it look similar?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercise 8\n",
+    "\n",
+    "And *that* is why plaintext so useful -- it's simplicity makes it nearly universal across both platforms and time. \n",
+    "\n",
+    "Be aware that lots of file endings can be used for plaintext files. For example, `.csv` files are also plaintext. Indeed, it is because they have such a simple format that `.csv`s are the most used format for sharing tabular data. `.md`, `.txt`, `.tsv`, and other file suffixes are also usually plaintext. \n",
+    "\n",
+    "But just because a file is not plaintext doesn't mean we don't want to know what it is! So let's use the `open` command. `open FILENAME` just asks your computer to do whatever it would do if you double-clicked on FILENAME. So if you type `open CE-20170824.pdf`, your computer will open the PDF in your default PDF reader. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercise 9\n",
     "\n",
     "OK, so `CE-20170824.pdf` is just a paper someone wrote using this data. Since the name `CE-20170824.pdf` doesn't tell us anything about this paper, let's rename it using the `mv` command. Recall from DataCamp that `mv` stands for move, but that while it is moving files it can also rename them. If you \"move\" something from its current location back to its current location but with a different name, you've effectively re-named it!. So try re-naming `CE-20170824.pdf` to something more descriptive."
    ]
@@ -123,23 +159,29 @@
     "\n",
     "Up till now, we haven't done anything that wouldn't have been easier to do using a mouse and a regular graphical user interface. But now let's suppose we want to analyze the data from 311 calls placed on Thursdays and Fridays to see if city workers are less likely to address problems that are reported on Fridays. \n",
     "\n",
-    "In your normal operating system GUI< open up the `raw data` folder inside `NYC_311calls_2018`. As you will see, the folder is full of CSVs (comma-separated-values, a plain-text format for storing spreadsheets), with one file for each day. "
+    "In your normal operating system GUI, open up the `raw data` folder inside `NYC_311calls_2018`. As you will see, the folder is full of CSVs (comma-separated-values, a plain-text format for storing spreadsheets), with one file for each day. "
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Exercise 7 \n",
+    "### Exercise 10\n",
     "\n",
-    "Without using the command line (or another progamming language), how you would pull out all the files for Thursdays and Fridays and move them to a new folder without using the command line? Would you strategy work if you had 10 years of data instead of 1 year of data?"
+    "Without using the command line (or another progamming language), how you would pull out all the files for Thursdays and Fridays and move them to a new folder without using the command line? Would you strategy work if you had 10 years of data instead of 1 year of data? \n",
+    "\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "```"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Exercise 8\n",
+    "### Exercise 11\n",
     "\n",
     "One of the advantages of the command line is that you can use wildcards (the `*` symbol) to identify any files with a given pattern. For example, if I wanted to list all the CSV files in `raw data` from February, I would type `ls 311calls_2018_2_*.csv`, since all the files from February (month 2) would have the same prefix (`311calls_2018_2_`) and suffix (`.csv`). Now, using the `mv` command and the `*` symbol, move all the Thursday and Friday files to a new folder. (Hint: you'll probably need to *make* a new folder to put the files into first.)\n"
    ]
