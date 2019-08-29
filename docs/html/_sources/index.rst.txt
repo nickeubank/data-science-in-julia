@@ -7,8 +7,6 @@ Welcome to Practical Data Science!
 
 **If you are not a Duke Masters in Data Science student, please see** `this page <not_a_mids_student.ipynb>`_ **about how best to use this site!**
 
-**Warning: This site is a work in progress and is subject to change**
-
 Data Science is an intrinsically applied field, and yet all too often students are taught the advanced math and statistics behind data science tools, but are left to fend for themselves when it comes to learning the tools we use to do data science on a day-to-day basis or how to manage actual projects. This course is designed to fill that gap.
 
 This course will be divided into two parts:
@@ -35,7 +33,7 @@ Class Schedule
 
 .. csv-table::
    :file: class_schedule.csv
-   :widths: 12, 7, 30, 35, 10
+   :widths: 13, 7, 5, 30, 32, 7
    :header-rows: 1
 
 Reminders:

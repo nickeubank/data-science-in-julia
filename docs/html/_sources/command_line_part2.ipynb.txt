@@ -10,7 +10,7 @@
     "\n",
     "Like everything in this course, this section will focus on tools that are most relevant for an applied data scientist. We will not try and cover advanced bash programming (loops, function definitions, etc.), because anything you can do that way you will also be able to do in Python, for which you are receiving lots of additional training. If you want to learn those skills, there are lots of great tutorials out there (e.g. the full [DataCamp tutorial](https://www.datacamp.com/courses/introduction-to-shell-for-data-science)). Instead, the focus here is on skills you're likely to use when using git, managing packages in Python, or getting stuff set up on remote servers so you can run your R or Python scripts. \n",
     "\n",
-    "In the examples below, we'll be working with the example data in the `Example_Data/command_line` folder in this repository, which you can download if you wish to follow along. "
+    "In the examples below, we'll be working with the example data in the [Example_Data/command_line](https://github.com/nickeubank/practicaldatascience/tree/master/Example_Data) folder in this repository, which you can download if you wish to follow along. "
    ]
   },
   {
@@ -79,7 +79,7 @@
    "source": [
     "**One Dash Versus Two Dashes**\n",
     "\n",
-    "Many flags also have a longer (easier to read version) that you call with **two dashes**. Basically, if a shell command sees one dash, it knows that *each letter* immediately afterwards is a different flag. If it sees two dashes, it knows that *everything after the dash before the first space* is a single flag name. \n",
+    "Many flags also have a longer (easier to read) version that you call with **two dashes**. Basically, if a shell command sees one dash, it knows that *each letter* immediately afterwards is a different flag. If it sees two dashes, it knows that *everything after the dash before the first space* is a single flag name. \n",
     "\n",
     "(Two-dash options are common in modern commands, but aren't always available in older commands like `cd` and `ls`. In the early days of programming, people didn't see being \"user friendly\" as a priority). \n",
     "\n",
@@ -191,7 +191,9 @@
     "     of files contained within that directory, as well as any requested, asso-\n",
     "     ciated information.\n",
     "...\n",
-    "```"
+    "```\n",
+    "\n",
+    "**NOTE:** Windows bash clients (like `Cmder` and `git bash` often don't support `man`. To get help for old commands, try googling what you would type if `man` actually worked, but into google (e.g. google `man rmdir`). "
    ]
   },
   {
@@ -515,7 +517,9 @@
    "source": [
     "## The `nano` Editor\n",
     "\n",
-    "It is often the case when working at the command line that one wants to actually edit a file, not just look at it or move it around. For small, quick edits, `bash` comes with an extremely useful tool for this purpose: `nano`. Just type `nano FILENAME` on almost any system, and you can edit your file without openning or installing additional programs. "
+    "It is often the case when working at the command line that one wants to actually edit a file, not just look at it or move it around. For small, quick edits, `bash` comes with an extremely useful tool for this purpose: `nano`. Just type `nano FILENAME` on almost any system, and you can edit your file without openning or installing additional programs. \n",
+    "\n",
+    "(Note for MIDS Students: you can also use emacs for the same purpose, since you've already gone through the pain of learning it!) "
    ]
   },
   {

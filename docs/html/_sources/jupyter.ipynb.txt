@@ -41,6 +41,7 @@
     "Again, this is all a little abstract for a tool that's fundamentally about interactivity, so to see Jupyter Lab in action, watch [this video](https://youtu.be/Gzun8PpyBCo?t=542) **starting 9 minutes in** and **stopping 30 minutes in (when they switch speakers)**. Don't worry about absorbing every detail --- we'll get lots of practice with Jupyter Lab below --- the goal is just to give you a sense of how Jupyter Lab works generally. \n",
     "\n",
     "To follow along with this video: \n",
+    "\n",
     "- Make sure you have the most recent version of Jupyter Lab installed (the version that comes with the Anaconda distribution you already installed is a little behind) by running `conda update jupyterlab`.  \n",
     "- Type `jupyter lab` on the command line to start a jupyter lab session!\n"
    ]

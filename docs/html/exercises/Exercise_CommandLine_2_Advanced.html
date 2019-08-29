@@ -246,42 +246,26 @@ div.rendered_html tbody tr:hover {
 <li><p><code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">data</span></code> [Folder containing CSVs from all days except Thursdays and Fridays]</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> [Folder containing all CSVs from Thursdays and Fridays]</p></li>
 </ul>
-<p>If this is NOT the directory structure that you currently have, then the first exercise is to move around your files and folders until they have this structure.</p>
+<p>If this is NOT the directory structure that you currently have, then the first exercise is to move around your files and folders until they have this structure!</p>
 <div class="section" id="Exercise-1:-Checking-Files">
 <h3>Exercise 1: Checking Files<a class="headerlink" href="#Exercise-1:-Checking-Files" title="Permalink to this headline">¶</a></h3>
 <p>When doing data work, it is important to always check your assumptions. For example, we <em>think</em> that we have data from every Thursday and Friday in the <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> directory. But are we sure?</p>
 <p>To check, let’s quickly google “how many thursdays were there in 2018” and “how many fridays were there in 2018” (there are 52 weeks in a year so it’s probably 52 of each, but important to be sure as 365 is not evenly divided by 52).</p>
-<p>Then let’s count the number of files we have in the <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> directory. Hint: to do this, we need one command to list out the names of all the files in <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> (<code class="docutils literal notranslate"><span class="pre">ls</span></code>), a second command to count the number of files reported (<code class="docutils literal notranslate"><span class="pre">wc</span></code>), and some way to pass data from one to the other.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">cd</span> ~/desktop/NYC_311calls_2018
-<span class="nb">cd</span> thursdays_and_fridays
-ls -1 <span class="p">|</span> wc -l
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-     104
-</pre></div></div>
-</div>
+<p>Then let’s count the number of files we have in the <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> directory.</p>
+<p>Hint: to do this, we need one command to list out the names of all the files in <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> (<code class="docutils literal notranslate"><span class="pre">ls</span></code>), a second command to count the number of files reported (<code class="docutils literal notranslate"><span class="pre">wc</span></code>), and some way to pass data from one to the other.</p>
+<p>Second hint: you probably want to use the <code class="docutils literal notranslate"><span class="pre">1</span></code> flag for <code class="docutils literal notranslate"><span class="pre">ls</span></code>. The <code class="docutils literal notranslate"><span class="pre">1</span></code> flag tells <code class="docutils literal notranslate"><span class="pre">ls</span></code> to make sure it only prints one file name per line.</p>
+<p>If you have trouble interpreting the output you get, you might have to check the <code class="docutils literal notranslate"><span class="pre">wc</span></code> documentation.</p>
 </div>
 <div class="section" id="Exercise-2:-Combining-files">
 <h3>Exercise 2: Combining files<a class="headerlink" href="#Exercise-2:-Combining-files" title="Permalink to this headline">¶</a></h3>
 <p>Having all these individual files is not very efficient. Instead, we’d like to merge all these files into a single large CSV file we can import into Python and analyze.</p>
 <p>As you may recall, the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command is often used to print the contents of a file out to the screen. But <code class="docutils literal notranslate"><span class="pre">cat</span></code> actually stands for concatenate: if you give the command multiple files, it will join them together one after the other.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">cat</span></code> to merge all the files in <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> into a single CSV called <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays.csv</span></code>.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">cat</span></code> to merge all the files in <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays</span></code> into a single CSV called <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays.csv</span></code> saved to disk.</p>
 </div>
 <div class="section" id="Exercise-3:-Viewing-your-Results">
 <h3>Exercise 3: Viewing your Results<a class="headerlink" href="#Exercise-3:-Viewing-your-Results" title="Permalink to this headline">¶</a></h3>
-<p>Great! Now we have a single CSV file with all our data for Thursdays and Fridays. But there’s a problem: none of the columns are labeled.</p>
-<p><strong>Take a look at the first few lines of our file using either ``less`` or ``head``.</strong> Head is a new tool! It’s like <code class="docutils literal notranslate"><span class="pre">cat</span></code> in that it just prints the contents of a file to the screen, but unlike <code class="docutils literal notranslate"><span class="pre">cat</span></code> it only prints a few lines. There’s also a command called <code class="docutils literal notranslate"><span class="pre">tail</span></code> that shows you the last few lines of a file.</p>
+<p>Great! Now we have a single CSV file with all our data for Thursdays and Fridays. But there’s a problem: none of the columns are labele!.</p>
+<p><strong>Take a look at the first few lines of our merged CSV file using either ``less`` or ``head``.</strong> Head is a new tool! It’s like <code class="docutils literal notranslate"><span class="pre">cat</span></code> in that it just prints the contents of a file to the screen, but unlike <code class="docutils literal notranslate"><span class="pre">cat</span></code> it only prints a few lines. There’s also a command called <code class="docutils literal notranslate"><span class="pre">tail</span></code> that shows you the last few lines of a file.</p>
 <p><strong>Try also confirming this by openning ``thursdays_and_fridays.csv`` in Excel.</strong> As you will discover, it’s a very slow process. This is another advantage of the command line: when working with big files, being able to quickly look at a few lines of a file in the command line is very efficient.</p>
 </div>
 <div class="section" id="Exercise-4:-Editing">
@@ -289,7 +273,7 @@ ls -1 <span class="p">|</span> wc -l
 <p>In <code class="docutils literal notranslate"><span class="pre">NYC311_calls_2018</span></code> is a file called <code class="docutils literal notranslate"><span class="pre">NYC311_column_names.txt</span></code>. It has all the column names for our CSVs.</p>
 <p>We can add these column names by concatenating the column name file to the top of our CSV, but only if it is properly formatted, which it is not – when the column names were exported, they included square brackets at the start and end of the column names:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
@@ -308,6 +292,10 @@ head NYC311_column_names.txt
 </div>
 <p>Since this is a very small editing task, let’s fix it using <code class="docutils literal notranslate"><span class="pre">nano</span></code>. Use <code class="docutils literal notranslate"><span class="pre">nano</span></code> to open the column name file, remove the square brackets at the beginning and end of the column names, and save the result.</p>
 <p>Then concatenate your column names with your CSV to create a new file called <code class="docutils literal notranslate"><span class="pre">thursdays_and_fridays_w_columnnames.csv</span></code>.</p>
+</div>
+<div class="section" id="Exercise-5:-Cleaning-Up">
+<h3>Exercise 5: Cleaning Up<a class="headerlink" href="#Exercise-5:-Cleaning-Up" title="Permalink to this headline">¶</a></h3>
+<p>Once you’re done creating this file, let’s clean up by deleting the <code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">data</span></code> folder and all its contents.</p>
 </div>
 </div>
 </div>

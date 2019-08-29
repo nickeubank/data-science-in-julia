@@ -19,7 +19,7 @@
     "- `raw data` [Folder containing CSVs from all days except Thursdays and Fridays]\n",
     "- `thursdays_and_fridays` [Folder containing all CSVs from Thursdays and Fridays]\n",
     "\n",
-    "If this is NOT the directory structure that you currently have, then the first exercise is to move around your files and folders until they have this structure. "
+    "If this is NOT the directory structure that you currently have, then the first exercise is to move around your files and folders until they have this structure!"
    ]
   },
   {
@@ -32,26 +32,13 @@
     "\n",
     "To check, let's quickly google \"how many thursdays were there in 2018\" and \"how many fridays were there in 2018\" (there are 52 weeks in a year so it's probably 52 of each, but important to be sure as 365 is not evenly divided by 52). \n",
     "\n",
-    "Then let's count the number of files we have in the `thursdays_and_fridays` directory. Hint: to do this, we need one command to list out the names of all the files in `thursdays_and_fridays` (`ls`), a second command to count the number of files reported (`wc`), and some way to pass data from one to the other. "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "     104\n"
-     ]
-    }
-   ],
-   "source": [
-    "cd ~/desktop/NYC_311calls_2018\n",
-    "cd thursdays_and_fridays\n",
-    "ls -1 | wc -l"
+    "Then let's count the number of files we have in the `thursdays_and_fridays` directory. \n",
+    "\n",
+    "Hint: to do this, we need one command to list out the names of all the files in `thursdays_and_fridays` (`ls`), a second command to count the number of files reported (`wc`), and some way to pass data from one to the other. \n",
+    "\n",
+    "Second hint: you probably want to use the `1` flag for `ls`. The `1` flag tells `ls` to make sure it only prints one file name per line. \n",
+    "\n",
+    "If you have trouble interpreting the output you get, you might have to check the `wc` documentation. "
    ]
   },
   {
@@ -64,7 +51,7 @@
     "\n",
     "As you may recall, the `cat` command is often used to print the contents of a file out to the screen. But `cat` actually stands for concatenate: if you give the command multiple files, it will join them together one after the other.\n",
     "\n",
-    "Use `cat` to merge all the files in `thursdays_and_fridays` into a single CSV called `thursdays_and_fridays.csv`. "
+    "Use `cat` to merge all the files in `thursdays_and_fridays` into a single CSV called `thursdays_and_fridays.csv` saved to disk. "
    ]
   },
   {
@@ -73,9 +60,9 @@
    "source": [
     "### Exercise 3: Viewing your Results\n",
     "\n",
-    "Great! Now we have a single CSV file with all our data for Thursdays and Fridays. But there's a problem: none of the columns are labeled.\n",
+    "Great! Now we have a single CSV file with all our data for Thursdays and Fridays. But there's a problem: none of the columns are labele!.\n",
     "\n",
-    "**Take a look at the first few lines of our file using either `less` or `head`.** Head is a new tool! It's like `cat` in that it just prints the contents of a file to the screen, but unlike `cat` it only prints a few lines. There's also a command called `tail` that shows you the last few lines of a file. \n",
+    "**Take a look at the first few lines of our merged CSV file using either `less` or `head`.** Head is a new tool! It's like `cat` in that it just prints the contents of a file to the screen, but unlike `cat` it only prints a few lines. There's also a command called `tail` that shows you the last few lines of a file. \n",
     "\n",
     "**Try also confirming this by openning `thursdays_and_fridays.csv` in Excel.** As you will discover, it's a very slow process. This is another advantage of the command line: when working with big files, being able to quickly look at a few lines of a file in the command line is very efficient."
    ]
@@ -93,7 +80,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 33,
    "metadata": {},
    "outputs": [
     {
@@ -116,6 +103,15 @@
     "Since this is a very small editing task, let's fix it using `nano`. Use `nano` to open the column name file, remove the square brackets at the beginning and end of the column names, and save the result. \n",
     "\n",
     "Then concatenate your column names with your CSV to create a new file called `thursdays_and_fridays_w_columnnames.csv`. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercise 5: Cleaning Up\n",
+    "\n",
+    "Once you're done creating this file, let's clean up by deleting the `raw data` folder and all its contents. "
    ]
   }
  ],
