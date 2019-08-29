@@ -98,6 +98,7 @@ result is just gobblygook.</p>
 <h3>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h3>
 <p>You can see the actual 1’s and 0’s that underlay a file from the command line using the command <code class="docutils literal notranslate"><span class="pre">xxd</span> <span class="pre">-b</span> <span class="pre">[filename]</span></code>. First, use this to see what’s in <code class="docutils literal notranslate"><span class="pre">just_the_letter_a.txt</span></code> file.</p>
 <p>What you will see is a counter on the left, a colon, then the actual contents of the file grouped into sets of 8 bits (what’s called a byte). The first is the code for a lower case “a” (<code class="docutils literal notranslate"><span class="pre">01100001</span></code>). The second is the code that says “this is the end of the current line”. And that’s it! Congratulations, you can now read binary!</p>
+<p>(Don’t believe me? You can find the code for the end of a line <a class="reference external" href="https://en.wikipedia.org/wiki/ASCII#Control_characters">here</a>, and for “a” <a class="reference external" href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">here</a>. Go check for yourself – there’s no magic here.</p>
 </div>
 <div class="section" id="Exercise-7">
 <h3>Exercise 7<a class="headerlink" href="#Exercise-7" title="Permalink to this headline">¶</a></h3>

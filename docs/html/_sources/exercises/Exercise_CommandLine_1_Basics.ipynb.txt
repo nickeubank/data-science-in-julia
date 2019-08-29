@@ -117,7 +117,9 @@
     "\n",
     "You can see the actual 1's and 0's that underlay a file from the command line using the command `xxd -b [filename]`. First, use this to see what's in `just_the_letter_a.txt` file.\n",
     "\n",
-    "What you will see is a counter on the left, a colon, then the actual contents of the file grouped into sets of 8 bits (what's called a byte). The first is the code for a lower case \"a\" (`01100001`). The second is the code that says \"this is the end of the current line\". And that's it! Congratulations, you can now read binary! "
+    "What you will see is a counter on the left, a colon, then the actual contents of the file grouped into sets of 8 bits (what's called a byte). The first is the code for a lower case \"a\" (`01100001`). The second is the code that says \"this is the end of the current line\". And that's it! Congratulations, you can now read binary! \n",
+    "\n",
+    "(Don't believe me? You can find the code for the end of a line [here](https://en.wikipedia.org/wiki/ASCII#Control_characters), and for \"a\" [here](https://en.wikipedia.org/wiki/ASCII#Printable_characters). Go check for yourself -- there's no magic here. "
    ]
   },
   {
