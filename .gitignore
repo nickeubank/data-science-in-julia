@@ -19,7 +19,7 @@ source/.ipynb_checkpoints/*
 *.toc 
 
 .ipynb_checkpoints/*
-**/ipynb_checkpoints/*
+**/.ipynb_checkpoints/*
 source/exercises/.ipynb_checkpoints/*
 ~$*
 
