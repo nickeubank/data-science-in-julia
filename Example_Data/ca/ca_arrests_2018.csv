@@ -1,0 +1,2487 @@
+,GENDER,RACE,AGE_GROUP,COUNTY,VIOLENT,PROPERTY,F_DRUGOFF,F_SEXOFF,F_ALLOTHER,F_TOTAL,M_TOTAL,S_TOTAL
+92387,Male,Black,Under 18,Alameda County,218,132,3,3,51,407,152,18
+92388,Male,Black,Under 18,Butte County,5,6,0,0,0,11,15,0
+92389,Male,Black,Under 18,Calaveras County,0,0,0,0,1,1,7,0
+92390,Male,Black,Under 18,Colusa County,0,0,0,0,0,0,3,0
+92391,Male,Black,Under 18,Contra Costa County,50,49,2,1,27,129,131,0
+92392,Male,Black,Under 18,Del Norte County,0,0,0,0,0,0,1,0
+92393,Male,Black,Under 18,El Dorado County,2,0,0,0,0,2,6,0
+92394,Male,Black,Under 18,Fresno County,51,30,2,5,28,116,195,2
+92395,Male,Black,Under 18,Glenn County,1,0,0,0,0,1,0,0
+92396,Male,Black,Under 18,Humboldt County,0,0,0,0,0,0,4,0
+92397,Male,Black,Under 18,Imperial County,0,0,0,0,0,0,3,0
+92398,Male,Black,Under 18,Kern County,42,37,0,1,18,98,94,1
+92399,Male,Black,Under 18,Kings County,8,4,0,0,1,13,28,3
+92400,Male,Black,Under 18,Lassen County,0,0,0,0,1,1,1,1
+92401,Male,Black,Under 18,Los Angeles County,571,365,4,23,158,1121,554,23
+92402,Male,Black,Under 18,Madera County,2,0,0,0,1,3,7,1
+92403,Male,Black,Under 18,Marin County,8,4,0,1,1,14,19,2
+92404,Male,Black,Under 18,Mendocino County,2,0,0,0,1,3,0,0
+92405,Male,Black,Under 18,Merced County,12,6,0,0,8,26,39,53
+92406,Male,Black,Under 18,Monterey County,4,6,0,0,3,13,27,2
+92407,Male,Black,Under 18,Napa County,4,0,0,0,0,4,5,0
+92408,Male,Black,Under 18,Nevada County,1,1,0,0,0,2,4,2
+92409,Male,Black,Under 18,Orange County,15,23,1,1,5,45,54,7
+92410,Male,Black,Under 18,Placer County,12,4,0,0,5,21,6,0
+92411,Male,Black,Under 18,Plumas County,0,0,0,0,0,0,3,1
+92412,Male,Black,Under 18,Riverside County,45,34,0,1,17,97,92,18
+92413,Male,Black,Under 18,Sacramento County,131,90,3,9,50,283,146,43
+92414,Male,Black,Under 18,San Bernardino County,172,156,4,27,58,417,231,183
+92415,Male,Black,Under 18,San Diego County,107,50,5,2,31,195,166,36
+92416,Male,Black,Under 18,San Francisco County,14,14,2,0,195,225,129,0
+92417,Male,Black,Under 18,San Joaquin County,84,41,1,2,18,146,130,2
+92418,Male,Black,Under 18,San Luis Obispo County,1,1,0,0,2,4,7,0
+92419,Male,Black,Under 18,San Mateo County,12,17,1,0,5,35,26,2
+92420,Male,Black,Under 18,Santa Barbara County,8,2,0,0,2,12,27,0
+92421,Male,Black,Under 18,Santa Clara County,33,62,2,3,8,108,70,6
+92422,Male,Black,Under 18,Santa Cruz County,2,0,0,0,1,3,3,0
+92423,Male,Black,Under 18,Shasta County,3,0,0,0,2,5,9,4
+92424,Male,Black,Under 18,Siskiyou County,1,0,0,0,0,1,1,0
+92425,Male,Black,Under 18,Solano County,35,35,1,1,20,92,110,3
+92426,Male,Black,Under 18,Sonoma County,6,2,0,1,4,13,31,0
+92427,Male,Black,Under 18,Stanislaus County,30,8,3,2,8,51,40,2
+92428,Male,Black,Under 18,Sutter County,6,2,0,0,1,9,6,0
+92429,Male,Black,Under 18,Tehama County,1,0,0,0,0,1,3,0
+92430,Male,Black,Under 18,Tulare County,10,5,1,0,3,19,25,14
+92431,Male,Black,Under 18,Tuolumne County,0,1,0,0,0,1,0,0
+92432,Male,Black,Under 18,Ventura County,10,8,0,0,3,21,38,16
+92433,Male,Black,Under 18,Yolo County,6,8,0,0,2,16,12,0
+92434,Male,Black,Under 18,Yuba County,2,0,0,0,1,3,2,0
+92435,Male,Black,18 to 19,Alameda County,95,51,8,2,99,255,131,0
+92436,Male,Black,18 to 19,Butte County,5,0,0,0,2,7,18,0
+92437,Male,Black,18 to 19,Calaveras County,0,0,0,0,0,0,1,0
+92438,Male,Black,18 to 19,Contra Costa County,44,48,3,0,42,137,96,0
+92439,Male,Black,18 to 19,Del Norte County,0,0,0,0,0,0,1,0
+92440,Male,Black,18 to 19,El Dorado County,0,0,0,0,0,0,1,0
+92441,Male,Black,18 to 19,Fresno County,45,17,0,2,27,91,56,0
+92442,Male,Black,18 to 19,Glenn County,2,0,0,0,0,2,1,0
+92443,Male,Black,18 to 19,Humboldt County,0,0,0,0,1,1,5,0
+92444,Male,Black,18 to 19,Imperial County,2,1,0,0,0,3,6,0
+92445,Male,Black,18 to 19,Inyo County,0,0,0,0,0,0,1,0
+92446,Male,Black,18 to 19,Kern County,33,15,1,1,22,72,64,0
+92447,Male,Black,18 to 19,Kings County,5,2,0,1,9,17,16,0
+92448,Male,Black,18 to 19,Lake County,0,0,0,0,0,0,2,0
+92449,Male,Black,18 to 19,Lassen County,1,0,0,0,1,2,1,0
+92450,Male,Black,18 to 19,Los Angeles County,426,310,27,5,216,984,555,0
+92451,Male,Black,18 to 19,Madera County,3,1,0,0,1,5,3,0
+92452,Male,Black,18 to 19,Marin County,3,3,0,2,0,8,6,0
+92453,Male,Black,18 to 19,Mendocino County,2,0,0,0,0,2,0,0
+92454,Male,Black,18 to 19,Merced County,5,2,0,0,6,13,19,0
+92455,Male,Black,18 to 19,Monterey County,3,4,0,0,2,9,10,0
+92456,Male,Black,18 to 19,Napa County,4,2,0,0,4,10,9,0
+92457,Male,Black,18 to 19,Nevada County,2,0,0,0,0,2,0,0
+92458,Male,Black,18 to 19,Orange County,23,39,4,0,8,74,79,0
+92459,Male,Black,18 to 19,Placer County,8,4,0,1,9,22,6,0
+92460,Male,Black,18 to 19,Plumas County,0,0,0,0,0,0,1,0
+92461,Male,Black,18 to 19,Riverside County,58,39,5,4,26,132,82,0
+92462,Male,Black,18 to 19,Sacramento County,68,41,12,3,61,185,100,0
+92463,Male,Black,18 to 19,San Benito County,1,1,0,0,2,4,1,0
+92464,Male,Black,18 to 19,San Bernardino County,122,84,10,5,41,262,177,0
+92465,Male,Black,18 to 19,San Diego County,70,50,4,0,48,172,152,0
+92466,Male,Black,18 to 19,San Francisco County,38,57,7,0,45,147,39,0
+92467,Male,Black,18 to 19,San Joaquin County,37,13,5,3,32,90,59,0
+92468,Male,Black,18 to 19,San Luis Obispo County,1,0,0,1,0,2,13,0
+92469,Male,Black,18 to 19,San Mateo County,12,10,2,0,11,35,34,0
+92470,Male,Black,18 to 19,Santa Barbara County,3,4,0,1,2,10,28,0
+92471,Male,Black,18 to 19,Santa Clara County,19,13,1,1,8,42,41,0
+92472,Male,Black,18 to 19,Santa Cruz County,2,0,0,0,2,4,8,0
+92473,Male,Black,18 to 19,Shasta County,2,2,0,0,0,4,4,0
+92474,Male,Black,18 to 19,Siskiyou County,0,0,0,0,1,1,0,0
+92475,Male,Black,18 to 19,Solano County,25,25,2,1,35,88,60,0
+92476,Male,Black,18 to 19,Sonoma County,8,2,2,0,5,17,30,0
+92477,Male,Black,18 to 19,Stanislaus County,20,4,3,0,7,34,27,0
+92478,Male,Black,18 to 19,Sutter County,5,0,0,0,0,5,2,0
+92479,Male,Black,18 to 19,Tehama County,0,1,0,1,0,2,1,0
+92480,Male,Black,18 to 19,Trinity County,0,0,1,0,0,1,1,0
+92481,Male,Black,18 to 19,Tulare County,6,2,1,0,2,11,16,0
+92482,Male,Black,18 to 19,Ventura County,6,13,1,0,2,22,20,0
+92483,Male,Black,18 to 19,Yolo County,3,8,0,0,0,11,5,0
+92484,Male,Black,18 to 19,Yuba County,0,2,0,0,1,3,0,0
+92485,Male,Black,20 to 29,Alameda County,432,275,91,19,375,1192,1705,0
+92486,Male,Black,20 to 29,Alpine County,0,0,0,0,0,0,0,0
+92487,Male,Black,20 to 29,Amador County,1,0,0,0,1,2,4,0
+92488,Male,Black,20 to 29,Butte County,15,6,2,2,13,38,82,0
+92489,Male,Black,20 to 29,Calaveras County,3,1,0,0,0,4,4,0
+92490,Male,Black,20 to 29,Colusa County,0,0,0,0,2,2,12,0
+92491,Male,Black,20 to 29,Contra Costa County,287,241,43,13,289,873,993,0
+92492,Male,Black,20 to 29,Del Norte County,0,1,0,0,0,1,2,0
+92493,Male,Black,20 to 29,El Dorado County,2,7,1,0,4,14,19,0
+92494,Male,Black,20 to 29,Fresno County,222,58,16,6,157,459,686,0
+92495,Male,Black,20 to 29,Glenn County,1,1,0,0,0,2,7,0
+92496,Male,Black,20 to 29,Humboldt County,11,4,1,1,7,24,59,0
+92497,Male,Black,20 to 29,Imperial County,4,3,0,0,2,9,41,0
+92498,Male,Black,20 to 29,Inyo County,2,1,0,0,0,3,3,0
+92499,Male,Black,20 to 29,Kern County,234,108,17,2,121,482,733,0
+92500,Male,Black,20 to 29,Kings County,27,4,1,0,11,43,102,0
+92501,Male,Black,20 to 29,Lake County,6,2,3,1,3,15,36,0
+92502,Male,Black,20 to 29,Lassen County,0,2,1,0,0,3,6,0
+92503,Male,Black,20 to 29,Los Angeles County,2184,1318,283,54,1534,5373,7277,0
+92504,Male,Black,20 to 29,Madera County,10,2,2,1,4,19,53,0
+92505,Male,Black,20 to 29,Marin County,24,24,10,2,14,74,100,0
+92506,Male,Black,20 to 29,Mariposa County,2,0,1,0,0,3,3,0
+92507,Male,Black,20 to 29,Mendocino County,6,0,1,0,1,8,23,0
+92508,Male,Black,20 to 29,Merced County,37,7,3,0,22,69,130,0
+92509,Male,Black,20 to 29,Modoc County,0,0,0,0,0,0,1,0
+92510,Male,Black,20 to 29,Mono County,0,0,1,0,0,1,3,0
+92511,Male,Black,20 to 29,Monterey County,19,11,4,2,12,48,115,0
+92512,Male,Black,20 to 29,Napa County,8,13,3,1,45,70,59,0
+92513,Male,Black,20 to 29,Nevada County,4,0,0,1,0,5,12,0
+92514,Male,Black,20 to 29,Orange County,157,158,21,26,113,475,1035,0
+92515,Male,Black,20 to 29,Placer County,31,25,4,5,49,114,85,0
+92516,Male,Black,20 to 29,Plumas County,1,0,1,0,0,2,9,0
+92517,Male,Black,20 to 29,Riverside County,305,146,33,7,165,656,929,0
+92518,Male,Black,20 to 29,Sacramento County,597,241,87,24,430,1379,1471,0
+92519,Male,Black,20 to 29,San Benito County,1,0,0,0,0,1,5,0
+92520,Male,Black,20 to 29,San Bernardino County,670,387,85,39,339,1520,2021,0
+92521,Male,Black,20 to 29,San Diego County,472,199,71,17,318,1077,2045,0
+92522,Male,Black,20 to 29,San Francisco County,173,136,25,3,342,679,555,0
+92523,Male,Black,20 to 29,San Joaquin County,218,57,25,8,151,459,527,0
+92524,Male,Black,20 to 29,San Luis Obispo County,10,4,0,1,7,22,115,0
+92525,Male,Black,20 to 29,San Mateo County,54,62,10,1,58,185,397,0
+92526,Male,Black,20 to 29,Santa Barbara County,30,17,11,2,15,75,171,0
+92527,Male,Black,20 to 29,Santa Clara County,123,95,23,13,71,325,506,0
+92528,Male,Black,20 to 29,Santa Cruz County,7,8,2,1,11,29,113,0
+92529,Male,Black,20 to 29,Shasta County,15,6,4,0,5,30,66,0
+92530,Male,Black,20 to 29,Siskiyou County,3,1,3,0,2,9,17,0
+92531,Male,Black,20 to 29,Solano County,161,92,30,9,160,452,630,0
+92532,Male,Black,20 to 29,Sonoma County,38,14,0,1,16,69,152,0
+92533,Male,Black,20 to 29,Stanislaus County,78,24,26,2,46,176,276,0
+92534,Male,Black,20 to 29,Sutter County,13,1,4,1,7,26,68,0
+92535,Male,Black,20 to 29,Tehama County,3,0,1,0,1,5,9,0
+92536,Male,Black,20 to 29,Trinity County,0,0,1,0,3,4,2,0
+92537,Male,Black,20 to 29,Tulare County,37,17,7,2,31,94,145,0
+92538,Male,Black,20 to 29,Tuolumne County,4,1,0,0,2,7,8,0
+92539,Male,Black,20 to 29,Ventura County,42,51,8,4,30,135,270,0
+92540,Male,Black,20 to 29,Yolo County,31,17,2,1,25,76,121,0
+92541,Male,Black,20 to 29,Yuba County,18,6,4,1,6,35,31,0
+92542,Male,Black,30 to 39,Alameda County,319,232,93,17,238,899,1764,0
+92543,Male,Black,30 to 39,Alpine County,0,0,0,0,0,0,1,0
+92544,Male,Black,30 to 39,Amador County,0,0,0,0,0,0,3,0
+92545,Male,Black,30 to 39,Butte County,17,2,3,1,16,39,77,0
+92546,Male,Black,30 to 39,Calaveras County,4,0,0,0,1,5,4,0
+92547,Male,Black,30 to 39,Colusa County,0,0,0,0,4,4,10,0
+92548,Male,Black,30 to 39,Contra Costa County,200,178,47,13,223,661,906,0
+92549,Male,Black,30 to 39,Del Norte County,0,0,1,1,2,4,4,0
+92550,Male,Black,30 to 39,El Dorado County,4,4,3,2,4,17,19,0
+92551,Male,Black,30 to 39,Fresno County,154,38,20,5,100,317,691,0
+92552,Male,Black,30 to 39,Glenn County,0,0,0,0,1,1,2,0
+92553,Male,Black,30 to 39,Humboldt County,11,4,2,1,8,26,60,0
+92554,Male,Black,30 to 39,Imperial County,4,4,0,0,5,13,37,0
+92555,Male,Black,30 to 39,Inyo County,2,0,0,0,0,2,3,0
+92556,Male,Black,30 to 39,Kern County,133,70,24,6,80,313,688,0
+92557,Male,Black,30 to 39,Kings County,19,5,1,2,22,49,131,0
+92558,Male,Black,30 to 39,Lake County,6,3,0,0,4,13,44,0
+92559,Male,Black,30 to 39,Lassen County,0,0,0,0,0,0,5,0
+92560,Male,Black,30 to 39,Los Angeles County,1418,744,300,45,1066,3573,6305,0
+92561,Male,Black,30 to 39,Madera County,10,3,4,0,10,27,41,0
+92562,Male,Black,30 to 39,Marin County,6,10,2,1,10,29,101,0
+92563,Male,Black,30 to 39,Mariposa County,0,2,0,0,0,2,0,0
+92564,Male,Black,30 to 39,Mendocino County,2,1,1,0,2,6,18,0
+92565,Male,Black,30 to 39,Merced County,20,8,4,1,13,46,116,0
+92566,Male,Black,30 to 39,Modoc County,1,0,0,0,1,2,0,0
+92567,Male,Black,30 to 39,Mono County,0,0,0,0,0,0,2,0
+92568,Male,Black,30 to 39,Monterey County,16,9,4,1,13,43,133,0
+92569,Male,Black,30 to 39,Napa County,3,7,3,0,23,36,64,0
+92570,Male,Black,30 to 39,Nevada County,0,1,1,0,3,5,1,0
+92571,Male,Black,30 to 39,Orange County,77,69,15,12,64,237,699,0
+92572,Male,Black,30 to 39,Placer County,16,16,2,1,24,59,71,0
+92573,Male,Black,30 to 39,Plumas County,1,0,0,0,1,2,0,0
+92574,Male,Black,30 to 39,Riverside County,213,80,52,8,140,493,879,0
+92575,Male,Black,30 to 39,Sacramento County,359,196,70,12,313,950,1435,0
+92576,Male,Black,30 to 39,San Benito County,1,0,0,0,0,1,2,0
+92577,Male,Black,30 to 39,San Bernardino County,445,237,83,20,252,1037,1766,0
+92578,Male,Black,30 to 39,San Diego County,334,147,62,14,311,868,1853,0
+92579,Male,Black,30 to 39,San Francisco County,128,92,36,2,286,544,484,0
+92580,Male,Black,30 to 39,San Joaquin County,140,51,22,8,115,336,565,0
+92581,Male,Black,30 to 39,San Luis Obispo County,13,8,2,1,6,30,107,0
+92582,Male,Black,30 to 39,San Mateo County,43,32,5,1,26,107,380,0
+92583,Male,Black,30 to 39,Santa Barbara County,15,9,5,2,14,45,152,0
+92584,Male,Black,30 to 39,Santa Clara County,110,67,15,9,67,268,594,0
+92585,Male,Black,30 to 39,Santa Cruz County,13,3,1,1,11,29,100,0
+92586,Male,Black,30 to 39,Shasta County,12,6,0,1,10,29,71,0
+92587,Male,Black,30 to 39,Siskiyou County,7,0,3,0,1,11,15,0
+92588,Male,Black,30 to 39,Solano County,126,93,32,4,108,363,656,0
+92589,Male,Black,30 to 39,Sonoma County,26,13,4,0,25,68,249,0
+92590,Male,Black,30 to 39,Stanislaus County,51,24,20,6,44,145,260,0
+92591,Male,Black,30 to 39,Sutter County,8,2,0,0,5,15,40,0
+92592,Male,Black,30 to 39,Tehama County,4,0,1,0,4,9,9,0
+92593,Male,Black,30 to 39,Trinity County,0,0,3,0,5,8,2,0
+92594,Male,Black,30 to 39,Tulare County,33,6,8,2,16,65,153,0
+92595,Male,Black,30 to 39,Tuolumne County,3,0,0,0,1,4,7,0
+92596,Male,Black,30 to 39,Ventura County,17,9,11,0,29,66,197,0
+92597,Male,Black,30 to 39,Yolo County,28,10,5,0,18,61,101,0
+92598,Male,Black,30 to 39,Yuba County,8,5,1,0,6,20,33,0
+92599,Male,Black,40 to 69,Alameda County,387,323,168,30,246,1154,2642,0
+92600,Male,Black,40 to 69,Alpine County,0,0,0,0,1,1,0,0
+92601,Male,Black,40 to 69,Amador County,0,0,0,0,0,0,6,0
+92602,Male,Black,40 to 69,Butte County,6,3,6,3,18,36,104,0
+92603,Male,Black,40 to 69,Calaveras County,1,0,0,0,0,1,7,0
+92604,Male,Black,40 to 69,Colusa County,0,0,0,0,1,1,11,0
+92605,Male,Black,40 to 69,Contra Costa County,213,174,104,20,204,715,1214,0
+92606,Male,Black,40 to 69,Del Norte County,0,0,0,0,0,0,10,0
+92607,Male,Black,40 to 69,El Dorado County,3,0,1,1,2,7,20,0
+92608,Male,Black,40 to 69,Fresno County,121,35,18,12,82,268,816,0
+92609,Male,Black,40 to 69,Glenn County,0,0,0,0,1,1,8,0
+92610,Male,Black,40 to 69,Humboldt County,11,1,5,3,10,30,50,0
+92611,Male,Black,40 to 69,Imperial County,4,4,2,0,2,12,70,0
+92612,Male,Black,40 to 69,Inyo County,1,0,0,0,0,1,2,0
+92613,Male,Black,40 to 69,Kern County,111,49,24,7,74,265,831,0
+92614,Male,Black,40 to 69,Kings County,10,5,2,1,19,37,152,0
+92615,Male,Black,40 to 69,Lake County,4,5,3,1,2,15,57,0
+92616,Male,Black,40 to 69,Lassen County,2,0,1,0,0,3,2,0
+92617,Male,Black,40 to 69,Los Angeles County,1832,641,579,83,904,4039,9879,0
+92618,Male,Black,40 to 69,Madera County,11,2,4,0,6,23,54,0
+92619,Male,Black,40 to 69,Marin County,21,17,7,1,12,58,217,0
+92620,Male,Black,40 to 69,Mendocino County,2,3,1,0,3,9,23,0
+92621,Male,Black,40 to 69,Merced County,23,3,3,1,16,46,214,0
+92622,Male,Black,40 to 69,Modoc County,0,0,0,0,1,1,7,0
+92623,Male,Black,40 to 69,Mono County,0,0,0,0,0,0,1,0
+92624,Male,Black,40 to 69,Monterey County,26,5,5,4,17,57,155,0
+92625,Male,Black,40 to 69,Napa County,2,8,4,3,11,28,56,0
+92626,Male,Black,40 to 69,Nevada County,3,0,0,0,0,3,12,0
+92627,Male,Black,40 to 69,Orange County,90,54,30,6,57,237,859,0
+92628,Male,Black,40 to 69,Placer County,11,11,6,2,15,45,103,0
+92629,Male,Black,40 to 69,Plumas County,0,0,2,0,0,2,8,0
+92630,Male,Black,40 to 69,Riverside County,175,77,32,16,96,396,867,0
+92631,Male,Black,40 to 69,Sacramento County,398,150,130,43,313,1034,1727,0
+92632,Male,Black,40 to 69,San Benito County,1,1,0,1,0,3,6,0
+92633,Male,Black,40 to 69,San Bernardino County,387,172,109,26,253,947,2069,0
+92634,Male,Black,40 to 69,San Diego County,349,124,176,59,402,1110,3149,0
+92635,Male,Black,40 to 69,San Francisco County,222,95,93,4,430,844,917,0
+92636,Male,Black,40 to 69,San Joaquin County,119,44,29,6,90,288,629,0
+92637,Male,Black,40 to 69,San Luis Obispo County,15,2,3,1,4,25,116,0
+92638,Male,Black,40 to 69,San Mateo County,57,40,20,4,63,184,716,0
+92639,Male,Black,40 to 69,Santa Barbara County,27,7,8,0,11,53,257,0
+92640,Male,Black,40 to 69,Santa Clara County,135,56,38,22,67,318,938,0
+92641,Male,Black,40 to 69,Santa Cruz County,8,8,3,2,11,32,94,0
+92642,Male,Black,40 to 69,Shasta County,7,2,2,0,21,32,94,0
+92643,Male,Black,40 to 69,Sierra County,0,0,0,0,0,0,1,0
+92644,Male,Black,40 to 69,Siskiyou County,1,1,0,0,1,3,18,0
+92645,Male,Black,40 to 69,Solano County,131,72,54,8,88,353,823,0
+92646,Male,Black,40 to 69,Sonoma County,39,13,9,2,22,85,342,0
+92647,Male,Black,40 to 69,Stanislaus County,59,18,35,9,44,165,343,0
+92648,Male,Black,40 to 69,Sutter County,6,4,1,1,7,19,50,0
+92649,Male,Black,40 to 69,Tehama County,1,0,1,0,1,3,10,0
+92650,Male,Black,40 to 69,Trinity County,0,0,0,0,1,1,2,0
+92651,Male,Black,40 to 69,Tulare County,52,11,13,2,26,104,231,0
+92652,Male,Black,40 to 69,Tuolumne County,0,0,0,0,1,1,8,0
+92653,Male,Black,40 to 69,Ventura County,30,16,9,2,26,83,358,0
+92654,Male,Black,40 to 69,Yolo County,18,9,8,2,16,53,149,0
+92655,Male,Black,40 to 69,Yuba County,14,3,11,0,7,35,33,0
+92656,Male,Black,70 and over,Alameda County,5,3,0,0,1,9,33,0
+92657,Male,Black,70 and over,Contra Costa County,0,2,0,2,1,5,11,0
+92658,Male,Black,70 and over,Fresno County,1,0,0,0,1,2,8,0
+92659,Male,Black,70 and over,Kern County,0,0,0,0,0,0,8,0
+92660,Male,Black,70 and over,Kings County,1,0,0,0,0,1,0,0
+92661,Male,Black,70 and over,Lake County,0,0,1,0,0,1,2,0
+92662,Male,Black,70 and over,Los Angeles County,52,3,7,2,9,73,197,0
+92663,Male,Black,70 and over,Madera County,0,0,0,0,0,0,1,0
+92664,Male,Black,70 and over,Marin County,0,0,0,0,1,1,3,0
+92665,Male,Black,70 and over,Merced County,0,0,0,0,0,0,5,0
+92666,Male,Black,70 and over,Monterey County,1,0,0,0,0,1,3,0
+92667,Male,Black,70 and over,Orange County,0,0,0,0,0,0,9,0
+92668,Male,Black,70 and over,Placer County,0,0,0,0,0,0,1,0
+92669,Male,Black,70 and over,Riverside County,4,0,0,0,1,5,17,0
+92670,Male,Black,70 and over,Sacramento County,6,0,2,4,2,14,20,0
+92671,Male,Black,70 and over,San Bernardino County,5,0,0,0,2,7,21,0
+92672,Male,Black,70 and over,San Diego County,14,0,0,2,4,20,35,0
+92673,Male,Black,70 and over,San Francisco County,3,1,2,0,1,7,16,0
+92674,Male,Black,70 and over,San Joaquin County,2,0,0,0,1,3,10,0
+92675,Male,Black,70 and over,San Luis Obispo County,2,0,0,0,0,2,5,0
+92676,Male,Black,70 and over,San Mateo County,1,0,0,1,0,2,5,0
+92677,Male,Black,70 and over,Santa Clara County,0,0,1,1,1,3,12,0
+92678,Male,Black,70 and over,Santa Cruz County,0,0,0,0,0,0,1,0
+92679,Male,Black,70 and over,Solano County,4,0,0,0,1,5,8,0
+92680,Male,Black,70 and over,Sonoma County,0,0,0,0,0,0,10,0
+92681,Male,Black,70 and over,Stanislaus County,0,0,0,0,0,0,6,0
+92682,Male,Black,70 and over,Sutter County,1,0,0,0,0,1,0,0
+92683,Male,Black,70 and over,Tulare County,0,0,1,0,0,1,4,0
+92684,Male,Black,70 and over,Tuolumne County,0,0,0,0,0,0,0,0
+92685,Male,Black,70 and over,Ventura County,0,0,0,0,0,0,1,0
+92686,Male,Black,70 and over,Yolo County,0,0,0,0,0,0,0,0
+92687,Male,Hispanic,Under 18,Alameda County,86,58,5,4,33,186,120,12
+92688,Male,Hispanic,Under 18,Amador County,0,0,0,0,0,0,1,0
+92689,Male,Hispanic,Under 18,Butte County,4,3,0,0,6,13,41,0
+92690,Male,Hispanic,Under 18,Calaveras County,2,0,0,0,3,5,14,0
+92691,Male,Hispanic,Under 18,Colusa County,1,0,0,0,0,1,13,0
+92692,Male,Hispanic,Under 18,Contra Costa County,39,14,2,2,21,78,93,1
+92693,Male,Hispanic,Under 18,Del Norte County,0,0,0,0,1,1,0,0
+92694,Male,Hispanic,Under 18,El Dorado County,1,1,0,0,1,3,22,0
+92695,Male,Hispanic,Under 18,Fresno County,165,77,12,10,69,333,637,12
+92696,Male,Hispanic,Under 18,Glenn County,1,0,0,0,0,1,13,3
+92697,Male,Hispanic,Under 18,Humboldt County,1,0,0,0,0,1,6,0
+92698,Male,Hispanic,Under 18,Imperial County,20,5,1,2,15,43,85,3
+92699,Male,Hispanic,Under 18,Inyo County,0,0,0,0,1,1,7,0
+92700,Male,Hispanic,Under 18,Kern County,101,43,5,5,74,228,275,22
+92701,Male,Hispanic,Under 18,Kings County,24,25,2,1,16,68,129,34
+92702,Male,Hispanic,Under 18,Lake County,2,0,2,0,0,4,5,0
+92703,Male,Hispanic,Under 18,Lassen County,1,0,0,0,2,3,0,0
+92704,Male,Hispanic,Under 18,Los Angeles County,799,396,59,61,510,1825,1683,181
+92705,Male,Hispanic,Under 18,Madera County,14,3,4,4,18,43,83,2
+92706,Male,Hispanic,Under 18,Marin County,16,7,3,2,9,37,110,25
+92707,Male,Hispanic,Under 18,Mendocino County,20,13,0,1,14,48,34,2
+92708,Male,Hispanic,Under 18,Merced County,49,31,4,4,50,138,195,114
+92709,Male,Hispanic,Under 18,Mono County,0,0,0,0,0,0,1,0
+92710,Male,Hispanic,Under 18,Monterey County,64,38,5,11,44,162,247,50
+92711,Male,Hispanic,Under 18,Napa County,8,3,2,0,11,24,53,3
+92712,Male,Hispanic,Under 18,Nevada County,1,1,0,0,5,7,11,4
+92713,Male,Hispanic,Under 18,Orange County,190,121,17,25,147,500,717,153
+92714,Male,Hispanic,Under 18,Placer County,8,6,0,1,1,16,12,0
+92715,Male,Hispanic,Under 18,Riverside County,124,67,16,3,63,273,354,52
+92716,Male,Hispanic,Under 18,Sacramento County,36,35,5,2,34,112,104,13
+92717,Male,Hispanic,Under 18,San Benito County,6,1,2,0,7,16,32,0
+92718,Male,Hispanic,Under 18,San Bernardino County,233,165,24,43,158,623,498,285
+92719,Male,Hispanic,Under 18,San Diego County,186,82,25,13,158,464,669,188
+92720,Male,Hispanic,Under 18,San Francisco County,2,1,1,0,0,4,1,0
+92721,Male,Hispanic,Under 18,San Joaquin County,90,46,11,7,49,203,170,1
+92722,Male,Hispanic,Under 18,San Luis Obispo County,5,5,0,0,7,17,51,2
+92723,Male,Hispanic,Under 18,San Mateo County,55,30,6,1,41,133,160,25
+92724,Male,Hispanic,Under 18,Santa Barbara County,56,37,15,1,56,165,515,27
+92725,Male,Hispanic,Under 18,Santa Clara County,211,302,26,18,92,649,523,61
+92726,Male,Hispanic,Under 18,Santa Cruz County,26,11,3,1,34,75,120,6
+92727,Male,Hispanic,Under 18,Shasta County,3,0,0,0,1,4,7,4
+92728,Male,Hispanic,Under 18,Siskiyou County,0,0,0,0,0,0,0,0
+92729,Male,Hispanic,Under 18,Solano County,21,13,1,1,11,47,125,6
+92730,Male,Hispanic,Under 18,Sonoma County,34,17,5,3,17,76,162,6
+92731,Male,Hispanic,Under 18,Stanislaus County,80,65,7,7,45,204,128,20
+92732,Male,Hispanic,Under 18,Sutter County,6,4,0,1,5,16,28,0
+92733,Male,Hispanic,Under 18,Tehama County,3,0,0,0,1,4,26,1
+92734,Male,Hispanic,Under 18,Tulare County,75,48,9,6,52,190,389,143
+92735,Male,Hispanic,Under 18,Tuolumne County,2,3,1,0,0,6,3,0
+92736,Male,Hispanic,Under 18,Ventura County,96,62,11,2,79,250,502,210
+92737,Male,Hispanic,Under 18,Yolo County,20,10,2,0,9,41,30,2
+92738,Male,Hispanic,Under 18,Yuba County,8,0,1,0,4,13,18,0
+92739,Male,Hispanic,18 to 19,Alameda County,69,44,13,2,54,182,240,0
+92740,Male,Hispanic,18 to 19,Alpine County,0,0,0,0,0,0,0,0
+92741,Male,Hispanic,18 to 19,Amador County,0,0,0,0,0,0,3,0
+92742,Male,Hispanic,18 to 19,Butte County,7,2,0,0,7,16,63,0
+92743,Male,Hispanic,18 to 19,Calaveras County,2,0,1,0,0,3,4,0
+92744,Male,Hispanic,18 to 19,Colusa County,1,2,0,1,1,5,5,0
+92745,Male,Hispanic,18 to 19,Contra Costa County,37,27,7,2,43,116,104,0
+92746,Male,Hispanic,18 to 19,Del Norte County,0,0,0,0,0,0,1,0
+92747,Male,Hispanic,18 to 19,El Dorado County,1,2,1,0,2,6,10,0
+92748,Male,Hispanic,18 to 19,Fresno County,93,47,14,9,101,264,409,0
+92749,Male,Hispanic,18 to 19,Glenn County,2,0,0,0,0,2,11,0
+92750,Male,Hispanic,18 to 19,Humboldt County,2,1,0,0,3,6,14,0
+92751,Male,Hispanic,18 to 19,Imperial County,15,7,9,3,4,38,108,0
+92752,Male,Hispanic,18 to 19,Inyo County,1,0,0,0,0,1,7,0
+92753,Male,Hispanic,18 to 19,Kern County,80,48,21,5,90,244,384,0
+92754,Male,Hispanic,18 to 19,Kings County,21,7,2,1,17,48,85,0
+92755,Male,Hispanic,18 to 19,Lake County,2,0,5,0,0,7,7,0
+92756,Male,Hispanic,18 to 19,Lassen County,0,0,0,0,0,0,2,0
+92757,Male,Hispanic,18 to 19,Los Angeles County,714,469,119,29,603,1934,2482,0
+92758,Male,Hispanic,18 to 19,Madera County,16,4,4,0,15,39,118,0
+92759,Male,Hispanic,18 to 19,Marin County,12,5,4,1,8,30,72,0
+92760,Male,Hispanic,18 to 19,Mariposa County,0,0,0,0,1,1,0,0
+92761,Male,Hispanic,18 to 19,Mendocino County,4,2,1,1,8,16,32,0
+92762,Male,Hispanic,18 to 19,Merced County,34,15,3,1,47,100,129,0
+92763,Male,Hispanic,18 to 19,Modoc County,0,0,0,0,0,0,1,0
+92764,Male,Hispanic,18 to 19,Mono County,0,0,0,0,0,0,1,0
+92765,Male,Hispanic,18 to 19,Monterey County,53,26,11,5,35,130,244,0
+92766,Male,Hispanic,18 to 19,Napa County,10,4,4,0,14,32,44,0
+92767,Male,Hispanic,18 to 19,Nevada County,3,0,0,0,0,3,4,0
+92768,Male,Hispanic,18 to 19,Orange County,164,103,27,10,192,496,1055,0
+92769,Male,Hispanic,18 to 19,Placer County,4,1,4,2,5,16,23,0
+92770,Male,Hispanic,18 to 19,Plumas County,0,0,0,0,0,0,2,0
+92771,Male,Hispanic,18 to 19,Riverside County,121,93,26,3,105,348,470,0
+92772,Male,Hispanic,18 to 19,Sacramento County,36,21,20,2,68,147,125,0
+92773,Male,Hispanic,18 to 19,San Benito County,1,0,2,0,6,9,30,0
+92774,Male,Hispanic,18 to 19,San Bernardino County,174,119,39,10,88,430,630,0
+92775,Male,Hispanic,18 to 19,San Diego County,128,71,20,0,124,343,534,0
+92776,Male,Hispanic,18 to 19,San Francisco County,0,0,3,0,0,3,9,0
+92777,Male,Hispanic,18 to 19,San Joaquin County,55,26,19,2,51,153,174,0
+92778,Male,Hispanic,18 to 19,San Luis Obispo County,11,7,2,0,9,29,71,0
+92779,Male,Hispanic,18 to 19,San Mateo County,28,20,5,3,30,86,194,0
+92780,Male,Hispanic,18 to 19,Santa Barbara County,41,25,9,4,30,109,313,0
+92781,Male,Hispanic,18 to 19,Santa Clara County,117,82,19,4,63,285,366,0
+92782,Male,Hispanic,18 to 19,Santa Cruz County,17,14,3,2,30,66,114,0
+92783,Male,Hispanic,18 to 19,Shasta County,1,0,3,0,2,6,4,0
+92784,Male,Hispanic,18 to 19,Siskiyou County,0,0,0,0,0,0,5,0
+92785,Male,Hispanic,18 to 19,Solano County,12,8,8,1,15,44,85,0
+92786,Male,Hispanic,18 to 19,Sonoma County,25,14,4,0,12,55,114,0
+92787,Male,Hispanic,18 to 19,Stanislaus County,44,16,11,5,34,110,150,0
+92788,Male,Hispanic,18 to 19,Sutter County,10,3,4,0,5,22,25,0
+92789,Male,Hispanic,18 to 19,Tehama County,0,0,0,0,0,0,11,0
+92790,Male,Hispanic,18 to 19,Trinity County,0,0,1,0,1,2,0,0
+92791,Male,Hispanic,18 to 19,Tulare County,79,43,10,7,63,202,270,0
+92792,Male,Hispanic,18 to 19,Tuolumne County,1,2,0,0,0,3,2,0
+92793,Male,Hispanic,18 to 19,Ventura County,60,34,10,4,55,163,353,0
+92794,Male,Hispanic,18 to 19,Yolo County,12,1,3,1,11,28,43,0
+92795,Male,Hispanic,18 to 19,Yuba County,8,0,0,0,1,9,17,0
+92796,Male,Hispanic,20 to 29,Alameda County,310,210,100,10,247,877,2504,0
+92797,Male,Hispanic,20 to 29,Alpine County,0,0,0,0,0,0,1,0
+92798,Male,Hispanic,20 to 29,Amador County,1,2,1,0,3,7,30,0
+92799,Male,Hispanic,20 to 29,Butte County,28,12,12,1,29,82,319,0
+92800,Male,Hispanic,20 to 29,Calaveras County,5,1,1,0,4,11,29,0
+92801,Male,Hispanic,20 to 29,Colusa County,11,6,1,0,13,31,94,0
+92802,Male,Hispanic,20 to 29,Contra Costa County,223,193,64,12,237,729,1328,0
+92803,Male,Hispanic,20 to 29,Del Norte County,3,2,0,0,2,7,25,0
+92804,Male,Hispanic,20 to 29,El Dorado County,15,11,5,0,17,48,115,0
+92805,Male,Hispanic,20 to 29,Fresno County,781,284,103,31,587,1786,4117,0
+92806,Male,Hispanic,20 to 29,Glenn County,9,4,3,0,9,25,80,0
+92807,Male,Hispanic,20 to 29,Humboldt County,11,4,4,0,10,29,127,0
+92808,Male,Hispanic,20 to 29,Imperial County,84,57,24,4,64,233,981,0
+92809,Male,Hispanic,20 to 29,Inyo County,4,1,0,0,3,8,32,0
+92810,Male,Hispanic,20 to 29,Kern County,580,412,111,10,524,1637,3482,0
+92811,Male,Hispanic,20 to 29,Kings County,123,51,16,4,123,317,768,0
+92812,Male,Hispanic,20 to 29,Lake County,21,1,18,0,12,52,132,0
+92813,Male,Hispanic,20 to 29,Lassen County,3,1,0,1,3,8,11,0
+92814,Male,Hispanic,20 to 29,Los Angeles County,4625,3516,987,125,3697,12950,28409,0
+92815,Male,Hispanic,20 to 29,Madera County,119,29,34,7,105,294,844,0
+92816,Male,Hispanic,20 to 29,Marin County,56,23,8,4,26,117,452,0
+92817,Male,Hispanic,20 to 29,Mariposa County,0,0,0,0,2,2,15,0
+92818,Male,Hispanic,20 to 29,Mendocino County,31,9,9,0,30,79,200,0
+92819,Male,Hispanic,20 to 29,Merced County,178,68,29,9,196,480,1163,0
+92820,Male,Hispanic,20 to 29,Modoc County,1,1,0,0,3,5,3,0
+92821,Male,Hispanic,20 to 29,Mono County,6,3,2,0,0,11,20,0
+92822,Male,Hispanic,20 to 29,Monterey County,299,155,63,14,235,766,1820,0
+92823,Male,Hispanic,20 to 29,Napa County,38,12,10,0,64,124,427,0
+92824,Male,Hispanic,20 to 29,Nevada County,3,0,3,0,6,12,48,0
+92825,Male,Hispanic,20 to 29,Orange County,1024,801,272,57,922,3076,9276,0
+92826,Male,Hispanic,20 to 29,Placer County,38,10,10,4,33,95,232,0
+92827,Male,Hispanic,20 to 29,Plumas County,0,0,0,0,0,0,7,0
+92828,Male,Hispanic,20 to 29,Riverside County,824,672,228,24,668,2416,4817,0
+92829,Male,Hispanic,20 to 29,Sacramento County,284,164,86,4,283,821,1133,0
+92830,Male,Hispanic,20 to 29,San Benito County,41,7,6,4,32,90,245,0
+92831,Male,Hispanic,20 to 29,San Bernardino County,1266,1137,413,44,855,3715,7144,0
+92832,Male,Hispanic,20 to 29,San Diego County,992,490,230,8,900,2620,5868,0
+92833,Male,Hispanic,20 to 29,San Francisco County,2,7,3,0,7,19,135,0
+92834,Male,Hispanic,20 to 29,San Joaquin County,342,106,69,13,263,793,1378,0
+92835,Male,Hispanic,20 to 29,San Luis Obispo County,54,25,11,2,42,134,768,0
+92836,Male,Hispanic,20 to 29,San Mateo County,179,106,34,10,115,444,1714,0
+92837,Male,Hispanic,20 to 29,Santa Barbara County,228,110,72,12,137,559,1773,0
+92838,Male,Hispanic,20 to 29,Santa Clara County,588,338,130,33,407,1496,3506,0
+92839,Male,Hispanic,20 to 29,Santa Cruz County,93,52,17,3,104,269,812,0
+92840,Male,Hispanic,20 to 29,Shasta County,7,6,1,0,12,26,92,0
+92841,Male,Hispanic,20 to 29,Sierra County,0,0,0,0,0,0,0,0
+92842,Male,Hispanic,20 to 29,Siskiyou County,8,2,2,0,3,15,26,0
+92843,Male,Hispanic,20 to 29,Solano County,98,39,36,6,76,255,583,0
+92844,Male,Hispanic,20 to 29,Sonoma County,145,42,31,8,96,322,1052,0
+92845,Male,Hispanic,20 to 29,Stanislaus County,279,106,73,14,252,724,1407,0
+92846,Male,Hispanic,20 to 29,Sutter County,31,12,9,3,37,92,271,0
+92847,Male,Hispanic,20 to 29,Tehama County,11,4,2,2,11,30,125,0
+92848,Male,Hispanic,20 to 29,Trinity County,2,0,4,0,7,13,5,0
+92849,Male,Hispanic,20 to 29,Tulare County,508,235,148,20,358,1269,2470,0
+92850,Male,Hispanic,20 to 29,Tuolumne County,8,4,2,0,11,25,55,0
+92851,Male,Hispanic,20 to 29,Ventura County,318,249,129,7,464,1167,3981,0
+92852,Male,Hispanic,20 to 29,Yolo County,64,33,12,1,49,159,391,0
+92853,Male,Hispanic,20 to 29,Yuba County,25,10,7,2,22,66,107,0
+92854,Male,Hispanic,30 to 39,Alameda County,192,164,68,14,157,595,1950,0
+92855,Male,Hispanic,30 to 39,Alpine County,0,0,0,0,0,0,1,0
+92856,Male,Hispanic,30 to 39,Amador County,0,0,0,1,2,3,13,0
+92857,Male,Hispanic,30 to 39,Butte County,25,10,12,0,18,65,268,0
+92858,Male,Hispanic,30 to 39,Calaveras County,2,1,0,0,3,6,11,0
+92859,Male,Hispanic,30 to 39,Colusa County,10,2,0,1,7,20,79,0
+92860,Male,Hispanic,30 to 39,Contra Costa County,166,152,70,15,136,539,1042,0
+92861,Male,Hispanic,30 to 39,Del Norte County,3,0,2,0,0,5,12,0
+92862,Male,Hispanic,30 to 39,El Dorado County,10,8,3,1,14,36,86,0
+92863,Male,Hispanic,30 to 39,Fresno County,616,277,96,29,430,1448,3806,0
+92864,Male,Hispanic,30 to 39,Glenn County,8,1,3,0,11,23,42,0
+92865,Male,Hispanic,30 to 39,Humboldt County,6,6,4,1,9,26,117,0
+92866,Male,Hispanic,30 to 39,Imperial County,77,65,27,8,70,247,797,0
+92867,Male,Hispanic,30 to 39,Inyo County,8,0,0,0,7,15,20,0
+92868,Male,Hispanic,30 to 39,Kern County,362,280,109,14,358,1123,2613,0
+92869,Male,Hispanic,30 to 39,Kings County,80,30,10,4,99,223,772,0
+92870,Male,Hispanic,30 to 39,Lake County,17,6,15,0,18,56,104,0
+92871,Male,Hispanic,30 to 39,Lassen County,2,2,0,0,3,7,14,0
+92872,Male,Hispanic,30 to 39,Los Angeles County,3190,2248,916,148,2344,8846,21014,0
+92873,Male,Hispanic,30 to 39,Madera County,81,21,25,5,78,210,608,0
+92874,Male,Hispanic,30 to 39,Marin County,34,17,5,5,17,78,316,0
+92875,Male,Hispanic,30 to 39,Mariposa County,1,1,0,0,2,4,12,0
+92876,Male,Hispanic,30 to 39,Mendocino County,27,7,7,0,12,53,139,0
+92877,Male,Hispanic,30 to 39,Merced County,139,58,28,14,118,357,905,0
+92878,Male,Hispanic,30 to 39,Modoc County,1,0,1,0,2,4,3,0
+92879,Male,Hispanic,30 to 39,Mono County,2,2,1,0,1,6,13,0
+92880,Male,Hispanic,30 to 39,Monterey County,188,125,40,9,142,504,1299,0
+92881,Male,Hispanic,30 to 39,Napa County,33,15,5,3,37,93,245,0
+92882,Male,Hispanic,30 to 39,Nevada County,8,0,0,0,4,12,32,0
+92883,Male,Hispanic,30 to 39,Orange County,622,527,212,51,481,1893,6151,0
+92884,Male,Hispanic,30 to 39,Placer County,32,21,13,1,28,95,205,0
+92885,Male,Hispanic,30 to 39,Plumas County,0,2,0,0,2,4,6,0
+92886,Male,Hispanic,30 to 39,Riverside County,650,431,191,15,466,1753,3439,0
+92887,Male,Hispanic,30 to 39,Sacramento County,225,146,57,12,184,624,971,0
+92888,Male,Hispanic,30 to 39,San Benito County,34,7,12,1,24,78,190,0
+92889,Male,Hispanic,30 to 39,San Bernardino County,1006,788,378,40,555,2767,5559,0
+92890,Male,Hispanic,30 to 39,San Diego County,664,327,175,28,537,1731,4009,0
+92891,Male,Hispanic,30 to 39,San Francisco County,3,4,3,0,4,14,102,0
+92892,Male,Hispanic,30 to 39,San Joaquin County,259,108,55,15,182,619,1199,0
+92893,Male,Hispanic,30 to 39,San Luis Obispo County,34,18,5,2,24,83,508,0
+92894,Male,Hispanic,30 to 39,San Mateo County,128,51,16,9,67,271,1247,0
+92895,Male,Hispanic,30 to 39,Santa Barbara County,124,70,50,4,101,349,1208,0
+92896,Male,Hispanic,30 to 39,Santa Clara County,493,293,103,33,322,1244,3116,0
+92897,Male,Hispanic,30 to 39,Santa Cruz County,85,53,23,6,85,252,686,0
+92898,Male,Hispanic,30 to 39,Shasta County,8,5,7,1,16,37,108,0
+92899,Male,Hispanic,30 to 39,Siskiyou County,5,0,4,0,7,16,26,0
+92900,Male,Hispanic,30 to 39,Solano County,92,46,26,3,64,231,529,0
+92901,Male,Hispanic,30 to 39,Sonoma County,120,54,20,8,64,266,815,0
+92902,Male,Hispanic,30 to 39,Stanislaus County,258,111,87,11,213,680,1162,0
+92903,Male,Hispanic,30 to 39,Sutter County,29,11,1,3,23,67,180,0
+92904,Male,Hispanic,30 to 39,Tehama County,10,4,1,1,11,27,98,0
+92905,Male,Hispanic,30 to 39,Trinity County,0,1,1,0,2,4,2,0
+92906,Male,Hispanic,30 to 39,Tulare County,341,222,190,21,266,1040,2236,0
+92907,Male,Hispanic,30 to 39,Tuolumne County,4,5,1,0,6,16,38,0
+92908,Male,Hispanic,30 to 39,Ventura County,292,167,106,10,341,916,3248,0
+92909,Male,Hispanic,30 to 39,Yolo County,36,21,7,6,41,111,328,0
+92910,Male,Hispanic,30 to 39,Yuba County,13,6,10,1,21,51,90,0
+92911,Male,Hispanic,40 to 69,Alameda County,171,121,58,21,97,468,1708,0
+92912,Male,Hispanic,40 to 69,Amador County,1,0,0,0,3,4,16,0
+92913,Male,Hispanic,40 to 69,Butte County,24,9,3,2,18,56,209,0
+92914,Male,Hispanic,40 to 69,Calaveras County,3,0,1,0,3,7,24,0
+92915,Male,Hispanic,40 to 69,Colusa County,7,4,0,0,8,19,70,0
+92916,Male,Hispanic,40 to 69,Contra Costa County,146,60,46,15,98,365,834,0
+92917,Male,Hispanic,40 to 69,Del Norte County,2,0,0,0,0,2,10,0
+92918,Male,Hispanic,40 to 69,El Dorado County,4,4,0,2,7,17,54,0
+92919,Male,Hispanic,40 to 69,Fresno County,383,141,76,44,322,966,4138,0
+92920,Male,Hispanic,40 to 69,Glenn County,5,0,1,1,2,9,51,0
+92921,Male,Hispanic,40 to 69,Humboldt County,4,2,3,2,4,15,49,0
+92922,Male,Hispanic,40 to 69,Imperial County,68,35,33,6,39,181,804,0
+92923,Male,Hispanic,40 to 69,Inyo County,4,0,0,0,2,6,20,0
+92924,Male,Hispanic,40 to 69,Kern County,213,156,64,34,203,670,2039,0
+92925,Male,Hispanic,40 to 69,Kings County,42,21,13,5,90,171,667,0
+92926,Male,Hispanic,40 to 69,Lake County,12,4,17,0,6,39,96,0
+92927,Male,Hispanic,40 to 69,Lassen County,1,1,0,0,1,3,15,0
+92928,Male,Hispanic,40 to 69,Los Angeles County,2344,1267,740,217,1593,6161,19178,0
+92929,Male,Hispanic,40 to 69,Madera County,49,9,14,4,47,123,647,0
+92930,Male,Hispanic,40 to 69,Marin County,23,8,5,1,8,45,234,0
+92931,Male,Hispanic,40 to 69,Mariposa County,0,5,2,0,0,7,4,0
+92932,Male,Hispanic,40 to 69,Mendocino County,8,2,6,2,2,20,93,0
+92933,Male,Hispanic,40 to 69,Merced County,102,33,15,9,69,228,948,0
+92934,Male,Hispanic,40 to 69,Modoc County,2,0,2,0,0,4,7,0
+92935,Male,Hispanic,40 to 69,Mono County,1,0,0,0,0,1,9,0
+92936,Male,Hispanic,40 to 69,Monterey County,112,65,40,14,87,318,1191,0
+92937,Male,Hispanic,40 to 69,Napa County,17,9,4,2,19,51,220,0
+92938,Male,Hispanic,40 to 69,Nevada County,3,1,1,0,1,6,25,0
+92939,Male,Hispanic,40 to 69,Orange County,388,204,141,55,316,1104,5199,0
+92940,Male,Hispanic,40 to 69,Placer County,8,8,5,2,20,43,191,0
+92941,Male,Hispanic,40 to 69,Plumas County,0,0,0,0,0,0,3,0
+92942,Male,Hispanic,40 to 69,Riverside County,373,192,126,28,273,992,2961,0
+92943,Male,Hispanic,40 to 69,Sacramento County,183,93,71,10,150,507,1056,0
+92944,Male,Hispanic,40 to 69,San Benito County,32,3,13,6,16,70,186,0
+92945,Male,Hispanic,40 to 69,San Bernardino County,602,378,274,63,376,1693,4724,0
+92946,Male,Hispanic,40 to 69,San Diego County,412,176,154,30,426,1198,4033,0
+92947,Male,Hispanic,40 to 69,San Francisco County,2,2,3,0,5,12,89,0
+92948,Male,Hispanic,40 to 69,San Joaquin County,193,52,35,24,110,414,1063,0
+92949,Male,Hispanic,40 to 69,San Luis Obispo County,41,5,3,0,28,77,484,0
+92950,Male,Hispanic,40 to 69,San Mateo County,87,28,17,15,36,183,895,0
+92951,Male,Hispanic,40 to 69,Santa Barbara County,99,36,57,6,75,273,1273,0
+92952,Male,Hispanic,40 to 69,Santa Clara County,367,190,90,67,251,965,3074,0
+92953,Male,Hispanic,40 to 69,Santa Cruz County,44,29,8,4,45,130,527,0
+92954,Male,Hispanic,40 to 69,Shasta County,11,4,4,1,4,24,124,0
+92955,Male,Hispanic,40 to 69,Sierra County,0,0,0,0,0,0,2,0
+92956,Male,Hispanic,40 to 69,Siskiyou County,1,0,2,0,6,9,20,0
+92957,Male,Hispanic,40 to 69,Solano County,49,13,22,11,34,129,448,0
+92958,Male,Hispanic,40 to 69,Sonoma County,67,21,12,8,37,145,610,0
+92959,Male,Hispanic,40 to 69,Stanislaus County,161,47,61,15,147,431,1095,0
+92960,Male,Hispanic,40 to 69,Sutter County,22,7,4,7,9,49,196,0
+92961,Male,Hispanic,40 to 69,Tehama County,3,4,0,0,3,10,48,0
+92962,Male,Hispanic,40 to 69,Trinity County,0,0,2,0,1,3,3,0
+92963,Male,Hispanic,40 to 69,Tulare County,240,114,150,19,177,700,1910,0
+92964,Male,Hispanic,40 to 69,Tuolumne County,6,1,6,0,5,18,48,0
+92965,Male,Hispanic,40 to 69,Ventura County,170,103,84,18,197,572,2837,0
+92966,Male,Hispanic,40 to 69,Yolo County,39,17,14,2,40,112,350,0
+92967,Male,Hispanic,40 to 69,Yuba County,18,1,10,1,10,40,78,0
+92968,Male,Hispanic,70 and over,Alameda County,0,0,1,0,1,2,4,0
+92969,Male,Hispanic,70 and over,Amador County,0,0,0,0,0,0,0,0
+92970,Male,Hispanic,70 and over,Butte County,0,1,0,0,0,1,3,0
+92971,Male,Hispanic,70 and over,Colusa County,0,0,0,0,0,0,1,0
+92972,Male,Hispanic,70 and over,Contra Costa County,1,0,0,0,1,2,7,0
+92973,Male,Hispanic,70 and over,El Dorado County,0,0,0,0,0,0,1,0
+92974,Male,Hispanic,70 and over,Fresno County,3,0,2,4,1,10,62,0
+92975,Male,Hispanic,70 and over,Glenn County,0,0,0,0,0,0,1,0
+92976,Male,Hispanic,70 and over,Humboldt County,0,0,0,0,0,0,1,0
+92977,Male,Hispanic,70 and over,Imperial County,0,0,0,0,1,1,5,0
+92978,Male,Hispanic,70 and over,Inyo County,1,0,0,0,0,1,3,0
+92979,Male,Hispanic,70 and over,Kern County,7,1,0,1,2,11,37,0
+92980,Male,Hispanic,70 and over,Kings County,1,1,0,0,1,3,7,0
+92981,Male,Hispanic,70 and over,Lake County,0,0,0,0,0,0,1,0
+92982,Male,Hispanic,70 and over,Los Angeles County,40,0,11,14,8,73,210,0
+92983,Male,Hispanic,70 and over,Madera County,0,1,0,1,0,2,12,0
+92984,Male,Hispanic,70 and over,Marin County,0,0,0,0,0,0,1,0
+92985,Male,Hispanic,70 and over,Merced County,4,1,0,2,2,9,21,0
+92986,Male,Hispanic,70 and over,Modoc County,0,0,0,0,0,0,0,0
+92987,Male,Hispanic,70 and over,Mono County,1,0,0,0,0,1,1,0
+92988,Male,Hispanic,70 and over,Monterey County,1,0,0,1,1,3,20,0
+92989,Male,Hispanic,70 and over,Napa County,0,0,1,0,0,1,3,0
+92990,Male,Hispanic,70 and over,Orange County,0,0,0,6,5,11,41,0
+92991,Male,Hispanic,70 and over,Placer County,0,0,0,0,0,0,0,0
+92992,Male,Hispanic,70 and over,Riverside County,2,0,0,0,1,3,36,0
+92993,Male,Hispanic,70 and over,Sacramento County,0,0,0,2,0,2,16,0
+92994,Male,Hispanic,70 and over,San Benito County,0,0,0,0,0,0,1,0
+92995,Male,Hispanic,70 and over,San Bernardino County,7,1,3,4,1,16,48,0
+92996,Male,Hispanic,70 and over,San Diego County,9,0,0,0,4,13,78,0
+92997,Male,Hispanic,70 and over,San Francisco County,0,0,0,0,0,0,3,0
+92998,Male,Hispanic,70 and over,San Joaquin County,2,0,0,1,1,4,16,0
+92999,Male,Hispanic,70 and over,San Luis Obispo County,0,0,0,2,0,2,5,0
+93000,Male,Hispanic,70 and over,San Mateo County,1,0,0,0,0,1,9,0
+93001,Male,Hispanic,70 and over,Santa Barbara County,2,0,0,2,0,4,19,0
+93002,Male,Hispanic,70 and over,Santa Clara County,5,2,0,6,0,13,50,0
+93003,Male,Hispanic,70 and over,Santa Cruz County,0,0,0,0,1,1,2,0
+93004,Male,Hispanic,70 and over,Shasta County,0,0,0,0,0,0,1,0
+93005,Male,Hispanic,70 and over,Solano County,0,0,0,0,0,0,2,0
+93006,Male,Hispanic,70 and over,Sonoma County,0,0,0,1,0,1,4,0
+93007,Male,Hispanic,70 and over,Stanislaus County,1,0,0,0,1,2,14,0
+93008,Male,Hispanic,70 and over,Sutter County,0,0,0,0,0,0,1,0
+93009,Male,Hispanic,70 and over,Tehama County,0,0,0,0,0,0,1,0
+93010,Male,Hispanic,70 and over,Tulare County,1,2,2,2,1,8,29,0
+93011,Male,Hispanic,70 and over,Tuolumne County,0,0,0,0,2,2,0,0
+93012,Male,Hispanic,70 and over,Ventura County,1,2,0,1,1,5,14,0
+93013,Male,Hispanic,70 and over,Yolo County,0,0,0,0,0,0,7,0
+93014,Male,Hispanic,70 and over,Yuba County,0,0,0,0,0,0,1,0
+93015,Male,Other,Under 18,Alameda County,19,11,3,1,6,40,38,4
+93016,Male,Other,Under 18,Amador County,0,1,0,0,0,1,1,0
+93017,Male,Other,Under 18,Butte County,4,1,0,0,1,6,6,0
+93018,Male,Other,Under 18,Calaveras County,0,0,0,0,0,0,5,0
+93019,Male,Other,Under 18,Colusa County,0,0,0,0,0,0,1,0
+93020,Male,Other,Under 18,Contra Costa County,6,2,0,0,5,13,28,0
+93021,Male,Other,Under 18,Del Norte County,0,0,0,0,2,2,6,0
+93022,Male,Other,Under 18,El Dorado County,1,0,0,0,0,1,11,0
+93023,Male,Other,Under 18,Fresno County,9,5,0,0,8,22,55,0
+93024,Male,Other,Under 18,Glenn County,0,0,0,0,0,0,2,0
+93025,Male,Other,Under 18,Humboldt County,1,1,0,0,3,5,8,2
+93026,Male,Other,Under 18,Imperial County,1,1,0,0,2,4,6,0
+93027,Male,Other,Under 18,Inyo County,0,0,1,0,2,3,7,0
+93028,Male,Other,Under 18,Kern County,2,2,0,0,1,5,59,5
+93029,Male,Other,Under 18,Kings County,2,0,0,0,0,2,14,0
+93030,Male,Other,Under 18,Lake County,0,1,0,0,0,1,2,0
+93031,Male,Other,Under 18,Lassen County,0,1,0,0,0,1,3,0
+93032,Male,Other,Under 18,Los Angeles County,50,13,1,6,12,82,119,16
+93033,Male,Other,Under 18,Madera County,0,0,0,0,2,2,2,0
+93034,Male,Other,Under 18,Marin County,2,3,0,0,1,6,16,0
+93035,Male,Other,Under 18,Mendocino County,1,0,1,0,2,4,6,0
+93036,Male,Other,Under 18,Merced County,1,1,0,0,0,2,10,6
+93037,Male,Other,Under 18,Modoc County,1,0,0,0,0,1,0,0
+93038,Male,Other,Under 18,Monterey County,0,2,0,0,0,2,6,2
+93039,Male,Other,Under 18,Napa County,3,0,0,0,0,3,4,0
+93040,Male,Other,Under 18,Nevada County,0,0,0,0,1,1,1,0
+93041,Male,Other,Under 18,Orange County,27,15,3,4,6,55,80,8
+93042,Male,Other,Under 18,Placer County,1,0,0,1,1,3,3,0
+93043,Male,Other,Under 18,Plumas County,0,1,0,0,0,1,0,0
+93044,Male,Other,Under 18,Riverside County,4,4,1,0,3,12,36,2
+93045,Male,Other,Under 18,Sacramento County,16,8,0,2,5,31,34,2
+93046,Male,Other,Under 18,San Benito County,0,0,0,0,0,0,2,0
+93047,Male,Other,Under 18,San Bernardino County,14,9,0,3,8,34,41,22
+93048,Male,Other,Under 18,San Diego County,35,23,2,2,20,82,87,8
+93049,Male,Other,Under 18,San Francisco County,7,1,2,0,122,132,98,0
+93050,Male,Other,Under 18,San Joaquin County,20,11,2,0,9,42,50,1
+93051,Male,Other,Under 18,San Luis Obispo County,4,2,0,0,1,7,17,1
+93052,Male,Other,Under 18,San Mateo County,22,18,0,1,11,52,60,0
+93053,Male,Other,Under 18,Santa Barbara County,2,0,0,0,0,2,25,0
+93054,Male,Other,Under 18,Santa Clara County,33,38,4,4,7,86,80,7
+93055,Male,Other,Under 18,Santa Cruz County,1,0,1,0,0,2,6,0
+93056,Male,Other,Under 18,Shasta County,1,0,0,0,1,2,1,3
+93057,Male,Other,Under 18,Siskiyou County,0,0,0,0,0,0,2,0
+93058,Male,Other,Under 18,Solano County,6,4,0,0,4,14,38,1
+93059,Male,Other,Under 18,Sonoma County,2,7,1,0,4,14,24,0
+93060,Male,Other,Under 18,Stanislaus County,7,5,3,1,1,17,7,0
+93061,Male,Other,Under 18,Sutter County,0,1,0,0,0,1,6,0
+93062,Male,Other,Under 18,Tehama County,0,0,0,0,0,0,4,0
+93063,Male,Other,Under 18,Tulare County,3,2,0,0,3,8,12,11
+93064,Male,Other,Under 18,Tuolumne County,1,1,0,0,1,3,0,0
+93065,Male,Other,Under 18,Ventura County,2,2,1,0,1,6,17,0
+93066,Male,Other,Under 18,Yolo County,2,0,1,0,1,4,6,0
+93067,Male,Other,Under 18,Yuba County,2,0,0,0,0,2,1,0
+93068,Male,Other,18 to 19,Alameda County,18,8,2,0,6,34,86,0
+93069,Male,Other,18 to 19,Alpine County,0,0,0,0,0,0,1,0
+93070,Male,Other,18 to 19,Amador County,0,0,0,0,0,0,1,0
+93071,Male,Other,18 to 19,Butte County,0,0,0,0,1,1,18,0
+93072,Male,Other,18 to 19,Calaveras County,0,0,0,0,0,0,1,0
+93073,Male,Other,18 to 19,Colusa County,0,0,0,0,0,0,2,0
+93074,Male,Other,18 to 19,Contra Costa County,4,2,2,0,3,11,33,0
+93075,Male,Other,18 to 19,Del Norte County,3,0,1,0,0,4,4,0
+93076,Male,Other,18 to 19,El Dorado County,0,1,0,0,0,1,2,0
+93077,Male,Other,18 to 19,Fresno County,10,2,0,0,2,14,32,0
+93078,Male,Other,18 to 19,Glenn County,0,0,0,1,0,1,3,0
+93079,Male,Other,18 to 19,Humboldt County,0,1,2,1,3,7,10,0
+93080,Male,Other,18 to 19,Imperial County,1,0,0,0,0,1,1,0
+93081,Male,Other,18 to 19,Inyo County,0,0,1,0,1,2,13,0
+93082,Male,Other,18 to 19,Kern County,2,1,0,0,2,5,50,0
+93083,Male,Other,18 to 19,Kings County,1,1,0,0,0,2,7,0
+93084,Male,Other,18 to 19,Lake County,0,0,1,0,3,4,3,0
+93085,Male,Other,18 to 19,Lassen County,1,0,0,1,0,2,0,0
+93086,Male,Other,18 to 19,Los Angeles County,28,15,6,2,19,70,201,0
+93087,Male,Other,18 to 19,Madera County,0,0,0,0,0,0,3,0
+93088,Male,Other,18 to 19,Marin County,2,2,2,0,1,7,8,0
+93089,Male,Other,18 to 19,Mendocino County,2,2,0,0,4,8,4,0
+93090,Male,Other,18 to 19,Merced County,1,1,1,0,2,5,5,0
+93091,Male,Other,18 to 19,Modoc County,0,0,0,0,0,0,2,0
+93092,Male,Other,18 to 19,Monterey County,3,1,1,0,1,6,13,0
+93093,Male,Other,18 to 19,Napa County,0,0,0,0,1,1,2,0
+93094,Male,Other,18 to 19,Nevada County,0,0,0,0,0,0,1,0
+93095,Male,Other,18 to 19,Orange County,14,10,6,1,7,38,128,0
+93096,Male,Other,18 to 19,Placer County,1,0,0,0,2,3,13,0
+93097,Male,Other,18 to 19,Plumas County,0,0,0,0,0,0,1,0
+93098,Male,Other,18 to 19,Riverside County,8,1,2,1,7,19,26,0
+93099,Male,Other,18 to 19,Sacramento County,8,8,3,0,10,29,36,0
+93100,Male,Other,18 to 19,San Benito County,0,0,0,0,0,0,1,0
+93101,Male,Other,18 to 19,San Bernardino County,5,10,0,1,8,24,28,0
+93102,Male,Other,18 to 19,San Diego County,18,11,2,0,8,39,81,0
+93103,Male,Other,18 to 19,San Francisco County,14,4,6,1,13,38,15,0
+93104,Male,Other,18 to 19,San Joaquin County,13,1,0,0,10,24,30,0
+93105,Male,Other,18 to 19,San Luis Obispo County,0,0,0,0,1,1,25,0
+93106,Male,Other,18 to 19,San Mateo County,17,5,3,1,6,32,59,0
+93107,Male,Other,18 to 19,Santa Barbara County,1,1,1,0,1,4,68,0
+93108,Male,Other,18 to 19,Santa Clara County,10,11,2,0,8,31,87,0
+93109,Male,Other,18 to 19,Santa Cruz County,2,1,0,0,1,4,7,0
+93110,Male,Other,18 to 19,Shasta County,0,0,0,0,0,0,5,0
+93111,Male,Other,18 to 19,Siskiyou County,2,0,2,0,0,4,3,0
+93112,Male,Other,18 to 19,Solano County,3,1,1,0,4,9,30,0
+93113,Male,Other,18 to 19,Sonoma County,5,1,0,0,4,10,17,0
+93114,Male,Other,18 to 19,Stanislaus County,1,0,0,0,2,3,8,0
+93115,Male,Other,18 to 19,Sutter County,0,1,1,0,0,2,5,0
+93116,Male,Other,18 to 19,Trinity County,0,0,0,0,0,0,2,0
+93117,Male,Other,18 to 19,Tulare County,4,1,1,0,2,8,5,0
+93118,Male,Other,18 to 19,Tuolumne County,1,0,1,0,1,3,4,0
+93119,Male,Other,18 to 19,Ventura County,0,1,0,0,0,1,11,0
+93120,Male,Other,18 to 19,Yolo County,0,0,0,0,0,0,5,0
+93121,Male,Other,18 to 19,Yuba County,0,1,0,0,0,1,0,0
+93122,Male,Other,20 to 29,Alameda County,113,62,30,8,58,271,757,0
+93123,Male,Other,20 to 29,Alpine County,1,1,0,0,0,2,2,0
+93124,Male,Other,20 to 29,Amador County,1,0,0,0,1,2,9,0
+93125,Male,Other,20 to 29,Butte County,11,4,2,1,10,28,117,0
+93126,Male,Other,20 to 29,Calaveras County,1,1,1,0,2,5,5,0
+93127,Male,Other,20 to 29,Colusa County,1,0,0,0,1,2,2,0
+93128,Male,Other,20 to 29,Contra Costa County,51,43,16,2,49,161,296,0
+93129,Male,Other,20 to 29,Del Norte County,7,3,2,0,2,14,34,0
+93130,Male,Other,20 to 29,El Dorado County,7,5,0,1,6,19,32,0
+93131,Male,Other,20 to 29,Fresno County,59,22,5,3,51,140,427,0
+93132,Male,Other,20 to 29,Glenn County,3,0,0,1,1,5,15,0
+93133,Male,Other,20 to 29,Humboldt County,10,13,3,0,12,38,95,0
+93134,Male,Other,20 to 29,Imperial County,1,0,0,1,5,7,24,0
+93135,Male,Other,20 to 29,Inyo County,9,0,1,0,17,27,59,0
+93136,Male,Other,20 to 29,Kern County,22,10,7,0,22,61,435,0
+93137,Male,Other,20 to 29,Kings County,9,3,2,2,16,32,48,0
+93138,Male,Other,20 to 29,Lake County,7,3,1,0,7,18,53,0
+93139,Male,Other,20 to 29,Lassen County,5,1,0,0,1,7,9,0
+93140,Male,Other,20 to 29,Los Angeles County,378,194,90,10,202,874,2084,0
+93141,Male,Other,20 to 29,Madera County,2,1,2,0,4,9,19,0
+93142,Male,Other,20 to 29,Marin County,5,4,2,0,3,14,51,0
+93143,Male,Other,20 to 29,Mariposa County,1,0,0,0,0,1,5,0
+93144,Male,Other,20 to 29,Mendocino County,12,10,1,0,13,36,52,0
+93145,Male,Other,20 to 29,Merced County,7,6,1,0,11,25,72,0
+93146,Male,Other,20 to 29,Modoc County,3,2,0,0,1,6,6,0
+93147,Male,Other,20 to 29,Mono County,3,0,1,0,1,5,6,0
+93148,Male,Other,20 to 29,Monterey County,7,4,4,0,3,18,64,0
+93149,Male,Other,20 to 29,Napa County,3,5,0,0,4,12,36,0
+93150,Male,Other,20 to 29,Nevada County,3,0,0,0,0,3,7,0
+93151,Male,Other,20 to 29,Orange County,134,91,44,5,80,354,1186,0
+93152,Male,Other,20 to 29,Placer County,10,8,4,1,12,35,75,0
+93153,Male,Other,20 to 29,Plumas County,2,0,1,0,1,4,20,0
+93154,Male,Other,20 to 29,Riverside County,49,33,9,0,25,116,262,0
+93155,Male,Other,20 to 29,Sacramento County,104,38,44,3,85,274,421,0
+93156,Male,Other,20 to 29,San Benito County,0,0,0,0,0,0,8,0
+93157,Male,Other,20 to 29,San Bernardino County,60,61,28,2,31,182,419,0
+93158,Male,Other,20 to 29,San Diego County,99,57,25,2,77,260,772,0
+93159,Male,Other,20 to 29,San Francisco County,79,35,38,2,99,253,310,0
+93160,Male,Other,20 to 29,San Joaquin County,34,14,6,1,51,106,252,0
+93161,Male,Other,20 to 29,San Luis Obispo County,13,5,0,1,6,25,126,0
+93162,Male,Other,20 to 29,San Mateo County,48,31,6,0,26,111,455,0
+93163,Male,Other,20 to 29,Santa Barbara County,18,2,5,0,5,30,173,0
+93164,Male,Other,20 to 29,Santa Clara County,86,72,30,9,68,265,675,0
+93165,Male,Other,20 to 29,Santa Cruz County,8,3,1,0,3,15,96,0
+93166,Male,Other,20 to 29,Shasta County,4,2,3,1,10,20,55,0
+93167,Male,Other,20 to 29,Sierra County,0,0,0,0,1,1,3,0
+93168,Male,Other,20 to 29,Siskiyou County,6,3,0,0,7,16,25,0
+93169,Male,Other,20 to 29,Solano County,28,21,10,1,22,82,192,0
+93170,Male,Other,20 to 29,Sonoma County,19,8,1,1,6,35,108,0
+93171,Male,Other,20 to 29,Stanislaus County,27,9,13,1,27,77,135,0
+93172,Male,Other,20 to 29,Sutter County,15,10,1,0,4,30,73,0
+93173,Male,Other,20 to 29,Tehama County,3,0,0,0,1,4,13,0
+93174,Male,Other,20 to 29,Trinity County,2,0,2,0,4,8,5,0
+93175,Male,Other,20 to 29,Tulare County,23,4,9,0,15,51,123,0
+93176,Male,Other,20 to 29,Tuolumne County,3,0,2,0,3,8,7,0
+93177,Male,Other,20 to 29,Ventura County,17,4,7,1,9,38,157,0
+93178,Male,Other,20 to 29,Yolo County,13,7,1,1,9,31,85,0
+93179,Male,Other,20 to 29,Yuba County,2,4,0,0,2,8,19,0
+93180,Male,Other,30 to 39,Alameda County,92,73,31,1,55,252,752,0
+93181,Male,Other,30 to 39,Alpine County,0,0,0,0,0,0,3,0
+93182,Male,Other,30 to 39,Amador County,1,2,1,0,6,10,11,0
+93183,Male,Other,30 to 39,Butte County,6,12,7,0,11,36,105,0
+93184,Male,Other,30 to 39,Calaveras County,1,0,2,0,1,4,8,0
+93185,Male,Other,30 to 39,Colusa County,1,0,0,0,6,7,14,0
+93186,Male,Other,30 to 39,Contra Costa County,67,54,18,1,46,186,286,0
+93187,Male,Other,30 to 39,Del Norte County,9,1,1,0,5,16,59,0
+93188,Male,Other,30 to 39,El Dorado County,6,5,0,0,7,18,30,0
+93189,Male,Other,30 to 39,Fresno County,75,27,9,8,45,164,368,0
+93190,Male,Other,30 to 39,Glenn County,1,1,0,0,4,6,17,0
+93191,Male,Other,30 to 39,Humboldt County,18,9,5,0,13,45,105,0
+93192,Male,Other,30 to 39,Imperial County,3,3,1,0,3,10,24,0
+93193,Male,Other,30 to 39,Inyo County,9,0,0,0,11,20,30,0
+93194,Male,Other,30 to 39,Kern County,28,14,10,0,33,85,350,0
+93195,Male,Other,30 to 39,Kings County,7,1,1,1,10,20,33,0
+93196,Male,Other,30 to 39,Lake County,10,2,6,1,2,21,60,0
+93197,Male,Other,30 to 39,Lassen County,2,1,1,0,3,7,16,0
+93198,Male,Other,30 to 39,Los Angeles County,359,251,87,10,185,892,2006,0
+93199,Male,Other,30 to 39,Madera County,2,0,2,0,2,6,31,0
+93200,Male,Other,30 to 39,Marin County,10,3,2,0,3,18,86,0
+93201,Male,Other,30 to 39,Mariposa County,1,0,0,0,0,1,2,0
+93202,Male,Other,30 to 39,Mendocino County,9,3,0,0,21,33,55,0
+93203,Male,Other,30 to 39,Merced County,8,14,2,0,16,40,77,0
+93204,Male,Other,30 to 39,Modoc County,3,0,0,0,3,6,7,0
+93205,Male,Other,30 to 39,Mono County,0,1,0,0,0,1,3,0
+93206,Male,Other,30 to 39,Monterey County,8,6,1,1,7,23,88,0
+93207,Male,Other,30 to 39,Napa County,6,7,1,0,6,20,34,0
+93208,Male,Other,30 to 39,Nevada County,0,0,0,0,0,0,5,0
+93209,Male,Other,30 to 39,Orange County,126,112,39,5,69,351,1069,0
+93210,Male,Other,30 to 39,Placer County,11,4,9,2,20,46,89,0
+93211,Male,Other,30 to 39,Plumas County,3,1,0,0,0,4,7,0
+93212,Male,Other,30 to 39,Riverside County,53,34,19,1,18,125,250,0
+93213,Male,Other,30 to 39,Sacramento County,109,63,61,10,80,323,496,0
+93214,Male,Other,30 to 39,San Benito County,2,1,0,0,3,6,10,0
+93215,Male,Other,30 to 39,San Bernardino County,83,60,30,2,31,206,393,0
+93216,Male,Other,30 to 39,San Diego County,126,62,38,1,91,318,711,0
+93217,Male,Other,30 to 39,San Francisco County,67,19,17,5,79,187,216,0
+93218,Male,Other,30 to 39,San Joaquin County,56,30,13,1,50,150,212,0
+93219,Male,Other,30 to 39,San Luis Obispo County,7,4,2,0,6,19,111,0
+93220,Male,Other,30 to 39,San Mateo County,57,34,13,2,32,138,440,0
+93221,Male,Other,30 to 39,Santa Barbara County,6,8,4,1,8,27,84,0
+93222,Male,Other,30 to 39,Santa Clara County,110,57,20,9,54,250,698,0
+93223,Male,Other,30 to 39,Santa Cruz County,4,3,0,0,6,13,52,0
+93224,Male,Other,30 to 39,Shasta County,13,5,4,0,12,34,84,0
+93225,Male,Other,30 to 39,Sierra County,0,3,0,0,2,5,4,0
+93226,Male,Other,30 to 39,Siskiyou County,7,1,3,0,6,17,54,0
+93227,Male,Other,30 to 39,Solano County,29,25,3,0,23,80,152,0
+93228,Male,Other,30 to 39,Sonoma County,20,10,1,1,13,45,94,0
+93229,Male,Other,30 to 39,Stanislaus County,31,15,15,2,16,79,177,0
+93230,Male,Other,30 to 39,Sutter County,10,6,1,0,2,19,67,0
+93231,Male,Other,30 to 39,Tehama County,3,2,1,1,2,9,19,0
+93232,Male,Other,30 to 39,Trinity County,0,2,6,0,0,8,1,0
+93233,Male,Other,30 to 39,Tulare County,27,11,10,0,14,62,152,0
+93234,Male,Other,30 to 39,Tuolumne County,2,0,0,0,0,2,9,0
+93235,Male,Other,30 to 39,Ventura County,14,9,2,1,20,46,116,0
+93236,Male,Other,30 to 39,Yolo County,9,6,3,1,9,28,84,0
+93237,Male,Other,30 to 39,Yuba County,9,3,1,0,7,20,83,0
+93238,Male,Other,40 to 69,Alameda County,119,50,27,2,38,236,773,0
+93239,Male,Other,40 to 69,Alpine County,0,0,0,0,0,0,0,0
+93240,Male,Other,40 to 69,Amador County,0,1,8,0,5,14,16,0
+93241,Male,Other,40 to 69,Butte County,11,3,6,1,7,28,86,0
+93242,Male,Other,40 to 69,Calaveras County,7,0,6,0,4,17,16,0
+93243,Male,Other,40 to 69,Colusa County,0,0,0,1,0,1,16,0
+93244,Male,Other,40 to 69,Contra Costa County,33,43,17,5,39,137,285,0
+93245,Male,Other,40 to 69,Del Norte County,9,1,1,0,0,11,55,0
+93246,Male,Other,40 to 69,El Dorado County,5,2,0,0,1,8,31,0
+93247,Male,Other,40 to 69,Fresno County,46,14,13,3,34,110,378,0
+93248,Male,Other,40 to 69,Glenn County,1,0,1,0,2,4,8,0
+93249,Male,Other,40 to 69,Humboldt County,8,6,4,3,20,41,118,0
+93250,Male,Other,40 to 69,Imperial County,1,0,0,0,0,1,15,0
+93251,Male,Other,40 to 69,Inyo County,6,0,1,0,3,10,46,0
+93252,Male,Other,40 to 69,Kern County,20,8,22,1,22,73,417,0
+93253,Male,Other,40 to 69,Kings County,1,1,1,0,4,7,48,0
+93254,Male,Other,40 to 69,Lake County,6,1,3,0,4,14,57,0
+93255,Male,Other,40 to 69,Lassen County,4,0,1,0,4,9,15,0
+93256,Male,Other,40 to 69,Los Angeles County,420,183,76,28,180,887,2340,0
+93257,Male,Other,40 to 69,Madera County,3,3,5,0,6,17,52,0
+93258,Male,Other,40 to 69,Marin County,10,10,2,0,6,28,85,0
+93259,Male,Other,40 to 69,Mariposa County,2,0,0,1,0,3,9,0
+93260,Male,Other,40 to 69,Mendocino County,13,5,2,0,14,34,70,0
+93261,Male,Other,40 to 69,Merced County,12,6,2,2,5,27,63,0
+93262,Male,Other,40 to 69,Modoc County,1,0,2,0,3,6,16,0
+93263,Male,Other,40 to 69,Mono County,1,0,0,0,0,1,5,0
+93264,Male,Other,40 to 69,Monterey County,10,1,2,1,4,18,75,0
+93265,Male,Other,40 to 69,Napa County,2,2,0,0,2,6,26,0
+93266,Male,Other,40 to 69,Nevada County,2,0,0,0,0,2,7,0
+93267,Male,Other,40 to 69,Orange County,156,88,33,18,66,361,1546,0
+93268,Male,Other,40 to 69,Placer County,14,1,3,1,2,21,69,0
+93269,Male,Other,40 to 69,Plumas County,1,1,1,0,3,6,6,0
+93270,Male,Other,40 to 69,Riverside County,36,31,16,1,14,98,256,0
+93271,Male,Other,40 to 69,Sacramento County,90,32,123,3,39,287,469,0
+93272,Male,Other,40 to 69,San Benito County,0,0,0,0,0,0,9,0
+93273,Male,Other,40 to 69,San Bernardino County,71,57,29,3,37,197,433,0
+93274,Male,Other,40 to 69,San Diego County,135,54,38,7,82,316,1006,0
+93275,Male,Other,40 to 69,San Francisco County,77,30,11,6,91,215,286,0
+93276,Male,Other,40 to 69,San Joaquin County,41,14,6,4,19,84,226,0
+93277,Male,Other,40 to 69,San Luis Obispo County,8,1,2,1,4,16,86,0
+93278,Male,Other,40 to 69,San Mateo County,53,24,12,3,30,122,477,0
+93279,Male,Other,40 to 69,Santa Barbara County,9,3,4,1,6,23,111,0
+93280,Male,Other,40 to 69,Santa Clara County,180,57,37,11,67,352,849,0
+93281,Male,Other,40 to 69,Santa Cruz County,8,2,0,0,5,15,68,0
+93282,Male,Other,40 to 69,Shasta County,7,7,4,1,10,29,84,0
+93283,Male,Other,40 to 69,Sierra County,0,2,1,0,1,4,4,0
+93284,Male,Other,40 to 69,Siskiyou County,5,2,4,1,7,19,90,0
+93285,Male,Other,40 to 69,Solano County,20,10,3,3,10,46,191,0
+93286,Male,Other,40 to 69,Sonoma County,13,8,1,4,7,33,152,0
+93287,Male,Other,40 to 69,Stanislaus County,16,7,11,1,12,47,141,0
+93288,Male,Other,40 to 69,Sutter County,13,3,3,0,5,24,69,0
+93289,Male,Other,40 to 69,Tehama County,4,0,0,1,2,7,24,0
+93290,Male,Other,40 to 69,Trinity County,0,0,3,0,2,5,4,0
+93291,Male,Other,40 to 69,Tulare County,26,16,11,0,11,64,132,0
+93292,Male,Other,40 to 69,Tuolumne County,2,0,1,1,7,11,16,0
+93293,Male,Other,40 to 69,Ventura County,23,9,1,0,13,46,163,0
+93294,Male,Other,40 to 69,Yolo County,9,6,2,0,5,22,67,0
+93295,Male,Other,40 to 69,Yuba County,5,0,4,1,0,10,18,0
+93296,Male,Other,70 and over,Alameda County,4,0,0,2,0,6,16,0
+93297,Male,Other,70 and over,Alpine County,0,0,0,0,0,0,1,0
+93298,Male,Other,70 and over,Amador County,0,0,0,0,0,0,0,0
+93299,Male,Other,70 and over,Butte County,0,0,0,0,0,0,1,0
+93300,Male,Other,70 and over,Calaveras County,0,0,0,0,1,1,1,0
+93301,Male,Other,70 and over,Contra Costa County,2,1,0,0,0,3,6,0
+93302,Male,Other,70 and over,Del Norte County,1,0,0,0,0,1,0,0
+93303,Male,Other,70 and over,Fresno County,1,1,0,0,0,2,13,0
+93304,Male,Other,70 and over,Humboldt County,2,0,0,1,0,3,0,0
+93305,Male,Other,70 and over,Inyo County,0,0,0,0,0,0,9,0
+93306,Male,Other,70 and over,Kern County,0,1,0,0,1,2,5,0
+93307,Male,Other,70 and over,Kings County,0,0,0,0,0,0,3,0
+93308,Male,Other,70 and over,Lake County,0,0,0,1,0,1,0,0
+93309,Male,Other,70 and over,Los Angeles County,30,0,0,4,7,41,89,0
+93310,Male,Other,70 and over,Madera County,0,0,0,0,0,0,0,0
+93311,Male,Other,70 and over,Marin County,1,0,0,0,1,2,1,0
+93312,Male,Other,70 and over,Mendocino County,0,0,0,0,0,0,0,0
+93313,Male,Other,70 and over,Merced County,0,0,0,0,0,0,2,0
+93314,Male,Other,70 and over,Modoc County,0,0,0,2,0,2,0,0
+93315,Male,Other,70 and over,Mono County,0,0,0,0,0,0,2,0
+93316,Male,Other,70 and over,Monterey County,0,0,0,0,0,0,4,0
+93317,Male,Other,70 and over,Napa County,0,0,0,0,0,0,0,0
+93318,Male,Other,70 and over,Orange County,5,1,0,0,1,7,53,0
+93319,Male,Other,70 and over,Placer County,0,0,0,0,0,0,1,0
+93320,Male,Other,70 and over,Riverside County,1,1,1,0,0,3,9,0
+93321,Male,Other,70 and over,Sacramento County,6,1,2,0,1,10,7,0
+93322,Male,Other,70 and over,San Benito County,0,0,0,0,0,0,1,0
+93323,Male,Other,70 and over,San Bernardino County,4,0,0,0,1,5,11,0
+93324,Male,Other,70 and over,San Diego County,5,0,0,0,0,5,30,0
+93325,Male,Other,70 and over,San Francisco County,6,0,0,1,1,8,16,0
+93326,Male,Other,70 and over,San Joaquin County,2,0,0,0,1,3,8,0
+93327,Male,Other,70 and over,San Luis Obispo County,0,0,0,0,0,0,12,0
+93328,Male,Other,70 and over,San Mateo County,3,0,0,0,0,3,11,0
+93329,Male,Other,70 and over,Santa Barbara County,0,0,0,0,0,0,1,0
+93330,Male,Other,70 and over,Santa Clara County,10,0,0,0,5,15,17,0
+93331,Male,Other,70 and over,Santa Cruz County,0,0,0,0,0,0,2,0
+93332,Male,Other,70 and over,Shasta County,0,0,0,0,0,0,2,0
+93333,Male,Other,70 and over,Siskiyou County,0,0,0,0,0,0,2,0
+93334,Male,Other,70 and over,Solano County,0,0,0,0,1,1,3,0
+93335,Male,Other,70 and over,Sonoma County,0,0,0,0,0,0,6,0
+93336,Male,Other,70 and over,Stanislaus County,1,0,0,0,0,1,1,0
+93337,Male,Other,70 and over,Sutter County,3,0,0,0,0,3,0,0
+93338,Male,Other,70 and over,Tulare County,0,0,0,0,0,0,4,0
+93339,Male,Other,70 and over,Tuolumne County,0,0,0,0,0,0,1,0
+93340,Male,Other,70 and over,Ventura County,1,0,0,0,0,1,4,0
+93341,Male,Other,70 and over,Yolo County,0,0,0,0,0,0,4,0
+93342,Male,Other,70 and over,Yuba County,0,0,0,0,0,0,1,0
+93343,Male,White,Under 18,Alameda County,28,17,2,5,5,57,67,3
+93344,Male,White,Under 18,Alpine County,1,0,0,0,0,1,3,0
+93345,Male,White,Under 18,Amador County,0,0,0,0,0,0,7,1
+93346,Male,White,Under 18,Butte County,23,9,0,1,15,48,142,1
+93347,Male,White,Under 18,Calaveras County,1,0,0,0,1,2,37,0
+93348,Male,White,Under 18,Colusa County,1,0,0,0,0,1,3,0
+93349,Male,White,Under 18,Contra Costa County,21,12,1,2,9,45,66,1
+93350,Male,White,Under 18,Del Norte County,1,1,0,0,2,4,23,0
+93351,Male,White,Under 18,El Dorado County,11,2,4,0,5,22,90,0
+93352,Male,White,Under 18,Fresno County,26,13,0,1,8,48,110,9
+93353,Male,White,Under 18,Glenn County,1,1,1,0,0,3,6,1
+93354,Male,White,Under 18,Humboldt County,10,10,1,0,2,23,39,2
+93355,Male,White,Under 18,Imperial County,1,2,0,0,1,4,5,0
+93356,Male,White,Under 18,Inyo County,0,0,0,0,0,0,2,0
+93357,Male,White,Under 18,Kern County,33,20,0,2,21,76,145,11
+93358,Male,White,Under 18,Kings County,3,5,0,3,2,13,32,11
+93359,Male,White,Under 18,Lake County,3,1,0,0,4,8,15,0
+93360,Male,White,Under 18,Lassen County,3,5,0,0,4,12,15,2
+93361,Male,White,Under 18,Los Angeles County,108,54,2,14,37,215,279,29
+93362,Male,White,Under 18,Madera County,6,1,1,0,2,10,13,2
+93363,Male,White,Under 18,Marin County,15,11,0,1,3,30,74,1
+93364,Male,White,Under 18,Mendocino County,8,6,1,1,3,19,34,0
+93365,Male,White,Under 18,Merced County,13,6,1,1,9,30,40,79
+93366,Male,White,Under 18,Modoc County,1,0,0,0,1,2,3,0
+93367,Male,White,Under 18,Monterey County,3,2,1,2,4,12,52,5
+93368,Male,White,Under 18,Napa County,5,1,0,0,3,9,26,2
+93369,Male,White,Under 18,Nevada County,3,9,0,0,14,26,82,18
+93370,Male,White,Under 18,Orange County,37,12,3,3,16,71,182,74
+93371,Male,White,Under 18,Placer County,17,10,5,3,23,58,66,4
+93372,Male,White,Under 18,Plumas County,1,1,0,0,1,3,10,2
+93373,Male,White,Under 18,Riverside County,28,19,2,3,23,75,112,8
+93374,Male,White,Under 18,Sacramento County,47,26,2,1,20,96,122,13
+93375,Male,White,Under 18,San Benito County,1,0,0,0,1,2,6,0
+93376,Male,White,Under 18,San Bernardino County,92,55,2,23,34,206,101,106
+93377,Male,White,Under 18,San Diego County,73,53,6,3,76,211,322,52
+93378,Male,White,Under 18,San Francisco County,2,1,3,0,16,22,27,0
+93379,Male,White,Under 18,San Joaquin County,31,19,3,6,23,82,160,0
+93380,Male,White,Under 18,San Luis Obispo County,9,7,0,1,5,22,72,1
+93381,Male,White,Under 18,San Mateo County,6,8,0,0,13,27,38,5
+93382,Male,White,Under 18,Santa Barbara County,11,12,5,0,7,35,105,3
+93383,Male,White,Under 18,Santa Clara County,25,37,7,2,22,93,115,10
+93384,Male,White,Under 18,Santa Cruz County,13,7,1,3,12,36,48,4
+93385,Male,White,Under 18,Shasta County,15,6,0,5,11,37,54,30
+93386,Male,White,Under 18,Sierra County,0,0,0,1,0,1,0,0
+93387,Male,White,Under 18,Siskiyou County,0,2,0,0,2,4,13,0
+93388,Male,White,Under 18,Solano County,10,11,1,0,5,27,103,5
+93389,Male,White,Under 18,Sonoma County,27,10,4,3,15,59,116,1
+93390,Male,White,Under 18,Stanislaus County,31,34,0,11,14,90,70,3
+93391,Male,White,Under 18,Sutter County,4,3,0,1,4,12,18,0
+93392,Male,White,Under 18,Tehama County,6,6,0,2,3,17,45,1
+93393,Male,White,Under 18,Trinity County,0,2,0,0,0,2,2,0
+93394,Male,White,Under 18,Tulare County,13,8,0,2,8,31,86,32
+93395,Male,White,Under 18,Tuolumne County,3,2,1,0,0,6,17,6
+93396,Male,White,Under 18,Ventura County,22,22,4,0,17,65,134,46
+93397,Male,White,Under 18,Yolo County,5,2,1,0,6,14,20,0
+93398,Male,White,Under 18,Yuba County,7,15,1,0,3,26,32,0
+93399,Male,White,18 to 19,Alameda County,10,15,1,0,12,38,94,0
+93400,Male,White,18 to 19,Amador County,2,0,1,0,2,5,6,0
+93401,Male,White,18 to 19,Butte County,13,10,0,1,12,36,135,0
+93402,Male,White,18 to 19,Calaveras County,2,1,0,0,2,5,14,0
+93403,Male,White,18 to 19,Colusa County,0,1,0,0,0,1,4,0
+93404,Male,White,18 to 19,Contra Costa County,18,7,7,1,9,42,67,0
+93405,Male,White,18 to 19,Del Norte County,1,1,1,1,3,7,25,0
+93406,Male,White,18 to 19,El Dorado County,6,2,2,0,3,13,38,0
+93407,Male,White,18 to 19,Fresno County,17,13,1,0,16,47,82,0
+93408,Male,White,18 to 19,Glenn County,1,1,0,0,1,3,11,0
+93409,Male,White,18 to 19,Humboldt County,11,10,1,0,9,31,67,0
+93410,Male,White,18 to 19,Imperial County,3,3,0,0,2,8,8,0
+93411,Male,White,18 to 19,Inyo County,0,4,0,0,0,4,18,0
+93412,Male,White,18 to 19,Kern County,22,32,3,5,28,90,149,0
+93413,Male,White,18 to 19,Kings County,6,0,0,0,4,10,17,0
+93414,Male,White,18 to 19,Lake County,2,2,0,1,3,8,28,0
+93415,Male,White,18 to 19,Lassen County,3,3,0,0,2,8,4,0
+93416,Male,White,18 to 19,Los Angeles County,75,60,17,3,47,202,464,0
+93417,Male,White,18 to 19,Madera County,7,0,2,0,3,12,14,0
+93418,Male,White,18 to 19,Marin County,3,6,2,0,2,13,60,0
+93419,Male,White,18 to 19,Mariposa County,1,0,0,0,0,1,3,0
+93420,Male,White,18 to 19,Mendocino County,2,0,2,1,5,10,16,0
+93421,Male,White,18 to 19,Merced County,5,4,2,0,6,17,29,0
+93422,Male,White,18 to 19,Modoc County,0,0,0,0,1,1,2,0
+93423,Male,White,18 to 19,Mono County,1,0,0,0,0,1,6,0
+93424,Male,White,18 to 19,Monterey County,8,2,3,0,3,16,41,0
+93425,Male,White,18 to 19,Napa County,3,2,1,0,1,7,16,0
+93426,Male,White,18 to 19,Nevada County,3,4,0,1,5,13,31,0
+93427,Male,White,18 to 19,Orange County,46,40,11,0,42,139,411,0
+93428,Male,White,18 to 19,Placer County,7,9,6,2,14,38,107,0
+93429,Male,White,18 to 19,Plumas County,0,1,0,2,1,4,19,0
+93430,Male,White,18 to 19,Riverside County,27,23,5,2,22,79,173,0
+93431,Male,White,18 to 19,Sacramento County,36,32,12,1,40,121,152,0
+93432,Male,White,18 to 19,San Benito County,2,2,1,0,2,7,5,0
+93433,Male,White,18 to 19,San Bernardino County,40,32,5,2,21,100,138,0
+93434,Male,White,18 to 19,San Diego County,49,39,6,1,50,145,414,0
+93435,Male,White,18 to 19,San Francisco County,29,16,62,1,34,142,64,0
+93436,Male,White,18 to 19,San Joaquin County,19,12,5,2,13,51,85,0
+93437,Male,White,18 to 19,San Luis Obispo County,6,10,2,1,7,26,150,0
+93438,Male,White,18 to 19,San Mateo County,6,4,0,0,5,15,47,0
+93439,Male,White,18 to 19,Santa Barbara County,25,9,10,1,6,51,300,0
+93440,Male,White,18 to 19,Santa Clara County,11,10,1,6,9,37,99,0
+93441,Male,White,18 to 19,Santa Cruz County,12,6,2,0,4,24,65,0
+93442,Male,White,18 to 19,Shasta County,12,9,0,0,8,29,67,0
+93443,Male,White,18 to 19,Siskiyou County,2,1,2,0,1,6,15,0
+93444,Male,White,18 to 19,Solano County,13,17,5,1,10,46,68,0
+93445,Male,White,18 to 19,Sonoma County,18,8,3,0,10,39,84,0
+93446,Male,White,18 to 19,Stanislaus County,37,12,8,0,12,69,88,0
+93447,Male,White,18 to 19,Sutter County,8,3,1,0,8,20,32,0
+93448,Male,White,18 to 19,Tehama County,4,3,0,1,6,14,21,0
+93449,Male,White,18 to 19,Trinity County,0,0,0,0,0,0,7,0
+93450,Male,White,18 to 19,Tulare County,9,14,4,1,12,40,69,0
+93451,Male,White,18 to 19,Tuolumne County,2,0,3,0,2,7,20,0
+93452,Male,White,18 to 19,Ventura County,12,17,4,0,18,51,160,0
+93453,Male,White,18 to 19,Yolo County,7,0,0,0,3,10,21,0
+93454,Male,White,18 to 19,Yuba County,7,1,0,1,1,10,20,0
+93455,Male,White,20 to 29,Alameda County,135,132,50,1,120,438,1546,0
+93456,Male,White,20 to 29,Alpine County,0,0,0,0,1,1,4,0
+93457,Male,White,20 to 29,Amador County,11,6,2,0,17,36,85,0
+93458,Male,White,20 to 29,Butte County,127,69,35,4,128,363,1292,0
+93459,Male,White,20 to 29,Calaveras County,17,5,1,1,11,35,115,0
+93460,Male,White,20 to 29,Colusa County,1,2,1,0,17,21,49,0
+93461,Male,White,20 to 29,Contra Costa County,140,179,70,2,195,586,1215,0
+93462,Male,White,20 to 29,Del Norte County,25,15,9,1,12,62,205,0
+93463,Male,White,20 to 29,El Dorado County,65,35,21,1,77,199,539,0
+93464,Male,White,20 to 29,Fresno County,139,139,29,6,124,437,1207,0
+93465,Male,White,20 to 29,Glenn County,10,6,3,0,19,38,155,0
+93466,Male,White,20 to 29,Humboldt County,66,34,20,3,116,239,865,0
+93467,Male,White,20 to 29,Imperial County,6,5,2,1,13,27,105,0
+93468,Male,White,20 to 29,Inyo County,9,3,2,0,7,21,43,0
+93469,Male,White,20 to 29,Kern County,256,286,43,12,216,813,2034,0
+93470,Male,White,20 to 29,Kings County,19,22,6,3,33,83,243,0
+93471,Male,White,20 to 29,Lake County,32,24,11,1,44,112,378,0
+93472,Male,White,20 to 29,Lassen County,12,11,7,1,11,42,100,0
+93473,Male,White,20 to 29,Los Angeles County,788,664,254,23,606,2335,6847,0
+93474,Male,White,20 to 29,Madera County,24,23,3,0,50,100,189,0
+93475,Male,White,20 to 29,Marin County,20,19,8,4,27,78,395,0
+93476,Male,White,20 to 29,Mariposa County,5,3,0,1,1,10,64,0
+93477,Male,White,20 to 29,Mendocino County,35,37,15,0,51,138,371,0
+93478,Male,White,20 to 29,Merced County,48,51,12,3,68,182,419,0
+93479,Male,White,20 to 29,Modoc County,9,5,0,1,13,28,40,0
+93480,Male,White,20 to 29,Mono County,9,1,0,0,1,11,38,0
+93481,Male,White,20 to 29,Monterey County,42,30,15,2,43,132,470,0
+93482,Male,White,20 to 29,Napa County,31,11,6,0,51,99,266,0
+93483,Male,White,20 to 29,Nevada County,26,30,9,3,41,109,383,0
+93484,Male,White,20 to 29,Orange County,396,399,190,16,380,1381,6553,0
+93485,Male,White,20 to 29,Placer County,93,85,39,5,168,390,942,0
+93486,Male,White,20 to 29,Plumas County,9,8,3,0,12,32,109,0
+93487,Male,White,20 to 29,Riverside County,302,291,92,8,241,934,2317,0
+93488,Male,White,20 to 29,Sacramento County,321,312,103,11,367,1114,1983,0
+93489,Male,White,20 to 29,San Benito County,5,5,1,1,6,18,93,0
+93490,Male,White,20 to 29,San Bernardino County,411,482,115,21,289,1318,2766,0
+93491,Male,White,20 to 29,San Diego County,569,374,150,5,472,1570,4801,0
+93492,Male,White,20 to 29,San Francisco County,208,109,215,5,404,941,920,0
+93493,Male,White,20 to 29,San Joaquin County,151,113,48,8,140,460,1005,0
+93494,Male,White,20 to 29,San Luis Obispo County,78,48,16,5,61,208,1358,0
+93495,Male,White,20 to 29,San Mateo County,39,34,13,2,40,128,706,0
+93496,Male,White,20 to 29,Santa Barbara County,99,45,43,3,66,256,1089,0
+93497,Male,White,20 to 29,Santa Clara County,141,130,52,5,106,434,1338,0
+93498,Male,White,20 to 29,Santa Cruz County,84,66,24,0,82,256,913,0
+93499,Male,White,20 to 29,Shasta County,93,98,21,5,239,456,1098,0
+93500,Male,White,20 to 29,Sierra County,3,0,0,2,1,6,11,0
+93501,Male,White,20 to 29,Siskiyou County,27,18,5,2,48,100,222,0
+93502,Male,White,20 to 29,Solano County,88,77,41,4,81,291,826,0
+93503,Male,White,20 to 29,Sonoma County,137,114,37,8,117,413,1267,0
+93504,Male,White,20 to 29,Stanislaus County,161,132,83,7,217,600,1286,0
+93505,Male,White,20 to 29,Sutter County,34,31,5,4,30,104,328,0
+93506,Male,White,20 to 29,Tehama County,25,17,0,2,32,76,232,0
+93507,Male,White,20 to 29,Trinity County,17,6,14,0,19,56,73,0
+93508,Male,White,20 to 29,Tulare County,110,116,45,2,98,371,775,0
+93509,Male,White,20 to 29,Tuolumne County,22,18,14,0,48,102,328,0
+93510,Male,White,20 to 29,Ventura County,116,115,94,9,154,488,1905,0
+93511,Male,White,20 to 29,Yolo County,49,44,6,2,55,156,385,0
+93512,Male,White,20 to 29,Yuba County,41,25,20,2,37,125,256,0
+93513,Male,White,30 to 39,Alameda County,160,136,69,7,123,495,1628,0
+93514,Male,White,30 to 39,Alpine County,1,0,0,0,1,2,6,0
+93515,Male,White,30 to 39,Amador County,11,8,6,1,20,46,111,0
+93516,Male,White,30 to 39,Butte County,105,80,38,8,138,369,1219,0
+93517,Male,White,30 to 39,Calaveras County,18,4,3,1,10,36,127,0
+93518,Male,White,30 to 39,Colusa County,9,3,1,0,21,34,63,0
+93519,Male,White,30 to 39,Contra Costa County,148,262,68,10,231,719,1414,0
+93520,Male,White,30 to 39,Del Norte County,23,16,6,1,21,67,230,0
+93521,Male,White,30 to 39,El Dorado County,104,44,20,2,97,267,603,0
+93522,Male,White,30 to 39,Fresno County,187,134,30,14,129,494,1399,0
+93523,Male,White,30 to 39,Glenn County,15,11,3,1,25,55,128,0
+93524,Male,White,30 to 39,Humboldt County,93,51,18,7,150,319,934,0
+93525,Male,White,30 to 39,Imperial County,17,11,5,0,18,51,136,0
+93526,Male,White,30 to 39,Inyo County,5,4,0,0,11,20,44,0
+93527,Male,White,30 to 39,Kern County,243,251,66,9,228,797,1906,0
+93528,Male,White,30 to 39,Kings County,32,20,6,3,47,108,264,0
+93529,Male,White,30 to 39,Lake County,60,24,28,4,69,185,472,0
+93530,Male,White,30 to 39,Lassen County,20,6,6,1,23,56,88,0
+93531,Male,White,30 to 39,Los Angeles County,881,766,280,16,717,2660,7687,0
+93532,Male,White,30 to 39,Madera County,33,22,6,2,35,98,193,0
+93533,Male,White,30 to 39,Marin County,45,34,8,1,21,109,481,0
+93534,Male,White,30 to 39,Mariposa County,1,5,4,1,4,15,37,0
+93535,Male,White,30 to 39,Mendocino County,41,34,18,1,45,139,449,0
+93536,Male,White,30 to 39,Merced County,55,33,15,4,71,178,378,0
+93537,Male,White,30 to 39,Modoc County,6,2,2,1,17,28,25,0
+93538,Male,White,30 to 39,Mono County,8,0,0,0,0,8,28,0
+93539,Male,White,30 to 39,Monterey County,49,60,12,1,32,154,467,0
+93540,Male,White,30 to 39,Napa County,30,24,12,1,67,134,242,0
+93541,Male,White,30 to 39,Nevada County,33,26,17,1,62,139,382,0
+93542,Male,White,30 to 39,Orange County,400,395,183,20,367,1365,5793,0
+93543,Male,White,30 to 39,Placer County,85,101,38,8,159,391,899,0
+93544,Male,White,30 to 39,Plumas County,15,4,7,1,8,35,84,0
+93545,Male,White,30 to 39,Riverside County,328,276,110,9,263,986,2323,0
+93546,Male,White,30 to 39,Sacramento County,397,336,130,18,436,1317,2295,0
+93547,Male,White,30 to 39,San Benito County,9,2,1,1,4,17,63,0
+93548,Male,White,30 to 39,San Bernardino County,431,537,161,24,262,1415,2795,0
+93549,Male,White,30 to 39,San Diego County,601,407,203,20,659,1890,5300,0
+93550,Male,White,30 to 39,San Francisco County,240,146,109,10,472,977,860,0
+93551,Male,White,30 to 39,San Joaquin County,166,123,39,3,218,549,1165,0
+93552,Male,White,30 to 39,San Luis Obispo County,81,48,12,3,59,203,1080,0
+93553,Male,White,30 to 39,San Mateo County,57,53,15,0,43,168,909,0
+93554,Male,White,30 to 39,Santa Barbara County,83,51,53,3,72,262,914,0
+93555,Male,White,30 to 39,Santa Clara County,185,113,48,13,130,489,1589,0
+93556,Male,White,30 to 39,Santa Cruz County,89,87,20,6,100,302,992,0
+93557,Male,White,30 to 39,Shasta County,90,96,39,6,275,506,1291,0
+93558,Male,White,30 to 39,Sierra County,0,3,1,0,1,5,3,0
+93559,Male,White,30 to 39,Siskiyou County,29,20,11,2,42,104,207,0
+93560,Male,White,30 to 39,Solano County,83,85,52,5,112,337,828,0
+93561,Male,White,30 to 39,Sonoma County,159,125,32,7,153,476,1689,0
+93562,Male,White,30 to 39,Stanislaus County,223,163,131,11,224,752,1477,0
+93563,Male,White,30 to 39,Sutter County,51,42,6,2,56,157,383,0
+93564,Male,White,30 to 39,Tehama County,49,31,2,5,34,121,265,0
+93565,Male,White,30 to 39,Trinity County,15,8,13,0,16,52,71,0
+93566,Male,White,30 to 39,Tulare County,126,133,62,9,140,470,968,0
+93567,Male,White,30 to 39,Tuolumne County,42,29,14,4,71,160,351,0
+93568,Male,White,30 to 39,Ventura County,171,93,56,7,146,473,1945,0
+93569,Male,White,30 to 39,Yolo County,62,48,9,1,56,176,457,0
+93570,Male,White,30 to 39,Yuba County,62,25,21,1,41,150,286,0
+93571,Male,White,40 to 69,Alameda County,189,160,97,21,179,646,2437,0
+93572,Male,White,40 to 69,Alpine County,1,0,1,0,0,2,7,0
+93573,Male,White,40 to 69,Amador County,24,9,5,0,38,76,166,0
+93574,Male,White,40 to 69,Butte County,129,71,54,19,145,418,1837,0
+93575,Male,White,40 to 69,Calaveras County,37,13,5,4,24,83,197,0
+93576,Male,White,40 to 69,Colusa County,5,1,1,0,13,20,117,0
+93577,Male,White,40 to 69,Contra Costa County,203,179,98,14,203,697,1853,0
+93578,Male,White,40 to 69,Del Norte County,26,8,4,2,14,54,328,0
+93579,Male,White,40 to 69,El Dorado County,112,40,17,11,96,276,723,0
+93580,Male,White,40 to 69,Fresno County,201,116,43,30,161,551,2111,0
+93581,Male,White,40 to 69,Glenn County,11,6,2,1,14,34,136,0
+93582,Male,White,40 to 69,Humboldt County,95,33,33,16,126,303,1216,0
+93583,Male,White,40 to 69,Imperial County,20,11,7,1,13,52,211,0
+93584,Male,White,40 to 69,Inyo County,15,4,0,0,17,36,108,0
+93585,Male,White,40 to 69,Kern County,242,220,96,11,240,809,2408,0
+93586,Male,White,40 to 69,Kings County,27,10,3,6,36,82,296,0
+93587,Male,White,40 to 69,Lake County,76,24,37,8,51,196,690,0
+93588,Male,White,40 to 69,Lassen County,22,7,12,1,15,57,101,0
+93589,Male,White,40 to 69,Los Angeles County,1263,778,463,76,885,3465,12879,0
+93590,Male,White,40 to 69,Madera County,45,12,9,2,50,118,389,0
+93591,Male,White,40 to 69,Marin County,82,33,14,5,34,168,1128,0
+93592,Male,White,40 to 69,Mariposa County,7,5,3,0,3,18,110,0
+93593,Male,White,40 to 69,Mendocino County,78,23,30,1,57,189,752,0
+93594,Male,White,40 to 69,Merced County,68,39,14,9,64,194,662,0
+93595,Male,White,40 to 69,Modoc County,14,4,1,3,10,32,74,0
+93596,Male,White,40 to 69,Mono County,15,0,0,0,0,15,51,0
+93597,Male,White,40 to 69,Monterey County,70,33,20,4,57,184,803,0
+93598,Male,White,40 to 69,Napa County,51,20,13,3,72,159,440,0
+93599,Male,White,40 to 69,Nevada County,43,19,14,4,35,115,586,0
+93600,Male,White,40 to 69,Orange County,559,371,225,50,460,1665,9136,0
+93601,Male,White,40 to 69,Placer County,149,75,37,9,130,400,1315,0
+93602,Male,White,40 to 69,Plumas County,18,6,7,1,21,53,181,0
+93603,Male,White,40 to 69,Riverside County,400,212,129,29,274,1044,2984,0
+93604,Male,White,40 to 69,Sacramento County,452,311,142,44,399,1348,2921,0
+93605,Male,White,40 to 69,San Benito County,10,5,3,1,6,25,86,0
+93606,Male,White,40 to 69,San Bernardino County,576,402,235,59,339,1611,4052,0
+93607,Male,White,40 to 69,San Diego County,875,362,301,50,803,2391,9703,0
+93608,Male,White,40 to 69,San Francisco County,287,132,72,15,316,822,953,0
+93609,Male,White,40 to 69,San Joaquin County,218,77,35,19,156,505,1346,0
+93610,Male,White,40 to 69,San Luis Obispo County,112,45,18,9,57,241,1754,0
+93611,Male,White,40 to 69,San Mateo County,116,63,21,4,66,270,1551,0
+93612,Male,White,40 to 69,Santa Barbara County,124,58,52,2,72,308,2710,0
+93613,Male,White,40 to 69,Santa Clara County,271,137,83,51,175,717,2568,0
+93614,Male,White,40 to 69,Santa Cruz County,102,49,36,8,96,291,1696,0
+93615,Male,White,40 to 69,Shasta County,93,65,33,9,159,359,1662,0
+93616,Male,White,40 to 69,Sierra County,4,3,0,4,2,13,16,0
+93617,Male,White,40 to 69,Siskiyou County,33,20,9,3,41,106,360,0
+93618,Male,White,40 to 69,Solano County,110,64,56,11,82,323,1042,0
+93619,Male,White,40 to 69,Sonoma County,239,86,50,26,123,524,2400,0
+93620,Male,White,40 to 69,Stanislaus County,220,132,142,22,194,710,2039,0
+93621,Male,White,40 to 69,Sutter County,38,31,5,6,47,127,461,0
+93622,Male,White,40 to 69,Tehama County,45,25,5,7,29,111,372,0
+93623,Male,White,40 to 69,Trinity County,18,5,14,2,14,53,93,0
+93624,Male,White,40 to 69,Tulare County,150,82,72,5,132,441,1036,0
+93625,Male,White,40 to 69,Tuolumne County,52,20,15,3,55,145,445,0
+93626,Male,White,40 to 69,Ventura County,238,101,61,11,183,594,3084,0
+93627,Male,White,40 to 69,Yolo County,51,24,17,4,61,157,636,0
+93628,Male,White,40 to 69,Yuba County,51,19,34,2,41,147,273,0
+93629,Male,White,70 and over,Alameda County,10,3,1,0,1,15,57,0
+93630,Male,White,70 and over,Amador County,1,1,0,1,0,3,4,0
+93631,Male,White,70 and over,Butte County,5,0,0,1,0,6,34,0
+93632,Male,White,70 and over,Calaveras County,2,0,0,0,1,3,7,0
+93633,Male,White,70 and over,Colusa County,0,0,0,0,0,0,6,0
+93634,Male,White,70 and over,Contra Costa County,6,0,1,3,5,15,41,0
+93635,Male,White,70 and over,Del Norte County,1,0,1,1,1,4,14,0
+93636,Male,White,70 and over,El Dorado County,2,1,1,1,2,7,24,0
+93637,Male,White,70 and over,Fresno County,10,1,2,0,3,16,37,0
+93638,Male,White,70 and over,Glenn County,1,0,0,1,1,3,3,0
+93639,Male,White,70 and over,Humboldt County,2,1,1,0,0,4,17,0
+93640,Male,White,70 and over,Imperial County,1,0,1,0,1,3,12,0
+93641,Male,White,70 and over,Inyo County,0,0,0,0,0,0,5,0
+93642,Male,White,70 and over,Kern County,4,0,1,1,1,7,31,0
+93643,Male,White,70 and over,Kings County,4,1,0,1,1,7,3,0
+93644,Male,White,70 and over,Lake County,1,0,0,1,0,2,36,0
+93645,Male,White,70 and over,Lassen County,1,0,0,1,0,2,4,0
+93646,Male,White,70 and over,Los Angeles County,44,6,1,5,14,70,310,0
+93647,Male,White,70 and over,Madera County,2,0,0,2,1,5,15,0
+93648,Male,White,70 and over,Marin County,2,0,0,0,0,2,39,0
+93649,Male,White,70 and over,Mariposa County,0,0,1,0,0,1,3,0
+93650,Male,White,70 and over,Mendocino County,2,0,1,0,1,4,26,0
+93651,Male,White,70 and over,Merced County,0,0,0,1,0,1,14,0
+93652,Male,White,70 and over,Modoc County,2,0,0,1,0,3,8,0
+93653,Male,White,70 and over,Mono County,1,0,0,0,0,1,1,0
+93654,Male,White,70 and over,Monterey County,8,1,1,0,2,12,30,0
+93655,Male,White,70 and over,Napa County,4,0,0,1,2,7,12,0
+93656,Male,White,70 and over,Nevada County,1,1,0,0,2,4,16,0
+93657,Male,White,70 and over,Orange County,16,2,1,2,4,25,166,0
+93658,Male,White,70 and over,Placer County,1,1,0,1,1,4,24,0
+93659,Male,White,70 and over,Plumas County,0,0,1,0,1,2,8,0
+93660,Male,White,70 and over,Riverside County,15,0,1,3,7,26,81,0
+93661,Male,White,70 and over,Sacramento County,13,0,2,2,5,22,36,0
+93662,Male,White,70 and over,San Benito County,0,0,0,0,0,0,1,0
+93663,Male,White,70 and over,San Bernardino County,14,5,4,3,3,29,48,0
+93664,Male,White,70 and over,San Diego County,26,5,2,2,19,54,207,0
+93665,Male,White,70 and over,San Francisco County,6,3,1,0,6,16,21,0
+93666,Male,White,70 and over,San Joaquin County,4,0,0,0,6,10,32,0
+93667,Male,White,70 and over,San Luis Obispo County,11,0,0,1,5,17,39,0
+93668,Male,White,70 and over,San Mateo County,4,1,0,1,3,9,57,0
+93669,Male,White,70 and over,Santa Barbara County,8,2,0,1,0,11,124,0
+93670,Male,White,70 and over,Santa Clara County,5,1,1,1,2,10,62,0
+93671,Male,White,70 and over,Santa Cruz County,3,0,0,0,4,7,32,0
+93672,Male,White,70 and over,Shasta County,1,2,1,0,2,6,34,0
+93673,Male,White,70 and over,Siskiyou County,2,0,0,0,2,4,12,0
+93674,Male,White,70 and over,Solano County,1,0,0,1,1,3,21,0
+93675,Male,White,70 and over,Sonoma County,6,0,0,5,0,11,83,0
+93676,Male,White,70 and over,Stanislaus County,2,1,0,2,1,6,20,0
+93677,Male,White,70 and over,Sutter County,0,0,0,1,1,2,3,0
+93678,Male,White,70 and over,Tehama County,2,0,0,0,1,3,22,0
+93679,Male,White,70 and over,Trinity County,0,0,0,0,0,0,3,0
+93680,Male,White,70 and over,Tulare County,4,0,1,2,2,9,20,0
+93681,Male,White,70 and over,Tuolumne County,1,0,1,1,0,3,14,0
+93682,Male,White,70 and over,Ventura County,15,3,0,0,5,23,74,0
+93683,Male,White,70 and over,Yolo County,2,1,0,0,0,3,13,0
+93684,Male,White,70 and over,Yuba County,1,0,1,0,1,3,6,0
+93685,Female,Black,Under 18,Alameda County,50,37,0,1,5,93,126,21
+93686,Female,Black,Under 18,Butte County,2,1,0,0,0,3,11,0
+93687,Female,Black,Under 18,Contra Costa County,9,12,0,0,5,26,95,0
+93688,Female,Black,Under 18,El Dorado County,1,0,0,0,0,1,6,0
+93689,Female,Black,Under 18,Fresno County,10,7,0,0,1,18,104,2
+93690,Female,Black,Under 18,Imperial County,0,0,0,0,0,0,1,0
+93691,Female,Black,Under 18,Kern County,22,6,0,0,9,37,43,0
+93692,Female,Black,Under 18,Kings County,4,0,0,0,0,4,13,5
+93693,Female,Black,Under 18,Lake County,0,0,0,0,0,0,1,0
+93694,Female,Black,Under 18,Lassen County,0,0,0,0,0,0,2,0
+93695,Female,Black,Under 18,Los Angeles County,158,71,0,3,30,262,353,9
+93696,Female,Black,Under 18,Madera County,1,1,0,0,0,2,9,1
+93697,Female,Black,Under 18,Marin County,5,0,0,0,0,5,3,5
+93698,Female,Black,Under 18,Mendocino County,2,0,0,0,0,2,8,0
+93699,Female,Black,Under 18,Merced County,5,3,0,0,0,8,15,24
+93700,Female,Black,Under 18,Modoc County,0,0,0,0,1,1,0,0
+93701,Female,Black,Under 18,Monterey County,1,0,0,0,0,1,11,2
+93702,Female,Black,Under 18,Napa County,1,0,0,0,0,1,2,0
+93703,Female,Black,Under 18,Nevada County,1,0,0,0,3,4,5,1
+93704,Female,Black,Under 18,Orange County,5,5,0,0,0,10,24,20
+93705,Female,Black,Under 18,Placer County,3,0,0,0,4,7,7,0
+93706,Female,Black,Under 18,Plumas County,0,0,0,0,0,0,1,0
+93707,Female,Black,Under 18,Riverside County,10,2,0,0,5,17,42,7
+93708,Female,Black,Under 18,Sacramento County,41,13,0,0,15,69,95,11
+93709,Female,Black,Under 18,San Bernardino County,46,46,0,3,20,115,118,129
+93710,Female,Black,Under 18,San Diego County,36,2,1,0,13,52,86,18
+93711,Female,Black,Under 18,San Francisco County,10,7,0,0,56,73,62,0
+93712,Female,Black,Under 18,San Joaquin County,15,6,0,0,4,25,97,1
+93713,Female,Black,Under 18,San Luis Obispo County,0,0,0,0,0,0,1,0
+93714,Female,Black,Under 18,San Mateo County,6,11,0,0,6,23,10,1
+93715,Female,Black,Under 18,Santa Barbara County,1,2,0,0,0,3,17,2
+93716,Female,Black,Under 18,Santa Clara County,9,6,2,1,5,23,38,1
+93717,Female,Black,Under 18,Santa Cruz County,0,1,0,0,0,1,6,0
+93718,Female,Black,Under 18,Shasta County,0,0,0,0,1,1,3,5
+93719,Female,Black,Under 18,Siskiyou County,0,0,1,0,0,1,0,0
+93720,Female,Black,Under 18,Solano County,9,4,0,0,3,16,78,1
+93721,Female,Black,Under 18,Sonoma County,1,0,0,0,0,1,10,0
+93722,Female,Black,Under 18,Stanislaus County,8,5,0,0,2,15,22,1
+93723,Female,Black,Under 18,Sutter County,1,1,0,0,0,2,5,0
+93724,Female,Black,Under 18,Tehama County,0,0,0,0,0,0,2,0
+93725,Female,Black,Under 18,Tulare County,1,0,0,0,0,1,7,2
+93726,Female,Black,Under 18,Ventura County,11,5,0,0,4,20,33,47
+93727,Female,Black,Under 18,Yolo County,1,1,0,0,0,2,5,0
+93728,Female,Black,Under 18,Yuba County,0,1,0,0,0,1,4,0
+93729,Female,Black,18 to 19,Alameda County,27,26,1,0,8,62,129,0
+93730,Female,Black,18 to 19,Butte County,1,0,0,0,1,2,8,0
+93731,Female,Black,18 to 19,Colusa County,0,0,0,0,0,0,1,0
+93732,Female,Black,18 to 19,Contra Costa County,11,26,1,1,6,45,54,0
+93733,Female,Black,18 to 19,El Dorado County,0,0,0,0,0,0,1,0
+93734,Female,Black,18 to 19,Fresno County,3,11,0,0,1,15,46,0
+93735,Female,Black,18 to 19,Humboldt County,0,0,0,0,0,0,1,0
+93736,Female,Black,18 to 19,Kern County,14,5,0,0,3,22,35,0
+93737,Female,Black,18 to 19,Kings County,0,2,0,0,0,2,8,0
+93738,Female,Black,18 to 19,Lake County,1,0,0,0,0,1,1,0
+93739,Female,Black,18 to 19,Lassen County,0,0,0,0,0,0,0,0
+93740,Female,Black,18 to 19,Los Angeles County,132,77,6,1,43,259,516,0
+93741,Female,Black,18 to 19,Madera County,0,0,0,0,0,0,2,0
+93742,Female,Black,18 to 19,Marin County,1,3,0,0,0,4,2,0
+93743,Female,Black,18 to 19,Merced County,0,1,0,0,0,1,4,0
+93744,Female,Black,18 to 19,Monterey County,1,0,0,0,0,1,13,0
+93745,Female,Black,18 to 19,Napa County,0,5,0,0,3,8,5,0
+93746,Female,Black,18 to 19,Nevada County,1,0,0,0,0,1,3,0
+93747,Female,Black,18 to 19,Orange County,6,5,0,0,5,16,53,0
+93748,Female,Black,18 to 19,Placer County,3,1,0,0,2,6,9,0
+93749,Female,Black,18 to 19,Riverside County,18,7,0,0,3,28,38,0
+93750,Female,Black,18 to 19,Sacramento County,28,13,1,0,8,50,51,0
+93751,Female,Black,18 to 19,San Bernardino County,28,26,1,1,8,64,115,0
+93752,Female,Black,18 to 19,San Diego County,17,11,0,0,5,33,67,0
+93753,Female,Black,18 to 19,San Francisco County,12,15,0,0,5,32,18,0
+93754,Female,Black,18 to 19,San Joaquin County,14,3,0,0,2,19,28,0
+93755,Female,Black,18 to 19,San Luis Obispo County,0,0,0,0,0,0,3,0
+93756,Female,Black,18 to 19,San Mateo County,2,3,0,0,5,10,15,0
+93757,Female,Black,18 to 19,Santa Barbara County,2,3,0,0,1,6,13,0
+93758,Female,Black,18 to 19,Santa Clara County,10,11,0,2,4,27,68,0
+93759,Female,Black,18 to 19,Santa Cruz County,1,1,0,0,1,3,0,0
+93760,Female,Black,18 to 19,Shasta County,0,0,0,0,0,0,3,0
+93761,Female,Black,18 to 19,Solano County,6,3,1,0,3,13,36,0
+93762,Female,Black,18 to 19,Sonoma County,5,1,1,0,0,7,11,0
+93763,Female,Black,18 to 19,Stanislaus County,5,1,0,0,2,8,21,0
+93764,Female,Black,18 to 19,Sutter County,0,0,0,0,0,0,2,0
+93765,Female,Black,18 to 19,Tulare County,1,0,0,0,1,2,6,0
+93766,Female,Black,18 to 19,Ventura County,0,1,0,0,0,1,8,0
+93767,Female,Black,18 to 19,Yolo County,2,2,0,0,3,7,6,0
+93768,Female,Black,20 to 29,Alameda County,161,135,10,0,75,381,1015,0
+93769,Female,Black,20 to 29,Amador County,0,0,0,0,0,0,1,0
+93770,Female,Black,20 to 29,Butte County,14,3,1,0,2,20,40,0
+93771,Female,Black,20 to 29,Calaveras County,0,0,0,0,0,0,2,0
+93772,Female,Black,20 to 29,Colusa County,0,0,0,0,5,5,4,0
+93773,Female,Black,20 to 29,Contra Costa County,102,130,4,3,47,286,406,0
+93774,Female,Black,20 to 29,Del Norte County,0,0,1,0,0,1,9,0
+93775,Female,Black,20 to 29,El Dorado County,1,0,1,0,0,2,8,0
+93776,Female,Black,20 to 29,Fresno County,78,27,1,0,25,131,390,0
+93777,Female,Black,20 to 29,Glenn County,0,0,0,0,0,0,1,0
+93778,Female,Black,20 to 29,Humboldt County,5,3,0,0,3,11,25,0
+93779,Female,Black,20 to 29,Imperial County,1,1,0,0,0,2,7,0
+93780,Female,Black,20 to 29,Inyo County,1,0,0,0,0,1,1,0
+93781,Female,Black,20 to 29,Kern County,67,20,2,1,33,123,309,0
+93782,Female,Black,20 to 29,Kings County,8,2,0,0,8,18,41,0
+93783,Female,Black,20 to 29,Lake County,1,1,0,0,0,2,18,0
+93784,Female,Black,20 to 29,Lassen County,0,0,0,0,0,0,1,0
+93785,Female,Black,20 to 29,Los Angeles County,788,456,50,3,288,1585,3621,0
+93786,Female,Black,20 to 29,Madera County,4,1,0,0,1,6,23,0
+93787,Female,Black,20 to 29,Marin County,13,7,0,0,4,24,52,0
+93788,Female,Black,20 to 29,Mariposa County,0,0,0,0,0,0,1,0
+93789,Female,Black,20 to 29,Mendocino County,2,2,1,0,0,5,8,0
+93790,Female,Black,20 to 29,Merced County,11,5,0,0,4,20,46,0
+93791,Female,Black,20 to 29,Monterey County,8,6,0,0,4,18,63,0
+93792,Female,Black,20 to 29,Napa County,4,7,0,0,20,31,65,0
+93793,Female,Black,20 to 29,Nevada County,2,2,0,0,0,4,21,0
+93794,Female,Black,20 to 29,Orange County,45,53,1,2,17,118,415,0
+93795,Female,Black,20 to 29,Placer County,7,12,1,0,19,39,57,0
+93796,Female,Black,20 to 29,Plumas County,2,0,0,0,0,2,2,0
+93797,Female,Black,20 to 29,Riverside County,79,37,8,3,22,149,339,0
+93798,Female,Black,20 to 29,Sacramento County,189,105,10,1,85,390,616,0
+93799,Female,Black,20 to 29,San Bernardino County,225,168,19,2,79,493,976,0
+93800,Female,Black,20 to 29,San Diego County,168,62,8,0,63,301,729,0
+93801,Female,Black,20 to 29,San Francisco County,60,39,7,0,58,164,231,0
+93802,Female,Black,20 to 29,San Joaquin County,82,23,1,0,33,139,223,0
+93803,Female,Black,20 to 29,San Luis Obispo County,1,2,0,0,0,3,14,0
+93804,Female,Black,20 to 29,San Mateo County,17,26,3,0,29,75,149,0
+93805,Female,Black,20 to 29,Santa Barbara County,10,2,0,0,3,15,54,0
+93806,Female,Black,20 to 29,Santa Clara County,46,58,8,0,15,127,474,0
+93807,Female,Black,20 to 29,Santa Cruz County,4,5,0,0,2,11,16,0
+93808,Female,Black,20 to 29,Shasta County,2,0,0,0,1,3,21,0
+93809,Female,Black,20 to 29,Siskiyou County,1,0,1,0,0,2,0,0
+93810,Female,Black,20 to 29,Solano County,57,36,4,2,24,123,319,0
+93811,Female,Black,20 to 29,Sonoma County,6,6,2,0,1,15,54,0
+93812,Female,Black,20 to 29,Stanislaus County,21,10,1,0,13,45,64,0
+93813,Female,Black,20 to 29,Sutter County,3,3,0,0,0,6,18,0
+93814,Female,Black,20 to 29,Tehama County,2,0,0,0,0,2,7,0
+93815,Female,Black,20 to 29,Trinity County,0,0,0,0,1,1,0,0
+93816,Female,Black,20 to 29,Tulare County,5,7,2,0,3,17,58,0
+93817,Female,Black,20 to 29,Tuolumne County,0,1,0,0,0,1,4,0
+93818,Female,Black,20 to 29,Ventura County,15,28,4,0,10,57,87,0
+93819,Female,Black,20 to 29,Yolo County,15,4,0,0,7,26,34,0
+93820,Female,Black,20 to 29,Yuba County,9,1,0,0,5,15,23,0
+93821,Female,Black,30 to 39,Alameda County,109,90,14,0,55,268,612,0
+93822,Female,Black,30 to 39,Amador County,0,0,0,0,4,4,0,0
+93823,Female,Black,30 to 39,Butte County,1,1,0,0,5,7,17,0
+93824,Female,Black,30 to 39,Calaveras County,0,1,0,0,1,2,0,0
+93825,Female,Black,30 to 39,Colusa County,0,0,0,0,2,2,1,0
+93826,Female,Black,30 to 39,Contra Costa County,59,82,6,0,36,183,300,0
+93827,Female,Black,30 to 39,El Dorado County,2,2,0,0,0,4,7,0
+93828,Female,Black,30 to 39,Fresno County,24,17,1,1,18,61,250,0
+93829,Female,Black,30 to 39,Glenn County,0,0,0,0,0,0,2,0
+93830,Female,Black,30 to 39,Humboldt County,0,1,0,0,2,3,26,0
+93831,Female,Black,30 to 39,Imperial County,1,4,0,1,1,7,11,0
+93832,Female,Black,30 to 39,Inyo County,0,0,0,0,0,0,0,0
+93833,Female,Black,30 to 39,Kern County,42,19,4,0,21,86,211,0
+93834,Female,Black,30 to 39,Kings County,1,7,2,0,8,18,47,0
+93835,Female,Black,30 to 39,Lake County,0,2,0,0,1,3,10,0
+93836,Female,Black,30 to 39,Lassen County,0,0,0,0,0,0,2,0
+93837,Female,Black,30 to 39,Los Angeles County,470,253,48,0,190,961,2086,0
+93838,Female,Black,30 to 39,Madera County,5,1,1,0,1,8,15,0
+93839,Female,Black,30 to 39,Marin County,2,5,0,0,0,7,32,0
+93840,Female,Black,30 to 39,Mendocino County,0,0,0,0,0,0,1,0
+93841,Female,Black,30 to 39,Merced County,10,5,0,0,1,16,41,0
+93842,Female,Black,30 to 39,Modoc County,0,0,0,0,0,0,1,0
+93843,Female,Black,30 to 39,Mono County,0,0,0,0,1,1,0,0
+93844,Female,Black,30 to 39,Monterey County,1,7,1,0,3,12,47,0
+93845,Female,Black,30 to 39,Napa County,1,7,0,0,8,16,38,0
+93846,Female,Black,30 to 39,Nevada County,1,0,0,0,0,1,5,0
+93847,Female,Black,30 to 39,Orange County,26,33,2,1,12,74,232,0
+93848,Female,Black,30 to 39,Placer County,6,8,1,0,8,23,28,0
+93849,Female,Black,30 to 39,Plumas County,0,0,0,0,1,1,3,0
+93850,Female,Black,30 to 39,Riverside County,61,20,2,1,25,109,270,0
+93851,Female,Black,30 to 39,Sacramento County,117,82,7,1,45,252,443,0
+93852,Female,Black,30 to 39,San Benito County,0,0,0,0,0,0,1,0
+93853,Female,Black,30 to 39,San Bernardino County,145,119,11,1,58,334,609,0
+93854,Female,Black,30 to 39,San Diego County,93,35,11,2,57,198,531,0
+93855,Female,Black,30 to 39,San Francisco County,55,37,6,0,57,155,146,0
+93856,Female,Black,30 to 39,San Joaquin County,42,27,2,0,20,91,179,0
+93857,Female,Black,30 to 39,San Luis Obispo County,3,3,0,0,0,6,15,0
+93858,Female,Black,30 to 39,San Mateo County,16,15,0,0,14,45,126,0
+93859,Female,Black,30 to 39,Santa Barbara County,3,4,1,0,2,10,20,0
+93860,Female,Black,30 to 39,Santa Clara County,28,39,2,0,12,81,186,0
+93861,Female,Black,30 to 39,Santa Cruz County,1,1,0,0,1,3,14,0
+93862,Female,Black,30 to 39,Shasta County,0,0,0,0,0,0,13,0
+93863,Female,Black,30 to 39,Siskiyou County,0,0,1,0,0,1,7,0
+93864,Female,Black,30 to 39,Solano County,27,36,6,0,21,90,233,0
+93865,Female,Black,30 to 39,Sonoma County,5,7,1,0,3,16,56,0
+93866,Female,Black,30 to 39,Stanislaus County,11,12,5,0,8,36,69,0
+93867,Female,Black,30 to 39,Sutter County,0,3,0,0,1,4,8,0
+93868,Female,Black,30 to 39,Tehama County,0,1,0,0,0,1,3,0
+93869,Female,Black,30 to 39,Tulare County,9,11,1,1,10,32,53,0
+93870,Female,Black,30 to 39,Tuolumne County,0,1,0,0,2,3,5,0
+93871,Female,Black,30 to 39,Ventura County,10,5,1,0,3,19,90,0
+93872,Female,Black,30 to 39,Yolo County,1,1,0,0,6,8,50,0
+93873,Female,Black,30 to 39,Yuba County,0,0,0,0,0,0,5,0
+93874,Female,Black,40 to 69,Alameda County,136,76,9,2,53,276,685,0
+93875,Female,Black,40 to 69,Amador County,0,0,0,0,0,0,3,0
+93876,Female,Black,40 to 69,Butte County,0,1,0,0,1,2,25,0
+93877,Female,Black,40 to 69,Calaveras County,0,0,0,0,0,0,2,0
+93878,Female,Black,40 to 69,Colusa County,0,0,0,0,0,0,6,0
+93879,Female,Black,40 to 69,Contra Costa County,46,57,5,0,27,135,271,0
+93880,Female,Black,40 to 69,El Dorado County,0,2,1,0,0,3,9,0
+93881,Female,Black,40 to 69,Fresno County,41,7,1,0,18,67,266,0
+93882,Female,Black,40 to 69,Glenn County,0,0,0,0,1,1,1,0
+93883,Female,Black,40 to 69,Humboldt County,0,0,0,0,1,1,1,0
+93884,Female,Black,40 to 69,Imperial County,1,2,0,0,0,3,11,0
+93885,Female,Black,40 to 69,Inyo County,1,0,0,0,0,1,0,0
+93886,Female,Black,40 to 69,Kern County,29,7,2,0,16,54,165,0
+93887,Female,Black,40 to 69,Kings County,1,0,0,0,6,7,26,0
+93888,Female,Black,40 to 69,Lake County,2,0,0,0,2,4,10,0
+93889,Female,Black,40 to 69,Lassen County,1,0,0,0,1,2,3,0
+93890,Female,Black,40 to 69,Los Angeles County,471,210,90,1,168,940,2444,0
+93891,Female,Black,40 to 69,Madera County,3,2,0,0,1,6,29,0
+93892,Female,Black,40 to 69,Marin County,5,2,0,0,2,9,42,0
+93893,Female,Black,40 to 69,Mendocino County,0,0,0,0,0,0,0,0
+93894,Female,Black,40 to 69,Merced County,8,1,0,0,2,11,85,0
+93895,Female,Black,40 to 69,Mono County,0,0,0,0,0,0,1,0
+93896,Female,Black,40 to 69,Monterey County,7,2,1,0,6,16,40,0
+93897,Female,Black,40 to 69,Napa County,1,1,1,0,6,9,37,0
+93898,Female,Black,40 to 69,Nevada County,0,0,0,0,0,0,3,0
+93899,Female,Black,40 to 69,Orange County,23,10,4,0,8,45,176,0
+93900,Female,Black,40 to 69,Placer County,3,5,1,0,7,16,25,0
+93901,Female,Black,40 to 69,Plumas County,0,0,0,0,0,0,1,0
+93902,Female,Black,40 to 69,Riverside County,42,15,7,1,19,84,223,0
+93903,Female,Black,40 to 69,Sacramento County,110,57,16,4,42,229,461,0
+93904,Female,Black,40 to 69,San Bernardino County,109,59,7,0,42,217,530,0
+93905,Female,Black,40 to 69,San Diego County,94,28,18,0,65,205,807,0
+93906,Female,Black,40 to 69,San Francisco County,59,19,17,1,59,155,207,0
+93907,Female,Black,40 to 69,San Joaquin County,51,7,5,1,15,79,183,0
+93908,Female,Black,40 to 69,San Luis Obispo County,1,0,0,0,0,1,6,0
+93909,Female,Black,40 to 69,San Mateo County,12,9,1,0,15,37,138,0
+93910,Female,Black,40 to 69,Santa Barbara County,5,0,0,1,2,8,68,0
+93911,Female,Black,40 to 69,Santa Clara County,24,25,2,0,17,68,207,0
+93912,Female,Black,40 to 69,Santa Cruz County,1,3,0,0,2,6,9,0
+93913,Female,Black,40 to 69,Shasta County,0,0,0,0,0,0,6,0
+93914,Female,Black,40 to 69,Siskiyou County,0,1,0,0,0,1,2,0
+93915,Female,Black,40 to 69,Solano County,28,14,9,0,9,60,249,0
+93916,Female,Black,40 to 69,Sonoma County,1,2,1,0,0,4,52,0
+93917,Female,Black,40 to 69,Stanislaus County,10,7,1,0,4,22,70,0
+93918,Female,Black,40 to 69,Sutter County,4,4,0,0,0,8,12,0
+93919,Female,Black,40 to 69,Tehama County,0,0,0,0,0,0,1,0
+93920,Female,Black,40 to 69,Tulare County,2,2,0,0,2,6,50,0
+93921,Female,Black,40 to 69,Tuolumne County,0,0,0,0,0,0,1,0
+93922,Female,Black,40 to 69,Ventura County,7,7,1,0,4,19,98,0
+93923,Female,Black,40 to 69,Yolo County,4,0,1,0,4,9,46,0
+93924,Female,Black,40 to 69,Yuba County,1,1,0,0,0,2,11,0
+93925,Female,Black,70 and over,Alameda County,4,1,0,0,0,5,11,0
+93926,Female,Black,70 and over,Contra Costa County,0,0,0,0,0,0,1,0
+93927,Female,Black,70 and over,Fresno County,0,0,0,0,0,0,1,0
+93928,Female,Black,70 and over,Kern County,0,0,0,0,0,0,3,0
+93929,Female,Black,70 and over,Los Angeles County,3,1,0,0,0,4,49,0
+93930,Female,Black,70 and over,Madera County,0,0,0,0,0,0,0,0
+93931,Female,Black,70 and over,Merced County,0,0,0,0,0,0,1,0
+93932,Female,Black,70 and over,Orange County,0,0,0,0,0,0,2,0
+93933,Female,Black,70 and over,Riverside County,0,0,0,0,0,0,4,0
+93934,Female,Black,70 and over,Sacramento County,1,0,0,0,0,1,2,0
+93935,Female,Black,70 and over,San Bernardino County,3,0,0,0,0,3,4,0
+93936,Female,Black,70 and over,San Diego County,3,0,0,0,0,3,10,0
+93937,Female,Black,70 and over,San Francisco County,1,0,0,0,0,1,0,0
+93938,Female,Black,70 and over,San Joaquin County,1,0,0,0,0,1,1,0
+93939,Female,Black,70 and over,San Luis Obispo County,0,0,0,0,0,0,1,0
+93940,Female,Black,70 and over,San Mateo County,0,0,0,0,0,0,2,0
+93941,Female,Black,70 and over,Santa Barbara County,0,0,0,0,0,0,1,0
+93942,Female,Black,70 and over,Santa Clara County,1,0,0,0,0,1,0,0
+93943,Female,Black,70 and over,Solano County,0,0,0,0,0,0,1,0
+93944,Female,Black,70 and over,Sonoma County,0,0,0,0,0,0,1,0
+93945,Female,Black,70 and over,Stanislaus County,0,1,0,0,0,1,1,0
+93946,Female,Black,70 and over,Tulare County,0,0,0,0,0,0,1,0
+93947,Female,Hispanic,Under 18,Alameda County,17,10,1,0,1,29,38,21
+93948,Female,Hispanic,Under 18,Alpine County,0,0,0,0,0,0,1,0
+93949,Female,Hispanic,Under 18,Amador County,0,0,0,0,0,0,1,0
+93950,Female,Hispanic,Under 18,Butte County,2,0,0,0,1,3,16,0
+93951,Female,Hispanic,Under 18,Calaveras County,1,0,0,0,0,1,3,0
+93952,Female,Hispanic,Under 18,Colusa County,0,0,0,0,0,0,1,0
+93953,Female,Hispanic,Under 18,Contra Costa County,2,8,1,1,3,15,38,0
+93954,Female,Hispanic,Under 18,El Dorado County,0,0,0,0,0,0,15,0
+93955,Female,Hispanic,Under 18,Fresno County,23,14,1,0,12,50,210,8
+93956,Female,Hispanic,Under 18,Glenn County,1,0,0,0,0,1,8,0
+93957,Female,Hispanic,Under 18,Humboldt County,1,0,1,0,0,2,1,0
+93958,Female,Hispanic,Under 18,Imperial County,1,2,0,0,1,4,35,0
+93959,Female,Hispanic,Under 18,Inyo County,0,0,0,0,1,1,4,0
+93960,Female,Hispanic,Under 18,Kern County,20,11,0,0,8,39,101,17
+93961,Female,Hispanic,Under 18,Kings County,5,9,1,1,3,19,82,27
+93962,Female,Hispanic,Under 18,Lake County,0,0,1,0,0,1,2,0
+93963,Female,Hispanic,Under 18,Lassen County,0,0,0,0,0,0,4,0
+93964,Female,Hispanic,Under 18,Los Angeles County,180,111,15,2,62,370,697,75
+93965,Female,Hispanic,Under 18,Madera County,2,2,0,1,2,7,50,0
+93966,Female,Hispanic,Under 18,Marin County,2,4,0,0,0,6,44,21
+93967,Female,Hispanic,Under 18,Mendocino County,0,2,1,0,0,3,15,0
+93968,Female,Hispanic,Under 18,Merced County,8,7,0,1,2,18,61,91
+93969,Female,Hispanic,Under 18,Modoc County,0,0,0,0,0,0,3,0
+93970,Female,Hispanic,Under 18,Mono County,1,0,0,0,0,1,1,0
+93971,Female,Hispanic,Under 18,Monterey County,18,8,0,2,5,33,115,17
+93972,Female,Hispanic,Under 18,Napa County,4,1,1,0,3,9,10,0
+93973,Female,Hispanic,Under 18,Nevada County,0,2,0,0,0,2,8,4
+93974,Female,Hispanic,Under 18,Orange County,53,35,5,6,14,113,235,194
+93975,Female,Hispanic,Under 18,Placer County,3,3,0,0,4,10,19,2
+93976,Female,Hispanic,Under 18,Riverside County,18,9,0,0,8,35,148,36
+93977,Female,Hispanic,Under 18,Sacramento County,5,7,0,0,1,13,39,2
+93978,Female,Hispanic,Under 18,San Benito County,0,0,0,0,1,1,9,2
+93979,Female,Hispanic,Under 18,San Bernardino County,51,31,2,11,19,114,188,202
+93980,Female,Hispanic,Under 18,San Diego County,50,16,1,0,28,95,315,84
+93981,Female,Hispanic,Under 18,San Francisco County,0,1,0,0,0,1,0,0
+93982,Female,Hispanic,Under 18,San Joaquin County,9,13,0,1,7,30,57,0
+93983,Female,Hispanic,Under 18,San Luis Obispo County,0,1,0,0,0,1,13,0
+93984,Female,Hispanic,Under 18,San Mateo County,9,4,0,0,3,16,72,2
+93985,Female,Hispanic,Under 18,Santa Barbara County,16,14,0,0,19,49,184,12
+93986,Female,Hispanic,Under 18,Santa Clara County,52,114,4,3,21,194,225,31
+93987,Female,Hispanic,Under 18,Santa Cruz County,7,10,0,0,5,22,52,0
+93988,Female,Hispanic,Under 18,Shasta County,0,0,0,0,1,1,2,7
+93989,Female,Hispanic,Under 18,Solano County,6,3,0,0,2,11,48,1
+93990,Female,Hispanic,Under 18,Sonoma County,5,4,0,0,4,13,63,0
+93991,Female,Hispanic,Under 18,Stanislaus County,12,10,1,0,4,27,79,6
+93992,Female,Hispanic,Under 18,Sutter County,0,0,0,0,0,0,6,2
+93993,Female,Hispanic,Under 18,Tehama County,0,0,0,0,1,1,11,0
+93994,Female,Hispanic,Under 18,Tulare County,10,18,1,0,9,38,172,135
+93995,Female,Hispanic,Under 18,Tuolumne County,0,0,0,0,0,0,4,2
+93996,Female,Hispanic,Under 18,Ventura County,33,30,2,2,14,81,251,172
+93997,Female,Hispanic,Under 18,Yolo County,2,5,1,0,4,12,12,3
+93998,Female,Hispanic,Under 18,Yuba County,1,0,0,0,0,1,10,0
+93999,Female,Hispanic,18 to 19,Alameda County,17,10,0,0,5,32,82,0
+94000,Female,Hispanic,18 to 19,Amador County,0,0,0,0,0,0,2,0
+94001,Female,Hispanic,18 to 19,Butte County,0,0,0,0,0,0,18,0
+94002,Female,Hispanic,18 to 19,Colusa County,0,0,0,0,0,0,0,0
+94003,Female,Hispanic,18 to 19,Contra Costa County,8,6,2,0,8,24,33,0
+94004,Female,Hispanic,18 to 19,Del Norte County,0,0,0,0,0,0,0,0
+94005,Female,Hispanic,18 to 19,El Dorado County,0,0,0,0,0,0,1,0
+94006,Female,Hispanic,18 to 19,Fresno County,21,7,1,0,5,34,91,0
+94007,Female,Hispanic,18 to 19,Glenn County,0,0,1,0,0,1,4,0
+94008,Female,Hispanic,18 to 19,Humboldt County,0,2,0,0,0,2,10,0
+94009,Female,Hispanic,18 to 19,Imperial County,5,1,1,0,2,9,21,0
+94010,Female,Hispanic,18 to 19,Inyo County,1,0,0,0,0,1,1,0
+94011,Female,Hispanic,18 to 19,Kern County,14,8,1,0,13,36,67,0
+94012,Female,Hispanic,18 to 19,Kings County,3,1,0,0,1,5,26,0
+94013,Female,Hispanic,18 to 19,Lake County,1,0,0,0,0,1,5,0
+94014,Female,Hispanic,18 to 19,Los Angeles County,174,106,22,0,45,347,814,0
+94015,Female,Hispanic,18 to 19,Madera County,2,1,1,0,1,5,21,0
+94016,Female,Hispanic,18 to 19,Marin County,3,1,0,0,0,4,7,0
+94017,Female,Hispanic,18 to 19,Mendocino County,1,0,0,0,0,1,1,0
+94018,Female,Hispanic,18 to 19,Merced County,4,5,0,0,1,10,20,0
+94019,Female,Hispanic,18 to 19,Monterey County,11,8,1,0,4,24,50,0
+94020,Female,Hispanic,18 to 19,Napa County,2,1,0,0,0,3,12,0
+94021,Female,Hispanic,18 to 19,Nevada County,0,0,0,0,0,0,1,0
+94022,Female,Hispanic,18 to 19,Orange County,33,42,6,1,20,102,208,0
+94023,Female,Hispanic,18 to 19,Placer County,2,1,0,0,0,3,13,0
+94024,Female,Hispanic,18 to 19,Riverside County,34,16,2,0,11,63,120,0
+94025,Female,Hispanic,18 to 19,Sacramento County,9,5,0,0,8,22,42,0
+94026,Female,Hispanic,18 to 19,San Benito County,1,0,0,0,0,1,5,0
+94027,Female,Hispanic,18 to 19,San Bernardino County,23,35,8,1,15,82,198,0
+94028,Female,Hispanic,18 to 19,San Diego County,41,20,8,0,11,80,126,0
+94029,Female,Hispanic,18 to 19,San Francisco County,0,1,0,0,1,2,4,0
+94030,Female,Hispanic,18 to 19,San Joaquin County,16,3,0,0,11,30,47,0
+94031,Female,Hispanic,18 to 19,San Luis Obispo County,2,2,0,0,3,7,18,0
+94032,Female,Hispanic,18 to 19,San Mateo County,6,7,0,0,2,15,44,0
+94033,Female,Hispanic,18 to 19,Santa Barbara County,7,0,1,0,5,13,71,0
+94034,Female,Hispanic,18 to 19,Santa Clara County,24,26,0,0,3,53,94,0
+94035,Female,Hispanic,18 to 19,Santa Cruz County,4,4,1,0,0,9,32,0
+94036,Female,Hispanic,18 to 19,Shasta County,0,0,0,0,0,0,1,0
+94037,Female,Hispanic,18 to 19,Siskiyou County,0,0,0,0,0,0,1,0
+94038,Female,Hispanic,18 to 19,Solano County,3,2,0,0,0,5,15,0
+94039,Female,Hispanic,18 to 19,Sonoma County,8,1,0,0,2,11,28,0
+94040,Female,Hispanic,18 to 19,Stanislaus County,10,1,0,0,2,13,35,0
+94041,Female,Hispanic,18 to 19,Sutter County,2,0,0,0,0,2,4,0
+94042,Female,Hispanic,18 to 19,Tehama County,0,0,0,0,0,0,5,0
+94043,Female,Hispanic,18 to 19,Tulare County,11,3,2,0,3,19,76,0
+94044,Female,Hispanic,18 to 19,Tuolumne County,2,0,1,0,1,4,2,0
+94045,Female,Hispanic,18 to 19,Ventura County,14,10,5,0,6,35,118,0
+94046,Female,Hispanic,18 to 19,Yolo County,1,0,0,0,1,2,17,0
+94047,Female,Hispanic,18 to 19,Yuba County,1,0,0,0,0,1,2,0
+94048,Female,Hispanic,20 to 29,Alameda County,67,45,9,0,33,154,594,0
+94049,Female,Hispanic,20 to 29,Alpine County,0,0,0,0,0,0,0,0
+94050,Female,Hispanic,20 to 29,Amador County,0,0,0,0,2,2,4,0
+94051,Female,Hispanic,20 to 29,Butte County,15,5,1,0,10,31,100,0
+94052,Female,Hispanic,20 to 29,Calaveras County,0,0,0,0,0,0,5,0
+94053,Female,Hispanic,20 to 29,Colusa County,4,0,0,0,4,8,28,0
+94054,Female,Hispanic,20 to 29,Contra Costa County,44,35,8,0,31,118,290,0
+94055,Female,Hispanic,20 to 29,Del Norte County,1,1,1,0,0,3,10,0
+94056,Female,Hispanic,20 to 29,El Dorado County,3,3,0,0,3,9,30,0
+94057,Female,Hispanic,20 to 29,Fresno County,216,94,9,1,66,386,1087,0
+94058,Female,Hispanic,20 to 29,Glenn County,0,2,1,0,1,4,14,0
+94059,Female,Hispanic,20 to 29,Humboldt County,7,3,0,0,3,13,36,0
+94060,Female,Hispanic,20 to 29,Imperial County,18,12,9,0,18,57,258,0
+94061,Female,Hispanic,20 to 29,Inyo County,2,0,0,0,0,2,7,0
+94062,Female,Hispanic,20 to 29,Kern County,89,98,20,0,82,289,830,0
+94063,Female,Hispanic,20 to 29,Kings County,24,13,4,0,39,80,280,0
+94064,Female,Hispanic,20 to 29,Lake County,6,3,2,0,3,14,31,0
+94065,Female,Hispanic,20 to 29,Lassen County,3,0,0,0,1,4,5,0
+94066,Female,Hispanic,20 to 29,Los Angeles County,1267,1176,212,3,580,3238,7085,0
+94067,Female,Hispanic,20 to 29,Madera County,33,9,3,0,13,58,147,0
+94068,Female,Hispanic,20 to 29,Marin County,14,2,1,0,3,20,60,0
+94069,Female,Hispanic,20 to 29,Mariposa County,0,2,0,0,0,2,4,0
+94070,Female,Hispanic,20 to 29,Mendocino County,5,1,0,0,1,7,38,0
+94071,Female,Hispanic,20 to 29,Merced County,36,14,3,0,21,74,236,0
+94072,Female,Hispanic,20 to 29,Modoc County,1,0,2,0,1,4,5,0
+94073,Female,Hispanic,20 to 29,Mono County,1,1,1,0,0,3,4,0
+94074,Female,Hispanic,20 to 29,Monterey County,68,35,14,0,27,144,364,0
+94075,Female,Hispanic,20 to 29,Napa County,14,5,1,0,9,29,93,0
+94076,Female,Hispanic,20 to 29,Nevada County,0,0,0,0,1,1,10,0
+94077,Female,Hispanic,20 to 29,Orange County,279,252,57,2,134,724,2340,0
+94078,Female,Hispanic,20 to 29,Placer County,14,10,3,1,11,39,59,0
+94079,Female,Hispanic,20 to 29,Plumas County,1,0,0,0,0,1,4,0
+94080,Female,Hispanic,20 to 29,Riverside County,209,168,36,1,107,521,1223,0
+94081,Female,Hispanic,20 to 29,Sacramento County,75,39,17,0,41,172,328,0
+94082,Female,Hispanic,20 to 29,San Benito County,7,2,0,0,0,9,68,0
+94083,Female,Hispanic,20 to 29,San Bernardino County,335,350,109,1,135,930,2108,0
+94084,Female,Hispanic,20 to 29,San Diego County,350,102,33,0,123,608,1514,0
+94085,Female,Hispanic,20 to 29,San Francisco County,0,1,0,0,3,4,27,0
+94086,Female,Hispanic,20 to 29,San Joaquin County,96,45,9,0,35,185,328,0
+94087,Female,Hispanic,20 to 29,San Luis Obispo County,7,14,4,0,7,32,156,0
+94088,Female,Hispanic,20 to 29,San Mateo County,53,21,1,0,15,90,318,0
+94089,Female,Hispanic,20 to 29,Santa Barbara County,55,31,18,0,36,140,400,0
+94090,Female,Hispanic,20 to 29,Santa Clara County,155,102,17,3,69,346,866,0
+94091,Female,Hispanic,20 to 29,Santa Cruz County,17,9,2,0,14,42,175,0
+94092,Female,Hispanic,20 to 29,Shasta County,2,4,2,0,5,13,26,0
+94093,Female,Hispanic,20 to 29,Siskiyou County,1,0,0,0,0,1,10,0
+94094,Female,Hispanic,20 to 29,Solano County,22,16,7,0,7,52,149,0
+94095,Female,Hispanic,20 to 29,Sonoma County,39,13,4,0,11,67,222,0
+94096,Female,Hispanic,20 to 29,Stanislaus County,98,38,14,1,34,185,348,0
+94097,Female,Hispanic,20 to 29,Sutter County,17,7,0,0,10,34,76,0
+94098,Female,Hispanic,20 to 29,Tehama County,1,2,0,0,0,3,22,0
+94099,Female,Hispanic,20 to 29,Trinity County,0,0,0,0,0,0,2,0
+94100,Female,Hispanic,20 to 29,Tulare County,111,78,21,0,55,265,667,0
+94101,Female,Hispanic,20 to 29,Tuolumne County,2,0,0,0,2,4,8,0
+94102,Female,Hispanic,20 to 29,Ventura County,124,75,25,0,78,302,1046,0
+94103,Female,Hispanic,20 to 29,Yolo County,15,6,3,0,9,33,116,0
+94104,Female,Hispanic,20 to 29,Yuba County,9,2,1,0,0,12,20,0
+94105,Female,Hispanic,30 to 39,Alameda County,56,70,9,0,30,165,442,0
+94106,Female,Hispanic,30 to 39,Amador County,0,4,0,0,1,5,4,0
+94107,Female,Hispanic,30 to 39,Butte County,8,3,4,0,6,21,75,0
+94108,Female,Hispanic,30 to 39,Calaveras County,1,0,0,0,0,1,11,0
+94109,Female,Hispanic,30 to 39,Colusa County,4,0,0,0,1,5,15,0
+94110,Female,Hispanic,30 to 39,Contra Costa County,22,65,3,1,19,110,185,0
+94111,Female,Hispanic,30 to 39,Del Norte County,2,0,1,0,0,3,7,0
+94112,Female,Hispanic,30 to 39,El Dorado County,4,4,2,0,5,15,23,0
+94113,Female,Hispanic,30 to 39,Fresno County,149,86,19,1,77,332,1003,0
+94114,Female,Hispanic,30 to 39,Glenn County,2,2,1,0,3,8,23,0
+94115,Female,Hispanic,30 to 39,Humboldt County,1,4,0,0,5,10,23,0
+94116,Female,Hispanic,30 to 39,Imperial County,14,13,8,0,11,46,273,0
+94117,Female,Hispanic,30 to 39,Inyo County,2,0,0,0,1,3,4,0
+94118,Female,Hispanic,30 to 39,Kern County,73,86,15,0,68,242,683,0
+94119,Female,Hispanic,30 to 39,Kings County,35,11,4,0,34,84,292,0
+94120,Female,Hispanic,30 to 39,Lake County,4,2,1,0,1,8,36,0
+94121,Female,Hispanic,30 to 39,Lassen County,2,1,0,0,1,4,5,0
+94122,Female,Hispanic,30 to 39,Los Angeles County,756,682,181,5,372,1996,4975,0
+94123,Female,Hispanic,30 to 39,Madera County,30,14,0,0,8,52,133,0
+94124,Female,Hispanic,30 to 39,Marin County,9,2,0,0,2,13,50,0
+94125,Female,Hispanic,30 to 39,Mariposa County,0,1,0,0,0,1,3,0
+94126,Female,Hispanic,30 to 39,Mendocino County,3,1,2,0,1,7,19,0
+94127,Female,Hispanic,30 to 39,Merced County,37,15,8,0,22,82,269,0
+94128,Female,Hispanic,30 to 39,Modoc County,1,0,0,0,1,2,7,0
+94129,Female,Hispanic,30 to 39,Mono County,0,0,0,0,0,0,3,0
+94130,Female,Hispanic,30 to 39,Monterey County,38,30,10,0,24,102,309,0
+94131,Female,Hispanic,30 to 39,Napa County,8,4,0,0,5,17,42,0
+94132,Female,Hispanic,30 to 39,Nevada County,2,0,0,0,1,3,6,0
+94133,Female,Hispanic,30 to 39,Orange County,166,155,53,0,98,472,1330,0
+94134,Female,Hispanic,30 to 39,Placer County,6,10,1,0,9,26,52,0
+94135,Female,Hispanic,30 to 39,Plumas County,0,0,0,0,0,0,1,0
+94136,Female,Hispanic,30 to 39,Riverside County,160,134,25,0,96,415,905,0
+94137,Female,Hispanic,30 to 39,Sacramento County,52,47,14,0,35,148,272,0
+94138,Female,Hispanic,30 to 39,San Benito County,5,2,1,0,6,14,45,0
+94139,Female,Hispanic,30 to 39,San Bernardino County,276,308,84,0,136,804,1610,0
+94140,Female,Hispanic,30 to 39,San Diego County,222,100,36,0,92,450,1032,0
+94141,Female,Hispanic,30 to 39,San Francisco County,0,2,0,0,1,3,19,0
+94142,Female,Hispanic,30 to 39,San Joaquin County,59,31,7,1,22,120,313,0
+94143,Female,Hispanic,30 to 39,San Luis Obispo County,8,4,0,0,3,15,78,0
+94144,Female,Hispanic,30 to 39,San Mateo County,36,11,3,0,19,69,182,0
+94145,Female,Hispanic,30 to 39,Santa Barbara County,41,25,10,0,35,111,287,0
+94146,Female,Hispanic,30 to 39,Santa Clara County,98,99,15,0,67,279,677,0
+94147,Female,Hispanic,30 to 39,Santa Cruz County,12,8,2,0,10,32,141,0
+94148,Female,Hispanic,30 to 39,Shasta County,3,1,0,0,1,5,30,0
+94149,Female,Hispanic,30 to 39,Sierra County,0,0,0,0,0,0,1,0
+94150,Female,Hispanic,30 to 39,Siskiyou County,0,1,1,0,0,2,3,0
+94151,Female,Hispanic,30 to 39,Solano County,18,12,6,0,11,47,141,0
+94152,Female,Hispanic,30 to 39,Sonoma County,33,23,2,0,3,61,183,0
+94153,Female,Hispanic,30 to 39,Stanislaus County,64,29,15,0,28,136,282,0
+94154,Female,Hispanic,30 to 39,Sutter County,8,6,1,0,10,25,68,0
+94155,Female,Hispanic,30 to 39,Tehama County,2,1,0,0,0,3,23,0
+94156,Female,Hispanic,30 to 39,Tulare County,88,75,46,0,59,268,673,0
+94157,Female,Hispanic,30 to 39,Tuolumne County,1,5,0,0,3,9,11,0
+94158,Female,Hispanic,30 to 39,Ventura County,77,70,14,0,50,211,906,0
+94159,Female,Hispanic,30 to 39,Yolo County,9,14,4,0,7,34,92,0
+94160,Female,Hispanic,30 to 39,Yuba County,2,3,1,0,5,11,15,0
+94161,Female,Hispanic,40 to 69,Alameda County,26,19,3,0,13,61,320,0
+94162,Female,Hispanic,40 to 69,Amador County,1,0,0,0,1,2,5,0
+94163,Female,Hispanic,40 to 69,Butte County,3,3,0,0,3,9,43,0
+94164,Female,Hispanic,40 to 69,Calaveras County,0,0,0,0,1,1,6,0
+94165,Female,Hispanic,40 to 69,Colusa County,2,0,0,0,1,3,14,0
+94166,Female,Hispanic,40 to 69,Contra Costa County,19,20,2,0,13,54,175,0
+94167,Female,Hispanic,40 to 69,Del Norte County,1,0,0,0,0,1,2,0
+94168,Female,Hispanic,40 to 69,El Dorado County,2,1,0,0,2,5,19,0
+94169,Female,Hispanic,40 to 69,Fresno County,90,44,8,0,37,179,951,0
+94170,Female,Hispanic,40 to 69,Glenn County,0,0,0,0,0,0,13,0
+94171,Female,Hispanic,40 to 69,Humboldt County,3,1,0,0,0,4,17,0
+94172,Female,Hispanic,40 to 69,Imperial County,8,10,5,1,11,35,181,0
+94173,Female,Hispanic,40 to 69,Inyo County,1,0,0,0,0,1,2,0
+94174,Female,Hispanic,40 to 69,Kern County,32,30,6,0,36,104,461,0
+94175,Female,Hispanic,40 to 69,Kings County,11,9,0,1,21,42,209,0
+94176,Female,Hispanic,40 to 69,Lake County,3,0,3,0,0,6,15,0
+94177,Female,Hispanic,40 to 69,Lassen County,1,0,1,0,0,2,4,0
+94178,Female,Hispanic,40 to 69,Los Angeles County,484,302,140,1,241,1168,4065,0
+94179,Female,Hispanic,40 to 69,Madera County,13,3,1,0,8,25,111,0
+94180,Female,Hispanic,40 to 69,Marin County,6,2,1,0,1,10,26,0
+94181,Female,Hispanic,40 to 69,Mariposa County,1,1,2,0,0,4,5,0
+94182,Female,Hispanic,40 to 69,Mendocino County,3,0,0,0,0,3,11,0
+94183,Female,Hispanic,40 to 69,Merced County,17,10,1,1,6,35,179,0
+94184,Female,Hispanic,40 to 69,Mono County,0,0,0,0,0,0,1,0
+94185,Female,Hispanic,40 to 69,Monterey County,21,13,8,1,17,60,239,0
+94186,Female,Hispanic,40 to 69,Napa County,4,2,0,0,3,9,30,0
+94187,Female,Hispanic,40 to 69,Nevada County,2,0,0,0,0,2,12,0
+94188,Female,Hispanic,40 to 69,Orange County,63,71,27,0,53,214,1067,0
+94189,Female,Hispanic,40 to 69,Placer County,4,8,3,0,8,23,59,0
+94190,Female,Hispanic,40 to 69,Plumas County,0,0,0,0,0,0,1,0
+94191,Female,Hispanic,40 to 69,Riverside County,100,54,34,0,50,238,708,0
+94192,Female,Hispanic,40 to 69,Sacramento County,44,23,8,2,23,100,232,0
+94193,Female,Hispanic,40 to 69,San Benito County,5,0,0,1,0,6,60,0
+94194,Female,Hispanic,40 to 69,San Bernardino County,160,121,57,0,53,391,1381,0
+94195,Female,Hispanic,40 to 69,San Diego County,111,47,36,0,75,269,1122,0
+94196,Female,Hispanic,40 to 69,San Francisco County,0,0,0,0,2,2,9,0
+94197,Female,Hispanic,40 to 69,San Joaquin County,47,20,8,2,18,95,227,0
+94198,Female,Hispanic,40 to 69,San Luis Obispo County,4,4,1,0,3,12,97,0
+94199,Female,Hispanic,40 to 69,San Mateo County,23,4,4,0,3,34,190,0
+94200,Female,Hispanic,40 to 69,Santa Barbara County,19,20,8,0,24,71,407,0
+94201,Female,Hispanic,40 to 69,Santa Clara County,88,52,15,1,47,203,635,0
+94202,Female,Hispanic,40 to 69,Santa Cruz County,4,4,0,0,5,13,83,0
+94203,Female,Hispanic,40 to 69,Shasta County,1,0,0,0,1,2,14,0
+94204,Female,Hispanic,40 to 69,Sierra County,0,0,0,0,0,0,1,0
+94205,Female,Hispanic,40 to 69,Siskiyou County,1,0,0,0,2,3,8,0
+94206,Female,Hispanic,40 to 69,Solano County,11,9,4,0,5,29,89,0
+94207,Female,Hispanic,40 to 69,Sonoma County,11,3,2,0,3,19,97,0
+94208,Female,Hispanic,40 to 69,Stanislaus County,41,24,11,0,25,101,312,0
+94209,Female,Hispanic,40 to 69,Sutter County,2,3,1,0,4,10,44,0
+94210,Female,Hispanic,40 to 69,Tehama County,0,0,0,0,0,0,7,0
+94211,Female,Hispanic,40 to 69,Trinity County,0,2,0,0,1,3,2,0
+94212,Female,Hispanic,40 to 69,Tulare County,60,36,24,0,40,160,495,0
+94213,Female,Hispanic,40 to 69,Tuolumne County,1,3,1,0,5,10,16,0
+94214,Female,Hispanic,40 to 69,Ventura County,48,36,22,0,41,147,717,0
+94215,Female,Hispanic,40 to 69,Yolo County,6,4,0,0,4,14,82,0
+94216,Female,Hispanic,40 to 69,Yuba County,3,1,0,0,1,5,15,0
+94217,Female,Hispanic,70 and over,Alameda County,0,0,0,0,0,0,4,0
+94218,Female,Hispanic,70 and over,Contra Costa County,0,0,0,0,0,0,1,0
+94219,Female,Hispanic,70 and over,Del Norte County,0,0,0,0,0,0,1,0
+94220,Female,Hispanic,70 and over,El Dorado County,0,0,0,0,0,0,1,0
+94221,Female,Hispanic,70 and over,Fresno County,1,0,0,0,2,3,8,0
+94222,Female,Hispanic,70 and over,Imperial County,0,0,0,0,0,0,0,0
+94223,Female,Hispanic,70 and over,Kern County,1,0,0,0,0,1,0,0
+94224,Female,Hispanic,70 and over,Kings County,1,0,0,0,0,1,4,0
+94225,Female,Hispanic,70 and over,Los Angeles County,4,0,0,0,1,5,25,0
+94226,Female,Hispanic,70 and over,Madera County,0,0,0,0,0,0,2,0
+94227,Female,Hispanic,70 and over,Marin County,0,0,0,0,1,1,1,0
+94228,Female,Hispanic,70 and over,Mendocino County,0,0,0,0,0,0,0,0
+94229,Female,Hispanic,70 and over,Monterey County,0,0,0,0,0,0,2,0
+94230,Female,Hispanic,70 and over,Napa County,0,0,0,0,0,0,1,0
+94231,Female,Hispanic,70 and over,Orange County,0,0,0,0,0,0,7,0
+94232,Female,Hispanic,70 and over,Riverside County,1,0,0,0,0,1,7,0
+94233,Female,Hispanic,70 and over,Sacramento County,0,0,0,0,0,0,3,0
+94234,Female,Hispanic,70 and over,San Bernardino County,0,0,0,0,1,1,5,0
+94235,Female,Hispanic,70 and over,San Diego County,1,0,0,0,0,1,9,0
+94236,Female,Hispanic,70 and over,San Joaquin County,2,0,0,0,0,2,7,0
+94237,Female,Hispanic,70 and over,San Mateo County,0,0,0,0,0,0,3,0
+94238,Female,Hispanic,70 and over,Santa Barbara County,0,0,0,0,0,0,3,0
+94239,Female,Hispanic,70 and over,Santa Clara County,1,0,0,0,0,1,7,0
+94240,Female,Hispanic,70 and over,Santa Cruz County,0,0,0,0,0,0,1,0
+94241,Female,Hispanic,70 and over,Solano County,0,0,0,0,0,0,1,0
+94242,Female,Hispanic,70 and over,Sonoma County,0,0,0,0,0,0,2,0
+94243,Female,Hispanic,70 and over,Stanislaus County,1,0,0,0,0,1,2,0
+94244,Female,Hispanic,70 and over,Sutter County,0,0,0,0,0,0,1,0
+94245,Female,Hispanic,70 and over,Tulare County,1,0,0,0,0,1,6,0
+94246,Female,Hispanic,70 and over,Ventura County,0,0,0,0,0,0,4,0
+94247,Female,Hispanic,70 and over,Yolo County,0,0,0,0,0,0,2,0
+94248,Female,Other,Under 18,Alameda County,5,0,0,0,2,7,20,2
+94249,Female,Other,Under 18,Butte County,1,0,0,0,0,1,4,0
+94250,Female,Other,Under 18,Calaveras County,0,0,0,0,0,0,2,0
+94251,Female,Other,Under 18,Colusa County,0,0,0,0,0,0,0,0
+94252,Female,Other,Under 18,Contra Costa County,1,1,0,0,0,2,5,0
+94253,Female,Other,Under 18,Del Norte County,0,0,0,0,0,0,5,0
+94254,Female,Other,Under 18,El Dorado County,0,0,0,0,0,0,1,0
+94255,Female,Other,Under 18,Fresno County,2,0,0,0,3,5,17,0
+94256,Female,Other,Under 18,Humboldt County,1,2,0,0,0,3,5,0
+94257,Female,Other,Under 18,Imperial County,0,0,0,0,2,2,7,0
+94258,Female,Other,Under 18,Inyo County,0,0,0,0,1,1,10,0
+94259,Female,Other,Under 18,Kern County,0,0,0,0,1,1,16,2
+94260,Female,Other,Under 18,Kings County,0,0,0,1,0,1,6,3
+94261,Female,Other,Under 18,Lake County,1,0,0,0,0,1,3,0
+94262,Female,Other,Under 18,Lassen County,1,0,0,0,0,1,1,0
+94263,Female,Other,Under 18,Los Angeles County,5,8,0,0,2,15,51,5
+94264,Female,Other,Under 18,Madera County,2,0,0,0,0,2,4,0
+94265,Female,Other,Under 18,Marin County,0,0,0,0,0,0,7,0
+94266,Female,Other,Under 18,Mendocino County,0,1,0,0,1,2,6,0
+94267,Female,Other,Under 18,Merced County,0,0,0,0,0,0,4,3
+94268,Female,Other,Under 18,Modoc County,1,0,0,0,0,1,2,0
+94269,Female,Other,Under 18,Monterey County,2,0,0,0,0,2,0,0
+94270,Female,Other,Under 18,Nevada County,0,0,0,0,0,0,2,2
+94271,Female,Other,Under 18,Orange County,4,1,1,1,2,9,23,7
+94272,Female,Other,Under 18,Placer County,0,2,0,0,0,2,1,0
+94273,Female,Other,Under 18,Plumas County,0,1,0,0,0,1,1,1
+94274,Female,Other,Under 18,Riverside County,0,2,0,0,1,3,12,3
+94275,Female,Other,Under 18,Sacramento County,5,4,0,0,2,11,11,0
+94276,Female,Other,Under 18,San Benito County,0,0,0,0,0,0,2,0
+94277,Female,Other,Under 18,San Bernardino County,5,3,0,1,1,10,19,6
+94278,Female,Other,Under 18,San Diego County,9,4,0,0,8,21,47,14
+94279,Female,Other,Under 18,San Francisco County,2,0,0,0,21,23,31,0
+94280,Female,Other,Under 18,San Joaquin County,7,2,0,0,0,9,14,0
+94281,Female,Other,Under 18,San Luis Obispo County,0,1,0,0,0,1,1,0
+94282,Female,Other,Under 18,San Mateo County,1,2,0,2,1,6,21,8
+94283,Female,Other,Under 18,Santa Barbara County,1,0,1,0,0,2,6,0
+94284,Female,Other,Under 18,Santa Clara County,3,8,0,0,0,11,37,2
+94285,Female,Other,Under 18,Santa Cruz County,0,0,0,0,0,0,9,0
+94286,Female,Other,Under 18,Shasta County,1,0,0,0,0,1,4,0
+94287,Female,Other,Under 18,Siskiyou County,0,0,0,0,0,0,6,0
+94288,Female,Other,Under 18,Solano County,2,1,0,0,0,3,11,1
+94289,Female,Other,Under 18,Sonoma County,2,0,0,0,0,2,14,0
+94290,Female,Other,Under 18,Stanislaus County,1,3,1,0,0,5,3,0
+94291,Female,Other,Under 18,Sutter County,0,0,0,0,0,0,3,0
+94292,Female,Other,Under 18,Tehama County,1,0,0,0,1,2,3,0
+94293,Female,Other,Under 18,Tulare County,3,2,0,0,0,5,9,6
+94294,Female,Other,Under 18,Ventura County,5,0,0,0,1,6,7,3
+94295,Female,Other,Under 18,Yolo County,0,1,0,0,0,1,1,0
+94296,Female,Other,18 to 19,Alameda County,5,8,0,0,0,13,22,0
+94297,Female,Other,18 to 19,Butte County,1,0,0,0,0,1,6,0
+94298,Female,Other,18 to 19,Contra Costa County,2,4,0,0,1,7,11,0
+94299,Female,Other,18 to 19,Del Norte County,0,0,0,0,0,0,3,0
+94300,Female,Other,18 to 19,El Dorado County,0,0,0,0,0,0,3,0
+94301,Female,Other,18 to 19,Fresno County,1,0,0,0,0,1,11,0
+94302,Female,Other,18 to 19,Glenn County,0,0,0,0,0,0,4,0
+94303,Female,Other,18 to 19,Humboldt County,1,0,1,0,1,3,7,0
+94304,Female,Other,18 to 19,Imperial County,0,0,0,0,0,0,1,0
+94305,Female,Other,18 to 19,Inyo County,0,0,0,0,0,0,7,0
+94306,Female,Other,18 to 19,Kern County,0,0,0,0,0,0,27,0
+94307,Female,Other,18 to 19,Kings County,0,0,0,0,0,0,3,0
+94308,Female,Other,18 to 19,Lake County,0,0,0,0,0,0,1,0
+94309,Female,Other,18 to 19,Los Angeles County,8,10,0,0,0,18,93,0
+94310,Female,Other,18 to 19,Marin County,0,0,0,0,0,0,3,0
+94311,Female,Other,18 to 19,Mendocino County,0,0,0,0,1,1,3,0
+94312,Female,Other,18 to 19,Merced County,2,0,0,0,0,2,4,0
+94313,Female,Other,18 to 19,Modoc County,0,0,0,0,0,0,2,0
+94314,Female,Other,18 to 19,Monterey County,0,0,1,0,1,2,9,0
+94315,Female,Other,18 to 19,Napa County,0,0,0,0,0,0,2,0
+94316,Female,Other,18 to 19,Orange County,8,6,0,0,1,15,31,0
+94317,Female,Other,18 to 19,Placer County,0,0,0,0,0,0,3,0
+94318,Female,Other,18 to 19,Riverside County,1,2,0,0,1,4,8,0
+94319,Female,Other,18 to 19,Sacramento County,6,2,0,0,1,9,12,0
+94320,Female,Other,18 to 19,San Benito County,0,1,0,0,0,1,0,0
+94321,Female,Other,18 to 19,San Bernardino County,2,1,0,0,2,5,16,0
+94322,Female,Other,18 to 19,San Diego County,5,1,0,0,0,6,40,0
+94323,Female,Other,18 to 19,San Francisco County,0,1,0,0,3,4,9,0
+94324,Female,Other,18 to 19,San Joaquin County,2,1,0,0,1,4,7,0
+94325,Female,Other,18 to 19,San Luis Obispo County,1,0,0,0,0,1,10,0
+94326,Female,Other,18 to 19,San Mateo County,2,3,0,0,0,5,21,0
+94327,Female,Other,18 to 19,Santa Barbara County,1,0,0,0,0,1,31,0
+94328,Female,Other,18 to 19,Santa Clara County,4,5,0,0,2,11,20,0
+94329,Female,Other,18 to 19,Santa Cruz County,0,0,0,0,0,0,7,0
+94330,Female,Other,18 to 19,Shasta County,0,0,0,0,0,0,3,0
+94331,Female,Other,18 to 19,Sierra County,0,0,0,0,0,0,1,0
+94332,Female,Other,18 to 19,Siskiyou County,0,0,0,0,0,0,0,0
+94333,Female,Other,18 to 19,Solano County,3,1,0,0,0,4,10,0
+94334,Female,Other,18 to 19,Sonoma County,1,1,0,0,0,2,8,0
+94335,Female,Other,18 to 19,Stanislaus County,0,0,1,0,2,3,2,0
+94336,Female,Other,18 to 19,Sutter County,0,0,0,0,1,1,1,0
+94337,Female,Other,18 to 19,Tulare County,1,0,0,0,0,1,5,0
+94338,Female,Other,18 to 19,Ventura County,1,0,0,0,1,2,1,0
+94339,Female,Other,18 to 19,Yolo County,0,1,0,0,0,1,3,0
+94340,Female,Other,18 to 19,Yuba County,0,4,0,0,0,4,1,0
+94341,Female,Other,20 to 29,Alameda County,30,18,3,0,17,68,251,0
+94342,Female,Other,20 to 29,Alpine County,0,0,0,0,0,0,2,0
+94343,Female,Other,20 to 29,Amador County,1,0,0,0,0,1,7,0
+94344,Female,Other,20 to 29,Butte County,4,2,1,0,1,8,31,0
+94345,Female,Other,20 to 29,Calaveras County,1,0,0,0,0,1,0,0
+94346,Female,Other,20 to 29,Colusa County,1,0,0,0,0,1,3,0
+94347,Female,Other,20 to 29,Contra Costa County,13,26,0,0,9,48,95,0
+94348,Female,Other,20 to 29,Del Norte County,1,0,0,0,1,2,12,0
+94349,Female,Other,20 to 29,El Dorado County,0,1,0,0,0,1,15,0
+94350,Female,Other,20 to 29,Fresno County,27,5,1,0,6,39,124,0
+94351,Female,Other,20 to 29,Glenn County,2,0,0,0,2,4,5,0
+94352,Female,Other,20 to 29,Humboldt County,8,6,1,0,4,19,70,0
+94353,Female,Other,20 to 29,Imperial County,1,1,2,0,3,7,1,0
+94354,Female,Other,20 to 29,Inyo County,5,1,1,0,4,11,22,0
+94355,Female,Other,20 to 29,Kern County,5,2,4,0,0,11,145,0
+94356,Female,Other,20 to 29,Kings County,5,1,1,0,7,14,31,0
+94357,Female,Other,20 to 29,Lake County,4,2,0,0,1,7,26,0
+94358,Female,Other,20 to 29,Lassen County,1,0,0,0,0,1,3,0
+94359,Female,Other,20 to 29,Los Angeles County,127,79,20,0,42,268,721,0
+94360,Female,Other,20 to 29,Madera County,0,1,0,0,0,1,7,0
+94361,Female,Other,20 to 29,Marin County,1,1,0,0,0,2,16,0
+94362,Female,Other,20 to 29,Mariposa County,0,0,0,0,0,0,2,0
+94363,Female,Other,20 to 29,Mendocino County,7,5,0,0,5,17,29,0
+94364,Female,Other,20 to 29,Merced County,3,1,1,0,2,7,18,0
+94365,Female,Other,20 to 29,Modoc County,1,0,0,0,1,2,5,0
+94366,Female,Other,20 to 29,Mono County,0,0,0,0,0,0,1,0
+94367,Female,Other,20 to 29,Monterey County,3,2,0,0,1,6,18,0
+94368,Female,Other,20 to 29,Napa County,2,1,0,0,1,4,26,0
+94369,Female,Other,20 to 29,Nevada County,0,0,1,0,2,3,4,0
+94370,Female,Other,20 to 29,Orange County,50,33,6,1,23,113,454,0
+94371,Female,Other,20 to 29,Placer County,2,4,1,0,4,11,21,0
+94372,Female,Other,20 to 29,Plumas County,0,0,0,0,0,0,2,0
+94373,Female,Other,20 to 29,Riverside County,16,5,4,0,7,32,131,0
+94374,Female,Other,20 to 29,Sacramento County,31,11,14,0,11,67,134,0
+94375,Female,Other,20 to 29,San Benito County,1,0,0,0,0,1,3,0
+94376,Female,Other,20 to 29,San Bernardino County,27,21,2,0,5,55,190,0
+94377,Female,Other,20 to 29,San Diego County,68,9,5,0,20,102,308,0
+94378,Female,Other,20 to 29,San Francisco County,23,6,4,0,9,42,64,0
+94379,Female,Other,20 to 29,San Joaquin County,20,4,0,0,7,31,62,0
+94380,Female,Other,20 to 29,San Luis Obispo County,1,1,0,0,1,3,18,0
+94381,Female,Other,20 to 29,San Mateo County,25,13,0,0,13,51,129,0
+94382,Female,Other,20 to 29,Santa Barbara County,2,4,0,0,1,7,52,0
+94383,Female,Other,20 to 29,Santa Clara County,35,21,5,0,16,77,236,0
+94384,Female,Other,20 to 29,Santa Cruz County,6,0,0,0,2,8,34,0
+94385,Female,Other,20 to 29,Shasta County,7,3,0,0,2,12,31,0
+94386,Female,Other,20 to 29,Sierra County,0,0,0,0,0,0,2,0
+94387,Female,Other,20 to 29,Siskiyou County,1,1,2,0,2,6,10,0
+94388,Female,Other,20 to 29,Solano County,10,11,2,0,4,27,67,0
+94389,Female,Other,20 to 29,Sonoma County,7,4,1,0,6,18,31,0
+94390,Female,Other,20 to 29,Stanislaus County,9,5,1,0,0,15,42,0
+94391,Female,Other,20 to 29,Sutter County,0,1,0,0,2,3,7,0
+94392,Female,Other,20 to 29,Tehama County,0,0,0,0,2,2,18,0
+94393,Female,Other,20 to 29,Trinity County,0,0,1,0,0,1,2,0
+94394,Female,Other,20 to 29,Tulare County,5,5,3,0,9,22,59,0
+94395,Female,Other,20 to 29,Tuolumne County,0,0,0,0,2,2,6,0
+94396,Female,Other,20 to 29,Ventura County,8,5,2,0,7,22,59,0
+94397,Female,Other,20 to 29,Yolo County,5,0,0,0,2,7,29,0
+94398,Female,Other,20 to 29,Yuba County,1,3,0,0,1,5,5,0
+94399,Female,Other,30 to 39,Alameda County,43,19,3,0,7,72,219,0
+94400,Female,Other,30 to 39,Alpine County,0,0,0,0,0,0,1,0
+94401,Female,Other,30 to 39,Amador County,1,1,0,0,2,4,8,0
+94402,Female,Other,30 to 39,Butte County,1,0,4,0,2,7,35,0
+94403,Female,Other,30 to 39,Calaveras County,1,0,0,0,1,2,2,0
+94404,Female,Other,30 to 39,Colusa County,0,0,0,0,1,1,7,0
+94405,Female,Other,30 to 39,Contra Costa County,16,27,3,0,11,57,81,0
+94406,Female,Other,30 to 39,Del Norte County,2,1,1,0,2,6,17,0
+94407,Female,Other,30 to 39,El Dorado County,3,1,0,0,1,5,13,0
+94408,Female,Other,30 to 39,Fresno County,12,14,1,1,8,36,111,0
+94409,Female,Other,30 to 39,Glenn County,1,1,0,0,0,2,11,0
+94410,Female,Other,30 to 39,Humboldt County,3,2,2,0,8,15,51,0
+94411,Female,Other,30 to 39,Imperial County,1,0,0,0,0,1,7,0
+94412,Female,Other,30 to 39,Inyo County,3,2,1,0,4,10,10,0
+94413,Female,Other,30 to 39,Kern County,3,3,5,0,3,14,116,0
+94414,Female,Other,30 to 39,Kings County,1,4,0,0,6,11,44,0
+94415,Female,Other,30 to 39,Lake County,6,2,1,0,4,13,14,0
+94416,Female,Other,30 to 39,Lassen County,2,1,0,0,1,4,2,0
+94417,Female,Other,30 to 39,Los Angeles County,126,79,12,1,37,255,621,0
+94418,Female,Other,30 to 39,Madera County,3,0,0,0,0,3,10,0
+94419,Female,Other,30 to 39,Marin County,1,2,0,0,1,4,16,0
+94420,Female,Other,30 to 39,Mariposa County,0,0,0,0,0,0,2,0
+94421,Female,Other,30 to 39,Mendocino County,5,3,0,0,3,11,35,0
+94422,Female,Other,30 to 39,Merced County,1,2,0,0,3,6,17,0
+94423,Female,Other,30 to 39,Modoc County,1,0,0,0,1,2,4,0
+94424,Female,Other,30 to 39,Mono County,1,0,0,0,0,1,0,0
+94425,Female,Other,30 to 39,Monterey County,2,1,1,0,1,5,11,0
+94426,Female,Other,30 to 39,Napa County,2,1,0,0,4,7,18,0
+94427,Female,Other,30 to 39,Nevada County,1,0,0,0,1,2,4,0
+94428,Female,Other,30 to 39,Orange County,56,26,7,0,9,98,315,0
+94429,Female,Other,30 to 39,Placer County,2,7,0,1,3,13,35,0
+94430,Female,Other,30 to 39,Plumas County,1,0,0,0,2,3,10,0
+94431,Female,Other,30 to 39,Riverside County,18,13,2,0,9,42,76,0
+94432,Female,Other,30 to 39,Sacramento County,31,22,15,0,18,86,159,0
+94433,Female,Other,30 to 39,San Benito County,0,0,0,0,0,0,2,0
+94434,Female,Other,30 to 39,San Bernardino County,21,31,5,0,9,66,138,0
+94435,Female,Other,30 to 39,San Diego County,52,20,13,0,29,114,249,0
+94436,Female,Other,30 to 39,San Francisco County,15,6,0,0,7,28,53,0
+94437,Female,Other,30 to 39,San Joaquin County,17,3,0,0,7,27,49,0
+94438,Female,Other,30 to 39,San Luis Obispo County,1,1,1,0,2,5,34,0
+94439,Female,Other,30 to 39,San Mateo County,32,7,0,0,4,43,114,0
+94440,Female,Other,30 to 39,Santa Barbara County,5,2,1,0,1,9,24,0
+94441,Female,Other,30 to 39,Santa Clara County,46,13,6,1,11,77,178,0
+94442,Female,Other,30 to 39,Santa Cruz County,3,3,0,0,0,6,17,0
+94443,Female,Other,30 to 39,Shasta County,4,0,0,0,5,9,53,0
+94444,Female,Other,30 to 39,Sierra County,0,0,0,0,0,0,1,0
+94445,Female,Other,30 to 39,Siskiyou County,3,0,0,0,3,6,27,0
+94446,Female,Other,30 to 39,Solano County,20,8,2,0,1,31,67,0
+94447,Female,Other,30 to 39,Sonoma County,4,7,2,0,1,14,36,0
+94448,Female,Other,30 to 39,Stanislaus County,13,8,0,0,0,21,31,0
+94449,Female,Other,30 to 39,Sutter County,0,1,0,0,0,1,14,0
+94450,Female,Other,30 to 39,Tehama County,0,0,0,0,0,0,4,0
+94451,Female,Other,30 to 39,Trinity County,1,0,0,0,0,1,0,0
+94452,Female,Other,30 to 39,Tulare County,5,7,1,0,3,16,33,0
+94453,Female,Other,30 to 39,Tuolumne County,0,0,0,0,2,2,4,0
+94454,Female,Other,30 to 39,Ventura County,8,4,0,0,3,15,92,0
+94455,Female,Other,30 to 39,Yolo County,4,1,1,0,4,10,49,0
+94456,Female,Other,30 to 39,Yuba County,4,2,1,0,0,7,6,0
+94457,Female,Other,40 to 69,Alameda County,29,12,12,0,4,57,213,0
+94458,Female,Other,40 to 69,Amador County,0,0,1,0,1,2,5,0
+94459,Female,Other,40 to 69,Butte County,3,2,1,0,0,6,36,0
+94460,Female,Other,40 to 69,Calaveras County,1,1,4,0,0,6,5,0
+94461,Female,Other,40 to 69,Colusa County,0,0,0,0,0,0,8,0
+94462,Female,Other,40 to 69,Contra Costa County,13,14,4,4,3,38,62,0
+94463,Female,Other,40 to 69,Del Norte County,2,1,0,0,1,4,14,0
+94464,Female,Other,40 to 69,El Dorado County,0,3,0,0,0,3,12,0
+94465,Female,Other,40 to 69,Fresno County,8,7,1,0,5,21,113,0
+94466,Female,Other,40 to 69,Glenn County,0,0,0,0,2,2,5,0
+94467,Female,Other,40 to 69,Humboldt County,3,4,1,0,1,9,60,0
+94468,Female,Other,40 to 69,Imperial County,0,1,1,0,2,4,10,0
+94469,Female,Other,40 to 69,Inyo County,3,1,1,0,1,6,14,0
+94470,Female,Other,40 to 69,Kern County,6,0,4,0,1,11,144,0
+94471,Female,Other,40 to 69,Kings County,1,1,0,0,6,8,33,0
+94472,Female,Other,40 to 69,Lake County,3,3,0,0,2,8,28,0
+94473,Female,Other,40 to 69,Lassen County,1,0,0,0,0,1,6,0
+94474,Female,Other,40 to 69,Los Angeles County,122,53,15,2,27,219,759,0
+94475,Female,Other,40 to 69,Madera County,1,0,0,0,1,2,13,0
+94476,Female,Other,40 to 69,Marin County,2,3,0,0,0,5,27,0
+94477,Female,Other,40 to 69,Mariposa County,0,0,0,0,0,0,7,0
+94478,Female,Other,40 to 69,Mendocino County,2,3,0,0,6,11,19,0
+94479,Female,Other,40 to 69,Merced County,2,3,0,0,1,6,12,0
+94480,Female,Other,40 to 69,Modoc County,1,0,0,0,1,2,1,0
+94481,Female,Other,40 to 69,Mono County,0,0,0,0,0,0,5,0
+94482,Female,Other,40 to 69,Monterey County,4,1,0,0,1,6,36,0
+94483,Female,Other,40 to 69,Napa County,2,1,0,0,2,5,16,0
+94484,Female,Other,40 to 69,Nevada County,1,1,0,0,2,4,7,0
+94485,Female,Other,40 to 69,Orange County,45,29,4,2,17,97,426,0
+94486,Female,Other,40 to 69,Placer County,4,1,0,0,2,7,30,0
+94487,Female,Other,40 to 69,Plumas County,3,0,0,0,0,3,3,0
+94488,Female,Other,40 to 69,Riverside County,20,13,9,0,8,50,91,0
+94489,Female,Other,40 to 69,Sacramento County,22,9,43,0,8,82,152,0
+94490,Female,Other,40 to 69,San Benito County,0,0,0,0,0,0,2,0
+94491,Female,Other,40 to 69,San Bernardino County,24,16,8,0,5,53,133,0
+94492,Female,Other,40 to 69,San Diego County,45,18,10,0,14,87,364,0
+94493,Female,Other,40 to 69,San Francisco County,27,7,2,3,11,50,57,0
+94494,Female,Other,40 to 69,San Joaquin County,11,8,1,0,2,22,52,0
+94495,Female,Other,40 to 69,San Luis Obispo County,2,2,0,0,1,5,26,0
+94496,Female,Other,40 to 69,San Mateo County,17,10,2,2,3,34,141,0
+94497,Female,Other,40 to 69,Santa Barbara County,1,1,0,0,1,3,38,0
+94498,Female,Other,40 to 69,Santa Clara County,50,15,5,0,12,82,237,0
+94499,Female,Other,40 to 69,Santa Cruz County,2,1,0,0,1,4,14,0
+94500,Female,Other,40 to 69,Shasta County,2,1,2,1,2,8,49,0
+94501,Female,Other,40 to 69,Siskiyou County,0,1,1,0,6,8,20,0
+94502,Female,Other,40 to 69,Solano County,9,3,1,0,2,15,98,0
+94503,Female,Other,40 to 69,Sonoma County,8,7,2,0,2,19,67,0
+94504,Female,Other,40 to 69,Stanislaus County,2,2,1,0,4,9,31,0
+94505,Female,Other,40 to 69,Sutter County,0,0,0,0,2,2,12,0
+94506,Female,Other,40 to 69,Tehama County,0,1,1,0,0,2,7,0
+94507,Female,Other,40 to 69,Trinity County,0,0,0,0,1,1,0,0
+94508,Female,Other,40 to 69,Tulare County,8,3,1,0,4,16,55,0
+94509,Female,Other,40 to 69,Tuolumne County,1,1,1,0,0,3,4,0
+94510,Female,Other,40 to 69,Ventura County,8,9,1,0,4,22,99,0
+94511,Female,Other,40 to 69,Yolo County,1,2,0,0,0,3,28,0
+94512,Female,Other,40 to 69,Yuba County,1,0,0,0,0,1,4,0
+94513,Female,Other,70 and over,Alameda County,1,0,0,0,0,1,5,0
+94514,Female,Other,70 and over,Contra Costa County,0,0,0,0,0,0,3,0
+94515,Female,Other,70 and over,El Dorado County,0,0,0,0,0,0,1,0
+94516,Female,Other,70 and over,Fresno County,0,0,0,0,0,0,0,0
+94517,Female,Other,70 and over,Kern County,0,0,0,0,0,0,1,0
+94518,Female,Other,70 and over,Los Angeles County,8,1,0,0,1,10,26,0
+94519,Female,Other,70 and over,Marin County,0,0,0,0,0,0,1,0
+94520,Female,Other,70 and over,Mendocino County,0,0,0,0,0,0,1,0
+94521,Female,Other,70 and over,Monterey County,0,0,0,0,0,0,1,0
+94522,Female,Other,70 and over,Orange County,2,0,0,0,0,2,8,0
+94523,Female,Other,70 and over,Riverside County,0,0,0,0,1,1,1,0
+94524,Female,Other,70 and over,Sacramento County,0,0,1,0,0,1,1,0
+94525,Female,Other,70 and over,San Bernardino County,0,0,0,0,0,0,2,0
+94526,Female,Other,70 and over,San Diego County,2,0,0,0,1,3,4,0
+94527,Female,Other,70 and over,San Francisco County,0,0,0,0,0,0,4,0
+94528,Female,Other,70 and over,San Joaquin County,0,0,0,0,0,0,2,0
+94529,Female,Other,70 and over,San Luis Obispo County,0,0,0,0,0,0,2,0
+94530,Female,Other,70 and over,San Mateo County,1,0,0,0,0,1,3,0
+94531,Female,Other,70 and over,Santa Barbara County,0,0,0,0,0,0,1,0
+94532,Female,Other,70 and over,Santa Clara County,2,0,0,0,0,2,4,0
+94533,Female,Other,70 and over,Shasta County,0,0,0,0,0,0,0,0
+94534,Female,Other,70 and over,Solano County,1,0,0,0,0,1,1,0
+94535,Female,Other,70 and over,Sonoma County,0,0,0,0,0,0,3,0
+94536,Female,Other,70 and over,Tulare County,0,0,0,0,0,0,1,0
+94537,Female,Other,70 and over,Ventura County,0,0,0,0,0,0,2,0
+94538,Female,Other,70 and over,Yolo County,0,0,0,0,0,0,2,0
+94539,Female,White,Under 18,Alameda County,6,4,0,0,1,11,17,1
+94540,Female,White,Under 18,Amador County,0,0,0,0,0,0,2,0
+94541,Female,White,Under 18,Butte County,4,5,0,1,7,17,53,0
+94542,Female,White,Under 18,Calaveras County,0,0,0,0,0,0,16,0
+94543,Female,White,Under 18,Colusa County,0,1,0,0,0,1,0,0
+94544,Female,White,Under 18,Contra Costa County,5,0,0,0,3,8,20,0
+94545,Female,White,Under 18,Del Norte County,0,0,1,0,0,1,8,0
+94546,Female,White,Under 18,El Dorado County,5,0,0,0,0,5,48,0
+94547,Female,White,Under 18,Fresno County,2,1,0,1,0,4,48,5
+94548,Female,White,Under 18,Glenn County,0,0,0,0,0,0,2,1
+94549,Female,White,Under 18,Humboldt County,1,1,1,0,0,3,20,1
+94550,Female,White,Under 18,Imperial County,0,0,0,0,0,0,5,0
+94551,Female,White,Under 18,Inyo County,1,1,0,0,0,2,9,0
+94552,Female,White,Under 18,Kern County,9,7,0,1,3,20,67,12
+94553,Female,White,Under 18,Kings County,0,2,0,0,2,4,21,5
+94554,Female,White,Under 18,Lake County,6,1,0,0,1,8,15,0
+94555,Female,White,Under 18,Lassen County,2,0,2,0,1,5,12,1
+94556,Female,White,Under 18,Los Angeles County,19,16,3,1,14,53,107,9
+94557,Female,White,Under 18,Madera County,1,2,0,0,1,4,5,0
+94558,Female,White,Under 18,Marin County,0,4,0,0,1,5,32,2
+94559,Female,White,Under 18,Mariposa County,0,0,0,0,0,0,1,0
+94560,Female,White,Under 18,Mendocino County,2,1,0,0,0,3,21,1
+94561,Female,White,Under 18,Merced County,1,2,0,1,0,4,18,62
+94562,Female,White,Under 18,Modoc County,0,0,0,0,0,0,1,0
+94563,Female,White,Under 18,Monterey County,0,1,0,0,0,1,22,3
+94564,Female,White,Under 18,Napa County,1,1,0,0,0,2,14,0
+94565,Female,White,Under 18,Nevada County,1,4,0,0,3,8,50,30
+94566,Female,White,Under 18,Orange County,10,9,1,0,2,22,52,74
+94567,Female,White,Under 18,Placer County,3,1,3,0,1,8,39,1
+94568,Female,White,Under 18,Plumas County,0,0,0,0,1,1,12,6
+94569,Female,White,Under 18,Riverside County,5,3,0,1,3,12,57,5
+94570,Female,White,Under 18,Sacramento County,9,9,0,0,6,24,34,3
+94571,Female,White,Under 18,San Benito County,1,0,0,0,0,1,4,0
+94572,Female,White,Under 18,San Bernardino County,11,11,1,3,11,37,56,111
+94573,Female,White,Under 18,San Diego County,31,12,2,0,13,58,166,32
+94574,Female,White,Under 18,San Francisco County,2,0,0,0,3,5,14,0
+94575,Female,White,Under 18,San Joaquin County,10,11,1,0,5,27,78,0
+94576,Female,White,Under 18,San Luis Obispo County,6,2,0,0,1,9,52,1
+94577,Female,White,Under 18,San Mateo County,5,0,0,0,2,7,20,0
+94578,Female,White,Under 18,Santa Barbara County,6,1,1,0,9,17,49,6
+94579,Female,White,Under 18,Santa Clara County,10,8,1,0,4,23,46,3
+94580,Female,White,Under 18,Santa Cruz County,0,1,0,1,0,2,17,0
+94581,Female,White,Under 18,Shasta County,3,2,0,0,2,7,25,31
+94582,Female,White,Under 18,Siskiyou County,0,0,0,0,0,0,8,0
+94583,Female,White,Under 18,Solano County,6,5,1,0,2,14,60,0
+94584,Female,White,Under 18,Sonoma County,9,2,0,0,6,17,71,2
+94585,Female,White,Under 18,Stanislaus County,7,4,0,2,3,16,39,2
+94586,Female,White,Under 18,Sutter County,1,1,0,0,1,3,21,4
+94587,Female,White,Under 18,Tehama County,0,2,0,0,1,3,30,0
+94588,Female,White,Under 18,Trinity County,0,0,0,0,0,0,1,0
+94589,Female,White,Under 18,Tulare County,7,4,0,0,3,14,46,17
+94590,Female,White,Under 18,Tuolumne County,0,3,0,0,0,3,11,4
+94591,Female,White,Under 18,Ventura County,18,3,0,0,6,27,90,136
+94592,Female,White,Under 18,Yolo County,0,0,0,0,2,2,5,1
+94593,Female,White,Under 18,Yuba County,2,1,0,0,1,4,10,0
+94594,Female,White,18 to 19,Alameda County,9,2,0,0,2,13,41,0
+94595,Female,White,18 to 19,Amador County,0,0,0,0,0,0,2,0
+94596,Female,White,18 to 19,Butte County,4,1,1,0,1,7,67,0
+94597,Female,White,18 to 19,Calaveras County,1,0,0,0,1,2,5,0
+94598,Female,White,18 to 19,Colusa County,0,1,0,0,0,1,2,0
+94599,Female,White,18 to 19,Contra Costa County,7,5,3,0,5,20,40,0
+94600,Female,White,18 to 19,Del Norte County,0,0,0,0,0,0,10,0
+94601,Female,White,18 to 19,El Dorado County,1,1,1,0,2,5,30,0
+94602,Female,White,18 to 19,Fresno County,5,7,2,0,2,16,49,0
+94603,Female,White,18 to 19,Glenn County,0,0,0,0,0,0,5,0
+94604,Female,White,18 to 19,Humboldt County,2,0,0,0,0,2,30,0
+94605,Female,White,18 to 19,Imperial County,2,0,0,0,0,2,3,0
+94606,Female,White,18 to 19,Inyo County,0,0,0,0,0,0,3,0
+94607,Female,White,18 to 19,Kern County,6,9,3,0,9,27,87,0
+94608,Female,White,18 to 19,Kings County,0,0,0,0,0,0,12,0
+94609,Female,White,18 to 19,Lake County,2,3,0,0,1,6,13,0
+94610,Female,White,18 to 19,Lassen County,0,1,0,0,1,2,2,0
+94611,Female,White,18 to 19,Los Angeles County,15,28,8,1,16,68,242,0
+94612,Female,White,18 to 19,Madera County,0,1,0,0,2,3,6,0
+94613,Female,White,18 to 19,Marin County,2,1,0,0,1,4,18,0
+94614,Female,White,18 to 19,Mendocino County,0,0,2,0,1,3,7,0
+94615,Female,White,18 to 19,Merced County,2,0,0,0,0,2,14,0
+94616,Female,White,18 to 19,Modoc County,0,0,0,0,0,0,1,0
+94617,Female,White,18 to 19,Monterey County,2,0,1,0,1,4,29,0
+94618,Female,White,18 to 19,Napa County,0,0,0,0,1,1,12,0
+94619,Female,White,18 to 19,Nevada County,3,2,1,0,2,8,21,0
+94620,Female,White,18 to 19,Orange County,10,7,3,1,3,24,143,0
+94621,Female,White,18 to 19,Placer County,4,7,0,0,2,13,45,0
+94622,Female,White,18 to 19,Plumas County,0,1,0,0,0,1,7,0
+94623,Female,White,18 to 19,Riverside County,12,16,0,0,1,29,58,0
+94624,Female,White,18 to 19,Sacramento County,5,8,1,0,10,24,67,0
+94625,Female,White,18 to 19,San Benito County,0,0,0,0,0,0,3,0
+94626,Female,White,18 to 19,San Bernardino County,13,19,5,1,5,43,81,0
+94627,Female,White,18 to 19,San Diego County,16,16,4,0,11,47,189,0
+94628,Female,White,18 to 19,San Francisco County,13,7,3,0,5,28,27,0
+94629,Female,White,18 to 19,San Joaquin County,9,5,1,0,4,19,37,0
+94630,Female,White,18 to 19,San Luis Obispo County,2,1,0,0,5,8,50,0
+94631,Female,White,18 to 19,San Mateo County,2,0,2,0,1,5,28,0
+94632,Female,White,18 to 19,Santa Barbara County,5,1,6,0,0,12,127,0
+94633,Female,White,18 to 19,Santa Clara County,4,8,1,0,2,15,51,0
+94634,Female,White,18 to 19,Santa Cruz County,1,0,0,0,1,2,35,0
+94635,Female,White,18 to 19,Shasta County,0,6,1,0,1,8,32,0
+94636,Female,White,18 to 19,Siskiyou County,0,1,1,0,1,3,9,0
+94637,Female,White,18 to 19,Solano County,3,0,0,0,1,4,22,0
+94638,Female,White,18 to 19,Sonoma County,6,2,0,0,3,11,46,0
+94639,Female,White,18 to 19,Stanislaus County,2,3,2,0,0,7,40,0
+94640,Female,White,18 to 19,Sutter County,1,3,0,0,2,6,22,0
+94641,Female,White,18 to 19,Tehama County,0,2,0,0,0,2,7,0
+94642,Female,White,18 to 19,Trinity County,0,0,0,0,1,1,1,0
+94643,Female,White,18 to 19,Tulare County,3,3,1,0,0,7,35,0
+94644,Female,White,18 to 19,Tuolumne County,1,0,0,0,0,1,11,0
+94645,Female,White,18 to 19,Ventura County,4,5,1,0,3,13,66,0
+94646,Female,White,18 to 19,Yolo County,0,0,0,0,1,1,12,0
+94647,Female,White,18 to 19,Yuba County,1,1,0,0,0,2,6,0
+94648,Female,White,20 to 29,Alameda County,49,67,26,0,41,183,714,0
+94649,Female,White,20 to 29,Alpine County,0,0,0,0,0,0,1,0
+94650,Female,White,20 to 29,Amador County,7,0,0,0,15,22,45,0
+94651,Female,White,20 to 29,Butte County,47,32,12,0,33,124,543,0
+94652,Female,White,20 to 29,Calaveras County,11,4,1,0,5,21,45,0
+94653,Female,White,20 to 29,Colusa County,4,4,1,0,5,14,24,0
+94654,Female,White,20 to 29,Contra Costa County,46,80,19,0,39,184,533,0
+94655,Female,White,20 to 29,Del Norte County,7,6,5,0,4,22,92,0
+94656,Female,White,20 to 29,El Dorado County,22,17,4,0,33,76,222,0
+94657,Female,White,20 to 29,Fresno County,62,50,3,0,40,155,537,0
+94658,Female,White,20 to 29,Glenn County,7,2,1,0,8,18,51,0
+94659,Female,White,20 to 29,Humboldt County,31,19,7,0,24,81,407,0
+94660,Female,White,20 to 29,Imperial County,3,7,3,0,2,15,41,0
+94661,Female,White,20 to 29,Inyo County,1,3,1,0,3,8,21,0
+94662,Female,White,20 to 29,Kern County,68,84,14,0,53,219,840,0
+94663,Female,White,20 to 29,Kings County,9,7,3,0,6,25,121,0
+94664,Female,White,20 to 29,Lake County,14,16,9,0,14,53,202,0
+94665,Female,White,20 to 29,Lassen County,6,2,1,0,3,12,27,0
+94666,Female,White,20 to 29,Los Angeles County,270,330,88,0,177,865,2888,0
+94667,Female,White,20 to 29,Madera County,5,12,2,0,12,31,69,0
+94668,Female,White,20 to 29,Marin County,13,6,4,0,2,25,157,0
+94669,Female,White,20 to 29,Mariposa County,4,3,0,0,0,7,20,0
+94670,Female,White,20 to 29,Mendocino County,13,15,6,0,14,48,148,0
+94671,Female,White,20 to 29,Merced County,25,15,4,1,7,52,162,0
+94672,Female,White,20 to 29,Modoc County,5,1,0,0,3,9,9,0
+94673,Female,White,20 to 29,Mono County,3,1,0,0,1,5,17,0
+94674,Female,White,20 to 29,Monterey County,19,20,5,0,14,58,248,0
+94675,Female,White,20 to 29,Napa County,12,6,5,0,25,48,134,0
+94676,Female,White,20 to 29,Nevada County,8,15,9,1,14,47,160,0
+94677,Female,White,20 to 29,Orange County,162,172,65,2,123,524,2478,0
+94678,Female,White,20 to 29,Placer County,47,35,17,1,65,165,458,0
+94679,Female,White,20 to 29,Plumas County,4,1,0,0,1,6,29,0
+94680,Female,White,20 to 29,Riverside County,92,107,26,1,92,318,1014,0
+94681,Female,White,20 to 29,Sacramento County,133,103,40,0,88,364,845,0
+94682,Female,White,20 to 29,San Benito County,2,5,1,0,0,8,32,0
+94683,Female,White,20 to 29,San Bernardino County,143,193,44,2,72,454,1149,0
+94684,Female,White,20 to 29,San Diego County,236,183,80,0,177,676,2411,0
+94685,Female,White,20 to 29,San Francisco County,60,36,17,0,68,181,224,0
+94686,Female,White,20 to 29,San Joaquin County,60,46,11,0,44,161,418,0
+94687,Female,White,20 to 29,San Luis Obispo County,25,28,9,0,16,78,620,0
+94688,Female,White,20 to 29,San Mateo County,13,17,3,0,18,51,312,0
+94689,Female,White,20 to 29,Santa Barbara County,34,25,21,0,25,105,436,0
+94690,Female,White,20 to 29,Santa Clara County,56,60,25,1,34,176,590,0
+94691,Female,White,20 to 29,Santa Cruz County,19,46,12,0,27,104,399,0
+94692,Female,White,20 to 29,Shasta County,30,34,10,0,69,143,662,0
+94693,Female,White,20 to 29,Sierra County,0,1,0,0,1,2,7,0
+94694,Female,White,20 to 29,Siskiyou County,10,7,3,0,8,28,110,0
+94695,Female,White,20 to 29,Solano County,34,40,20,1,38,133,395,0
+94696,Female,White,20 to 29,Sonoma County,53,58,10,0,32,153,660,0
+94697,Female,White,20 to 29,Stanislaus County,68,50,31,0,60,209,552,0
+94698,Female,White,20 to 29,Sutter County,19,12,1,2,17,51,221,0
+94699,Female,White,20 to 29,Tehama County,8,9,3,0,9,29,131,0
+94700,Female,White,20 to 29,Trinity County,3,1,3,1,1,9,24,0
+94701,Female,White,20 to 29,Tulare County,48,55,18,2,29,152,349,0
+94702,Female,White,20 to 29,Tuolumne County,8,6,5,0,26,45,154,0
+94703,Female,White,20 to 29,Ventura County,46,57,12,1,58,174,926,0
+94704,Female,White,20 to 29,Yolo County,16,16,4,0,18,54,165,0
+94705,Female,White,20 to 29,Yuba County,15,14,6,0,8,43,128,0
+94706,Female,White,30 to 39,Alameda County,40,62,24,0,37,163,674,0
+94707,Female,White,30 to 39,Alpine County,1,0,0,0,0,1,2,0
+94708,Female,White,30 to 39,Amador County,3,2,3,0,6,14,43,0
+94709,Female,White,30 to 39,Butte County,47,39,9,0,37,132,681,0
+94710,Female,White,30 to 39,Calaveras County,9,3,2,0,5,19,62,0
+94711,Female,White,30 to 39,Colusa County,3,6,0,0,9,18,26,0
+94712,Female,White,30 to 39,Contra Costa County,36,141,24,0,66,267,481,0
+94713,Female,White,30 to 39,Del Norte County,8,4,3,0,9,24,133,0
+94714,Female,White,30 to 39,El Dorado County,43,23,8,0,41,115,241,0
+94715,Female,White,30 to 39,Fresno County,71,50,7,0,50,178,668,0
+94716,Female,White,30 to 39,Glenn County,8,3,1,0,0,12,72,0
+94717,Female,White,30 to 39,Humboldt County,33,15,6,0,32,86,410,0
+94718,Female,White,30 to 39,Imperial County,9,8,2,0,4,23,66,0
+94719,Female,White,30 to 39,Inyo County,6,2,1,0,1,10,19,0
+94720,Female,White,30 to 39,Kern County,76,89,21,0,67,253,943,0
+94721,Female,White,30 to 39,Kings County,13,12,3,1,24,53,160,0
+94722,Female,White,30 to 39,Lake County,22,9,7,0,13,51,233,0
+94723,Female,White,30 to 39,Lassen County,4,4,2,0,4,14,30,0
+94724,Female,White,30 to 39,Los Angeles County,276,357,91,2,175,901,3004,0
+94725,Female,White,30 to 39,Madera County,10,8,1,0,6,25,124,0
+94726,Female,White,30 to 39,Marin County,20,15,2,0,13,50,177,0
+94727,Female,White,30 to 39,Mariposa County,1,2,0,0,2,5,38,0
+94728,Female,White,30 to 39,Mendocino County,23,12,8,0,7,50,205,0
+94729,Female,White,30 to 39,Merced County,17,14,4,0,19,54,187,0
+94730,Female,White,30 to 39,Modoc County,4,0,0,0,6,10,26,0
+94731,Female,White,30 to 39,Mono County,1,0,0,0,0,1,18,0
+94732,Female,White,30 to 39,Monterey County,16,15,7,0,10,48,163,0
+94733,Female,White,30 to 39,Napa County,14,7,5,0,28,54,154,0
+94734,Female,White,30 to 39,Nevada County,9,12,1,0,15,37,131,0
+94735,Female,White,30 to 39,Orange County,152,169,70,1,127,519,2284,0
+94736,Female,White,30 to 39,Placer County,42,48,10,0,76,176,386,0
+94737,Female,White,30 to 39,Plumas County,10,2,1,0,4,17,60,0
+94738,Female,White,30 to 39,Riverside County,130,115,41,1,72,359,985,0
+94739,Female,White,30 to 39,Sacramento County,118,150,33,1,112,414,995,0
+94740,Female,White,30 to 39,San Benito County,4,2,0,0,4,10,22,0
+94741,Female,White,30 to 39,San Bernardino County,151,266,59,2,97,575,1191,0
+94742,Female,White,30 to 39,San Diego County,250,161,72,3,166,652,2324,0
+94743,Female,White,30 to 39,San Francisco County,49,34,10,0,59,152,243,0
+94744,Female,White,30 to 39,San Joaquin County,86,51,14,2,54,207,546,0
+94745,Female,White,30 to 39,San Luis Obispo County,25,23,9,0,15,72,483,0
+94746,Female,White,30 to 39,San Mateo County,26,25,2,0,17,70,316,0
+94747,Female,White,30 to 39,Santa Barbara County,28,26,25,0,22,101,418,0
+94748,Female,White,30 to 39,Santa Clara County,59,65,17,1,33,175,524,0
+94749,Female,White,30 to 39,Santa Cruz County,32,30,5,0,38,105,393,0
+94750,Female,White,30 to 39,Shasta County,32,34,11,0,62,139,620,0
+94751,Female,White,30 to 39,Sierra County,1,0,0,0,1,2,2,0
+94752,Female,White,30 to 39,Siskiyou County,10,11,3,0,15,39,145,0
+94753,Female,White,30 to 39,Solano County,38,44,19,0,30,131,386,0
+94754,Female,White,30 to 39,Sonoma County,56,61,14,0,40,171,695,0
+94755,Female,White,30 to 39,Stanislaus County,75,71,32,1,58,237,669,0
+94756,Female,White,30 to 39,Sutter County,11,14,3,0,20,48,202,0
+94757,Female,White,30 to 39,Tehama County,13,20,3,1,9,46,156,0
+94758,Female,White,30 to 39,Trinity County,2,3,4,0,6,15,15,0
+94759,Female,White,30 to 39,Tulare County,30,54,24,0,44,152,424,0
+94760,Female,White,30 to 39,Tuolumne County,12,9,8,0,24,53,187,0
+94761,Female,White,30 to 39,Ventura County,71,48,17,0,40,176,948,0
+94762,Female,White,30 to 39,Yolo County,11,13,10,0,12,46,228,0
+94763,Female,White,30 to 39,Yuba County,25,20,10,1,12,68,108,0
+94764,Female,White,40 to 69,Alameda County,62,59,17,0,28,166,827,0
+94765,Female,White,40 to 69,Alpine County,0,1,0,0,0,1,4,0
+94766,Female,White,40 to 69,Amador County,5,3,3,0,12,23,73,0
+94767,Female,White,40 to 69,Butte County,57,26,15,1,36,135,847,0
+94768,Female,White,40 to 69,Calaveras County,13,5,1,0,9,28,87,0
+94769,Female,White,40 to 69,Colusa County,0,3,0,0,4,7,37,0
+94770,Female,White,40 to 69,Contra Costa County,47,79,25,1,41,193,681,0
+94771,Female,White,40 to 69,Del Norte County,13,3,1,0,5,22,151,0
+94772,Female,White,40 to 69,El Dorado County,32,21,6,1,27,87,324,0
+94773,Female,White,40 to 69,Fresno County,55,23,7,1,37,123,801,0
+94774,Female,White,40 to 69,Glenn County,5,5,1,0,9,20,97,0
+94775,Female,White,40 to 69,Humboldt County,19,10,7,0,26,62,406,0
+94776,Female,White,40 to 69,Imperial County,3,2,2,0,4,11,60,0
+94777,Female,White,40 to 69,Inyo County,4,1,2,0,3,10,35,0
+94778,Female,White,40 to 69,Kern County,66,59,16,0,70,211,1013,0
+94779,Female,White,40 to 69,Kings County,9,7,2,0,15,33,219,0
+94780,Female,White,40 to 69,Lake County,23,12,8,0,13,56,267,0
+94781,Female,White,40 to 69,Lassen County,8,7,6,0,4,25,73,0
+94782,Female,White,40 to 69,Los Angeles County,375,232,100,0,190,897,4038,0
+94783,Female,White,40 to 69,Madera County,8,5,1,4,5,23,144,0
+94784,Female,White,40 to 69,Marin County,25,20,3,0,13,61,388,0
+94785,Female,White,40 to 69,Mariposa County,5,2,1,0,3,11,40,0
+94786,Female,White,40 to 69,Mendocino County,5,8,3,0,14,30,263,0
+94787,Female,White,40 to 69,Merced County,19,14,6,0,12,51,276,0
+94788,Female,White,40 to 69,Modoc County,5,1,0,0,9,15,28,0
+94789,Female,White,40 to 69,Mono County,3,0,1,0,1,5,11,0
+94790,Female,White,40 to 69,Monterey County,28,8,10,1,12,59,363,0
+94791,Female,White,40 to 69,Napa County,18,7,2,0,19,46,193,0
+94792,Female,White,40 to 69,Nevada County,16,3,3,0,13,35,201,0
+94793,Female,White,40 to 69,Orange County,230,128,65,0,106,529,3081,0
+94794,Female,White,40 to 69,Placer County,51,24,11,0,41,127,582,0
+94795,Female,White,40 to 69,Plumas County,6,3,2,0,4,15,61,0
+94796,Female,White,40 to 69,Riverside County,138,71,29,1,56,295,1287,0
+94797,Female,White,40 to 69,Sacramento County,131,89,30,1,86,337,1082,0
+94798,Female,White,40 to 69,San Benito County,6,4,3,0,0,13,45,0
+94799,Female,White,40 to 69,San Bernardino County,150,152,66,3,84,455,1513,0
+94800,Female,White,40 to 69,San Diego County,313,129,61,3,168,674,3850,0
+94801,Female,White,40 to 69,San Francisco County,57,21,11,1,52,142,221,0
+94802,Female,White,40 to 69,San Joaquin County,87,34,13,0,34,168,578,0
+94803,Female,White,40 to 69,San Luis Obispo County,39,16,4,0,21,80,642,0
+94804,Female,White,40 to 69,San Mateo County,23,14,8,1,13,59,539,0
+94805,Female,White,40 to 69,Santa Barbara County,43,28,20,0,26,117,698,0
+94806,Female,White,40 to 69,Santa Clara County,93,40,22,2,34,191,786,0
+94807,Female,White,40 to 69,Santa Cruz County,36,18,7,1,13,75,565,0
+94808,Female,White,40 to 69,Shasta County,30,17,8,0,45,100,884,0
+94809,Female,White,40 to 69,Sierra County,2,3,1,0,0,6,8,0
+94810,Female,White,40 to 69,Siskiyou County,9,6,7,0,12,34,140,0
+94811,Female,White,40 to 69,Solano County,38,25,18,1,30,112,526,0
+94812,Female,White,40 to 69,Sonoma County,62,35,6,1,32,136,1090,0
+94813,Female,White,40 to 69,Stanislaus County,72,38,35,0,36,181,923,0
+94814,Female,White,40 to 69,Sutter County,18,18,1,0,18,55,252,0
+94815,Female,White,40 to 69,Tehama County,5,7,4,0,5,21,170,0
+94816,Female,White,40 to 69,Trinity County,7,1,2,0,2,12,21,0
+94817,Female,White,40 to 69,Tulare County,35,40,31,2,35,143,615,0
+94818,Female,White,40 to 69,Tuolumne County,16,6,8,0,28,58,198,0
+94819,Female,White,40 to 69,Ventura County,87,47,26,0,66,226,1348,0
+94820,Female,White,40 to 69,Yolo County,16,8,3,0,18,45,295,0
+94821,Female,White,40 to 69,Yuba County,15,8,19,0,12,54,162,0
+94822,Female,White,70 and over,Alameda County,2,1,0,0,0,3,40,0
+94823,Female,White,70 and over,Amador County,0,0,0,0,0,0,3,0
+94824,Female,White,70 and over,Butte County,0,0,0,0,0,0,6,0
+94825,Female,White,70 and over,Calaveras County,0,1,0,0,1,2,6,0
+94826,Female,White,70 and over,Colusa County,0,0,0,0,0,0,1,0
+94827,Female,White,70 and over,Contra Costa County,1,0,0,0,0,1,13,0
+94828,Female,White,70 and over,Del Norte County,0,0,0,0,0,0,2,0
+94829,Female,White,70 and over,El Dorado County,0,0,0,0,0,0,2,0
+94830,Female,White,70 and over,Fresno County,0,0,1,0,0,1,10,0
+94831,Female,White,70 and over,Glenn County,1,0,0,0,0,1,0,0
+94832,Female,White,70 and over,Humboldt County,0,0,0,0,0,0,5,0
+94833,Female,White,70 and over,Inyo County,0,0,0,0,0,0,2,0
+94834,Female,White,70 and over,Kern County,0,0,0,0,1,1,8,0
+94835,Female,White,70 and over,Kings County,0,0,0,0,0,0,2,0
+94836,Female,White,70 and over,Lake County,0,0,0,0,0,0,6,0
+94837,Female,White,70 and over,Los Angeles County,8,2,2,0,2,14,61,0
+94838,Female,White,70 and over,Madera County,0,0,0,0,0,0,2,0
+94839,Female,White,70 and over,Marin County,0,0,0,0,0,0,11,0
+94840,Female,White,70 and over,Mendocino County,1,0,0,0,0,1,2,0
+94841,Female,White,70 and over,Merced County,0,0,0,0,1,1,2,0
+94842,Female,White,70 and over,Modoc County,1,0,0,0,0,1,0,0
+94843,Female,White,70 and over,Mono County,0,0,0,0,0,0,3,0
+94844,Female,White,70 and over,Monterey County,0,0,0,0,0,0,13,0
+94845,Female,White,70 and over,Napa County,1,0,0,0,0,1,4,0
+94846,Female,White,70 and over,Nevada County,1,0,0,0,0,1,3,0
+94847,Female,White,70 and over,Orange County,3,1,0,0,0,4,49,0
+94848,Female,White,70 and over,Placer County,1,0,0,0,1,2,11,0
+94849,Female,White,70 and over,Plumas County,0,0,0,0,0,0,1,0
+94850,Female,White,70 and over,Riverside County,6,0,0,0,1,7,38,0
+94851,Female,White,70 and over,Sacramento County,0,0,0,0,0,0,14,0
+94852,Female,White,70 and over,San Bernardino County,1,0,0,0,0,1,18,0
+94853,Female,White,70 and over,San Diego County,13,1,0,0,4,18,91,0
+94854,Female,White,70 and over,San Francisco County,0,1,0,0,0,1,2,0
+94855,Female,White,70 and over,San Joaquin County,0,0,0,0,0,0,7,0
+94856,Female,White,70 and over,San Luis Obispo County,0,0,0,0,1,1,7,0
+94857,Female,White,70 and over,San Mateo County,3,1,0,0,0,4,14,0
+94858,Female,White,70 and over,Santa Barbara County,2,0,0,0,1,3,21,0
+94859,Female,White,70 and over,Santa Clara County,0,0,0,0,0,0,10,0
+94860,Female,White,70 and over,Santa Cruz County,0,0,0,0,0,0,18,0
+94861,Female,White,70 and over,Shasta County,0,3,0,0,0,3,3,0
+94862,Female,White,70 and over,Siskiyou County,4,1,0,0,0,5,4,0
+94863,Female,White,70 and over,Solano County,0,0,0,0,0,0,4,0
+94864,Female,White,70 and over,Sonoma County,0,0,0,0,3,3,42,0
+94865,Female,White,70 and over,Stanislaus County,1,0,0,0,0,1,14,0
+94866,Female,White,70 and over,Sutter County,0,0,0,0,1,1,3,0
+94867,Female,White,70 and over,Tehama County,0,0,0,0,0,0,6,0
+94868,Female,White,70 and over,Tulare County,1,0,0,0,0,1,8,0
+94869,Female,White,70 and over,Tuolumne County,0,0,1,0,0,1,12,0
+94870,Female,White,70 and over,Ventura County,3,0,0,0,1,4,27,0
+94871,Female,White,70 and over,Yolo County,0,0,0,0,0,0,3,0
+94872,Female,White,70 and over,Yuba County,0,0,0,0,0,0,2,0
