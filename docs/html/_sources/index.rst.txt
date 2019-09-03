@@ -49,6 +49,7 @@ Reminders:
    Command Line, Basics <command_line_part1>
    Command Line, Advanced  <command_line_part2>
    Setting Up Python <setup_environment>
+   Managing Packages <managing_python_packages>
    Jupyter <jupyter>
    Python / R Differences <python_v_r>
    Python: Vars v Objects <vars_v_objects>

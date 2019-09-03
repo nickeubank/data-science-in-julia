@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Python v R: Important Differences To Be Aware Of" href="python_v_r.html" />
-    <link rel="prev" title="Installing Python, Anaconda, and Jupyter" href="setup_environment.html" />
+    <link rel="prev" title="Managing Python Packages" href="managing_python_packages.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -34,207 +34,7 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    background: #f5f5f5;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<div class="section" id="The-Jupyter-Project">
+  <div class="section" id="The-Jupyter-Project">
 <h1>The Jupyter Project<a class="headerlink" href="#The-Jupyter-Project" title="Permalink to this headline">¶</a></h1>
 <p>Today, if you use more than one programming language for data science, you probably also also use different programs to edit and interact with those programs. R users, for example, often use RStudio, Python users use Spyder, and Julia users use Juno.</p>
 <p>But in recent years, an amazing efforts has been underway to provide a single set of tools that work with nearly <em>any</em> underlying programming language: Jupyter (as in <strong>Ju</strong> (Julia) - <strong>py</strong> (Python) - te<strong>R</strong> (R)).</p>
@@ -283,26 +83,26 @@ coming up. And when cleaning data, you are often writing very linear (this-line-
 <p>When you <a class="reference internal" href="setup_environment.html"><span class="doc">installed Anaconda</span></a>, you actually also installed Jupyter, and you so you can already open up Jupyter and use it with a Python Kernel. However, since most people taking this course are Duke MIDS students who are also doing coursework in R, let’s set up Jupyter to work with R as well.</p>
 <ol class="arabic simple">
 <li><p>If you do <em>not</em> have R installed, <a class="reference external" href="https://cloud.r-project.org/">download and install it here</a>. If you have R installed, skip to step 2.</p></li>
-<li><p>Open R</p></li>
+<li><p>Open R by openning your command line tool (Oh-My-Zsh on Mac, Cmder in Windows) and typing <code class="docutils literal notranslate"><span class="pre">R</span></code>. <em>Don’t open it by double clicking its icon!</em></p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">install.packages(&quot;IRkernel&quot;)</span></code></p></li>
 <li><p>After installation is complete, execute the command: <code class="docutils literal notranslate"><span class="pre">IRkernel::installspec()</span></code> in R.</p></li>
 </ol>
 <p>That should be it. To see if R installed correctly, open a new session of Jupyter Lab (open a new console and type <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>), and you should see buttons for both “Python 3” and “R” (though you won’t have Bash, Julia, or Stata listed like I do):</p>
 <p><img alt="jupyter_launch_page" src="_images/jupyter_launch_page.png" /></p>
-<p>If you don’t see a button for <code class="docutils literal notranslate"><span class="pre">R</span></code>, make sure you followed all the steps above!!</p>
+<p>If you don’t see a button for <code class="docutils literal notranslate"><span class="pre">R</span></code>, make sure you followed all the steps above!</p>
+<p><strong>If the command ``IRkernel::installspec()`` generates this error:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">in</span> <span class="n">IRkernel</span><span class="o">::</span><span class="nf">installspec</span><span class="p">()</span> <span class="o">:</span>
+  <span class="n">jupyter</span><span class="o">-</span><span class="n">client</span> <span class="n">has</span> <span class="n">to</span> <span class="n">be</span> <span class="n">installed</span> <span class="n">but</span> “<span class="n">jupyter</span> <span class="n">kernelspec</span> <span class="o">--</span><span class="n">version</span>” <span class="n">exited</span> <span class="n">with</span> <span class="n">code</span> <span class="m">127</span><span class="n">.</span>
+<span class="n">In</span> <span class="n">addition</span><span class="o">:</span> <span class="n">Warning</span> <span class="n">message</span><span class="o">:</span>
+<span class="n">In</span> <span class="nf">system2</span><span class="p">(</span><span class="s">&quot;jupyter&quot;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;kernelspec&quot;</span><span class="p">,</span> <span class="s">&quot;--version&quot;</span><span class="p">),</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span> <span class="o">:</span>
+  <span class="n">error</span> <span class="n">in</span> <span class="n">running</span> <span class="n">command</span>
+</pre></div>
+</div>
+<p>That means R can’t find your installation of jupyter. That probably means anaconda isn’t set up with your command line tool, so please go back and see <code class="docutils literal notranslate"><span class="pre">setup_environment.ipynb</span></code>.</p>
 </div>
 <div class="section" id="Jupyter-Lab-Exercises!">
 <h2>Jupyter Lab Exercises!<a class="headerlink" href="#Jupyter-Lab-Exercises!" title="Permalink to this headline">¶</a></h2>
 <p>Click here for some <a class="reference internal" href="exercises/Exercise_jupyterlab.html"><span class="doc">Jupyter Lab exercises</span></a>!</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -328,6 +128,7 @@ coming up. And when cleaning data, you are often writing very linear (this-line-
 <li class="toctree-l1"><a class="reference internal" href="command_line_part1.html">Command Line, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_environment.html">Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_python_packages.html">Managing Packages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Jupyter-Notebooks">Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Jupyter-Lab">Jupyter Lab</a></li>
@@ -357,7 +158,7 @@ coming up. And when cleaning data, you are often writing very linear (this-line-
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="setup_environment.html" title="previous chapter">Installing Python, Anaconda, and Jupyter</a></li>
+      <li>Previous: <a href="managing_python_packages.html" title="previous chapter">Managing Python Packages</a></li>
       <li>Next: <a href="python_v_r.html" title="next chapter">Python v R: Important Differences To Be Aware Of</a></li>
   </ul></li>
 </ul>

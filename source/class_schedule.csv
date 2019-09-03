@@ -10,8 +10,10 @@
 - `Jupyter Tutorial <jupyter.ipynb>`_
 ","`Link <exercises/Exercise_CommandLine_2_Advanced.ipynb>`_
 `Link 2 <exercises/Exercise_jupyterlab.ipynb>`_"
-5-Sep,Thurs,CC,"- IPython
+5-Sep,Thurs,CC,"- Ipython
+- Packages
 - Python v. R / variables as pointers","- `Follow this link <https://gke.mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb>`_ , then click ""Ipython - Beyond plain python"" and read that notebook. 
+- `Python packages <managing_python_packages.ipynb>`_
 - `variables v objects <python_v_r.ipynb>`_",`Link <exercises/Exercise_variables_v_objects.ipynb>`_
 10-Sep,Tues,330,Numpy Basics,"- JVP pp 33-77
 - IF did not complete DataCamp: Do Numpy Section

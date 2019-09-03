@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Practical Data Science</title>
+    <title>Managing Python Packages &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,6 +16,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Jupyter Project" href="jupyter.html" />
+    <link rel="prev" title="Installing Python, Anaconda, and Jupyter" href="setup_environment.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,15 +34,24 @@
 
           <div class="body" role="main">
             
-  <ol class="arabic simple" start="0">
-<li><p>Data Science questionnaire</p></li>
-<li><p>What is data science?</p></li>
-<li><p>History of data science</p></li>
-<li><p>SWE / Analysis split</p></li>
-<li><p>Wrangling and Analysis</p></li>
-<li><p>We’ll focus on analysis / wrangling. Why? About me!</p></li>
-<li><p>Class structure and expectations.</p></li>
-</ol>
+  <div class="section" id="Managing-Python-Packages">
+<h1>Managing Python Packages<a class="headerlink" href="#Managing-Python-Packages" title="Permalink to this headline">¶</a></h1>
+<p>Unlike in R (where you install packages from <em>within</em> R using the <code class="docutils literal notranslate"><span class="pre">install.packages()</span></code> command), Python packages have to be installed and managed from <em>outside</em> of Python on the command line.</p>
+<p>There are two major tools for installing and managing packages in Python: <code class="docutils literal notranslate"><span class="pre">conda</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<div class="section" id="conda">
+<h2>conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h2>
+<p>Conda is the package management tool created by Anaconda, and is usually the place to start when you want to install something.</p>
+<p>To install a package using <code class="docutils literal notranslate"><span class="pre">conda</span></code>, go to your command line and type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">[name</span> <span class="pre">of</span> <span class="pre">package]</span></code>. i.e. if you want to install pandas, you would type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">pandas</span></code>.</p>
+<p>Conda will then evaluate what all it needs to install to give you <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. This includes things like also installing packages that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> relies on, or updating existing software you have installed to make it compatible with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. It will form a plan, then ask you if you want it to execute. It won’t do anything till you say “yes”.</p>
+<p>Conda can also be used to install specific version of packages (e.g. <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">scipy=0.15.0</span></code>), remove packages (<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">[package]</span></code>), and update packages (<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">[package</span> <span class="pre">name]</span></code>). You can see all software you have installed with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code>.</p>
+<p><strong>Environments:</strong> Conda also supports what are called environments. An environment is like an isolated installation of Python living in a little bubble on your computer where you can experiment with packages without breaking your “working” installation, or have installations of different version of python, and more. We won’t get into those here, but <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">you can read up if you’d like here</a>.</p>
+</div>
+<div class="section" id="pip">
+<h2>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h2>
+<p>pip is the older python package manager, and there are still some packages you can install with pip you can’t install with conda (though it is <em>much</em> more common to have a package you can’t install with pip you can install with conda, which is why you should always start with conda).</p>
+<p>pip has a similar syntax to conda: just run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">[package</span> <span class="pre">name]</span></code> from the command line.</p>
+</div>
+</div>
 
 
           </div>
@@ -59,12 +70,16 @@
 
 
 <h3>Navigation</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="not_a_mids_student.html">Not a MIDS Student?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part1.html">Command Line, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_environment.html">Setting Up Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="managing_python_packages.html">Managing Packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Managing Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#conda">conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pip">pip</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_v_r.html">Python / R Differences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vars_v_objects.html">Python: Vars v Objects</a></li>
@@ -87,6 +102,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="setup_environment.html" title="previous chapter">Installing Python, Anaconda, and Jupyter</a></li>
+      <li>Next: <a href="jupyter.html" title="next chapter">The Jupyter Project</a></li>
   </ul></li>
 </ul>
 </div>
@@ -120,7 +137,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/Day_1_Plan.ipynb.txt"
+      <a href="_sources/managing_python_packages.ipynb.txt"
           rel="nofollow">Page source</a>
     </div>
 

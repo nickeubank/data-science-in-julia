@@ -39,9 +39,14 @@
    "source": [
     "## If you use Anaconda / Miniconda for Python\n",
     "\n",
-    "(If this means nothing to you, ignore!)\n",
     "\n",
-    "If you use Python and manage your installation using anaconda or miniconda (which you probably should be doing...), there is a small trick you have to do to make `conda` and `python` accessible from the `git bash` terminal:\n",
+    "### Reinstalling\n",
+    "\n",
+    "The easiest way to get Anaconda to work well with Cmder is to delete your current installation, re-install anaconda, and **select \"Add to PATH variable\" during installation** (despite the warning it gives). If you have anything less than a super-developed complicated Anaconda installation with lots of environments (and if you don't know what that means, you don't!)), I would suggest you just delete and re-install Anaconda after you've installed Cmder. \n",
+    "\n",
+    "### If you really want to keep your Anaconda install\n",
+    "\n",
+    "If you use Python and manage your installation using anaconda or miniconda (which you probably should be doing...), there is a small trick you have to do to make `conda` and `python` accessible from the `Cmder` terminal:\n",
     "\n",
     "Go to `Control Panel`, then `System and Security`, click `System`, then on the left click `Advanced System Settings`, then in the pop-up click the `Environment Variables...` button. \n",
     "\n",
@@ -69,13 +74,6 @@
     "After you're done, if you open a new session of `Cmder` (you have to close any open windows and open new ones), you should be able to type `conda` and get your usual `conda` functionality, or type python and get your normal python functionality!\n",
     "\n"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {

@@ -16,7 +16,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The Jupyter Project" href="jupyter.html" />
+    <link rel="next" title="Managing Python Packages" href="managing_python_packages.html" />
     <link rel="prev" title="Advanced Command Line Tutorial" href="command_line_part2.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -34,207 +34,7 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput,
-div.nboutput {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
-}
-@media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput div.prompt.empty {
-        padding: 0;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    background: #f5f5f5;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<div class="section" id="Installing-Python,-Anaconda,-and-Jupyter">
+  <div class="section" id="Installing-Python,-Anaconda,-and-Jupyter">
 <h1>Installing Python, Anaconda, and Jupyter<a class="headerlink" href="#Installing-Python,-Anaconda,-and-Jupyter" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial, we’ll go over how to set up all the tools you need to not only work effectively in Python, but also get going with the Jupyter ecosystem, which supports not only Python, but also R, Julia, and more.</p>
 <div class="section" id="Installing-Anaconda">
@@ -262,12 +62,102 @@ div.rendered_html tbody tr:hover {
 <span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">channel_priority</span> <span class="n">strict</span>
 </pre></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</div>
+<div class="section" id="Using-Anaconda-with-Oh-My-Zsh-(Macs)">
+<h2>Using Anaconda with Oh-My-Zsh (Macs)<a class="headerlink" href="#Using-Anaconda-with-Oh-My-Zsh-(Macs)" title="Permalink to this headline">¶</a></h2>
+<p>If you installed Oh-My-Zsh during the command line exercises (<a class="reference internal" href="command_line_part1.html"><span class="doc">as suggested here</span></a>, then Anaconda won’t work right away. The problem is that when you install Anaconda, it adds some code to the <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> file in your user directory. The <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> file contains code the is run every time you open a new <code class="docutils literal notranslate"><span class="pre">bash</span></code> command line session (as discussed at the end of <a class="reference internal" href="command_line_part2.html"><span class="doc">Advanced Command Line</span></a>), and the code Anaconda adds adds Anaconda
+to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable.</p>
+<p>But Oh-My-Zsh doesn’t run the <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> file when it opens; it runs the <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code> file. So what we have to do is move the code Anaconda put in <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> into <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code>. You can do this as follows:</p>
+<ol class="arabic simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> and copy the block of text that begin with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">&gt;&gt;&gt;</span> <span class="pre">conda</span> <span class="pre">init</span> <span class="pre">&gt;&gt;&gt;</span></code> and ends with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">&lt;&lt;&lt;</span> <span class="pre">conda</span> <span class="pre">init</span> <span class="pre">&lt;&lt;&lt;</span></code>.</p></li>
+<li><p>Then open <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code>, scroll to the bottom of the file, and past the text you copied from <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> into <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code>.</p></li>
+<li><p>Save that file, close your current session of Oh-My-Zsh, open it again, and test to see if you were successful by typing <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">-h</span></code>. If a conda helpfile gets printed out, you’re good!</p></li>
+</ol>
+<p><strong>Note:</strong> If you copy text from the nano editor and the nano editor window is narrow, the ends of lines will be truncated when you paste the output (and will end with dollar signs (<code class="docutils literal notranslate"><span class="pre">$</span></code>)).</p>
+<p>For example, if I highlight this text with my mouse and try to copy and paste it:</p>
+<p><img alt="bash_truncated" src="_images/bash_profile_truncated.png" /></p>
+<p>I will get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># added by Miniconda3 4.7.10 installer
+# &gt;&gt;&gt; conda init &gt;&gt;&gt;
+# !! Contents within this block are managed by &#39;conda init&#39; !!
+__conda_setup=&quot;$(CONDA_REPORT_ERRORS=false &#39;/Users/Nick/miniconda$
+if [ $? -eq 0 ]; then
+    \eval &quot;$__conda_setup&quot;
+else
+    if [ -f &quot;/Users/Nick/miniconda3/etc/profile.d/conda.sh&quot; ]; th$
+        . &quot;/Users/Nick/miniconda3/etc/profile.d/conda.sh&quot;
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH=&quot;/Users/Nick/miniconda3/bin:$PATH&quot;
+    fi
+fi
+unset __conda_setup
+# &lt;&lt;&lt; conda init &lt;&lt;&lt;
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<p>not</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># added by Miniconda3 4.7.10 installer
+# &gt;&gt;&gt; conda init &gt;&gt;&gt;
+# !! Contents within this block are managed by &#39;conda init&#39; !!
+__conda_setup=&quot;$(CONDA_REPORT_ERRORS=false &#39;/Users/Nick/miniconda3/bin/conda&#39; shell.bash hook 2&gt; /dev/null)&quot;
+if [ $? -eq 0 ]; then
+    \eval &quot;$__conda_setup&quot;
+else
+    if [ -f &quot;/Users/Nick/miniconda3/etc/profile.d/conda.sh&quot; ]; then
+        . &quot;/Users/Nick/miniconda3/etc/profile.d/conda.sh&quot;
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH=&quot;/Users/Nick/miniconda3/bin:$PATH&quot;
+    fi
+fi
+unset __conda_setup
+# &lt;&lt;&lt; conda init &lt;&lt;&lt;
+</pre></div>
+</div>
+<p>(See how several lines are truncated and end in dollar signs?)</p>
+<p>So if you’re using nano to open these files and edit, make sure the window is wide enough!</p>
+<div class="section" id="Your-conda-works-if…">
+<h3>Your conda works if…<a class="headerlink" href="#Your-conda-works-if…" title="Permalink to this headline">¶</a></h3>
+<p>You can run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">-h</span></code> from your command line and you see a helpfile print out like below instead of <code class="docutils literal notranslate"><span class="pre">conda:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>, you’re good!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash-3.2$ conda -h
+usage: conda [-h] [-V] command ...
+
+conda is a tool for managing and deploying applications, environments and packages.
+
+Options:
+
+positional arguments:
+  command
+    clean        Remove unused packages and caches.
+    config       Modify configuration values in .condarc. This is modeled
+                 after the git config command. Writes to the user .condarc
+                 file (/Users/Nick/.condarc) by default.
+    create       Create a new conda environment from a list of specified
+                 packages.
+    help         Displays a list of available conda commands and their help
+                 strings.
+    info         Display information about current conda install.
+    init         Initialize conda for shell interaction. [Experimental]
+    install      Installs a list of packages into a specified conda
+                 environment.
+    list         List linked packages in a conda environment.
+    package      Low-level conda package utility. (EXPERIMENTAL)
+    remove       Remove a list of packages from a specified conda environment.
+    uninstall    Alias for conda remove.
+    run          Run an executable in a conda environment. [Experimental]
+    search       Search for packages and display associated information. The
+                 input is a MatchSpec, a query language for conda packages.
+                 See examples below.
+    update       Updates conda packages to the latest compatible version.
+    upgrade      Alias for conda update.
+
+optional arguments:
+  -h, --help     Show this help message and exit.
+  -V, --version  Show the conda version number and exit.
+
+conda commands available from other packages:
+  env
+bash-3.2$
 </pre></div>
 </div>
 </div>
@@ -298,8 +188,10 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setting Up Python</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Installing-Anaconda">Installing Anaconda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Change-the-Default-Channel">Change the Default Channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Using-Anaconda-with-Oh-My-Zsh-(Macs)">Using Anaconda with Oh-My-Zsh (Macs)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="managing_python_packages.html">Managing Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_v_r.html">Python / R Differences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vars_v_objects.html">Python: Vars v Objects</a></li>
@@ -323,7 +215,7 @@ div.rendered_html tbody tr:hover {
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="command_line_part2.html" title="previous chapter">Advanced Command Line Tutorial</a></li>
-      <li>Next: <a href="jupyter.html" title="next chapter">The Jupyter Project</a></li>
+      <li>Next: <a href="managing_python_packages.html" title="next chapter">Managing Python Packages</a></li>
   </ul></li>
 </ul>
 </div>
