@@ -496,8 +496,8 @@ first dataset, but multiple observations in the second). So before running a mer
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">-----------------------------------------------------------------</span>
-<span class="ansi-red-fg">MergeError</span>                      Traceback (most recent call last)
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">MergeError</span>                                Traceback (most recent call last)
 <span class="ansi-green-fg">&lt;ipython-input-5-f566b6a66abd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># because county names repeat across states, AND because we have multiple years in the</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-red-fg"># data:</span>
@@ -952,7 +952,7 @@ Name: _merge, dtype: int64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -963,8 +963,21 @@ Name: _merge, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/pandas/core/indexing.py:480: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  self.obj[item] = s
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -976,7 +989,7 @@ Name: _merge, dtype: int64
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -990,7 +1003,7 @@ Name: _merge, dtype: int64
 <h2>Comparing Arrest Rates<a class="headerlink" href="#Comparing-Arrest-Rates" title="Permalink to this headline">¶</a></h2>
 <p><strong>(10)</strong> Now that we have arrest counts and population data, we can calculate arrest <em>rates</em>. For each county, create a new variable called <code class="docutils literal notranslate"><span class="pre">violent_arrest_rate_2009</span></code> that is the number of violent arrests for 2009 divided by the population of the county from 2005-2009, and an analogous variable for drug offenses (<code class="docutils literal notranslate"><span class="pre">F_DRUGOFF</span></code>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -999,7 +1012,7 @@ Name: _merge, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1134,7 +1147,7 @@ Name: _merge, dtype: int64
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1145,7 +1158,7 @@ Name: _merge, dtype: int64
 </div>
 <p><strong>(11)</strong> Make a scatter plot that shows the relationship between each county’s violent arrest rate and it’s drug arrest rate.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1173,11 +1186,11 @@ Name: _merge, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (8772068775337)&gt;
+<span></span>&lt;ggplot: (-9223363266690829610)&gt;
 </pre></div>
 </div>
 </div>
@@ -1189,7 +1202,1109 @@ Name: _merge, dtype: int64
 <p>So to test for this, we went to see if the same communities that had violent crime in 2009 <em>also</em> have violent crime in 2019 (after marijuana legalization). If these communities have just as much crime in 2018, that would suggest that violent crime is being driven by a third factor, and not drug sales of marijuana.</p>
 <p><strong>(12)</strong> Just as we created violent arrest rates and drug arrest rates for 2009, now we want to do it for 2018. Using the data on 2018 arrests (also in the <a class="reference external" href="https://github.com/nickeubank/practicaldatascience/tree/master/Example_Data/ca">same repository</a> we used before) and the same dataset of population data (you’ll have to use population from 2013-2017, as 2018 population data has yet to be released), create a dataset of arrest rates.</p>
 <p>As before, <em>be careful with your merges!!!</em></p>
-<p><strong>(13)</strong> Now merge the two county-level datasets so you have one row for every county, and variables for violent arrest rates in 2018, violent arrest rates in 2009, felony drug arrest rates in 2018, and felony drug arrest rates in 2009,</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arrests_2018</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/nickeubank/practicaldatascience/master/Example_Data/ca/ca_arrests_2018.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/nickeubank/practicaldatascience/master/Example_Data/ca/nhgis_county_populations.csv&#39;</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>YEAR</th>
+      <th>STATE</th>
+      <th>COUNTY</th>
+      <th>total_population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3397</th>
+      <td>176</td>
+      <td>2013-2017</td>
+      <td>Arkansas</td>
+      <td>Sebastian County</td>
+      <td>127362</td>
+    </tr>
+    <tr>
+      <th>3879</th>
+      <td>658</td>
+      <td>2013-2017</td>
+      <td>Illinois</td>
+      <td>Massac County</td>
+      <td>14594</td>
+    </tr>
+    <tr>
+      <th>1738</th>
+      <td>1738</td>
+      <td>2005-2009</td>
+      <td>Nebraska</td>
+      <td>Thayer County</td>
+      <td>5150</td>
+    </tr>
+    <tr>
+      <th>5568</th>
+      <td>2347</td>
+      <td>2013-2017</td>
+      <td>South Carolina</td>
+      <td>Lexington County</td>
+      <td>281870</td>
+    </tr>
+    <tr>
+      <th>6358</th>
+      <td>3137</td>
+      <td>2013-2017</td>
+      <td>Wyoming</td>
+      <td>Sweetwater County</td>
+      <td>44527</td>
+    </tr>
+    <tr>
+      <th>5418</th>
+      <td>2197</td>
+      <td>2013-2017</td>
+      <td>Oklahoma</td>
+      <td>Seminole County</td>
+      <td>25246</td>
+    </tr>
+    <tr>
+      <th>611</th>
+      <td>611</td>
+      <td>2005-2009</td>
+      <td>Illinois</td>
+      <td>Crawford County</td>
+      <td>19545</td>
+    </tr>
+    <tr>
+      <th>5216</th>
+      <td>1995</td>
+      <td>2013-2017</td>
+      <td>North Dakota</td>
+      <td>Bowman County</td>
+      <td>3226</td>
+    </tr>
+    <tr>
+      <th>400</th>
+      <td>400</td>
+      <td>2005-2009</td>
+      <td>Georgia</td>
+      <td>Brooks County</td>
+      <td>16324</td>
+    </tr>
+    <tr>
+      <th>1108</th>
+      <td>1108</td>
+      <td>2005-2009</td>
+      <td>Kentucky</td>
+      <td>Wayne County</td>
+      <td>20575</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pop2017</span> <span class="o">=</span> <span class="n">pop</span><span class="p">[</span><span class="n">pop</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;2013-2017&#39;</span><span class="p">]</span>
+<span class="n">ca_pop2017</span> <span class="o">=</span> <span class="n">pop2017</span><span class="p">[</span><span class="n">pop2017</span><span class="o">.</span><span class="n">STATE</span> <span class="o">==</span> <span class="s1">&#39;California&#39;</span><span class="p">]</span>
+<span class="n">merged_2018</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">arrests_2018</span><span class="p">,</span> <span class="n">ca_pop2017</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;COUNTY&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;1:1&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">merged_2018</span><span class="o">.</span><span class="n">_merge</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>both          56
+right_only     0
+left_only      0
+Name: _merge, dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">merged_2018</span><span class="p">[</span><span class="s1">&#39;violent_arrest_rate_2018&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_2018</span><span class="p">[</span><span class="s1">&#39;VIOLENT&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">merged_2018</span><span class="p">[</span><span class="s1">&#39;total_population&#39;</span><span class="p">]</span>
+<span class="n">merged_2018</span><span class="p">[</span><span class="s1">&#39;drug_arrest_rate_2018&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_2018</span><span class="p">[</span><span class="s1">&#39;F_DRUGOFF&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">merged_2018</span><span class="p">[</span><span class="s1">&#39;total_population&#39;</span><span class="p">]</span>
+<span class="n">merged_2018</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0_x</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+      <th>Unnamed: 0_y</th>
+      <th>YEAR</th>
+      <th>STATE</th>
+      <th>total_population</th>
+      <th>_merge</th>
+      <th>violent_arrest_rate_2018</th>
+      <th>drug_arrest_rate_2018</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20</th>
+      <td>2226</td>
+      <td>Mendocino County</td>
+      <td>381</td>
+      <td>211</td>
+      <td>120</td>
+      <td>8</td>
+      <td>343</td>
+      <td>1063</td>
+      <td>3237</td>
+      <td>3</td>
+      <td>208</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>87497</td>
+      <td>both</td>
+      <td>0.004354</td>
+      <td>0.001371</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>2236</td>
+      <td>Riverside County</td>
+      <td>5315</td>
+      <td>3565</td>
+      <td>1321</td>
+      <td>176</td>
+      <td>3516</td>
+      <td>13893</td>
+      <td>31557</td>
+      <td>131</td>
+      <td>218</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>2355002</td>
+      <td>both</td>
+      <td>0.002257</td>
+      <td>0.000561</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>2239</td>
+      <td>San Bernardino County</td>
+      <td>8839</td>
+      <td>7310</td>
+      <td>2519</td>
+      <td>496</td>
+      <td>4899</td>
+      <td>24063</td>
+      <td>48461</td>
+      <td>1044</td>
+      <td>221</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>2121220</td>
+      <td>both</td>
+      <td>0.004167</td>
+      <td>0.001188</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>2229</td>
+      <td>Mono County</td>
+      <td>58</td>
+      <td>9</td>
+      <td>7</td>
+      <td>0</td>
+      <td>6</td>
+      <td>80</td>
+      <td>256</td>
+      <td>0</td>
+      <td>211</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>14058</td>
+      <td>both</td>
+      <td>0.004126</td>
+      <td>0.000498</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>2242</td>
+      <td>San Joaquin County</td>
+      <td>3039</td>
+      <td>1301</td>
+      <td>501</td>
+      <td>140</td>
+      <td>2084</td>
+      <td>7065</td>
+      <td>14031</td>
+      <td>5</td>
+      <td>224</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>724153</td>
+      <td>both</td>
+      <td>0.004197</td>
+      <td>0.000692</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>2259</td>
+      <td>Ventura County</td>
+      <td>2271</td>
+      <td>1535</td>
+      <td>732</td>
+      <td>80</td>
+      <td>2193</td>
+      <td>6811</td>
+      <td>26612</td>
+      <td>630</td>
+      <td>241</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>847834</td>
+      <td>both</td>
+      <td>0.002679</td>
+      <td>0.000863</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2206</td>
+      <td>Amador County</td>
+      <td>72</td>
+      <td>40</td>
+      <td>31</td>
+      <td>3</td>
+      <td>142</td>
+      <td>288</td>
+      <td>701</td>
+      <td>1</td>
+      <td>188</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>37306</td>
+      <td>both</td>
+      <td>0.001930</td>
+      <td>0.000831</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>2240</td>
+      <td>San Diego County</td>
+      <td>8574</td>
+      <td>4140</td>
+      <td>2094</td>
+      <td>274</td>
+      <td>6763</td>
+      <td>21845</td>
+      <td>62416</td>
+      <td>432</td>
+      <td>222</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>3283665</td>
+      <td>both</td>
+      <td>0.002611</td>
+      <td>0.000638</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2219</td>
+      <td>Kings County</td>
+      <td>603</td>
+      <td>307</td>
+      <td>86</td>
+      <td>42</td>
+      <td>747</td>
+      <td>1785</td>
+      <td>5545</td>
+      <td>88</td>
+      <td>201</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>150183</td>
+      <td>both</td>
+      <td>0.004015</td>
+      <td>0.000573</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2228</td>
+      <td>Modoc County</td>
+      <td>66</td>
+      <td>16</td>
+      <td>10</td>
+      <td>8</td>
+      <td>80</td>
+      <td>180</td>
+      <td>300</td>
+      <td>0</td>
+      <td>210</td>
+      <td>2013-2017</td>
+      <td>California</td>
+      <td>9017</td>
+      <td>both</td>
+      <td>0.007320</td>
+      <td>0.001109</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><strong>(13)</strong> Now merge the two county-level datasets so you have one row for every county, and variables for violent arrest rates in 2018, violent arrest rates in 2009, felony drug arrest rates in 2018, and felony drug arrest rates in 2009.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">merged_thinned_2009</span> <span class="o">=</span> <span class="n">merged_2009</span><span class="p">[[</span><span class="s1">&#39;COUNTY&#39;</span><span class="p">,</span> <span class="s1">&#39;violent_arrest_rate_2009&#39;</span><span class="p">,</span> <span class="s1">&#39;drug_arrest_rate_2009&#39;</span><span class="p">]]</span>
+<span class="n">merged_thinned_2018</span> <span class="o">=</span> <span class="n">merged_2018</span><span class="p">[[</span><span class="s1">&#39;COUNTY&#39;</span><span class="p">,</span> <span class="s1">&#39;violent_arrest_rate_2018&#39;</span><span class="p">,</span> <span class="s1">&#39;drug_arrest_rate_2018&#39;</span><span class="p">]]</span>
+<span class="n">all_years</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_thinned_2009</span><span class="p">,</span> <span class="n">merged_thinned_2018</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;COUNTY&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;1:1&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">all_years</span><span class="o">.</span><span class="n">_merge</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>both          56
+right_only     0
+left_only      0
+Name: _merge, dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">all_years</span> <span class="o">=</span> <span class="n">all_years</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;_merge&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">all_years</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>COUNTY</th>
+      <th>violent_arrest_rate_2009</th>
+      <th>drug_arrest_rate_2009</th>
+      <th>violent_arrest_rate_2018</th>
+      <th>drug_arrest_rate_2018</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alameda County</td>
+      <td>0.002963</td>
+      <td>0.003946</td>
+      <td>0.002536</td>
+      <td>0.000652</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alpine County</td>
+      <td>0.006938</td>
+      <td>0.001735</td>
+      <td>0.004156</td>
+      <td>0.000831</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Amador County</td>
+      <td>0.002629</td>
+      <td>0.002655</td>
+      <td>0.001930</td>
+      <td>0.000831</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Butte County</td>
+      <td>0.002941</td>
+      <td>0.002487</td>
+      <td>0.003486</td>
+      <td>0.001017</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Calaveras County</td>
+      <td>0.004533</td>
+      <td>0.002642</td>
+      <td>0.003263</td>
+      <td>0.000644</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Colusa County</td>
+      <td>0.002762</td>
+      <td>0.001333</td>
+      <td>0.003073</td>
+      <td>0.000233</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Contra Costa County</td>
+      <td>0.002930</td>
+      <td>0.002851</td>
+      <td>0.002326</td>
+      <td>0.000708</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>El Dorado County</td>
+      <td>0.003240</td>
+      <td>0.002291</td>
+      <td>0.002594</td>
+      <td>0.000551</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Fresno County</td>
+      <td>0.004914</td>
+      <td>0.003938</td>
+      <td>0.004442</td>
+      <td>0.000571</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Glenn County</td>
+      <td>0.003729</td>
+      <td>0.003729</td>
+      <td>0.003580</td>
+      <td>0.000823</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Humboldt County</td>
+      <td>0.003899</td>
+      <td>0.005791</td>
+      <td>0.003631</td>
+      <td>0.000989</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Imperial County</td>
+      <td>0.003743</td>
+      <td>0.004562</td>
+      <td>0.002228</td>
+      <td>0.000806</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Kern County</td>
+      <td>0.005493</td>
+      <td>0.004251</td>
+      <td>0.003883</td>
+      <td>0.000843</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Kings County</td>
+      <td>0.002659</td>
+      <td>0.001895</td>
+      <td>0.004015</td>
+      <td>0.000573</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Lake County</td>
+      <td>0.005389</td>
+      <td>0.004185</td>
+      <td>0.005710</td>
+      <td>0.002855</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Lassen County</td>
+      <td>0.002934</td>
+      <td>0.001017</td>
+      <td>0.003654</td>
+      <td>0.001303</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Los Angeles County</td>
+      <td>0.003609</td>
+      <td>0.003290</td>
+      <td>0.002856</td>
+      <td>0.000634</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Madera County</td>
+      <td>0.003129</td>
+      <td>0.001796</td>
+      <td>0.003639</td>
+      <td>0.000848</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Marin County</td>
+      <td>0.002027</td>
+      <td>0.001840</td>
+      <td>0.002009</td>
+      <td>0.000364</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Mariposa County</td>
+      <td>0.003582</td>
+      <td>0.002575</td>
+      <td>0.001812</td>
+      <td>0.000793</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Mendocino County</td>
+      <td>0.004824</td>
+      <td>0.006405</td>
+      <td>0.004354</td>
+      <td>0.001371</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Merced County</td>
+      <td>0.004826</td>
+      <td>0.004355</td>
+      <td>0.003848</td>
+      <td>0.000621</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Modoc County</td>
+      <td>0.005130</td>
+      <td>0.001091</td>
+      <td>0.007320</td>
+      <td>0.001109</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Mono County</td>
+      <td>0.004023</td>
+      <td>0.002940</td>
+      <td>0.004126</td>
+      <td>0.000498</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Monterey County</td>
+      <td>0.003420</td>
+      <td>0.002388</td>
+      <td>0.002872</td>
+      <td>0.000674</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Napa County</td>
+      <td>0.002777</td>
+      <td>0.002459</td>
+      <td>0.002525</td>
+      <td>0.000596</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Nevada County</td>
+      <td>0.002174</td>
+      <td>0.002473</td>
+      <td>0.001932</td>
+      <td>0.000607</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Orange County</td>
+      <td>0.002064</td>
+      <td>0.002528</td>
+      <td>0.001932</td>
+      <td>0.000588</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Placer County</td>
+      <td>0.002144</td>
+      <td>0.002373</td>
+      <td>0.002037</td>
+      <td>0.000632</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Plumas County</td>
+      <td>0.004866</td>
+      <td>0.005061</td>
+      <td>0.004166</td>
+      <td>0.001389</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Riverside County</td>
+      <td>0.002861</td>
+      <td>0.002888</td>
+      <td>0.002257</td>
+      <td>0.000561</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Sacramento County</td>
+      <td>0.003854</td>
+      <td>0.003265</td>
+      <td>0.003400</td>
+      <td>0.000948</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>San Benito County</td>
+      <td>0.003817</td>
+      <td>0.002027</td>
+      <td>0.003051</td>
+      <td>0.000784</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>San Bernardino County</td>
+      <td>0.004266</td>
+      <td>0.004426</td>
+      <td>0.004167</td>
+      <td>0.001188</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>San Diego County</td>
+      <td>0.003284</td>
+      <td>0.002560</td>
+      <td>0.002611</td>
+      <td>0.000638</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>San Francisco County</td>
+      <td>0.004552</td>
+      <td>0.008613</td>
+      <td>0.002377</td>
+      <td>0.000915</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>San Joaquin County</td>
+      <td>0.004849</td>
+      <td>0.002889</td>
+      <td>0.004197</td>
+      <td>0.000692</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>San Luis Obispo County</td>
+      <td>0.002323</td>
+      <td>0.001991</td>
+      <td>0.002299</td>
+      <td>0.000378</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>San Mateo County</td>
+      <td>0.002060</td>
+      <td>0.002119</td>
+      <td>0.001853</td>
+      <td>0.000299</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Santa Barbara County</td>
+      <td>0.003214</td>
+      <td>0.002179</td>
+      <td>0.002948</td>
+      <td>0.001167</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Santa Clara County</td>
+      <td>0.002492</td>
+      <td>0.002501</td>
+      <td>0.002180</td>
+      <td>0.000460</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Santa Cruz County</td>
+      <td>0.002995</td>
+      <td>0.003469</td>
+      <td>0.002829</td>
+      <td>0.000637</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Shasta County</td>
+      <td>0.002587</td>
+      <td>0.002419</td>
+      <td>0.002878</td>
+      <td>0.000894</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Sierra County</td>
+      <td>0.004321</td>
+      <td>0.001852</td>
+      <td>0.003466</td>
+      <td>0.001040</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Siskiyou County</td>
+      <td>0.004256</td>
+      <td>0.004054</td>
+      <td>0.004112</td>
+      <td>0.001631</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Solano County</td>
+      <td>0.003934</td>
+      <td>0.003498</td>
+      <td>0.003439</td>
+      <td>0.001113</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Sonoma County</td>
+      <td>0.002928</td>
+      <td>0.003623</td>
+      <td>0.002944</td>
+      <td>0.000529</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Stanislaus County</td>
+      <td>0.004377</td>
+      <td>0.004373</td>
+      <td>0.004385</td>
+      <td>0.001650</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Sutter County</td>
+      <td>0.004695</td>
+      <td>0.001907</td>
+      <td>0.004185</td>
+      <td>0.000554</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Tehama County</td>
+      <td>0.003894</td>
+      <td>0.007541</td>
+      <td>0.003305</td>
+      <td>0.000395</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Trinity County</td>
+      <td>0.004669</td>
+      <td>0.004525</td>
+      <td>0.005139</td>
+      <td>0.005753</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Tulare County</td>
+      <td>0.005244</td>
+      <td>0.004038</td>
+      <td>0.005061</td>
+      <td>0.002029</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Tuolumne County</td>
+      <td>0.002869</td>
+      <td>0.003748</td>
+      <td>0.003766</td>
+      <td>0.001614</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Ventura County</td>
+      <td>0.002871</td>
+      <td>0.002575</td>
+      <td>0.002679</td>
+      <td>0.000863</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Yolo County</td>
+      <td>0.003031</td>
+      <td>0.003182</td>
+      <td>0.002705</td>
+      <td>0.000564</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Yuba County</td>
+      <td>0.004993</td>
+      <td>0.002976</td>
+      <td>0.005238</td>
+      <td>0.002197</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><strong>(14)</strong> Did drug arrests go down from 2009 to 2018? (they sure better! This is what’s called a “sanity check” of your data and analysis. If you find drug arrests went <em>up</em>, you know something went wrong with your code or your understanding of the situations.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">all_years</span><span class="p">[</span><span class="s1">&#39;change_in_drug_2018_2009&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_years</span><span class="o">.</span><span class="n">drug_arrest_rate_2018</span> <span class="o">-</span> <span class="n">all_years</span><span class="o">.</span><span class="n">drug_arrest_rate_2009</span>
+<span class="n">all_years</span><span class="p">[</span><span class="s1">&#39;change_in_drug_2018_2009&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>-0.0022440934943818375
+</pre></div>
+</div>
+</div>
+<p><strong>(15)</strong> Now we want to look at whether violent crime decreased following drug legalization. Did the average violent arrest rate decrease? By how much? (Note: We’re assuming that arrest rates are proportionate to crime rates. If policing increased so that there were more arrests per crime committed, that would impact our interpretation of these results. But this is just an exercise, so…)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">all_years</span><span class="p">[</span><span class="s1">&#39;change_in_violent_2018_2009&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_years</span><span class="o">.</span><span class="n">violent_arrest_rate_2018</span> <span class="o">-</span> <span class="n">all_years</span><span class="o">.</span><span class="n">violent_arrest_rate_2009</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">all_years</span><span class="p">[</span><span class="s1">&#39;change_in_violent_2018_2009&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>-0.00032359972434409197
+</pre></div>
+</div>
+</div>
+<p><strong>(16)</strong> So we’ve determined that both drug arrests and violent crime arrests were decreasing over this period. But maybe <em>all</em> crime was just falling, and this isn’t about drug legalization.</p>
+<p>This is the problem with a “pre-to-post” analysis: yes, our results are <em>consistent</em> with the idea that drug legalization reduced violent crime, but lots of things happened between 2009 and 2018, not just drug legalization, so we don’t know that drug legalization <em>caused</em> the decline in violent crime.</p>
+<p>So let’s do a kind of difference-in-difference analysis. We know that drug legalization should have had a bigger effect on counties that had higher drug arrest rates prior to drug legalization. After all, in a county that had no drug arrests, legalization wouldn’t do anything, would it?</p>
+<p>So let’s split our sample into two groups: high drug arrests in 2009, and low drug arrests in 2009 (cut the sample at the average drug arrest rate in 2009).</p>
+<p>Now we can ask: did violent crime fall <em>more</em> from 2009 to 2018 in the counties that had lots of drug arrests in 2009 (where legalization likely had more of an effect) than in counties with fewer drug arrests in 2009 (where legalization likely mattered less)? Calculate this difference-in-differences:</p>
+<p>(the change in violent crime rate for counties with lots of drug arrests in 2009) - (the change in violent crime rate for counties with few drug arrests in 2009)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">all_years</span><span class="o">.</span><span class="n">drug_arrest_rate_2009</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>count    56.000000
+mean      0.003216
+std       0.001467
+min       0.001017
+25%       0.002352
+50%       0.002869
+75%       0.003969
+max       0.008613
+Name: drug_arrest_rate_2009, dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">all_years</span><span class="p">[</span><span class="s1">&#39;high_drug_2009&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_years</span><span class="o">.</span><span class="n">drug_arrest_rate_2009</span> <span class="o">&gt;</span> <span class="n">all_years</span><span class="o">.</span><span class="n">drug_arrest_rate_2009</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">change_from_09_to_18_in_high_drug_arrest_counties</span> <span class="o">=</span> <span class="n">all_years</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">all_years</span><span class="o">.</span><span class="n">high_drug_2009</span><span class="p">,</span> <span class="s1">&#39;change_in_violent_2018_2009&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">change_from_09_to_18_in_low_drug_arrest_counties</span> <span class="o">=</span> <span class="n">all_years</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">all_years</span><span class="o">.</span><span class="n">high_drug_2009</span><span class="p">,</span> <span class="s1">&#39;change_in_violent_2018_2009&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dif_in_dif</span> <span class="o">=</span> <span class="n">change_from_09_to_18_in_high_drug_arrest_counties</span> <span class="o">-</span> <span class="n">change_from_09_to_18_in_low_drug_arrest_counties</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dif_in_dif</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>-0.0001839081325379577
+</pre></div>
+</div>
+</div>
+<p><strong>(17)</strong> Hmmm… we showed that there was a greater <em>absolute</em> decline in violent arrest rates in counties more impacted by drug legalization. But was there also a greater <em>proportionate</em> decline?</p>
+<p>Calculate:</p>
+<p>(the percentage change in violent crime rate for counties with lots of drug arrests in 2009) - (the percentage change in violent crime rate for counties with few drug arrests in 2009)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># We could also do in percentage terms</span>
+<span class="n">all_years</span><span class="p">[</span><span class="s1">&#39;pct_change_in_violent_2018_2009&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">all_years</span><span class="o">.</span><span class="n">violent_arrest_rate_2018</span> <span class="o">-</span> <span class="n">all_years</span><span class="o">.</span><span class="n">violent_arrest_rate_2009</span><span class="p">)</span> <span class="o">/</span> <span class="n">all_years</span><span class="o">.</span><span class="n">violent_arrest_rate_2009</span>
+<span class="n">pct_change_from_09_to_18_in_high_drug_arrest_counties</span> <span class="o">=</span> <span class="n">all_years</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">all_years</span><span class="o">.</span><span class="n">high_drug_2009</span><span class="p">,</span> <span class="s1">&#39;pct_change_in_violent_2018_2009&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">pct_change_from_09_to_18_in_low_drug_arrest_counties</span> <span class="o">=</span> <span class="n">all_years</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">all_years</span><span class="o">.</span><span class="n">high_drug_2009</span><span class="p">,</span> <span class="s1">&#39;pct_change_in_violent_2018_2009&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">pct_dif_in_dif</span> <span class="o">=</span> <span class="n">pct_change_from_09_to_18_in_high_drug_arrest_counties</span> <span class="o">-</span> <span class="n">pct_change_from_09_to_18_in_low_drug_arrest_counties</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pct_dif_in_dif</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>-0.035190477506371866
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
