@@ -146,13 +146,13 @@
     "\n",
     "```python\n",
     "x = [3.14, 42]\n",
-    "y = {'boring numbers': [1, 2, 3]\n",
+    "z = {'boring numbers': [1, 2, 3],\n",
     "     'interesting numbers': x}\n",
     "y = x\n",
     "y.append(1.618)\n",
     "```\n",
     "\n",
-    "Now, what is the value of `y['interesting numbers']`?"
+    "Now, what is the value of `z['interesting numbers']`?"
    ]
   },
   {
@@ -279,8 +279,8 @@
     "Sketch the following code: \n",
     "    \n",
     "```python\n",
-    "x = {'dog_names' = ['fido', 'woofer'],\n",
-    "     'cat_names' = ['fluffy', 'bite-y']}\n",
+    "x = {'dog_names': ['fido', 'woofer'],\n",
+    "     'cat_names': ['fluffy', 'bite-y']}\n",
     "y = x.copy()\n",
     "y['dinosaur_names'] = ['big guy', 'super lizard']\n",
     "y['cat_names'].append('tiger')\n",
