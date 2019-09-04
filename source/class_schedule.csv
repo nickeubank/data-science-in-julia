@@ -10,7 +10,7 @@
 - `Jupyter Tutorial <jupyter.ipynb>`_
 ","`Link <exercises/Exercise_CommandLine_2_Advanced.ipynb>`_
 `Link 2 <exercises/Exercise_jupyterlab.ipynb>`_"
-5-Sep,Thurs,CC,"- Ipython
+5-Sep,Thurs,270,"- Ipython
 - Packages
 - Python v. R / variables as pointers","- `Follow this link <https://gke.mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb>`_ , then click ""Ipython - Beyond plain python"" and read that notebook. 
 - `Python packages <managing_python_packages.ipynb>`_
@@ -18,11 +18,11 @@
 10-Sep,Tues,330,Numpy Basics,"- JVP pp 33-77
 - IF did not complete DataCamp: Do Numpy Section
 - `Numbers in Computer <ints_and_floats.ipynb>`_",`Link <exercises/Exercise_numpy.ipynb>`_
-12-Sep,Thurs,330,Pandas: Series,- `Pandas 1: Series <pandas_series.ipynb>`_,`Link <exercises/Exercise_series.ipynb>`_
+12-Sep,Thurs,270,Pandas: Series,- `Pandas 1: Series <pandas_series.ipynb>`_,`Link <exercises/Exercise_series.ipynb>`_
 17-Sep,Tues,CC,Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_dataframe.ipynb>`_
 19-Sep,Thurs,CC,Intro to Plotting with PlotNine,"- `Plotting in Python, Part 1 <plotting_part1.ipynb>`_",`Link <exercises/Exercise_plotting_part1.ipynb>`_
 24-Sep,Tues,330,Advanced Plotting,"- `Plotting in Python, Part 2 <plotting_part2.ipynb>`_",`Link <exercises/Exercise_plotting_part2.ipynb>`_
-26-Sep,Thurs,330,Pandas: Indices & Missing,"- WM pp 136-142
+26-Sep,Thurs,270,Pandas: Indices & Missing,"- WM pp 136-142
 - JVP pp 115-139
 - `Views and Copies in Pandas <views_and_copies_in_pandas.ipynb>`_","`Link <exercises/Exercise_missing.ipynb>`_
 `Link <exercises/Exercise_indices.ipynb>`_"
