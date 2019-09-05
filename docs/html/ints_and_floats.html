@@ -272,7 +272,7 @@ div.rendered_html tbody tr:hover {
 <h3>Integer Overflows <em>in Python</em><a class="headerlink" href="#Integer-Overflows-in-Python" title="Permalink to this headline">¶</a></h3>
 <p>Python is meant to be a friendly language, and one manifestation of that is that in vanilla Python, you can’t overflow your integers! That’s because whenever Python does an integer computation, it stops to check whether you the integer in question has been allocated enough bits to store the result, and if not, it just adds more bits! So if you do math with an integer that won’t fit in 64 bits, it will just allocate more bits to the integer!</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -281,23 +281,14 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Now let&#39;s make it bigger so it can&#39;t fit in 64 bits!</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">4</span>
 <span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>7237005577332262213973186563042994240829374041602535252466099000494570602496
 </pre></div>
 </div>
 </div>
@@ -309,7 +300,7 @@ div.rendered_html tbody tr:hover {
 <p>That’s why libraries like <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> – which are designed for performance when working with huge datasets – don’t check for integer overflows. This makes them <em>much</em> faster, but if you add two really big integers in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (or add even small numbers to a <em>really</em> big number) and the result is bigger than what fits in the available bits, you’ll just end up with a negative number.</p>
 <p>How much faster? Here’s a comparison of adding up all the integers from 1 to 1,000,000 using regular Python integers (which check for overflows) and using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> tools (which do not). Some of this difference is coming from things other than over-flowing checking, but this gives you a sense of the performance cost of making integers safer in regular Python:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -323,15 +314,16 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-22.9 ms ± 464 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+13.6 ms ± 249 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Numpy</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Numpy</span>
 <span class="o">%</span><span class="k">timeit</span> np.sum(np.arange(1000000))
 </pre></div>
 </div>
@@ -341,12 +333,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.23 ms ± 16.5 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+1.38 ms ± 68.3 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </pre></div></div>
 </div>
 <p>But as I said, while it may be fast, it can also be dangerous:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -357,7 +349,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -366,7 +358,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -375,7 +367,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -386,7 +378,7 @@ div.rendered_html tbody tr:hover {
 <p>It’s also important to understand that with <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, you control the size of integers, and thus how big of an integer you can make before you have overflow problems. By default, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> will make your integers the size your system processor works with natively (usually 64 bits on a modern computer, but sometimes 32 bits on an older computer). But <code class="docutils literal notranslate"><span class="pre">numpy</span></code> also let’s you make arrays that are 16 bits (<code class="docutils literal notranslate"><span class="pre">int16</span></code>), 32 bits (<code class="docutils literal notranslate"><span class="pre">int32</span></code>) or 64 bits (<code class="docutils literal notranslate"><span class="pre">int64</span></code>). This can be very
 useful when working with big datasets: smaller integers take up less memory, and sometimes calculations with smaller integers can be faster due to some intricacies of how computers use memory. But if you do use smaller integer sizes, then you really need to be careful with your overflows! <code class="docutils literal notranslate"><span class="pre">int16</span></code> can only store numbers up to 32,768!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -396,7 +388,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -406,7 +398,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 <p>Also, note that <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> have “unsigned” integers (<code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>). These are like regular integers, except they don’t allocate half their values to negative numbers, so their upper limit is 2x the same sized regular integer. In general, though, it’s good to avoid <code class="docutils literal notranslate"><span class="pre">uints</span></code>, as it’s too easy to <em>underflow</em> by hitting the <em>bottom</em> of the values it can tolerate (i.e. going below zero):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -416,7 +408,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -425,7 +417,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -434,7 +426,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -448,7 +440,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 <h2>Floating Point Precision<a class="headerlink" href="#Floating-Point-Precision" title="Permalink to this headline">¶</a></h2>
 <p>Unfortunately, while vanilla Python can protect you from integer overflows, it can’t do anything about floating point precision. Whether you’re using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> or not, you’re stuck with these types of things:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -457,7 +449,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -467,7 +459,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 <p>and</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -476,7 +468,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -486,7 +478,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 <p>But you also get weird things like 7.5 rounding up and 10.5 rounding down:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -495,7 +487,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -504,7 +496,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -513,7 +505,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -525,7 +517,7 @@ useful when working with big datasets: smaller integers take up less memory, and
 <p><strong>If you want protections against this</strong>, consider using the <code class="docutils literal notranslate"><span class="pre">isclose</span></code> function from <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library, which will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the two arguments it is passed are <em>really</em> close. (by <em>really</em> close, I mean that <code class="docutils literal notranslate"><span class="pre">np.isclose(a,</span> <span class="pre">b)</span></code> checks for whether <span class="math notranslate nohighlight">\(absolute(a - b) &lt;= (atol + rtol * absolute(b))\)</span> where the relative tolerance (<span class="math notranslate nohighlight">\(rtol\)</span>) is <span class="math notranslate nohighlight">\(10^{-5}\)</span>, and the absolute tolerance (<span class="math notranslate nohighlight">\(atol\)</span>) is <span class="math notranslate nohighlight">\(10^{-8}\)</span> by default. You can also change these tolerances if you want,
 as shown in the help file).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -534,7 +526,7 @@ as shown in the help file).</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -543,9 +535,161 @@ as shown in the help file).</p>
 </div>
 </div>
 </div>
-<div class="section" id="Exercises!">
-<h2>Exercises!<a class="headerlink" href="#Exercises!" title="Permalink to this headline">¶</a></h2>
-<p>do exercises</p>
+<div class="section" id="Random-Numbers">
+<h2>Random Numbers<a class="headerlink" href="#Random-Numbers" title="Permalink to this headline">¶</a></h2>
+<p>Another oddity about how computers think about numbers that while it <em>seems</em> like computers generate random numbers for you all time time – for example, your computer is happy to give you a random subsample of your data if you ask – the reality is that because computers are deterministic, they actually <em>can’t</em> generate truly random numbers. Instead, they generate <a class="reference external" href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudo-random numbers</a> (PRNG), which are sequences of numbers that
+have all the statistical properties that we want from random numbers, but are actually created deterministically.</p>
+<p>For data scientists, this is actually pretty useful, because we can take advantage of this to make code that is both “random” and reproducible. This is accomplished using “seeds”.</p>
+<p>To generate pseudo-random numbers, computers start with a starting number, which can be something like “the number of seconds since the Unix operating system was created”. It then feeds that initial number through a series of manipulations. In early PRNGs, for example, you’d start with a four digit number, square it, keep the <em>middle</em> four digits of the result, then repeat this process over and over. The results of this process, after sufficient iterations, would be uniformally distributed on
+the interval [0, 9999]. (Today the algorithms are <em>much</em> more sophisticated, but the principle is often the same – take a number, do weird calculations, grab a subset of digits, repeat).</p>
+<p>Because this is deterministic, if you know the number the computer starts with, you can predict all numbers that follow. This turns out to be very bad for cyber-security, but good for data science, because if we specify that starting number, then we can re-create the same “randomness” tomorrow that we get today.</p>
+<p>In Python, you can generate randomness quickly with the <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> library (note there is also a non-numpy library for random numbers called <code class="docutils literal notranslate"><span class="pre">random</span></code>, but I think most people in datascience use the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> random library since it quickly generates arrays of random numbers):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
+<span class="n">npr</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="c1"># Generate a random number between 0 and 1, uniformally distributed.</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.1881472802204951
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">npr</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="c1"># Now another!</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.6660582051378752
+</pre></div>
+</div>
+</div>
+<p>But if we want reproducibility, we can “seed” our random number generator, which effectively means we’re setting the number it is starting with, and thus ensuring that we always get the same numbers. So here’s a sequence generated when <em>seed</em> is set to 42:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">npr</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">npr</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.3745401188473625
+0.9507143064099162
+0.7319939418114051
+0.5986584841970366
+0.15601864044243652
+</pre></div></div>
+</div>
+<p>And now we set the seed BACK to 42, and we’ll get the same sequence of apparently random numbers:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">npr</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">npr</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.3745401188473625
+0.9507143064099162
+0.7319939418114051
+0.5986584841970366
+0.15601864044243652
+</pre></div></div>
+</div>
+<p>Seeding also affects the behavior of functions that <em>use</em> randomness, even if you don’t see the random numbers explicitly. For example, if we shuffle a numpy array with the numpy function <code class="docutils literal notranslate"><span class="pre">shuffle</span></code>, setting a seed first will get us reproducible results.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">npr</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">npr</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([3, 4, 2, 1])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">npr</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">npr</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([3, 4, 2, 1])
+</pre></div>
+</div>
+</div>
+<div class="section" id="Cautionary-Notes">
+<h3>Cautionary Notes<a class="headerlink" href="#Cautionary-Notes" title="Permalink to this headline">¶</a></h3>
+<p>A few cautionary notes about random number generators:</p>
+<ul class="simple">
+<li><p>Different functions can rely on different random number generators. For example, the Python standard library has a <code class="docutils literal notranslate"><span class="pre">random</span></code> library, <em>and</em> numpy as a <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> library. If you set the see for the standard-library random number generator, then use a function that uses the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> random number generator, you won’t get reproducible results.</p></li>
+<li><p>Some libraries you will use in Python don’t use Python or numpy random number generators; they use a C random number generator you can’t see. This can make it hard, or, depending on how the library was written, impossible to set a seed.</p></li>
+<li><p>While setting a seed for the numpy random number generator will get you reproducible results across computer systems, this is not true for all random number generators. Some (especially ones written in C) will be reproducible <em>only for a given computer architecture</em>. If you share your mac code with a windows user, you may not get reproducible results.</p></li>
+</ul>
+<p>So random seeds are <em>very</em> useful, but if you really need reproducibility, make sure you test your code by running it over and over (and potentially on different computers) to be sure it’s configured correctly.</p>
+</div>
+<div class="section" id="Want-to-learn-more?">
+<h3>Want to learn more?<a class="headerlink" href="#Want-to-learn-more?" title="Permalink to this headline">¶</a></h3>
+<p>I highly recommend this <a class="reference external" href="https://youtu.be/C82JyCmtKWg">great video</a>!</p>
+</div>
+<div class="section" id="Random-numbers-and-cryptography">
+<h3>Random numbers and cryptography<a class="headerlink" href="#Random-numbers-and-cryptography" title="Permalink to this headline">¶</a></h3>
+<p>The predictability of pseudo-random number generators is nice for data scientists, but it’s very dangerous for cryptography. If you’re interested in how people deal with this when security is important, <a class="reference external" href="https://www.youtube.com/watch?v=1cUUfMeOijg">you can learn about how the internet runs on lava lamps here!</a>.</p>
+</div>
 </div>
 </div>
 
@@ -588,7 +732,7 @@ as shown in the help file).</p>
 <li class="toctree-l2"><a class="reference internal" href="#The-Two-Classes-of-Numbers:-Integers-and-Floating-Point-Numbers">The Two Classes of Numbers: Integers and Floating Point Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Numeric-Hazards-in-Python,-Numpy,-and-Pandas">Numeric Hazards in Python, Numpy, and Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Floating-Point-Precision">Floating Point Precision</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Exercises!">Exercises!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Random-Numbers">Random Numbers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a></li>
