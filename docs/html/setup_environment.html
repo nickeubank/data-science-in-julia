@@ -50,6 +50,12 @@
 <li><p>Provides a “package manager” – a tool for installing new packages in the future and updating already installed packages.</p></li>
 </ul>
 <p>To install Python, go to the <a class="reference external" href="https://www.anaconda.com/distribution/#download-section">Anaconda Download page</a>, download and install the most recent Python 3.x version of Anaconda (as of June 2016, this was Python 3.7).</p>
+<div class="section" id="Installation-Note-for-Mac-Users">
+<h3>Installation Note for Mac Users<a class="headerlink" href="#Installation-Note-for-Mac-Users" title="Permalink to this headline">¶</a></h3>
+<p><strong>When installing, make sure to choose “Install for Me Only” when you have a choice of installation locations:</strong></p>
+<p><img alt="osx-install-destination" src="_images/osx-install-destination.png" /></p>
+<p>Installing for all users, or picking a location yourself seems to lead to lots of weird problems with the jupyter ecosystem.</p>
+</div>
 <div class="section" id="Installation-Note-for-Windows-Users">
 <h3>Installation Note for Windows Users<a class="headerlink" href="#Installation-Note-for-Windows-Users" title="Permalink to this headline">¶</a></h3>
 <p>One of the checkboxes during the Windows installation is “do you want to add Anaconda to your PATH?”. Although anaconda recommends against this, it is very helpful for using python using <code class="docutils literal notranslate"><span class="pre">Cmder</span></code>, so select yes. This is easy to change later if you ever feel the need.</p>
@@ -57,14 +63,6 @@
 <div class="section" id="If-there’s-a-Python-3.7,-why-is-there-also-a-Python-2.7-available?">
 <h3>If there’s a Python 3.7, why is there also a Python 2.7 available?<a class="headerlink" href="#If-there’s-a-Python-3.7,-why-is-there-also-a-Python-2.7-available?" title="Permalink to this headline">¶</a></h3>
 <p>In 2000, Python 3 was first released. Python 3 fixed a lot of things people disliked about Python, but in the process it made some changes that meant code written in Python 2 would not work any more. To ease the transition to Python 3, both Python 2 and Python 3 have been supported for several years so people could keep running their Python 2 projects while they finished the transition. Almost everything is now in Python 3, so since you don’t have any old code to worry about, you want Python 3.</p>
-</div>
-</div>
-<div class="section" id="Change-the-Default-Channel">
-<h2>Change the Default Channel<a class="headerlink" href="#Change-the-Default-Channel" title="Permalink to this headline">¶</a></h2>
-<p>One of the main purposes of Anaconda is to help you install and manage Python packages. When installing and updated packages, the Anaconda software actually has the ability to pull packages from any number of sources. As of mid-2019, there’s one group that provides the best source for packages: <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>. So to make that your system’s default, open the command line (after installing Anaconda – if it was open while installing this won’t work) and type the following two commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">channel_priority</span> <span class="n">strict</span>
-</pre></div>
 </div>
 </div>
 <div class="section" id="Using-Anaconda-with-Oh-My-Zsh-(Macs)">
@@ -166,6 +164,14 @@ bash-3.2$
 </div>
 </div>
 </div>
+<div class="section" id="Change-the-Default-Channel">
+<h2>Change the Default Channel<a class="headerlink" href="#Change-the-Default-Channel" title="Permalink to this headline">¶</a></h2>
+<p>One of the main purposes of Anaconda is to help you install and manage Python packages. When installing and updated packages, the Anaconda software actually has the ability to pull packages from any number of sources. As of mid-2019, there’s one group that provides the best source for packages: <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>. So to make that your system’s default, open the command line (after installing Anaconda – if it was open while installing this won’t work) and type the following two commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">channel_priority</span> <span class="n">strict</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -192,8 +198,8 @@ bash-3.2$
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setting Up Python</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Installing-Atom">Installing Atom</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Installing-Anaconda">Installing Anaconda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Change-the-Default-Channel">Change the Default Channel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Using-Anaconda-with-Oh-My-Zsh-(Macs)">Using Anaconda with Oh-My-Zsh (Macs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Change-the-Default-Channel">Change the Default Channel</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="managing_python_packages.html">Managing Packages</a></li>
