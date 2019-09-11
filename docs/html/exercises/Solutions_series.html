@@ -248,6 +248,23 @@ div.rendered_html tbody tr:hover {
                       <span class="p">)</span>
 </pre></div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">gdppercap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">34605</span><span class="p">,</span> <span class="mi">34493</span><span class="p">,</span> <span class="mi">12393</span><span class="p">,</span> <span class="mi">44200</span><span class="p">,</span> <span class="mi">10041</span><span class="p">,</span>
+                       <span class="mi">58138</span><span class="p">,</span> <span class="mi">4709</span><span class="p">,</span> <span class="mi">49284</span><span class="p">,</span> <span class="mi">10109</span><span class="p">,</span> <span class="mi">42536</span><span class="p">],</span>
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Bahrain&#39;</span><span class="p">,</span> <span class="s1">&#39;Belgium&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulgaria&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Ireland&#39;</span><span class="p">,</span> <span class="s1">&#39;Macedonia&#39;</span><span class="p">,</span> <span class="s1">&#39;Norway&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Paraguay&#39;</span><span class="p">,</span> <span class="s1">&#39;Singapore&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;South Africa&#39;</span><span class="p">,</span> <span class="s1">&#39;Switzerland&#39;</span><span class="p">]</span>
+                      <span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="Exercise-2">
 <h2>Exercise 2<a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
@@ -283,26 +300,42 @@ dtype: float64
 <p>Programmatically, determine which country in our data has the highest income per capita, and which has the lowest income per capita.</p>
 <p>(Obviously, this is easier to do by just looking at the data, but that’s only because this dataset is very small. With a real dataset, you would need to do it with code, so please write code to accomplish this task.)</p>
 <p>Hint: Country names form the index for this Series, so to get country names you’ll need to access the index.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">gdppercap</span> <span class="o">=</span> <span class="n">gdppercap</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gdppercap</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">gdppercap</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Paraguay         4709
+Macedonia       10041
+South Africa    10109
+Bulgaria        12393
+Belgium         34493
+dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Richest is last</span>
+<span class="n">gdppercap</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -311,16 +344,17 @@ dtype: float64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gdppercap</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span></span><span class="c1"># Poorest is first</span>
+<span class="n">gdppercap</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -333,7 +367,7 @@ dtype: float64
 <h3>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h3>
 <p>Get Python to print out the names of all the countries that have GDP per capitas less than $20,000.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -342,7 +376,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -355,7 +389,7 @@ dtype: float64
 <h3>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h3>
 <p>Get Python to print out the GDP per capita of Switzerland.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -364,7 +398,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -393,7 +427,7 @@ dtype: float64
 <p><strong>HINT</strong>: Be careful with 0-indexing!</p>
 <p><strong>HINT 2:</strong> I’m gonna make you calculate Gini coefficients again later, so maybe you should write a function to do this and make life easier later?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -421,7 +455,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -447,8 +481,11 @@ dtype: float64
 </pre></div>
 </div>
 <p>Using this data on average growth rates in GDP per capita, and assuming growth rates from 2000 to 2018 continue into the future, estimate what our Gini Coefficient may look like in 2025 (remembering that income in our data is from 2008, so we’re extrapolating ahead 17 years)?</p>
+<p><strong>Hint:</strong> the formula for compound growth (i.e. value of something growing at a rate of <code class="docutils literal notranslate"><span class="pre">x</span></code> percent for <span class="math notranslate nohighlight">\(t\)</span> periods) is:</p>
+<div class="math notranslate nohighlight">
+\[future\_value = current\_value + (1 + \frac{percentage\_growth\_rate}{100}))^t\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -466,7 +503,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -485,7 +522,7 @@ dtype: float64
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -494,7 +531,7 @@ dtype: float64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -503,7 +540,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -522,7 +559,7 @@ dtype: float64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -531,7 +568,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -544,15 +581,6 @@ dtype: float64
 <h3>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h3>
 <p>Interpret your result – does it seem to imply that we are seeing covergence or not?</p>
 <p><a class="reference external" href="https://www.cgdev.org/blog/everything-you-know-about-cross-country-convergence-now-wrong">After you’re done, you can see a more systematic version of this analysis here!</a></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>

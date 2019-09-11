@@ -26,6 +26,22 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "gdppercap = pd.Series([34605, 34493, 12393, 44200, 10041, \n",
+    "                       58138, 4709, 49284, 10109, 42536],\n",
+    "                      index=['Bahrain', 'Belgium', 'Bulgaria',\n",
+    "                             'Ireland', 'Macedonia', 'Norway', \n",
+    "                             'Paraguay', 'Singapore', \n",
+    "                             'South Africa', 'Switzerland']\n",
+    "                      )                   \n"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -77,16 +93,33 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 6,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Paraguay         4709\n",
+       "Macedonia       10041\n",
+       "South Africa    10109\n",
+       "Bulgaria        12393\n",
+       "Belgium         34493\n",
+       "dtype: int64"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "gdppercap = gdppercap.sort_values()"
+    "gdppercap = gdppercap.sort_values()\n",
+    "gdppercap.head()"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
@@ -95,18 +128,19 @@
        "'Norway'"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
+    "# Richest is last\n",
     "gdppercap.index[-1]"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -115,12 +149,13 @@
        "'Paraguay'"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
+    "# Poorest is first\n",
     "gdppercap.index[0]"
    ]
   },
@@ -135,7 +170,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -144,7 +179,7 @@
        "Index(['Paraguay', 'Macedonia', 'South Africa', 'Bulgaria'], dtype='object')"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 9,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -164,7 +199,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [
     {
@@ -173,7 +208,7 @@
        "42536"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 17,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -222,7 +257,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [
     {
@@ -231,7 +266,7 @@
        "0.3382798461272245"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 11,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -288,12 +323,16 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Using this data on average growth rates in GDP per capita, and assuming growth rates from 2000 to 2018 continue into the future, estimate what our Gini Coefficient may look like in 2025 (remembering that income in our data is from 2008, so we're extrapolating ahead 17 years)?"
+    "Using this data on average growth rates in GDP per capita, and assuming growth rates from 2000 to 2018 continue into the future, estimate what our Gini Coefficient may look like in 2025 (remembering that income in our data is from 2008, so we're extrapolating ahead 17 years)?\n",
+    "\n",
+    "**Hint:** the formula for compound growth (i.e. value of something growing at a rate of `x` percent for $t$ periods) is:\n",
+    "\n",
+    "$$future\\_value = current\\_value + (1 + \\frac{percentage\\_growth\\_rate}{100}))^t$$"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
@@ -312,7 +351,7 @@
        "dtype: float64"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 13,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -332,7 +371,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -341,7 +380,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -360,7 +399,7 @@
        "dtype: float64"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -371,7 +410,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
@@ -380,7 +419,7 @@
        "0.004914436014927359"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -399,13 +438,6 @@
     "\n",
     "[After you're done, you can see a more systematic version of this analysis here!](https://www.cgdev.org/blog/everything-you-know-about-cross-country-convergence-now-wrong)"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {
