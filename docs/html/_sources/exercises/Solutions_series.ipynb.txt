@@ -93,7 +93,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 36,
    "metadata": {},
    "outputs": [
     {
@@ -107,19 +107,23 @@
        "dtype: int64"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 36,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "gdppercap = gdppercap.sort_values()\n",
+    "gdppercap = gdppercap.sort_values(ascending=True) \n",
+    "# The ascending=True keyword is not strictly necessary, \n",
+    "# as ascending is the default. But adding it means\n",
+    "# (a) I don't have to trust my memory of the defaults, \n",
+    "# and (b) a reader can easily see what it's dcxoing. \n",
     "gdppercap.head()"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 41,
    "metadata": {},
    "outputs": [
     {
@@ -128,7 +132,7 @@
        "'Norway'"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -140,7 +144,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 43,
    "metadata": {},
    "outputs": [
     {
@@ -149,7 +153,7 @@
        "'Paraguay'"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 43,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -170,7 +174,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 44,
    "metadata": {},
    "outputs": [
     {
@@ -179,7 +183,7 @@
        "Index(['Paraguay', 'Macedonia', 'South Africa', 'Bulgaria'], dtype='object')"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 44,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -199,7 +203,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 45,
    "metadata": {},
    "outputs": [
     {
@@ -208,7 +212,7 @@
        "42536"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 45,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -250,14 +254,14 @@
     "\n",
     "Using this formula, calculate the Gini coefficient for our income data. \n",
     "\n",
-    "**HINT**: Be careful with 0-indexing!\n",
+    "**HINT**: Be careful with 0-indexing! Python counts from zero, while math formulas count from 1. \n",
     "\n",
     "**HINT 2:** I'm gonna make you calculate Gini coefficients again later, so maybe you should write a function to do this and make life easier later?"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 57,
    "metadata": {},
    "outputs": [
     {
@@ -266,7 +270,7 @@
        "0.3382798461272245"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 57,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -274,7 +278,8 @@
    "source": [
     "def gini(gdp):\n",
     "    n = len(gdp)\n",
-    "\n",
+    "    gdp = gdp.sort_values(ascending=True)\n",
+    "    \n",
     "    # Make top of left side fraction\n",
     "    top = 0\n",
     "    for i in range(1, n + 1):\n",
@@ -292,6 +297,52 @@
     "    return top / bottom - correction\n",
     "\n",
     "gini(gdppercap)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This is not the only way this can be solved, of course. Here's another solution that doesn't use loops. This type of strategy is probably what will feel most natural by the end of the course, but the *most* natural way to do this would be using DataFrames, which we haven't covered yet, so I think most people will use loops. But here's this solution in case you want it:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def gini_2(gdp):\n",
+    "    n = len(gdp)\n",
+    "    \n",
+    "    gdp_ranks = gdp.rank(ascending=True) # returns a series with each entry's rank\n",
+    "    \n",
+    "    top = 2 * (gdp * gdp_ranks).sum()\n",
+    "    bottom = gdp.sum() * n\n",
+    "    correction = (n + 1) / n\n",
+    "    \n",
+    "    # Bring together\n",
+    "    return top / bottom - correction\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.3382798461272245"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "gini_2(gdppercap)"
    ]
   },
   {
@@ -327,12 +378,12 @@
     "\n",
     "**Hint:** the formula for compound growth (i.e. value of something growing at a rate of `x` percent for $t$ periods) is:\n",
     "\n",
-    "$$future\\_value = current\\_value + (1 + \\frac{percentage\\_growth\\_rate}{100}))^t$$"
+    "$$future\\_value = current\\_value * (1 + \\frac{percentage\\_growth\\_rate}{100}))^t$$"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 52,
    "metadata": {},
    "outputs": [
     {
@@ -351,7 +402,7 @@
        "dtype: float64"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 52,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -371,35 +422,35 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 53,
    "metadata": {},
    "outputs": [],
    "source": [
-    "gdppercap_2025 = gdppercap + (avg_growth/100 + 1)**17"
+    "gdppercap_2025 = gdppercap * ((avg_growth/100) + 1)**17"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 54,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "Bahrain         34605.950580\n",
-       "Belgium         34494.180384\n",
-       "Bulgaria        12395.123687\n",
-       "Ireland         44201.850468\n",
-       "Macedonia       10042.552552\n",
-       "Norway          58139.140269\n",
-       "Paraguay         4710.403861\n",
-       "Singapore       49285.749757\n",
-       "South Africa    10110.256040\n",
-       "Switzerland     42537.180876\n",
+       "Bahrain         32894.836013\n",
+       "Belgium         40714.968220\n",
+       "Bulgaria        26318.849643\n",
+       "Ireland         81790.706907\n",
+       "Macedonia       15589.172902\n",
+       "Norway          66292.970514\n",
+       "Paraguay         6610.779784\n",
+       "Singapore       86235.012247\n",
+       "South Africa    12697.303814\n",
+       "Switzerland     50229.720787\n",
        "dtype: float64"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 54,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -410,22 +461,42 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 66,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "0.004914436014927359"
+       "0.3656264991306193"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 66,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "gini(gdppercap_2025)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.3656264991306195"
+      ]
+     },
+     "execution_count": 67,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "gini_2(gdppercap_2025)"
    ]
   },
   {

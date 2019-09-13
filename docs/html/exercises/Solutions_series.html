@@ -301,17 +301,21 @@ dtype: float64
 <p>(Obviously, this is easier to do by just looking at the data, but that’s only because this dataset is very small. With a real dataset, you would need to do it with code, so please write code to accomplish this task.)</p>
 <p>Hint: Country names form the index for this Series, so to get country names you’ll need to access the index.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gdppercap</span> <span class="o">=</span> <span class="n">gdppercap</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span></span><span class="n">gdppercap</span> <span class="o">=</span> <span class="n">gdppercap</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># The ascending=True keyword is not strictly necessary,</span>
+<span class="c1"># as ascending is the default. But adding it means</span>
+<span class="c1"># (a) I don&#39;t have to trust my memory of the defaults,</span>
+<span class="c1"># and (b) a reader can easily see what it&#39;s dcxoing.</span>
 <span class="n">gdppercap</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -325,7 +329,7 @@ dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -335,7 +339,7 @@ dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -344,7 +348,7 @@ dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -354,7 +358,7 @@ dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -367,7 +371,7 @@ dtype: int64
 <h3>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h3>
 <p>Get Python to print out the names of all the countries that have GDP per capitas less than $20,000.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -376,7 +380,7 @@ dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -389,7 +393,7 @@ dtype: int64
 <h3>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h3>
 <p>Get Python to print out the GDP per capita of Switzerland.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -398,7 +402,7 @@ dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -424,15 +428,16 @@ dtype: int64
 \[\frac{2 \sum_{i=1}^n i y_i}{n \sum_{i=1}^n y_i} -\frac{n+1}{n}\]</div>
 <p>Where <span class="math notranslate nohighlight">\(i\)</span> is each country’s rank ordering from poorest to richest, and <span class="math notranslate nohighlight">\(y_i\)</span> is the income of country <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <p>Using this formula, calculate the Gini coefficient for our income data.</p>
-<p><strong>HINT</strong>: Be careful with 0-indexing!</p>
+<p><strong>HINT</strong>: Be careful with 0-indexing! Python counts from zero, while math formulas count from 1.</p>
 <p><strong>HINT 2:</strong> I’m gonna make you calculate Gini coefficients again later, so maybe you should write a function to do this and make life easier later?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">gini</span><span class="p">(</span><span class="n">gdp</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span>
+    <span class="n">gdp</span> <span class="o">=</span> <span class="n">gdp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># Make top of left side fraction</span>
     <span class="n">top</span> <span class="o">=</span> <span class="mi">0</span>
@@ -455,7 +460,46 @@ dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.3382798461272245
+</pre></div>
+</div>
+</div>
+<p>This is not the only way this can be solved, of course. Here’s another solution that doesn’t use loops. This type of strategy is probably what will feel most natural by the end of the course, but the <em>most</em> natural way to do this would be using DataFrames, which we haven’t covered yet, so I think most people will use loops. But here’s this solution in case you want it:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">gini_2</span><span class="p">(</span><span class="n">gdp</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span>
+
+    <span class="n">gdp_ranks</span> <span class="o">=</span> <span class="n">gdp</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># returns a series with each entry&#39;s rank</span>
+
+    <span class="n">top</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">gdp</span> <span class="o">*</span> <span class="n">gdp_ranks</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">bottom</span> <span class="o">=</span> <span class="n">gdp</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">correction</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+
+    <span class="c1"># Bring together</span>
+    <span class="k">return</span> <span class="n">top</span> <span class="o">/</span> <span class="n">bottom</span> <span class="o">-</span> <span class="n">correction</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gini_2</span><span class="p">(</span><span class="n">gdppercap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -483,9 +527,9 @@ dtype: int64
 <p>Using this data on average growth rates in GDP per capita, and assuming growth rates from 2000 to 2018 continue into the future, estimate what our Gini Coefficient may look like in 2025 (remembering that income in our data is from 2008, so we’re extrapolating ahead 17 years)?</p>
 <p><strong>Hint:</strong> the formula for compound growth (i.e. value of something growing at a rate of <code class="docutils literal notranslate"><span class="pre">x</span></code> percent for <span class="math notranslate nohighlight">\(t\)</span> periods) is:</p>
 <div class="math notranslate nohighlight">
-\[future\_value = current\_value + (1 + \frac{percentage\_growth\_rate}{100}))^t\]</div>
+\[future\_value = current\_value * (1 + \frac{percentage\_growth\_rate}{100}))^t\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -503,7 +547,7 @@ dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -522,16 +566,16 @@ dtype: float64
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gdppercap_2025</span> <span class="o">=</span> <span class="n">gdppercap</span> <span class="o">+</span> <span class="p">(</span><span class="n">avg_growth</span><span class="o">/</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">17</span>
+<span></span><span class="n">gdppercap_2025</span> <span class="o">=</span> <span class="n">gdppercap</span> <span class="o">*</span> <span class="p">((</span><span class="n">avg_growth</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">17</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -540,26 +584,26 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Bahrain         34605.950580
-Belgium         34494.180384
-Bulgaria        12395.123687
-Ireland         44201.850468
-Macedonia       10042.552552
-Norway          58139.140269
-Paraguay         4710.403861
-Singapore       49285.749757
-South Africa    10110.256040
-Switzerland     42537.180876
+<span></span>Bahrain         32894.836013
+Belgium         40714.968220
+Bulgaria        26318.849643
+Ireland         81790.706907
+Macedonia       15589.172902
+Norway          66292.970514
+Paraguay         6610.779784
+Singapore       86235.012247
+South Africa    12697.303814
+Switzerland     50229.720787
 dtype: float64
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -568,11 +612,29 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.004914436014927359
+<span></span>0.3656264991306193
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gini_2</span><span class="p">(</span><span class="n">gdppercap_2025</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.3656264991306195
 </pre></div>
 </div>
 </div>

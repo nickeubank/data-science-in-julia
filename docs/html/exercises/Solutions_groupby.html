@@ -234,18 +234,1132 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Groupby-and-Arrest-Data">
 <h1>Groupby and Arrest Data<a class="headerlink" href="#Groupby-and-Arrest-Data" title="Permalink to this headline">¶</a></h1>
-<p>In our merging exercises, we examined the relationship between county-level violent arrest totals and county-level drug arrest totals. In those exercises, you were given a dataset that provided you with county-level arrest totals. But that’s not actually how the data is provided by the state of California. This week we will work with the <em>raw</em> California arrest data, which is not organized by county or even county-year, but rather by county-year-demographic group.</p>
+<p>In our merging exercises, we examined the relationship between county-level violent arrest totals and county-level drug arrest totals. In those exercises, you were given a dataset that provided you with county-level arrest totals. But that’s not actually how the data is provided by the state of California. This week we will work with the <em>raw</em> California arrest data, which is not organized by county or even county-year.</p>
 <p><strong>(1)</strong> Download the raw California arrest data from the State Attorney General’s office <a class="reference external" href="https://openjustice.doj.ca.gov/data">here</a> by scrolling down to the “Arrests” category and downloading the “Arrests - CSV, 5.8 MB” file.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">arrests</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://data-openjustice.doj.ca.gov/sites/default/files/dataset/2019-06/OnlineArrestData1980-2018.csv&quot;</span><span class="p">)</span>
+<span class="c1"># arrests = pd.read_csv(&quot;https://data-openjustice.doj.ca.gov/sites/default/files/dataset/2019-06/OnlineArrestData1980-2018.csv&quot;)</span>
+<span class="n">arrests</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/users/nick/downloads/OnlineArrestData1980-2018.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arrests</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>GENDER</th>
+      <th>RACE</th>
+      <th>AGE_GROUP</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Male</td>
+      <td>Black</td>
+      <td>Under 18</td>
+      <td>Alameda County</td>
+      <td>505</td>
+      <td>1351</td>
+      <td>188</td>
+      <td>26</td>
+      <td>79</td>
+      <td>2149</td>
+      <td>2286</td>
+      <td>295</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1980</td>
+      <td>Male</td>
+      <td>Black</td>
+      <td>Under 18</td>
+      <td>Butte County</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1980</td>
+      <td>Male</td>
+      <td>Black</td>
+      <td>Under 18</td>
+      <td>Calaveras County</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1980</td>
+      <td>Male</td>
+      <td>Black</td>
+      <td>Under 18</td>
+      <td>Contra Costa County</td>
+      <td>116</td>
+      <td>446</td>
+      <td>28</td>
+      <td>2</td>
+      <td>37</td>
+      <td>629</td>
+      <td>557</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1980</td>
+      <td>Male</td>
+      <td>Black</td>
+      <td>Under 18</td>
+      <td>El Dorado County</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>6</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arrests</span><span class="o">.</span><span class="n">RACE</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>White       26590
+Hispanic    23767
+Other       23328
+Black       21188
+Name: RACE, dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arrests</span><span class="o">.</span><span class="n">AGE_GROUP</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>20 to 29       17438
+30 to 39       17258
+40 to 69       17082
+Under 18       16305
+18 to 19       16040
+70 and over    10750
+Name: AGE_GROUP, dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="section" id="Learning-the-Group-Structure-of-Your-Data">
+<h2>Learning the Group Structure of Your Data<a class="headerlink" href="#Learning-the-Group-Structure-of-Your-Data" title="Permalink to this headline">¶</a></h2>
+<p><strong>(2)</strong> What is the unit of observation for this dataset? In other words, when row zero says that there were 505 arrests for <code class="docutils literal notranslate"><span class="pre">VIOLENT</span></code> crimes, what exactly is that telling you – 505 arrests in 1980? 505 arrests in Alameda County?</p>
+<div class="section" id="Testing-Your-Assumptions">
+<h3>Testing Your Assumptions<a class="headerlink" href="#Testing-Your-Assumptions" title="Permalink to this headline">¶</a></h3>
+<p>It’s important to be able to test whether the data you are working with really is organized the way you think it is, especially when working with groupby, so let’s discuss how to check your answer to number 2 with <code class="docutils literal notranslate"><span class="pre">duplicated</span></code>. Consider the following data:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;social_security_numbers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">111111111</span><span class="p">,</span> <span class="mi">222222222</span><span class="p">,</span> <span class="mi">222222222</span><span class="p">,</span> <span class="mi">333333333</span><span class="p">,</span> <span class="mi">333333333</span><span class="p">],</span> <span class="s1">&#39;second_column&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]})</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>social_security_numbers</th>
+      <th>second_column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>111111111</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>222222222</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>222222222</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>333333333</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>333333333</td>
+      <td>b</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>If we want to see if there are any duplicate rows in the dataset, we can use <code class="docutils literal notranslate"><span class="pre">.duplicated()</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0    False
+1    False
+2     True
+3    False
+4    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">.duplicated()</span></code> looks at each row, and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if it has seen the row it is looking at before. Note that it doesn’t tag <em>all</em> the rows that look similar – it treats the first instance of a row as unique, and only tags subsequent repitions are “duplicates” (You can change this behavior with keyword arguments if you want all rows tagged).</p>
+<p>Duplicated can also be used to test for duplicates on a sub-set of rows. For example, if we want to test for rows with duplicate values of the variable <code class="docutils literal notranslate"><span class="pre">social_security_numbers</span></code>, we can type:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s1">&#39;social_security_numbers&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0    False
+1    False
+2     True
+3    False
+4     True
+dtype: bool
+</pre></div>
+</div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">duplicated</span></code> is now only looking at the first column, the last row is now a duplicate (because 333333333 is duplicated), where when we considered all columns, it was not a duplicate (because the value in the second column varied.</p>
+<p>We can now pair <code class="docutils literal notranslate"><span class="pre">.duplicated()</span></code> with the <code class="docutils literal notranslate"><span class="pre">.any()</span></code> function to test for the presence of duplicates in your dataset, which is how we test if we really understand what constitutes a unique observation (i.e. if we think each row of our data is a unique person, then we shouldn’t see any duplicated values of social security numbers, which are unique to each person in the United States).</p>
+<p>When you run <code class="docutils literal notranslate"><span class="pre">.any()</span></code> on an array of booleans, it returns a single value of <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>any</em> entries are <code class="docutils literal notranslate"><span class="pre">True</span></code>, and a single value of <code class="docutils literal notranslate"><span class="pre">False</span></code> if <em>no</em> entries are <code class="docutils literal notranslate"><span class="pre">True</span></code>. (You can also use <code class="docutils literal notranslate"><span class="pre">.all()</span></code> to test if all entries are false).</p>
+<p>Thus the command: <code class="docutils literal notranslate"><span class="pre">df.duplicated(['social_security_numbers'])</span></code> will return <code class="docutils literal notranslate"><span class="pre">False</span></code> if <code class="docutils literal notranslate"><span class="pre">social_security_numbers</span></code> uniquely idenfies every row in our dataset (since there are no duplicates)! If any rows are duplicated, then <code class="docutils literal notranslate"><span class="pre">social_security_numbers</span></code> doesn’t uniquely identify our observations (i.e. each row does not represent a unique person):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s1">&#39;social_security_numbers&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>True
+</pre></div>
+</div>
+</div>
+<p>This might feel backward, so you can also add a <code class="docutils literal notranslate"><span class="pre">not</span></code> before the test if you want. :) In fact, in my code I add an explicit test using the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement. The command <code class="docutils literal notranslate"><span class="pre">assert</span></code> says “if the thing that follows this is <code class="docutils literal notranslate"><span class="pre">True</span></code>, don’t do anything; if it’s False, raise an exception. So in my code, I often write:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">assert</span> <span class="ow">not</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s1">&#39;social_security_numbers&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-10-f30d4b630726&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> <span class="ansi-green-fg">not</span> df<span class="ansi-blue-fg">.</span>duplicated<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;social_security_numbers&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>any<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">AssertionError</span>:
+</pre></div></div>
+</div>
+<p>(which in this case raises an exception! Because the rows <em>aren’t</em> unique!)</p>
+<p><strong>(3)</strong> Use <code class="docutils literal notranslate"><span class="pre">duplicated</span></code> to test if the variables <em>you</em> think uniquely identify rows in your data really do uniquely identify rows. If you were wrong, update your beliefs!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">assert</span> <span class="ow">not</span> <span class="n">arrests</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">,</span> <span class="s1">&#39;RACE&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE_GROUP&#39;</span><span class="p">,</span> <span class="s1">&#39;COUNTY&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p><strong>(4)</strong> Once you have a handle on how the data looks now, please <strong>collapse the data</strong> to be one observation per county-year-racial group.</p>
+<p><strong>Hint:</strong> Think carefully about the most appropriate aggregation function given the data we’re working with!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arrests_collapsed</span> <span class="o">=</span> <span class="n">arrests</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="s1">&#39;RACE&#39;</span><span class="p">,</span> <span class="s1">&#39;COUNTY&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>RACE</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Alameda County</td>
+      <td>2594</td>
+      <td>5138</td>
+      <td>1489</td>
+      <td>94</td>
+      <td>541</td>
+      <td>9856</td>
+      <td>24081</td>
+      <td>555</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Butte County</td>
+      <td>32</td>
+      <td>33</td>
+      <td>5</td>
+      <td>0</td>
+      <td>7</td>
+      <td>77</td>
+      <td>139</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Calaveras County</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Colusa County</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>13</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Contra Costa County</td>
+      <td>720</td>
+      <td>1422</td>
+      <td>368</td>
+      <td>24</td>
+      <td>257</td>
+      <td>2791</td>
+      <td>5201</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Note:</strong> By default, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> likes to make your grouping variables into a hierarchical index. Personally, I find hierarchical indices very weird and not worth dealing with. To avoid this, use the <code class="docutils literal notranslate"><span class="pre">as_index=False</span></code> option in <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p>
+<p><strong>(5)</strong> Given your answer from 3, what groups where you collapsing in question 4?</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Age and gender!</span>
+</pre></div>
+</div>
+</div>
+<p><strong>(6)</strong> Does the racial composition of arrests in each county by arrest type? In other words, do Blacks make up a larger portion of the people arrested for drug offenses than violent offenses? To answer this question, you will need to compute the proportion of all arrests in a county-year that occur within each age group.</p>
+<p>In trying to do this, break the problem down into pieces:</p>
+<ul class="simple">
+<li><p>What two variables do you want in your data you don’t have now to answer this question?</p></li>
+<li><p>What two <em>intermediate</em> variables do you need in order to calculate those two final variables?</p></li>
+<li><p>How would you get those <em>intermediate</em> variables in your data?</p></li>
+</ul>
+<p>There is a temptation to try and use a function like <code class="docutils literal notranslate"><span class="pre">apply</span></code> to do this all in one big swing, but it’s much safer, easier, and actually faster to do the problem in smaller steps.</p>
+<p><strong>Hint:</strong> <code class="docutils literal notranslate"><span class="pre">transform</span></code> should probably make an appearance…</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;VIOLENT&#39;</span><span class="p">,</span> <span class="s1">&#39;F_DRUGOFF&#39;</span><span class="p">]:</span>
+    <span class="n">arrests_collapsed</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_TOTAL&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="s1">&#39;COUNTY&#39;</span><span class="p">])[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+
+<span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>RACE</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+      <th>VIOLENT_TOTAL</th>
+      <th>F_DRUGOFF_TOTAL</th>
+      <th>F_ALLOTHER_TOTAL</th>
+      <th>M_TOTAL_TOTAL</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+      <th>PCT_F_ALLOTHER</th>
+      <th>PCT_M_TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Alameda County</td>
+      <td>2594</td>
+      <td>5138</td>
+      <td>1489</td>
+      <td>94</td>
+      <td>541</td>
+      <td>9856</td>
+      <td>24081</td>
+      <td>555</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.575933</td>
+      <td>0.417204</td>
+      <td>0.327680</td>
+      <td>0.337543</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>1980</td>
+      <td>Hispanic</td>
+      <td>Alameda County</td>
+      <td>592</td>
+      <td>903</td>
+      <td>361</td>
+      <td>34</td>
+      <td>279</td>
+      <td>2169</td>
+      <td>10120</td>
+      <td>333</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.131439</td>
+      <td>0.101149</td>
+      <td>0.168988</td>
+      <td>0.141852</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alameda County</td>
+      <td>139</td>
+      <td>233</td>
+      <td>69</td>
+      <td>10</td>
+      <td>64</td>
+      <td>515</td>
+      <td>2686</td>
+      <td>92</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.030861</td>
+      <td>0.019333</td>
+      <td>0.038764</td>
+      <td>0.037650</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Alameda County</td>
+      <td>1179</td>
+      <td>3103</td>
+      <td>1650</td>
+      <td>119</td>
+      <td>767</td>
+      <td>6818</td>
+      <td>34455</td>
+      <td>1358</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.261767</td>
+      <td>0.462314</td>
+      <td>0.464567</td>
+      <td>0.482955</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alpine County</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>119</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.016807</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>This merges are an easy place to do things wrong, so I’d also recommend eye-balling your data to be sure you did things right!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">arrests_collapsed</span> <span class="o">=</span> <span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="s1">&#39;COUNTY&#39;</span><span class="p">,</span> <span class="s1">&#39;RACE&#39;</span><span class="p">])</span>
+<span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>RACE</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+      <th>VIOLENT_TOTAL</th>
+      <th>F_DRUGOFF_TOTAL</th>
+      <th>F_ALLOTHER_TOTAL</th>
+      <th>M_TOTAL_TOTAL</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+      <th>PCT_F_ALLOTHER</th>
+      <th>PCT_M_TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Alameda County</td>
+      <td>2594</td>
+      <td>5138</td>
+      <td>1489</td>
+      <td>94</td>
+      <td>541</td>
+      <td>9856</td>
+      <td>24081</td>
+      <td>555</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.575933</td>
+      <td>0.417204</td>
+      <td>0.327680</td>
+      <td>0.337543</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>1980</td>
+      <td>Hispanic</td>
+      <td>Alameda County</td>
+      <td>592</td>
+      <td>903</td>
+      <td>361</td>
+      <td>34</td>
+      <td>279</td>
+      <td>2169</td>
+      <td>10120</td>
+      <td>333</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.131439</td>
+      <td>0.101149</td>
+      <td>0.168988</td>
+      <td>0.141852</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alameda County</td>
+      <td>139</td>
+      <td>233</td>
+      <td>69</td>
+      <td>10</td>
+      <td>64</td>
+      <td>515</td>
+      <td>2686</td>
+      <td>92</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.030861</td>
+      <td>0.019333</td>
+      <td>0.038764</td>
+      <td>0.037650</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Alameda County</td>
+      <td>1179</td>
+      <td>3103</td>
+      <td>1650</td>
+      <td>119</td>
+      <td>767</td>
+      <td>6818</td>
+      <td>34455</td>
+      <td>1358</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.261767</td>
+      <td>0.462314</td>
+      <td>0.464567</td>
+      <td>0.482955</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alpine County</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>119</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.016807</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">2594</span> <span class="o">+</span> <span class="mi">592</span> <span class="o">+</span> <span class="mi">139</span> <span class="o">+</span> <span class="mi">1179</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>4504
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;VIOLENT&#39;</span><span class="p">,</span> <span class="s1">&#39;F_DRUGOFF&#39;</span><span class="p">]:</span>
+    <span class="n">arrests_collapsed</span><span class="p">[</span><span class="s1">&#39;PCT_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">arrests_collapsed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">arrests_collapsed</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_TOTAL&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+<span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>RACE</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+      <th>VIOLENT_TOTAL</th>
+      <th>F_DRUGOFF_TOTAL</th>
+      <th>F_ALLOTHER_TOTAL</th>
+      <th>M_TOTAL_TOTAL</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+      <th>PCT_F_ALLOTHER</th>
+      <th>PCT_M_TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Alameda County</td>
+      <td>2594</td>
+      <td>5138</td>
+      <td>1489</td>
+      <td>94</td>
+      <td>541</td>
+      <td>9856</td>
+      <td>24081</td>
+      <td>555</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.575933</td>
+      <td>0.417204</td>
+      <td>0.327680</td>
+      <td>0.337543</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>1980</td>
+      <td>Hispanic</td>
+      <td>Alameda County</td>
+      <td>592</td>
+      <td>903</td>
+      <td>361</td>
+      <td>34</td>
+      <td>279</td>
+      <td>2169</td>
+      <td>10120</td>
+      <td>333</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.131439</td>
+      <td>0.101149</td>
+      <td>0.168988</td>
+      <td>0.141852</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alameda County</td>
+      <td>139</td>
+      <td>233</td>
+      <td>69</td>
+      <td>10</td>
+      <td>64</td>
+      <td>515</td>
+      <td>2686</td>
+      <td>92</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.030861</td>
+      <td>0.019333</td>
+      <td>0.038764</td>
+      <td>0.037650</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Alameda County</td>
+      <td>1179</td>
+      <td>3103</td>
+      <td>1650</td>
+      <td>119</td>
+      <td>767</td>
+      <td>6818</td>
+      <td>34455</td>
+      <td>1358</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>1651</td>
+      <td>71342</td>
+      <td>0.261767</td>
+      <td>0.462314</td>
+      <td>0.464567</td>
+      <td>0.482955</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alpine County</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>119</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.016807</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><strong>(7)</strong> Plot the share of violent arrestees that are Black against the share of felony drug arrestees that are Black. Do they look proportionate?</p>
+<p><strong>Hint:</strong> You can add a reference line with the code <code class="docutils literal notranslate"><span class="pre">geom_abline()</span></code>. Just specify an intercept and slope (<code class="docutils literal notranslate"><span class="pre">intercept=</span></code> and <code class="docutils literal notranslate"><span class="pre">slope=</span></code>) as keyword arguments.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">black_arrests</span> <span class="o">=</span> <span class="n">arrests_collapsed</span><span class="p">[</span><span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">RACE</span> <span class="o">==</span> <span class="s2">&quot;Black&quot;</span><span class="p">]</span>
+<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">black_arrests</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;PCT_VIOLENT&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PCT_F_DRUGOFF&#39;</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">geom_abline</span><span class="p">(</span><span class="n">intercept</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/layer.py:452: PlotnineWarning: geom_point : Removed 1 rows containing missing values.
+  self.data = self.geom.handle_na(self.data)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_groupby_32_1.png" src="../_images/exercises_Solutions_groupby_32_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (-9223363262000613614)&gt;
+</pre></div>
+</div>
+</div>
+<p>(A quick note of warning on interpretation: these results can tell you whether Black Californians make up a larger proportion of <em>arrests</em> for certain types of crimes, not whether they make up a larger proportion of people who <em>commit</em> a give type of crime! Those <em>might</em> be the same, but they might not… this data just can’t answer that question.)</p>
+<p><strong>(8)</strong> Let’s look at look at trends in arrests over time. For example, is the proportion of arrests for drug use that are Californians of Color categories changing over time? (for non-Americans: “people of color” is a term for people who do not identify as White, and includes a range of identities, including Black, Hispanic, Asian, Middle Eastern, etc…)</p>
+<p><strong>Note:</strong> in this analysis, we’ll just assume that the demographic composition of counties is not changing. If we wanted to do this more rigorously, we’d need to merge in census data so we can keep track of the share of each county made up by people of color.</p>
+<p>Plot the proportion of drug arrestees that are White over time.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">white_arrests</span> <span class="o">=</span> <span class="n">arrests_collapsed</span><span class="p">[(</span><span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">RACE</span> <span class="o">==</span> <span class="s1">&#39;White&#39;</span><span class="p">)]</span>
+<span class="kn">from</span> <span class="nn">plotnine</span> <span class="k">import</span> <span class="o">*</span>
+<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">white_arrests</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PCT_F_DRUGOFF&#39;</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/layer.py:452: PlotnineWarning: geom_point : Removed 5 rows containing missing values.
+  self.data = self.geom.handle_na(self.data)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_groupby_35_1.png" src="../_images/exercises_Solutions_groupby_35_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (-9223363262084758661)&gt;
+</pre></div>
+</div>
+</div>
+<p><strong>(8)</strong></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -253,6 +1367,8 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
