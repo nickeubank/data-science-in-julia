@@ -768,68 +768,18 @@
        "</div>"
       ],
       "text/plain": [
-       "                      country        region  gdppcap08   polityIV\n",
-       "0                     Albania    C&E Europe       7715  17.800000\n",
-       "1                     Algeria        Africa       8033  10.000000\n",
-       "2                      Angola        Africa       5899   8.000000\n",
-       "3                   Argentina    S. America      14333  18.000000\n",
-       "4                     Armenia    C&E Europe       6070  15.000000\n",
-       "5                   Australia  Asia-Pacific      35677  20.000000\n",
-       "6                     Austria     W. Europe      38152  20.000000\n",
-       "7                  Azerbaijan    C&E Europe       8765   3.000000\n",
-       "8                     Bahrain   Middle East      34605   3.000000\n",
-       "9                  Bangladesh  Asia-Pacific       1334  16.000000\n",
-       "10                    Belarus    C&E Europe      12261   3.000000\n",
-       "11                    Belgium     W. Europe      34493  20.000000\n",
-       "12                      Benin        Africa       1468  16.200000\n",
-       "13                     Bhutan  Asia-Pacific       4755   2.000000\n",
-       "14                    Bolivia    S. America       4278  18.200000\n",
-       "15                   Botswana        Africa      13392  19.000000\n",
-       "16                     Brazil    S. America      10296  18.000000\n",
-       "17                   Bulgaria    C&E Europe      12393  19.000000\n",
-       "18               Burkina Faso        Africa       1161  10.000000\n",
-       "19                   Cambodia  Asia-Pacific       1905  12.000000\n",
-       "20                   Cameroon        Africa       2215   6.000000\n",
-       "21                     Canada    N. America      36444  20.000000\n",
-       "22   Central African Republic        Africa        736  10.200000\n",
-       "23                       Chad        Africa       1455   8.000000\n",
-       "24                      Chile    S. America      14465  19.200000\n",
-       "25                      China  Asia-Pacific       5962   3.000000\n",
-       "26                   Colombia    S. America       8885  17.000000\n",
-       "27                    Comoros        Africa       1169  15.800000\n",
-       "28          Congo Brazzaville        Africa       3946   6.000000\n",
-       "29             Congo Kinshasa        Africa        321  15.000000\n",
-       "..                        ...           ...        ...        ...\n",
-       "115                  Slovakia    C&E Europe      22081  19.000000\n",
-       "116                  Slovenia    C&E Europe      27605  20.000000\n",
-       "117           Solomon Islands  Asia-Pacific       2610  18.000000\n",
-       "118              South Africa        Africa      10109  19.000000\n",
-       "119                     Spain     W. Europe      31954  20.000000\n",
-       "120                 Sri Lanka  Asia-Pacific       4560  15.333333\n",
-       "121                     Sudan        Africa       2153   4.000000\n",
-       "122                 Swaziland        Africa       4928   1.000000\n",
-       "123                    Sweden   Scandinavia      37383  20.000000\n",
-       "124               Switzerland     W. Europe      42536  20.000000\n",
-       "125                    Taiwan  Asia-Pacific      30881  19.333333\n",
-       "126                Tajikistan    C&E Europe       1906   7.666667\n",
-       "127                  Tanzania        Africa       1263  11.000000\n",
-       "128                  Thailand  Asia-Pacific       7703  19.000000\n",
-       "129                      Togo        Africa        829   8.000000\n",
-       "130                   Tunisia   Middle East       7996   6.000000\n",
-       "131                    Turkey   Middle East      13920  17.000000\n",
-       "132              Turkmenistan    C&E Europe       6641   1.000000\n",
-       "133                       UAE   Middle East      38830   2.000000\n",
-       "134                    Uganda        Africa       1165   6.000000\n",
-       "135                   Ukraine    C&E Europe       7271  16.000000\n",
-       "136            United Kingdom     W. Europe      35445  20.000000\n",
-       "137             United States    N. America      46716  20.000000\n",
-       "138                   Uruguay    S. America      12734  20.000000\n",
-       "139                Uzbekistan    C&E Europe       2656   1.000000\n",
-       "140                 Venezuela    S. America      12804  16.000000\n",
-       "141                   Vietnam  Asia-Pacific       2785   3.000000\n",
-       "142                     Yemen   Middle East       2400   8.000000\n",
-       "143                    Zambia        Africa       1356  15.000000\n",
-       "144                  Zimbabwe        Africa        188   6.000000\n",
+       "       country        region  gdppcap08  polityIV\n",
+       "0      Albania    C&E Europe       7715      17.8\n",
+       "1      Algeria        Africa       8033      10.0\n",
+       "2       Angola        Africa       5899       8.0\n",
+       "3    Argentina    S. America      14333      18.0\n",
+       "4      Armenia    C&E Europe       6070      15.0\n",
+       "..         ...           ...        ...       ...\n",
+       "140  Venezuela    S. America      12804      16.0\n",
+       "141    Vietnam  Asia-Pacific       2785       3.0\n",
+       "142      Yemen   Middle East       2400       8.0\n",
+       "143     Zambia        Africa       1356      15.0\n",
+       "144   Zimbabwe        Africa        188       6.0\n",
        "\n",
        "[145 rows x 4 columns]"
       ]
@@ -848,7 +798,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "As you can see, `pandas` prints out a bunch of the rows, but not all the rows (note the `...` in the middle) in an effort to not take over your computer. This DataFrame (as noted at the bottom of the output) could theoretically be printed out, but in the real world we often work with datasets with hundreds of thousands or millions of rows where printing just isn't possible. So here are some methods for \"getting to know your data\":"
+    "As you can see, `pandas` prints out a bunch of the rows, but not all the rows (note the `...` in the middle) in an effort to not take over your computer. This DataFrame could theoretically be printed out in its entirety (as noted at the bottom of the output, it only has 145 rows), but in the real world we often work with datasets with hundreds of thousands or millions of rows where printing just isn't possible. So here are some methods for \"getting to know your data\":"
    ]
   },
   {
@@ -976,51 +926,51 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>Argentina</td>\n",
-       "      <td>S. America</td>\n",
-       "      <td>14333</td>\n",
-       "      <td>18.0</td>\n",
+       "      <th>130</th>\n",
+       "      <td>Tunisia</td>\n",
+       "      <td>Middle East</td>\n",
+       "      <td>7996</td>\n",
+       "      <td>6.0</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>50</th>\n",
-       "      <td>Greece</td>\n",
+       "      <th>136</th>\n",
+       "      <td>United Kingdom</td>\n",
        "      <td>W. Europe</td>\n",
-       "      <td>29361</td>\n",
+       "      <td>35445</td>\n",
        "      <td>20.0</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>16</th>\n",
-       "      <td>Brazil</td>\n",
-       "      <td>S. America</td>\n",
-       "      <td>10296</td>\n",
-       "      <td>18.0</td>\n",
+       "      <th>48</th>\n",
+       "      <td>Germany</td>\n",
+       "      <td>W. Europe</td>\n",
+       "      <td>35613</td>\n",
+       "      <td>20.0</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>67</th>\n",
-       "      <td>Jordan</td>\n",
-       "      <td>Middle East</td>\n",
-       "      <td>5283</td>\n",
-       "      <td>8.0</td>\n",
+       "      <th>105</th>\n",
+       "      <td>Poland</td>\n",
+       "      <td>C&amp;E Europe</td>\n",
+       "      <td>17625</td>\n",
+       "      <td>20.0</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>36</th>\n",
-       "      <td>Ecuador</td>\n",
-       "      <td>S. America</td>\n",
-       "      <td>8009</td>\n",
-       "      <td>16.2</td>\n",
+       "      <th>57</th>\n",
+       "      <td>Hungary</td>\n",
+       "      <td>C&amp;E Europe</td>\n",
+       "      <td>19330</td>\n",
+       "      <td>20.0</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
        "</div>"
       ],
       "text/plain": [
-       "      country       region  gdppcap08  polityIV\n",
-       "3   Argentina   S. America      14333      18.0\n",
-       "50     Greece    W. Europe      29361      20.0\n",
-       "16     Brazil   S. America      10296      18.0\n",
-       "67     Jordan  Middle East       5283       8.0\n",
-       "36    Ecuador   S. America       8009      16.2"
+       "            country       region  gdppcap08  polityIV\n",
+       "130         Tunisia  Middle East       7996       6.0\n",
+       "136  United Kingdom    W. Europe      35445      20.0\n",
+       "48          Germany    W. Europe      35613      20.0\n",
+       "105          Poland   C&E Europe      17625      20.0\n",
+       "57          Hungary   C&E Europe      19330      20.0"
       ]
      },
      "execution_count": 7,
@@ -1829,76 +1779,34 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>country</th>\n",
-       "      <th>region</th>\n",
-       "      <th>gdppcap08</th>\n",
-       "      <th>polityIV</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>29</th>\n",
-       "      <td>Congo Kinshasa</td>\n",
-       "      <td>Africa</td>\n",
-       "      <td>321</td>\n",
-       "      <td>15.000000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>96</th>\n",
-       "      <td>Niger</td>\n",
-       "      <td>Africa</td>\n",
-       "      <td>684</td>\n",
-       "      <td>15.333333</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "           country  region  gdppcap08   polityIV\n",
-       "29  Congo Kinshasa  Africa        321  15.000000\n",
-       "96           Niger  Africa        684  15.333333"
-      ]
-     },
-     "execution_count": 22,
-     "metadata": {},
-     "output_type": "execute_result"
+     "ename": "IndexError",
+     "evalue": "Item wrong length 3 instead of 96.",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mIndexError\u001b[0m                                Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-25-fed8763de0a1>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;31m# Note: This behavior *just* changed in the latest pandas release.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 10\u001b[0;31m \u001b[0mrelatively_democratic\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mrelatively_democratic\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mloc\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;32mTrue\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;32mFalse\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;32mTrue\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     11\u001b[0m \u001b[0mrelatively_democratic\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/indexing.py\u001b[0m in \u001b[0;36m__getitem__\u001b[0;34m(self, key)\u001b[0m\n\u001b[1;32m   1408\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1409\u001b[0m             \u001b[0mmaybe_callable\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mcom\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mapply_if_callable\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mobj\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1410\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_getitem_axis\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmaybe_callable\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0maxis\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0maxis\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1411\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1412\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0m_is_scalar_access\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mkey\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mTuple\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/indexing.py\u001b[0m in \u001b[0;36m_getitem_axis\u001b[0;34m(self, key, axis)\u001b[0m\n\u001b[1;32m   1772\u001b[0m             \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_slice_axis\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0maxis\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0maxis\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1773\u001b[0m         \u001b[0;32melif\u001b[0m \u001b[0mcom\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mis_bool_indexer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1774\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_getbool_axis\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0maxis\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0maxis\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1775\u001b[0m         \u001b[0;32melif\u001b[0m \u001b[0mis_list_like_indexer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1776\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/indexing.py\u001b[0m in \u001b[0;36m_getbool_axis\u001b[0;34m(self, key, axis)\u001b[0m\n\u001b[1;32m   1422\u001b[0m         \u001b[0;31m# caller is responsible for ensuring non-None axis\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1423\u001b[0m         \u001b[0mlabels\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mobj\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_axis\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0maxis\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1424\u001b[0;31m         \u001b[0mkey\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mcheck_bool_indexer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlabels\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1425\u001b[0m         \u001b[0minds\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mkey\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mnonzero\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1426\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/indexing.py\u001b[0m in \u001b[0;36mcheck_bool_indexer\u001b[0;34m(index, key)\u001b[0m\n\u001b[1;32m   2397\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mresult\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m!=\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mindex\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2398\u001b[0m             raise IndexError(\n\u001b[0;32m-> 2399\u001b[0;31m                 \u001b[0;34m\"Item wrong length {} instead of {}.\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mformat\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mresult\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mindex\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2400\u001b[0m             )\n\u001b[1;32m   2401\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mIndexError\u001b[0m: Item wrong length 3 instead of 96."
+     ]
     }
    ],
    "source": [
     "# Subset using list of booleans. Note that \n",
     "# if the boolean list or boolean array passed to `.loc` \n",
-    "# is not as long as the dataset, \n",
-    "# pandas acts like rows that don't have a\n",
-    "# corresponding entry in the boolean list\n",
-    "# should be dropped. \n",
+    "# is not as long as the dataset, you get an exception.\n",
     "\n",
     "# This is different than how R \n",
     "# cycles a boolean over the data. \n",
+    "\n",
+    "# Note: This behavior *just* changed in the latest pandas release. \n",
     "\n",
     "relatively_democratic = relatively_democratic.loc[[True, False, True]]\n",
     "relatively_democratic"
@@ -1913,7 +1821,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
@@ -1946,20 +1854,268 @@
        "      <td>Congo Kinshasa</td>\n",
        "    </tr>\n",
        "    <tr>\n",
+       "      <th>53</th>\n",
+       "      <td>Guinea-Bissau</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
        "      <th>96</th>\n",
        "      <td>Niger</td>\n",
        "    </tr>\n",
+       "    <tr>\n",
+       "      <th>22</th>\n",
+       "      <td>Central African Republic</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>113</th>\n",
+       "      <td>Sierra Leone</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>81</th>\n",
+       "      <td>Malawi</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>90</th>\n",
+       "      <td>Mozambique</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>80</th>\n",
+       "      <td>Madagascar</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>83</th>\n",
+       "      <td>Mali</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>27</th>\n",
+       "      <td>Comoros</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>127</th>\n",
+       "      <td>Tanzania</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>Bangladesh</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>143</th>\n",
+       "      <td>Zambia</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>49</th>\n",
+       "      <td>Ghana</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>12</th>\n",
+       "      <td>Benin</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>75</th>\n",
+       "      <td>Lesotho</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>69</th>\n",
+       "      <td>Kenya</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>112</th>\n",
+       "      <td>Senegal</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>19</th>\n",
+       "      <td>Cambodia</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>97</th>\n",
+       "      <td>Nigeria</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>35</th>\n",
+       "      <td>Djibouti</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>101</th>\n",
+       "      <td>Papua New Guinea</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>54</th>\n",
+       "      <td>Guyana</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>117</th>\n",
+       "      <td>Solomon Islands</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>95</th>\n",
+       "      <td>Nicaragua</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>87</th>\n",
+       "      <td>Moldova</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>58</th>\n",
+       "      <td>India</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>104</th>\n",
+       "      <td>Philippines</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>88</th>\n",
+       "      <td>Mongolia</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>56</th>\n",
+       "      <td>Honduras</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>31</th>\n",
+       "      <td>Croatia</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>57</th>\n",
+       "      <td>Hungary</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>41</th>\n",
+       "      <td>Estonia</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>115</th>\n",
+       "      <td>Slovakia</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>106</th>\n",
+       "      <td>Portugal</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>33</th>\n",
+       "      <td>Czech Republic</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>94</th>\n",
+       "      <td>New Zealand</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>63</th>\n",
+       "      <td>Israel</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>116</th>\n",
+       "      <td>Slovenia</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>70</th>\n",
+       "      <td>Korea South</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>50</th>\n",
+       "      <td>Greece</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>64</th>\n",
+       "      <td>Italy</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>125</th>\n",
+       "      <td>Taiwan</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>119</th>\n",
+       "      <td>Spain</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>44</th>\n",
+       "      <td>France</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>66</th>\n",
+       "      <td>Japan</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>11</th>\n",
+       "      <td>Belgium</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>43</th>\n",
+       "      <td>Finland</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>136</th>\n",
+       "      <td>United Kingdom</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>48</th>\n",
+       "      <td>Germany</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>Australia</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>21</th>\n",
+       "      <td>Canada</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>34</th>\n",
+       "      <td>Denmark</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>123</th>\n",
+       "      <td>Sweden</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>Austria</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>93</th>\n",
+       "      <td>Netherlands</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>124</th>\n",
+       "      <td>Switzerland</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>62</th>\n",
+       "      <td>Ireland</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>137</th>\n",
+       "      <td>United States</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>98</th>\n",
+       "      <td>Norway</td>\n",
+       "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
+       "<p>96 rows × 1 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
-       "           country\n",
-       "29  Congo Kinshasa\n",
-       "96           Niger"
+       "                      country\n",
+       "29             Congo Kinshasa\n",
+       "53              Guinea-Bissau\n",
+       "96                      Niger\n",
+       "22   Central African Republic\n",
+       "113              Sierra Leone\n",
+       "..                        ...\n",
+       "93                Netherlands\n",
+       "124               Switzerland\n",
+       "62                    Ireland\n",
+       "137             United States\n",
+       "98                     Norway\n",
+       "\n",
+       "[96 rows x 1 columns]"
       ]
      },
-     "execution_count": 23,
+     "execution_count": 26,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1989,7 +2145,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
@@ -2003,7 +2159,7 @@
        "Name: country, dtype: object"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2015,7 +2171,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [
     {
@@ -2082,7 +2238,7 @@
        "40          Eritrea        632"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2094,7 +2250,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 29,
    "metadata": {},
    "outputs": [
     {
@@ -2173,7 +2329,7 @@
        "68     Kazakhstan  C&E Europe      11315       4.0"
       ]
      },
-     "execution_count": 26,
+     "execution_count": 29,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2185,7 +2341,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 30,
    "metadata": {},
    "outputs": [
     {
@@ -2248,7 +2404,7 @@
        "76          Liberia  Africa        388      10.0"
       ]
      },
-     "execution_count": 27,
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2262,14 +2418,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**My advice on using `[]` on DataFrames:** in short, `[]` is much safer on DataFrames because the situation where `[]` *might* subset on index values (if you index values are integers) or it *might* subset on row order (if your index values are not integers) doesn't exist. Moreover, selecting a single column is *extremely* common, and this is a case where I use single square brackets all the time. \n",
+    "**My advice on using `[]` on DataFrames:** in short, `[]` is much safer on DataFrames because the situation where `[]` *might* subset on index labels (if your index labels are integers) or it *might* subset on row order (if your index labels are not integers) doesn't exist. Moreover, selecting a single column is *extremely* common, and this is a case where I use single square brackets all the time. \n",
     "\n",
     "In a Series, if I pass `0`, it's always unclear whether that's going to get me the first row (row-order-based) or the row with index value 0 (if I have integer index-values). On a DataFrame, a single entry or list of entries will *only* attempt to match columns based on index values, and if that fails, it throws an exception rather than defaulting to acting like `.iloc`:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 31,
    "metadata": {},
    "outputs": [
     {
@@ -2279,7 +2435,7 @@
      "traceback": [
       "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
       "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
-      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py\u001b[0m in \u001b[0;36mget_loc\u001b[0;34m(self, key, method, tolerance)\u001b[0m\n\u001b[1;32m   2656\u001b[0m             \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2657\u001b[0;31m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_loc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2658\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyError\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py\u001b[0m in \u001b[0;36mget_loc\u001b[0;34m(self, key, method, tolerance)\u001b[0m\n\u001b[1;32m   2889\u001b[0m             \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2890\u001b[0;31m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_loc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2891\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyError\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
       "\u001b[0;32mpandas/_libs/index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.IndexEngine.get_loc\u001b[0;34m()\u001b[0m\n",
       "\u001b[0;32mpandas/_libs/index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.IndexEngine.get_loc\u001b[0;34m()\u001b[0m\n",
       "\u001b[0;32mpandas/_libs/hashtable_class_helper.pxi\u001b[0m in \u001b[0;36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[0;34m()\u001b[0m\n",
@@ -2287,9 +2443,9 @@
       "\u001b[0;31mKeyError\u001b[0m: 0",
       "\nDuring handling of the above exception, another exception occurred:\n",
       "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-28-4b0f3501794b>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mworld\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/pandas/core/frame.py\u001b[0m in \u001b[0;36m__getitem__\u001b[0;34m(self, key)\u001b[0m\n\u001b[1;32m   2925\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mnlevels\u001b[0m \u001b[0;34m>\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2926\u001b[0m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_getitem_multilevel\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2927\u001b[0;31m             \u001b[0mindexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_loc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2928\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mis_integer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mindexer\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2929\u001b[0m                 \u001b[0mindexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mindexer\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py\u001b[0m in \u001b[0;36mget_loc\u001b[0;34m(self, key, method, tolerance)\u001b[0m\n\u001b[1;32m   2657\u001b[0m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_loc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2658\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyError\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2659\u001b[0;31m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_loc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_maybe_cast_indexer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2660\u001b[0m         \u001b[0mindexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_indexer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmethod\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mmethod\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mtolerance\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mtolerance\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2661\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mindexer\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mndim\u001b[0m \u001b[0;34m>\u001b[0m \u001b[0;36m1\u001b[0m \u001b[0;32mor\u001b[0m \u001b[0mindexer\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msize\u001b[0m \u001b[0;34m>\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m<ipython-input-31-4b0f3501794b>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mworld\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/frame.py\u001b[0m in \u001b[0;36m__getitem__\u001b[0;34m(self, key)\u001b[0m\n\u001b[1;32m   2973\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mnlevels\u001b[0m \u001b[0;34m>\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2974\u001b[0m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_getitem_multilevel\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2975\u001b[0;31m             \u001b[0mindexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_loc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2976\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mis_integer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mindexer\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2977\u001b[0m                 \u001b[0mindexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mindexer\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py\u001b[0m in \u001b[0;36mget_loc\u001b[0;34m(self, key, method, tolerance)\u001b[0m\n\u001b[1;32m   2890\u001b[0m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_loc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2891\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyError\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2892\u001b[0;31m                 \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_loc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_maybe_cast_indexer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2893\u001b[0m         \u001b[0mindexer\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_indexer\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mkey\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmethod\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mmethod\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mtolerance\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mtolerance\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2894\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mindexer\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mndim\u001b[0m \u001b[0;34m>\u001b[0m \u001b[0;36m1\u001b[0m \u001b[0;32mor\u001b[0m \u001b[0mindexer\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msize\u001b[0m \u001b[0;34m>\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
       "\u001b[0;32mpandas/_libs/index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.IndexEngine.get_loc\u001b[0;34m()\u001b[0m\n",
       "\u001b[0;32mpandas/_libs/index.pyx\u001b[0m in \u001b[0;36mpandas._libs.index.IndexEngine.get_loc\u001b[0;34m()\u001b[0m\n",
       "\u001b[0;32mpandas/_libs/hashtable_class_helper.pxi\u001b[0m in \u001b[0;36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[0;34m()\u001b[0m\n",
@@ -2320,7 +2476,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 32,
    "metadata": {},
    "outputs": [
     {
@@ -2334,7 +2490,7 @@
        "Name: country, dtype: object"
       ]
      },
-     "execution_count": 29,
+     "execution_count": 32,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2357,210 +2513,6 @@
     "Of these, the reasons for the first and second aren't complicated, but the third and fourth concerns bear exploring. \n",
     "\n",
     "Suppose we added a column to our data called `rank` that gave each country's GDP rank (this code is a little convoluted because there is an easier way to do this, but this works):"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 30,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>country</th>\n",
-       "      <th>region</th>\n",
-       "      <th>gdppcap08</th>\n",
-       "      <th>polityIV</th>\n",
-       "      <th>rank</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>144</th>\n",
-       "      <td>Zimbabwe</td>\n",
-       "      <td>Africa</td>\n",
-       "      <td>188</td>\n",
-       "      <td>6.0</td>\n",
-       "      <td>0</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>29</th>\n",
-       "      <td>Congo Kinshasa</td>\n",
-       "      <td>Africa</td>\n",
-       "      <td>321</td>\n",
-       "      <td>15.0</td>\n",
-       "      <td>1</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>76</th>\n",
-       "      <td>Liberia</td>\n",
-       "      <td>Africa</td>\n",
-       "      <td>388</td>\n",
-       "      <td>10.0</td>\n",
-       "      <td>2</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>53</th>\n",
-       "      <td>Guinea-Bissau</td>\n",
-       "      <td>Africa</td>\n",
-       "      <td>538</td>\n",
-       "      <td>11.0</td>\n",
-       "      <td>3</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>40</th>\n",
-       "      <td>Eritrea</td>\n",
-       "      <td>Africa</td>\n",
-       "      <td>632</td>\n",
-       "      <td>3.0</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "            country  region  gdppcap08  polityIV  rank\n",
-       "144        Zimbabwe  Africa        188       6.0     0\n",
-       "29   Congo Kinshasa  Africa        321      15.0     1\n",
-       "76          Liberia  Africa        388      10.0     2\n",
-       "53    Guinea-Bissau  Africa        538      11.0     3\n",
-       "40          Eritrea  Africa        632       3.0     4"
-      ]
-     },
-     "execution_count": 30,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "world = world.sort_values('gdppcap08')\n",
-    "world['rank'] = range(0,len(world))\n",
-    "world.head()"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "But if we try and access the rack column with dot-notation, we don't get that column, we get the method `rank`:"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 31,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "<bound method NDFrame.rank of                       country        region  gdppcap08   polityIV  rank\n",
-       "144                  Zimbabwe        Africa        188   6.000000     0\n",
-       "29             Congo Kinshasa        Africa        321  15.000000     1\n",
-       "76                    Liberia        Africa        388  10.000000     2\n",
-       "53              Guinea-Bissau        Africa        538  11.000000     3\n",
-       "40                    Eritrea        Africa        632   3.000000     4\n",
-       "96                      Niger        Africa        684  15.333333     5\n",
-       "22   Central African Republic        Africa        736  10.200000     6\n",
-       "113              Sierra Leone        Africa        766  15.000000     7\n",
-       "129                      Togo        Africa        829   8.000000     8\n",
-       "81                     Malawi        Africa        837  15.000000     9\n",
-       "90                 Mozambique        Africa        855  16.000000    10\n",
-       "110                    Rwanda        Africa       1022   6.666667    11\n",
-       "80                 Madagascar        Africa       1049  17.000000    12\n",
-       "92                      Nepal  Asia-Pacific       1112   4.000000    13\n",
-       "83                       Mali        Africa       1128  16.000000    14\n",
-       "18               Burkina Faso        Africa       1161  10.000000    15\n",
-       "134                    Uganda        Africa       1165   6.000000    16\n",
-       "27                    Comoros        Africa       1169  15.800000    17\n",
-       "55                      Haiti    S. America       1177   8.000000    18\n",
-       "52                     Guinea        Africa       1204   9.000000    19\n",
-       "127                  Tanzania        Africa       1263  11.000000    20\n",
-       "9                  Bangladesh  Asia-Pacific       1334  16.000000    21\n",
-       "143                    Zambia        Africa       1356  15.000000    22\n",
-       "46                     Gambia        Africa       1363   5.000000    23\n",
-       "49                      Ghana        Africa       1452  16.666667    24\n",
-       "23                       Chad        Africa       1455   8.000000    25\n",
-       "12                      Benin        Africa       1468  16.200000    26\n",
-       "75                    Lesotho        Africa       1588  18.000000    27\n",
-       "69                      Kenya        Africa       1590  18.000000    28\n",
-       "112                   Senegal        Africa       1772  18.000000    29\n",
-       "..                        ...           ...        ...        ...   ...\n",
-       "94                New Zealand  Asia-Pacific      27029  20.000000   115\n",
-       "63                     Israel   Middle East      27548  20.000000   116\n",
-       "116                  Slovenia    C&E Europe      27605  20.000000   117\n",
-       "70                Korea South  Asia-Pacific      27939  18.000000   118\n",
-       "50                     Greece     W. Europe      29361  20.000000   119\n",
-       "64                      Italy     W. Europe      30756  20.000000   120\n",
-       "125                    Taiwan  Asia-Pacific      30881  19.333333   121\n",
-       "119                     Spain     W. Europe      31954  20.000000   122\n",
-       "39          Equatorial Guinea        Africa      33873   5.000000   123\n",
-       "44                     France     W. Europe      34045  19.000000   124\n",
-       "66                      Japan  Asia-Pacific      34099  20.000000   125\n",
-       "11                    Belgium     W. Europe      34493  20.000000   126\n",
-       "8                     Bahrain   Middle East      34605   3.000000   127\n",
-       "43                    Finland   Scandinavia      35427  20.000000   128\n",
-       "136            United Kingdom     W. Europe      35445  20.000000   129\n",
-       "48                    Germany     W. Europe      35613  20.000000   130\n",
-       "5                   Australia  Asia-Pacific      35677  20.000000   131\n",
-       "21                     Canada    N. America      36444  20.000000   132\n",
-       "34                    Denmark   Scandinavia      36607  20.000000   133\n",
-       "123                    Sweden   Scandinavia      37383  20.000000   134\n",
-       "6                     Austria     W. Europe      38152  20.000000   135\n",
-       "133                       UAE   Middle East      38830   2.000000   136\n",
-       "71                     Kuwait   Middle East      39914   3.000000   137\n",
-       "93                Netherlands     W. Europe      40849  20.000000   138\n",
-       "124               Switzerland     W. Europe      42536  20.000000   139\n",
-       "62                    Ireland     W. Europe      44200  20.000000   140\n",
-       "137             United States    N. America      46716  20.000000   141\n",
-       "114                 Singapore  Asia-Pacific      49284   8.000000   142\n",
-       "98                     Norway   Scandinavia      58138  20.000000   143\n",
-       "107                     Qatar   Middle East      85868   0.000000   144\n",
-       "\n",
-       "[145 rows x 5 columns]>"
-      ]
-     },
-     "execution_count": 31,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "world.rank"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "Now if you hit this problem on the right side an assignment operator, you'll get an exception and will know you have a problem. Suppose you want to move up everyone's rank by 1:"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 32,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "world.rank = world['rank'] + 1"
    ]
   },
   {
@@ -2656,6 +2608,160 @@
     }
    ],
    "source": [
+    "world = world.sort_values('gdppcap08')\n",
+    "world['rank'] = range(0,len(world))\n",
+    "world.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "But if we try and access the rack column with dot-notation, we don't get that column, we get the method `rank`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<bound method NDFrame.rank of             country        region  gdppcap08  polityIV  rank\n",
+       "144        Zimbabwe        Africa        188       6.0     0\n",
+       "29   Congo Kinshasa        Africa        321      15.0     1\n",
+       "76          Liberia        Africa        388      10.0     2\n",
+       "53    Guinea-Bissau        Africa        538      11.0     3\n",
+       "40          Eritrea        Africa        632       3.0     4\n",
+       "..              ...           ...        ...       ...   ...\n",
+       "62          Ireland     W. Europe      44200      20.0   140\n",
+       "137   United States    N. America      46716      20.0   141\n",
+       "114       Singapore  Asia-Pacific      49284       8.0   142\n",
+       "98           Norway   Scandinavia      58138      20.0   143\n",
+       "107           Qatar   Middle East      85868       0.0   144\n",
+       "\n",
+       "[145 rows x 5 columns]>"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "world.rank"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now if you hit this problem on the right side an assignment operator, you'll get an exception and will know you have a problem. Suppose you want to move up everyone's rank by 1:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "world.rank = world['rank'] + 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>country</th>\n",
+       "      <th>region</th>\n",
+       "      <th>gdppcap08</th>\n",
+       "      <th>polityIV</th>\n",
+       "      <th>rank</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>144</th>\n",
+       "      <td>Zimbabwe</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>188</td>\n",
+       "      <td>6.0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>29</th>\n",
+       "      <td>Congo Kinshasa</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>321</td>\n",
+       "      <td>15.0</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>76</th>\n",
+       "      <td>Liberia</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>388</td>\n",
+       "      <td>10.0</td>\n",
+       "      <td>2</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>53</th>\n",
+       "      <td>Guinea-Bissau</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>538</td>\n",
+       "      <td>11.0</td>\n",
+       "      <td>3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>40</th>\n",
+       "      <td>Eritrea</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>632</td>\n",
+       "      <td>3.0</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "            country  region  gdppcap08  polityIV  rank\n",
+       "144        Zimbabwe  Africa        188       6.0     0\n",
+       "29   Congo Kinshasa  Africa        321      15.0     1\n",
+       "76          Liberia  Africa        388      10.0     2\n",
+       "53    Guinea-Bissau  Africa        538      11.0     3\n",
+       "40          Eritrea  Africa        632       3.0     4"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
     "world.head()"
    ]
   },
@@ -2668,7 +2774,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 37,
    "metadata": {},
    "outputs": [
     {
@@ -2678,7 +2784,7 @@
      "traceback": [
       "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
       "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-34-685de3d339fd>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mworld\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrank\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m<ipython-input-37-685de3d339fd>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mworld\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrank\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
       "\u001b[0;31mTypeError\u001b[0m: 'Series' object is not callable"
      ]
     }
@@ -2696,14 +2802,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 38,
    "metadata": {},
    "outputs": [
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/Users/Nick/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: UserWarning: Pandas doesn't allow columns to be created via a new attribute name - see https://pandas.pydata.org/pandas-docs/stable/indexing.html#attribute-access\n",
+      "/Users/Nick/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: UserWarning: Pandas doesn't allow columns to be created via a new attribute name - see https://pandas.pydata.org/pandas-docs/stable/indexing.html#attribute-access\n",
       "  \"\"\"Entry point for launching an IPython kernel.\n"
      ]
     },
@@ -2789,7 +2895,7 @@
        "40          Eritrea  Africa        632       3.0     4"
       ]
      },
-     "execution_count": 35,
+     "execution_count": 38,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2834,7 +2940,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": 39,
    "metadata": {},
    "outputs": [
     {
@@ -2843,7 +2949,7 @@
        "pandas.core.series.Series"
       ]
      },
-     "execution_count": 36,
+     "execution_count": 39,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2869,7 +2975,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 37,
+   "execution_count": 40,
    "metadata": {},
    "outputs": [
     {
@@ -2878,7 +2984,7 @@
        "pandas.core.series.Series"
       ]
      },
-     "execution_count": 37,
+     "execution_count": 40,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2889,7 +2995,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 38,
+   "execution_count": 41,
    "metadata": {},
    "outputs": [
     {
@@ -2898,7 +3004,7 @@
        "pandas.core.frame.DataFrame"
       ]
      },
-     "execution_count": 38,
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2918,7 +3024,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 39,
+   "execution_count": 42,
    "metadata": {},
    "outputs": [
     {
@@ -2927,7 +3033,7 @@
        "pandas.core.series.Series"
       ]
      },
-     "execution_count": 39,
+     "execution_count": 42,
      "metadata": {},
      "output_type": "execute_result"
     }
