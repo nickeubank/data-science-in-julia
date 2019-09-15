@@ -6,9 +6,11 @@
    "source": [
     "# Estimating Labor Market Returns to Education\n",
     "\n",
-    "**Note:** Most students taking this class are Duke MIDS students who have worked with `pandas` previously. As a result, these exercises are very light on basic pandas Series and DataFrame manipulations. If you are new to `pandas`, I would advise looking into some addition practice opportunities with `pandas`, as discussed in the [Advice for Non-MIDS Students](../not_a_mids_student.ipynb) page. \n",
+    "**Note:** Most students taking this class are Duke MIDS students who have worked with `pandas` previously. As a result, these exercises are very light on basic pandas Series and DataFrame manipulations. If you are new to `pandas`, I would advise looking into some addition practice opportunities with `pandas`, as discussed on the [Advice for Non-MIDS Students](../not_a_mids_student.ipynb) page, such as DataCamp's \"pandas Fundamentals\" course. \n",
     "\n",
-    "In this exercise, we're going to use data from the [American Communities Survey (ACS)](https://usa.ipums.org/usa/acs.shtml) to study the relationship betwen educational attainment and wages. The ACS is a survey conducted by the United States Census Bureau (though it is not \"The Census\", which is a counting of every person in the United States that takes place every 10 years) to measure numerous features of the US population. The data we will be working with includes about 100 variables from the 2017 ACS survey, and is composed of only 10% of all the people actually surveyed by the ACS. This data comes from [IPUMS](https://usa.ipums.org/usa/), which provides a very useful tool for getting subsets of major survey datasets, not just from the US, but [from government statistical agencies the world over](https://international.ipums.org/international-action/sample_details).\n",
+    "In this exercise, we're going to use data from the [American Communities Survey (ACS)](https://usa.ipums.org/usa/acs.shtml) to study the relationship betwen educational attainment and wages. The ACS is a survey conducted by the United States Census Bureau (though it is not \"The Census,\" which is a counting of every person in the United States that takes place every 10 years) to measure numerous features of the US population. The data we will be working with includes about 100 variables from the 2017 ACS survey, and is a 10% sample of the ACS (which itself is a 1% sample of the US population, so we're working with about a 0.1% sample of the United States). \n",
+    "\n",
+    "This data comes from [IPUMS](https://usa.ipums.org/usa/), which provides a very useful tool for getting subsets of major survey datasets, not just from the US, but [from government statistical agencies the world over](https://international.ipums.org/international-action/sample_details).\n",
     "\n",
     "This is *real* data, meaning that you are being provided the data as it is provided by IPUMS. Documentation for all variables used in this data can be found [here](https://usa.ipums.org/usa-action/variables/group) (you can either search by variable name to figure out the meaning of a variable in this data, or search for something you want to see if a variable with the right name is in this data). \n",
     "\n",
@@ -30,12 +32,12 @@
    "source": [
     "### Exercise 2\n",
     "\n",
-    "Now import `US_ACS_2017_10pct_sample.dta` into a pandas DataFrame. This can be done with the command `pd.read_stata`, which will read in files created in the program Stata (and which uses the file suffix `.dta`. "
+    "Now import `US_ACS_2017_10pct_sample.dta` into a pandas DataFrame. This can be done with the command `pd.read_stata`, which will read in files created in the program Stata (and which uses the file suffix `.dta`). This is a format commonly used by social scientists."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -62,10 +64,52 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "319004"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(acs) \n",
+    "# US population is a little over 300 million, \n",
+    "# so 300,000 observations is about right. "
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
     "**4)** How many columns are in your data?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "104"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(acs.columns)"
    ]
   },
   {
@@ -81,7 +125,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
@@ -95,7 +139,7 @@
        "      dtype='object', length=104)"
       ]
      },
-     "execution_count": 18,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -119,7 +163,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
@@ -250,12 +294,12 @@
     "\n",
     "These quantities of interest correspond to the following variables in our data: `age`, `inctot`, `educ`, and `empstat`. \n",
     "\n",
-    "Let's subset our data to just those variables. "
+    "Subset your data to just those variables. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -268,12 +312,12 @@
    "source": [
     "**5)** Now that we have a more manageable number of variables, it's often very useful to look at a handful of rows of your data. The easiest way to do this is probably the `.head()` method (which will show you the first five rows), or the `tail()` method, which will show you the last five rows. \n",
     "\n",
-    "But to get a good sense of your data, it's often better to use the `sample()` command, as the first and last rows are sometimes not representative. Try looking at a random sample of 10 rows. "
+    "But to get a good sense of your data, it's often better to use the `sample()` command, which returns a random set of rows. As the first and last rows are sometimes not representative, a random set of rows can be very helpful. Try looking at a random sample of 20 rows (note: you don't have to run `.sample()` ten times to get ten rows. Look at the `.sample` help file if you're stuck. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
@@ -305,100 +349,180 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>126287</th>\n",
-       "      <td>67</td>\n",
-       "      <td>not in labor force</td>\n",
-       "      <td>35500</td>\n",
-       "      <td>grade 12</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>10561</th>\n",
-       "      <td>16</td>\n",
-       "      <td>not in labor force</td>\n",
-       "      <td>0</td>\n",
-       "      <td>grade 11</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>280582</th>\n",
-       "      <td>61</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>75000</td>\n",
-       "      <td>grade 9</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>266002</th>\n",
-       "      <td>28</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>25000</td>\n",
-       "      <td>grade 12</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>285971</th>\n",
-       "      <td>47</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>70000</td>\n",
-       "      <td>grade 12</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>119645</th>\n",
-       "      <td>75</td>\n",
-       "      <td>not in labor force</td>\n",
-       "      <td>35500</td>\n",
-       "      <td>grade 12</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>24109</th>\n",
+       "      <th>153547</th>\n",
        "      <td>31</td>\n",
        "      <td>employed</td>\n",
-       "      <td>18000</td>\n",
+       "      <td>19300</td>\n",
+       "      <td>1 year of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>167428</th>\n",
+       "      <td>62</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>42600</td>\n",
+       "      <td>2 years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>204786</th>\n",
+       "      <td>29</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>700</td>\n",
+       "      <td>4 years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>146514</th>\n",
+       "      <td>28</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>10000</td>\n",
+       "      <td>1 year of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>108727</th>\n",
+       "      <td>38</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>29800</td>\n",
+       "      <td>1 year of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>520</th>\n",
+       "      <td>65</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>150200</td>\n",
+       "      <td>4 years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2030</th>\n",
+       "      <td>64</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>108000</td>\n",
+       "      <td>5+ years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>295346</th>\n",
+       "      <td>52</td>\n",
+       "      <td>not in labor force</td>\n",
+       "      <td>12700</td>\n",
        "      <td>grade 12</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>150766</th>\n",
-       "      <td>5</td>\n",
+       "      <th>78699</th>\n",
+       "      <td>55</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>17100</td>\n",
+       "      <td>1 year of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>21335</th>\n",
+       "      <td>63</td>\n",
+       "      <td>not in labor force</td>\n",
+       "      <td>9900</td>\n",
+       "      <td>grade 12</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>187871</th>\n",
+       "      <td>4</td>\n",
        "      <td>n/a</td>\n",
        "      <td>9999999</td>\n",
        "      <td>n/a or no schooling</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>238174</th>\n",
-       "      <td>30</td>\n",
+       "      <th>270117</th>\n",
+       "      <td>54</td>\n",
        "      <td>employed</td>\n",
-       "      <td>40000</td>\n",
+       "      <td>18000</td>\n",
        "      <td>1 year of college</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>9211</th>\n",
-       "      <td>20</td>\n",
+       "      <th>49805</th>\n",
+       "      <td>55</td>\n",
+       "      <td>not in labor force</td>\n",
+       "      <td>10100</td>\n",
+       "      <td>grade 9</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>59154</th>\n",
+       "      <td>37</td>\n",
        "      <td>employed</td>\n",
-       "      <td>3200</td>\n",
+       "      <td>8000</td>\n",
+       "      <td>5+ years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>294172</th>\n",
+       "      <td>82</td>\n",
+       "      <td>not in labor force</td>\n",
+       "      <td>12000</td>\n",
        "      <td>grade 12</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>199152</th>\n",
+       "      <td>37</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>100000</td>\n",
+       "      <td>5+ years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>230024</th>\n",
+       "      <td>3</td>\n",
+       "      <td>n/a</td>\n",
+       "      <td>9999999</td>\n",
+       "      <td>n/a or no schooling</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>284634</th>\n",
+       "      <td>8</td>\n",
+       "      <td>n/a</td>\n",
+       "      <td>9999999</td>\n",
+       "      <td>nursery school to grade 4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>52496</th>\n",
+       "      <td>33</td>\n",
+       "      <td>unemployed</td>\n",
+       "      <td>3000</td>\n",
+       "      <td>grade 12</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>269954</th>\n",
+       "      <td>75</td>\n",
+       "      <td>not in labor force</td>\n",
+       "      <td>17600</td>\n",
+       "      <td>grade 5, 6, 7, or 8</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
        "</div>"
       ],
       "text/plain": [
-       "       age             empstat   inctot                 educ\n",
-       "126287  67  not in labor force    35500             grade 12\n",
-       "10561   16  not in labor force        0             grade 11\n",
-       "280582  61            employed    75000              grade 9\n",
-       "266002  28            employed    25000             grade 12\n",
-       "285971  47            employed    70000             grade 12\n",
-       "119645  75  not in labor force    35500             grade 12\n",
-       "24109   31            employed    18000             grade 12\n",
-       "150766   5                 n/a  9999999  n/a or no schooling\n",
-       "238174  30            employed    40000    1 year of college\n",
-       "9211    20            employed     3200             grade 12"
+       "       age             empstat   inctot                       educ\n",
+       "153547  31            employed    19300          1 year of college\n",
+       "167428  62            employed    42600         2 years of college\n",
+       "204786  29            employed      700         4 years of college\n",
+       "146514  28            employed    10000          1 year of college\n",
+       "108727  38            employed    29800          1 year of college\n",
+       "520     65            employed   150200         4 years of college\n",
+       "2030    64            employed   108000        5+ years of college\n",
+       "295346  52  not in labor force    12700                   grade 12\n",
+       "78699   55            employed    17100          1 year of college\n",
+       "21335   63  not in labor force     9900                   grade 12\n",
+       "187871   4                 n/a  9999999        n/a or no schooling\n",
+       "270117  54            employed    18000          1 year of college\n",
+       "49805   55  not in labor force    10100                    grade 9\n",
+       "59154   37            employed     8000        5+ years of college\n",
+       "294172  82  not in labor force    12000                   grade 12\n",
+       "199152  37            employed   100000        5+ years of college\n",
+       "230024   3                 n/a  9999999        n/a or no schooling\n",
+       "284634   8                 n/a  9999999  nursery school to grade 4\n",
+       "52496   33          unemployed     3000                   grade 12\n",
+       "269954  75  not in labor force    17600        grade 5, 6, 7, or 8"
       ]
      },
-     "execution_count": 23,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "acs.sample(10)"
+    "acs.sample(20)"
    ]
   },
   {
@@ -409,19 +533,28 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Uh, yup! People have incomes of 9 million?! And those people tend to be children?"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
     "**7)** One problem is that many people seem to have incomes of $9,999,999. Moreover, people with those incomes seem to be very young children. \n",
     "\n",
-    "What you are seeing is one method (a relatively old one) for representing missing data. In this case, 9999999 is a method of saying \"this person is too young to work, so their income value is missing\". \n",
+    "What you are seeing is one method (a relatively old one) for representing missing data. In this case, the value 9999999 is used to denote observations for which there is no data (Or more specifically, in this case observations where the person is too young to work, so their income value is missing). \n",
     "\n",
     "So let's begin by dropping anyone who has `inctot` equal to 9999999. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -432,14 +565,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**8)** OK, the other potential problem is that our data includes lots of people who are unemployed and people who are not in the labor force (this means they not only don't have a job, but also aren't looking for a job). For this analysis, we to focus on the wages of people who are currently employed. So subset the dataset for the people for whom `empstat` is equal to \"employed\". \n",
+    "**8)** OK, the other potential problem is that our data includes lots of people who are unemployed and people who are not in the labor force (this means they not only don't have a job, but also aren't looking for a job). For this analysis, we want to focus on the wages of people who are currently employed. So subset the dataset for the people for whom `empstat` is equal to \"employed\". \n",
     "\n",
-    "Note that our decision to only look at people who are employed impacts how we should interpret the relationship we estimate between education and income. Because we are only looked at employed people, we will be estimating the relationship between education and income *for people who are employed*. That means that if education affects the *likelihood* someone is employed, we won't capture that in this analysis. "
+    "Note that our decision to only look at people who are employed impacts how we should interpret the relationship we estimate between education and income. Because we are only looking at employed people, we will be estimating the relationship between education and income *for people who are employed*. That means that if education affects the *likelihood* someone is employed, we won't capture that in this analysis. (Economists all this the \"intensive margin\", while looking at whether people get jobs in the first place is called the \"extensive margin\".)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -471,74 +604,74 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>10711</th>\n",
-       "      <td>25</td>\n",
+       "      <th>58592</th>\n",
+       "      <td>40</td>\n",
        "      <td>employed</td>\n",
-       "      <td>20000</td>\n",
+       "      <td>87000</td>\n",
        "      <td>grade 12</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>24877</th>\n",
-       "      <td>48</td>\n",
+       "      <th>82867</th>\n",
+       "      <td>50</td>\n",
        "      <td>employed</td>\n",
-       "      <td>22000</td>\n",
-       "      <td>grade 5, 6, 7, or 8</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>121973</th>\n",
-       "      <td>65</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>24000</td>\n",
-       "      <td>5+ years of college</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>177890</th>\n",
-       "      <td>36</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>18000</td>\n",
-       "      <td>5+ years of college</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>280058</th>\n",
-       "      <td>47</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>28000</td>\n",
+       "      <td>65000</td>\n",
        "      <td>grade 12</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>143279</th>\n",
-       "      <td>65</td>\n",
+       "      <th>28050</th>\n",
+       "      <td>40</td>\n",
        "      <td>employed</td>\n",
-       "      <td>113000</td>\n",
-       "      <td>1 year of college</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>246142</th>\n",
-       "      <td>41</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>35500</td>\n",
-       "      <td>grade 9</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>126240</th>\n",
-       "      <td>44</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>20000</td>\n",
-       "      <td>4 years of college</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>270395</th>\n",
-       "      <td>41</td>\n",
-       "      <td>employed</td>\n",
-       "      <td>101000</td>\n",
+       "      <td>140000</td>\n",
        "      <td>5+ years of college</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>34756</th>\n",
-       "      <td>26</td>\n",
+       "      <th>7898</th>\n",
+       "      <td>38</td>\n",
        "      <td>employed</td>\n",
-       "      <td>48000</td>\n",
+       "      <td>65000</td>\n",
+       "      <td>2 years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>310941</th>\n",
+       "      <td>23</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>12000</td>\n",
+       "      <td>2 years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>252840</th>\n",
+       "      <td>40</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>72000</td>\n",
        "      <td>4 years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>21168</th>\n",
+       "      <td>41</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>77000</td>\n",
+       "      <td>4 years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>167088</th>\n",
+       "      <td>62</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>55000</td>\n",
+       "      <td>5+ years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>220316</th>\n",
+       "      <td>43</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>52000</td>\n",
+       "      <td>4 years of college</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>270231</th>\n",
+       "      <td>63</td>\n",
+       "      <td>employed</td>\n",
+       "      <td>69000</td>\n",
+       "      <td>grade 12</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
@@ -546,19 +679,19 @@
       ],
       "text/plain": [
        "       age   empstat  inctot                 educ\n",
-       "10711   25  employed   20000             grade 12\n",
-       "24877   48  employed   22000  grade 5, 6, 7, or 8\n",
-       "121973  65  employed   24000  5+ years of college\n",
-       "177890  36  employed   18000  5+ years of college\n",
-       "280058  47  employed   28000             grade 12\n",
-       "143279  65  employed  113000    1 year of college\n",
-       "246142  41  employed   35500              grade 9\n",
-       "126240  44  employed   20000   4 years of college\n",
-       "270395  41  employed  101000  5+ years of college\n",
-       "34756   26  employed   48000   4 years of college"
+       "58592   40  employed   87000             grade 12\n",
+       "82867   50  employed   65000             grade 12\n",
+       "28050   40  employed  140000  5+ years of college\n",
+       "7898    38  employed   65000   2 years of college\n",
+       "310941  23  employed   12000   2 years of college\n",
+       "252840  40  employed   72000   4 years of college\n",
+       "21168   41  employed   77000   4 years of college\n",
+       "167088  62  employed   55000  5+ years of college\n",
+       "220316  43  employed   52000   4 years of college\n",
+       "270231  63  employed   69000             grade 12"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 10,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -581,7 +714,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [
     {
@@ -601,7 +734,7 @@
        "Name: educ, dtype: int64"
       ]
      },
-     "execution_count": 26,
+     "execution_count": 11,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -619,7 +752,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [
     {
@@ -628,7 +761,7 @@
        "38957.76068179442"
       ]
      },
-     "execution_count": 27,
+     "execution_count": 12,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -645,10 +778,145 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "75485.05293301983"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "acs.loc[acs['educ']=='4 years of college', 'inctot'].mean()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# That's a LOT better than the average high school income. "
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
     "**12)** What is the average income for someone who has not finished high school? What does that suggest is the value of a high school diploma?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "26226.45692998571"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Hasn't finished:\n",
+    "acs.loc[ (acs['educ'] == 'n/a or no schooling') |\n",
+    "         (acs['educ'] == 'nursery school to grade 4') |\n",
+    "         (acs['educ'] == 'grade 5, 6, 7, or 8') |\n",
+    "         (acs['educ'] == 'grade 9') |\n",
+    "         (acs['educ'] == 'grade 10') |\n",
+    "         (acs['educ'] == 'grade 11'), \n",
+    "        'inctot'].mean()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "26226.45692998571"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Or the other way around:\n",
+    "\n",
+    "acs.loc[ ~((acs['educ'] == 'grade 12') |\n",
+    "           (acs['educ'] == '1 year of college') |\n",
+    "           (acs['educ'] == '2 years of college') |\n",
+    "           (acs['educ'] == '4 years of college') |\n",
+    "           (acs['educ'] == '5+ years of college')\n",
+    "          ),\n",
+    "        'inctot'].mean()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "26226.45692998571"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Or if you want to use a little trick:\n",
+    "less_than_college = ['n/a or no schooling', \n",
+    "                     'nursery school to grade 4',\n",
+    "                     'grade 5, 6, 7, or 8',\n",
+    "                     'grade 9',\n",
+    "                     'grade 10',\n",
+    "                     'grade 11']\n",
+    "\n",
+    "acs.loc[acs['educ'].isin(less_than_college), 'inctot'].mean()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.48543779276265"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# High school diploma is also worth a lot -- they earn almost 50% more than \n",
+    "# those without a high school degree\n",
+    "\n",
+    "(38957.76 - 26226.45) / 26226.45"
    ]
   },
   {
@@ -667,57 +935,25 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "26226.45692998571"
-      ]
-     },
-     "execution_count": 33,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# Hasn't finished:\n",
-    "acs.loc[ (acs['educ'] == 'n/a or no schooling') |\n",
-    "         (acs['educ'] == 'nursery school to grade 4') |\n",
-    "         (acs['educ'] == 'grade 5, 6, 7, or 8') |\n",
-    "         (acs['educ'] == 'grade 9') |\n",
-    "         (acs['educ'] == 'grade 10') |\n",
-    "         (acs['educ'] == 'grade 11'), \n",
-    "        'inctot'].mean()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 19,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "grade 9\n",
-      "27171.907751937986\n",
-      "grade 10\n",
-      "23018.795811518325\n",
-      "grade 11\n",
-      "21541.68693119767\n",
-      "grade 12\n",
-      "38957.76068179442\n",
-      "4 years of college\n",
-      "75485.05293301983\n"
+      "those who have finished grade 9 earn 27,171.91\n",
+      "those who have finished grade 10 earn 23,018.80\n",
+      "those who have finished grade 11 earn 21,541.69\n",
+      "those who have finished grade 12 earn 38,957.76\n",
+      "those who have finished 4 years of college earn 75,485.05\n"
      ]
     }
    ],
    "source": [
     "for level in ['grade 9', 'grade 10', 'grade 11', 'grade 12', '4 years of college']:\n",
-    "    print(level)\n",
-    "    print(acs.loc[acs['educ'] == level, 'inctot'].mean())"
+    "    avg_income = acs.loc[acs['educ'] == level, 'inctot'].mean()\n",
+    "    print('those who have finished {} earn {:,.2f}'.format(level, avg_income))"
    ]
   },
   {
@@ -728,18 +964,58 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# I mean... the answer is below. "
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
     "## Take-aways\n",
     "\n",
-    "Congratulations! You just discovered \"the sheepskin effect!:\" people with degrees tend to earn more than people who have the same education, but don't have the certificate of completion. \n",
+    "Congratulations! You just discovered \"the sheepskin effect!\": people with degrees tend to earn substantially more than people who have *almost* as much education, but don't have an actual degree. \n",
     "\n",
-    "In economics, this is viewed as evidence that the reason employers pay people with high school degrees more than those without degree is *not* that they think those who graduated high school have learned specific, useful skills. If that were the case, we would expect employee earnings to rise with every year of high school, since in each year of high school we learn more. Instead, this suggests employees pay high school graduates more because they think *the kind of people* who can finish high school are the *kind of people* who are likely to succeed. Finishing high school, in other words, isn't about accumulating specific knowledge; it's about showing that you *are the kind of person* who can rise to the challenge of finishing high school, also suggesting you are also the kind of person who can succeed as an employee. \n",
+    "In economics, this is viewed as evidence that the reason employers pay people with high school degrees more than those without degree is *not* that they think those who graduated high school have learned specific, useful skills. If that were the case, we would expect employee earnings to rise with every year of high school, since in each year of high school we learn more. \n",
+    "\n",
+    "Instead, this suggests employees pay high school graduates more because they think *the kind of people* who can finish high school are the *kind of people* who are likely to succeed at their jobs. Finishing high school, in other words, isn't about accumulating specific knowledge; it's about showing that you *are the kind of person* who can rise to the challenge of finishing high school, also suggesting you are also the kind of person who can succeed as an employee. \n",
     "\n",
     "(Obviously, this does not tell us whether that is an *accurate* inference, just that that seems to be how employeers think.) \n",
     "\n",
-    "The high school degree, in other words, is a *signal* about the kind of person you are (an idea that earned [Michael Spence](https://en.wikipedia.org/wiki/Michael_Spence) a Nobel Prize in Economics). "
+    "In other words, in the eyes of employers, a high school degree is a *signal* about the kind of person you are, not certification that you've learned a specific set of skills (an idea that earned [Michael Spence](https://en.wikipedia.org/wiki/Michael_Spence) a Nobel Prize in Economics). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Want More Practice?\n",
+    "\n",
+    "**(14)** The US Census isn't the only organization that published surveys of their populations -- most countries in the world conduct regular surveys, and most publish versions of their data online. \n",
+    "\n",
+    "In addition to making US Census data available to researchers, IPUMS (through \"IPUMS International\") also makes survey data available from a wide range of countries. \n",
+    "\n",
+    "So if you'd like more practice with basic data manipulations, go to [IPUMS International](https://international.ipums.org/international-action/variables/group) and download information on income and education from the country of your choice:\n",
+    "\n",
+    "1. Click \"Select Samples\" to pick the country and year from which you would like data, then click \"Submit Sample Selections\". *Note that most countries don't include income as a variable! Asking income is very sensitive, so is often left off surveys*. You can get income directly from surveys of Mexico, Israel, Canada, India (in 2004), Italy, Panama, and Venezuela. But you *can* get \"income proxies\" (variables that are very correlated with income) like household construction materials (people with unfinished dirt floors tend to be poorer than people with concrete floors) for other countries like most African and Latin American surveys. Also: note there are non-IPUMS surveys which often *do* provide this data, they just aren't here. \n",
+    "2. Select variables (most likely under the \"Person\" tab) for education and income, or under \"Dwelling Characteristics\" if you're looking for wealth proxies. \n",
+    "3. Click \"View Cart\"\n",
+    "4. Click \"Select Data Extract\"\n",
+    "5. Change the data format to .dta or to .csv.\n",
+    "6. Click \"Submit Extract\"\n",
+    "7. Login with the IPUMS account you created during week 1 (if you didn't do that (as assigned!!), register for IPUMS now). \n",
+    "8. When extract is ready, download!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(15)** Repeat these exercises for your new dataset!"
    ]
   }
  ],
