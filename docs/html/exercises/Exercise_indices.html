@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Index Alignment Exercises &#8212; Practical Data Science</title>
+    <title>Index alignment &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -32,8 +32,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="Index-Alignment-Exercises">
-<h1>Index Alignment Exercises<a class="headerlink" href="#Index-Alignment-Exercises" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="Index-alignment">
+<h1>Index alignment<a class="headerlink" href="#Index-alignment" title="Permalink to this headline">¶</a></h1>
 <p>To illustrate how index alignment can sometimes lead to problems, let’s consider the following example: suppose we’re throwing a party, and we plan to give people prizes based on the order in which they arrive. The first person to arrive at the party will get 20 dollars, the second will get 10 dollars, and the third person doesn’t get anything.</p>
 <p>To keep track of how many prizes everyone gets, we build a DataFrame with all the party attendees, their arrival order, and a column for keeping track of how much they’ve received in prizes.</p>
 <p>The we can also build a Series with the prize amounts we plan to give people.</p>
@@ -41,7 +41,7 @@
 <h2>Exercise 1<a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h2>
 <p>Use the code below to get started:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="n">attendees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Jill&quot;</span><span class="p">,</span> <span class="s2">&quot;Kumar&quot;</span><span class="p">,</span> <span class="s2">&quot;Zaira&quot;</span><span class="p">],</span>
+<span class="n">attendees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Jill&quot;</span><span class="p">,</span> <span class="s2">&quot;Kumar&quot;</span><span class="p">,</span> <span class="s2">&quot;Zaira&quot;</span><span class="p">],</span>
                           <span class="s1">&#39;prizes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
                           <span class="s1">&#39;arrival_order&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
 <span class="n">arrival_prizes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -63,6 +63,50 @@
 <h2>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s look at the result. Does it look like what you expected? Do you know what went wrong?</p>
 <p>After you’ve formulated your thoughts, continue to <a class="reference internal" href="Exercise_indices_discussion.html"><span class="doc">Discussion</span></a>.</p>
+<div class="section" id="Exercise-5">
+<h3>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h3>
+<p>If you ever <em>want</em> to get alignment on row numbers, the easiest way to achieve that is to reset the indices on both objects you want to merge. When one re-sets indices without specifying a column to become the new index, the new index will just be row-numbers.</p>
+<p>So:</p>
+<ul class="simple">
+<li><p>Reset prizes to 0.</p></li>
+<li><p>Reset the indices on both <code class="docutils literal notranslate"><span class="pre">arrival_prizes</span></code> and <code class="docutils literal notranslate"><span class="pre">attendees</span></code></p></li>
+<li><p>Try adding arrival prizes to prizes again.</p></li>
+</ul>
+<p><strong>Note:</strong> When you reset the index on a Series, the Series is converted to a DataFrame, and the old index is added as a column. To avoid this behavior and just drop the old index when re-setting indices (in either a Series or a DataFrame), use the <code class="docutils literal notranslate"><span class="pre">drop=True</span></code> argument when resetting the index.</p>
+</div>
+<div class="section" id="Exercise-6">
+<h3>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h3>
+<p>OK, so besides doing automatic alignment, is there a reason to use indices?</p>
+<p>Let’s find out. Create the following fake dataset of social security numbers and some “names” (random strings). Warning: this will take a little time to run.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="kn">as</span> <span class="nn">npr</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">npr</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">size</span><span class="o">=</span><span class="mi">1000000</span> <span class="c1"># 1,000,000</span>
+<span class="n">people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;social_security_numbers&#39;</span><span class="p">:</span> <span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">10000000</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">99999999</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">),</span>
+                       <span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+                                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Exercise-7">
+<h3>Exercise 7<a class="headerlink" href="#Exercise-7" title="Permalink to this headline">¶</a></h3>
+<p>Now subset your data to get the income associated with the name of “TPKSMSLREI”. (Yes, there are ways to get real random names, but they take a while to run because they query websites that generate fake names, so we’re just doing this!).</p>
+</div>
+<div class="section" id="Exercise-8">
+<h3>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h3>
+<p>Now time your operation using the <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> ipython magic function.</p>
+</div>
+<div class="section" id="Exercise-9">
+<h3>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h3>
+<p>Now make <code class="docutils literal notranslate"><span class="pre">social_security_number</span></code> your index for this data. Then try subsetting using <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> to get all the observations with the name of “TPKSMSLREI” and time the operation.</p>
+</div>
+<div class="section" id="Take-away">
+<h3>Take-away<a class="headerlink" href="#Take-away" title="Permalink to this headline">¶</a></h3>
+<p>So in short: indices can be nice in that they do automatic alignment, provided you’re expecting it. Moreover, if you want to pull random rows out of your dataset, it is often much faster than a regular query!</p>
+</div>
 </div>
 </div>
 
