@@ -1060,39 +1060,39 @@ div.rendered_html tbody tr:hover {
   </thead>
   <tbody>
     <tr>
-      <th>130</th>
-      <td>Tunisia</td>
-      <td>Middle East</td>
-      <td>7996</td>
+      <th>134</th>
+      <td>Uganda</td>
+      <td>Africa</td>
+      <td>1165</td>
       <td>6.0</td>
     </tr>
     <tr>
-      <th>136</th>
-      <td>United Kingdom</td>
-      <td>W. Europe</td>
-      <td>35445</td>
-      <td>20.0</td>
+      <th>9</th>
+      <td>Bangladesh</td>
+      <td>Asia-Pacific</td>
+      <td>1334</td>
+      <td>16.0</td>
     </tr>
     <tr>
-      <th>48</th>
-      <td>Germany</td>
-      <td>W. Europe</td>
-      <td>35613</td>
-      <td>20.0</td>
+      <th>83</th>
+      <td>Mali</td>
+      <td>Africa</td>
+      <td>1128</td>
+      <td>16.0</td>
     </tr>
     <tr>
-      <th>105</th>
-      <td>Poland</td>
-      <td>C&amp;E Europe</td>
-      <td>17625</td>
-      <td>20.0</td>
+      <th>54</th>
+      <td>Guyana</td>
+      <td>S. America</td>
+      <td>2542</td>
+      <td>16.0</td>
     </tr>
     <tr>
-      <th>57</th>
-      <td>Hungary</td>
-      <td>C&amp;E Europe</td>
-      <td>19330</td>
-      <td>20.0</td>
+      <th>104</th>
+      <td>Philippines</td>
+      <td>Asia-Pacific</td>
+      <td>3510</td>
+      <td>18.0</td>
     </tr>
   </tbody>
 </table>
@@ -1747,7 +1747,7 @@ Name: country, dtype: object
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1772,7 +1772,7 @@ Name: country, dtype: object
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-25-fed8763de0a1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-22-fed8763de0a1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-red-fg"># Note: This behavior *just* changed in the latest pandas release.</span>
 <span class="ansi-green-intense-fg ansi-bold">      9</span>
 <span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>relatively_democratic <span class="ansi-blue-fg">=</span> relatively_democratic<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span>
@@ -1811,17 +1811,17 @@ Name: country, dtype: object
 </div>
 <p>And if we want to subset columns on a boolean (admittedly a silly example, but you get the idea):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">relatively_democratic</span> <span class="o">=</span> <span class="n">relatively_democratic</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="n">world</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="s1">&#39;country&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">world</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="s1">&#39;gdppercap08&#39;</span><span class="p">)]</span>
+<span></span><span class="n">relatively_democratic</span> <span class="o">=</span> <span class="n">relatively_democratic</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="n">world</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="s1">&#39;country&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">world</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="s1">&#39;gdppcap08&#39;</span><span class="p">)]</span>
 <span class="n">relatively_democratic</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1844,256 +1844,318 @@ Name: country, dtype: object
     <tr style="text-align: right;">
       <th></th>
       <th>country</th>
+      <th>gdppcap08</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>29</th>
       <td>Congo Kinshasa</td>
+      <td>321</td>
     </tr>
     <tr>
       <th>53</th>
       <td>Guinea-Bissau</td>
+      <td>538</td>
     </tr>
     <tr>
       <th>96</th>
       <td>Niger</td>
+      <td>684</td>
     </tr>
     <tr>
       <th>22</th>
       <td>Central African Republic</td>
+      <td>736</td>
     </tr>
     <tr>
       <th>113</th>
       <td>Sierra Leone</td>
+      <td>766</td>
     </tr>
     <tr>
       <th>81</th>
       <td>Malawi</td>
+      <td>837</td>
     </tr>
     <tr>
       <th>90</th>
       <td>Mozambique</td>
+      <td>855</td>
     </tr>
     <tr>
       <th>80</th>
       <td>Madagascar</td>
+      <td>1049</td>
     </tr>
     <tr>
       <th>83</th>
       <td>Mali</td>
+      <td>1128</td>
     </tr>
     <tr>
       <th>27</th>
       <td>Comoros</td>
+      <td>1169</td>
     </tr>
     <tr>
       <th>127</th>
       <td>Tanzania</td>
+      <td>1263</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Bangladesh</td>
+      <td>1334</td>
     </tr>
     <tr>
       <th>143</th>
       <td>Zambia</td>
+      <td>1356</td>
     </tr>
     <tr>
       <th>49</th>
       <td>Ghana</td>
+      <td>1452</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Benin</td>
+      <td>1468</td>
     </tr>
     <tr>
       <th>75</th>
       <td>Lesotho</td>
+      <td>1588</td>
     </tr>
     <tr>
       <th>69</th>
       <td>Kenya</td>
+      <td>1590</td>
     </tr>
     <tr>
       <th>112</th>
       <td>Senegal</td>
+      <td>1772</td>
     </tr>
     <tr>
       <th>19</th>
       <td>Cambodia</td>
+      <td>1905</td>
     </tr>
     <tr>
       <th>97</th>
       <td>Nigeria</td>
+      <td>2082</td>
     </tr>
     <tr>
       <th>35</th>
       <td>Djibouti</td>
+      <td>2140</td>
     </tr>
     <tr>
       <th>101</th>
       <td>Papua New Guinea</td>
+      <td>2208</td>
     </tr>
     <tr>
       <th>54</th>
       <td>Guyana</td>
+      <td>2542</td>
     </tr>
     <tr>
       <th>117</th>
       <td>Solomon Islands</td>
+      <td>2610</td>
     </tr>
     <tr>
       <th>95</th>
       <td>Nicaragua</td>
+      <td>2682</td>
     </tr>
     <tr>
       <th>87</th>
       <td>Moldova</td>
+      <td>2925</td>
     </tr>
     <tr>
       <th>58</th>
       <td>India</td>
+      <td>2972</td>
     </tr>
     <tr>
       <th>104</th>
       <td>Philippines</td>
+      <td>3510</td>
     </tr>
     <tr>
       <th>88</th>
       <td>Mongolia</td>
+      <td>3566</td>
     </tr>
     <tr>
       <th>56</th>
       <td>Honduras</td>
+      <td>3965</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
       <td>...</td>
     </tr>
     <tr>
       <th>31</th>
       <td>Croatia</td>
+      <td>19084</td>
     </tr>
     <tr>
       <th>57</th>
       <td>Hungary</td>
+      <td>19330</td>
     </tr>
     <tr>
       <th>41</th>
       <td>Estonia</td>
+      <td>20662</td>
     </tr>
     <tr>
       <th>115</th>
       <td>Slovakia</td>
+      <td>22081</td>
     </tr>
     <tr>
       <th>106</th>
       <td>Portugal</td>
+      <td>23074</td>
     </tr>
     <tr>
       <th>33</th>
       <td>Czech Republic</td>
+      <td>24712</td>
     </tr>
     <tr>
       <th>94</th>
       <td>New Zealand</td>
+      <td>27029</td>
     </tr>
     <tr>
       <th>63</th>
       <td>Israel</td>
+      <td>27548</td>
     </tr>
     <tr>
       <th>116</th>
       <td>Slovenia</td>
+      <td>27605</td>
     </tr>
     <tr>
       <th>70</th>
       <td>Korea South</td>
+      <td>27939</td>
     </tr>
     <tr>
       <th>50</th>
       <td>Greece</td>
+      <td>29361</td>
     </tr>
     <tr>
       <th>64</th>
       <td>Italy</td>
+      <td>30756</td>
     </tr>
     <tr>
       <th>125</th>
       <td>Taiwan</td>
+      <td>30881</td>
     </tr>
     <tr>
       <th>119</th>
       <td>Spain</td>
+      <td>31954</td>
     </tr>
     <tr>
       <th>44</th>
       <td>France</td>
+      <td>34045</td>
     </tr>
     <tr>
       <th>66</th>
       <td>Japan</td>
+      <td>34099</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Belgium</td>
+      <td>34493</td>
     </tr>
     <tr>
       <th>43</th>
       <td>Finland</td>
+      <td>35427</td>
     </tr>
     <tr>
       <th>136</th>
       <td>United Kingdom</td>
+      <td>35445</td>
     </tr>
     <tr>
       <th>48</th>
       <td>Germany</td>
+      <td>35613</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Australia</td>
+      <td>35677</td>
     </tr>
     <tr>
       <th>21</th>
       <td>Canada</td>
+      <td>36444</td>
     </tr>
     <tr>
       <th>34</th>
       <td>Denmark</td>
+      <td>36607</td>
     </tr>
     <tr>
       <th>123</th>
       <td>Sweden</td>
+      <td>37383</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Austria</td>
+      <td>38152</td>
     </tr>
     <tr>
       <th>93</th>
       <td>Netherlands</td>
+      <td>40849</td>
     </tr>
     <tr>
       <th>124</th>
       <td>Switzerland</td>
+      <td>42536</td>
     </tr>
     <tr>
       <th>62</th>
       <td>Ireland</td>
+      <td>44200</td>
     </tr>
     <tr>
       <th>137</th>
       <td>United States</td>
+      <td>46716</td>
     </tr>
     <tr>
       <th>98</th>
       <td>Norway</td>
+      <td>58138</td>
     </tr>
   </tbody>
 </table>
-<p>96 rows × 1 columns</p>
+<p>96 rows × 2 columns</p>
 </div></div>
 </div>
 </div>
@@ -2112,7 +2174,7 @@ Name: country, dtype: object
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2122,7 +2184,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2136,7 +2198,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2146,7 +2208,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2203,7 +2265,7 @@ Name: country, dtype: object
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2213,7 +2275,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2282,7 +2344,7 @@ Name: country, dtype: object
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2292,7 +2354,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2349,7 +2411,7 @@ Name: country, dtype: object
 <p><strong>My advice on using ``[]`` on DataFrames:</strong> in short, <code class="docutils literal notranslate"><span class="pre">[]</span></code> is much safer on DataFrames because the situation where <code class="docutils literal notranslate"><span class="pre">[]</span></code> <em>might</em> subset on index labels (if your index labels are integers) or it <em>might</em> subset on row order (if your index labels are not integers) doesn’t exist. Moreover, selecting a single column is <em>extremely</em> common, and this is a case where I use single square brackets all the time.</p>
 <p>In a Series, if I pass <code class="docutils literal notranslate"><span class="pre">0</span></code>, it’s always unclear whether that’s going to get me the first row (row-order-based) or the row with index value 0 (if I have integer index-values). On a DataFrame, a single entry or list of entries will <em>only</em> attempt to match columns based on index values, and if that fails, it throws an exception rather than defaulting to acting like <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2382,7 +2444,7 @@ Name: country, dtype: object
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-31-4b0f3501794b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-28-4b0f3501794b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>world<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
 
 <span class="ansi-green-fg">~/miniconda3/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
@@ -2417,7 +2479,7 @@ During handling of the above exception, another exception occurred:
 <h2>4. Getting Columns with Not-Notation<a class="headerlink" href="#4.-Getting-Columns-with-Not-Notation" title="Permalink to this headline">¶</a></h2>
 <p>In addition to passing the name of a column into <code class="docutils literal notranslate"><span class="pre">.loc</span></code> or to <code class="docutils literal notranslate"><span class="pre">[]</span></code>, columns can also <em>sometimes</em> be access using dot-notation:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2426,7 +2488,7 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2449,7 +2511,7 @@ Name: country, dtype: object
 <p>Of these, the reasons for the first and second aren’t complicated, but the third and fourth concerns bear exploring.</p>
 <p>Suppose we added a column to our data called <code class="docutils literal notranslate"><span class="pre">rank</span></code> that gave each country’s GDP rank (this code is a little convoluted because there is an easier way to do this, but this works):</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2460,7 +2522,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2536,7 +2598,7 @@ Name: country, dtype: object
 </div>
 <p>But if we try and access the rack column with dot-notation, we don’t get that column, we get the method <code class="docutils literal notranslate"><span class="pre">rank</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2545,7 +2607,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2568,7 +2630,7 @@ Name: country, dtype: object
 </div>
 <p>Now if you hit this problem on the right side an assignment operator, you’ll get an exception and will know you have a problem. Suppose you want to move up everyone’s rank by 1:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2577,7 +2639,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2586,7 +2648,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2662,7 +2724,7 @@ Name: country, dtype: object
 </div>
 <p>It fails silently because what you’ve actually done is over-written the <em>method</em> rank with the column <code class="docutils literal notranslate"><span class="pre">rank</span></code> plus 1. Now now only has your <code class="docutils literal notranslate"><span class="pre">rank</span></code> column not changed (see it still starts with 0), but now you’ve broken the <code class="docutils literal notranslate"><span class="pre">rank</span></code> method:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2677,7 +2739,7 @@ Name: country, dtype: object
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-37-685de3d339fd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-34-685de3d339fd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>world<span class="ansi-blue-fg">.</span>rank<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">TypeError</span>: &#39;Series&#39; object is not callable
@@ -2685,7 +2747,7 @@ Name: country, dtype: object
 </div>
 <p>When you try to assign values using dot-notation, you also get into trouble if you try to create a <em>new</em> column. For example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2704,7 +2766,7 @@ Name: country, dtype: object
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2790,7 +2852,7 @@ Name: country, dtype: object
 <p>While it is natural to think of a DataFrame as a single table (like a numpy matrix), in reality <strong>a DataFrame is just a collection of Series</strong>.</p>
 <p>To see this, let’s pull out individual columns using square bracket notation, and check it’s type:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2799,7 +2861,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2814,7 +2876,7 @@ Name: country, dtype: object
 <p>There is one point of nuance worth exploring: when you extract a single column from a DataFrame, you have the choice of either extracting a Series, or extracting a DataFrame with a single column. What determines this is whether you use one pair of square brackets, or two.</p>
 <p>If you use a single set of square brackets (or pass just the name of a column to <code class="docutils literal notranslate"><span class="pre">loc</span></code>, you get back a Series. But if you pass a <em>list</em> with the column name, you get back a DataFrame:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2823,7 +2885,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2832,7 +2894,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2841,7 +2903,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2852,7 +2914,7 @@ Name: country, dtype: object
 <p>Note <strong>that this is the opposite behavior of R</strong>, where double brackets get you a Vector, and single brackets get you a <code class="docutils literal notranslate"><span class="pre">data.frame</span></code>!</p>
 <p>This also holds for rows, by the way. If you ask for a single row, you will actually get back a (newly construted) Series:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2861,7 +2923,7 @@ Name: country, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -2876,15 +2938,6 @@ Name: country, dtype: object
 <h2>6. Exercises!<a class="headerlink" href="#6.-Exercises!" title="Permalink to this headline">¶</a></h2>
 <p><em>If you are enrolled in Practical Data Science at Duke, don’t do these exercises on your own – we’ll do them in class!</em></p>
 <p><a class="reference internal" href="exercises/Exercise_dataframe.html"><span class="doc">DataFrame Exercises</span></a></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
