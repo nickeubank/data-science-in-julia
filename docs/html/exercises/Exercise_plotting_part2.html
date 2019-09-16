@@ -238,17 +238,18 @@ div.rendered_html tbody tr:hover {
 <h2>Wealth and Democracy<a class="headerlink" href="#Wealth-and-Democracy" title="Permalink to this headline">¶</a></h2>
 <p>Let’s now pivot from working with example data to real data. Load the World Development Indicator data you worked with over the summer. This is country-level data that includes information on both countries’ GDP per capita (a measure of wealth) and the Polity IV scores (a measure of how democratic a country is – countries with higher scores are liberal democracies, countries with low scores are autocratic.). Use the code below to download the data.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">wdi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/nickeubank/practicaldatascience/master/Example_Data/world-small.csv&#39;</span><span class="p">)</span>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">wdi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/nickeubank/practicaldatascience/master/Example_Data/world-small.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>Your data should look like this:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -257,7 +258,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -393,15 +394,11 @@ that properly represents the essence of the data being studied depends on the da
 <p>Similarly, a simple linear model would “tell” us that if GDP per capita increases by $10,000, we would expect Polity scores to increase by about 1 (i.e. the coefficent on the linear model was 9.602e-05). But when we plot the data, not only can we that the data is definitely <em>not</em> linear (and so that slope doesn’t really mean anything), but we can also see that oil producing countries seem to defy the overall trend, and so should maybe be studied separately.</p>
 <p>Moreover, we can see that if we just look at oil producers, there is no clear story: some are rich and democratic, while others are rich and autocratic (indeed, <a class="reference external" href="https://www.jstor.org/stable/41480824">this observation is the foundation of some great research on the political consequences of resource wealth</a>!)</p>
 <p>So remember this: tools for summarizing data will always give you an answer, but it’s up to you as a data scientist to make sure that the summaries you pass on to other people properly represent the data you’re using. And there is perhaps no better way to do this than with plotting!</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="Want-more-practice?">
+<h2>Want more practice?<a class="headerlink" href="#Want-more-practice?" title="Permalink to this headline">¶</a></h2>
+<p>Great! Load the ACS data that we used for our first <a class="reference internal" href="Exercise_dataframe.html"><span class="doc">DataFrames exercise</span></a> and create a plot that illustrates the sheepskin effect. Note that because the “sheepskin” effect is fundamentally about <em>discontinuities</em>, you won’t be able to illustrate it using a single <code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code> object. Rather, you’ll probably want to plot a linear or non-parametric fit for years of education below finishing high school, then plot the value of finishing high school above that.</p>
+<p>As a second extension, you can also plot out the income consequences of different levels of college achievement.</p>
 </div>
 </div>
 

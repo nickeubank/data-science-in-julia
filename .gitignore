@@ -3,6 +3,8 @@
 *.jl.mem
 deps/deps.jl
 source/.ipynb_checkpoints/*
+.ipynb_checkpoints/*
+**/.ipynb_checkpoints/*
 
 *.aux
 *.fdb_latexmk
