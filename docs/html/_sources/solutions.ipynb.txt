@@ -11,8 +11,16 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "- [Series Exercise Solutions](exercises/Solutions_series.ipynb)"
+    "- [Series Exercise Solutions](exercises/Solutions_series.ipynb)\n",
+    "- [DataFrame Exercise Solutions](exercises/Solutions_dataframe.ipynb)"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {

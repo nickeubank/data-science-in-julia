@@ -249,7 +249,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p><strong>2)</strong> For our exercises today, we’ll focus on <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">gender</span></code>, <code class="docutils literal notranslate"><span class="pre">educ</span></code>, and <code class="docutils literal notranslate"><span class="pre">inctot</span></code>. Subset your data to those variables, and quickly look at a sample of 10 rows.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -258,7 +258,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -267,7 +267,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -297,74 +297,74 @@ div.rendered_html tbody tr:hover {
   </thead>
   <tbody>
     <tr>
-      <th>99185</th>
-      <td>26</td>
-      <td>male</td>
-      <td>grade 12</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>317882</th>
-      <td>15</td>
-      <td>male</td>
-      <td>grade 9</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>286926</th>
-      <td>57</td>
-      <td>female</td>
-      <td>grade 12</td>
-      <td>48800</td>
-    </tr>
-    <tr>
-      <th>97900</th>
-      <td>25</td>
-      <td>female</td>
-      <td>grade 12</td>
-      <td>8000</td>
-    </tr>
-    <tr>
-      <th>244210</th>
-      <td>69</td>
-      <td>female</td>
-      <td>grade 12</td>
-      <td>132700</td>
-    </tr>
-    <tr>
-      <th>81911</th>
-      <td>28</td>
+      <th>275821</th>
+      <td>46</td>
       <td>female</td>
       <td>4 years of college</td>
-      <td>57000</td>
+      <td>90000</td>
     </tr>
     <tr>
-      <th>16771</th>
+      <th>6930</th>
+      <td>68</td>
+      <td>male</td>
+      <td>n/a or no schooling</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>269370</th>
+      <td>less than 1 year old</td>
+      <td>female</td>
+      <td>n/a or no schooling</td>
+      <td>9999999</td>
+    </tr>
+    <tr>
+      <th>121293</th>
+      <td>72</td>
+      <td>male</td>
+      <td>4 years of college</td>
+      <td>49900</td>
+    </tr>
+    <tr>
+      <th>262364</th>
+      <td>50</td>
+      <td>female</td>
+      <td>4 years of college</td>
+      <td>100000</td>
+    </tr>
+    <tr>
+      <th>130572</th>
+      <td>68</td>
+      <td>female</td>
+      <td>grade 5, 6, 7, or 8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>163613</th>
       <td>68</td>
       <td>female</td>
       <td>grade 12</td>
-      <td>23750</td>
+      <td>9700</td>
     </tr>
     <tr>
-      <th>106052</th>
-      <td>35</td>
-      <td>male</td>
-      <td>grade 12</td>
-      <td>160000</td>
-    </tr>
-    <tr>
-      <th>225796</th>
-      <td>56</td>
-      <td>male</td>
-      <td>grade 12</td>
-      <td>40000</td>
-    </tr>
-    <tr>
-      <th>83623</th>
+      <th>136830</th>
       <td>60</td>
       <td>male</td>
       <td>5+ years of college</td>
-      <td>140000</td>
+      <td>60000</td>
+    </tr>
+    <tr>
+      <th>186955</th>
+      <td>50</td>
+      <td>female</td>
+      <td>grade 9</td>
+      <td>40000</td>
+    </tr>
+    <tr>
+      <th>37467</th>
+      <td>less than 1 year old</td>
+      <td>female</td>
+      <td>n/a or no schooling</td>
+      <td>9999999</td>
     </tr>
   </tbody>
 </table>
@@ -372,7 +372,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p><strong>3)</strong> First, replace all the values of <code class="docutils literal notranslate"><span class="pre">inctot</span></code> that are 9999999 with <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -380,121 +380,51 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p><strong>4)</strong> So we know how data is being stored, check the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> of all the variables we are working with. What is the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of <code class="docutils literal notranslate"><span class="pre">age</span></code>?</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">acs</span><span class="o">.</span><span class="n">dtypes</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>age       category
-sex       category
-educ      category
-inctot     float64
-dtype: object
-</pre></div>
-</div>
-</div>
-<p><strong>5)</strong> We want to be able to calculate things using age, so we need it to be a numeric type. Check all the values of <code class="docutils literal notranslate"><span class="pre">age</span></code> to figure out why it’s categorical and not numeric. You should find two problematic categories.</p>
+<p><strong>4)</strong> Calculate the average age of people in our data. What do you get?</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span></span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>60                           4950
-54                           4821
-59                           4776
-56                           4776
-58                           4734
-57                           4720
-55                           4693
-61                           4644
-62                           4614
-53                           4600
-18                           4496
-63                           4488
-52                           4418
-65                           4362
-19                           4342
-64                           4287
-50                           4272
-47                           4256
-16                           4106
-66                           4106
-46                           4064
-67                           4055
-17                           4021
-51                           4021
-10                           3997
-20                           3992
-9                            3977
-48                           3956
-70                           3953
-68                           3951
-                             ...
-1                            3340
-4                            3318
-3                            3220
-less than 1 year old         3150
-71                           2917
-72                           2901
-74                           2819
-73                           2781
-75                           2532
-76                           2170
-77                           2089
-78                           1985
-79                           1758
-80                           1721
-81                           1524
-82                           1464
-83                           1335
-84                           1157
-85                           1117
-86                           1041
-94                           1035
-87                            908
-88                            859
-89                            628
-90 (90+ in 1980 and 1990)     480
-93                            476
-95                            471
-92                            355
-91                            227
-96                             10
-Name: age, Length: 97, dtype: int64
-</pre></div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-43018bf34eca&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>acs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;age&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>mean<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/miniconda3/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">stat_func</span><span class="ansi-blue-fg">(self, axis, skipna, level, numeric_only, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">  11618</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_agg_by_level<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span>axis<span class="ansi-blue-fg">,</span> level<span class="ansi-blue-fg">=</span>level<span class="ansi-blue-fg">,</span> skipna<span class="ansi-blue-fg">=</span>skipna<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">  11619</span>         return self._reduce(
+<span class="ansi-green-fg">&gt; 11620</span><span class="ansi-red-fg">             </span>f<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span>axis<span class="ansi-blue-fg">,</span> skipna<span class="ansi-blue-fg">=</span>skipna<span class="ansi-blue-fg">,</span> numeric_only<span class="ansi-blue-fg">=</span>numeric_only
+<span class="ansi-green-intense-fg ansi-bold">  11621</span>         )
+<span class="ansi-green-intense-fg ansi-bold">  11622</span>
+
+<span class="ansi-green-fg">~/miniconda3/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ansi-cyan-fg">_reduce</span><span class="ansi-blue-fg">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4062</span>             <span class="ansi-red-fg"># TODO deprecate numeric_only argument for Categorical and use</span>
+<span class="ansi-green-intense-fg ansi-bold">   4063</span>             <span class="ansi-red-fg"># skipna as well, see GH25303</span>
+<span class="ansi-green-fg">-&gt; 4064</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> delegate<span class="ansi-blue-fg">.</span>_reduce<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">,</span> numeric_only<span class="ansi-blue-fg">=</span>numeric_only<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4065</span>         <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>delegate<span class="ansi-blue-fg">,</span> ExtensionArray<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   4066</span>             <span class="ansi-red-fg"># dispatch to ExtensionArray interface</span>
+
+<span class="ansi-green-fg">~/miniconda3/lib/python3.7/site-packages/pandas/core/arrays/categorical.py</span> in <span class="ansi-cyan-fg">_reduce</span><span class="ansi-blue-fg">(self, name, axis, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2258</span>         <span class="ansi-green-fg">if</span> func <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   2259</span>             msg <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;Categorical cannot perform the operation {op}&#34;</span>
+<span class="ansi-green-fg">-&gt; 2260</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> TypeError<span class="ansi-blue-fg">(</span>msg<span class="ansi-blue-fg">.</span>format<span class="ansi-blue-fg">(</span>op<span class="ansi-blue-fg">=</span>name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2261</span>         <span class="ansi-green-fg">return</span> func<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2262</span>
+
+<span class="ansi-red-fg">TypeError</span>: Categorical cannot perform the operation mean
+</pre></div></div>
 </div>
-</div>
-<p><strong>6)</strong> In order to convert <code class="docutils literal notranslate"><span class="pre">age</span></code> into a numeric variable, we need to replace those problematic entries with values that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can later convert into numbers. Pick appropriate substitutions for the existing values and replace the current values. <strong>Hint 1:</strong> Categorical variables act like strings, so you might want to use string methods! <strong>Hint 2:</strong> Remember that characters like parentheses, pluses, asterices, etc. are special in Python strings, and you have to escape them if you want them
-to be interpreted literally!</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;less than 1 year old&quot;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
-<span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;90 \(90\+ in 1980 and 1990\)&quot;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<p><strong>5)</strong> We want to be able to calculate things using age, so we need it to be a numeric type. Check the current type of <code class="docutils literal notranslate"><span class="pre">age</span></code>, and look at all the values of <code class="docutils literal notranslate"><span class="pre">age</span></code> to figure out why it’s categorical and not numeric. You should find two problematic categories.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -511,60 +441,164 @@ to be interpreted literally!</p>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>60    4950
 54    4821
+59    4776
+56    4776
+58    4734
+      ...
+93     476
+95     471
+92     355
+91     227
+96      10
+Name: age, Length: 97, dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">acs</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+60
+54
+59
+56
+58
+57
+55
+61
+62
+53
+18
+63
+52
+65
+19
+64
+50
+47
+16
+66
+46
+67
+17
+51
+10
+20
+9
+48
+70
+68
+15
+34
+49
+45
+30
+40
+27
+32
+31
+69
+37
+35
+14
+12
+36
+29
+28
+13
+11
+39
+26
+21
+33
+38
+25
+44
+8
+24
+22
+42
+43
+23
+7
+6
+5
+41
+2
+1
+4
+3
+less than 1 year old
+71
+72
+74
+73
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+94
+87
+88
+89
+90 (90+ in 1980 and 1990)
+93
+95
+92
+91
+96
+</pre></div></div>
+</div>
+<p><strong>6)</strong> In order to convert <code class="docutils literal notranslate"><span class="pre">age</span></code> into a numeric variable, we need to replace those problematic entries with values that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can later convert into numbers. Pick appropriate substitutions for the existing values and replace the current values. <strong>Hint 1:</strong> Categorical variables act like strings, so you might want to use string methods! <strong>Hint 2:</strong> Remember that characters like parentheses, pluses, asterices, etc. are special in Python strings, and you have to escape them if you want them
+to be interpreted literally!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;less than 1 year old&quot;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;90 \(90\+ in 1980 and 1990\)&quot;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>60    4950
+54    4821
 56    4776
 59    4776
 58    4734
-57    4720
-55    4693
-61    4644
-62    4614
-53    4600
-18    4496
-63    4488
-52    4418
-65    4362
-19    4342
-64    4287
-50    4272
-47    4256
-16    4106
-66    4106
-46    4064
-67    4055
-51    4021
-17    4021
-10    3997
-20    3992
-9     3977
-48    3956
-70    3953
-68    3951
       ...
-1     3340
-4     3318
-3     3220
-0     3150
-71    2917
-72    2901
-74    2819
-73    2781
-75    2532
-76    2170
-77    2089
-78    1985
-79    1758
-80    1721
-81    1524
-82    1464
-83    1335
-84    1157
-85    1117
-86    1041
-94    1035
-87     908
-88     859
-89     628
-90     480
 93     476
 95     471
 92     355
@@ -576,7 +610,7 @@ Name: age, Length: 97, dtype: int64
 </div>
 <p><strong>7)</strong> Now convert age from a categorical to numeric.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -586,7 +620,7 @@ Name: age, Length: 97, dtype: int64
 </div>
 <p><strong>8)</strong> Let’s now filter out anyone in our data whose age is greater than 18. Note that before made <code class="docutils literal notranslate"><span class="pre">age</span></code> a numeric variable, we couldn’t do this!</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -596,7 +630,7 @@ Name: age, Length: 97, dtype: int64
 </div>
 <p><strong>9)</strong> Create an indicator variable for whether each person has at least a college degree called <code class="docutils literal notranslate"><span class="pre">college_degree</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -605,7 +639,7 @@ Name: age, Length: 97, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -625,7 +659,7 @@ Name: educ, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -635,7 +669,7 @@ Name: educ, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -647,7 +681,7 @@ Name: college_degree, dtype: int64
 </div>
 <p><strong>10)</strong> Let’s examine how the educational gender gap. Use <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> to create a cross-tabulation of <code class="docutils literal notranslate"><span class="pre">sex</span></code> and <code class="docutils literal notranslate"><span class="pre">college_degree</span></code>. <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> will give you the number of people who have each combination of <code class="docutils literal notranslate"><span class="pre">sex</span></code> and <code class="docutils literal notranslate"><span class="pre">college_degree</span></code> (so in this case, it will give us a 2x2 table with Male and Female as rows, and <code class="docutils literal notranslate"><span class="pre">college_degree</span></code> True and False as columns, or vice versa.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -656,7 +690,7 @@ Name: college_degree, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -704,7 +738,7 @@ Name: college_degree, dtype: int64
 </div>
 <p><strong>11)</strong> Counts are kind of hard to interpret. <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> can also normalize values to give percentages. Look at the <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> help file to figure out how to normalize the values in the table. Normalize them so that you get the share of men with and without college degree, and the share of women with and without college degrees.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -713,7 +747,7 @@ Name: college_degree, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -761,7 +795,7 @@ Name: college_degree, dtype: int64
 </div>
 <p><strong>12)</strong> Now, let’s recreate that table for people over 40 and people under 40. Has the difference between men and women in terms of getting a college degree impoved, stayed the same, or worsened?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -771,7 +805,7 @@ Name: college_degree, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -818,7 +852,7 @@ Name: college_degree, dtype: int64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -828,7 +862,7 @@ Name: college_degree, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -873,6 +907,11 @@ Name: college_degree, dtype: int64
   </tbody>
 </table>
 </div></div>
+</div>
+<div class="section" id="Want-More-Practice?">
+<h2>Want More Practice?<a class="headerlink" href="#Want-More-Practice?" title="Permalink to this headline">¶</a></h2>
+<p>Calculate the educational racial gap in the United States for White Americans, Black Americans, Hispanic Americans, and other groups.</p>
+<p>Note that to do these calculations, you’ll have to deal with the fact that unlike most Americans, the American Census Bureau treats “Hispanic” not as a racial category, but a linguistic one. As a result, the racial category “White” in <code class="docutils literal notranslate"><span class="pre">race</span></code> actually includes most Hispanic Americans. For this analysis, we wish to work with the mutually exclusive categories of “White, non-Hispanic”, “White, Hispanic”, “Black (Hispanic or non-Hispanic)”, and a category for everyone else.</p>
 </div>
 </div>
 

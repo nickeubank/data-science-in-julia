@@ -1,0 +1,10 @@
+
+
+import pandas as pd
+gdppercap = pd.Series([34605, 34493, 12393, 44200, 10041, 
+                       58138, 4709, 49284, 10109, 42536],
+                      index=['Bahrain', 'Belgium', 'Bulgaria',
+                             'Ireland', 'Macedonia', 'Norway', 
+                             'Paraguay', 'Singapore', 
+                             'South Africa', 'Switzerland']
+                      )                   

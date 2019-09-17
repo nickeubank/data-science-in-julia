@@ -831,7 +831,7 @@
    ],
    "source": [
     "# Hasn't finished:\n",
-    "acs.loc[ (acs['educ'] == 'n/a or no schooling') |\n",
+    "acs.loc[ (acs['educ'] == 'n/a or no schooling') | \n",
     "         (acs['educ'] == 'nursery school to grade 4') |\n",
     "         (acs['educ'] == 'grade 5, 6, 7, or 8') |\n",
     "         (acs['educ'] == 'grade 9') |\n",

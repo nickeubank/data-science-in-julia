@@ -32,7 +32,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**4)** So we know how data is being stored, check the `dtypes` of all the variables we are working with. What is the `dtype` of `age`?"
+    "**4)** Calculate the average age of people in our data. What do you get?"
    ]
   },
   {
@@ -89,6 +89,17 @@
    "metadata": {},
    "source": [
     "**12)** Now, let's recreate that table for people over 40 and people under 40. Has the difference between men and women in terms of getting a college degree impoved, stayed the same, or worsened?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Want More Practice?\n",
+    "\n",
+    "Calculate the educational racial gap in the United States for White Americans, Black Americans, Hispanic Americans, and other groups. \n",
+    "\n",
+    "Note that to do these calculations, you'll have to deal with the fact that unlike most Americans, the American Census Bureau treats \"Hispanic\" not as a racial category, but a linguistic one. As a result, the racial category \"White\" in `race` actually includes most Hispanic Americans. For this analysis, we wish to work with the mutually exclusive categories of \"White, non-Hispanic\", \"White, Hispanic\", \"Black (Hispanic or non-Hispanic)\", and a category for everyone else. "
    ]
   }
  ],
