@@ -85,6 +85,24 @@
     "\n",
     "Review you plots. How does your impression of how these datasets differ from what you wrote down in Exercise 3?"
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Want More Practice?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Download the ACS data you were working with in our last exercise (available here), and let's use it to study how the gender wage gap has changed over generations in the United States. Data for that [can be found here](https://github.com/nickeubank/MIDS_Data/tree/master/US_AmericanCommunitySurvey) (`US_ACS_2017_10pct_sample.dta`).\n",
+    "\n",
+    "Once you have downloaded the data, plot income among working women and income among working men against age to see how the gender wage gap has evolved from cohort to cohort.\n",
+    "\n",
+    "Then repeat this analysis by race. Note that in the US Census, \"Hispanic\" is not considered to be a racial category, and so Hispanic Americans are not identified in the `race` variable but instead in the `hispanic` variable. For this analysis, therefore, we want to separate our sample into \"White, Non-Hispanic\", \"White, Hispanic\", \"Black\", and \"Other\". "
+   ]
   }
  ],
  "metadata": {

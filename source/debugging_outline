@@ -1,9 +1,0 @@
-1)
-- Calculate first gini.
-- Index from 1 to n+1.
-- Don't sort!
-
-2)
-- Calculate gini2.
-- DON'T SORT
-- get wrong answer.

@@ -1,0 +1,22 @@
+0) Survey about class
+
+1)
+- Calculate first gini.
+- Index from 1 to n+1.
+- Don't sort!
+- Add a function for first-component, show traceback
+
+
+2)
+- Calculate gini2.
+- DON'T SORT
+- get wrong answer.
+
+
+import pdb; pdb.set_trace()
+
+3) Plotting exercises
+
+4) Discuss dimensionality reduction
+
+5) Let finish Plotting
