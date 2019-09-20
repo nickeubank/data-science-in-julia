@@ -59,7 +59,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [
     {
@@ -264,7 +264,7 @@
        "[5 rows x 26 columns]"
       ]
      },
-     "execution_count": 3,
+     "execution_count": 2,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -275,7 +275,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [
     {
@@ -290,7 +290,7 @@
        "      dtype='object')"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 3,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -301,7 +301,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [
     {
@@ -391,17 +391,21 @@
    ],
    "source": [
     "for i in range(1, 14):\n",
-    "    mean_x = df['example{}_x'.format(i)].mean()\n",
-    "    mean_y = df['example{}_y'.format(i)].mean()\n",
-    "    std_x = df['example{}_x'.format(i)].std()\n",
-    "    std_y = df['example{}_y'.format(i)].std()\n",
-    "    corr = df[['example{}_x'.format(i),'example{}_y'.format(i)]].corr().iloc[0,1]\n",
-    "    print(\"DATA SET {}\".format(i))\n",
-    "    print(\"Mean x: {:.2f}\".format(mean_x))\n",
-    "    print(\"Mean y: {:.2f}\".format(mean_y))\n",
-    "    print(\"Std Dev x: {:.2f}\".format(std_x))\n",
-    "    print(\"Std Dev y: {:.2f}\".format(std_y))\n",
-    "    print(\"Correlation: {:.2f}\".format(corr))"
+    "    \n",
+    "    # Calculate stats\n",
+    "    mean_x = df[f'example{i}_x'].mean()\n",
+    "    mean_y = df[f'example{i}_y'].mean()\n",
+    "    std_x = df[f'example{i}_x'].std()\n",
+    "    std_y = df[f'example{i}_y'].std()\n",
+    "    corr = df[[f'example{i}_x',f'example{i}_y']].corr().iloc[0,1]\n",
+    "    \n",
+    "    # Calculate\n",
+    "    print(f\"DATA SET {i}\")\n",
+    "    print(f\"Mean x: {mean_x:.2f}\")\n",
+    "    print(f\"Mean y: {mean_y:.2f}\")\n",
+    "    print(f\"Std Dev x: {std_x:.2f}\")\n",
+    "    print(f\"Std Dev y: {std_y:.2f}\")\n",
+    "    print(f\"Correlation: {corr:.2f}\")"
    ]
   },
   {
@@ -415,7 +419,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -435,7 +439,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
@@ -452,7 +456,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252729279200)>\n"
+      "<ggplot: (8783695127293)>\n"
      ]
     },
     {
@@ -469,7 +473,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252729301532)>\n"
+      "<ggplot: (8783678319722)>\n"
      ]
     },
     {
@@ -486,7 +490,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252729279088)>\n"
+      "<ggplot: (8783737362124)>\n"
      ]
     },
     {
@@ -503,7 +507,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (8784072717909)>\n"
+      "<ggplot: (-9223363253126408693)>\n"
      ]
     },
     {
@@ -520,7 +524,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (8784189987546)>\n"
+      "<ggplot: (-9223363253092200686)>\n"
      ]
     },
     {
@@ -537,7 +541,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252799233662)>\n"
+      "<ggplot: (-9223363253142261395)>\n"
      ]
     },
     {
@@ -554,7 +558,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (8784125518975)>\n"
+      "<ggplot: (-9223363253142253680)>\n"
      ]
     },
     {
@@ -571,7 +575,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252729057378)>\n"
+      "<ggplot: (-9223363253092204074)>\n"
      ]
     },
     {
@@ -588,7 +592,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252715336188)>\n"
+      "<ggplot: (-9223363253159620983)>\n"
      ]
     },
     {
@@ -605,7 +609,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252729048674)>\n"
+      "<ggplot: (8783712541995)>\n"
      ]
     },
     {
@@ -622,7 +626,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252729030961)>\n"
+      "<ggplot: (8783661115603)>\n"
      ]
     },
     {
@@ -639,7 +643,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (-9223363252729057301)>\n"
+      "<ggplot: (8783695154324)>\n"
      ]
     },
     {
@@ -656,7 +660,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<ggplot: (8784190200128)>\n"
+      "<ggplot: (8783737358961)>\n"
      ]
     }
    ],
@@ -664,7 +668,7 @@
     "from plotnine import *\n",
     "\n",
     "for i in range(1, 14):\n",
-    "    print((ggplot(df, aes('example{}_x'.format(i), 'example{}_y'.format(i))) + geom_point()))\n"
+    "    print((ggplot(df, aes(f'example{i}_x', f'example{i}_y')) + geom_point()))\n"
    ]
   },
   {
@@ -678,7 +682,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [

@@ -264,7 +264,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>(Though you shouldn’t get those specific values)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -273,7 +273,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -445,7 +445,7 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -454,7 +454,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -469,22 +469,26 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">):</span>
-    <span class="n">mean_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;example</span><span class="si">{}</span><span class="s1">_x&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">mean_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;example</span><span class="si">{}</span><span class="s1">_y&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">std_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;example</span><span class="si">{}</span><span class="s1">_x&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-    <span class="n">std_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;example</span><span class="si">{}</span><span class="s1">_y&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-    <span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;example</span><span class="si">{}</span><span class="s1">_x&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="s1">&#39;example</span><span class="si">{}</span><span class="s1">_y&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DATA SET </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean x: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_x</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean y: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_y</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Std Dev x: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">std_x</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Std Dev y: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">std_y</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correlation: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">))</span>
+
+    <span class="c1"># Calculate stats</span>
+    <span class="n">mean_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;example</span><span class="si">{i}</span><span class="s1">_x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">mean_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;example</span><span class="si">{i}</span><span class="s1">_y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">std_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;example</span><span class="si">{i}</span><span class="s1">_x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+    <span class="n">std_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;example</span><span class="si">{i}</span><span class="s1">_y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="n">f</span><span class="s1">&#39;example</span><span class="si">{i}</span><span class="s1">_x&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;example</span><span class="si">{i}</span><span class="s1">_y&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Calculate</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;DATA SET </span><span class="si">{i}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Mean x: </span><span class="si">{mean_x:.2f}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Mean y: </span><span class="si">{mean_y:.2f}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Std Dev x: </span><span class="si">{std_x:.2f}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Std Dev y: </span><span class="si">{std_y:.2f}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Correlation: </span><span class="si">{corr:.2f}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -578,7 +582,7 @@ Correlation: -0.07
 <h2>Exercise 3<a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h2>
 <p>Based only on these results, discuss what might you conclude about these example datasets with your partner. Write down your thoughts.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -592,14 +596,14 @@ Correlation: -0.07
 <p>Write a loop that iterates over these example datasets, and using the <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> library, plot a simple scatter plot of each dataset with the <code class="docutils literal notranslate"><span class="pre">x</span></code> variable on the x-axis and the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable on the y-axis. Save these plots as PDFs somewhere you can find them.</p>
 <p>Hint: When writing this type of code, it is often best to start by writing code to do what you want for the first iteration of the loop. Once you have code that works for the first example dataset, then write the full loop around it.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">plotnine</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">((</span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;example</span><span class="si">{}</span><span class="s1">_x&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s1">&#39;example</span><span class="si">{}</span><span class="s1">_y&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;example</span><span class="si">{i}</span><span class="s1">_x&#39;</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;example</span><span class="si">{i}</span><span class="s1">_y&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()))</span>
 
 </pre></div>
 </div>
@@ -616,7 +620,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252729279200)&gt;
+&lt;ggplot: (8783695127293)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -631,7 +635,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252729301532)&gt;
+&lt;ggplot: (8783678319722)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -646,7 +650,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252729279088)&gt;
+&lt;ggplot: (8783737362124)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -661,7 +665,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (8784072717909)&gt;
+&lt;ggplot: (-9223363253126408693)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -676,7 +680,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (8784189987546)&gt;
+&lt;ggplot: (-9223363253092200686)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -691,7 +695,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252799233662)&gt;
+&lt;ggplot: (-9223363253142261395)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -706,7 +710,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (8784125518975)&gt;
+&lt;ggplot: (-9223363253142253680)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -721,7 +725,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252729057378)&gt;
+&lt;ggplot: (-9223363253092204074)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -736,7 +740,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252715336188)&gt;
+&lt;ggplot: (-9223363253159620983)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -751,7 +755,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252729048674)&gt;
+&lt;ggplot: (8783712541995)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -766,7 +770,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252729030961)&gt;
+&lt;ggplot: (8783661115603)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -781,7 +785,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363252729057301)&gt;
+&lt;ggplot: (8783695154324)&gt;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -796,7 +800,7 @@ Correlation: -0.07
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (8784190200128)&gt;
+&lt;ggplot: (8783737358961)&gt;
 </pre></div></div>
 </div>
 </div>
@@ -804,7 +808,7 @@ Correlation: -0.07
 <h2>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h2>
 <p>Review you plots. How does your impression of how these datasets differ from what you wrote down in Exercise 3?</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

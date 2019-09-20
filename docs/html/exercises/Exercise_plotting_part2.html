@@ -365,8 +365,8 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Exercise-8">
 <h3>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h3>
 <p>Interesting. It seems that there’s are a lot of rich, undemocratic countries that all have something in common: they’re oil-rich, small, Middle Eastern countries.</p>
-<p>Let’s see what happens if we exclude the ten countries with the highest per-capita oil production from our data: Qatar, Kuwait, Equatorial Guinea, United Arab Emirates (UAE), Norway, Saudi Arabia, Libya, Oman, Gabon, and Angola. (Note this was in 2007, and excludes very small countries!)</p>
-<p>To do this, I would recomment creating a new variable called <code class="docutils literal notranslate"><span class="pre">bigproducer</span></code> that is <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">country</span></code> matches a name in that list, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. If you’re struggling to find a good way to do this, googling “How to check if a value is in the list in selection from pandas data frame?” might help you out…</p>
+<p>Let’s see what happens if we exclude the ten countries with the highest per-capita oil production from our data: Qatar, Kuwait, Equatorial Guinea, United Arab Emirates, Norway, Saudi Arabia, Libya, Oman, Gabon, and Angola. (Note this was in 2007, and excludes very small countries!)</p>
+<p>What does the relationship between Polity and GDP per capita look like for non-natural resource producers?</p>
 </div>
 <div class="section" id="Exercise-9">
 <h3>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h3>
@@ -374,15 +374,15 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Exercise-10">
 <h3>Exercise 10<a class="headerlink" href="#Exercise-10" title="Permalink to this headline">¶</a></h3>
-<p>How does the relationship between GDP per capita and Polity look without those oil producers? Does it look the same as it did without the oil producers?</p>
+<p>How does the relationship between GDP per capita and Polity look for the oil producers we dropped above?</p>
 </div>
 <div class="section" id="Exercise-11">
 <h3>Exercise 11<a class="headerlink" href="#Exercise-11" title="Permalink to this headline">¶</a></h3>
-<p>Now that we’ve gotten a good sense of the relationship between wealth and democracy for non-oil producers, can we draw any conclusions about the relationship between polity scores and wealth for the oil producers? Plot the polity / GDP per capita relationship <em>just</em> for the oil producers.</p>
+<p>Look back to your answer for Exercise 2. Do you still believe the result of your linear model? What did you learn from plotting. Write down your answers with your partner.</p>
 </div>
 <div class="section" id="Exercise-12">
 <h3>Exercise 12<a class="headerlink" href="#Exercise-12" title="Permalink to this headline">¶</a></h3>
-<p>Look back to your answer for Exercise 2. Do you still believe the result of your linear model? What did you learn from plotting. Write down your answers with your partner.</p>
+<p>Pick one of your plots and make it look good – label your axes, add a title, try to make the county labels readable.</p>
 </div>
 </div>
 <div class="section" id="Take-aways">
@@ -397,7 +397,10 @@ that properly represents the essence of the data being studied depends on the da
 </div>
 <div class="section" id="Want-more-practice?">
 <h2>Want more practice?<a class="headerlink" href="#Want-more-practice?" title="Permalink to this headline">¶</a></h2>
-<p>Great! Load the ACS data that we used for our first <a class="reference internal" href="Exercise_dataframe.html"><span class="doc">DataFrames exercise</span></a> and create a plot that illustrates the sheepskin effect. Note that because the “sheepskin” effect is fundamentally about <em>discontinuities</em>, you won’t be able to illustrate it using a single <code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code> object. Rather, you’ll probably want to plot a linear or non-parametric fit for years of education below finishing high school, then plot the value of finishing high school above that.</p>
+<p>Great!</p>
+<p>First, if you haven’t done so already, do the “Do you want more practice” exercise from the first set of plotting exercises (looking at the gender wage gap and racial age gap across age cohorts).</p>
+<p>If you’ve don’t that, then load the ACS data that we used for our first <a class="reference internal" href="Exercise_dataframe.html"><span class="doc">DataFrames exercise</span></a> and create a plot that illustrates the sheepskin effect. Note that because the “sheepskin” effect is fundamentally about <em>discontinuities</em>, you won’t be able to illustrate it using a single <code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code> object. Rather, you’ll probably want to plot a linear or non-parametric fit for years of education below finishing high school, then plot the value of finishing high
+school above that.</p>
 <p>As a second extension, you can also plot out the income consequences of different levels of college achievement.</p>
 </div>
 </div>

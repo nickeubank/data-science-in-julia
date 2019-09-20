@@ -20,19 +20,32 @@ avg_growth = pd.Series([-0.29768835, 0.980299584, 4.52991925,
                               'South Africa', 'Switzerland']
                       )
 
-import pdb
-pdb.set_trace()
-pdb.post_mortem()
 
-def inner_func(x):
-    x = x + 1
-    y = x
-    z = x
-    x = x/0
-    return x
+gdp_2025 = gdppercap*((avg_growth/100) + 1) ** 17 
+gdp_2025.head()
 
-def test(x):
-    x = x * 7 + 1
-    x = inner_func(x)
+def gini(gdp):
+    gdp = gdp_2025.copy()
+    gdp = gdp.sort_values()
+    print(gdp)
+    top_element = 0
+    n = len(gdp)
     
-test(5)
+    # Top element
+    for i in range(n+1):
+        top_element = top_element + (i+1) * gdp.iloc[i]
+    
+    top_element = 2*top_element
+    
+    # Bottom element
+    bottom_element = gdp.sum() * n
+    
+    # correction
+    correction = (n + 1) / n
+    
+    gini_value = top_element / bottom_element - correction
+    
+    return gini_value
+    
+gini(gdp_2025)    
+    

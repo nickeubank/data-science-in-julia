@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Plotting Exercise &#8212; Practical Data Science</title>
+    <title>Plotting Exercises, Part 2 &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -232,8 +232,8 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="Plotting-Exercise">
-<h1>Plotting Exercise<a class="headerlink" href="#Plotting-Exercise" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Plotting-Exercises,-Part-2">
+<h1>Plotting Exercises, Part 2<a class="headerlink" href="#Plotting-Exercises,-Part-2" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Wealth-and-Democracy">
 <h2>Wealth and Democracy<a class="headerlink" href="#Wealth-and-Democracy" title="Permalink to this headline">¶</a></h2>
 <p>Let’s now pivot from working with example data to real data. Load the World Development Indicator data you worked with over the summer. This is country-level data that includes information on both countries’ GDP per capita (a measure of wealth) and the Polity IV scores (a measure of how democratic a country is – countries with higher scores are liberal democracies, countries with low scores are autocratic.). Use the code below to download the data.</p>
@@ -326,8 +326,8 @@ div.rendered_html tbody tr:hover {
 </table>
 </div></div>
 </div>
-<div class="section" id="Exercise-6">
-<h3>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>Let’s being analyzing this data by estimating a simple linear model (“ordinary least squares”) of the relationship between GDP per capita (<code class="docutils literal notranslate"><span class="pre">gdppcap08</span></code>) and democracy scores (<code class="docutils literal notranslate"><span class="pre">polityIV</span></code>). We will do so using the <code class="docutils literal notranslate"><span class="pre">statsmodel</span></code> package, which we’ll discuss in detail later is this course. For the momement, just use this code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">smf</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;polityIV ~ gdppcap08&#39;</span><span class="p">,</span>
@@ -357,8 +357,8 @@ div.rendered_html tbody tr:hover {
 Dep. Variable:               polityIV   R-squared:                       0.047
 Model:                            OLS   Adj. R-squared:                  0.040
 Method:                 Least Squares   F-statistic:                     6.981
-Date:                Tue, 23 Jul 2019   Prob (F-statistic):            0.00915
-Time:                        14:01:24   Log-Likelihood:                -475.14
+Date:                Fri, 20 Sep 2019   Prob (F-statistic):            0.00915
+Time:                        14:36:10   Log-Likelihood:                -475.14
 No. Observations:                 145   AIC:                             954.3
 Df Residuals:                     143   BIC:                             960.2
 Df Model:                           1
@@ -382,17 +382,27 @@ strong multicollinearity or other numerical problems.
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Exercise-7">
-<h3>Exercise 7<a class="headerlink" href="#Exercise-7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h3>
 <p>Based on the results of this analysis, what would you conclude about about the relationship between <code class="docutils literal notranslate"><span class="pre">gdppcap08</span></code> and <code class="docutils literal notranslate"><span class="pre">polityIV</span></code>?</p>
 <p>(If you aren’t familiar with Linear Models and aren’t sure how to interprete this, you can also just look at the simple correlation between these two variables using <code class="docutils literal notranslate"><span class="pre">wdi[['polityIV',</span> <span class="pre">'gdppcap08']].corr()</span></code>.)</p>
 <p>Write down your conclusions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
-<div class="section" id="Exercise-8">
-<h3>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h3>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># They seem to have a positive relationship, and</span>
+<span class="c1"># Polity scores seem to increase 1 point for every $10,000 in gdp per capita.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Exercise-3">
+<h3>Exercise 3<a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h3>
 <p>Now let’s plot the relationship you just estimated statistically. First, use <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> to create a scatter plot of <code class="docutils literal notranslate"><span class="pre">polityIV</span></code> and <code class="docutils literal notranslate"><span class="pre">gdppcap08</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -404,36 +414,23 @@ strong multicollinearity or other numerical problems.
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/scales/scale.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/utils.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  return cbook.iterable(var) and not is_string(var)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>&lt;Figure size 640x480 with 1 Axes&gt;
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7547290197)&gt;
+<span></span>&lt;ggplot: (8782070982825)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="Exercise-9">
-<h3>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Exercise-4">
+<h3>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h3>
 <p>Now overlay the linear model you just estimated. You can do this by adding a <code class="docutils literal notranslate"><span class="pre">geom_smooth()</span></code> layer, where the <code class="docutils literal notranslate"><span class="pre">method</span></code> argument is set to <code class="docutils literal notranslate"><span class="pre">'lm'</span></code> (for linear model).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -449,21 +446,15 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/scales/scale.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-/Users/Nick/anaconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2389: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
+/Users/Nick/miniconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
   return ptp(axis=axis, out=out, **kwargs)
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/utils.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  return cbook.iterable(var) and not is_string(var)
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/exercises_Solutions_plotting_part2_11_1.png" src="../_images/exercises_Solutions_plotting_part2_11_1.png" />
+<img alt="../_images/exercises_Solutions_plotting_part2_12_1.png" src="../_images/exercises_Solutions_plotting_part2_12_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -471,20 +462,29 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (7547905249)&gt;
+<span></span>&lt;ggplot: (8782033832242)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="Exercise-10">
-<h3>Exercise 10<a class="headerlink" href="#Exercise-10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Exercise-5">
+<h3>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h3>
 <p>Does it seem like the linear model you estimated fits the data well?</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
 </div>
-<div class="section" id="Exercise-11">
-<h3>Exercise 11<a class="headerlink" href="#Exercise-11" title="Permalink to this headline">¶</a></h3>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Not even close...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Exercise-6">
+<h3>Exercise 6<a class="headerlink" href="#Exercise-6" title="Permalink to this headline">¶</a></h3>
 <p>Linear models impose a very strict <em>functional form</em> on the model they use: they try to draw a straight line through the data, no matter what. Let’s consider a more flexible functional form. Change the <code class="docutils literal notranslate"><span class="pre">method</span></code> in your <code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;lowess&quot;</span></code>. This is a form of local polynomial regression that is designed to be flexible in how it fits the data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -498,44 +498,73 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/scales/scale.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:146: UserWarning: Confidence intervals are not yet implementedfor lowess smoothings.
-  warnings.warn(&#34;Confidence intervals are not yet implemented&#34;
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/utils.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  return cbook.iterable(var) and not is_string(var)
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/exercises_Solutions_plotting_part2_14_1.png" src="../_images/exercises_Solutions_plotting_part2_14_1.png" />
+<img alt="../_images/exercises_Solutions_plotting_part2_16_1.png" src="../_images/exercises_Solutions_plotting_part2_16_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029306815509)&gt;
+<span></span>&lt;ggplot: (-9223363254770247322)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="Exercise-12">
-<h3>Exercise 12<a class="headerlink" href="#Exercise-12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Exercise-7">
+<h3>Exercise 7<a class="headerlink" href="#Exercise-7" title="Permalink to this headline">¶</a></h3>
 <p>This does seem to fit the data better, but there’s clearly this HUGE outlier in the bottom right. Who is that? Using <code class="docutils literal notranslate"><span class="pre">geom_text()</span></code>, label the points on your graph with country names.</p>
-</div>
-<div class="section" id="Exercise-13">
-<h3>Exercise 13<a class="headerlink" href="#Exercise-13" title="Permalink to this headline">¶</a></h3>
-<p>Interesting. It seems that there’s are a lot of rich, undemocratic countries that all have something in common: they’re oil-rich, small, Middle Eastern countries.</p>
-<p>Let’s see what happens if we exclude the ten countries with the highest per-capita oil production from our data: Qatar, Kuwait, Equatorial Guinea, United Arab Emirates (UAE), Norway, Saudi Arabia, Libya, Oman, Gabon, and Angola. (Note this was in 2007, and excludes very small countries!)</p>
-<p>To do this, I would recomment creating a new variable called <code class="docutils literal notranslate"><span class="pre">bigproducer</span></code> that is <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">country</span></code> matches a name in that list, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. If you’re struggling to find a good way to do this, googling “How to check if a value is in the list in selection from pandas data frame?” might help you out…</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">wdi</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;polityIV&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_text</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">wdi</span><span class="o">.</span><span class="n">country</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_plotting_part2_18_1.png" src="../_images/exercises_Solutions_plotting_part2_18_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (-9223363254803975722)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Exercise-8">
+<h3>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h3>
+<p>Interesting. It seems that there’s are a lot of rich, undemocratic countries that all have something in common: they’re oil-rich, small, Middle Eastern countries.</p>
+<p>Let’s see what happens if we exclude the ten countries with the highest per-capita oil production from our data: Qatar, Kuwait, Equatorial Guinea, United Arab Emirates, Norway, Saudi Arabia, Libya, Oman, Gabon, and Angola. (Note this was in 2007, and excludes very small countries!)</p>
+<p>What does the relationship between Polity and GDP per capita look like for non-natural resource producers?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -548,7 +577,7 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
                                           <span class="s2">&quot;Saudi Arabia&quot;</span><span class="p">,</span> <span class="s2">&quot;Libya&quot;</span><span class="p">,</span>
                                           <span class="s2">&quot;Oman&quot;</span><span class="p">,</span> <span class="s2">&quot;Gabon&quot;</span><span class="p">])</span>
 
-<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">wdi</span><span class="p">[</span><span class="n">wdi</span><span class="o">.</span><span class="n">bigproducer</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;polityIV&#39;</span><span class="p">))</span> <span class="o">+</span>
+<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">wdi</span><span class="p">[</span><span class="n">wdi</span><span class="o">.</span><span class="n">bigproducer</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;polityIV&#39;</span><span class="p">))</span> <span class="o">+</span>
         <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_text</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -558,38 +587,32 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/scales/scale.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:146: UserWarning: Confidence intervals are not yet implementedfor lowess smoothings.
-  warnings.warn(&#34;Confidence intervals are not yet implemented&#34;
-/Users/Nick/anaconda3/lib/python3.7/site-packages/plotnine/utils.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-  return cbook.iterable(var) and not is_string(var)
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/exercises_Solutions_plotting_part2_17_1.png" src="../_images/exercises_Solutions_plotting_part2_17_1.png" />
+<img alt="../_images/exercises_Solutions_plotting_part2_20_1.png" src="../_images/exercises_Solutions_plotting_part2_20_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;ggplot: (-9223372029306489989)&gt;
+<span></span>&lt;ggplot: (8782084560574)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="Exercise-13">
-<h3>Exercise 13<a class="headerlink" href="#Exercise-13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Exercise-9">
+<h3>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h3>
 <p>Let’s make sure that you accurately identified all 10 of the oil producers. Write a line of code to count up how many big producers you have identified. If you do not get 10, can you figure out what you did wrong?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -598,7 +621,7 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -606,15 +629,310 @@ The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.
 </pre></div>
 </div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
 </div>
-<div class="section" id="Exercise-14">
-<h3>Exercise 14<a class="headerlink" href="#Exercise-14" title="Permalink to this headline">¶</a></h3>
-<p>How does the relationship between GDP per capita and Polity look without those oil producers? Does it look the same as it did without the oil producers?</p>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># many people will get 9 because used United Arab Emirates, when it&#39;s UAE in the data.</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="Exercise-15">
-<h2>Exercise 15<a class="headerlink" href="#Exercise-15" title="Permalink to this headline">¶</a></h2>
-<p>Now that we’ve gotten a good sense of the relationship between wealth and democracy for non-oil producers, can we draw any conclusions about the relationship between polity scores and wealth for the oil producers? Plot the polity / GDP per capita relationship <em>just</em> for the oil producers.</p>
+</div>
+<div class="section" id="Exercise-10">
+<h3>Exercise 10<a class="headerlink" href="#Exercise-10" title="Permalink to this headline">¶</a></h3>
+<p>How does the relationship between GDP per capita and Polity look for the oil producers we dropped above?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">wdi</span><span class="p">[</span><span class="n">wdi</span><span class="o">.</span><span class="n">bigproducer</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;gdppcap08&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;polityIV&#39;</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_text</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_plotting_part2_25_1.png" src="../_images/exercises_Solutions_plotting_part2_25_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (-9223363254803942568)&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Not even remotely similar. Aside from the super-outlier (Norway), the trend is downward!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Exercise-11">
+<h3>Exercise 11<a class="headerlink" href="#Exercise-11" title="Permalink to this headline">¶</a></h3>
+<p>Look back to your answer for Exercise 2. Do you still believe the result of your linear model? What did you learn from plotting. Write down your answers with your partner.</p>
+</div>
+<div class="section" id="Exercise-12">
+<h3>Exercise 12<a class="headerlink" href="#Exercise-12" title="Permalink to this headline">¶</a></h3>
+<p>Pick one of your plots and make it look good – label your axes, add a title, try to make the county labels readable.</p>
+</div>
+</div>
+<div class="section" id="Take-aways">
+<h2>Take-aways<a class="headerlink" href="#Take-aways" title="Permalink to this headline">¶</a></h2>
+<p>One of our main jobs as data scientists is to <em>summarize</em> data. In fact, its such an obvious part of our jobs we often don’t think about it very much. In reality, however, this is one of the most difficult things we do.</p>
+<p>Summarization means taking rich, complex data and trying to tell readers about what is going on in that data using simple statistics. In the process of summarization, therefore, we must necessarily throw away much of the richness of the original data. When done well, this simplification makes data easier to understand, but only if we throw away the <em>right</em> data. You can <em>always</em> calulate the average value of a variable, or fit a linear model, but whether doing so generates a summary statistic
+that properly represents the essence of the data being studied depends on the data itself.</p>
+<p>Plotting is one fo the best tools we have as data scientists for evaluating whether we are throwing away the <em>right</em> data. As we learned from Part 1 of this exercise, just looking at means and standard deviations can mask tremendous variation. Each of our example datasets looked the same when we examined our summary statistics, but they were all radically different when plotted.</p>
+<p>Similarly, a simple linear model would “tell” us that if GDP per capita increases by $10,000, we would expect Polity scores to increase by about 1 (i.e. the coefficent on the linear model was 9.602e-05). But when we plot the data, not only can we that the data is definitely <em>not</em> linear (and so that slope doesn’t really mean anything), but we can also see that oil producing countries seem to defy the overall trend, and so should maybe be studied separately.</p>
+<p>Moreover, we can see that if we just look at oil producers, there is no clear story: some are rich and democratic, while others are rich and autocratic (indeed, <a class="reference external" href="https://www.jstor.org/stable/41480824">this observation is the foundation of some great research on the political consequences of resource wealth</a>!)</p>
+<p>So remember this: tools for summarizing data will always give you an answer, but it’s up to you as a data scientist to make sure that the summaries you pass on to other people properly represent the data you’re using. And there is perhaps no better way to do this than with plotting!</p>
+</div>
+<div class="section" id="Want-more-practice?">
+<h2>Want more practice?<a class="headerlink" href="#Want-more-practice?" title="Permalink to this headline">¶</a></h2>
+<p>Great!</p>
+<p>First, if you haven’t done so already, do the “Do you want more practice” exercise from the first set of plotting exercises (looking at the gender wage gap and racial age gap across age cohorts).</p>
+<p>If you’ve don’t that, then load the ACS data that we used for our first <a class="reference internal" href="Exercise_dataframe.html"><span class="doc">DataFrames exercise</span></a> and create a plot that illustrates the sheepskin effect. Note that because the “sheepskin” effect is fundamentally about <em>discontinuities</em>, you won’t be able to illustrate it using a single <code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code> object. Rather, you’ll probably want to plot a linear or non-parametric fit for years of education below finishing high school, then plot the value of finishing high
+school above that.</p>
+<p>As a second extension, you can also plot out the income consequences of different levels of college achievement.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Download the data</span>
+<span class="n">acs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s2">&quot;https://github.com/nickeubank/MIDS_Data/raw/master/US_AmericanCommunitySurvey/US_ACS_2017_10pct_sample.dta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">acs</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;empstat&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;inctot&#39;</span><span class="p">]]</span>
+<span class="n">acs</span> <span class="o">=</span> <span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;inctot&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">9999999</span><span class="p">]</span>
+<span class="n">acs</span> <span class="o">=</span> <span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">acs</span><span class="o">.</span><span class="n">empstat</span> <span class="o">==</span> <span class="s2">&quot;employed&quot;</span><span class="p">,</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Simple-distribution-plots">
+<h2>Simple distribution plots<a class="headerlink" href="#Simple-distribution-plots" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Simple:</span>
+<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">acs</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;inctot&#39;</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_violin</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">scale_y_log10</span><span class="p">()</span> <span class="o">+</span>
+        <span class="n">ylab</span><span class="p">(</span><span class="s2">&quot;Log Average Income&quot;</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">xlab</span><span class="p">(</span><span class="s2">&quot;Highest Grade Achieved&quot;</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">ggtitle</span><span class="p">(</span><span class="s2">&quot;Educational Attainment and Income&quot;</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">axis_text_x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="mi">90</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/pandas/core/series.py:853: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/layer.py:360: PlotnineWarning: stat_ydensity : Removed 106 rows containing non-finite values.
+  data = self.stat.compute_layer(data, params, layout)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_plotting_part2_34_1.png" src="../_images/exercises_Solutions_plotting_part2_34_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (-9223363254837755020)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="With-some-fitting">
+<h2>With some fitting<a class="headerlink" href="#With-some-fitting" title="Permalink to this headline">¶</a></h2>
+<p>With a fit. Note you can’t fit categorical data (it doesn’t know ordering), so convert to years of school.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;years_of_school&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]:</span>
+    <span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">acs</span><span class="o">.</span><span class="n">educ</span> <span class="o">==</span> <span class="n">f</span><span class="s2">&quot;grade </span><span class="si">{year}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s1">&#39;years_of_school&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">year</span>
+
+<span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">acs</span><span class="o">.</span><span class="n">educ</span> <span class="o">==</span> <span class="n">f</span><span class="s2">&quot;1 year of college&quot;</span><span class="p">,</span> <span class="s1">&#39;years_of_school&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">acs</span><span class="o">.</span><span class="n">educ</span> <span class="o">==</span> <span class="n">f</span><span class="s2">&quot;2 years of college&quot;</span><span class="p">,</span> <span class="s1">&#39;years_of_school&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">acs</span><span class="o">.</span><span class="n">educ</span> <span class="o">==</span> <span class="n">f</span><span class="s2">&quot;4 years of college&quot;</span><span class="p">,</span> <span class="s1">&#39;years_of_school&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Treating graduations as separate events.</span>
+<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">acs</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years_of_school&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;inctot&#39;</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">axis_text_x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="mi">90</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_plotting_part2_37_1.png" src="../_images/exercises_Solutions_plotting_part2_37_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (8782017045494)&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Since 12 and 16 are really special cases, just want avg values as points,</span>
+<span class="c1"># not lines. so:</span>
+
+<span class="n">for12</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="n">acs</span><span class="o">.</span><span class="n">years_of_school</span> <span class="o">==</span> <span class="mi">12</span><span class="p">][[</span><span class="s1">&#39;years_of_school&#39;</span><span class="p">,</span> <span class="s1">&#39;inctot&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">for16</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="n">acs</span><span class="o">.</span><span class="n">years_of_school</span> <span class="o">==</span> <span class="mi">16</span><span class="p">][[</span><span class="s1">&#39;years_of_school&#39;</span><span class="p">,</span> <span class="s1">&#39;inctot&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">for12</span> <span class="o">=</span> <span class="n">for12</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">for16</span> <span class="o">=</span> <span class="n">for16</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">for16</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>years_of_school</th>
+      <th>inctot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16.0</td>
+      <td>75485.052933</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Treating graduations as separate events.</span>
+<span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">acs</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years_of_school&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;inctot&#39;</span><span class="p">))</span> <span class="o">+</span>
+        <span class="n">geom_smooth</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">acs</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;years_of_school&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">)])</span> <span class="o">+</span>
+        <span class="n">geom_smooth</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">acs</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;years_of_school&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;years_of_school&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">)])</span> <span class="o">+</span>
+        <span class="n">geom_point</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">for12</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">geom_point</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">for16</span><span class="p">)</span> <span class="o">+</span>
+        <span class="n">theme</span><span class="p">(</span><span class="n">axis_text_x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="mi">90</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
+  return ptp(axis=axis, out=out, **kwargs)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_plotting_part2_39_1.png" src="../_images/exercises_Solutions_plotting_part2_39_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (-9223363254853340135)&gt;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
