@@ -15,7 +15,8 @@
     "- [pandas](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)\n",
     "- [ggplot / plotnine](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) \n",
     "    - *Note: this cheatsheet was written for ggplot in R, not plotnine specifically, so the syntax will require small tweaks, like putting column names in quotes and using underscores instead of periods*\n",
-    "- [scikit-learn](https://datacamp-community-prod.s3.amazonaws.com/5433fa18-9f43-44cc-b228-74672efcd116)\n"
+    "- [scikit-learn](https://datacamp-community-prod.s3.amazonaws.com/5433fa18-9f43-44cc-b228-74672efcd116)\n",
+    "- [git](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)"
    ]
   }
  ],
