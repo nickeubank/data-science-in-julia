@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Big Data Strategies &#8212; Practical Data Science</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Big-Data-Strategies">
+<h1>Big Data Strategies<a class="headerlink" href="#Big-Data-Strategies" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Step-1:-Diagnosing-if-you-have-“Big-Data”">
+<h2>Step 1: Diagnosing if you have “Big Data”<a class="headerlink" href="#Step-1:-Diagnosing-if-you-have-“Big-Data”" title="Permalink to this headline">¶</a></h2>
+<p>Oddly, this is not actually a straight-forward question for two reasons:</p>
+<ol class="arabic simple">
+<li><p><strong>Programs often copy data in order to manipulate it.</strong> When you, say, sort an array, what your computer actually does is create a new empty array, then move over entries from your original array into the new array one entry at a time (in sorted order). While it does then erase the original array, while it’s working it effectively has two copies of your array. As a result, the fact that you have 16gb of RAM doesn’t mean you can easily work with a 14gb file. As a general rule, you need <em>at
+least</em> two times as much memory as your file takes up when first loaded.</p></li>
+<li><p><strong>The size of data changes as you change its format.</strong> For example, if you’re reading data from an inefficient file format (like a .csv text file), it may be the case that a file that is 10gb on disk may actually be only a few gb once you load it into a program like Python that knows how to store data more efficiently.</p></li>
+</ol>
+<div class="section" id="So-how-do-I-check-to-see-if-my-data-is-fitting-in-memory?">
+<h3>So how do I check to see if my data is fitting in memory?<a class="headerlink" href="#So-how-do-I-check-to-see-if-my-data-is-fitting-in-memory?" title="Permalink to this headline">¶</a></h3>
+<p>If your program starts using more space than you have main memory, your operating system will usually just start using your harddrive for extra space without telling you (this is called “virtual memory”, and is nice in that it prevents your computer from crashing, though it will slow stuff down a lot). As a result, you won’t always get an error message if you try and load a file to is much bigger than main memory.</p>
+<p>To avoid this, use one of the tools provided by your operating system to monitor whether it’s using the harddrive:</p>
+<ul class="simple">
+<li><p><strong>OSX:</strong> OSX comes with a program called <a class="reference external" href="https://support.apple.com/en-us/HT201464#memory">Activity Monitor</a> in the Applications &gt; Utilities folder. The memory tab of Activity Monitor has a graph at the bottom called “Memory Pressure”. If this is green, you’re good. If it’s yellow or red, you’re actively going back and forth to your harddrive. (Note your computer may be using “virtual memory” without affecting performance if it’s just storing away things you aren’t actively using).</p></li>
+<li><p><strong>Windows:</strong> Windows has a program called <a class="reference external" href="http://en.wikipedia.org/wiki/Resource_Monitor">“Resource Monitor”</a> that shows data on memory use. If you get near 100% Used Physical Memory, your computer is probably using the harddrive.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="Step-2:-Pick-a-Strategy">
+<h2>Step 2: Pick a Strategy<a class="headerlink" href="#Step-2:-Pick-a-Strategy" title="Permalink to this headline">¶</a></h2>
+<p>If you have big data, you basically have four options:</p>
+<ol class="arabic simple">
+<li><p>Use chunking to trim and thin out your data so it <em>does</em> fit in memory (this works if the data you were given is huge, but the final analysis dataset you want to work with is small).</p></li>
+<li><p>Buy more memory. Seriously, consider it.</p></li>
+<li><p>Minimize the penalties of working off your harddrive (not usually practical for data science)</p></li>
+<li><p>Break your job into pieces and distribute over multiple machines.</p></li>
+</ol>
+<div class="section" id="Strategy-1:-Trim-till-it-fits">
+<h3>Strategy 1: Trim till it fits<a class="headerlink" href="#Strategy-1:-Trim-till-it-fits" title="Permalink to this headline">¶</a></h3>
+<p>At least in my experience, <em>most</em> of the time people have a dataset that’s too big to load into main memory, they’re in a situation where the <em>raw</em> data they want to work with is too big for main memory, but the dataset they are trying to create for analysis will not be. This can happen when the raw data you’re working with:</p>
+<ul class="simple">
+<li><p>has lots of variables you don’t need for your analysis,</p></li>
+<li><p>has lots of observations you don’t need for your analysis,</p></li>
+<li><p>the data is at a more granular level then you need for analysis (e.g. it’s individual level, but you only need averages for different groups), or</p></li>
+<li><p>where data is formatted in a really efficient manner where better data management would allow it to fit.</p></li>
+</ul>
+<p>In these situations, the go-to strategy is <strong>chunking</strong>, which is the practice of:</p>
+<ul class="simple">
+<li><p>loading only a small part of your data, preprocessing it (dropping extra variables, dropping extra observations, taking averages, and/or storing the data in more efficient formats), and saving it away,</p></li>
+<li><p>then recombining all the now substantially smaller bits into a new analysis dataset that has everything you want and fits into data.</p></li>
+</ul>
+<p>Chunking is pretty easy with most data formats. In pandas, for example, you can specify what rows you want to import using either the <code class="docutils literal notranslate"><span class="pre">nrows</span></code> (to specify you only want the first <code class="docutils literal notranslate"><span class="pre">n</span></code> rows read into memory), or you can use the combination of <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> and <code class="docutils literal notranslate"><span class="pre">nrows</span></code> to get a specific set of rows (i.e. “start right after the number of rows in <code class="docutils literal notranslate"><span class="pre">skiprows</span></code>, then take <code class="docutils literal notranslate"><span class="pre">nrows</span></code> from there). Or if you really want to be fancy, you can actually just use <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> as an interator using
+<code class="docutils literal notranslate"><span class="pre">iterator=True</span></code> and <code class="docutils literal notranslate"><span class="pre">chunksize</span></code>, which will return an object that you can loop over and which pulls in the number of rows you specify in <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> each pass of the loop.</p>
+<p>While you usually want to start by just looking at the first subset of rows in a dataset (so you can see the whole data structure), read functions can also make chunking unnecessary if you just want to do some standard thinning. For example, <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> has a <code class="docutils literal notranslate"><span class="pre">usecols</span></code> option where you can specify what subset of columns you want to keep (this isn’t unique to csvs – <code class="docutils literal notranslate"><span class="pre">read_hdf</span></code> has similar options), and a <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> option for specifying the data format in which you want data stored <em>as it’s
+streaming in</em> from disk (if you want to use more efficient data formats than the defaults – e.g. using <code class="docutils literal notranslate"><span class="pre">Float32</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Float64</span></code> when you know you don’t need all the precision offered by <code class="docutils literal notranslate"><span class="pre">Float64</span></code>. See <a class="reference internal" href="ints_and_floats.html"><span class="doc">numbers in machines</span></a> for a refresher on tradeoffs from different data types).</p>
+</div>
+<div class="section" id="Think-you-can-do-while-chunking-to-reduce-memory-use">
+<h3>Think you can do while chunking to reduce memory use<a class="headerlink" href="#Think-you-can-do-while-chunking-to-reduce-memory-use" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="Avoid-Spillover">
+<h2>Avoid Spillover<a class="headerlink" href="#Avoid-Spillover" title="Permalink to this headline">¶</a></h2>
+<p>Working with data that doesn’t fit into RAM is a ‘’headache’’. If there’s anyway you can avoid it, you should, which can potentially be accomplished via two methods:</p>
+<ul class="simple">
+<li><p>’‘’Drop variables or store them more efficiently:’’’ If you’re used to small datasets, you may be in the habit of always carrying around all the variables in a survey or dataset. But if you only keep the variables you absolutely need, or find ways to store them more efficiently, you can often stay within your size limits. For example, String variables take up lots of space – if you can, turn them into numeric variables (see [[Data Types]] for more on data types).</p></li>
+<li><p>’‘’Get more RAM’’’: RAM isn’t cheap, but nor is your time, and buying more RAM can save you an amazing amount of trouble. And if you can’t afford to buy your own, you may find that it’s cheaper to rent a computer with more RAM from cloud services like Amazon, which are often surprisingly affordable! For more, see the page on [[Cloud Computing Resources]].</p></li>
+</ul>
+</div>
+<div class="section" id="Chunking">
+<h2>Chunking<a class="headerlink" href="#Chunking" title="Permalink to this headline">¶</a></h2>
+<p>One way to manipulate large datasets is by chunking – loading your data into RAM one chunk (say, 1 million rows) at a time, manipulating it, and then appending it to a new data file. This is relatively straightforward for operations that act only on single rows – like recoding variables – but a little harder when you start doing things that involve multiple rows at once (like sorting, or taking averages over groups).</p>
+</div>
+<div class="section" id="Big-Data-Tools">
+<h2>Big Data Tools<a class="headerlink" href="#Big-Data-Tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Easy-to-work-with,-but-somewhat-limited:-dask">
+<h3>Easy to work with, but somewhat limited: <code class="docutils literal notranslate"><span class="pre">dask</span></code><a class="headerlink" href="#Easy-to-work-with,-but-somewhat-limited:-dask" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Dask</span></code> is a new tool written for working with data that doesn’t fit into memory (and parallelizing operations) for Python. It was written to basically work just like <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, so it’s quite easy to get started using. The only catch is that it only supports a certain number of functions at this point, so it will do a lot, but not everything.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Dask</span> <span class="pre">Overview</span> <span class="pre">&lt;https://www.youtube.com/watch?v=1kkFZ4P-XHg&gt;</span></code>_</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long</span> <span class="pre">Tutorial</span> <span class="pre">&lt;https://www.youtube.com/watch?v=ieW3G7ZzRZ0&gt;</span></code>_</p></li>
+</ul>
+<p>Dask is probably best for <em>big data</em>, but I’m not sure it can really handle <em>very big data</em> (data you can’t put on one computer’s harddrive). The authors aim to fix that, but I’m not sure the system is there yet.</p>
+</div>
+<div class="section" id="More-involved,-but-more-powerful:-pyspark">
+<h3>More involved, but more powerful: <code class="docutils literal notranslate"><span class="pre">pyspark</span></code><a class="headerlink" href="#More-involved,-but-more-powerful:-pyspark" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Spark</span></code> is like the second generation of a platform called Hadoop for working with data across lots and lots of software. <code class="docutils literal notranslate"><span class="pre">pyspark</span></code> is a great tool for manipulating <code class="docutils literal notranslate"><span class="pre">spark</span></code> using python. <code class="docutils literal notranslate"><span class="pre">spark</span></code> is <em>very</em> powerful, but it’s not a tool created for Python users, it’s an entire computing system you’ll have to learn about to use.</p>
+<p>Though there are attempts to make <code class="docutils literal notranslate"><span class="pre">PySpark</span></code> easier for <code class="docutils literal notranslate"><span class="pre">pandas</span></code> users to use, like <code class="docutils literal notranslate"><span class="pre">Sparkling</span> <span class="pre">Pandas</span></code> (<code class="docutils literal notranslate"><span class="pre">tutorial</span> <span class="pre">here</span> <span class="pre">&lt;https://www.youtube.com/watch?v=borv_KMI9Ac&gt;</span></code>_)</p>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">Dask</span></code>, <code class="docutils literal notranslate"><span class="pre">Spark</span></code> and <code class="docutils literal notranslate"><span class="pre">PySpark</span></code> were built not just for <em>big data</em> (data that doesn’t fit in RAM), but specifically for <em>very big data</em> (data that won’t even fit on a single computer’s hard drive). So if you have <em>very big data</em>, this is probably the way to go.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Practical DS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="not_a_mids_student.html">Not a MIDS Student?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html">Command Line, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_environment.html">Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_python_packages.html">Managing Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_v_r.html">Python / R Differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars_v_objects.html">Python: Vars v Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_series.html">Pandas 1: Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_dataframes.html">Pandas 2: DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_part1.html">Plotting, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_part2.html">Plotting, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="views_and_copies_in_pandas.html">Pandas 3: Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html">Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise_list.html">All Exercises</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nick Eubank.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/big_data_strategies.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133829453-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

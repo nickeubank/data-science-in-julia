@@ -77,7 +77,16 @@
 <h2>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s estimate the racial income gap in the United States. What is the average salary for employed Black Americans, and what is the average salary for employed White Americans? In percentage terms, how much more does the average White American make than the average Black American?</p>
 <p><strong>Note:</strong> these values are not quite accurate estimates. As we’ll discuss in later lessons, to get completely accurate estimates from the ACS we have to take into account how people were selected to be interviewed. But you get pretty good estimates in most cases even without weights – your estimate of the racial wage gap without weights is within 5% of the corrected value.</p>
-<p><strong>Note:</strong> This is actually an underestimate of the wage gap. The US Census treats hispanic respondents as a sub-category of “white”, so in pooling what we traditionally think of as “white” respondents with hispanic respondents (who tend to earn less), we get an underestimate of the average white salary in the US.</p>
+<div class="section" id="Want-more-practice?">
+<h3>Want more practice?<a class="headerlink" href="#Want-more-practice?" title="Permalink to this headline">¶</a></h3>
+<p><strong>(1)</strong> As noted above, these estimates are not actually <em>quite</em> correct because we aren’t using survey weights. To calculate a weighted average that takes into account survey weights, you need to use the following formula:</p>
+<div class="math notranslate nohighlight">
+\[weighted\_mean\_of\_x = \frac{\sum_i x_i * weight_i}{\sum_i weight_i}\]</div>
+<p>(As you can see, when <span class="math notranslate nohighlight">\(weight_i\)</span> is constant for all observations, this just simplifies to our normal formula for mean values. It is only when weights vary across individuals that weights must be explicitly addressed).</p>
+<p>In this data, weights are stored in the variable <code class="docutils literal notranslate"><span class="pre">perwt</span></code>, which is the number of people for which each observation is a stand-in (the inverse of that observations sampling probability).</p>
+<p>Using the formula, re-calculate the <em>weighted</em> average income for both populations.</p>
+<p><strong>(2)</strong> Now calculate the weighted average income gap between <em>non-hispanic</em> White Americans and Black Americans.</p>
+</div>
 </div>
 </div>
 

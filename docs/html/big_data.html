@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Big Data &#8212; Practical Data Science</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Big-Data">
+<h1>Big Data<a class="headerlink" href="#Big-Data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="What-Is-Big-Data?">
+<h2>What <em>Is</em> Big Data?<a class="headerlink" href="#What-Is-Big-Data?" title="Permalink to this headline">¶</a></h2>
+<p>Big Data is probably the only term that can compete with “data science” for frequency of use despite the fact no one means the same thing when they say it. In many contexts, for example, “big data” just refers to large datasets.</p>
+<p>In this course, however, we’ll use a much more precise definition: data is “big” if it doesn’t fit into RAM (which we’ll refer to here as <strong>main memory</strong> for reasons that will become clear later. ).</p>
+</div>
+<div class="section" id="Why-does-it-matter-if-data-fits-into-main-memory?">
+<h2>Why does it matter if data fits into main memory?<a class="headerlink" href="#Why-does-it-matter-if-data-fits-into-main-memory?" title="Permalink to this headline">¶</a></h2>
+<p>Before we get into big data and strategies for working with it, we need to take a short digression into computer architecture.</p>
+<p>When you computer executes code – for example, adding up all the entries in a vector – it doesn’t all happen in one place. Your computer stores data (like your vector) in main memory (again, this is the term used for what you buy as RAM) where it has several gigabytes of space to put things. But actual mathematical operations happen in the processor, which is physically located in a different place in your computer. So to add two numbers, you computer must move those numbers from main memory
+into a <em>tiny</em> set of memory banks inside your processor from which they can be accessed, added, and the result stored. (Most modern processor cores have 16 innermost memory slots called “registers”, each of which can only store only 64 bits of data – i.e. a single number.)</p>
+<p>This is important because in data science, moving data back and forth from memory takes <em>much</em> longer than doing actual calcuations. Indeed, in a normal data scienc workflow, moving data back and forth from memory is a <em>huge</em> portion of what takes up the time your computer spends “working”, not doing actual calculations.</p>
+<p>This makes memory management important in general, but the problem becomes much acute when you can’t store your data in main memory. That’s because while you <em>can</em> store data on your harddrive, and move data directly from your harddrive to your processor and back, that process is <em>unimaginably</em> slow.</p>
+<p>How much slower? Data can move from main memory to the processor at a rate ~1,000 times faster than from a spinning harddrive, over 100 times faster than from SATA SSDs, and over 25 times faster than from m2 SSDs. (speeds estimted from transfer speed estimates <a class="reference external" href="https://en.wikipedia.org/wiki/Memory_hierarchy#Examples">here</a>).</p>
+<p>But even those transfer speeds are only half the story – hard drives also have higher <em>latency</em>, meaning that with harddrives, there’s a much longer lag between when you <em>ask</em> for data when the data transfer begins than with main memory. How much slower? This table re-scales actual latency times (the time between when you ask for a byte of data and when it arrives at the processor) to human time scales (don’t worry about the cache entries yet) (<a class="reference external" href="https://www.formulusblack.com/blog/compute-performance-distance-of-data-as-a-measure-of-latency/">from this excellent
+post</a>).</p>
+<p><img alt="human_time" src="_images/human_time.png" /></p>
+<p>As the table shows, if we were to pretend that a single tick of your processor (essentially how long it takes to add two numbers) took 1 second, then stopping to get <em>one byte</em> of data from main memory would take several minutes. And if we wanted to get data from a spinning harddrive, we’d have to wait between 11 days and <em>four months</em>. SSDs obviously perform much better than physical harddrives with spinning platters, but even those take hours to days. <em>And that’s just to get the first byte!</em>
+There are <em>also</em> the differences in transfer rates once data starts flowing!</p>
+<p>In other words, when working with large datasets, moving around your data is often the most expensive thing you will do, and the penalities for <em>not</em> being able to fit your data into main memory mean that something that might take minutes if you could do it with data in main memory could take days.</p>
+<div class="section" id="OK,-what’s-this-cache-stuff?">
+<h3>OK, what’s this cache stuff?<a class="headerlink" href="#OK,-what’s-this-cache-stuff?" title="Permalink to this headline">¶</a></h3>
+<p>Because of how expensive it is to move data back and forth from main memory, you computer has a set of intermediate memory banks between main memory and your processor called <em>caches</em>. Caches try to predict what data you might use in the future, and keep it close to the processor so it can be accessed faster. Caches can substantially improve performance, but as a programmer you don’t actually get to control what gets put into cache – your cache is managed by the operating system. There are some
+tricks for trying to use data in ways that are more likely to result in your computer being able to use data stored in cache (in general, your computer fills the cache with (a) data you’ve used recently, and (b) data that is stored <em>near</em> the data you’ve used recently, so doing everything you can with the same object at once <em>can</em> help a little), but honestly they’re just not something you should worry about. I just wanted to demystify “cache” for when you come across it.</p>
+</div>
+</div>
+<div class="section" id="Types-of-Big-Data">
+<h2>Types of Big Data<a class="headerlink" href="#Types-of-Big-Data" title="Permalink to this headline">¶</a></h2>
+<p>In the early 2000s, the term big data started getting thrown around for anything that you can’t fit into main memory. But in the early ~2010s, the term also started being used for data you can’t actually fit onto a single <em>computer</em>. Data on these two scales are very different, so in the rest of this tutorial I’ll use this terminology:</p>
+<ul class="simple">
+<li><p><strong>Big Data</strong>: data that is too big to load and work with entirely in main memory</p>
+<ul>
+<li><p>hundreds of gigabytes of data to a few terabytes of data</p></li>
+</ul>
+</li>
+<li><p><strong>Very Big Data</strong>: data that is too big to load and work with entirely in RAM, and also too big to store on a single computer’s hard drive.</p>
+<ul>
+<li><p>peta-bytes of data</p></li>
+</ul>
+</li>
+</ul>
+<p>Note this distinction is my own – when you go into the world, you will find big data sometimes means using unusually large datasets, sometimes means data that doesn’t fit into ram, and sometimes means data that won’t fit on a single computer’s harddrive. But we’ll use this here.</p>
+</div>
+<div class="section" id="How-do-I-know-if-my-data-is-fitting-into-RAM?">
+<h2>How do I know if my data is fitting into RAM?<a class="headerlink" href="#How-do-I-know-if-my-data-is-fitting-into-RAM?" title="Permalink to this headline">¶</a></h2>
+<p>Oddly, this is not actually a straight-forward question for two reasons:</p>
+<ol class="arabic simple">
+<li><p><strong>Programs often copy data in order to manipulate it.</strong> When you, say, sort an array, what your computer actually does is create a new empty array, then move over entries from your original array into the new array one entry at a time (in sorted order). While it does then erase the original array, while it’s working it effectively has two copies of your array. As a result, the fact that you have 16gb of RAM doesn’t mean you can easily work with a 14gb file. As a general rule, you need <em>at
+least</em> two times as much memory as your file takes up when first loaded.</p></li>
+<li><p><strong>The size of data changes as you change its format.</strong> For example, if you’re reading data from an inefficient file format (like a .csv text file), it may be the case that a file that is 10gb on disk may actually be only a few gb once you load it into a program like Python that knows how to store data more efficiently.</p></li>
+</ol>
+<div class="section" id="So-how-do-I-check-to-see-if-my-data-is-fitting-in-memory?">
+<h3>So how do I check to see if my data is fitting in memory?<a class="headerlink" href="#So-how-do-I-check-to-see-if-my-data-is-fitting-in-memory?" title="Permalink to this headline">¶</a></h3>
+<p>If your program starts using more space than you have main memory, your operating system will usually just start using your harddrive for extra space without telling you (this is called “virtual memory”, and is nice in that it prevents your computer from crashing, though it will slow stuff down a lot). As a result, you won’t always get an error message if you try and load a file to is much bigger than main memory.</p>
+<p>To avoid this, use one of the tools provided by your operating system to monitor whether it’s using the harddrive:</p>
+<ul class="simple">
+<li><p>’‘’OSX:’’’ OSX comes with a program called <a class="reference external" href="https://support.apple.com/en-us/HT201464#memory">Activity Monitor</a> in the Applications &gt; Utilities folder. The memory tab of Activity Monitor has a graph at the bottom called “Memory Pressure”. If this is green, you’re good. If it’s yellow or red, you’re actively going back and forth to your harddrive. (Note your computer may be using “virtual memory” without affecting performance if it’s just storing away things you aren’t actively using).</p></li>
+<li><p>’‘’Windows:’’’ Windows has a program called <a class="reference external" href="http://en.wikipedia.org/wiki/Resource_Monitor">“Resource Monitor”</a> that shows data on memory use. If the “Hard Faults” graph under the memory tab is spiking, or you get near 100% Used Physical Memory, your computer is probably using the harddrive.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="Strategies-for-Working-with-Big-Data">
+<h2>Strategies for Working with Big Data<a class="headerlink" href="#Strategies-for-Working-with-Big-Data" title="Permalink to this headline">¶</a></h2>
+<p>If you have big data, you basically have three options:</p>
+<ul class="simple">
+<li><p>Format and trim your data so it fits in memory or get more RAM;</p></li>
+<li><p>Chunk your data yourself;</p></li>
+<li><p>Use specialized software.</p></li>
+</ul>
+</div>
+<div class="section" id="Avoid-Spillover">
+<h2>Avoid Spillover<a class="headerlink" href="#Avoid-Spillover" title="Permalink to this headline">¶</a></h2>
+<p>Working with data that doesn’t fit into RAM is a ‘’headache’’. If there’s anyway you can avoid it, you should, which can potentially be accomplished via two methods:</p>
+<ul class="simple">
+<li><p>’‘’Drop variables or store them more efficiently:’’’ If you’re used to small datasets, you may be in the habit of always carrying around all the variables in a survey or dataset. But if you only keep the variables you absolutely need, or find ways to store them more efficiently, you can often stay within your size limits. For example, String variables take up lots of space – if you can, turn them into numeric variables (see [[Data Types]] for more on data types).</p></li>
+<li><p>’‘’Get more RAM’’’: RAM isn’t cheap, but nor is your time, and buying more RAM can save you an amazing amount of trouble. And if you can’t afford to buy your own, you may find that it’s cheaper to rent a computer with more RAM from cloud services like Amazon, which are often surprisingly affordable! For more, see the page on [[Cloud Computing Resources]].</p></li>
+</ul>
+</div>
+<div class="section" id="Chunking">
+<h2>Chunking<a class="headerlink" href="#Chunking" title="Permalink to this headline">¶</a></h2>
+<p>One way to manipulate large datasets is by chunking – loading your data into RAM one chunk (say, 1 million rows) at a time, manipulating it, and then appending it to a new data file. This is relatively straightforward for operations that act only on single rows – like recoding variables – but a little harder when you start doing things that involve multiple rows at once (like sorting, or taking averages over groups).</p>
+</div>
+<div class="section" id="Big-Data-Tools">
+<h2>Big Data Tools<a class="headerlink" href="#Big-Data-Tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Easy-to-work-with,-but-somewhat-limited:-dask">
+<h3>Easy to work with, but somewhat limited: <code class="docutils literal notranslate"><span class="pre">dask</span></code><a class="headerlink" href="#Easy-to-work-with,-but-somewhat-limited:-dask" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Dask</span></code> is a new tool written for working with data that doesn’t fit into memory (and parallelizing operations) for Python. It was written to basically work just like <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, so it’s quite easy to get started using. The only catch is that it only supports a certain number of functions at this point, so it will do a lot, but not everything.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Dask</span> <span class="pre">Overview</span> <span class="pre">&lt;https://www.youtube.com/watch?v=1kkFZ4P-XHg&gt;</span></code>_</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long</span> <span class="pre">Tutorial</span> <span class="pre">&lt;https://www.youtube.com/watch?v=ieW3G7ZzRZ0&gt;</span></code>_</p></li>
+</ul>
+<p>Dask is probably best for <em>big data</em>, but I’m not sure it can really handle <em>very big data</em> (data you can’t put on one computer’s harddrive). The authors aim to fix that, but I’m not sure the system is there yet.</p>
+</div>
+<div class="section" id="More-involved,-but-more-powerful:-pyspark">
+<h3>More involved, but more powerful: <code class="docutils literal notranslate"><span class="pre">pyspark</span></code><a class="headerlink" href="#More-involved,-but-more-powerful:-pyspark" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Spark</span></code> is like the second generation of a platform called Hadoop for working with data across lots and lots of software. <code class="docutils literal notranslate"><span class="pre">pyspark</span></code> is a great tool for manipulating <code class="docutils literal notranslate"><span class="pre">spark</span></code> using python. <code class="docutils literal notranslate"><span class="pre">spark</span></code> is <em>very</em> powerful, but it’s not a tool created for Python users, it’s an entire computing system you’ll have to learn about to use.</p>
+<p>Though there are attempts to make <code class="docutils literal notranslate"><span class="pre">PySpark</span></code> easier for <code class="docutils literal notranslate"><span class="pre">pandas</span></code> users to use, like <code class="docutils literal notranslate"><span class="pre">Sparkling</span> <span class="pre">Pandas</span></code> (<code class="docutils literal notranslate"><span class="pre">tutorial</span> <span class="pre">here</span> <span class="pre">&lt;https://www.youtube.com/watch?v=borv_KMI9Ac&gt;</span></code>_)</p>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">Dask</span></code>, <code class="docutils literal notranslate"><span class="pre">Spark</span></code> and <code class="docutils literal notranslate"><span class="pre">PySpark</span></code> were built not just for <em>big data</em> (data that doesn’t fit in RAM), but specifically for <em>very big data</em> (data that won’t even fit on a single computer’s hard drive). So if you have <em>very big data</em>, this is probably the way to go.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Practical DS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="not_a_mids_student.html">Not a MIDS Student?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part1.html">Command Line, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_environment.html">Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_python_packages.html">Managing Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_v_r.html">Python / R Differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars_v_objects.html">Python: Vars v Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_series.html">Pandas 1: Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_dataframes.html">Pandas 2: DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_part1.html">Plotting, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_part2.html">Plotting, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="views_and_copies_in_pandas.html">Pandas 3: Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ints_and_floats.html">Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheatsheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise_list.html">All Exercises</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nick Eubank.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/big_data.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133829453-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
