@@ -24,27 +24,31 @@
 24-Sep,Tues,330,Advanced Plotting,"- `Plotting in Python, Part 2 <plotting_part2.ipynb>`_",`Link <exercises/Exercise_plotting_part2.ipynb>`_
 26-Sep,Thurs,270,Pandas: Indices & Missing,"- WM pp 136-142
 - JVP pp 115-139
-- `Views and Copies in Pandas <views_and_copies_in_pandas.ipynb>`_","`Link <exercises/Exercise_missing.ipynb>`_
-`Link <exercises/Exercise_indices.ipynb>`_"
+- `Views and Copies in Pandas <views_and_copies_in_pandas.ipynb>`_","`Link 1 <exercises/Exercise_indices.ipynb>`_
+`Link 2 <exercises/Exercise_missing.ipynb>`_"
 1-Oct,Tues,270,"- Pandas: Loading and saving data
 - Pandas: Cleaning","- WM Chapter 6
 - WM Chapter 7
 - `Python Strings <https://realpython.com/python-data-types/#strings>`_",`Link <exercises/Exercise_cleaning.ipynb>`_
 3-Oct,Thurs,330,- Pandas: Merging,- JVP pp 149 - 157,`Link <exercises/Exercise_merging.ipynb>`_
 8-Oct,Tues,270,Pandas: Reshaping,"- WM 8.3
-- `Pandas reshaping (with pics!) <https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html>`_",
+- `Pandas reshaping (with pics!) <https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html>`_
+- `What is goal of reshaping? <https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf>`_",`Link <exercises/Exercise_reshaping.ipynb>`_
 10-Oct,Thurs,330,FALL BREAK,,
-15-Oct,Tues,270,Groupby / Split-Apply-Combine,- WM Chapter 10,
-17-Oct,Thurs,330,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,
-22-Oct,Tues,330,Defensive Programming,"- `Defensive Programming <defensive_programming.ipynb>`_
-- `Workflow Management <workflow.ipynb>`_",
-24-Oct,Thurs,330,Getting Help Online,- `Getting Help <getting_help.ipynb>`_,
-29-Oct,Tues,270,Pandas: Categorical Data; Eval and Query,"- WM 12.1
+15-Oct,Tues,270,Groupby / Split-Apply-Combine,- JVP pp 212-228,`Link <exercises/Exercise_groupby.ipynb>`_
+17-Oct,Thurs,330,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,`Link <exercises/Exercise_git.ipynb>`_
+22-Oct,Tues,330,"- Defensive Programming
+- Getting Help Online","- `Defensive Programming <defensive_programming.ipynb>`_
+- `Workflow Management <workflow.ipynb>`_
+- `Getting Help <getting_help.ipynb>`_",
+24-Oct,Thurs,330,Pandas: Categorical Data; Eval and Query,"- WM 12.1
 - JVP pp 208 - 213",
-31-Oct,Thurs,330,Statistics with statsmodels,- WM Chapter 13,
-5-Nov,Tues,270,Machine Learning with sckikit-learn,- JVP pp 331 - 359,
-7-Nov,Thurs,330,"Big Data: What is it, how do I work with it?",,
-12-Nov,Tues,330,Plaintext Manipulation,,
+29-Oct,Tues,270,Statistics with statsmodels,- WM Chapter 13,
+31-Oct,Thurs,330,Machine Learning with sckikit-learn,- JVP pp 331 - 359,
+5-Nov,Tues,270,"Big Data: What is it, how do I work with it?","- `What is Big Data? <what_is_big_data.ipynb>`_
+- `Strategies for Big Data <big_data_strategies.ipynb>`_",
+7-Nov,Thurs,330,Speed and Performance in Python,,
+12-Nov,Tues,330,Parallel Computing,- `Parallel Computing <parallelism.ipynb>`_,
 14-Nov,Thurs,330,Data Science: Questions,,
 19-Nov,Tues,270,Data Science: Backwards Design,,
 21-Nov,Thurs,330,Data Science: Tool Selection,,
