@@ -240,7 +240,7 @@ div.rendered_html tbody tr:hover {
 <p>Today, we will be using the ACS data we used during out first <code class="docutils literal notranslate"><span class="pre">pandas</span></code> exercise to examine the US income distribution, and how it varies by race. Note that because the US income distribution has a very small number of people with <em>extremely</em> high incomes, and the ACS is just a sample of Americans, the far right tail of the distribution will not be very well estimated. However, this data should suffice for helping to understand wealth inequality in the United States.</p>
 <p>To begin, load the ACS Data we used in our first pandas exercise. That <a class="reference external" href="https://github.com/nickeubank/MIDS_Data/tree/master/US_AmericanCommunitySurvey">data can be found here</a>. We’ll be working with <code class="docutils literal notranslate"><span class="pre">US_ACS_2017_10pct_sample.dta</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -248,6 +248,15 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># Download the data</span>
 <span class="n">acs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s2">&quot;https://github.com/nickeubank/MIDS_Data/raw/master/US_AmericanCommunitySurvey/US_ACS_2017_10pct_sample.dta&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">acs</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -596,16 +605,19 @@ Name: race, dtype: int64
 <li class="toctree-l1"><a class="reference internal" href="../jupyter.html">Jupyter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_v_r.html">Python / R Differences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vars_v_objects.html">Python: Vars v Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas_series.html">Pandas 1: Series</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas_dataframes.html">Pandas 2: DataFrames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting_part1.html">Plotting, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting_part2.html">Plotting, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../views_and_copies_in_pandas.html">Pandas 3: Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../what_is_big_data.html">What is Big Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../big_data_strategies.html">Working with Big Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallelism.html">Parallel Computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../defensive_programming.html">Defensive Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cheatsheets.html">Cheat Sheets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exercise_list.html">All Exercises</a></li>

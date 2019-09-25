@@ -53,16 +53,19 @@ Reminders:
    Jupyter <jupyter>
    Python / R Differences <python_v_r>
    Python: Vars v Objects <vars_v_objects>
+   Numbers in Computers <ints_and_floats>
    Pandas 1: Series <pandas_series>
    Pandas 2: DataFrames <pandas_dataframes>
    Plotting, Basics <plotting_part1>
    Plotting, Advanced <plotting_part2>
    Pandas 3: Views <views_and_copies_in_pandas>
    Getting Help Online <getting_help>
+   What is Big Data? <what_is_big_data>
+   Working with Big Data <big_data_strategies>
+   Parallel Computing <parallelism>
    Git and Github <git_and_github>
    Defensive Programming <defensive_programming>
    Workflow Management <workflow>
-   Numbers in Computers <ints_and_floats>
    Performance <performance>
    Cheat Sheets <cheatsheets>
    All Exercises <exercise_list>

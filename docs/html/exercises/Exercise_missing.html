@@ -77,6 +77,9 @@
 <h2>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s estimate the racial income gap in the United States. What is the average salary for employed Black Americans, and what is the average salary for employed White Americans? In percentage terms, how much more does the average White American make than the average Black American?</p>
 <p><strong>Note:</strong> these values are not quite accurate estimates. As we’ll discuss in later lessons, to get completely accurate estimates from the ACS we have to take into account how people were selected to be interviewed. But you get pretty good estimates in most cases even without weights – your estimate of the racial wage gap without weights is within 5% of the corrected value.</p>
+<p><strong>Note:</strong> This is actually an underestimate of the wage gap. The US Census treats hispanic respondents as a sub-category of “white”, so in pooling what most Americans think of as “White” respondents (but which Census thinks of as “White, Non-Hispanic”) with Hispanic respondents (who tend to earn less), we get an underestimate of the average white salary in the US.</p>
+<p>While all ethnic distinctions are socially constructed, and so on some level these distinctions are all deeply problematic, this coding is inconsistent with what most Americans think of when they hear the term “White”, which is though of as a category that is distinct from being Hispanic or Latino (categories which are also usually conflated in American popular discussion). With that in mind, most researchers working with US Census data split “White” into “White, Hispanic” and “White,
+Non-Hispanic” using <code class="docutils literal notranslate"><span class="pre">race</span></code> <em>and</em> <code class="docutils literal notranslate"><span class="pre">hispan</span></code>.</p>
 <div class="section" id="Want-more-practice?">
 <h3>Want more practice?<a class="headerlink" href="#Want-more-practice?" title="Permalink to this headline">¶</a></h3>
 <p><strong>(1)</strong> As noted above, these estimates are not actually <em>quite</em> correct because we aren’t using survey weights. To calculate a weighted average that takes into account survey weights, you need to use the following formula:</p>
@@ -116,16 +119,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../jupyter.html">Jupyter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_v_r.html">Python / R Differences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vars_v_objects.html">Python: Vars v Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas_series.html">Pandas 1: Series</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas_dataframes.html">Pandas 2: DataFrames</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting_part1.html">Plotting, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting_part2.html">Plotting, Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../views_and_copies_in_pandas.html">Pandas 3: Views</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../what_is_big_data.html">What is Big Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../big_data_strategies.html">Working with Big Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallelism.html">Parallel Computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../defensive_programming.html">Defensive Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cheatsheets.html">Cheat Sheets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exercise_list.html">All Exercises</a></li>
