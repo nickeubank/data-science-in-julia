@@ -39,7 +39,7 @@
 17-Oct,Thurs,330,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,`Link <exercises/Exercise_git.ipynb>`_
 22-Oct,Tues,330,"Big Data: What is it, how do I work with it?","- `What is Big Data? <what_is_big_data.ipynb>`_
 - `Strategies for Big Data <big_data_strategies.ipynb>`_",
-24-Oct,Thurs,330,Speed and Performance in Python, - Performance <performance.ipynb>`_,
+24-Oct,Thurs,330,Speed and Performance in Python, - `Performance <performance.ipynb>`_,
 29-Oct,Tues,270,Parallelism,- `Parallel Computing <parallelism.ipynb>`_,
 31-Oct,Thurs,330,"- Defensive Programming
 - Getting Help Online","- `Defensive Programming <defensive_programming.ipynb>`_
