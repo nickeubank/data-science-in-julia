@@ -34,7 +34,207 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="Speed-in-Python">
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Speed-in-Python">
 <h1>Speed in Python<a class="headerlink" href="#Speed-in-Python" title="Permalink to this headline">¶</a></h1>
 <p>First, the good news: as a Data Scientist working in Python, <em>most</em> of the time whatever libraries you want to use have already been carefully engineered to deliver amazing performance, meaning working about code speed is something you <em>usually</em> won’t have to worry about. But understanding why programs like Python can sometimes be slow is still important for being able to avoid accidentally writing code that runs so slowly you can’t get your work done, and for trouble shooting if you end up in a
 situation where you really need something to go faster.</p>
@@ -58,7 +258,11 @@ situation where you really need something to go faster.</p>
 <li><p>Read that data to figure out the <code class="docutils literal notranslate"><span class="pre">type</span></code> of <code class="docutils literal notranslate"><span class="pre">summation</span></code> (in this case, it’s an integer).</p></li>
 <li><p>Dereference <code class="docutils literal notranslate"><span class="pre">i</span></code></p></li>
 <li><p>Read that data to figure out the <code class="docutils literal notranslate"><span class="pre">type</span></code> of <code class="docutils literal notranslate"><span class="pre">i</span></code> (in this case, it’s an integer).</p></li>
-<li><p>Lookup how it should interpret <code class="docutils literal notranslate"><span class="pre">+</span></code> given that <code class="docutils literal notranslate"><span class="pre">summation</span></code> is an integer and <code class="docutils literal notranslate"><span class="pre">i</span></code> is an integer. Remember: if <code class="docutils literal notranslate"><span class="pre">summation</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> were strings, it wouldn’t be doing addition, it would be concatenating!</p></li>
+<li><p>Lookup how it should interpret <code class="docutils literal notranslate"><span class="pre">+</span></code> given that <code class="docutils literal notranslate"><span class="pre">summation</span></code> is an integer and <code class="docutils literal notranslate"><span class="pre">i</span></code> is an integer.</p>
+<ul class="simple">
+<li><p>Remember: if <code class="docutils literal notranslate"><span class="pre">summation</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> were strings, it wouldn’t be doing addition, it would be concatenating! And because integers and floating point numbers are different things from the perspective of a computer, if <code class="docutils literal notranslate"><span class="pre">i</span></code> were an integer and <code class="docutils literal notranslate"><span class="pre">summation</span></code> were a floating point number, <code class="docutils literal notranslate"><span class="pre">+</span></code> would actually require (a) converting <code class="docutils literal notranslate"><span class="pre">i</span></code> to a floating point number, then (b) adding the floating point version of <code class="docutils literal notranslate"><span class="pre">i</span></code> to <code class="docutils literal notranslate"><span class="pre">summation</span></code>.</p></li>
+</ul>
+</li>
 <li><p>Compile low-level binary code (referred to as “machine code”) that can be read by the computer’s processor to tell it to execute an addition of two integers AND to also check and make sure that the operation won’t cause an integer overflow (<a class="reference internal" href="ints_and_floats.html"><span class="doc">remember: Python checks for integer overflows!</span></a> That’s another operation!).</p></li>
 <li><p>Run that code.</p></li>
 </ol>
@@ -75,14 +279,143 @@ compile machine code once. Moreover, these languages also reduce the amount of �
 <div class="section" id="Rules-for-Going-Fast-in-Python">
 <h2>Rules for Going Fast in Python<a class="headerlink" href="#Rules-for-Going-Fast-in-Python" title="Permalink to this headline">¶</a></h2>
 <p>So now that you have some sense of why Python can be slow, let’s talk about how to keep your Python code fast:</p>
-<div class="section" id="Use-other-people’s-functions">
-<h3>Use other people’s functions<a class="headerlink" href="#Use-other-people’s-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Rule-1:-Use-other-people’s-functions">
+<h3>Rule 1: Use other people’s functions<a class="headerlink" href="#Rule-1:-Use-other-people’s-functions" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start with the dirty secret of Python: when you use a library in Python, the code you’re running was almost never actually written in Python. Instead, the functions you’re calling have a “thin” layer of Python at the top (which is what you’re interacting with), but when it comes to doing serious computations, the functions are actually calling tools written in C, which is <em>blazing</em> fast. (This is also true of R, by the way).</p>
 <p>Thus the first rule of speed in Python: when you need speed, use tools that other people have written and distributed in big libraries (like <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">sci-py</span></code>, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, etc.). Because what you’re really doing is using C, and C is 10s or 100s of times faster than Python.</p>
 </div>
-<div class="section" id="Vectorize,-Don’t-write-loops">
-<h3>Vectorize, Don’t write loops<a class="headerlink" href="#Vectorize,-Don’t-write-loops" title="Permalink to this headline">¶</a></h3>
-<p>Consider the following</p>
+<div class="section" id="Rule-2:-Vectorize,-Don’t-write-loops">
+<h3>Rule 2: Vectorize, Don’t write loops<a class="headerlink" href="#Rule-2:-Vectorize,-Don’t-write-loops" title="Permalink to this headline">¶</a></h3>
+<p>When you use “vectorized” code (meaning code where you interact two full vectors or matrices in one command instead of looping over elements), you get <em>huge</em> performance gains. For example, consider the performance differences between the following two blocks of code, both of which do <em>exactly the same thing</em>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">numbers</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>array([     0,      1,      2, ..., 999997, 999998, 999999])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>it
+<span class="c1"># Make a new array where each number is doubled</span>
+<span class="c1"># done with a loop</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+357 ms ± 10.3 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>it
+<span class="c1"># Now vectorized</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">numbers</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.09 ms ± 40.6 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</pre></div></div>
+</div>
+<p>That’s a <em>300x</em> speedup! For the exact same code!!!!</p>
+<p>OK, so why does this happen?</p>
+<p>The answer is twofold.</p>
+<p>First, when Python dereferences a variable (i.e. get the object associated with a variable), there are actually two steps to that process: first, Python must look up where to find the object in memory; then second it must go get the object.</p>
+<p>Because Python evaluates every line of code when it reaches that line, in the loop example, in ever step of the loop Python has to look up where to find the array, then go get the array value.</p>
+<p>But in the vectorized function, Python (or rather, the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> code written in C that gets called) is designed to understand that it’s about to do something to every entry of an array, so it remembers where the array is located, and so only has to look up where to find the array once.</p>
+<p>In addition, arrays are <em>typed</em>, meaning that Python also knows that every entry of the array it’s modifying is an integer. As a result, it doesn’t have to check the type of every entry in the array when the operation is vectorized, it checks once and knows that it’s working with an array of integers.</p>
+<p>(You may say “but can’t it do the same in the loop?” In theory it could, and there are languages like Julia that are designed to be smarter about this kind of stuff. But currently, because Python only evaluates a line of code when it is reached means that it can be frustratingly myopic.)</p>
+</div>
+<div class="section" id="A-Note-On-Object-Vectors">
+<h3>A Note On Object Vectors<a class="headerlink" href="#A-Note-On-Object-Vectors" title="Permalink to this headline">¶</a></h3>
+<p>You now also know enough to understand why object vectors in numpy and pandas are less performant.</p>
+<p>When you’re working with a pandas Series or numpy array of integers, all of the entries of those arrays live in the same place in memory. This is because it is easy for a computer to put, say, 100 integers side by side, since it knows that each integer requires exactly 64 bits and so it can put them all end to end and tell the computer that each number starts 64 bits after the last.</p>
+<p>But an <em>object</em> array is a little different. Instead of laying all the contents of the array in one place, an object array puts a collection of <em>memory addresses</em> in one place. This is because objects can be of arbitrary size, so you can’t put them all in one place in memory reliably. For example, suppose you had an array that had the following strings: <code class="docutils literal notranslate"><span class="pre">'this'</span></code>, <code class="docutils literal notranslate"><span class="pre">'is'</span></code>, <code class="docutils literal notranslate"><span class="pre">'an'</span></code>, <code class="docutils literal notranslate"><span class="pre">'array'</span></code>. The first entry is longer than the second, is the same as the third, and is shorter than the third.
+You can’t just put them end-to-end and tell the computer “each number starts X bits after the last”.</p>
+<p>But you can do that with memory addresses. So an object array is a collection of memory addresses (each the same size) laid end to end.</p>
+<p>But that means that to look at the second entry of an object array, you have to go to the second location in the array, read the address, <em>then go to that address.</em> Moreover, because object arrays can hold anything, you could have an integer in the first entry, and a string in the second entry, so you can’t assume that when you see code like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>that <code class="docutils literal notranslate"><span class="pre">*</span></code> will mean the same thing for each entry. In one entry, you might be doing integer multiplication; in another you might be doing floating point multiplication, in another you may be doubling up a list!</p>
+<p>Indeed we can see this is we make a numpy object array full of ints and compare it to a numpy integer array. The both have the same content, but they are organized in memory differently:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">object_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000000</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">timeit</span> object_numbers * 2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+27.6 ms ± 1.1 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">timeit</span> numbers * 2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.11 ms ± 49 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</pre></div></div>
+</div>
+<p>See? Same operation (doubling each entry of arrays with the integers from 0 to 1,000,000), but the object array operation is ~25x slower.</p>
 </div>
 </div>
 <div class="section" id="Practical-Skills">
@@ -92,55 +425,16 @@ compile machine code once. Moreover, these languages also reduce the amount of �
 <p><strong>If you take nothing else away from this page, please read and remember this section!</strong></p>
 <p>There’s no reason to tune a line of code that is only responsible for 1/100 of your running time, so before you invest in speeding up your code, figure out what’s slowing it down – a process known as “profiling” your code. Thankfully, because this is so important, there are lots of tools (called profilers) for measuring exactly how long your computer is spending doing each step in a block of code. * Profiling in R: the two packages I’ve seen used most are
 <a class="reference external" href="http://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/profilingEx.html">Rprof</a> and <a class="reference external" href="http://adv-r.had.co.nz/Profiling.html#measure-perf">lineprof</a>. * Profiling in Python: if you use Jupyter Notebooks or Jupyter Labs, you can use the <a class="reference external" href="http://pynash.org/2013/03/06/timing-and-profiling.html">prun tool</a>. If for some reason you’re not using Jupyter, here’s a <a class="reference external" href="https://zapier.com/engineering/profiling-python-boss/">guide to a few other tools</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="section" id="Making-Code-Faster">
-<h3>Making Code Faster<a class="headerlink" href="#Making-Code-Faster" title="Permalink to this headline">¶</a></h3>
-<p><strong>AFTER</strong> you’ve identified what parts of your code are running really slow by profiling them (as discussed above), the next question is how to make them run faster. The following fixes are provided in the order in which I would suggest pursuing them – the first fixes have high returns and are relatively easy, the later ones are harder to implement and should only be pursued if you’ve tried the preceding options!</p>
-<ol class="arabic simple">
-<li><p><strong>Check your memory use</strong> When your computer is manipulating data (defining variables, running regressions, etc), what its actually doing is grabbing a little bit of data from storage, moving it to the processor, doing math with it, and then putting it back in storage.</p></li>
-</ol>
-<p>To simplify somewhat, we can think of your computer as having two forms of storage – RAM (sometimes called main memory), and your harddrive. But these two forms of memory are very, very different. Your computer can grab data from RAM 100,000 times faster it can grab data on the harddrive. Because of this, your computer is much happier (and performs faster) when it’s able to keep all the data you’re working with in RAM. Indeed, if you’re moving data back and forth to your harddrive, it’s almost
-certainly the biggest bottleneck – doing actual computations is almost instantaneous compared to moving data back and forth to your harddrive on modern computers.</p>
-<p><em>Important:</em> Just because your dataset is small enough it seems like it should fit into RAM doesn’t mean this isn’t relevant for you! Programs often make copies of your data when they manipulate it, so even if your dataset is 2gb and your have 8gb of RAM, the program you’re using can very easy end up using all 8gb of RAM!</p>
-<ol class="arabic simple" start="2">
-<li><p><strong>Use other people’s (compiled) functions</strong></p></li>
-</ol>
-<p>As a general rule, code you write in R or Python is slow. But don’t worry, it’s not your fault; R and Python are fundamentally [[Programming Languages | slow languages]], so ‘’anything’’ written in R or Python is slow.</p>
-<p>But interestingly, commands that other people have written that are available in R or Python are actually usually written in faster (“compiled”) languages, like C++. As a result, whenever you have the choice between writing a function yourself or using a function in an established library, you’re almost always better off using the command someone else wrote.</p>
-<p>Now, using other people’s functions is not fool-proof – some people write their libraries in R or Python (not a compiled language like C++), so they may run as slowly as your own commands. So if you can, check the documentation for whatever library you want to use to see whether it was written in C / C++ or not!</p>
-<ol class="arabic simple" start="3">
-<li><p><strong>Vectorization</strong></p></li>
-</ol>
-<p>In R and Python, if you want to apply a function to each item in a matrix or vector, you would just create a loop that extracts each element of the vector, modifies it, and then moves to the next item. This will work in R or Python, but it is very slow. What you want to do instead is “vectorize” your function, which means you use a specific command to tell R or Python that you’re trying to apply your function to each item in the vector. When R/Python knows this is what you want to do, it has
-ways of making that function execute much more quickly behind the scenes.</p>
-<p>Both languages have a number of tools for this:</p>
-<ul class="simple">
-<li><p>in R, these come in a set of tools with names related to <code class="docutils literal notranslate"><span class="pre">apply()</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">apply()</span></code>, <code class="docutils literal notranslate"><span class="pre">lapply()</span></code>, <code class="docutils literal notranslate"><span class="pre">sapply()</span></code>), there’s a library called <code class="docutils literal notranslate"><span class="pre">dplyr</span></code>. But what matters most is not which one, but rather that you use <em>one</em> of them and never run loops over your vectors or matrices!</p></li>
-<li><p>In Python, the relevant tools are the “apply()”, “agg()”, “map()”, and “transform()” functions.</p></li>
-</ul>
-<ol class="arabic simple" start="4">
-<li><p><strong>Parallelization</strong></p></li>
-</ol>
-<p>Parallelization (which has it’s own page [[Parallelization]] here) is often the first thing social scientists turn to to speed up code. Whether this is the right decision depends a lot on your situation, but a few facts:</p>
-<ul class="simple">
-<li><p>Parallelization is “sub-linear”, meaning if you parallelize across two cores, you can except ~1.8x speedup at best. (More generally, for N cores, expect ~0.8*Nx speedups).</p></li>
-<li><p>Improving how your code is written can often yield much higher returns than parallelization, on the order of 5x, 10x, or 100x speed improvements.</p></li>
-<li><p>Using code that was written in C++ by someone else can yield 10x or 100x returns.</p></li>
-</ul>
-<p>So, parallelization certainly isn’t the best way to speed up your code. But if you read this and find yourself thinking “um, I still don’t really what makes code fast versus slow” or “I’ve already tried all that and it’s still too slow!”, it’s a good option.</p>
-<ol class="arabic simple" start="5">
-<li><p><strong>Compile your own code</strong></p></li>
-</ol>
-<p>So you’re sure you’re only using RAM, you’ve vectorized your functions, and you can’t find a library with the function you need to execute, and when you write it yourself it’s still too slow, even if you parallelize it? The last option is to compile your own code. This is a little complicated for this page, so if you get here, link here</p>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="Learn-about-Data-Structures:-If-you-REALLY-want-to-speed-up-your-code">
-<h2>Learn about Data Structures: If you REALLY want to speed up your code<a class="headerlink" href="#Learn-about-Data-Structures:-If-you-REALLY-want-to-speed-up-your-code" title="Permalink to this headline">¶</a></h2>
-<p>If this were written for computer scientists, this section would be first. Different data structures – lists, matrices, dataframes, dictionaries, etc. – are all very different in terms of how they work at the lowest levels of your computer. As a result, they have ’‘’very’’’ different performance characteristics, and nothing will have more of an effect on the speed of your code than your choice of data structures.</p>
-<p>With that said, because most social scientists haven’t been taught much about the inner workings of computers, it is understandably hard for them to know which structure is best in each situation. If you ’‘’really’’’ want to get good performance though, it’s something to look into – [[Data Structures | check out a starter page here]].</p>
-<p>= Guides Written By Wiser Minds than Me = [<a class="reference external" href="http://adv-r.had.co.nz/Profiling.html">http://adv-r.had.co.nz/Profiling.html</a> Speeding up R Code]</p>
-<p>[<a class="reference external" href="https://wiki.python.org/moin/PythonSpeed/PerformanceTips">https://wiki.python.org/moin/PythonSpeed/PerformanceTips</a> Speeding up Python Code (note: written for Python, not Pandas. Pandas has some extra tricks)]</p>
-<p>[<a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/enhancingperf.html">http://pandas.pydata.org/pandas-docs/stable/enhancingperf.html</a> Improving Pandas (Python) Speed]</p>
+</div>
 </div>
 </div>
 
@@ -187,7 +481,6 @@ ways of making that function execute much more quickly behind the scenes.</p>
 <li class="toctree-l2"><a class="reference internal" href="#The-Python-Ease-of-Use-/-Speed-Tradeoff">The Python Ease of Use / Speed Tradeoff</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Rules-for-Going-Fast-in-Python">Rules for Going Fast in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Practical-Skills">Practical Skills</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Learn-about-Data-Structures:-If-you-REALLY-want-to-speed-up-your-code">Learn about Data Structures: If you REALLY want to speed up your code</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cheatsheets.html">Cheat Sheets</a></li>
