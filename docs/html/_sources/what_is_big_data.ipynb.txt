@@ -35,6 +35,15 @@
     "\n",
     "Because of how expensive it is to move data back and forth from main memory, you computer has a set of intermediate memory banks between main memory and your processor called *caches*. Caches try to predict what data you might use in the future, and keep it close to the processor so it can be accessed faster. Caches can substantially improve performance, but as a programmer you don't actually get to control what gets put into cache -- your cache is managed by the operating system. There are some tricks for trying to use data in ways that are more likely to result in your computer being able to use data stored in cache (in general, your computer fills the cache with (a) data you've used recently, and (b) data that is stored *near* the data you've used recently, so doing everything you can with the same object at once *can* help a little), but honestly they're just not something you should worry about. I just wanted to demystify \"cache\" for when you come across it. "
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## OK... So how do I deal with Big Data?\n",
+    "\n",
+    "Check out [Big Data Strategies here!](strategies_big_data.ipynb)."
+   ]
   }
  ],
  "metadata": {

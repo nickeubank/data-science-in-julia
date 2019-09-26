@@ -66,12 +66,7 @@
 <div class="section" id="Exercise-5">
 <h3>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h3>
 <p>If you ever <em>want</em> to get alignment on row numbers, the easiest way to achieve that is to reset the indices on both objects you want to merge. When one re-sets indices without specifying a column to become the new index, the new index will just be row-numbers.</p>
-<p>So:</p>
-<ul class="simple">
-<li><p>Reset prizes to 0.</p></li>
-<li><p>Reset the indices on both <code class="docutils literal notranslate"><span class="pre">arrival_prizes</span></code> and <code class="docutils literal notranslate"><span class="pre">attendees</span></code></p></li>
-<li><p>Try adding arrival prizes to prizes again.</p></li>
-</ul>
+<p>So reset prizes to 0, do what you need to do to get the order right, reset the index, and try again.</p>
 <p><strong>Note:</strong> When you reset the index on a Series, the Series is converted to a DataFrame, and the old index is added as a column. To avoid this behavior and just drop the old index when re-setting indices (in either a Series or a DataFrame), use the <code class="docutils literal notranslate"><span class="pre">drop=True</span></code> argument when resetting the index.</p>
 </div>
 <div class="section" id="Exercise-6">
@@ -93,7 +88,7 @@
 </div>
 <div class="section" id="Exercise-7">
 <h3>Exercise 7<a class="headerlink" href="#Exercise-7" title="Permalink to this headline">¶</a></h3>
-<p>Now subset your data to get the income associated with the name of “TPKSMSLREI”. (Yes, there are ways to get real random names, but they take a while to run because they query websites that generate fake names, so we’re just doing this!).</p>
+<p>Now subset your data to get the social security number associated with the name of “TPKSMSLREI”. (Yes, there are ways to get real random names, but they take a while to run because they query websites that generate fake names, so we’re just doing this!).</p>
 </div>
 <div class="section" id="Exercise-8">
 <h3>Exercise 8<a class="headerlink" href="#Exercise-8" title="Permalink to this headline">¶</a></h3>
@@ -101,7 +96,7 @@
 </div>
 <div class="section" id="Exercise-9">
 <h3>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h3>
-<p>Now make <code class="docutils literal notranslate"><span class="pre">social_security_number</span></code> your index for this data. Then try subsetting using <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> to get all the observations with the name of “TPKSMSLREI” and time the operation.</p>
+<p>Now make <code class="docutils literal notranslate"><span class="pre">names</span></code> your index for this data. Then try subsetting using <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> to get all the observations with the name of “TPKSMSLREI” and time the operation.</p>
 </div>
 <div class="section" id="Take-away">
 <h3>Take-away<a class="headerlink" href="#Take-away" title="Permalink to this headline">¶</a></h3>

@@ -402,12 +402,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Exercise-5">
 <h3>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h3>
 <p>If you ever <em>want</em> to get alignment on row numbers, the easiest way to achieve that is to reset the indices on both objects you want to merge. When one re-sets indices without specifying a column to become the new index, the new index will just be row-numbers.</p>
-<p>So:</p>
-<ul class="simple">
-<li><p>Reset prizes to 0.</p></li>
-<li><p>Reset the indices on both <code class="docutils literal notranslate"><span class="pre">arrival_prizes</span></code> and <code class="docutils literal notranslate"><span class="pre">attendees</span></code></p></li>
-<li><p>Try adding arrival prizes to prizes again.</p></li>
-</ul>
+<p>So reset prizes to 0, do what you need to do to get the order right, reset the index, and try again.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -858,7 +853,7 @@ dtype: int64
 </div>
 <div class="section" id="Exercise-9">
 <h3>Exercise 9<a class="headerlink" href="#Exercise-9" title="Permalink to this headline">¶</a></h3>
-<p>Now make <code class="docutils literal notranslate"><span class="pre">social_security_number</span></code> your index for this data. Then try subsetting using <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> to get all the observations with the name of “TPKSMSLREI” and time the operation.</p>
+<p>Now make <code class="docutils literal notranslate"><span class="pre">names</span></code> your index for this data. Then try subsetting using <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> to get all the observations with the name of “TPKSMSLREI” and time the operation.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>

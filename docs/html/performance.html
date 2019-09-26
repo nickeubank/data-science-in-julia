@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Speed &#8212; Practical Data Science</title>
+    <title>Speed in Python &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -34,29 +34,55 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="Speed">
-<h1>Speed<a class="headerlink" href="#Speed" title="Permalink to this headline">¶</a></h1>
-<p>Why are some programs fast and others slow? In this tutorial, we’ll try and discuss two things:</p>
-<ul class="simple">
-<li><p>Develop <em>general</em> understanding of why code is fast and some is slow, and</p></li>
-<li><p>Develop <em>practical</em> skills for figuring out why <em>your</em> code is slow and how to fix it</p></li>
-</ul>
-<div class="section" id="General-Principles-of-Speed">
-<h2>General Principles of Speed<a class="headerlink" href="#General-Principles-of-Speed" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="Speed-in-Python">
+<h1>Speed in Python<a class="headerlink" href="#Speed-in-Python" title="Permalink to this headline">¶</a></h1>
+<p>First, the good news: as a Data Scientist working in Python, <em>most</em> of the time whatever libraries you want to use have already been carefully engineered to deliver amazing performance, meaning working about code speed is something you <em>usually</em> won’t have to worry about. But understanding why programs like Python can sometimes be slow is still important for being able to avoid accidentally writing code that runs so slowly you can’t get your work done, and for trouble shooting if you end up in a
+situation where you really need something to go faster.</p>
+<div class="section" id="The-Python-Ease-of-Use-/-Speed-Tradeoff">
+<h2>The Python Ease of Use / Speed Tradeoff<a class="headerlink" href="#The-Python-Ease-of-Use-/-Speed-Tradeoff" title="Permalink to this headline">¶</a></h2>
 <p>There are two primary factors that determine the speed of a program:</p>
 <ul class="simple">
-<li><p>The number of actions the computer has to take (i.e. the number of commands it has to execute)</p></li>
-<li><p>The amount it has to access and move data around.</p></li>
+<li><p>The number of computations computer has to complete (i.e. adding, multiplying, etc.)</p></li>
+<li><p>The amount it has to access and move data around (as discussed in <a class="reference internal" href="what_is_big_data.html"><span class="doc">What Is Big Data?</span></a>, memory access is <strong>slow</strong>).</p></li>
 </ul>
-<div class="section" id="Fast-languages-and-slow-languages">
-<h3>Fast languages and slow languages<a class="headerlink" href="#Fast-languages-and-slow-languages" title="Permalink to this headline">¶</a></h3>
-<p>One of the easiest rules of thumb is that the easier a computer language is to use, the slower the language will be. That’s because languages that are easier to use are easier because behind the scenes, these languages are doing a lot of thinking for us, and that thinking takes time. That’s why languages like C and C++ which are hard to use are very fast, and languages like R and Python which are easy to use tend to be slow.</p>
-<p>But while this is a good general rule, there <em>are</em> ways to make code in languages like R and Python fast – it just requires a little extra skill.</p>
+<p>This is obviously kinda abstract, so let’s look at some real code and discuss what you computer is actually doing when it runs Python code. In particular, let’s focus on what happens in a loop like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">summation</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">summation</span> <span class="o">=</span> <span class="n">summation</span> <span class="o">+</span> <span class="n">i</span>
+</pre></div>
 </div>
-<div class="section" id="De-referencing-and-Data-Structures">
-<h3>De-referencing and Data Structures<a class="headerlink" href="#De-referencing-and-Data-Structures" title="Permalink to this headline">¶</a></h3>
-<p>[need more here!]</p>
-<p>In short: moving data around your computer is basically the most time-consuming thing your computer does.</p>
+<p>Now, you might think that all Python has to do to run this loop is add a bunch of numbers. But unfortunately, that’s not the case.</p>
+<p>At each step of this loop, Python has to do the following:</p>
+<ol class="arabic simple">
+<li><p>Dereference <code class="docutils literal notranslate"><span class="pre">summation</span></code> (find the place in memory that is associated with the variable <code class="docutils literal notranslate"><span class="pre">summation</span></code> and read the data there)</p></li>
+<li><p>Read that data to figure out the <code class="docutils literal notranslate"><span class="pre">type</span></code> of <code class="docutils literal notranslate"><span class="pre">summation</span></code> (in this case, it’s an integer).</p></li>
+<li><p>Dereference <code class="docutils literal notranslate"><span class="pre">i</span></code></p></li>
+<li><p>Read that data to figure out the <code class="docutils literal notranslate"><span class="pre">type</span></code> of <code class="docutils literal notranslate"><span class="pre">i</span></code> (in this case, it’s an integer).</p></li>
+<li><p>Lookup how it should interpret <code class="docutils literal notranslate"><span class="pre">+</span></code> given that <code class="docutils literal notranslate"><span class="pre">summation</span></code> is an integer and <code class="docutils literal notranslate"><span class="pre">i</span></code> is an integer. Remember: if <code class="docutils literal notranslate"><span class="pre">summation</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> were strings, it wouldn’t be doing addition, it would be concatenating!</p></li>
+<li><p>Compile low-level binary code (referred to as “machine code”) that can be read by the computer’s processor to tell it to execute an addition of two integers AND to also check and make sure that the operation won’t cause an integer overflow (<a class="reference internal" href="ints_and_floats.html"><span class="doc">remember: Python checks for integer overflows!</span></a> That’s another operation!).</p></li>
+<li><p>Run that code.</p></li>
+</ol>
+<p>As you can see, there’s a <em>lot</em> going on in that simple line of code, and that process has to repeat <em>every step of the loop</em>.</p>
+<p>Now, you might ask, is all of that necessary?</p>
+<p>The answer is both yes and no. There are languages that don’t require all those steps (like C and C++, the standard-bearers for speed), but if Python didn’t do all those things when it ran, you wouldn’t be able to use Python the way you do.</p>
+<p>Python is designed to be easy for you, the programmer. Unlike in some languages (like C), in Python you don’t have to declare that <code class="docutils literal notranslate"><span class="pre">i</span></code> is an integer explicitly in your code, and you are allowed to change <code class="docutils literal notranslate"><span class="pre">i</span></code> from an integer to a floating point number whenever you want. That makes Python what’s called a <strong>dynamically typed</strong> language, and it makes it very easy to use. If you wrote this in C, every time you made a new variable you’d have to declare it’s type. But the fact it’s dynamically
+typed means the language is never quite sure of the type of a variable until it explicitly checks that type, because it could change at any time.</p>
+<p>Moreover, Python is a language you can use <em>interactively</em>. You can’t open a terminal and write and execute C code one line at a time. For languages like C (what are called “compiled languages”), you write all of your code, then hit compile, and your computer reads all your code and compiles low-level binary code for that entire program at once. Then the only way to use your C code is to run that compiled program. But the advantage of that is that step 6 (compiling your code) is done once in
+advance, and you don’t have to do that every time you run your code.</p>
+<p>But to make Python interactive, it was decided that Python should evaluate each line of code when it reaches that code. That massively increases it’s flexibility and allows you to program interactively, but for loops like this, it means to do 1,000 additions, it also has to compile low-level machine code 1,000 times. (Note: there are newer languages like <a class="reference external" href="https://julialang.org/">Julia</a> that have are still interactive, but which are also smart enough to recognize these situations and only
+compile machine code once. Moreover, these languages also reduce the amount of “dereferencing” required. But that’s not Python.)</p>
+</div>
+<div class="section" id="Rules-for-Going-Fast-in-Python">
+<h2>Rules for Going Fast in Python<a class="headerlink" href="#Rules-for-Going-Fast-in-Python" title="Permalink to this headline">¶</a></h2>
+<p>So now that you have some sense of why Python can be slow, let’s talk about how to keep your Python code fast:</p>
+<div class="section" id="Use-other-people’s-functions">
+<h3>Use other people’s functions<a class="headerlink" href="#Use-other-people’s-functions" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start with the dirty secret of Python: when you use a library in Python, the code you’re running was almost never actually written in Python. Instead, the functions you’re calling have a “thin” layer of Python at the top (which is what you’re interacting with), but when it comes to doing serious computations, the functions are actually calling tools written in C, which is <em>blazing</em> fast. (This is also true of R, by the way).</p>
+<p>Thus the first rule of speed in Python: when you need speed, use tools that other people have written and distributed in big libraries (like <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">sci-py</span></code>, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, etc.). Because what you’re really doing is using C, and C is 10s or 100s of times faster than Python.</p>
+</div>
+<div class="section" id="Vectorize,-Don’t-write-loops">
+<h3>Vectorize, Don’t write loops<a class="headerlink" href="#Vectorize,-Don’t-write-loops" title="Permalink to this headline">¶</a></h3>
+<p>Consider the following</p>
 </div>
 </div>
 <div class="section" id="Practical-Skills">
@@ -158,7 +184,8 @@ ways of making that function execute much more quickly behind the scenes.</p>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Management</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Performance</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#General-Principles-of-Speed">General Principles of Speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#The-Python-Ease-of-Use-/-Speed-Tradeoff">The Python Ease of Use / Speed Tradeoff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Rules-for-Going-Fast-in-Python">Rules for Going Fast in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Practical-Skills">Practical Skills</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Learn-about-Data-Structures:-If-you-REALLY-want-to-speed-up-your-code">Learn about Data Structures: If you REALLY want to speed up your code</a></li>
 </ul>

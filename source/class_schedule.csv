@@ -37,18 +37,19 @@
 10-Oct,Thurs,330,FALL BREAK,,
 15-Oct,Tues,270,Groupby / Split-Apply-Combine,- JVP pp 212-228,`Link <exercises/Exercise_groupby.ipynb>`_
 17-Oct,Thurs,330,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,`Link <exercises/Exercise_git.ipynb>`_
-22-Oct,Tues,330,"- Defensive Programming
+22-Oct,Tues,330,"Big Data: What is it, how do I work with it?","- `What is Big Data? <what_is_big_data.ipynb>`_
+- `Strategies for Big Data <big_data_strategies.ipynb>`_",
+24-Oct,Thurs,330,"- Speed and Performance in Python
+- Parallelism",- `Parallel Computing <parallelism.ipynb>`_,
+29-Oct,Tues,270,"- Defensive Programming
 - Getting Help Online","- `Defensive Programming <defensive_programming.ipynb>`_
 - `Workflow Management <workflow.ipynb>`_
 - `Getting Help <getting_help.ipynb>`_",
-24-Oct,Thurs,330,Pandas: Categorical Data; Eval and Query,"- WM 12.1
+31-Oct,Thurs,330,Pandas: Categorical Data; Eval and Query,"- WM 12.1
 - JVP pp 208 - 213",
-29-Oct,Tues,270,Statistics with statsmodels,- WM Chapter 13,
-31-Oct,Thurs,330,Machine Learning with sckikit-learn,- JVP pp 331 - 359,
-5-Nov,Tues,270,"Big Data: What is it, how do I work with it?","- `What is Big Data? <what_is_big_data.ipynb>`_
-- `Strategies for Big Data <big_data_strategies.ipynb>`_",
-7-Nov,Thurs,330,Speed and Performance in Python,,
-12-Nov,Tues,330,Parallel Computing,- `Parallel Computing <parallelism.ipynb>`_,
+5-Nov,Tues,270,Statistics with statsmodels,- WM Chapter 13,
+7-Nov,Thurs,330,Machine Learning with sckikit-learn,- JVP pp 331 - 359,
+12-Nov,Tues,330,,,
 14-Nov,Thurs,330,Data Science: Questions,,
 19-Nov,Tues,270,Data Science: Backwards Design,,
 21-Nov,Thurs,330,Data Science: Tool Selection,,

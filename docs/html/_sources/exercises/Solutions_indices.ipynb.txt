@@ -221,11 +221,7 @@
     "\n",
     "If you ever *want* to get alignment on row numbers, the easiest way to achieve that is to reset the indices on both objects you want to merge. When one re-sets indices without specifying a column to become the new index, the new index will just be row-numbers. \n",
     "\n",
-    "So:\n",
-    "\n",
-    "- Reset prizes to 0. \n",
-    "- Reset the indices on both `arrival_prizes` and `attendees`\n",
-    "- Try adding arrival prizes to prizes again. \n"
+    "So reset prizes to 0, do what you need to do to get the order right, reset the index, and try again."
    ]
   },
   {
@@ -764,7 +760,7 @@
    "source": [
     "## Exercise 9\n",
     "\n",
-    "Now make `social_security_number` your index for this data. Then try subsetting using `loc[]` to get all the observations with the name of \"TPKSMSLREI\" and time the operation. "
+    "Now make `names` your index for this data. Then try subsetting using `loc[]` to get all the observations with the name of \"TPKSMSLREI\" and time the operation. "
    ]
   },
   {
