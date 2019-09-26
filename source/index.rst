@@ -63,7 +63,7 @@ Reminders:
    What is Big Data? <what_is_big_data>
    Working with Big Data <big_data_strategies>
    Understanding Performance <performance_understanding>
-   Solving Performance Probs <performance_solutions
+   Solving Performance Probs <performance_solutions>
    Parallel Computing <parallelism>
    Git and Github <git_and_github>
    Defensive Programming <defensive_programming>
