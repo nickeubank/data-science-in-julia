@@ -54,7 +54,7 @@
    "source": [
     "## Rules for Going Fast in Python\n",
     "\n",
-    "So now that you have some sense of why Python can be slow, let's talk about how to keep your Python code fast:\n",
+    "So now that you have some sense of why Python can be slow, let's talk about how to keep your Python code fast (note to R users: basically everything I say here about Python also applies to R):\n",
     "\n",
     "### Rule 1: Use other people's functions\n",
     "\n",

@@ -16,6 +16,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parallel Computing" href="parallelism.html" />
+    <link rel="prev" title="Speed in Python" href="performance_understanding.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -234,10 +236,9 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Solving-Performance-Issues">
 <h1>Solving Performance Issues<a class="headerlink" href="#Solving-Performance-Issues" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Practical-Skills">
-<h2>Practical Skills<a class="headerlink" href="#Practical-Skills" title="Permalink to this headline">¶</a></h2>
+<p>So: you’ve done all the things suggested in the last page on <a class="reference internal" href="performance_understanding.html"><span class="doc">Performance basics</span></a> that you can do within the constraints of your project, and you still have a performance problem. Now what?</p>
 <div class="section" id="Profiling-Code">
-<h3>Profiling Code<a class="headerlink" href="#Profiling-Code" title="Permalink to this headline">¶</a></h3>
+<h2>Profiling Code<a class="headerlink" href="#Profiling-Code" title="Permalink to this headline">¶</a></h2>
 <p><strong>If you take nothing else away from this page, please read and remember this section!</strong></p>
 <p>There’s no reason to tune a line of code that is only responsible for 1/100 of your running time, so before you invest in speeding up your code, figure out what’s slowing it down – a process known as “profiling” your code. Thankfully, because this is so important, there are lots of tools (called profilers) for measuring exactly how long your computer is spending doing each step in a block of code. * Profiling in R: the two packages I’ve seen used most are
 <a class="reference external" href="http://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/profilingEx.html">Rprof</a> and <a class="reference external" href="http://adv-r.had.co.nz/Profiling.html#measure-perf">lineprof</a>. * Profiling in Python: if you use Jupyter Notebooks or Jupyter Labs, you can use the <a class="reference external" href="http://pynash.org/2013/03/06/timing-and-profiling.html">prun tool</a>. If for some reason you’re not using Jupyter, here’s a <a class="reference external" href="https://zapier.com/engineering/profiling-python-boss/">guide to a few other tools</a>.</p>
@@ -261,7 +262,6 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-</div>
 
 
           </div>
@@ -280,7 +280,7 @@ div.rendered_html tbody tr:hover {
 
 
 <h3>Navigation</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="not_a_mids_student.html">Not a MIDS Student?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part1.html">Command Line, Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command_line_part2.html">Command Line, Advanced</a></li>
@@ -299,6 +299,10 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="what_is_big_data.html">What is Big Data?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="big_data_strategies.html">Working with Big Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance_understanding.html">Understanding Performance</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Solving Performance Probs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Profiling-Code">Profiling Code</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallel Computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
@@ -311,6 +315,8 @@ div.rendered_html tbody tr:hover {
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="performance_understanding.html" title="previous chapter">Speed in Python</a></li>
+      <li>Next: <a href="parallelism.html" title="next chapter">Parallel Computing</a></li>
   </ul></li>
 </ul>
 </div>

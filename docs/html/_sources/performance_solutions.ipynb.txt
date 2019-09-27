@@ -4,16 +4,16 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Solving Performance Issues"
+    "# Solving Performance Issues\n",
+    "\n",
+    "So: you've done all the things suggested in the last page on [Performance basics](performance_understanding.ipynb) that you can do within the constraints of your project, and you still have a performance problem. Now what?"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Practical Skills\n",
-    "\n",
-    "### Profiling Code\n",
+    "## Profiling Code\n",
     "\n",
     "**If you take nothing else away from this page, *please* read and remember this section!**\n",
     "\n",

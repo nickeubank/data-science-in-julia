@@ -31,16 +31,16 @@
 - WM Chapter 7
 - `Python Strings <https://realpython.com/python-data-types/#strings>`_",`Link <exercises/Exercise_cleaning.ipynb>`_
 3-Oct,Thurs,330,- Pandas: Merging,- JVP pp 149 - 157,`Link <exercises/Exercise_merging.ipynb>`_
-8-Oct,Tues,270,Pandas: Reshaping,"- WM 8.3
+8-Oct,Tues,,FALL BREAK,,
+10-Oct,Thurs,330,Pandas: Reshaping,"- WM 8.3
 - `Pandas reshaping (with pics!) <https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html>`_
 - `What is goal of reshaping? <https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf>`_",`Link <exercises/Exercise_reshaping.ipynb>`_
-10-Oct,Thurs,330,FALL BREAK,,
 15-Oct,Tues,270,Groupby / Split-Apply-Combine,- JVP pp 212-228,`Link <exercises/Exercise_groupby.ipynb>`_
 17-Oct,Thurs,330,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,`Link <exercises/Exercise_git.ipynb>`_
 22-Oct,Tues,330,"Big Data: What is it, how do I work with it?","- `What is Big Data? <what_is_big_data.ipynb>`_
 - `Strategies for Big Data <big_data_strategies.ipynb>`_",
-24-Oct,Thurs,330,Speed and Performance in Python," - `Understanding Performance <performance_understanding.ipynb>`_
- - `Improving Performance <performance_solutions.ipynb>`_",
+24-Oct,Thurs,330,Speed and Performance in Python,"- `Understanding Performance <performance_understanding.ipynb>`_
+- `Improving Performance <performance_solutions.ipynb>`_",
 29-Oct,Tues,270,Parallelism,- `Parallel Computing <parallelism.ipynb>`_,
 31-Oct,Thurs,330,"- Defensive Programming
 - Getting Help Online","- `Defensive Programming <defensive_programming.ipynb>`_

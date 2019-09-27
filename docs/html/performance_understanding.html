@@ -16,7 +16,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Parallel Computing" href="parallelism.html" />
+    <link rel="next" title="Solving Performance Issues" href="performance_solutions.html" />
     <link rel="prev" title="Big Data Strategies" href="big_data_strategies.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -278,7 +278,7 @@ compile machine code once. Moreover, these languages also reduce the amount of �
 </div>
 <div class="section" id="Rules-for-Going-Fast-in-Python">
 <h2>Rules for Going Fast in Python<a class="headerlink" href="#Rules-for-Going-Fast-in-Python" title="Permalink to this headline">¶</a></h2>
-<p>So now that you have some sense of why Python can be slow, let’s talk about how to keep your Python code fast:</p>
+<p>So now that you have some sense of why Python can be slow, let’s talk about how to keep your Python code fast (note to R users: basically everything I say here about Python also applies to R):</p>
 <div class="section" id="Rule-1:-Use-other-people’s-functions">
 <h3>Rule 1: Use other people’s functions<a class="headerlink" href="#Rule-1:-Use-other-people’s-functions" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start with the dirty secret of Python: when you use a library in Python, the code you’re running was almost never actually written in Python. Instead, the functions you’re calling have a “thin” layer of Python at the top (which is what you’re interacting with), but when it comes to doing serious computations, the functions are actually calling tools written in C, which is <em>blazing</em> fast. (This is also true of R, by the way).</p>
@@ -421,15 +421,6 @@ You can’t just put them end-to-end and tell the computer “each number starts
 <div class="section" id="Still-have-problems?">
 <h2>Still have problems?<a class="headerlink" href="#Still-have-problems?" title="Permalink to this headline">¶</a></h2>
 <p>Check out more <a class="reference internal" href="performance_solutions.html"><span class="doc">advanced performance solutions</span></a>!</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -474,6 +465,7 @@ You can’t just put them end-to-end and tell the computer “each number starts
 <li class="toctree-l2"><a class="reference internal" href="#Still-have-problems?">Still have problems?</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="performance_solutions.html">Solving Performance Probs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallel Computing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_and_github.html">Git and Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>
@@ -487,7 +479,7 @@ You can’t just put them end-to-end and tell the computer “each number starts
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="big_data_strategies.html" title="previous chapter">Big Data Strategies</a></li>
-      <li>Next: <a href="parallelism.html" title="next chapter">Parallel Computing</a></li>
+      <li>Next: <a href="performance_solutions.html" title="next chapter">Solving Performance Issues</a></li>
   </ul></li>
 </ul>
 </div>
