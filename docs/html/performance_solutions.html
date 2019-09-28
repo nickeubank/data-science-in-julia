@@ -484,6 +484,13 @@ that function was in the process of executing when <code class="docutils literal
 <p>But as I said, it doesn’t work with everything. Here’s an <a class="reference external" href="http://numba.pydata.org/numba-doc/latest/user/5minguide.html">intro to numba</a>, and here’s a <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/reference/numpysupported.html">full list of things it can handle in nopython mode, and things it can’t.</a>.</p>
 <p>Also, as with Cython, note that <strong>in nopython Numba functions, loops are just as fast as vectorized code!</strong></p>
 </div>
+<div class="section" id="Use-Julia">
+<h2>Use Julia<a class="headerlink" href="#Use-Julia" title="Permalink to this headline">¶</a></h2>
+<p>I would be remiss at this point to not mention one other option for getting more speed: use the programming language <a class="reference external" href="https://julialang.org/">Julia</a>. Julia is a very new language that has syntax that is <em>very</em> similar to Python, but which runs tens or hundreds of times faster out of the box. Basically, it’s kinda like an entire language built around the technology also used by <code class="docutils literal notranslate"><span class="pre">numba</span></code>, but where <code class="docutils literal notranslate"><span class="pre">numba</span></code> is kind of finiky because it’s been tacked on to a language that was never built for
+speed, Julia was designed from the ground up for speed.</p>
+<p>If you want to know why I love Julia, <a class="reference external" href="https://www.youtube.com/watch?v=C4dMYHzW-SY">you can find a talk I gave on it here</a>. It’s a little old (I refer to Julia 1.0 not being out yet, but Julia’s up to 1.2 now), but the core arguments all still apply.</p>
+<p>To be clear, I wouldn’t recommend jumping languages if you just have one function you need to speed up, but if you’re doing work that causes you to have performance issues regularly, consider Julia.</p>
+</div>
 <div class="section" id="Parallelization">
 <h2>Parallelization<a class="headerlink" href="#Parallelization" title="Permalink to this headline">¶</a></h2>
 <p>If you’ve done all this and your code is <em>still</em> too slow, it’s time to look into <a class="reference internal" href="parallelism.html"><span class="doc">parallelization, which we’re doing next!</span></a></p>
@@ -530,6 +537,7 @@ that function was in the process of executing when <code class="docutils literal
 <li class="toctree-l2"><a class="reference internal" href="#Profiling-Code">Profiling Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Speeding-Code-with-Cython">Speeding Code with Cython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Speeding-Code-with-Numba">Speeding Code with Numba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Use-Julia">Use Julia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Parallelization">Parallelization</a></li>
 </ul>
 </li>
