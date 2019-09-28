@@ -240,17 +240,170 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Profiling-Code">
 <h2>Profiling Code<a class="headerlink" href="#Profiling-Code" title="Permalink to this headline">¶</a></h2>
 <p><strong>If you take nothing else away from this page, please read and remember this section!</strong></p>
-<p>There’s no reason to tune a line of code that is only responsible for 1/100 of your running time, so before you invest in speeding up your code, figure out what’s slowing it down – a process known as “profiling” your code. Thankfully, because this is so important, there are lots of tools (called profilers) for measuring exactly how long your computer is spending doing each step in a block of code. * Profiling in R: the two packages I’ve seen used most are
-<a class="reference external" href="http://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/profilingEx.html">Rprof</a> and <a class="reference external" href="http://adv-r.had.co.nz/Profiling.html#measure-perf">lineprof</a>. * Profiling in Python: if you use Jupyter Notebooks or Jupyter Labs, you can use the <a class="reference external" href="http://pynash.org/2013/03/06/timing-and-profiling.html">prun tool</a>. If for some reason you’re not using Jupyter, here’s a <a class="reference external" href="https://zapier.com/engineering/profiling-python-boss/">guide to a few other tools</a>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p>There’s no reason to tune a line of code that is only responsible for 1/100 of your running time, so before you invest in speeding up your code, figure out <em>exactly</em> what in your code is causing it to be slow – a process known as “profiling”.</p>
+<p>Thankfully, because this is so important, there are lots of tools (called profilers) for measuring exactly how long your computer is spending doing each step in a block of code. Here are a couple, with some demonstrations below:</p>
+<ul class="simple">
+<li><p>Profiling in R: the two packages I’ve seen used most are <a class="reference external" href="http://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/profilingEx.html">Rprof</a> and <a class="reference external" href="http://adv-r.had.co.nz/Profiling.html#measure-perf">lineprof</a>.</p></li>
+<li><p>Profiling in Python: if you use Jupyter Notebooks or Jupyter Labs, you can use the <a class="reference external" href="http://pynash.org/2013/03/06/timing-and-profiling.html">prun tool</a>. If for some reason you’re not using Jupyter, here’s a <a class="reference external" href="https://zapier.com/engineering/profiling-python-boss/">guide to a few other tools</a>.</p></li>
+</ul>
+<div class="section" id="Profiling-Example">
+<h3>Profiling Example<a class="headerlink" href="#Profiling-Example" title="Permalink to this headline">¶</a></h3>
+<p>To illustrate, let’s write a function (called <code class="docutils literal notranslate"><span class="pre">my_analysis</span></code>) which we can pretend is a big analysis that’s causing me problems. Within this analysis we’ll place several functions, most of which are fast, but one of which is slow. To make it <em>really</em> easy to see what is fast and what is slow, these functions will just call the <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> function, which literally just tells the computer to pause for a given number of seconds (i.e. <code class="docutils literal notranslate"><span class="pre">time.sleep(10)</span></code> makes execution pause for 10 seconds).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">a_slow_function</span><span class="p">():</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">a_medium_function</span><span class="p">():</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">a_fast_function</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">my_analysis</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a_slow_function</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a_medium_function</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a_fast_function</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;the result of my analysis is: </span><span class="si">{x}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">my_analysis</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+the result of my analysis is: 3
+</pre></div></div>
+</div>
+<p>Now we can profile this code with the IPython magic <code class="docutils literal notranslate"><span class="pre">%prun</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">prun</span> my_analysis()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+the result of my analysis is: 3
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>      44 function calls in 6.009 seconds
+
+Ordered by: internal time
+
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     2    6.009    3.004    6.009    3.004 {built-in method time.sleep}
+     3    0.000    0.000    0.000    0.000 socket.py:337(send)
+     1    0.000    0.000    6.009    6.009 {built-in method builtins.exec}
+     1    0.000    0.000    6.009    6.009 &lt;ipython-input-2-2718bcdb1d57&gt;:14(my_analysis)
+     3    0.000    0.000    0.000    0.000 iostream.py:197(schedule)
+     2    0.000    0.000    0.000    0.000 iostream.py:384(write)
+     1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+     3    0.000    0.000    0.000    0.000 threading.py:1080(is_alive)
+     1    0.000    0.000    1.004    1.004 &lt;ipython-input-2-2718bcdb1d57&gt;:7(a_medium_function)
+     3    0.000    0.000    0.000    0.000 threading.py:1038(_wait_for_tstate_lock)
+     2    0.000    0.000    0.000    0.000 iostream.py:309(_is_master_process)
+     1    0.000    0.000    5.005    5.005 &lt;ipython-input-2-2718bcdb1d57&gt;:3(a_slow_function)
+     3    0.000    0.000    0.000    0.000 {method &#39;acquire&#39; of &#39;_thread.lock&#39; objects}
+     2    0.000    0.000    0.000    0.000 iostream.py:322(_schedule_flush)
+     3    0.000    0.000    0.000    0.000 iostream.py:93(_event_pipe)
+     2    0.000    0.000    0.000    0.000 {built-in method posix.getpid}
+     3    0.000    0.000    0.000    0.000 {method &#39;append&#39; of &#39;collections.deque&#39; objects}
+     1    0.000    0.000    6.009    6.009 &lt;string&gt;:1(&lt;module&gt;)
+     3    0.000    0.000    0.000    0.000 threading.py:507(is_set)
+     2    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+     1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+     1    0.000    0.000    0.000    0.000 &lt;ipython-input-2-2718bcdb1d57&gt;:11(a_fast_function)
+</pre></div>
+</div>
+</div>
+<p>The output shows a number of things, but the most important are <code class="docutils literal notranslate"><span class="pre">tottime</span></code> and <code class="docutils literal notranslate"><span class="pre">cumtime</span></code>.</p>
+<p>From <code class="docutils literal notranslate"><span class="pre">tottime</span></code> we can see that 6 seconds was dedicated to running <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code>.</p>
+<p>From <code class="docutils literal notranslate"><span class="pre">cumtime</span></code>, you can also see <em>in which functions</em> <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> took the most time. As you can see, <code class="docutils literal notranslate"><span class="pre">cumtime</span></code> is not equal to the total time the function took to run – rather, it’s all the time spent within each function. <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> has a <code class="docutils literal notranslate"><span class="pre">cumtime</span></code> of 6.009 because a total of 6 seconds was spend while that function ran, but it is <em>also</em> the case that <code class="docutils literal notranslate"><span class="pre">a_slow_function</span></code> (listed as <code class="docutils literal notranslate"><span class="pre">&lt;ipython-input-2-2718bcdb1d57&gt;:3(a_slow_function)</span></code>) has a <code class="docutils literal notranslate"><span class="pre">cumtime</span></code> of 5 seconds (because
+that function was in the process of executing when <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> paused for 5 seconds).</p>
+<p>From this, we can deduce that <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> was slowing down our code, and that the occurance of <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> that slowed down our code the most was in <code class="docutils literal notranslate"><span class="pre">a_slow_function</span></code>.</p>
+</div>
+</div>
+<div class="section" id="Speeding-Code-with-Cython">
+<h2>Speeding Code with Cython<a class="headerlink" href="#Speeding-Code-with-Cython" title="Permalink to this headline">¶</a></h2>
+<p>There are two libraries designed to allow you to massively speed up Python code. The first is called <code class="docutils literal notranslate"><span class="pre">Cython</span></code>, and it is a way of writing code that is basically Python with type declarations. For example, if you wanted to add up all the numbers to a million in Python, you could write something like the following (obviously not the most concise way to do it, but you get the idea):</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">avg_numbers_up_to</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">adding_total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">adding_total</span> <span class="o">=</span> <span class="n">adding_total</span> <span class="o">+</span> <span class="n">i</span>
+
+    <span class="n">avg</span> <span class="o">=</span> <span class="n">adding_total</span> <span class="o">/</span> <span class="n">N</span>
+
+    <span class="k">return</span> <span class="n">avg</span>
+</pre></div>
+</div>
+</div>
+<p>But in Cython, you would write:</p>
+<div class="highlight-cython notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">avg_numbers_up_to</span><span class="p">(</span><span class="nb">int</span> <span class="n">N</span><span class="p">):</span>
+    <span class="k">cdef</span> <span class="kt">int</span> <span class="nf">adding_total</span>
+
+    <span class="n">adding_total</span> <span class="o">=</span> <span class="mf">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">adding_total</span> <span class="o">=</span> <span class="n">adding_total</span> <span class="o">+</span> <span class="n">i</span>
+
+    <span class="k">cdef</span> <span class="kt">float</span> <span class="nf">avg</span>
+    <span class="n">avg</span> <span class="o">=</span> <span class="n">adding_total</span> <span class="o">/</span> <span class="n">N</span>
+
+    <span class="k">return</span> <span class="n">avg</span>
+</pre></div>
+</div>
+<p>Then to integrate this into your Python code, you would save this function definition into a new file (with the suffix <code class="docutils literal notranslate"><span class="pre">.pyx</span></code> (say, <code class="docutils literal notranslate"><span class="pre">avg_numbers.pyx</span></code>), and put this code at the top of your Python script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">from</span> <span class="nn">Cython.Build</span> <span class="kn">import</span> <span class="n">cythonize</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">ext_modules</span><span class="o">=</span><span class="n">cythonize</span><span class="p">(</span><span class="s1">&#39;avg_numbers.pyx&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Then you can call your Cythonized function (<code class="docutils literal notranslate"><span class="pre">avg_number_up_to</span></code>) in your normal Python script, but you’ll now find it runs ~10x - 100x faster! (Note that this speedup is only likely when compared to <em>pure python</em> code. If you’re comparing Cython to a library function that was already written in C, youre Cythonized Python is unlikely be any faster (and may be slower) than that library function.</p>
+<div class="section" id="Cython-limitations">
+<h3>Cython limitations<a class="headerlink" href="#Cython-limitations" title="Permalink to this headline">¶</a></h3>
+<p>There are a few limitations to be aware of, however:</p>
+<ul class="simple">
+<li><p>Cython only really works with (a) native Python and (b) NumPy (<a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/numpy_tutorial.html#numpy-tutorial">numpy instructions here</a>). <em>Some</em> other libraries are / can be supported, but it’s not nearly as straightfoward as the example above.</p>
+<ul>
+<li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html">Here’s a guide to use with pandas.</a></p></li>
+</ul>
+</li>
+<li><p>The function you write will <em>not</em> be dynamically typed, so if you said the function would accept integers, you can only give it integers.</p></li>
+<li><p>Distributing code you write with Cython can be tricky.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="Speeding-Code-with-Numba">
+<h2>Speeding Code with Numba<a class="headerlink" href="#Speeding-Code-with-Numba" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -301,6 +454,8 @@ div.rendered_html tbody tr:hover {
 <li class="toctree-l1"><a class="reference internal" href="performance_understanding.html">Understanding Performance</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Solving Performance Probs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Profiling-Code">Profiling Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Speeding-Code-with-Cython">Speeding Code with Cython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Speeding-Code-with-Numba">Speeding Code with Numba</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallel Computing</a></li>

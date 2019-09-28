@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Cleaning Data &#8212; Practical Data Science</title>
+    <title>Big Data Exercises &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -32,25 +32,25 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="Cleaning-Data">
-<h1>Cleaning Data<a class="headerlink" href="#Cleaning-Data" title="Permalink to this headline">¶</a></h1>
-<p><strong>1)</strong> For our data cleaning exercises, we will return one last time to our ACS data <a class="reference external" href="https://github.com/nickeubank/MIDS_Data/tree/master/US_AmericanCommunitySurvey">here</a>. Download and import the 10percent ACS sample.</p>
-<p><strong>2)</strong> For our exercises today, we’ll focus on <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">gender</span></code>, <code class="docutils literal notranslate"><span class="pre">educ</span></code>, and <code class="docutils literal notranslate"><span class="pre">inctot</span></code>. Subset your data to those variables, and quickly look at a sample of 10 rows.</p>
-<p><strong>3)</strong> First, replace all the values of <code class="docutils literal notranslate"><span class="pre">inctot</span></code> that are 9999999 with <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
-<p><strong>4)</strong> Calculate the average age of people in our data. What do you get?</p>
-<p><strong>5)</strong> We want to be able to calculate things using age, so we need it to be a numeric type. Check all the values of <code class="docutils literal notranslate"><span class="pre">age</span></code> to figure out why it’s categorical and not numeric. You should find two problematic categories.</p>
-<p><strong>6)</strong> In order to convert <code class="docutils literal notranslate"><span class="pre">age</span></code> into a numeric variable, we need to replace those problematic entries with values that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can later convert into numbers. Pick appropriate substitutions for the existing values and replace the current values. <strong>Hint 1:</strong> Categorical variables act like strings, so you might want to use string methods! <strong>Hint 2:</strong> Remember that characters like parentheses, pluses, asterices, etc. are special in Python strings, and you have to escape them if you want them
-to be interpreted literally!</p>
-<p><strong>7)</strong> Now convert age from a categorical to numeric.</p>
-<p><strong>8)</strong> Let’s now filter out anyone in our data whose age is greater than 18. Note that before made <code class="docutils literal notranslate"><span class="pre">age</span></code> a numeric variable, we couldn’t do this!</p>
-<p><strong>9)</strong> Create an indicator variable for whether each person has at least a college degree called <code class="docutils literal notranslate"><span class="pre">college_degree</span></code>.</p>
-<p><strong>10)</strong> Let’s examine how the educational gender gap. Use <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> to create a cross-tabulation of <code class="docutils literal notranslate"><span class="pre">sex</span></code> and <code class="docutils literal notranslate"><span class="pre">college_degree</span></code>. <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> will give you the number of people who have each combination of <code class="docutils literal notranslate"><span class="pre">sex</span></code> and <code class="docutils literal notranslate"><span class="pre">college_degree</span></code> (so in this case, it will give us a 2x2 table with Male and Female as rows, and <code class="docutils literal notranslate"><span class="pre">college_degree</span></code> True and False as columns, or vice versa.</p>
-<p><strong>11)</strong> Counts are kind of hard to interpret. <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> can also normalize values to give percentages. Look at the <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> help file to figure out how to normalize the values in the table. Normalize them so that you get the share of men with and without college degree, and the share of women with and without college degrees.</p>
-<p><strong>12)</strong> Now, let’s recreate that table for people over 40 and people under 40. Has the difference between men and women in terms of getting a college degree impoved, stayed the same, or worsened?</p>
+  <div class="section" id="Big-Data-Exercises">
+<h1>Big Data Exercises<a class="headerlink" href="#Big-Data-Exercises" title="Permalink to this headline">¶</a></h1>
+<p>In these exercises we will work on data from a series of global weather monitoring stations used to measure climate trends to examine long-term trends in temperature for your home locality. This data comes from the Global Historical Climatology Network, and is the actual raw data provided by NOAA. The only changes I have made to this data are a few small formatting changes to help meet the learning goals of this exercise.</p>
+<p>To do these excercises, first please download the data for this exercise <a class="reference external" href="https://www.dropbox.com/s/z7nv10cgm3dj9jn/global_climate_data.zip?dl=0">from here</a>. Note this is a big file (this is a big-data exercise), so be patient.</p>
+<p><strong>(1)</strong> The data we’ll be working with can be found in the file <code class="docutils literal notranslate"><span class="pre">ghcnd_daily.tar.gz</span></code>. Unpack this file to begin (it will be about 30gb), then open the <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> to read about the format of this file.</p>
+<p><strong>(2)</strong> First, read in the first 20 lines or so of the data to get a sense of how it is organized. Note that as explained, this file is a “fixed-width” formatted file, meaning that rather than putting commas between columns, each column takes up a specified number of characters in every row. Google “reading fixed-width data in pandas” to figure out how to work with this kind of data.</p>
+<p><strong>(3)</strong> Rather than work with the entire database, each pair should pick two weather stations two examine. Using the ancillary files in the project, figure out what weather stations you wish to study. I suggest each person pick a weather station close to where they grew up.</p>
+<p>In addition, also plan on pulling the data for “US1COAR0044” (a weather station only a couple dozen blocks from where I grew up!) so you can generate results that we can all compare (to check for accuracy).</p>
+<p><strong>(4)</strong> Once you’ve picked the stations you wish to study, write code to read in all the climate data and keep only the observations for the wealth stations you’ve selected to focus on. The two outcome we care about are maximium temp and minimum temp.</p>
+<p><strong>(5)</strong> Check the values of your quality flags and decide whether you should keep all observations in your data.</p>
+<p><strong>(6)</strong> Reshape your data so max temp is one column and min temp is another (this isn’t <em>stricty</em> necessary, but is good practice!)</p>
+<p><strong>(7)</strong> Now for each weather station, generate a separate plot of the daily temperatures over time. You should end up with a plot that looks something like this (though you’ll be plotting daily max temps and daily min temps):</p>
+<p><img alt="climate_plot_example" src="../_images/climate_plot_example.jpg" /></p>
 <div class="section" id="Want-More-Practice?">
 <h2>Want More Practice?<a class="headerlink" href="#Want-More-Practice?" title="Permalink to this headline">¶</a></h2>
-<p>Calculate the educational racial gap in the United States for White Americans, Black Americans, Hispanic Americans, and other groups.</p>
-<p>Note that to do these calculations, you’ll have to deal with the fact that unlike most Americans, the American Census Bureau treats “Hispanic” not as a racial category, but a linguistic one. As a result, the racial category “White” in <code class="docutils literal notranslate"><span class="pre">race</span></code> actually includes most Hispanic Americans. For this analysis, we wish to work with the mutually exclusive categories of “White, non-Hispanic”, “White, Hispanic”, “Black (Hispanic or non-Hispanic)”, and a category for everyone else.</p>
+<p>Let’s compare trends across countries!</p>
+<p><strong>(1)</strong> Pick three countries and gather all the temperature reports for those countries.</p>
+<p><strong>(2)</strong> For each day, average the max tempurature across all weather statements in each country to get a lower-variance estimate of overall temperature for each county.</p>
+<p><strong>(3)</strong> Plot daily temperatures seperately for the three countries, and fit a linear model to see which has the greatest increases in temperature.</p>
 </div>
 </div>
 
@@ -136,7 +136,7 @@ to be interpreted literally!</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/exercises/Exercise_cleaning.ipynb.txt"
+      <a href="../_sources/exercises/Exercise_bigdata.ipynb.txt"
           rel="nofollow">Page source</a>
     </div>
 

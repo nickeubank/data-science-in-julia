@@ -17,17 +17,206 @@
     "\n",
     "**If you take nothing else away from this page, *please* read and remember this section!**\n",
     "\n",
-    "There's no reason to tune a line of code that is only responsible for 1/100 of your running time, so before you invest in speeding up your code, figure out what's slowing it down --  a process known as \"profiling\" your code. Thankfully, because this is so important, there are lots of tools (called profilers) for measuring exactly how long your computer is spending doing each step in a block of code. \n",
-    "* Profiling in R: the two packages I've seen used most are [Rprof](http://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/profilingEx.html) and [lineprof](http://adv-r.had.co.nz/Profiling.html#measure-perf).\n",
-    "* Profiling in Python: if you use Jupyter Notebooks or Jupyter Labs, you can use the [prun tool](http://pynash.org/2013/03/06/timing-and-profiling.html). If for some reason you're not using Jupyter, here's a [guide to a few other tools](https://zapier.com/engineering/profiling-python-boss/).\n"
+    "There's no reason to tune a line of code that is only responsible for 1/100 of your running time, so before you invest in speeding up your code, figure out *exactly* what in your code is causing it to be slow --  a process known as \"profiling\". \n",
+    "\n",
+    "Thankfully, because this is so important, there are lots of tools (called profilers) for measuring exactly how long your computer is spending doing each step in a block of code. Here are a couple, with some demonstrations below:\n",
+    "\n",
+    "- Profiling in R: the two packages I've seen used most are [Rprof](http://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/profilingEx.html) and [lineprof](http://adv-r.had.co.nz/Profiling.html#measure-perf).\n",
+    "- Profiling in Python: if you use Jupyter Notebooks or Jupyter Labs, you can use the [prun tool](http://pynash.org/2013/03/06/timing-and-profiling.html). If for some reason you're not using Jupyter, here's a [guide to a few other tools](https://zapier.com/engineering/profiling-python-boss/).\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Profiling Example\n",
+    "\n",
+    "To illustrate, let's write a function (called `my_analysis`) which we can pretend is a big analysis that's causing me problems. Within this analysis we'll place several functions, most of which are fast, but one of which is slow. To make it *really* easy to see what is fast and what is slow, these functions will just call the `time.sleep()` function, which literally just tells the computer to pause for a given number of seconds (i.e. `time.sleep(10)` makes execution pause for 10 seconds). "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "the result of my analysis is: 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "import time\n",
+    "\n",
+    "def a_slow_function():\n",
+    "    time.sleep(5)\n",
+    "    return 1\n",
+    "    \n",
+    "def a_medium_function():\n",
+    "    time.sleep(1)\n",
+    "    return 1\n",
+    "\n",
+    "def a_fast_function():\n",
+    "    return 1\n",
+    "    \n",
+    "def my_analysis():\n",
+    "    x = 0\n",
+    "    x = x + a_slow_function()\n",
+    "    x = x + a_medium_function()\n",
+    "    x = x + a_fast_function()\n",
+    "    print(f'the result of my analysis is: {x}')\n",
+    "\n",
+    "my_analysis()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now we can profile this code with the IPython magic `%prun`:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "the result of my analysis is: 3\n",
+      " "
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "         44 function calls in 6.009 seconds\n",
+       "\n",
+       "   Ordered by: internal time\n",
+       "\n",
+       "   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n",
+       "        2    6.009    3.004    6.009    3.004 {built-in method time.sleep}\n",
+       "        3    0.000    0.000    0.000    0.000 socket.py:337(send)\n",
+       "        1    0.000    0.000    6.009    6.009 {built-in method builtins.exec}\n",
+       "        1    0.000    0.000    6.009    6.009 <ipython-input-2-2718bcdb1d57>:14(my_analysis)\n",
+       "        3    0.000    0.000    0.000    0.000 iostream.py:197(schedule)\n",
+       "        2    0.000    0.000    0.000    0.000 iostream.py:384(write)\n",
+       "        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}\n",
+       "        3    0.000    0.000    0.000    0.000 threading.py:1080(is_alive)\n",
+       "        1    0.000    0.000    1.004    1.004 <ipython-input-2-2718bcdb1d57>:7(a_medium_function)\n",
+       "        3    0.000    0.000    0.000    0.000 threading.py:1038(_wait_for_tstate_lock)\n",
+       "        2    0.000    0.000    0.000    0.000 iostream.py:309(_is_master_process)\n",
+       "        1    0.000    0.000    5.005    5.005 <ipython-input-2-2718bcdb1d57>:3(a_slow_function)\n",
+       "        3    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.lock' objects}\n",
+       "        2    0.000    0.000    0.000    0.000 iostream.py:322(_schedule_flush)\n",
+       "        3    0.000    0.000    0.000    0.000 iostream.py:93(_event_pipe)\n",
+       "        2    0.000    0.000    0.000    0.000 {built-in method posix.getpid}\n",
+       "        3    0.000    0.000    0.000    0.000 {method 'append' of 'collections.deque' objects}\n",
+       "        1    0.000    0.000    6.009    6.009 <string>:1(<module>)\n",
+       "        3    0.000    0.000    0.000    0.000 threading.py:507(is_set)\n",
+       "        2    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}\n",
+       "        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}\n",
+       "        1    0.000    0.000    0.000    0.000 <ipython-input-2-2718bcdb1d57>:11(a_fast_function)"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "%prun my_analysis()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The output shows a number of things, but the most important are `tottime` and `cumtime`. \n",
+    "\n",
+    "From `tottime` we can see that 6 seconds was dedicated to running `time.sleep()`.  \n",
+    "\n",
+    "From `cumtime`, you can also see *in which functions* `time.sleep()` took the most time. As you can see, `cumtime` is not equal to the total time the function took to run -- rather, it's all the time spent within each function. `time.sleep()` has a `cumtime` of 6.009 because a total of 6 seconds was spend while that function ran, but it is *also* the case that `a_slow_function` (listed as `<ipython-input-2-2718bcdb1d57>:3(a_slow_function)`) has a `cumtime` of 5 seconds (because that function was in the process of executing when `time.sleep()` paused for 5 seconds).  \n",
+    "\n",
+    "From this, we can deduce that `time.sleep()` was slowing down our code, and that the occurance of `time.sleep()` that slowed down our code the most was in `a_slow_function`. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Speeding Code with Cython\n",
+    "\n",
+    "There are two libraries designed to allow you to massively speed up Python code. The first is called `Cython`, and it is a way of writing code that is basically Python with type declarations. For example, if you wanted to add up all the numbers to a million in Python, you could write something like the following (obviously not the most concise way to do it, but you get the idea): "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "def avg_numbers_up_to(N):\n",
+    "    adding_total = 0\n",
+    "    for i in range(N):\n",
+    "        adding_total = adding_total + i\n",
+    "    \n",
+    "    avg = adding_total / N\n",
+    "    \n",
+    "    return avg"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "But in Cython, you would write:\n",
+    "\n",
+    "```cython \n",
+    "    def avg_numbers_up_to(int N):\n",
+    "        cdef int adding_total\n",
+    "\n",
+    "        adding_total = 0\n",
+    "\n",
+    "        for i in range(N):\n",
+    "            adding_total = adding_total + i\n",
+    "\n",
+    "        cdef float avg\n",
+    "        avg = adding_total / N\n",
+    "\n",
+    "        return avg\n",
+    "```\n",
+    "\n",
+    "Then to integrate this into your Python code, you would save this function definition into a new file (with the suffix `.pyx` (say, `avg_numbers.pyx`), and put this code at the top of your Python script: \n",
+    "\n",
+    "```python\n",
+    "from distutils.core import setup\n",
+    "from Cython.Build import cythonize\n",
+    "\n",
+    "setup(ext_modules=cythonize('avg_numbers.pyx'))\n",
+    "```\n",
+    "\n",
+    "Then you can call your Cythonized function (`avg_number_up_to`) in your normal Python script, but you'll now find it runs ~10x - 100x faster! (Note that this speedup is only likely when compared to *pure python* code. If you're comparing Cython to a library function that was already written in C, youre Cythonized Python is unlikely be any faster (and may be slower) than that library function. \n",
+    "\n",
+    "### Cython limitations\n",
+    "\n",
+    "There are a few limitations to be aware of, however: \n",
+    "\n",
+    "- Cython only really works with (a) native Python and (b) NumPy ([numpy instructions here](https://cython.readthedocs.io/en/latest/src/userguide/numpy_tutorial.html#numpy-tutorial)). *Some* other libraries are / can be supported, but it's not nearly as straightfoward as the example above. \n",
+    "    - [Here's a guide to use with pandas.](https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html)\n",
+    "- The function you write will *not* be dynamically typed, so if you said the function would accept integers, you can only give it integers. \n",
+    "- Distributing code you write with Cython can be tricky. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Speeding Code with Numba\n"
+   ]
   },
   {
    "cell_type": "code",
