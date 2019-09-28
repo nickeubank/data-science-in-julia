@@ -201,11 +201,13 @@
     "\n",
     "Then you can call your Cythonized function (`avg_number_up_to`) in your normal Python script, but you'll now find it runs ~10x - 100x faster! (Note that this speedup is only likely when compared to *pure python* code. If you're comparing Cython to a library function that was already written in C, youre Cythonized Python is unlikely be any faster (and may be slower) than that library function. \n",
     "\n",
+    "Also, note that **in Cythonized code, loops are just as fast as vectorized code!**\n",
+    "\n",
     "### Cython limitations\n",
     "\n",
     "There are a few limitations to be aware of, however: \n",
     "\n",
-    "- Cython only really works with (a) native Python and (b) NumPy ([numpy instructions here](https://cython.readthedocs.io/en/latest/src/userguide/numpy_tutorial.html#numpy-tutorial)). *Some* other libraries are / can be supported, but it's not nearly as straightfoward as the example above. \n",
+    "- Cython only really works with (a) native Python and (b) NumPy ([numpy instructions here](https://cython.readthedocs.io/en/latest/src/userguide/numpy_tutorial.html#numpy-tutorial)). *Some* other Python libraries are / can be supported, but it's not nearly as straightfoward as the example above.\n",
     "    - [Here's a guide to use with pandas.](https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html)\n",
     "- The function you write will *not* be dynamically typed, so if you said the function would accept integers, you can only give it integers. \n",
     "- Distributing code you write with Cython can be tricky. "
@@ -215,15 +217,111 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Speeding Code with Numba\n"
+    "## Speeding Code with Numba\n",
+    "\n",
+    "Another tool you can use is `numba`. Numba is a program that, when it works, is *super easy* and kinda magic, but can also be rather finicky. \n",
+    "\n",
+    "The idea of `numba` is that it treats each function like it's own little program, and tries to compile it to make it faster. \n",
+    "\n",
+    "It can operate in two modes. In the first (\"python mode\"), it achieves it's speed-up by saving the machine code that was used the first time a function is run. The speed benefits of this aren't huge -- Python still has to do all the work of doing type checking and de-referencing, but it only has to actually convert what it's doing to machine code once, so if you plan on using a function over and over, it can be beneficial. \n",
+    "\n",
+    "The second mode (\"nopython mode\") is blazing fast. In nopython mode, `numba` analyzes your function, and then makes inferences about the types of variables that it will encounter. For example, if you gave the following code to Python: \n",
+    "\n",
+    "```python\n",
+    "def my_big_loop(N):\n",
+    "    accumulator = 0\n",
+    "    for i in range(N):\n",
+    "        accumulator = accumulator + i\n",
+    "    return accumulator\n",
+    "```\n",
+    "\n",
+    "And then you ran that code with `N=1000000`, then `numba` would look at the function and think to itself \"ok, so `N` is an integer. And `accumulator` starts as an integer. And if I add integers, they will always stay integers. So `accumulator + i` will always be integer addition. So I don't have to think about types at every stop of this loop!\n",
+    "\n",
+    "The only catch is that `numba` can't always do `nopython` mode. For example, `numba` isn't compatible with `pandas`, so if you put `pandas` code in a function you pass to `numba`, it can't work in `nopython` mode. \n",
+    "\n",
+    "But when it does work, it's magic, because instead of making a new file that has to be compiled seperately and which won't \"just work\" on other computers, to make `numba` work you just add a \"decorator\" to the function you want to speed up. For example:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "# Without numba\n",
+    "def my_big_loop(N):\n",
+    "    accumulator = 0\n",
+    "    for i in range(N):\n",
+    "        accumulator = accumulator + i\n",
+    "    return accumulator"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "59.4 ms ± 2.07 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%timeit my_big_loop(1000000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "174 ns ± 5.36 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# With numba\n",
+    "from numba import jit\n",
+    "\n",
+    "# We just add this \"decorator\" (A line that starts with @ just above a function)\n",
+    "# The \"nopython=True\" option says to jit \"tell me if you can't work in nopython more, \n",
+    "# dont' just silently revert to Python mode.\"\n",
+    "@jit(nopython=True) \n",
+    "def my_big_loop(N):\n",
+    "    accumulator = 0\n",
+    "    for i in range(N):\n",
+    "        accumulator = accumulator + i\n",
+    "    return accumulator\n",
+    "\n",
+    "%timeit my_big_loop(1000000)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Not bad, huh? Add one line of code, and this speeds up by 600x!\n",
+    "\n",
+    "But as I said, it doesn't work with everything. Here's an [intro to numba](http://numba.pydata.org/numba-doc/latest/user/5minguide.html), and here's a [full list of things it can handle in nopython mode, and things it can't.](https://numba.pydata.org/numba-doc/dev/reference/numpysupported.html).  \n",
+    "\n",
+    "Also, as with Cython, note that **in nopython Numba functions, loops are just as fast as vectorized code!**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Parallelization\n",
+    "\n",
+    "If you've done all this and your code is *still* too slow, it's time to look into [parallelization, which we're doing next!](parallelism.ipynb)"
+   ]
   }
  ],
  "metadata": {

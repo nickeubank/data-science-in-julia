@@ -388,11 +388,12 @@ that function was in the process of executing when <code class="docutils literal
 </pre></div>
 </div>
 <p>Then you can call your Cythonized function (<code class="docutils literal notranslate"><span class="pre">avg_number_up_to</span></code>) in your normal Python script, but you’ll now find it runs ~10x - 100x faster! (Note that this speedup is only likely when compared to <em>pure python</em> code. If you’re comparing Cython to a library function that was already written in C, youre Cythonized Python is unlikely be any faster (and may be slower) than that library function.</p>
+<p>Also, note that <strong>in Cythonized code, loops are just as fast as vectorized code!</strong></p>
 <div class="section" id="Cython-limitations">
 <h3>Cython limitations<a class="headerlink" href="#Cython-limitations" title="Permalink to this headline">¶</a></h3>
 <p>There are a few limitations to be aware of, however:</p>
 <ul class="simple">
-<li><p>Cython only really works with (a) native Python and (b) NumPy (<a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/numpy_tutorial.html#numpy-tutorial">numpy instructions here</a>). <em>Some</em> other libraries are / can be supported, but it’s not nearly as straightfoward as the example above.</p>
+<li><p>Cython only really works with (a) native Python and (b) NumPy (<a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/numpy_tutorial.html#numpy-tutorial">numpy instructions here</a>). <em>Some</em> other Python libraries are / can be supported, but it’s not nearly as straightfoward as the example above.</p>
 <ul>
 <li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html">Here’s a guide to use with pandas.</a></p></li>
 </ul>
@@ -404,15 +405,88 @@ that function was in the process of executing when <code class="docutils literal
 </div>
 <div class="section" id="Speeding-Code-with-Numba">
 <h2>Speeding Code with Numba<a class="headerlink" href="#Speeding-Code-with-Numba" title="Permalink to this headline">¶</a></h2>
+<p>Another tool you can use is <code class="docutils literal notranslate"><span class="pre">numba</span></code>. Numba is a program that, when it works, is <em>super easy</em> and kinda magic, but can also be rather finicky.</p>
+<p>The idea of <code class="docutils literal notranslate"><span class="pre">numba</span></code> is that it treats each function like it’s own little program, and tries to compile it to make it faster.</p>
+<p>It can operate in two modes. In the first (“python mode”), it achieves it’s speed-up by saving the machine code that was used the first time a function is run. The speed benefits of this aren’t huge – Python still has to do all the work of doing type checking and de-referencing, but it only has to actually convert what it’s doing to machine code once, so if you plan on using a function over and over, it can be beneficial.</p>
+<p>The second mode (“nopython mode”) is blazing fast. In nopython mode, <code class="docutils literal notranslate"><span class="pre">numba</span></code> analyzes your function, and then makes inferences about the types of variables that it will encounter. For example, if you gave the following code to Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_big_loop</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">accumulator</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">accumulator</span> <span class="o">=</span> <span class="n">accumulator</span> <span class="o">+</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">accumulator</span>
+</pre></div>
+</div>
+<p>And then you ran that code with <code class="docutils literal notranslate"><span class="pre">N=1000000</span></code>, then <code class="docutils literal notranslate"><span class="pre">numba</span></code> would look at the function and think to itself “ok, so <code class="docutils literal notranslate"><span class="pre">N</span></code> is an integer. And <code class="docutils literal notranslate"><span class="pre">accumulator</span></code> starts as an integer. And if I add integers, they will always stay integers. So <code class="docutils literal notranslate"><span class="pre">accumulator</span> <span class="pre">+</span> <span class="pre">i</span></code> will always be integer addition. So I don’t have to think about types at every stop of this loop!</p>
+<p>The only catch is that <code class="docutils literal notranslate"><span class="pre">numba</span></code> can’t always do <code class="docutils literal notranslate"><span class="pre">nopython</span></code> mode. For example, <code class="docutils literal notranslate"><span class="pre">numba</span></code> isn’t compatible with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, so if you put <code class="docutils literal notranslate"><span class="pre">pandas</span></code> code in a function you pass to <code class="docutils literal notranslate"><span class="pre">numba</span></code>, it can’t work in <code class="docutils literal notranslate"><span class="pre">nopython</span></code> mode.</p>
+<p>But when it does work, it’s magic, because instead of making a new file that has to be compiled seperately and which won’t “just work” on other computers, to make <code class="docutils literal notranslate"><span class="pre">numba</span></code> work you just add a “decorator” to the function you want to speed up. For example:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="c1"># Without numba</span>
+<span class="k">def</span> <span class="nf">my_big_loop</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">accumulator</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">accumulator</span> <span class="o">=</span> <span class="n">accumulator</span> <span class="o">+</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">accumulator</span>
 </pre></div>
 </div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">timeit</span> my_big_loop(1000000)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+59.4 ms ± 2.07 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># With numba</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="k">import</span> <span class="n">jit</span>
+
+<span class="c1"># We just add this &quot;decorator&quot; (A line that starts with @ just above a function)</span>
+<span class="c1"># The &quot;nopython=True&quot; option says to jit &quot;tell me if you can&#39;t work in nopython more,</span>
+<span class="c1"># dont&#39; just silently revert to Python mode.&quot;</span>
+<span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_big_loop</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">accumulator</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">accumulator</span> <span class="o">=</span> <span class="n">accumulator</span> <span class="o">+</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">accumulator</span>
+
+<span class="o">%</span><span class="k">timeit</span> my_big_loop(1000000)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+174 ns ± 5.36 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+</pre></div></div>
+</div>
+<p>Not bad, huh? Add one line of code, and this speeds up by 600x!</p>
+<p>But as I said, it doesn’t work with everything. Here’s an <a class="reference external" href="http://numba.pydata.org/numba-doc/latest/user/5minguide.html">intro to numba</a>, and here’s a <a class="reference external" href="https://numba.pydata.org/numba-doc/dev/reference/numpysupported.html">full list of things it can handle in nopython mode, and things it can’t.</a>.</p>
+<p>Also, as with Cython, note that <strong>in nopython Numba functions, loops are just as fast as vectorized code!</strong></p>
+</div>
+<div class="section" id="Parallelization">
+<h2>Parallelization<a class="headerlink" href="#Parallelization" title="Permalink to this headline">¶</a></h2>
+<p>If you’ve done all this and your code is <em>still</em> too slow, it’s time to look into <a class="reference internal" href="parallelism.html"><span class="doc">parallelization, which we’re doing next!</span></a></p>
 </div>
 </div>
 
@@ -456,6 +530,7 @@ that function was in the process of executing when <code class="docutils literal
 <li class="toctree-l2"><a class="reference internal" href="#Profiling-Code">Profiling Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Speeding-Code-with-Cython">Speeding Code with Cython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Speeding-Code-with-Numba">Speeding Code with Numba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Parallelization">Parallelization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallel Computing</a></li>
