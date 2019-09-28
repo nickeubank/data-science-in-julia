@@ -8,8 +8,7 @@
     "\n",
     "In these exercises we will work on data from a series of global weather monitoring stations used to measure climate trends to examine long-term trends in temperature for your home locality. This data comes from the Global Historical Climatology Network, and is the actual raw data provided by NOAA. The only changes I have made to this data are a few small formatting changes to help meet the learning goals of this exercise. \n",
     "\n",
-    "To do these excercises, first please download the data for this exercise [from here](). Note this is a VERY big file (this is a big-data exercise), so be patient. \n",
-    "\n"
+    "To do these excercises, first please download the data for this exercise [from here](). Note this is a VERY big file (this is a big-data exercise, after all), so be patient. "
    ]
   },
   {
@@ -32,7 +31,9 @@
    "source": [
     "**(3)** Rather than work with the entire database, each pair should pick two weather stations two examine. Using the ancillary files in the project, figure out what weather stations you wish to study. I suggest each person pick a weather station close to where they grew up. \n",
     "\n",
-    "In addition, also plan on pulling the data for \"US1COAR0044\" (a weather station only a couple dozen blocks from where I grew up!) so you can generate results that we can all compare (to check for accuracy). "
+    "When picking a weather station, however, select one with the `HCN` flag in the `ghcnd-stations.txt` file. Those are members of the \"Historic Climatological Network\" and have the longest time series and always include temperature data. \n",
+    "\n",
+    "In addition, also plan on pulling the data for \"USC00050848\" (a weather station from near my home!) so you can generate results that we can all compare (to check for accuracy). "
    ]
   },
   {

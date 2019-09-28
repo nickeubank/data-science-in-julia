@@ -83,7 +83,11 @@ coming up. And when cleaning data, you are often writing very linear (this-line-
 <p>When you <a class="reference internal" href="setup_environment.html"><span class="doc">installed Anaconda</span></a>, you actually also installed Jupyter, and you so you can already open up Jupyter and use it with a Python Kernel. However, since most people taking this course are Duke MIDS students who are also doing coursework in R, let’s set up Jupyter to work with R as well.</p>
 <ol class="arabic simple">
 <li><p>If you do <em>not</em> have R installed, <a class="reference external" href="https://cloud.r-project.org/">download and install it here</a>. If you have R installed, skip to step 2.</p></li>
-<li><p>Open R by openning your command line tool (Oh-My-Zsh on Mac, Cmder in Windows) and typing <code class="docutils literal notranslate"><span class="pre">R</span></code>. <em>Don’t open it by double clicking its icon!</em></p></li>
+<li><p>Open R by openning your command line tool (Oh-My-Zsh on Mac, Cmder in Windows) and typing <code class="docutils literal notranslate"><span class="pre">R</span></code>. <em>Don’t open it by double clicking its icon!</em></p>
+<ul class="simple">
+<li><p>If you can’t open R by just typing <code class="docutils literal notranslate"><span class="pre">R</span></code>, you have to launch it by putting in the absolute path to your R installation. On a Mac, doing this requires typing something like the following into your command line (depending on exactly where R is installed on your system): <code class="docutils literal notranslate"><span class="pre">/Applications/R.app/Contents/MacOS/R</span></code>. Similarly, using Cmder on Windows you need to type something like (depending on installed version): <code class="docutils literal notranslate"><span class="pre">/c/Program</span> <span class="pre">Files/R/R-3.6.0/bin/R.exe</span></code>.</p></li>
+</ul>
+</li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">install.packages(&quot;IRkernel&quot;)</span></code></p></li>
 <li><p>After installation is complete, execute the command: <code class="docutils literal notranslate"><span class="pre">IRkernel::installspec()</span></code> in R.</p></li>
 </ol>
