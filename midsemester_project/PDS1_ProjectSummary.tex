@@ -105,6 +105,8 @@ https://azdhs.gov/documents/prevention/womens-childrens-health/injury-prevention
 
 \subsection*{Data}
 
+Two sources of data you will definitely need for this analysis are information on (a) opioid prescriptions, and (b) drug overdose mortality. Sources for this data are provided below. You will also likely need at least one other source of data, which you will be required to find on your own.
+
 \subsubsection*{Opioid Prescriptions}
 
 A core component of this project will be a recently released dataset of all prescription opioid drug shipments in the United States from 2006 to 2012. This was only \emph{just} released (in mid-2019) by the \emph{Washington Post}, which obtained the data through a Freedom of Information Act (FOIA) request to the US Drug Enforcement Agency.
@@ -159,23 +161,48 @@ prescription data and history related to the patient contained in the state’s 
   \begin{itemize}
     \item ``Florida gained notoriety after 2007 because of the proliferation of pain clinics in the state that were prescribing large quantities of drugs for pain with little medical justification and were being used primarily by persons abusing or diverting opioid analgesics, benzodiazepines, and muscle relaxants. In 2010, Florida was also home to 98 of the 100 U. S. physicians who dispensed the highest quantities of oxycodone directly from their offices. In response, Florida enacted several measures to address prescribing that was inconsistent with best practices. The Florida legislature required that pain clinics treating pain with controlled substances register with the state by January 4, 2010. In February 2010, the Drug Enforcement Administration and various Florida law enforcement agencies began to work together in Operation Pill Nation. Pain clinic regulations were further expanded later in 2010. In February 2011, law enforcement conducted statewide raids, resulting in numerous arrests, seizures of assets, and pain clinic closures. In July of that year, coinciding with a public health emergency declaration by the Florida Surgeon General, the state legislature prohibited physician dispensing of schedule II or III drugs from their offices and activated regional strike forces to address the emergency. Mandatory dispenser reporting to the newly established prescription drug monitoring program began in September 2011. Finally, in 2012, the legislature expanded regulation of wholesale drug distributors and created the Statewide Task Force on Prescription Drug Abuse and Newborns.''\footnote{Source: Johnson, Paulozzi, Porucznik, Mack, and Herter, 2014.} \textbf{Note:} Obviously what we have here is a \emph{series} of changes rather than one single large change. Nevertheless, for this analysis just operationalize the policy change as having taken place in February 2010.
   \end{itemize}
-  \item Washington (the State, not Washington, DC), Effective
+  \item Washington (the State, not Washington, DC), Effective Jan 2, 2012.
   \begin{itemize}
-    \item In 2011, the Washington Department of Health adopted a rule regulating the prescribing of opioids for pain treatment. Some of the prescribing requirements include:
+    \item In 2011, the Washington Department of Health adopted a rule regulating the prescribing of opioids for pain treatment. Some of the prescribing requirements include:\footnote{Source: The Network for Public Health Law, \href{https://azdhs.gov/documents/prevention/womens-childrens-health/injury-prevention/opioid-prevention/appendix-b-state-by-state-summary.pdf}{Appendix B}}
     \begin{itemize}
       \item For patients who are stable involving non-escalating daily doses of 40 mg MED/day or less, periodic reviews shall take place annually.
       \item Mandatory consultation threshold for adults is 120 mg MED/day (oral).
+      \item In the event a physician prescribes a dosage that meets or exceeds the consultation
+      threshold, a consultation with a pain management specialist is required.
+      \item The physician shall document each mandatory consultation.
+      \item Recommended that a practitioner not prescribe more than an average of MED of
+      120 mg without either the patient demonstrating improvement in function or without first obtaining a consultation from a pain management expert.
     \end{itemize}
--
-- In the event a physician prescribes a dosage that meets or exceeds the consultation
-threshold, a consultation with a pain management specialist is required.
-- The physician shall document each mandatory consultation.
-- Recommended that a practitioner not prescribe more than an average of MED of
-120 mg without either the patient demonstrating improvement in function or without first obtaining a consultation from a pain management expert.
-Link to the regulation: http://apps.leg.wa.gov/documents/laws/wsr/2011/12/11-12- 025.htm
-  \end{itemize}
-
+    \item \href{http://apps.leg.wa.gov/documents/laws/wsr/2011/12/11-12-025.htm}{Link to regulation.}
+    \end{itemize}
 \end{itemize}
 
+
+\subsection*{Your Task}
+
+Your task is to complete a pre-post analysis and a difference-in-difference analysis of these three policy changes. You can present your results in the graphical format modeled above. While there are many statistical methods of doing things like adding controls for various observable factors, the emphasis on this analysis is on data wrangling and transparent analysis, so those plots will be sufficient.
+
+For this project, you must:
+
+\begin{itemize}
+  \item Gather all data needed to complete this analysis
+  \item Clean, organize, and merge it in order to allow for creation of the final analysis.
+  \item Do all your work transparently through github \emph{as a team}.
+  \begin{itemize}
+    \item All team members must make substantial commits to the project.
+    \item All team members must also actively review at least one PR for another team member.
+  \end{itemize}
+  \item Present a final report that summarizes in your own words:
+  \begin{itemize}
+    \item The motivation for the project,
+    \item The motivation for the research design being used,
+    \item Details of the data used and how different datasets have been related to one another,
+    \item Your analysis,
+    \item Your interpretation of that analysis.
+  \end{itemize}
+  In writing you report, you should assume that the person reading your report is policy maker with \emph{limited} statistical training. That means you should strive to limit the use of jargon wherever possible.
+  \item A preliminary draft of your report will be due November [X]
+  \item A final draft of your report will be due November [X]
+\end{itemize}
 
 \end{document}

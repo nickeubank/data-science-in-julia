@@ -54,14 +54,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(6)** Reshape your data so max temp is one column and min temp is another (this isn't *stricty* necessary, but is good practice!)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "**(7)** Now for each weather station, generate a separate plot of the daily temperatures over time. You should end up with a plot that looks something like this (though you'll be plotting daily max temps and daily min temps):\n",
+    "**(6)** Now for each weather station, generate a separate plot of the daily temperatures over time. You should end up with a plot that looks something like this (though you'll be plotting daily max temps and daily min temps):\n",
     "\n",
     "![climate_plot_example](../images/climate_plot_example.jpg)"
    ]
