@@ -438,7 +438,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**8)** Let's now filter out anyone in our data whose age is greater than 18. Note that before made `age` a numeric variable, we couldn't do this!"
+    "**8)** Let's now filter out anyone in our data whose age is less than 18. Note that before made `age` a numeric variable, we couldn't do this!"
    ]
   },
   {

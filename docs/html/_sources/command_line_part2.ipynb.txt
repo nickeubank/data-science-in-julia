@@ -583,7 +583,7 @@
     "\n",
     "**Configuration File on Windows**\n",
     "\n",
-    "If you're using Windows, you can change the PATH variable globally by going to `System Preferences > Advanced > Environment Variables`. But if you're just using `bash` through `Cmder`, you should have a `.bash_profile` file in your home. \n",
+    "If you're using Windows, you can change the PATH variable globally by going to `System Preferences > Advanced > Environment Variables`. But if you're just using `bash` through `Cmder`, you should have a config file in your home Cmder home at `config/user_profile.sh`. \n",
     "\n",
     "**Actually Changing your PATH Variable**\n",
     "\n",
