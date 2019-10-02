@@ -44,9 +44,8 @@ While our substantive focus is on opioid prescribing regulations, however, it is
 The goal of this project is to answer the following question: what is the effect of opioid drug prescription regulations on
 
 \begin{enumerate}
-  \item the volume of opioids prescribed,
-  \item prescription opioid overdose deaths, and
-  \item overdose deaths from non-prescription opioids (e.g. heroin, fentanyl)
+  \item the volume of opioids prescribed, and
+  \item drug overdose deaths.
 \end{enumerate}
 
 \subsection*{What An Answer Looks Like}
@@ -71,13 +70,12 @@ But we can't randomly assign states to either or not implement opioid control me
 
 One of the most basic strategies, and the one we'll use first, is to compare how things were in Florida right before the policy went into effect to Florida right after the policy went into effect. In doing so, we're assuming that had the opioid policy not gone into effect, Florida in 2011 would have looked more or less like it looked in 2009.
 
-This type of analysis would likely come out with a result that looks something like this:
+This type of analysis would likely come out with a result that looks something like the plots shown in Figure~\ref{figure_prepost_examples}, where one plot is shown for what a potentially successful policy might look like, and one plot is shown for what an unsuccessful policy might look like.
 
 \begin{figure}
   \centering
-  \caption{}\label{}
-  %\includegraphics{}
-  If volume reduced  \hspace{1cm} If volume not reduced
+  \caption{Pre-Post Model Figures}\label{figure_prepost_examples}
+  \includegraphics[width=0.5\textwidth]{images/prepost_successful.pdf}\includegraphics[width=0.5\textwidth]{images/prepost_failed.pdf}
 \end{figure}
 
 \subsubsection*{Difference-in-Difference}
@@ -90,18 +88,30 @@ One strategy for dealing with this is what's called a \emph{difference-in-differ
 
 In other words, was the change we saw in Florida (the ``difference'' from pre-to-post) larger than the change that occurred in other states? Or, to map this onto the term ``difference-in-difference,'' if we estimate the \emph{difference} between 2009 and 2011 separately for Florida and states without policy changes, is there a difference in those differences?
 
-This type of analysis generates a result that looks like this:
+This type of analysis would likely come out with a result that looks something like the plots shown in Figure~\ref{figure_diffindiff_examples}, where one plot is shown for what a potentially successful policy might look like, and one plot is shown for what an unsuccessful policy might look like.
 
 \begin{figure}
   \centering
-  \caption{}\label{}
-  %\includegraphics{}
-  If volume reduced  \hspace{1cm} If volume not reduced
+  \caption{Difference-in-Difference Example Plots}\label{figure_diffindiff_examples}
+  \includegraphics[width=0.5\textwidth]{images/diffindiff_successful.pdf}\includegraphics[width=0.5\textwidth]{images/diffindiff_failed.pdf}
 \end{figure}
 
-https://azdhs.gov/documents/prevention/womens-childrens-health/injury-prevention/opioid-prevention/
+In addition to making this kind of plot, a difference-in-difference can also be estimated statistically using regressions of the following form:
 
-[regression]
+\emph{Allowing only for level changes:}
+\begin{eqnarray}
+  Y_{c,t} &=& \alpha + \psi_{c} + \beta_1 post_{t} + \\
+   && \beta_2 post_{t} * policy\_state_{c} + \epsilon_{c,t} \nonumber
+\end{eqnarray}
+
+\emph{Allowing for both changes in levels and for changes in trends (analogous to what we plotted above):}
+\begin{eqnarray}
+  Y_{c,t} &=& \alpha + \psi_{c} + \\
+  && \beta_1 year_{t} + \beta_2 post_{t} + \beta_3 post_{t} * year_{t} + \nonumber \\
+  && \beta_4 policy\_state_{c} +\beta_5 policy\_state_{c} * year_t + \nonumber \\
+  && \beta_6 post_{t} * year_{t} * policy\_state_{c} + \epsilon_{c,t} \nonumber
+\end{eqnarray}
+
 
 \subsection*{Data}
 
@@ -114,11 +124,19 @@ A core component of this project will be a recently released dataset of all pres
 \begin{itemize}
   \item \href{https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/}{Read about data here.}
   \item \href{https://www.washingtonpost.com/national/2019/07/18/how-download-use-dea-pain-pills-database/?arc404=true}{Download here.}
+  \item \href{https://github.com/wpinvestigative/arcos-api/blob/master/data/data_dictionary.csv}{More about variables in the data here.}
 \end{itemize}
 
-\subsubsection*{Mortality Data}
+\subsubsection*{Vital Statistics Mortality Data}
 
-The best national source of data on drug overdoses is the US Vital Statistics records, which include data on every death in the United States. You can find information about the Vital Statistics and download data \href{https://www.cdc.gov/nchs/nvss/deaths.htm}{here}.
+The best national source of data on drug overdoses is the US Vital Statistics records, which include data on every death in the United States. Because their interface is a \emph{pain} (e.g. you can only pull 75,000 records at a time, and picking the right variables to download is really annoying), I've pre-downloaded their summary of mortality for drug and non-drug related causes for every US county from 2003-2015 for your use. Several notes about this data:
+\begin{itemize}
+  \item I've made a couple small changes to this data, but they are very small. Basically, this is the raw data (in the format originally provided) by the US Vital Statistics system. So beware formatting and cleanliness issues.
+  \item For privacy, data for a given category (i.e. one county / year / cause of death category) if there are \textbf{more than 10 fatalities} in that category. Moreover, zero-counts are not reported. So if a county has only 2 deaths in a given year, it just doesn't appear in the data for a given year. And if a county has 20 deaths unrelated to drugs or alcohol, but 7 deaths due to overdose, the former statistic will appear in the data, but no the latter.
+  \begin{itemize}
+    \item It is for this reason that we will use \emph{annual} data on mortality -- by summing deaths over a year, fewer counties end up near below this 10-death threshold, so the data is more complete.
+  \end{itemize}
+\end{itemize}
 
 
 \subsection*{Unit of Observation}
@@ -144,6 +162,10 @@ Things to know about counties:
   \item Counties vary dramatically in population and geographic size
   \item County names are \emph{not} unique across states. The same county name will appear in many states.
   \item All US counties and states have assigned numeric identifiers called ``FIPS codes.'' Not all datasets will include county's FIPS codes, but if you can find them, they're much easier to use than county names since you don't have to worry about capitalizations and such. You can find datasets online easy that will tell you the FIPS code for a given county given its state and name.
+  \begin{itemize}
+    \item County FIPS codes are often represented as the concatenation of a 2 digit state FIPS code and a 3 digit county-specific FIPS Code. So if you are in the County of Autauga (County 1) in Alabama (State 1), you could see a county FIPS code of 01001, or you might see it broken out into a state code of 1, and a county code of 1.
+  \end{itemize}
+  \item Just drop the state of Alaska (AK) from your analysis. It has some weird things going on with its county designations moving from before 2010 to after 2010, and they aren't worth dealing with.
 \end{itemize}
 
 \subsection*{Policy Changes}
@@ -204,5 +226,6 @@ For this project, you must:
   \item A preliminary draft of your report will be due November [X]
   \item A final draft of your report will be due November [X]
 \end{itemize}
+
 
 \end{document}
