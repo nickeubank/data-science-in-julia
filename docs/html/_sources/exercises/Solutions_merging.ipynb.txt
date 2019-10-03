@@ -358,7 +358,9 @@
     "# First, we repeat our bad merge, which will now throw an error \n",
     "# because county names repeat across states, AND because we have multiple years in the\n",
     "# data:\n",
-    "merged = pd.merge(arrests_2009, pop, on='COUNTY', validate='1:1')"
+    "merged = pd.merge(arrests_2009, pop, on='COUNTY', validate='1:1')\n",
+    "\n",
+    "\n"
    ]
   },
   {

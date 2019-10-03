@@ -42,7 +42,7 @@
    "source": [
     "## OK... So how do I deal with Big Data?\n",
     "\n",
-    "Check out [Big Data Strategies here!](strategies_big_data.ipynb)."
+    "Check out [Big Data Strategies here!](big_data_strategies.ipynb)."
    ]
   }
  ],
