@@ -33,9 +33,9 @@ Over the past two decades, the United States has seen a tremendous increase in t
   \scriptsize{Source: US Centers for Disease Control}
 \end{figure}
 
-In this project, we'll be \textbf{estimating the effectiveness of policy interventions} designed to limit the over-prescription of opioids. More specifically, we will attempt to measure the effect of a series of policy changes designed to limited opioid abuse in several US states on (a) opioid drug prescriptions, and (b) mortality from drug overdoses.\footnote{ In particular, we will focus on a Texas regulation that went into effect in January 2007, a Washington regulation that went into effect in January of 2012, and a Florida regulation that went into effect in 2010.}
+In this project, we'll be \textbf{estimating the effectiveness of policy interventions} designed to limit the over-prescription of opioids. More specifically, we will attempt to measure the \textbf{effect} of a series of policy changes designed to limited opioid abuse in several US states on (a) opioid drug prescriptions, and (b) mortality from drug overdoses.\footnote{ In particular, we will focus on a Texas regulation that went into effect in January 2007, a Washington regulation that went into effect in January of 2012, and a Florida regulation that went into effect in 2010.}
 
-Our interest in examining mortality as well as opioid prescriptions comes from the fact that while restricting access to opioids may reduce the likelihood that \emph{future} patients will end up addicted to opioids, it may drive already addicted patients to turn to alternative forms of opioids, be those illegally purchased prescription drugs, heroin, or fentanyl. This possibility is deeply troubling because the likelihood of overdosing on these illegal drugs is \emph{much} higher than on prescription drugs, as it is impossible for drug users to know the strength of illegal drugs, and because drugs like fentanyl are so potent that as little as 3mg can be lethal.
+Our interest in examining mortality as well as opioid prescriptions comes from the fact that while restricting access to opioids may reduce the likelihood that \emph{future} patients will end up addicted to opioids, it may drive already addicted patients to turn to alternative forms of opioids, be those illegally purchased prescription drugs, heroin, or fentanyl. This possibility is deeply troubling because the likelihood of overdosing on these illegal drugs is \emph{much} higher than on (monitored) prescription drugs, as it is impossible for drug users to know the strength of illegal drugs, and because drugs like fentanyl are so potent that as little as 3mg can be lethal.
 
 While our substantive focus is on opioid prescribing regulations, however, it is worth noting that in many ways you can see this as a template for policy evaluations more broadly. This is a specific application of an approach to measuring the impact of a policy, not a novel approach to analyzing opioid regulation.
 
@@ -52,19 +52,19 @@ The goal of this project is to answer the following question: what is the effect
 
 In developing a data science project, it is good practice to \emph{start} by asking what an answer to your question will look like. Once you know what you are trying to achieve, one can then work backwards to figure out what data will be needed to answer the question, what data manipulations will be required, and how you can divide those tasks among teammates.
 
-In this case, the question we are asking is a \emph{causal question}, meaning that we are interested in understanding the \emph{effect} of one thing on another (i.e. what is the \emph{effect} of X on Y).
+In this case, the question we are asking is a \emph{causal question}, meaning that we are interested in understanding the \emph{effect} of one thing on another (i.e. what is the \emph{effect} of X on Y), not just the correlation between two variables.
 
-In a magical, idealized world, the way we would answer a causal question is to create two world: one in which our causal factor (here, a specific policy change) takes place, and one where it does not. Then we can say ``how did things turnout differently for Florida in 2010 in the world with the policy change \emph{as compared to the world where no policy change took place in Florida in 2010.}''
+In a magical, idealized world, the way we would answer a causal question is to create two world: one in which our causal factor (here, a specific policy change) takes place, and one where it does not. Then we can say ``how did things turnout differently for Florida in 2010 (one of our cases) in the world with the policy change \emph{as compared to the world where no policy change took place in Florida in 2010?}''
 
-In the real world, however, we can never actually see both a world with the policy change and a world without the policy change for the same unit of observation. In the language of causal inference, we can never directly observe our \emph{counter factual} (Florida \emph{without} a policy change in 2010) -- we only get to see Florida with the policy change in 2010.\footnote{This is what is referred to as the Fundamental Problem of Causal Inference.}
+In the real world, however, we can never actually see both a world with the policy change and a world without the policy change \emph{for the same unit of observation at the same moment in time}. In the language of causal inference, we can never directly observe our \emph{counter factual} (Florida \emph{without} a policy change in 2010) -- we only get to see Florida with the policy change in 2010.\footnote{This is what is referred to as the Fundamental Problem of Causal Inference.}
 
 With that in mind, we have to find a way to \emph{estimate} what we think \emph{would} have happened in Floria had there been no policy change. And this, in a nutshell, is the art of causal inference.
 
-There are many approaches to solving this problem. The one we're most familiar with is randomized drug trials, where we randomly assign people to either take a drug or not take a drug. In these designs, the theory is that because people are being randomly assigned to take the drug or not, by the law of large numbers we expect the people who take the drug to be, on average, the same as the people who don't take the drug. Because of these, we \emph{assume} that what happens to the people who aren't taking the drug is, \emph{on average}, what \emph{would} have happened to the people do are taking the drug \emph{if they hadn't taken the drug}. In other words, we think that the non-drug-takers are a good counter-factual for the drug takers.
+There are many approaches to solving this problem. The one we're most familiar with is randomized drug trials, where we randomly assign people to either take a drug or not take a drug. In these designs, because people are being randomly assigned to take the drug or not, by the law of large numbers we expect the people who take the drug to be, \emph{on average}, the same as the people who don't take the drug. Because of these, we infer that what happens to the people who aren't taking the drug is, \emph{on average}, what \emph{would} have happened to the people do are taking the drug had they not taken the drug. In other words, we think that the non-drug-takers are a good counter-factual for the drug takers.
 
-(If this is making your head spin a little, don't worry -- this stuff is hard, and this is a very quick intro to causal inference. About half of my Spring course will be focused on these ideas.)
+(If this is making your head spin a little, don't worry -- this stuff is hard, and this is only a \emph{very} quick summary of causal inference. About half of my Spring course will be focused on these ideas.)
 
-But we can't randomly assign states to either or not implement opioid control measures, so we need to come up with different ways of estimating what we think would have happened to Florida had it not passed opioid control measures.
+But we can't use this strategy for measuring drug policy because we can't randomly assign states to either implement or not implement opioid control measures. With that in mind, we need to come up with different ways of estimating what we think would have happened to Florida had it not passed opioid control measures.
 
 \subsubsection*{Pre-Post Comparison}
 
@@ -72,45 +72,49 @@ One of the most basic strategies, and the one we'll use first, is to compare how
 
 This type of analysis would likely come out with a result that looks something like the plots shown in Figure~\ref{figure_prepost_examples}, where one plot is shown for what a potentially successful policy might look like, and one plot is shown for what an unsuccessful policy might look like.
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \caption{Pre-Post Model Figures}\label{figure_prepost_examples}
   \includegraphics[width=0.5\textwidth]{images/prepost_successful.pdf}\includegraphics[width=0.5\textwidth]{images/prepost_failed.pdf}
 \end{figure}
-
+\pagebreak
 \subsubsection*{Difference-in-Difference}
 
 A simple pre-post comparison is a good, simple approach to causal inference, but it is not without its problems.
 
 Suppose, for example, that around 2010 (the same time Florida's policy went into effect) the US Customs service managed to dramatically reduce the importation of fentanyl into the United States. This would likely reduce the amount of overdose deaths throughout the United States, and so if we were just comparing Florida in 2009 to Florida in 2011, we would see a decline in overdose deaths and wrongly attribute that to Florida's policy change.
 
-One strategy for dealing with this is what's called a \emph{difference-in-difference} approach. In simple terms, we don't just compare Florida in 2009 to Florida in 2011; instead, we ask ``were there bigger changes in overdose deaths in Florida between 2009 and 2011 \emph{than in other states that didn't change their opioid policy}?'' If Florida's policy had an effect, then we would expect opioid overdoses in Florida to decrease differently from in states without a policy change. But if Florida experienced a decline in overdoses because of something that happened nationally (e.g. if US Customs blocked opioid importation), then we'd expect to see overdoses reduce at the same rate in all states.
+One strategy for dealing with this is what's called a \emph{difference-in-difference} approach. In simple terms, we don't just compare Florida in 2009 to Florida in 2011; instead, we ask ``were there bigger changes in overdose deaths in Florida between 2009 and 2011 \emph{than in other states that didn't change their opioid policy}?'' If Florida's policy had an effect, then we would expect opioid overdoses in Florida to decrease differently than overdoses in states without a policy change. But if Florida experienced a decline in overdoses because of something that happened nationally (e.g. if US Customs blocked opioid importation), then we'd expect to see overdoses to reduce at the same rate in all states.
 
-In other words, was the change we saw in Florida (the ``difference'' from pre-to-post) larger than the change that occurred in other states? Or, to map this onto the term ``difference-in-difference,'' if we estimate the \emph{difference} between 2009 and 2011 separately for Florida and states without policy changes, is there a difference in those differences?
+In other words, if we see a decline in Florida overdoses, we want to know whether the change we saw in Florida (the ``difference'' from pre-to-post) is larger than the change that occurred in other states over the same period? Or, to map this onto the term ``difference-in-difference,'' if we estimate the \emph{difference} between 2009 and 2011 separately for Florida and states without policy changes, is there a difference in those differences?
 
 This type of analysis would likely come out with a result that looks something like the plots shown in Figure~\ref{figure_diffindiff_examples}, where one plot is shown for what a potentially successful policy might look like, and one plot is shown for what an unsuccessful policy might look like.
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \caption{Difference-in-Difference Example Plots}\label{figure_diffindiff_examples}
   \includegraphics[width=0.5\textwidth]{images/diffindiff_successful.pdf}\includegraphics[width=0.5\textwidth]{images/diffindiff_failed.pdf}
 \end{figure}
 
-In addition to making this kind of plot, a difference-in-difference can also be estimated statistically using regressions of the following form:
+In addition to making this kind of plot, a difference-in-difference can also be estimated statistically using a linear regression model, as detailed in Appendix~\ref{appendix_diffindiff}.
 
-\emph{Allowing only for level changes:}
-\begin{eqnarray}
-  Y_{c,t} &=& \alpha + \psi_{c} + \beta_1 post_{t} + \\
-   && \beta_2 post_{t} * policy\_state_{c} + \epsilon_{c,t} \nonumber
-\end{eqnarray}
+To be clear, difference-in-differences aren't \emph{always} valid. The assumption of a difference-in-difference design is that while our policy-change state (Florida) doesn't have to be the same as our non-policy-change states (everyone else) in \emph{levels}, the two groups do have to exhibit similar \emph{trends} before the policy change being studied. Otherwise, the difference-in-difference may be large even if there's no policy change.
 
-\emph{Allowing for both changes in levels and for changes in trends (analogous to what we plotted above):}
-\begin{eqnarray}
-  Y_{c,t} &=& \alpha + \psi_{c} + \\
-  && \beta_1 year_{t} + \beta_2 post_{t} + \beta_3 post_{t} * year_{t} + \nonumber \\
-  && \beta_4 policy\_state_{c} +\beta_5 policy\_state_{c} * year_t + \nonumber \\
-  && \beta_6 post_{t} * year_{t} * policy\_state_{c} + \epsilon_{c,t} \nonumber
-\end{eqnarray}
+\begin{figure}[h!]
+  \centering
+  \caption{}\label{figure_diffindiff_nonparallel}
+  \includegraphics[width=0.7\textwidth]{images/diffindiff_non_parallel.pdf}
+\end{figure}
+
+
+To illustrate, consider Figure~\ref{figure_diffindiff_nonparallel}, which illustrates a case where the two groups clearly don't have parallel trends in the pre-policy change period. If we estimated a diff-in-diff anyway, the difference from before to after for the policy change counties would be negative, the difference from before to after for the non-policy change states would be positive, so the difference-in-difference estimate would be very negative, suggesting a big policy impact.
+
+But looking at the picture, it seems what probably happened is that the states were just on different trajectories to begin with, and the policy change likely had no effect. You don't need to worry about this too much in this exercise -- as I've said, the analysis isn't the focus of this project per-se, but it's something to be aware of.\footnote{Careful readers may note that there might be a way to take into account the different initial difference in trends. This is what's called a ``difference-in-difference-in-difference'' estimate, and \emph{can} be useful, but it becomes increasingly dependent on you being able to precisely estimate trends and their functional forms, adding additional assumptions and generally requiring more data to test those assumptions.}
+
+
+
+If the two groups have different trends, then we would expect differences between the treated state and the untreated states after the policy change even if there were no impact of the policy change just because these states were already headed in different directions.  This is what is referred to as the parallel trends assumption. As you can see in Figure~\ref{figure_diffindiff_examples} above, those model graphs show parallel trends prior to policy implementation, and that is what we'd like to see.
+
 
 
 \subsection*{Data}
@@ -129,12 +133,14 @@ A core component of this project will be a recently released dataset of all pres
 
 \subsubsection*{Vital Statistics Mortality Data}
 
-The best national source of data on drug overdoses is the US Vital Statistics records, which include data on every death in the United States. Because their interface is a \emph{pain} (e.g. you can only pull 75,000 records at a time, and picking the right variables to download is really annoying), I've pre-downloaded their summary of mortality for drug and non-drug related causes for every US county from 2003-2015 for your use. Several notes about this data:
+The best national source of data on drug overdoses is the US Vital Statistics records, which include data on every death in the United States. Because their interface is a \emph{pain} (e.g. you can only pull 75,000 records at a time, and picking the right variables to download is really annoying), I've pre-downloaded their summary of mortality for drug and non-drug related causes for every US county from 2003-2015 for your use. \href{https://www.dropbox.com/s/kad4dwebr88l3ud/US_VitalStatistics.zip?dl=0}{You can download that data here.}
+
+Several notes about this data:
 \begin{itemize}
   \item I've made a couple small changes to this data, but they are very small. Basically, this is the raw data (in the format originally provided) by the US Vital Statistics system. So beware formatting and cleanliness issues.
-  \item For privacy, data for a given category (i.e. one county / year / cause of death category) if there are \textbf{more than 10 fatalities} in that category. Moreover, zero-counts are not reported. So if a county has only 2 deaths in a given year, it just doesn't appear in the data for a given year. And if a county has 20 deaths unrelated to drugs or alcohol, but 7 deaths due to overdose, the former statistic will appear in the data, but no the latter.
+  \item For privacy, the US Vital Statistics agency censors some data. If the number of people in a given category (i.e. one county / year / cause of death category) is less than 10, that data does \emph{not} appear in the data. Similarly, zero-counts are also not reported. So if a county has only 2 deaths in a given year, that county just doesn't appear in the data for a given year. And if a county has 20 deaths unrelated to drugs or alcohol, but 7 deaths due to overdose, the former statistic will appear in the data, but not the latter.
   \begin{itemize}
-    \item It is for this reason that we will use \emph{annual} data on mortality -- by summing deaths over a year, fewer counties end up near below this 10-death threshold, so the data is more complete.
+    \item It is for this reason that we will use \emph{annual} data on mortality -- by summing deaths over full years, fewer counties end up near below this 10-death threshold, so the data is more complete.
   \end{itemize}
 \end{itemize}
 
@@ -143,9 +149,9 @@ The best national source of data on drug overdoses is the US Vital Statistics re
 
 A big part of any data science project is figuring out your \emph{unit of observation.} Your choice of unit of observation is dictated not just by what is theoretically appropriate, but also what is feasible given the data available. You may \emph{want} to study a question with individual-level data, but if you can only get data that is aggregated at the level of cities, you don't have the option of working at the individual-level.
 
-As many students doing this project are not Americans and so are unlikely to be familiar with US administrative districting, I will spare you the challenge of figuring out the right geographic unit of analysis for this project: the geographic unit of analysis we'll be working are counties (though you get to figure out the appropriate temporal unit yourself!).
+As many students doing this project are not Americans and so are unlikely to be familiar with US administrative districting, I will spare you the challenge of figuring out the right geographic unit of analysis for this project: the geographic unit of analysis we'll be working are counties, and our temporal unit of analysis will be years (so expect to have one observation per county per year in your final analysis).
 
-Counties are administrative units in the US that fall entirely \emph{within} states, but with can otherwise vary in about any way they want. In some states, like North Carolina, counties are relatively regular in size (as shown in the Figure~\ref{counties} below), though they often vary radically in population (in North Carolina, county populations vary from over 1 million people (Mecklenberg and Wade Counties) to well under 10,000 (Hyde and Tyrrell Counties)). In other states, like Colorado (also pictured below), some counties (like Denver, a little above and to the right of the center of the state) are much smaller than other counties geographically.
+Counties are administrative units in the US that fall entirely \emph{within} states, but with can otherwise vary in every way. In some states, like North Carolina, counties are relatively similar in geographic size (as shown in the Figure~\ref{counties} below), but they often vary radically in population (in North Carolina, county populations vary from over 1 million people (Mecklenberg and Wade Counties) to well under 10,000 (Hyde and Tyrrell Counties)). In other states, like Colorado (also pictured below), some counties (like Denver, a little above and to the right of the center of the state) are much smaller than other counties geographically.
 
 \begin{figure}[h!]
   \centering
@@ -154,16 +160,18 @@ Counties are administrative units in the US that fall entirely \emph{within} sta
   \scriptsize{Colorado \hspace*{5cm} North Carolina}
 \end{figure}
 
-What they are kind of odd in terms of their heterogeneity, however, they are common units of analysis for US government data because they are more granular than states, but also big enough that reporting the number of deaths from drug overdoses in a given county doesn't threaten the privacy of individuals. And indeed, in this analysis, we will find that all our data is available at \emph{at least} the county level.
+While they are kind of odd in terms of their heterogeneity, however, they are common units of analysis for US government data because they are more granular than states, but also big enough that reporting the number of deaths from drug overdoses in a given county doesn't threaten the privacy of individuals. And indeed, in this analysis, we will find that all our data is available at \emph{at least} the county level.
 
 Things to know about counties:
 
 \begin{itemize}
+  \item There are about 3,200 counties in the United States.
   \item Counties vary dramatically in population and geographic size
   \item County names are \emph{not} unique across states. The same county name will appear in many states.
-  \item All US counties and states have assigned numeric identifiers called ``FIPS codes.'' Not all datasets will include county's FIPS codes, but if you can find them, they're much easier to use than county names since you don't have to worry about capitalizations and such. You can find datasets online easy that will tell you the FIPS code for a given county given its state and name.
+  \item Counties are sometimes called other things, like ``parish'' (in Louisiana), or occasionally ``borough''.
+  \item All US counties and states have assigned numeric identifiers called ``FIPS codes.'' Not all datasets will include county's FIPS codes, but if you can find them, they're much easier to use than county names since you don't have to worry about capitalizations and such. You can find datasets online easily that will tell you the FIPS code for a given county given its state and name.
   \begin{itemize}
-    \item County FIPS codes are often represented as the concatenation of a 2 digit state FIPS code and a 3 digit county-specific FIPS Code. So if you are in the County of Autauga (County 1) in Alabama (State 1), you could see a county FIPS code of 01001, or you might see it broken out into a state code of 1, and a county code of 1.
+    \item County FIPS codes are often represented as the concatenation of a 2 digit State FIPS code and a 3 digit County FIPS Code. So if you are in the County of Autauga (County 1) in Alabama (State 1), you could see a county FIPS code of 01001, or you might see it broken out into a State FIPS code of 1, and a County FIPS code of 1. Sorry, just how it happens. :)
   \end{itemize}
   \item Just drop the state of Alaska (AK) from your analysis. It has some weird things going on with its county designations moving from before 2010 to after 2010, and they aren't worth dealing with.
 \end{itemize}
@@ -173,19 +181,21 @@ Things to know about counties:
 In this analysis, we'll be analyzing \emph{three} policy changes:
 
 \begin{itemize}
+
+\item Florida, Effective February, 2010
+\begin{itemize}
+  \item \textbf{Changes:} ``Florida gained notoriety after 2007 because of the proliferation of pain clinics in the state that were prescribing large quantities of drugs for pain with little medical justification and were being used primarily by persons abusing or diverting opioid analgesics, benzodiazepines, and muscle relaxants. In 2010, Florida was also home to 98 of the 100 U. S. physicians who dispensed the highest quantities of oxycodone directly from their offices. In response, Florida enacted several measures to address prescribing that was inconsistent with best practices. The Florida legislature required that pain clinics treating pain with controlled substances register with the state by January 4, 2010. In February 2010, the Drug Enforcement Administration and various Florida law enforcement agencies began to work together in Operation Pill Nation. Pain clinic regulations were further expanded later in 2010. In February 2011, law enforcement conducted statewide raids, resulting in numerous arrests, seizures of assets, and pain clinic closures. In July of that year, coinciding with a public health emergency declaration by the Florida Surgeon General, the state legislature prohibited physician dispensing of schedule II or III drugs from their offices and activated regional strike forces to address the emergency. Mandatory dispenser reporting to the newly established prescription drug monitoring program began in September 2011. Finally, in 2012, the legislature expanded regulation of wholesale drug distributors and created the Statewide Task Force on Prescription Drug Abuse and Newborns.''\footnote{Source: Johnson, Paulozzi, Porucznik, Mack, and Herter, 2014.}
+  \item \textbf{Note:} Obviously what we have here is a \emph{series} of changes rather than one single large change. Nevertheless, for this analysis just operationalize the policy change as having taken place in February 2010.
+\end{itemize}
   \item Texas, Effective January 4, 2007
   \begin{itemize}
-    \item ``In 2007, the Texas Medical Board adopted regulations with regards to treating pain with
+    \item \textbf{Changes:} ``In 2007, the Texas Medical Board adopted regulations with regards to treating pain with
 controlled substances. The guidelines include performing a patient evaluation before prescribing opioids (including reviewing
 prescription data and history related to the patient contained in the state’s prescription drug monitoring program (PDMP)), obtaining informed consent from the patient for opioid treatment, conduct periodic review of the opioid treatment, and maintain a complete medical record of the patient’s treatment.''\footnote{Source: The Network for Public Health Law, \href{https://azdhs.gov/documents/prevention/womens-childrens-health/injury-prevention/opioid-prevention/appendix-b-state-by-state-summary.pdf}{Appendix B}}. \href{https://texreg.sos.state.tx.us/public/readtac$ext.TacPage?sl=R&app=9&p_dir=&p_rloc=&p_tloc=&p_ploc=&pg=1&p_tac=&ti=22&pt=9&ch=170&rl=3}{Link to law.}
   \end{itemize}
-  \item Florida, Effective February, 2010
-  \begin{itemize}
-    \item ``Florida gained notoriety after 2007 because of the proliferation of pain clinics in the state that were prescribing large quantities of drugs for pain with little medical justification and were being used primarily by persons abusing or diverting opioid analgesics, benzodiazepines, and muscle relaxants. In 2010, Florida was also home to 98 of the 100 U. S. physicians who dispensed the highest quantities of oxycodone directly from their offices. In response, Florida enacted several measures to address prescribing that was inconsistent with best practices. The Florida legislature required that pain clinics treating pain with controlled substances register with the state by January 4, 2010. In February 2010, the Drug Enforcement Administration and various Florida law enforcement agencies began to work together in Operation Pill Nation. Pain clinic regulations were further expanded later in 2010. In February 2011, law enforcement conducted statewide raids, resulting in numerous arrests, seizures of assets, and pain clinic closures. In July of that year, coinciding with a public health emergency declaration by the Florida Surgeon General, the state legislature prohibited physician dispensing of schedule II or III drugs from their offices and activated regional strike forces to address the emergency. Mandatory dispenser reporting to the newly established prescription drug monitoring program began in September 2011. Finally, in 2012, the legislature expanded regulation of wholesale drug distributors and created the Statewide Task Force on Prescription Drug Abuse and Newborns.''\footnote{Source: Johnson, Paulozzi, Porucznik, Mack, and Herter, 2014.} \textbf{Note:} Obviously what we have here is a \emph{series} of changes rather than one single large change. Nevertheless, for this analysis just operationalize the policy change as having taken place in February 2010.
-  \end{itemize}
   \item Washington (the State, not Washington, DC), Effective Jan 2, 2012.
   \begin{itemize}
-    \item In 2011, the Washington Department of Health adopted a rule regulating the prescribing of opioids for pain treatment. Some of the prescribing requirements include:\footnote{Source: The Network for Public Health Law, \href{https://azdhs.gov/documents/prevention/womens-childrens-health/injury-prevention/opioid-prevention/appendix-b-state-by-state-summary.pdf}{Appendix B}}
+    \item \textbf{Changes:} In 2011, the Washington Department of Health adopted a rule regulating the prescribing of opioids for pain treatment. Some of the prescribing requirements include:\footnote{Source: The Network for Public Health Law, \href{https://azdhs.gov/documents/prevention/womens-childrens-health/injury-prevention/opioid-prevention/appendix-b-state-by-state-summary.pdf}{Appendix B}}
     \begin{itemize}
       \item For patients who are stable involving non-escalating daily doses of 40 mg MED/day or less, periodic reviews shall take place annually.
       \item Mandatory consultation threshold for adults is 120 mg MED/day (oral).
@@ -202,7 +212,18 @@ prescription data and history related to the patient contained in the state’s 
 
 \subsection*{Your Task}
 
-Your task is to complete a pre-post analysis and a difference-in-difference analysis of these three policy changes. You can present your results in the graphical format modeled above. While there are many statistical methods of doing things like adding controls for various observable factors, the emphasis on this analysis is on data wrangling and transparent analysis, so those plots will be sufficient.
+Your task is to complete both:
+
+\begin{itemize}
+  \item a pre-post analysis, and
+  \item a difference-in-difference analysis
+\end{itemize}
+
+for all three of these policy changes. You can present your results in the graphical format modeled above. While there are many statistical methods of doing things like adding controls for various observable factors, the emphasis on this analysis is on data wrangling and transparent analysis, so those plots will be sufficient.
+
+For the Florida case, you must analyze the effect of its policy change on \emph{BOTH} opioid shipments and overdose deaths.
+
+For Texas and Washington, you only need to analyze overdose deaths. This is because our opioid shipment data only runs from 2006 to 2012, meaning that you only have one year of data on either side of the policy change, making evaluation of trends difficult. The overdose data I have provided, by contrast, runs from 2003-2015. With that said, \emph{any group that would like to analyze opioid shipment data \emph{by month} instead of by year for Texas and Washington (which would get you 12 observations with which to measure trends) would get extra credit for their project.}
 
 For this project, you must:
 
@@ -219,13 +240,41 @@ For this project, you must:
     \item The motivation for the project,
     \item The motivation for the research design being used,
     \item Details of the data used and how different datasets have been related to one another,
+    \item Summary statistics for your data,
     \item Your analysis,
     \item Your interpretation of that analysis.
   \end{itemize}
-  In writing you report, you should assume that the person reading your report is policy maker with \emph{limited} statistical training. That means you should strive to limit the use of jargon wherever possible.
-  \item A preliminary draft of your report will be due November [X]
-  \item A final draft of your report will be due November [X]
+  \item A preliminary draft of your report will be due November 5th.
+  \item A final draft of your report will be due November 19th.
 \end{itemize}
+
+In writing your report, remember that much of the focus of this project is on \emph{data wrangling}, so spend lots of time on your data section discussing where you data came from, what assumptions you've made in working with it, and how you handled issues you ran into.
+
+\appendix
+
+\section{Difference-in-difference Regressions}\label{appendix_diffindiff}
+
+of the following form (where $c$ is an index for US Counties (a geographic unit of observation within states), and $t$ is an index for time):
+
+\emph{Allowing only for level changes:}
+\begin{eqnarray}
+ Y_{c,t} &=& \alpha + \psi_{c} + \beta_1 post_{t} + \label{diff_in_diff_notime}\\
+  && \beta_2 post_{t} * policy\_state_{c} + \epsilon_{c,t} \nonumber
+\end{eqnarray}
+
+Where $Y_{c,t}$ is a county-year-level outcome (either overdoses per capita or opioid shipments),  $\psi_c$ are county fixed effects, $post_{t}$ is an indicator for whether we are in a period after implementation of the policy change, and $policy\_state_{c}$ is an indicator for whether a given county is in a state that experienced a policy change. Our ``difference-in-difference'' estimate is the coefficient $\beta_2$.
+
+However, note that the analysis in Figure~\ref{figure_diffindiff_examples} allows for time trends, which do not appear in this specification \ref{diff_in_diff_notime}. It just compares differences in average levels of overdoses before and after the policy change. If we also want to allow for differential time trends (as pictured above) we'd use specification \ref{diff_in_diff_wtime}.
+
+\emph{Allowing for both changes in levels and for changes in trends (analogous to what we plotted above):}
+\begin{eqnarray}
+ Y_{c,t} &=& \alpha + \psi_{c} + \label{diff_in_diff_wtime}\\
+ && \beta_1 year_{t} + \beta_2 post_{t} + \beta_3 post_{t} * year_{t} + \nonumber \\
+ && \beta_4 post_{t} * policy\_state_{c} +\beta_5 policy\_state_{c} * year_t + \nonumber \\
+ && \beta_6 post_{t} * year_{t} * policy\_state_{c} + \epsilon_{c,t} \nonumber
+\end{eqnarray}
+
+ Here the specific outcome of interest is a little more complicated and does not drop nicely from the regression. In the simplest terms, if we adjust $year_{t}$ so that it has a value of 0 in the year the policy goes into effect, then $\beta_4-\beta_2$ tells us if there's a \emph{level} change in $Y$ right after the policy change, and $\beta_6 - \beta_3$ tells us if there is a change in the \emph{time trend} after the policy change.
 
 
 \end{document}
