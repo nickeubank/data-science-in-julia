@@ -22,7 +22,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -34,9 +34,120 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 2,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "year\n",
+      "datanum\n",
+      "serial\n",
+      "cbserial\n",
+      "numprec\n",
+      "subsamp\n",
+      "hhwt\n",
+      "hhtype\n",
+      "cluster\n",
+      "adjust\n",
+      "cpi99\n",
+      "region\n",
+      "stateicp\n",
+      "statefip\n",
+      "countyicp\n",
+      "countyfip\n",
+      "metro\n",
+      "city\n",
+      "citypop\n",
+      "strata\n",
+      "gq\n",
+      "farm\n",
+      "ownershp\n",
+      "ownershpd\n",
+      "mortgage\n",
+      "mortgag2\n",
+      "mortamt1\n",
+      "mortamt2\n",
+      "respmode\n",
+      "pernum\n",
+      "cbpernum\n",
+      "perwt\n",
+      "slwt\n",
+      "famunit\n",
+      "sex\n",
+      "age\n",
+      "marst\n",
+      "birthyr\n",
+      "race\n",
+      "raced\n",
+      "hispan\n",
+      "hispand\n",
+      "bpl\n",
+      "bpld\n",
+      "citizen\n",
+      "yrnatur\n",
+      "yrimmig\n",
+      "language\n",
+      "languaged\n",
+      "speakeng\n",
+      "hcovany\n",
+      "hcovpriv\n",
+      "hinsemp\n",
+      "hinspur\n",
+      "hinstri\n",
+      "hcovpub\n",
+      "hinscaid\n",
+      "hinscare\n",
+      "hinsva\n",
+      "hinsihs\n",
+      "school\n",
+      "educ\n",
+      "educd\n",
+      "gradeatt\n",
+      "gradeattd\n",
+      "schltype\n",
+      "degfield\n",
+      "degfieldd\n",
+      "degfield2\n",
+      "degfield2d\n",
+      "empstat\n",
+      "empstatd\n",
+      "labforce\n",
+      "occ\n",
+      "ind\n",
+      "classwkr\n",
+      "classwkrd\n",
+      "looking\n",
+      "availble\n",
+      "inctot\n",
+      "ftotinc\n",
+      "incwage\n",
+      "incbus00\n",
+      "incss\n",
+      "incwelfr\n",
+      "incinvst\n",
+      "incretir\n",
+      "incsupp\n",
+      "incother\n",
+      "incearn\n",
+      "poverty\n",
+      "migrate1\n",
+      "migrate1d\n",
+      "migplac1\n",
+      "migcounty1\n",
+      "migmet131\n",
+      "vetdisab\n",
+      "diffrem\n",
+      "diffphys\n",
+      "diffmob\n",
+      "diffcare\n",
+      "diffsens\n",
+      "diffeye\n",
+      "diffhear\n"
+     ]
+    }
+   ],
    "source": [
     "for c in acs.columns: print(c)"
    ]
@@ -52,7 +163,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [
     {
@@ -61,7 +172,7 @@
        "1723646.2703978634"
       ]
      },
-     "execution_count": 2,
+     "execution_count": 3,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -83,7 +194,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
@@ -103,7 +214,7 @@
        "Name: inctot, Length: 8471, dtype: float64"
       ]
      },
-     "execution_count": 3,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -125,7 +236,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -143,7 +254,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [
     {
@@ -152,7 +263,7 @@
        "40890.177564946454"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -182,7 +293,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
@@ -202,7 +313,7 @@
        "Name: age, Length: 97, dtype: int64"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -213,7 +324,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -233,7 +344,7 @@
        "Name: age, Length: 97, dtype: int64"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -257,7 +368,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -270,7 +381,7 @@
        "Name: empstat, dtype: int64"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 9,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -281,7 +392,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -290,7 +401,7 @@
        "57854.723914007984"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 10,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -314,16 +425,29 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 11,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "60473.15372747098"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "white = acs.loc[(acs['empstat'] == 'employed') & (acs['race'] == 'white'), 'inctot'].mean()"
+    "# Avg Income\n",
+    "white = acs.loc[(acs['empstat'] == 'employed') & (acs['race'] == 'white'), 'inctot'].mean()\n",
+    "white"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [
     {
@@ -341,7 +465,7 @@
        "Name: race, dtype: int64"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 12,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -352,22 +476,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "black = acs.loc[(acs['empstat'] == 'employed') & (acs['race'] == 'black/african american/negro'), 'inctot'].mean()"
-   ]
-  },
-  {
-   "cell_type": "code",
    "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "0.44852990062751974"
+       "41747.949905123336"
       ]
      },
      "execution_count": 13,
@@ -376,31 +491,58 @@
     }
    ],
    "source": [
-    "(white - black) / black"
+    "# Avg Black Income\n",
+    "black = acs.loc[(acs['empstat'] == 'employed') & (acs['race'] == 'black/african american/negro'), 'inctot'].mean()\n",
+    "black"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 14,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.44852990062751974"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "# Now the exact estimates taking into account sampling weights\n",
-    "\n",
-    "# Subset for each of notation\n",
-    "white_employed = acs[(acs['empstat'] == 'employed') & (acs['race'] == 'white')]\n",
-    "white_weighted = (white_employed['inctot'] * white_employed['perwt'] / white_employed['perwt'].sum()).sum()"
+    "# Percent Whites make more than Blacks\n",
+    "(white - black) / black"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 15,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "18725.20382234764"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "# Subset for each of notation\n",
-    "black_employed = acs[(acs['empstat'] == 'employed') & (acs['race'] == 'black/african american/negro')]\n",
-    "black_weighted = (black_employed['inctot'] * black_employed['perwt'] / black_employed['perwt'].sum()).sum()"
+    "# Absolute difference (not what I asked for, but often what I got)\n",
+    "(white - black)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### More Practice 1"
    ]
   },
   {
@@ -411,7 +553,7 @@
     {
      "data": {
       "text/plain": [
-       "0.04431967593018212"
+       "58361.48196061399"
       ]
      },
      "execution_count": 16,
@@ -420,7 +562,184 @@
     }
    ],
    "source": [
+    "# Now the exact estimates taking into account sampling weights\n",
+    "\n",
+    "# Calculate for each of population\n",
+    "white_employed = acs[(acs['empstat'] == 'employed') & (acs['race'] == 'white')]\n",
+    "white_weighted = (white_employed['inctot'] * white_employed['perwt'] / white_employed['perwt'].sum()).sum()\n",
+    "white_weighted"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "40430.953355310274"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Calculate for each of population\n",
+    "black_employed = acs[(acs['empstat'] == 'employed') & (acs['race'] == 'black/african american/negro')]\n",
+    "black_weighted = (black_employed['inctot'] * black_employed['perwt'] / black_employed['perwt'].sum()).sum()\n",
+    "black_weighted"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Difference in estimate of income difference between weighted and unweighted:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.04431967593018212"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
     "((white-black) - (white_weighted - black_weighted)) / (white_weighted - black_weighted)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Income gap: How much more White workers make compared Black workers in US (as share):"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.4434851794794171"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "((white_weighted - black_weighted)) / (black_weighted)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "17930.52860530372"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Absolute difference\n",
+    "white_weighted - black_weighted"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### More practice 2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Split out White non-Hispanics from White Hispanics"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "white_nonhisp = acs[(acs['race'] == 'white') & \n",
+    "                     (acs['empstat'] == 'employed') & \n",
+    "                     (acs['hispan'] == 'not hispanic')][['inctot','perwt']]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "61669.28927599297"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# White non-hispanic income\n",
+    "white_nonship_weighted = (white_nonhisp['inctot'] * white_nonhisp['perwt']).sum() / white_nonhisp['perwt'].sum()\n",
+    "white_nonship_weighted"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Income gap: How much more White non-Hispanics make as compared to Black workers (as share of Black avg wage)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.5252989147705371"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(white_nonship_weighted - black_weighted) / black_weighted"
    ]
   }
  ],

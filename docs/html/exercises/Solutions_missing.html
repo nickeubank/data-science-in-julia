@@ -240,7 +240,7 @@ div.rendered_html tbody tr:hover {
 <p>Today, we will be using the ACS data we used during out first <code class="docutils literal notranslate"><span class="pre">pandas</span></code> exercise to examine the US income distribution, and how it varies by race. Note that because the US income distribution has a very small number of people with <em>extremely</em> high incomes, and the ACS is just a sample of Americans, the far right tail of the distribution will not be very well estimated. However, this data should suffice for helping to understand wealth inequality in the United States.</p>
 <p>To begin, load the ACS Data we used in our first pandas exercise. That <a class="reference external" href="https://github.com/nickeubank/MIDS_Data/tree/master/US_AmericanCommunitySurvey">data can be found here</a>. We’ll be working with <code class="docutils literal notranslate"><span class="pre">US_ACS_2017_10pct_sample.dta</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -251,8 +251,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -260,12 +260,123 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+year
+datanum
+serial
+cbserial
+numprec
+subsamp
+hhwt
+hhtype
+cluster
+adjust
+cpi99
+region
+stateicp
+statefip
+countyicp
+countyfip
+metro
+city
+citypop
+strata
+gq
+farm
+ownershp
+ownershpd
+mortgage
+mortgag2
+mortamt1
+mortamt2
+respmode
+pernum
+cbpernum
+perwt
+slwt
+famunit
+sex
+age
+marst
+birthyr
+race
+raced
+hispan
+hispand
+bpl
+bpld
+citizen
+yrnatur
+yrimmig
+language
+languaged
+speakeng
+hcovany
+hcovpriv
+hinsemp
+hinspur
+hinstri
+hcovpub
+hinscaid
+hinscare
+hinsva
+hinsihs
+school
+educ
+educd
+gradeatt
+gradeattd
+schltype
+degfield
+degfieldd
+degfield2
+degfield2d
+empstat
+empstatd
+labforce
+occ
+ind
+classwkr
+classwkrd
+looking
+availble
+inctot
+ftotinc
+incwage
+incbus00
+incss
+incwelfr
+incinvst
+incretir
+incsupp
+incother
+incearn
+poverty
+migrate1
+migrate1d
+migplac1
+migcounty1
+migmet131
+vetdisab
+diffrem
+diffphys
+diffmob
+diffcare
+diffsens
+diffeye
+diffhear
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Exercise-2">
 <h2>Exercise 2<a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
 <p>Let’s begin by calculating the median US incomes from this data (recall that income is stored in the <code class="docutils literal notranslate"><span class="pre">inctot</span></code> variable).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -274,7 +385,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -288,7 +399,7 @@ div.rendered_html tbody tr:hover {
 <p>Hmmm… That doesn’t look right. The average American is definitely not earning 1.7 million dollars a year. Let’s look at the values of <code class="docutils literal notranslate"><span class="pre">inctot</span></code> using <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code>. Do you see a problem?</p>
 <p>Now use <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> with the argument <code class="docutils literal notranslate"><span class="pre">normalize=True</span></code> to see proportions of the sample that report each value instead of the count of people in each category. What percentage of our sample has an income of 9,999,999? What percentage has an income of 0?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -297,7 +408,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -322,7 +433,7 @@ Name: inctot, Length: 8471, dtype: float64
 <p>As we discussed before, the ACS uses a value of 9999999 to denote that income information is not available for someone. The problem with using this kind of “sentinel value” is that pandas doesn’t understand that this is supposed to denote missing data, and so when it averages the variable, it doesn’t know to ignore 9999999.</p>
 <p>To help out <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, use the <code class="docutils literal notranslate"><span class="pre">replace</span></code> command to replace all values of 9999999 with <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -335,7 +446,7 @@ Name: inctot, Length: 8471, dtype: float64
 <h2>Exercise 5<a class="headerlink" href="#Exercise-5" title="Permalink to this headline">¶</a></h2>
 <p>Now that we’ve properly labeled our missing data as <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>, let’s calculate the average US income once more.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -344,7 +455,7 @@ Name: inctot, Length: 8471, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -362,7 +473,7 @@ Name: inctot, Length: 8471, dtype: float64
 <p>Can you determine when 9999999 was being used? Is it ok we’re excluding those people from our analysis?</p>
 <p>Note: In this data, Python doesn’t understand <code class="docutils literal notranslate"><span class="pre">age</span></code> is a number; it thinks it is a string because the original data has categories like “90 (90+ in 1980 and 1990)” and “less than 1 year old”. So you can’t just use <code class="docutils literal notranslate"><span class="pre">min()</span></code> or <code class="docutils literal notranslate"><span class="pre">max()</span></code>. We’ll discuss converting string variables into numbers in a future class.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -371,7 +482,7 @@ Name: inctot, Length: 8471, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -391,7 +502,7 @@ Name: age, Length: 97, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -400,7 +511,7 @@ Name: age, Length: 97, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -426,7 +537,7 @@ Name: age, Length: 97, dtype: int64
 <p>But as we previously noted, there are also a lot of observations of zero income in our data, and it’s not clear that we want everyone with a zero-income <em>should</em> be included in this average, since those may be people who are retired, or in school.</p>
 <p>Let’s limit our attention to people who are currently working. We can do this using <code class="docutils literal notranslate"><span class="pre">empstat</span></code>. Remember you can use <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> to see what values of <code class="docutils literal notranslate"><span class="pre">empstat</span></code> are in the data!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -435,7 +546,7 @@ Name: age, Length: 97, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -448,7 +559,7 @@ Name: empstat, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -457,7 +568,7 @@ Name: empstat, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -471,17 +582,28 @@ Name: empstat, dtype: int64
 <p>Now let’s estimate the racial income gap in the United States. What is the average salary for employed Black Americans, and what is the average salary for employed White Americans? In percentage terms, how much more does the average White American make than the average Black American?</p>
 <p><strong>Note:</strong> these values are not quite accurate estimates. As we’ll discuss in later lessons, to get completely accurate estimates from the ACS we have to take into account how people were selected to be interviewed. But you get pretty good estimates in most cases even without weights – your estimate of the racial wage gap without weights is within 5% of the corrected value.</p>
 <p><strong>Note:</strong> This is actually an underestimate of the wage gap. The US Census treats hispanic respondents as a sub-category of “white”, so in pooling what we traditionally think of as “white” respondents with hispanic respondents (who tend to earn less), we get an underestimate of the average white salary in the US.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">white</span> <span class="o">=</span> <span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;empstat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;employed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;white&#39;</span><span class="p">),</span> <span class="s1">&#39;inctot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span></span><span class="c1"># Avg Income</span>
+<span class="n">white</span> <span class="o">=</span> <span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;empstat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;employed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;white&#39;</span><span class="p">),</span> <span class="s1">&#39;inctot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">white</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>60473.15372747098
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -490,7 +612,7 @@ Name: empstat, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -507,21 +629,14 @@ Name: race, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">black</span> <span class="o">=</span> <span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;empstat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;employed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;black/african american/negro&#39;</span><span class="p">),</span> <span class="s1">&#39;inctot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">(</span><span class="n">white</span> <span class="o">-</span> <span class="n">black</span><span class="p">)</span> <span class="o">/</span> <span class="n">black</span>
+<span></span><span class="c1"># Avg Black Income</span>
+<span class="n">black</span> <span class="o">=</span> <span class="n">acs</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;empstat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;employed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;black/african american/negro&#39;</span><span class="p">),</span> <span class="s1">&#39;inctot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">black</span>
 </pre></div>
 </div>
 </div>
@@ -530,36 +645,98 @@ Name: race, dtype: int64
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>41747.949905123336
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Percent Whites make more than Blacks</span>
+<span class="p">(</span><span class="n">white</span> <span class="o">-</span> <span class="n">black</span><span class="p">)</span> <span class="o">/</span> <span class="n">black</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>0.44852990062751974
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Absolute difference (not what I asked for, but often what I got)</span>
+<span class="p">(</span><span class="n">white</span> <span class="o">-</span> <span class="n">black</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>18725.20382234764
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="More-Practice-1">
+<h2>More Practice 1<a class="headerlink" href="#More-Practice-1" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Now the exact estimates taking into account sampling weights</span>
 
-<span class="c1"># Subset for each of notation</span>
+<span class="c1"># Calculate for each of population</span>
 <span class="n">white_employed</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;empstat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;employed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;white&#39;</span><span class="p">)]</span>
 <span class="n">white_weighted</span> <span class="o">=</span> <span class="p">(</span><span class="n">white_employed</span><span class="p">[</span><span class="s1">&#39;inctot&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">white_employed</span><span class="p">[</span><span class="s1">&#39;perwt&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">white_employed</span><span class="p">[</span><span class="s1">&#39;perwt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">white_weighted</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Subset for each of notation</span>
-<span class="n">black_employed</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;empstat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;employed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;black/african american/negro&#39;</span><span class="p">)]</span>
-<span class="n">black_weighted</span> <span class="o">=</span> <span class="p">(</span><span class="n">black_employed</span><span class="p">[</span><span class="s1">&#39;inctot&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">black_employed</span><span class="p">[</span><span class="s1">&#39;perwt&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">black_employed</span><span class="p">[</span><span class="s1">&#39;perwt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>58361.48196061399
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Calculate for each of population</span>
+<span class="n">black_employed</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;empstat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;employed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;black/african american/negro&#39;</span><span class="p">)]</span>
+<span class="n">black_weighted</span> <span class="o">=</span> <span class="p">(</span><span class="n">black_employed</span><span class="p">[</span><span class="s1">&#39;inctot&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">black_employed</span><span class="p">[</span><span class="s1">&#39;perwt&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">black_employed</span><span class="p">[</span><span class="s1">&#39;perwt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">black_weighted</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>40430.953355310274
+</pre></div>
+</div>
+</div>
+<p>Difference in estimate of income difference between weighted and unweighted:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -568,11 +745,103 @@ Name: race, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>0.04431967593018212
+</pre></div>
+</div>
+</div>
+<p>Income gap: How much more White workers make compared Black workers in US (as share):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">((</span><span class="n">white_weighted</span> <span class="o">-</span> <span class="n">black_weighted</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">black_weighted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.4434851794794171
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Absolute difference</span>
+<span class="n">white_weighted</span> <span class="o">-</span> <span class="n">black_weighted</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>17930.52860530372
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="More-practice-2">
+<h2>More practice 2<a class="headerlink" href="#More-practice-2" title="Permalink to this headline">¶</a></h2>
+<p>Split out White non-Hispanics from White Hispanics</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">white_nonhisp</span> <span class="o">=</span> <span class="n">acs</span><span class="p">[(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;white&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
+                     <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;empstat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;employed&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
+                     <span class="p">(</span><span class="n">acs</span><span class="p">[</span><span class="s1">&#39;hispan&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;not hispanic&#39;</span><span class="p">)][[</span><span class="s1">&#39;inctot&#39;</span><span class="p">,</span><span class="s1">&#39;perwt&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># White non-hispanic income</span>
+<span class="n">white_nonship_weighted</span> <span class="o">=</span> <span class="p">(</span><span class="n">white_nonhisp</span><span class="p">[</span><span class="s1">&#39;inctot&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">white_nonhisp</span><span class="p">[</span><span class="s1">&#39;perwt&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">white_nonhisp</span><span class="p">[</span><span class="s1">&#39;perwt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">white_nonship_weighted</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>61669.28927599297
+</pre></div>
+</div>
+</div>
+<p>Income gap: How much more White non-Hispanics make as compared to Black workers (as share of Black avg wage)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">(</span><span class="n">white_nonship_weighted</span> <span class="o">-</span> <span class="n">black_weighted</span><span class="p">)</span> <span class="o">/</span> <span class="n">black_weighted</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0.5252989147705371
 </pre></div>
 </div>
 </div>
