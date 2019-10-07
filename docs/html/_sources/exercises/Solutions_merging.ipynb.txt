@@ -36,7 +36,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -195,7 +195,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [
     {
@@ -280,7 +280,7 @@
        "4           4  2005-2009  Alabama   Blount County             56804"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 3,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -346,7 +346,7 @@
      "traceback": [
       "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
       "\u001b[0;31mMergeError\u001b[0m                                Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-5-f566b6a66abd>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;31m# because county names repeat across states, AND because we have multiple years in the\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;31m# data:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m \u001b[0mmerged\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmerge\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0marrests_2009\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mpop\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mon\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'COUNTY'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mvalidate\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'1:1'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m<ipython-input-5-f4a8d9862b8c>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;31m# because county names repeat across states, AND because we have multiple years in the\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;31m# data:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m \u001b[0mmerged\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmerge\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0marrests_2009\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mpop\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mon\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'COUNTY'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mvalidate\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'1:1'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
       "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/reshape/merge.py\u001b[0m in \u001b[0;36mmerge\u001b[0;34m(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)\u001b[0m\n\u001b[1;32m     80\u001b[0m         \u001b[0mcopy\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mcopy\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     81\u001b[0m         \u001b[0mindicator\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mindicator\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 82\u001b[0;31m         \u001b[0mvalidate\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mvalidate\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     83\u001b[0m     )\n\u001b[1;32m     84\u001b[0m     \u001b[0;32mreturn\u001b[0m \u001b[0mop\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_result\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
       "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/reshape/merge.py\u001b[0m in \u001b[0;36m__init__\u001b[0;34m(self, left, right, how, on, left_on, right_on, axis, left_index, right_index, sort, suffixes, copy, indicator, validate)\u001b[0m\n\u001b[1;32m    635\u001b[0m         \u001b[0;31m# are in fact unique.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    636\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mvalidate\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 637\u001b[0;31m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_validate\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mvalidate\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    638\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    639\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mget_result\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
       "\u001b[0;32m~/miniconda3/lib/python3.7/site-packages/pandas/core/reshape/merge.py\u001b[0m in \u001b[0;36m_validate\u001b[0;34m(self, validate)\u001b[0m\n\u001b[1;32m   1252\u001b[0m             \u001b[0;32melif\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mright_unique\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1253\u001b[0m                 raise MergeError(\n\u001b[0;32m-> 1254\u001b[0;31m                     \u001b[0;34m\"Merge keys are not unique in right dataset;\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1255\u001b[0m                     \u001b[0;34m\" not a one-to-one merge\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1256\u001b[0m                 )\n",
@@ -365,12 +365,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 18,
    "metadata": {},
    "outputs": [],
    "source": [
-    "pop2009 = pop[pop['YEAR'] == '2005-2009']\n",
-    "ca_pop2009 = pop2009[pop2009.STATE == 'California']\n",
+    "pop2009 = pop[pop['YEAR'] == '2005-2009'].copy()\n",
+    "ca_pop2009 = pop2009[pop2009.STATE == 'California'].copy()\n",
     "merged_2009 = pd.merge(arrests_2009, ca_pop2009, on='COUNTY', validate='1:1')"
    ]
   },
@@ -387,7 +387,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 19,
    "metadata": {},
    "outputs": [
     {
@@ -436,7 +436,7 @@
        "1  key2        2"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 19,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -448,7 +448,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 20,
    "metadata": {},
    "outputs": [
     {
@@ -497,7 +497,7 @@
        "1  Key2       b"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 20,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -516,7 +516,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 21,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -532,7 +532,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 22,
    "metadata": {},
    "outputs": [
     {
@@ -591,7 +591,7 @@
        "2  Key2      NaN       b"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 22,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -609,7 +609,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 23,
    "metadata": {},
    "outputs": [
     {
@@ -661,7 +661,7 @@
        "1  key2        2       b"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 23,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -683,7 +683,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 24,
    "metadata": {},
    "outputs": [
     {
@@ -695,7 +695,7 @@
        "Name: _merge, dtype: int64"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -716,7 +716,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
@@ -771,7 +771,7 @@
        "2  Key2      NaN       b  right_only"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -807,7 +807,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
@@ -819,7 +819,7 @@
        "Name: _merge, dtype: int64"
       ]
      },
-     "execution_count": 14,
+     "execution_count": 26,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -838,7 +838,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
@@ -899,7 +899,7 @@
        "59       Injo County  right_only"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -910,21 +910,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/Nick/miniconda3/lib/python3.7/site-packages/pandas/core/indexing.py:480: SettingWithCopyWarning: \n",
-      "A value is trying to be set on a copy of a slice from a DataFrame.\n",
-      "Try using .loc[row_indexer,col_indexer] = value instead\n",
-      "\n",
-      "See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
-      "  self.obj[item] = s\n"
-     ]
-    },
     {
      "data": {
       "text/plain": [
@@ -934,7 +922,7 @@
        "Name: _merge, dtype: int64"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -948,7 +936,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 29,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -967,7 +955,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 30,
    "metadata": {},
    "outputs": [
     {
@@ -1126,7 +1114,7 @@
        "4             46548   both  "
       ]
      },
-     "execution_count": 18,
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1137,7 +1125,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 31,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1154,7 +1142,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 34,
    "metadata": {},
    "outputs": [
     {
@@ -1178,10 +1166,10 @@
     {
      "data": {
       "text/plain": [
-       "<ggplot: (-9223363266690829610)>"
+       "<ggplot: (-9223363256797668194)>"
       ]
      },
-     "execution_count": 23,
+     "execution_count": 34,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1217,7 +1205,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 35,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1226,7 +1214,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 36,
    "metadata": {},
    "outputs": [
     {
@@ -1259,116 +1247,116 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>3397</th>\n",
-       "      <td>176</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>Arkansas</td>\n",
-       "      <td>Sebastian County</td>\n",
-       "      <td>127362</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3879</th>\n",
-       "      <td>658</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>Illinois</td>\n",
-       "      <td>Massac County</td>\n",
-       "      <td>14594</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1738</th>\n",
-       "      <td>1738</td>\n",
-       "      <td>2005-2009</td>\n",
-       "      <td>Nebraska</td>\n",
-       "      <td>Thayer County</td>\n",
-       "      <td>5150</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>5568</th>\n",
-       "      <td>2347</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>South Carolina</td>\n",
-       "      <td>Lexington County</td>\n",
-       "      <td>281870</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>6358</th>\n",
-       "      <td>3137</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>Wyoming</td>\n",
-       "      <td>Sweetwater County</td>\n",
-       "      <td>44527</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>5418</th>\n",
-       "      <td>2197</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>Oklahoma</td>\n",
-       "      <td>Seminole County</td>\n",
-       "      <td>25246</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>611</th>\n",
-       "      <td>611</td>\n",
-       "      <td>2005-2009</td>\n",
-       "      <td>Illinois</td>\n",
-       "      <td>Crawford County</td>\n",
-       "      <td>19545</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>5216</th>\n",
-       "      <td>1995</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>North Dakota</td>\n",
-       "      <td>Bowman County</td>\n",
-       "      <td>3226</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>400</th>\n",
-       "      <td>400</td>\n",
-       "      <td>2005-2009</td>\n",
-       "      <td>Georgia</td>\n",
-       "      <td>Brooks County</td>\n",
-       "      <td>16324</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1108</th>\n",
-       "      <td>1108</td>\n",
+       "      <th>1001</th>\n",
+       "      <td>1001</td>\n",
        "      <td>2005-2009</td>\n",
        "      <td>Kentucky</td>\n",
-       "      <td>Wayne County</td>\n",
-       "      <td>20575</td>\n",
+       "      <td>Bourbon County</td>\n",
+       "      <td>19668</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>204</th>\n",
+       "      <td>204</td>\n",
+       "      <td>2005-2009</td>\n",
+       "      <td>California</td>\n",
+       "      <td>Los Angeles County</td>\n",
+       "      <td>9785295</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2760</th>\n",
+       "      <td>2760</td>\n",
+       "      <td>2005-2009</td>\n",
+       "      <td>Texas</td>\n",
+       "      <td>Ward County</td>\n",
+       "      <td>10297</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4587</th>\n",
+       "      <td>1366</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>Minnesota</td>\n",
+       "      <td>Nobles County</td>\n",
+       "      <td>21854</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1227</th>\n",
+       "      <td>1227</td>\n",
+       "      <td>2005-2009</td>\n",
+       "      <td>Massachusetts</td>\n",
+       "      <td>Norfolk County</td>\n",
+       "      <td>657506</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2597</th>\n",
+       "      <td>2597</td>\n",
+       "      <td>2005-2009</td>\n",
+       "      <td>Texas</td>\n",
+       "      <td>Fayette County</td>\n",
+       "      <td>22620</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4372</th>\n",
+       "      <td>1151</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>Louisiana</td>\n",
+       "      <td>Pointe Coupee Parish</td>\n",
+       "      <td>22271</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1031</th>\n",
+       "      <td>1031</td>\n",
+       "      <td>2005-2009</td>\n",
+       "      <td>Kentucky</td>\n",
+       "      <td>Gallatin County</td>\n",
+       "      <td>8090</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1386</th>\n",
+       "      <td>1386</td>\n",
+       "      <td>2005-2009</td>\n",
+       "      <td>Minnesota</td>\n",
+       "      <td>Stearns County</td>\n",
+       "      <td>146168</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1465</th>\n",
+       "      <td>1465</td>\n",
+       "      <td>2005-2009</td>\n",
+       "      <td>Mississippi</td>\n",
+       "      <td>Smith County</td>\n",
+       "      <td>15889</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
        "</div>"
       ],
       "text/plain": [
-       "      Unnamed: 0       YEAR           STATE             COUNTY  \\\n",
-       "3397         176  2013-2017        Arkansas   Sebastian County   \n",
-       "3879         658  2013-2017        Illinois      Massac County   \n",
-       "1738        1738  2005-2009        Nebraska      Thayer County   \n",
-       "5568        2347  2013-2017  South Carolina   Lexington County   \n",
-       "6358        3137  2013-2017         Wyoming  Sweetwater County   \n",
-       "5418        2197  2013-2017        Oklahoma    Seminole County   \n",
-       "611          611  2005-2009        Illinois    Crawford County   \n",
-       "5216        1995  2013-2017    North Dakota      Bowman County   \n",
-       "400          400  2005-2009         Georgia      Brooks County   \n",
-       "1108        1108  2005-2009        Kentucky       Wayne County   \n",
+       "      Unnamed: 0       YEAR          STATE                COUNTY  \\\n",
+       "1001        1001  2005-2009       Kentucky        Bourbon County   \n",
+       "204          204  2005-2009     California    Los Angeles County   \n",
+       "2760        2760  2005-2009          Texas           Ward County   \n",
+       "4587        1366  2013-2017      Minnesota         Nobles County   \n",
+       "1227        1227  2005-2009  Massachusetts        Norfolk County   \n",
+       "2597        2597  2005-2009          Texas        Fayette County   \n",
+       "4372        1151  2013-2017      Louisiana  Pointe Coupee Parish   \n",
+       "1031        1031  2005-2009       Kentucky       Gallatin County   \n",
+       "1386        1386  2005-2009      Minnesota        Stearns County   \n",
+       "1465        1465  2005-2009    Mississippi          Smith County   \n",
        "\n",
        "      total_population  \n",
-       "3397            127362  \n",
-       "3879             14594  \n",
-       "1738              5150  \n",
-       "5568            281870  \n",
-       "6358             44527  \n",
-       "5418             25246  \n",
-       "611              19545  \n",
-       "5216              3226  \n",
-       "400              16324  \n",
-       "1108             20575  "
+       "1001             19668  \n",
+       "204            9785295  \n",
+       "2760             10297  \n",
+       "4587             21854  \n",
+       "1227            657506  \n",
+       "2597             22620  \n",
+       "4372             22271  \n",
+       "1031              8090  \n",
+       "1386            146168  \n",
+       "1465             15889  "
       ]
      },
-     "execution_count": 25,
+     "execution_count": 36,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1380,7 +1368,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 37,
    "metadata": {},
    "outputs": [
     {
@@ -1392,7 +1380,7 @@
        "Name: _merge, dtype: int64"
       ]
      },
-     "execution_count": 26,
+     "execution_count": 37,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1406,7 +1394,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 38,
    "metadata": {},
    "outputs": [
     {
@@ -1451,164 +1439,24 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>20</th>\n",
-       "      <td>2226</td>\n",
-       "      <td>Mendocino County</td>\n",
-       "      <td>381</td>\n",
-       "      <td>211</td>\n",
-       "      <td>120</td>\n",
-       "      <td>8</td>\n",
-       "      <td>343</td>\n",
-       "      <td>1063</td>\n",
-       "      <td>3237</td>\n",
-       "      <td>3</td>\n",
-       "      <td>208</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>California</td>\n",
-       "      <td>87497</td>\n",
-       "      <td>both</td>\n",
-       "      <td>0.004354</td>\n",
-       "      <td>0.001371</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>30</th>\n",
-       "      <td>2236</td>\n",
-       "      <td>Riverside County</td>\n",
-       "      <td>5315</td>\n",
-       "      <td>3565</td>\n",
-       "      <td>1321</td>\n",
-       "      <td>176</td>\n",
-       "      <td>3516</td>\n",
-       "      <td>13893</td>\n",
-       "      <td>31557</td>\n",
+       "      <th>17</th>\n",
+       "      <td>2223</td>\n",
+       "      <td>Madera County</td>\n",
+       "      <td>562</td>\n",
+       "      <td>200</td>\n",
        "      <td>131</td>\n",
-       "      <td>218</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>California</td>\n",
-       "      <td>2355002</td>\n",
-       "      <td>both</td>\n",
-       "      <td>0.002257</td>\n",
-       "      <td>0.000561</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>33</th>\n",
-       "      <td>2239</td>\n",
-       "      <td>San Bernardino County</td>\n",
-       "      <td>8839</td>\n",
-       "      <td>7310</td>\n",
-       "      <td>2519</td>\n",
-       "      <td>496</td>\n",
-       "      <td>4899</td>\n",
-       "      <td>24063</td>\n",
-       "      <td>48461</td>\n",
-       "      <td>1044</td>\n",
-       "      <td>221</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>California</td>\n",
-       "      <td>2121220</td>\n",
-       "      <td>both</td>\n",
-       "      <td>0.004167</td>\n",
-       "      <td>0.001188</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>23</th>\n",
-       "      <td>2229</td>\n",
-       "      <td>Mono County</td>\n",
-       "      <td>58</td>\n",
-       "      <td>9</td>\n",
-       "      <td>7</td>\n",
-       "      <td>0</td>\n",
+       "      <td>33</td>\n",
+       "      <td>502</td>\n",
+       "      <td>1428</td>\n",
+       "      <td>4317</td>\n",
        "      <td>6</td>\n",
-       "      <td>80</td>\n",
-       "      <td>256</td>\n",
-       "      <td>0</td>\n",
-       "      <td>211</td>\n",
+       "      <td>205</td>\n",
        "      <td>2013-2017</td>\n",
        "      <td>California</td>\n",
-       "      <td>14058</td>\n",
+       "      <td>154440</td>\n",
        "      <td>both</td>\n",
-       "      <td>0.004126</td>\n",
-       "      <td>0.000498</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>36</th>\n",
-       "      <td>2242</td>\n",
-       "      <td>San Joaquin County</td>\n",
-       "      <td>3039</td>\n",
-       "      <td>1301</td>\n",
-       "      <td>501</td>\n",
-       "      <td>140</td>\n",
-       "      <td>2084</td>\n",
-       "      <td>7065</td>\n",
-       "      <td>14031</td>\n",
-       "      <td>5</td>\n",
-       "      <td>224</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>California</td>\n",
-       "      <td>724153</td>\n",
-       "      <td>both</td>\n",
-       "      <td>0.004197</td>\n",
-       "      <td>0.000692</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>53</th>\n",
-       "      <td>2259</td>\n",
-       "      <td>Ventura County</td>\n",
-       "      <td>2271</td>\n",
-       "      <td>1535</td>\n",
-       "      <td>732</td>\n",
-       "      <td>80</td>\n",
-       "      <td>2193</td>\n",
-       "      <td>6811</td>\n",
-       "      <td>26612</td>\n",
-       "      <td>630</td>\n",
-       "      <td>241</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>California</td>\n",
-       "      <td>847834</td>\n",
-       "      <td>both</td>\n",
-       "      <td>0.002679</td>\n",
-       "      <td>0.000863</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>2206</td>\n",
-       "      <td>Amador County</td>\n",
-       "      <td>72</td>\n",
-       "      <td>40</td>\n",
-       "      <td>31</td>\n",
-       "      <td>3</td>\n",
-       "      <td>142</td>\n",
-       "      <td>288</td>\n",
-       "      <td>701</td>\n",
-       "      <td>1</td>\n",
-       "      <td>188</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>California</td>\n",
-       "      <td>37306</td>\n",
-       "      <td>both</td>\n",
-       "      <td>0.001930</td>\n",
-       "      <td>0.000831</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>34</th>\n",
-       "      <td>2240</td>\n",
-       "      <td>San Diego County</td>\n",
-       "      <td>8574</td>\n",
-       "      <td>4140</td>\n",
-       "      <td>2094</td>\n",
-       "      <td>274</td>\n",
-       "      <td>6763</td>\n",
-       "      <td>21845</td>\n",
-       "      <td>62416</td>\n",
-       "      <td>432</td>\n",
-       "      <td>222</td>\n",
-       "      <td>2013-2017</td>\n",
-       "      <td>California</td>\n",
-       "      <td>3283665</td>\n",
-       "      <td>both</td>\n",
-       "      <td>0.002611</td>\n",
-       "      <td>0.000638</td>\n",
+       "      <td>0.003639</td>\n",
+       "      <td>0.000848</td>\n",
        "    </tr>\n",
        "    <tr>\n",
        "      <th>13</th>\n",
@@ -1631,80 +1479,220 @@
        "      <td>0.000573</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>22</th>\n",
-       "      <td>2228</td>\n",
-       "      <td>Modoc County</td>\n",
-       "      <td>66</td>\n",
-       "      <td>16</td>\n",
-       "      <td>10</td>\n",
-       "      <td>8</td>\n",
-       "      <td>80</td>\n",
-       "      <td>180</td>\n",
-       "      <td>300</td>\n",
-       "      <td>0</td>\n",
-       "      <td>210</td>\n",
+       "      <th>21</th>\n",
+       "      <td>2227</td>\n",
+       "      <td>Merced County</td>\n",
+       "      <td>1029</td>\n",
+       "      <td>510</td>\n",
+       "      <td>166</td>\n",
+       "      <td>65</td>\n",
+       "      <td>903</td>\n",
+       "      <td>2673</td>\n",
+       "      <td>7326</td>\n",
+       "      <td>432</td>\n",
+       "      <td>209</td>\n",
        "      <td>2013-2017</td>\n",
        "      <td>California</td>\n",
-       "      <td>9017</td>\n",
+       "      <td>267390</td>\n",
        "      <td>both</td>\n",
-       "      <td>0.007320</td>\n",
-       "      <td>0.001109</td>\n",
+       "      <td>0.003848</td>\n",
+       "      <td>0.000621</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>26</th>\n",
+       "      <td>2232</td>\n",
+       "      <td>Nevada County</td>\n",
+       "      <td>191</td>\n",
+       "      <td>134</td>\n",
+       "      <td>60</td>\n",
+       "      <td>11</td>\n",
+       "      <td>236</td>\n",
+       "      <td>632</td>\n",
+       "      <td>2307</td>\n",
+       "      <td>61</td>\n",
+       "      <td>214</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>California</td>\n",
+       "      <td>98838</td>\n",
+       "      <td>both</td>\n",
+       "      <td>0.001932</td>\n",
+       "      <td>0.000607</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>37</th>\n",
+       "      <td>2243</td>\n",
+       "      <td>San Luis Obispo County</td>\n",
+       "      <td>644</td>\n",
+       "      <td>350</td>\n",
+       "      <td>106</td>\n",
+       "      <td>32</td>\n",
+       "      <td>420</td>\n",
+       "      <td>1552</td>\n",
+       "      <td>9427</td>\n",
+       "      <td>5</td>\n",
+       "      <td>225</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>California</td>\n",
+       "      <td>280119</td>\n",
+       "      <td>both</td>\n",
+       "      <td>0.002299</td>\n",
+       "      <td>0.000378</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>55</th>\n",
+       "      <td>2261</td>\n",
+       "      <td>Yuba County</td>\n",
+       "      <td>391</td>\n",
+       "      <td>188</td>\n",
+       "      <td>164</td>\n",
+       "      <td>13</td>\n",
+       "      <td>257</td>\n",
+       "      <td>1013</td>\n",
+       "      <td>1942</td>\n",
+       "      <td>0</td>\n",
+       "      <td>243</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>California</td>\n",
+       "      <td>74644</td>\n",
+       "      <td>both</td>\n",
+       "      <td>0.005238</td>\n",
+       "      <td>0.002197</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>45</th>\n",
+       "      <td>2251</td>\n",
+       "      <td>Solano County</td>\n",
+       "      <td>1496</td>\n",
+       "      <td>1024</td>\n",
+       "      <td>484</td>\n",
+       "      <td>75</td>\n",
+       "      <td>1160</td>\n",
+       "      <td>4239</td>\n",
+       "      <td>10559</td>\n",
+       "      <td>18</td>\n",
+       "      <td>233</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>California</td>\n",
+       "      <td>434981</td>\n",
+       "      <td>both</td>\n",
+       "      <td>0.003439</td>\n",
+       "      <td>0.001113</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>46</th>\n",
+       "      <td>2252</td>\n",
+       "      <td>Sonoma County</td>\n",
+       "      <td>1475</td>\n",
+       "      <td>806</td>\n",
+       "      <td>265</td>\n",
+       "      <td>88</td>\n",
+       "      <td>902</td>\n",
+       "      <td>3536</td>\n",
+       "      <td>13153</td>\n",
+       "      <td>9</td>\n",
+       "      <td>234</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>California</td>\n",
+       "      <td>500943</td>\n",
+       "      <td>both</td>\n",
+       "      <td>0.002944</td>\n",
+       "      <td>0.000529</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>49</th>\n",
+       "      <td>2255</td>\n",
+       "      <td>Tehama County</td>\n",
+       "      <td>209</td>\n",
+       "      <td>142</td>\n",
+       "      <td>25</td>\n",
+       "      <td>24</td>\n",
+       "      <td>170</td>\n",
+       "      <td>570</td>\n",
+       "      <td>1971</td>\n",
+       "      <td>2</td>\n",
+       "      <td>237</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>California</td>\n",
+       "      <td>63247</td>\n",
+       "      <td>both</td>\n",
+       "      <td>0.003305</td>\n",
+       "      <td>0.000395</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>48</th>\n",
+       "      <td>2254</td>\n",
+       "      <td>Sutter County</td>\n",
+       "      <td>400</td>\n",
+       "      <td>254</td>\n",
+       "      <td>53</td>\n",
+       "      <td>32</td>\n",
+       "      <td>345</td>\n",
+       "      <td>1084</td>\n",
+       "      <td>3314</td>\n",
+       "      <td>6</td>\n",
+       "      <td>236</td>\n",
+       "      <td>2013-2017</td>\n",
+       "      <td>California</td>\n",
+       "      <td>95583</td>\n",
+       "      <td>both</td>\n",
+       "      <td>0.004185</td>\n",
+       "      <td>0.000554</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
        "</div>"
       ],
       "text/plain": [
-       "    Unnamed: 0_x                 COUNTY  VIOLENT  PROPERTY  F_DRUGOFF  \\\n",
-       "20          2226       Mendocino County      381       211        120   \n",
-       "30          2236       Riverside County     5315      3565       1321   \n",
-       "33          2239  San Bernardino County     8839      7310       2519   \n",
-       "23          2229            Mono County       58         9          7   \n",
-       "36          2242     San Joaquin County     3039      1301        501   \n",
-       "53          2259         Ventura County     2271      1535        732   \n",
-       "2           2206          Amador County       72        40         31   \n",
-       "34          2240       San Diego County     8574      4140       2094   \n",
-       "13          2219           Kings County      603       307         86   \n",
-       "22          2228           Modoc County       66        16         10   \n",
+       "    Unnamed: 0_x                  COUNTY  VIOLENT  PROPERTY  F_DRUGOFF  \\\n",
+       "17          2223           Madera County      562       200        131   \n",
+       "13          2219            Kings County      603       307         86   \n",
+       "21          2227           Merced County     1029       510        166   \n",
+       "26          2232           Nevada County      191       134         60   \n",
+       "37          2243  San Luis Obispo County      644       350        106   \n",
+       "55          2261             Yuba County      391       188        164   \n",
+       "45          2251           Solano County     1496      1024        484   \n",
+       "46          2252           Sonoma County     1475       806        265   \n",
+       "49          2255           Tehama County      209       142         25   \n",
+       "48          2254           Sutter County      400       254         53   \n",
        "\n",
        "    F_SEXOFF  F_ALLOTHER  F_TOTAL  M_TOTAL  S_TOTAL  Unnamed: 0_y       YEAR  \\\n",
-       "20         8         343     1063     3237        3           208  2013-2017   \n",
-       "30       176        3516    13893    31557      131           218  2013-2017   \n",
-       "33       496        4899    24063    48461     1044           221  2013-2017   \n",
-       "23         0           6       80      256        0           211  2013-2017   \n",
-       "36       140        2084     7065    14031        5           224  2013-2017   \n",
-       "53        80        2193     6811    26612      630           241  2013-2017   \n",
-       "2          3         142      288      701        1           188  2013-2017   \n",
-       "34       274        6763    21845    62416      432           222  2013-2017   \n",
+       "17        33         502     1428     4317        6           205  2013-2017   \n",
        "13        42         747     1785     5545       88           201  2013-2017   \n",
-       "22         8          80      180      300        0           210  2013-2017   \n",
+       "21        65         903     2673     7326      432           209  2013-2017   \n",
+       "26        11         236      632     2307       61           214  2013-2017   \n",
+       "37        32         420     1552     9427        5           225  2013-2017   \n",
+       "55        13         257     1013     1942        0           243  2013-2017   \n",
+       "45        75        1160     4239    10559       18           233  2013-2017   \n",
+       "46        88         902     3536    13153        9           234  2013-2017   \n",
+       "49        24         170      570     1971        2           237  2013-2017   \n",
+       "48        32         345     1084     3314        6           236  2013-2017   \n",
        "\n",
        "         STATE  total_population _merge  violent_arrest_rate_2018  \\\n",
-       "20  California             87497   both                  0.004354   \n",
-       "30  California           2355002   both                  0.002257   \n",
-       "33  California           2121220   both                  0.004167   \n",
-       "23  California             14058   both                  0.004126   \n",
-       "36  California            724153   both                  0.004197   \n",
-       "53  California            847834   both                  0.002679   \n",
-       "2   California             37306   both                  0.001930   \n",
-       "34  California           3283665   both                  0.002611   \n",
+       "17  California            154440   both                  0.003639   \n",
        "13  California            150183   both                  0.004015   \n",
-       "22  California              9017   both                  0.007320   \n",
+       "21  California            267390   both                  0.003848   \n",
+       "26  California             98838   both                  0.001932   \n",
+       "37  California            280119   both                  0.002299   \n",
+       "55  California             74644   both                  0.005238   \n",
+       "45  California            434981   both                  0.003439   \n",
+       "46  California            500943   both                  0.002944   \n",
+       "49  California             63247   both                  0.003305   \n",
+       "48  California             95583   both                  0.004185   \n",
        "\n",
        "    drug_arrest_rate_2018  \n",
-       "20               0.001371  \n",
-       "30               0.000561  \n",
-       "33               0.001188  \n",
-       "23               0.000498  \n",
-       "36               0.000692  \n",
-       "53               0.000863  \n",
-       "2                0.000831  \n",
-       "34               0.000638  \n",
+       "17               0.000848  \n",
        "13               0.000573  \n",
-       "22               0.001109  "
+       "21               0.000621  \n",
+       "26               0.000607  \n",
+       "37               0.000378  \n",
+       "55               0.002197  \n",
+       "45               0.001113  \n",
+       "46               0.000529  \n",
+       "49               0.000395  \n",
+       "48               0.000554  "
       ]
      },
-     "execution_count": 27,
+     "execution_count": 38,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1724,7 +1712,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 39,
    "metadata": {},
    "outputs": [
     {
@@ -1736,7 +1724,7 @@
        "Name: _merge, dtype: int64"
       ]
      },
-     "execution_count": 28,
+     "execution_count": 39,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1750,7 +1738,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 40,
    "metadata": {},
    "outputs": [
     {
@@ -2352,7 +2340,7 @@
        "55                  0.005238               0.002197  "
       ]
      },
-     "execution_count": 29,
+     "execution_count": 40,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2371,7 +2359,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 41,
    "metadata": {},
    "outputs": [
     {
@@ -2380,7 +2368,7 @@
        "-0.0022440934943818375"
       ]
      },
-     "execution_count": 30,
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2399,7 +2387,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 42,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -2408,7 +2396,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 43,
    "metadata": {},
    "outputs": [
     {
@@ -2417,7 +2405,7 @@
        "-0.00032359972434409197"
       ]
      },
-     "execution_count": 32,
+     "execution_count": 43,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2445,7 +2433,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
+   "execution_count": 44,
    "metadata": {},
    "outputs": [
     {
@@ -2462,7 +2450,7 @@
        "Name: drug_arrest_rate_2009, dtype: float64"
       ]
      },
-     "execution_count": 33,
+     "execution_count": 44,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2473,7 +2461,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 45,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -2482,25 +2470,49 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 46,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-0.00043197415958967417"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "change_from_09_to_18_in_high_drug_arrest_counties = all_years.loc[all_years.high_drug_2009, 'change_in_violent_2018_2009'].mean()"
+    "change_from_09_to_18_in_high_drug_arrest_counties = all_years.loc[all_years.high_drug_2009, 'change_in_violent_2018_2009'].mean()\n",
+    "change_from_09_to_18_in_high_drug_arrest_counties"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": 47,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-0.00024806602705171646"
+      ]
+     },
+     "execution_count": 47,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "change_from_09_to_18_in_low_drug_arrest_counties = all_years.loc[~all_years.high_drug_2009, 'change_in_violent_2018_2009'].mean()"
+    "change_from_09_to_18_in_low_drug_arrest_counties = all_years.loc[~all_years.high_drug_2009, 'change_in_violent_2018_2009'].mean()\n",
+    "change_from_09_to_18_in_low_drug_arrest_counties"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 37,
+   "execution_count": 48,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -2509,7 +2521,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 38,
+   "execution_count": 49,
    "metadata": {},
    "outputs": [
     {
@@ -2518,7 +2530,7 @@
        "-0.0001839081325379577"
       ]
      },
-     "execution_count": 38,
+     "execution_count": 49,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2540,7 +2552,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 39,
+   "execution_count": 50,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -2553,7 +2565,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
+   "execution_count": 51,
    "metadata": {},
    "outputs": [
     {
@@ -2562,7 +2574,7 @@
        "-0.035190477506371866"
       ]
      },
-     "execution_count": 40,
+     "execution_count": 51,
      "metadata": {},
      "output_type": "execute_result"
     }
