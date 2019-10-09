@@ -53,11 +53,13 @@
     "\n",
     "### An Overview of Working with Git\n",
     "\n",
-    "Please [read this handbook page](https://guides.github.com/introduction/git-handbook/) to give you a sense of the general reason we're interested in git and github, as well as give you an overview of normal workflows. \n",
+    "**Assignment 1: Please [read this handbook page](https://guides.github.com/introduction/git-handbook/) to give you a sense of the general reason we're interested in git and github, as well as give you an overview of normal workflows.**\n",
     "\n",
     "### Practicing Working with Git and Github\n",
     "\n",
-    "After that, please complete the [git-it](https://github.com/jlord/git-it-electron) tutorial. Unlike many other tutorials git, it asks you to do things on your own computer, not an unrealistically easy to use terminal in the web-browswer, which gives a more authentic experience. Just follow [the directions here](https://github.com/jlord/git-it-electron) to get started.\n",
+    "**Assignment 2: After that, please complete the [git-it](https://github.com/jlord/git-it-electron) tutorial.**\n",
+    "\n",
+    "Unlike many other tutorials git, it asks you to do things on your own computer, not an unrealistically easy to use terminal in the web-browswer, which gives a more authentic experience. Just follow [the directions here](https://github.com/jlord/git-it-electron) to get started.\n",
     "\n",
     "Note that the only downside to this tutorial is that it is a little *too* detailed in the directions for each step, so there's a naturally tendency to power through without thinking too hard. Please fight that urge -- we'll use the lessons from this tutorial in exercises, and if you rushed through you'll be in trouble. \n",
     "\n",
@@ -107,7 +109,11 @@
    "source": [
     "## Exercises\n",
     "\n",
-    "And now for some git/github exercises! Note: unfortunately these are meant to be done in small groups, so if you're using this on your own it may be a little tricky... Though I suppose you can \"play all the parts\" if you have more than 1 github account and computer!\n",
+    "And now for some git/github exercises! \n",
+    "\n",
+    "Duke students: as usual, these are what we'll be doing in class, not something to be done as homework. \n",
+    "\n",
+    "Non-Duke students: unfortunately these are meant to be done in small groups, so if you're using this on your own it may be a little more difficult than the other exercises on this site... Though I suppose you can \"play all the parts\" if you have more than 1 github account and computer?!\n",
     "\n",
     "[Git Exercises](exercises/Exercise_git.ipynb)"
    ]

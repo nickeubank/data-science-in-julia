@@ -663,7 +663,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Make sure values of gender have a reasonable value. Note this is a “reasonableness” test, not an absolute test. It’s possible this would fail and the data is ok, but this way if there’s a problem your attention will be flagged so you can check."
+    "Make sure values of GDP Per Capita have a reasonable value. Note this is a “reasonableness” test, not an absolute test. It’s possible this would fail and the data is ok, but this way if there’s a problem your attention will be flagged so you can check."
    ]
   },
   {
