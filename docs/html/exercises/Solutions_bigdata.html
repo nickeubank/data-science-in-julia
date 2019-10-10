@@ -32,16 +32,1180 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="Big-Data-Exercises">
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Big-Data-Exercises">
 <h1>Big Data Exercises<a class="headerlink" href="#Big-Data-Exercises" title="Permalink to this headline">¶</a></h1>
 <p>In these exercises we will work on data from a series of global weather monitoring stations used to measure climate trends to examine long-term trends in temperature for your home locality. This data comes from the Global Historical Climatology Network, and is the actual raw data provided by NOAA. The only changes I have made to this data are a few small formatting changes to help meet the learning goals of this exercise.</p>
-<p>To do these excercises, first please download the data for this exercise <a href="#id1"><span class="problematic" id="id2">`from here &lt;&gt;`__</span></a>. Note this is a VERY big file (this is a big-data exercise, after all), so be patient.</p>
-<p><strong>(1)</strong> The data we’ll be working with can be found in the file <code class="docutils literal notranslate"><span class="pre">ghcnd_daily.tar.gz</span></code>. Unpack this file to begin (it will be about 30gb), then open the <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> to read about the format of this file.</p>
-<p><strong>(2)</strong> First, read in the first 20 lines or so of the data to get a sense of how it is organized. Note that as explained, this file is a “fixed-width” formatted file, meaning that rather than putting commas between columns, each column takes up a specified number of characters in every row. Google “reading fixed-width data in pandas” to figure out how to work with this kind of data.</p>
-<p><strong>(3)</strong> Rather than work with the entire database, each pair should pick two weather stations two examine. Using the ancillary files in the project, figure out what weather stations you wish to study. I suggest each person pick a weather station close to where they grew up.</p>
-<p>When picking a weather station, however, select one with the <code class="docutils literal notranslate"><span class="pre">HCN</span></code> flag in the <code class="docutils literal notranslate"><span class="pre">ghcnd-stations.txt</span></code> file. Those are members of the “Historic Climatological Network” and have the longest time series and always include temperature data.</p>
-<p>In addition, also plan on pulling the data for “USC00050848” (a weather station from near my home!) so you can generate results that we can all compare (to check for accuracy).</p>
-<p><strong>(4)</strong> Once you’ve picked the stations you wish to study, write code to read in all the climate data and keep only the observations for the wealth stations you’ve selected to focus on. The two outcome we care about are maximium temp and minimum temp.</p>
+<p>To do these excercises, first please download the data for this exercise <a class="reference external" href="https://www.dropbox.com/s/xh1zk6rlum9z4pb/ghcnd_all.tar.gz?dl=0">from here</a>. Note this is a big file (this is a big-data exercise, after all), so be patient.</p>
+<p><strong>(1)</strong> The data we’ll be working with can be found in the file <code class="docutils literal notranslate"><span class="pre">ghcnd_daily.tar.gz</span></code>. It includes daily weather data from thousands of weather stations around the work over many decades.</p>
+<p>Begin by unzipping the file and checking it’s size – it should come out to be <em>about</em> 30gb, which means there’s just no way most students (who usually have, at most, 16gb of RAM) can import this dataset into pandas directly.</p>
+<p><strong>(2)</strong> Thankfully, we aren’t going to be working with <em>all</em> the data today. Instead, each pair should pick two weather stations to examine during this analysis.</p>
+<p>To pick your stations, we’ll need to open the <code class="docutils literal notranslate"><span class="pre">ghcnd-stations.txt</span></code> file in the directory you’ve downloaded. It includes both station codes (which is what we’ll find in the <code class="docutils literal notranslate"><span class="pre">ghcnd_daily.tar.gz</span></code> data, as well as the name and location of each station).</p>
+<p>When picking a weather station, make sure to pick on that has an associated “WMO ID”, as these designate more official stations, ensuring you’ll get a station with data that has been recorded over a long period.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ghcnd-stations.txt</span></code> is a “fixed-width” dataset, meaning that instead of putting commas or tabs between observations, all columns have the same width (in terms of number of characters). So to import this data you’ll have to (a) read the notes about the data in the project README.txt, and (b) read about how to read in fixed-width data in pandas. When entering column specifications, remember that normal people count from 1 and include end points, while Python counts from 0 and doesn’t
+include end points (so if the readme says data is in columns 10-20, in Python that’d be 9 through 20).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/users/nick/downloads/global_climate_data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">41</span><span class="p">,</span> <span class="mi">71</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">72</span><span class="p">,</span> <span class="mi">75</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">76</span><span class="p">,</span> <span class="mi">79</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">85</span><span class="p">)]</span>
+
+<span class="n">stations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;ghcnd-stations.txt&#39;</span><span class="p">,</span>
+                       <span class="n">colspecs</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+                       <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;LATITUDE&quot;</span><span class="p">,</span> <span class="s2">&quot;LONGITUDE&quot;</span><span class="p">,</span> <span class="s2">&quot;ELEVATION&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;STATE&quot;</span><span class="p">,</span> <span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;GSN FLAG&quot;</span><span class="p">,</span> <span class="s2">&quot;HCN/CRN FLAG&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;WMO ID&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">stations</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1">#stations = stations[stations[7].isin([&#39;HCN&#39;, &quot;CRN&quot;])]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
+      <th>ELEVATION</th>
+      <th>STATE</th>
+      <th>NAME</th>
+      <th>GSN FLAG</th>
+      <th>HCN/CRN FLAG</th>
+      <th>WMO ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ACW00011604</td>
+      <td>17.1167</td>
+      <td>-61.7833</td>
+      <td>10.1</td>
+      <td>NaN</td>
+      <td>ST JOHNS COOLIDGE FLD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ACW00011647</td>
+      <td>17.1333</td>
+      <td>-61.7833</td>
+      <td>19.2</td>
+      <td>NaN</td>
+      <td>ST JOHNS</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AE000041196</td>
+      <td>25.3330</td>
+      <td>55.5170</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>SHARJAH INTER. AIRP</td>
+      <td>GSN</td>
+      <td>NaN</td>
+      <td>41196.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AEM00041194</td>
+      <td>25.2550</td>
+      <td>55.3640</td>
+      <td>10.4</td>
+      <td>NaN</td>
+      <td>DUBAI INTL</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>41194.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AEM00041217</td>
+      <td>24.4330</td>
+      <td>54.6510</td>
+      <td>26.8</td>
+      <td>NaN</td>
+      <td>ABU DHABI INTL</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>41217.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">stations</span> <span class="o">=</span> <span class="n">stations</span><span class="p">[</span><span class="n">stations</span><span class="p">[</span><span class="s2">&quot;WMO ID&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">stations</span><span class="p">[</span><span class="n">stations</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;DELHI&quot;</span><span class="p">)]</span> <span class="c1"># Let&#39;s do one from  New Delhi</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
+      <th>ELEVATION</th>
+      <th>STATE</th>
+      <th>NAME</th>
+      <th>GSN FLAG</th>
+      <th>HCN/CRN FLAG</th>
+      <th>WMO ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>29197</th>
+      <td>CA006131983</td>
+      <td>42.8667</td>
+      <td>-80.550</td>
+      <td>232.0</td>
+      <td>ON</td>
+      <td>DELHI CS</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>71573.0</td>
+    </tr>
+    <tr>
+      <th>39039</th>
+      <td>IN022021900</td>
+      <td>28.5830</td>
+      <td>77.200</td>
+      <td>216.0</td>
+      <td>NaN</td>
+      <td>NEW DELHI/SAFDARJUN</td>
+      <td>GSN</td>
+      <td>NaN</td>
+      <td>42182.0</td>
+    </tr>
+    <tr>
+      <th>39045</th>
+      <td>IN022023000</td>
+      <td>28.5670</td>
+      <td>77.117</td>
+      <td>233.0</td>
+      <td>NaN</td>
+      <td>NEW DELHI/PALAM</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>42181.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#IN022023000</span>
+
+<span class="c1"># and one from argentina</span>
+<span class="n">stations</span><span class="p">[</span><span class="n">stations</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;BUENOS AIRES&quot;</span><span class="p">)]</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
+      <th>ELEVATION</th>
+      <th>STATE</th>
+      <th>NAME</th>
+      <th>GSN FLAG</th>
+      <th>HCN/CRN FLAG</th>
+      <th>WMO ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>283</th>
+      <td>AR000875850</td>
+      <td>-34.583</td>
+      <td>-58.483</td>
+      <td>25.0</td>
+      <td>NaN</td>
+      <td>BUENOS AIRES OBSERV</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>87585.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># AR000875850</span>
+</pre></div>
+</div>
+</div>
+<p><strong>(3)</strong> Now that we something about the observations we want to work with, we can now turn to our actual weather data.</p>
+<p>Before anything else, it’s good with these big datasets to just import ~100 lines so you can get a feel for the data. Note that as with our stations data, this dataset is a fixed-width formatted file. Unlike that data, though, this dataset has a <em>lot</em> of columns – too many to write all out by hand. With that in mind, I would suggest that you use some code like the following (this exercise isn’t about fixed-width data per se, so I’ll try and save you some trouble since you already solved the
+read-in above):</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;element&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">):</span>
+    <span class="n">column_names</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">f</span><span class="s1">&#39;value</span><span class="si">{i}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;mflag</span><span class="si">{i}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;qflag</span><span class="si">{i}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;sflag</span><span class="si">{i}</span><span class="s1">&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">column_specs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">31</span><span class="p">):</span>
+    <span class="n">local_start</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">column_specs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">local_start</span><span class="p">,</span> <span class="n">local_start</span><span class="o">+</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">column_specs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">local_start</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">local_start</span> <span class="o">+</span> <span class="mi">6</span><span class="p">))</span> <span class="c1"># MFlag</span>
+    <span class="n">column_specs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">local_start</span> <span class="o">+</span> <span class="mi">6</span><span class="p">,</span> <span class="n">local_start</span> <span class="o">+</span> <span class="mi">7</span><span class="p">))</span> <span class="c1"># QFlag</span>
+    <span class="n">column_specs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">local_start</span> <span class="o">+</span> <span class="mi">7</span><span class="p">,</span> <span class="n">local_start</span> <span class="o">+</span> <span class="mi">8</span><span class="p">))</span> <span class="c1"># SFlag</span>
+
+<span class="c1"># Check I didn&#39;t screw up</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">column_specs</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">column_specs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">column_specs</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;ghcnd_daily.dat&#39;</span><span class="p">,</span> <span class="n">colspecs</span><span class="o">=</span><span class="n">column_specs</span><span class="p">,</span>
+                 <span class="n">names</span> <span class="o">=</span> <span class="n">column_names</span><span class="p">,</span>
+                 <span class="n">nrows</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>year</th>
+      <th>month</th>
+      <th>element</th>
+      <th>value1</th>
+      <th>mflag1</th>
+      <th>qflag1</th>
+      <th>sflag1</th>
+      <th>value2</th>
+      <th>mflag2</th>
+      <th>...</th>
+      <th>qflag29</th>
+      <th>sflag29</th>
+      <th>value30</th>
+      <th>mflag30</th>
+      <th>qflag30</th>
+      <th>sflag30</th>
+      <th>value31</th>
+      <th>mflag31</th>
+      <th>qflag31</th>
+      <th>sflag31</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ACW00011604</td>
+      <td>1949</td>
+      <td>1</td>
+      <td>TMAX</td>
+      <td>289</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>289</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>272</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>272</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ACW00011604</td>
+      <td>1949</td>
+      <td>1</td>
+      <td>TMIN</td>
+      <td>217</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>228</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>206</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>217</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ACW00011604</td>
+      <td>1949</td>
+      <td>1</td>
+      <td>PRCP</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>30</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>28</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ACW00011604</td>
+      <td>1949</td>
+      <td>1</td>
+      <td>SNOW</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ACW00011604</td>
+      <td>1949</td>
+      <td>1</td>
+      <td>SNWD</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 128 columns</p>
+</div></div>
+</div>
+<p><strong>(4)</strong> Once you have a sense of the data, write code to read in all the climate data and keep only the observations for the weather stations you’ve selected to focus on. The only outcome we care about is maximium temp.</p>
+<p>In addition to your own 2 weather stations, please also include station USC00050848 (a weather station from near my home!) so you can generate results that we can all compare (to check for accuracy).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_stations</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;IN022023000&#39;</span><span class="p">,</span> <span class="s1">&#39;AR000875850&#39;</span><span class="p">,</span> <span class="s1">&#39;USC00050848&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># With 1,000,000 per chunk: 1.2 minutes per block...</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">df_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s1">&#39;ghcnd_daily.dat&#39;</span><span class="p">,</span>
+                      <span class="n">colspecs</span><span class="o">=</span><span class="n">column_specs</span><span class="p">,</span>
+                      <span class="n">names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span>
+                      <span class="n">iterator</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">chunksize</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+
+                      <span class="c1"># usecols=[&#39;id&#39;, &#39;year&#39;, &#39;month&#39;, &#39;element&#39;] + [f&#39;value{i}&#39; for i in range(1, 32)])</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">keeping</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_full</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;finished import in {(time.perf_counter() - start) / 60:.2f} minutes&quot;</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;element&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TMAX&quot;</span><span class="p">]</span>
+    <span class="n">keeping</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+    <span class="c1">#d = d.set_index(&#39;id&#39;)</span>
+    <span class="c1">#for s in my_stations:</span>
+    <span class="c1">#    try:</span>
+    <span class="c1">#        keeping.append(d.loc[s].copy())</span>
+    <span class="c1">#    except:</span>
+    <span class="c1">#        print(f&quot;{s} not in this block!&quot;)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;finished subset in {(time.perf_counter() - start) / 60:.2f} minutes&quot;</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="c1">#del d</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0
+finished import in 1.37 minutes
+finished subset in 0.00 minutes
+1
+finished import in 1.46 minutes
+finished subset in 0.00 minutes
+2
+finished import in 1.41 minutes
+finished subset in 0.00 minutes
+3
+finished import in 1.47 minutes
+finished subset in 0.00 minutes
+4
+finished import in 1.41 minutes
+finished subset in 0.00 minutes
+5
+finished import in 1.39 minutes
+finished subset in 0.00 minutes
+6
+finished import in 1.38 minutes
+finished subset in 0.00 minutes
+7
+finished import in 1.39 minutes
+finished subset in 0.00 minutes
+8
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+9
+finished import in 1.16 minutes
+finished subset in 0.00 minutes
+10
+finished import in 1.24 minutes
+finished subset in 0.00 minutes
+11
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+12
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+13
+finished import in 1.16 minutes
+finished subset in 0.00 minutes
+14
+finished import in 1.16 minutes
+finished subset in 0.00 minutes
+15
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+16
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+17
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+18
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+19
+finished import in 1.33 minutes
+finished subset in 0.00 minutes
+20
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+21
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+22
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+23
+finished import in 1.22 minutes
+finished subset in 0.00 minutes
+24
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+25
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+26
+finished import in 1.33 minutes
+finished subset in 0.00 minutes
+27
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+28
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+29
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+30
+finished import in 1.22 minutes
+finished subset in 0.00 minutes
+31
+finished import in 1.23 minutes
+finished subset in 0.00 minutes
+32
+finished import in 1.18 minutes
+finished subset in 0.01 minutes
+33
+finished import in 1.16 minutes
+finished subset in 0.01 minutes
+34
+finished import in 1.17 minutes
+finished subset in 0.01 minutes
+35
+finished import in 1.16 minutes
+finished subset in 0.01 minutes
+36
+finished import in 1.31 minutes
+finished subset in 0.00 minutes
+37
+finished import in 1.34 minutes
+finished subset in 0.00 minutes
+38
+finished import in 1.22 minutes
+finished subset in 0.00 minutes
+39
+finished import in 1.24 minutes
+finished subset in 0.00 minutes
+40
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+41
+finished import in 1.22 minutes
+finished subset in 0.00 minutes
+42
+finished import in 1.16 minutes
+finished subset in 0.00 minutes
+43
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+44
+finished import in 1.29 minutes
+finished subset in 0.00 minutes
+45
+finished import in 1.23 minutes
+finished subset in 0.01 minutes
+46
+finished import in 1.25 minutes
+finished subset in 0.00 minutes
+47
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+48
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+49
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+50
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+51
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+52
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+53
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+54
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+55
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+56
+finished import in 1.32 minutes
+finished subset in 0.00 minutes
+57
+finished import in 1.22 minutes
+finished subset in 0.00 minutes
+58
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+59
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+60
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+61
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+62
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+63
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+64
+finished import in 1.15 minutes
+finished subset in 0.00 minutes
+65
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+66
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+67
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+68
+finished import in 1.27 minutes
+finished subset in 0.00 minutes
+69
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+70
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+71
+finished import in 1.16 minutes
+finished subset in 0.00 minutes
+72
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+73
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+74
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+75
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+76
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+77
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+78
+finished import in 1.28 minutes
+finished subset in 0.00 minutes
+79
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+80
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+81
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+82
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+83
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+84
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+85
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+86
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+87
+finished import in 1.31 minutes
+finished subset in 0.00 minutes
+88
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+89
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+90
+finished import in 1.16 minutes
+finished subset in 0.00 minutes
+91
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+92
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+93
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+94
+finished import in 1.19 minutes
+finished subset in 0.00 minutes
+95
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+96
+finished import in 1.34 minutes
+finished subset in 0.00 minutes
+97
+finished import in 1.18 minutes
+finished subset in 0.00 minutes
+98
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+99
+finished import in 1.24 minutes
+finished subset in 0.00 minutes
+100
+finished import in 1.17 minutes
+finished subset in 0.00 minutes
+101
+finished import in 1.27 minutes
+finished subset in 0.00 minutes
+102
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+103
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+104
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+105
+finished import in 1.28 minutes
+finished subset in 0.00 minutes
+106
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+107
+finished import in 1.20 minutes
+finished subset in 0.00 minutes
+108
+finished import in 1.22 minutes
+finished subset in 0.00 minutes
+109
+finished import in 1.21 minutes
+finished subset in 0.00 minutes
+110
+finished import in 0.33 minutes
+finished subset in 0.00 minutes
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_full</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">----------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-15-89ee04c02a54&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df_full<span class="ansi-blue-fg">.</span>dtypes
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;TextFileReader&#39; object has no attribute &#39;dtypes&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">len</span><span class="p">(</span><span class="n">final</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <p><strong>(5)</strong> Check the values of your quality flags and decide whether you should keep all observations in your data.</p>
 <p><strong>(6)</strong> Now for each weather station, generate a separate plot of the daily temperatures over time. You should end up with a plot that looks something like this (though you’ll be plotting daily max temps and daily min temps):</p>
 <p><img alt="climate_plot_example" src="../_images/climate_plot_example.jpg" /></p>

@@ -244,6 +244,114 @@
    "source": [
     "**(7)** Now that you've pushed your README with conflicts resolved, go back to your PR. If you did everything right, you should now be able to merge your edits!"
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## A Note on Jupyter Notebooks\n",
+    "\n",
+    "*Note: We're done with the \"team\" part of the exercises, so each pair can now work on its own in its own repository.*\n",
+    "\n",
+    "Github is both great and terrible when it comes to Jupyter Notebooks. \n",
+    "\n",
+    "**(8)** To understand why, let's begin by having everyone add and push a Jupyter Notebook to their repository. Once you've pushed your files, navigate to the notebook on github in your browser. \n",
+    "\n",
+    "The first thing you'll likely see is... nothing:\n",
+    "\n",
+    "![notebook_not_rendered](../images/notebook_not_rendered.png)\n",
+    "\n",
+    "The reason is that github has service that renders jupyter notebooks to look like, well... jupyter notebooks. And when you push a jupyter notebook, that notebook gets put into a queue for rendering, and it will thus only be visible as a rendered document when it gets to the front and gets rendered. This can take a while, so we'll just move on. But if you want to see what github looks like when presented a *rendered* notebook, you can find this page as a [github-rendered notebook here!](https://github.com/nickeubank/practicaldatascience/blob/master/source/exercises/Exercise_git.ipynb). \n",
+    "\n",
+    "This happens because the pretty version of the jupyter notebook you know and love is a *rendered* interface. If you want to see what a jupyter notebook looks like behind the scenes, click the *raw* button on the notebooks github page. *That* is actually everything that is in a jupyter notebook -- a plaintext file in JSON formatting. \n",
+    "\n",
+    "This is important to understand, because it also impacts how git manages changes to jupyter notebooks. \n",
+    "\n",
+    "**(9)** To illustrate, open the jupyter notebook you added to your repository and make some changes -- add some text in one cell, and maybe add a new cell. Then commit and push those changes. \n",
+    "\n",
+    "**(10)** In github, you can always easily see what has changed in a commit by clicking on the \"Commits\" button:\n",
+    "\n",
+    "![commits_button](../images/commits_button.png)\n",
+    "\n",
+    "then clicking on the hash number next to a given commit (the hash number is what uniquely identifies a commit). So here, click on 829715d:\n",
+    "\n",
+    "![click_the_hash](../images/click_the_hash.png)\n",
+    "\n",
+    "That will bring you to a page that shows you a side-by-side comparison of what was in the repo before this commit, and what changed in this commit with nice coloring. \n",
+    "\n",
+    "The problem, as you can see though, is that git interacts with jupyter notebooks at the level of those plaintext JSON formats, making diffs hard to understand.\n",
+    "\n",
+    "It is for this reason that jupyter notebooks, while amazing for many things, and while fine to put into github repositories to share and host, are not great for collaborative analysis, because these diffs are just very hard to read. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## .gitignore\n",
+    "\n",
+    "This brings up another important issue for github users: the `.gitignore` file!\n",
+    "\n",
+    "Sometimes when your working, your program will create \"helper files\" in your repository that you don't want to keep. R, for example, makes `.RHistory` files, and jupyter notebooks (as you can see now!) makes `.ipynb_checkpoints/` files. \n",
+    "\n",
+    "The `.gitignore` file is a way of telling git that there are certain files you just don't want in your repo. As the name implies, these can be *ignored*. \n",
+    "\n",
+    "Because your `.gitignore` file starts with a period, it will be invisible if you aren't using a command line tool (or a program like Atom), so to modify it you need to go to the command line and run `open .gitignore` while in the root directory of your git repository. \n",
+    "\n",
+    "**(11)** From the command line, navigate to your repository root folder and run `ls -la`. There you should see all your normal files and a folder called `.git`. \n",
+    "\n",
+    "The `.git` folder basically *is* what makes this folder a github repository. It stores the entire history of this repository, as well as information about what github repository it should talk to when you run `push` and `pull`. \n",
+    "\n",
+    "In that folder, you *may* see a `.gitignore` file as well, but you might not. If you do not, create one now (options: `atom .gitignore` will create a blank file called `.gitignore` and open it in atom; `nano .gitignore` will open a blank file called `.gitignore` in `nano`, etc.). \n",
+    "\n",
+    "In that file, add (as a single line in the file): `.ipynb_checkpoints/*`. \n",
+    "\n",
+    "This says \"Ignore anything in the folder `.ipynb_checkpoints` in the root directory\". \n",
+    "\n",
+    "From this point forward, github will ignore these files. However, note that you probably already added ipynb_checkpoint files to your repo when you first used your notebook in this repo. So to remove what's there, you have to run: `git rm [the file]`. Note you may also have to use the `--force` option. \n",
+    "\n",
+    "**(12)** Now to make sure it has worked, go make more edits to your notebook so that `.ipynb_checkpoints` will be updated. Then check `git status`. You should see the edits to your notebook, but you shouldn't see git report any changes to `.ipynb_checkpoints/` files. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Git LFS\n",
+    "\n",
+    "The last thing we'll do is play a little with Git-LFS. \n",
+    "\n",
+    "As you read, Git-LFS allows you to store binary files on a server with much more storage than is available for your primary github repository. Moreover, it helps avoid the \"exploding files\" problem: if you just put a binary file in your repository, then every time you change that file and make a commit, another full version of that file is added to your git history, and that version stays with the repository. If you have a 100mb file, and modify it through 100 commits (not uncommon), then anyone who wanted to clone your repository would have to download *every one of those 100 version*, meaning they'd have to clone a 10gb file. \n",
+    "\n",
+    "By contrast, with git-lfs, only a little pointer is added to the repository itself, and only the most recent version of the actual binary file is made available to the user. You can always recover old versions of data, but they don't actually live *in* your repo. \n",
+    "\n",
+    "**(13)** To use git-lfs, go to your repo and run the command `git lfs track \"*.pdf\"` (this says all PDFs should be stored via git-lfs). That will create a `.gitattributes` file that contains all the info about what should be managed using git-lfs. \n",
+    "\n",
+    "To see, after running the `git lfs track \"*.pdf\"` command, open up the `.gitattributes` file to see what it looks like. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(14)** Now, put a PDF in your repository, commit it and push it to github. If you then look at it on github, you should see:\n",
+    "\n",
+    "![stored_with_lfs](../images/stored_with_lfs.png). \n",
+    "\n",
+    "Yay!!!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A few notes about git-lfs:\n",
+    "\n",
+    "- If someone without git-lfs tries to clone a repo using git-lfs, instead of the actual files they want, they'll just see a small text file with a long series of numbers. That's the pointer to the actual data. If this happens to you, your computer doesn't have git-lfs installed. \n",
+    "- If you get an error when you try and run `git lfs track`, you may not have git-lfs installed. [You can install it here](https://git-lfs.github.com/).\n",
+    "- Git-lfs allows you to have much more space than putting binaries in your repo, but it isn't unlimited or free. If you go to `Settings` for your github account, and look at `Billing`, you will see a \"Git LFS Data\" quota. So don't just go crazy. Compressed data files (e.g. HDF5 with compression) are your friend!\n",
+    "    - LFS quotas accounting is based on the owner of the repository being used. If you push data (using LFS) to a repository owned by, say, me (nickeubank), then that data comes out of *my* quota, not yours. "
+   ]
   }
  ],
  "metadata": {
