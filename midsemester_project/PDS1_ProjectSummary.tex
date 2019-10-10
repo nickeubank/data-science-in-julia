@@ -259,9 +259,27 @@ In writing your report, remember that much of the focus of this project is on \e
 
 \subsection*{Due Dates}
 \begin{itemize}
-  \item An outline of your project strategy is due on October 22nd. This should include a summary of the datasets you plan to use, a summary of how you plan to merge these datasets, who will be responsible for writing initial code for each step, and who will review each set of code.
+  \item An outline of your project strategy is due on October 22nd.
+  \begin{itemize}
+    \item In writing this strategy, use a ``backwards design'' organizational scheme (we'll discuss these much more in the future, but for now you get to explore yourself!): Start by establishing what you want to achieve (i.e. the plots I've already specified). Then ask: What dataset do I need to make these plots? Or more specifically:
+    \begin{itemize}
+      \item What variables will I need in this data?
+      \item What sample (what years, what counties, etc.) needs to be covered in this data?
+      \item What should a single row of this data look like (i.e. what's a unit of observation?)
+    \end{itemize}
+    \item Then step back and repeat the process: to get this dataset, what do I need to do? What do I need my input datasets to look like to get to this final analysis dataset?
+    \item Then again: to get to these intermediate datasets, what source datasets do I need? What variables do they need?
+    \item Then start trying to assign the tasks implied by that analysis to people. (OBVIOUSLY this will only be very approximate!! But it's good to think about this before you start, then adapt as you move forward).
+  \end{itemize}
+  This should include a summary of the datasets you plan to use, a summary of how you plan to merge these datasets, who will be responsible for writing initial code for each step, and who will review each set of code.
   \item A preliminary draft of your report will be due November 5th.
   \item A final draft of your report will be due November 19th.
+\end{itemize}
+
+\subsection*{Tips}
+\begin{itemize}
+  \item Keep your \emph{source} datasets in a common dropbox folder. You should \emph{only} ever read data from your source data, not modify it directly. This is to ensure that your source files never get corrupted. Because of that, it's fine to have it live outside your github repo.
+  \item Store your intermediate files (the results of reading data from the source files and making modifications) in your repository using git-lfs. Store the files in \texttt{hdf} format with \texttt{complevel=9} (compression level) to minimize memory use.
 \end{itemize}
 
 \appendix
