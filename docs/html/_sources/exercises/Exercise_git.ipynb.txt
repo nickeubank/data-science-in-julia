@@ -273,7 +273,7 @@
     "\n",
     "![commits_button](../images/commits_button.png)\n",
     "\n",
-    "then clicking on the hash number next to a given commit (the hash number is what uniquely identifies a commit). So here, click on 829715d:\n",
+    "then clicking on the hash number next to a given commit (the hash number is what uniquely identifies a commit). So in my repo, I'd click on the 829715d button:\n",
     "\n",
     "![click_the_hash](../images/click_the_hash.png)\n",
     "\n",
