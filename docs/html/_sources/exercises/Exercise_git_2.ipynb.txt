@@ -17,7 +17,7 @@
     "\n",
     "Congratulations! You've completed your first full github workflow cycle! \n",
     "\n",
-    "But truthfully, this was a *very* easy cycle. In reality, there are a few problems that often crop up, so let's explore what those look like now. \n",
+    "But truthfully, that was a *very* easy cycle. In reality, there are a few problems that often crop up, so let's explore what those look like now. \n",
     "\n",
     "The most common problem we face occurs when the repository you're working on changes *while you're working on your separate branch* in a way that causes conflicts. \n",
     "\n",
