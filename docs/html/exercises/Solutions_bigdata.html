@@ -1153,7 +1153,7 @@ include end points (so if the readme says data is in columns 10-20, in Python th
 <p>You may have to kill your kernel, kill Jupyter Lab, and start over when this explodes…</p>
 <p><strong>(4)</strong> Now that we know that we can’t work with this directly, it’s good with these big datasets to just import ~200 lines so you can get a feel for the data. So load <em>just 200 lines</em> of <code class="docutils literal notranslate"><span class="pre">ghcnd_daily.csv</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1164,7 +1164,7 @@ include end points (so if the readme says data is in columns 10-20, in Python th
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1173,7 +1173,7 @@ include end points (so if the readme says data is in columns 10-20, in Python th
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1833,7 +1833,7 @@ starting chunk 2
 </div>
 <p>(to just get the columns whose names start with “value”) with <code class="docutils literal notranslate"><span class="pre">.mean(axis='columns')</span></code> (which averages across columns (along rows) rather than the usual averaging across rows (along columns).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1842,27 +1842,27 @@ starting chunk 2
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>200.0    39
-300.0    39
-189.0    39
-128.0    38
-172.0    38
-         ..
-65.0      1
-441.0     1
-434.0     1
-423.0     1
-259.0     1
-Name: value1, Length: 335, dtype: int64
+<span></span>-9999    150
+ 189      39
+ 300      39
+ 200      39
+ 128      38
+        ...
+ 362       1
+ 249       1
+ 381       1
+ 255       1
+ 404       1
+Name: value1, Length: 336, dtype: int64
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1879,7 +1879,7 @@ Name: value1, Length: 335, dtype: int64
 <p><strong>(6)</strong> Now for each weather station, generate a separate plot of the daily temperatures over time. You should end up with a plot that looks something like this:</p>
 <p><img alt="temp_plots_Colorado" src="../_images/temp_plots_Boulder_CO.png" /></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1932,18 +1932,10 @@ Jujuy_Argentina
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<img alt="../_images/exercises_Solutions_bigdata_27_2.png" src="../_images/exercises_Solutions_bigdata_27_2.png" />
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;Figure size 640x480 with 1 Axes&gt;
+</pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;ggplot: (-9223363264744359536)&gt;
-Safdarjung_New_Delhi_India
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1956,6 +1948,22 @@ Safdarjung_New_Delhi_India
   warn(&#39;Filename: {}&#39;.format(filename), PlotnineWarning)
 /Users/Nick/miniconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
   return ptp(axis=axis, out=out, **kwargs)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;ggplot: (8790525242737)&gt;
+Safdarjung_New_Delhi_India
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
 /Users/Nick/miniconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
   return ptp(axis=axis, out=out, **kwargs)
 </pre></div></div>
@@ -1963,18 +1971,10 @@ Safdarjung_New_Delhi_India
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<img alt="../_images/exercises_Solutions_bigdata_27_5.png" src="../_images/exercises_Solutions_bigdata_27_5.png" />
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;Figure size 640x480 with 1 Axes&gt;
+</pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;ggplot: (-9223363265126101381)&gt;
-Boulder_CO
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1987,6 +1987,22 @@ Boulder_CO
   warn(&#39;Filename: {}&#39;.format(filename), PlotnineWarning)
 /Users/Nick/miniconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
   return ptp(axis=axis, out=out, **kwargs)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;ggplot: (8790490358045)&gt;
+Boulder_CO
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
 /Users/Nick/miniconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2495: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
   return ptp(axis=axis, out=out, **kwargs)
 </pre></div></div>
@@ -1994,8 +2010,9 @@ Boulder_CO
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<img alt="../_images/exercises_Solutions_bigdata_27_8.png" src="../_images/exercises_Solutions_bigdata_27_8.png" />
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;Figure size 640x480 with 1 Axes&gt;
+</pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2003,7 +2020,7 @@ Boulder_CO
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (-9223363264744045182)&gt;
+&lt;ggplot: (-9223363246329102469)&gt;
 </pre></div></div>
 </div>
 <div class="section" id="Want-More-Practice?">
