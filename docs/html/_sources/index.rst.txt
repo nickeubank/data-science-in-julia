@@ -3,7 +3,7 @@
 Welcome to Practical Data Science!
 ==================================
 
-**The course site for Duke MIDS Fall 2019 Practical Data Science Course**
+*The course site for Duke MIDS Fall 2019 Practical Data Science Course*
 
 **If you are not a Duke Masters in Data Science student, please see** `this page <not_a_mids_student.ipynb>`_ **about how best to use this site!**
 
@@ -22,35 +22,28 @@ In the second portion of the class, we will take a step back from the nuts and b
 
 This portion of the course will culminate in students picking a topic, developing an *answerable* question, thinking about what (in very concerte terms) an answer to that question would look like, figuring out what tools they would employ to generate that answer, and developing a plan for finding the data they would need to actually execute their project. 
 
-
-Course Syllabus
----------------
+`The Class Schedule can be found here <class_schedule.rst>`_
 
 `The full syllabus for this course can be downloaded here <https://github.com/nickeubank/practicaldatascience/raw/master/syllabus/Syllabus_PracticalDataScience.pdf>`_. Please note that this syllabus is subject to change up until he first day of class.
 
-Class Schedule
---------------
 
-.. csv-table::
-   :file: class_schedule.csv
-   :widths: 13, 7, 5, 30, 32, 7
-   :header-rows: 1
 
-Reminders:
-
-- **JVP**: `Python Data Science Handbook: Essential Tools for Working with Data <https://www.amazon.com/Python-Data-Science-Handbook-Essential-dp-1491912057/dp/1491912057>`_ by Jake VanderPlas.
-- **WM**: `Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython, Second Edition <https://www.amazon.com/gp/product/1491957662>`_ by Wes McKinney.
 
 .. toctree:: 
    :maxdepth: 2
    :hidden:
 
+   Class Schedule <class_schedule>
    Not a MIDS Student? <not_a_mids_student>
-   Command Line, Basics <command_line_part1>
-   Command Line, Advanced  <command_line_part2>
+   Cheat Sheets <cheatsheets>
+
+.. toctree:: 
+   :maxdepth: 2
+   :hidden:
+   :caption: PYTHON & PANDAS
+
    Setting Up Python <setup_environment>
    Managing Packages <managing_python_packages>
-   Jupyter <jupyter>
    Python / R Differences <python_v_r>
    Python: Vars v Objects <vars_v_objects>
    Numbers in Computers <ints_and_floats>
@@ -59,15 +52,28 @@ Reminders:
    Plotting, Basics <plotting_part1>
    Plotting, Advanced <plotting_part2>
    Pandas 3: Views <views_and_copies_in_pandas>
+
+
+.. toctree:: 
+   :maxdepth: 2
+   :hidden:
+   :caption: OTHER TOOLS
+
+   Command Line, Basics <command_line_part1>
+   Command Line, Advanced  <command_line_part2>
+   Jupyter <jupyter>
+   Git and Github <git_and_github>
+
+.. toctree:: 
+   :maxdepth: 2
+   :hidden:
+   :caption: SKILLS
+
    Getting Help Online <getting_help>
    What is Big Data? <what_is_big_data>
    Working with Big Data <big_data_strategies>
    Understanding Performance <performance_understanding>
    Solving Performance Probs <performance_solutions>
    Parallel Computing <parallelism>
-   Git and Github <git_and_github>
    Defensive Programming <defensive_programming>
    Workflow Management <workflow>
-   Performance <performance>
-   Cheat Sheets <cheatsheets>
-   All Exercises <exercise_list>
