@@ -34,8 +34,6 @@ This portion of the course will culminate in students picking a topic, developin
    :hidden:
 
    Class Schedule <class_schedule>
-   Not a MIDS Student? <not_a_mids_student>
-   Cheat Sheets <cheatsheets>
 
 .. toctree:: 
    :maxdepth: 2
@@ -77,3 +75,11 @@ This portion of the course will culminate in students picking a topic, developin
    Parallel Computing <parallelism>
    Defensive Programming <defensive_programming>
    Workflow Management <workflow>
+
+.. toctree::
+   :maxdepth: 2
+   :hidden: 
+   :caption: OTHER
+   
+   Not a MIDS Student? <not_a_mids_student>
+   Cheat Sheets <cheatsheets>
