@@ -243,19 +243,37 @@ Solutions</span></a>), and the headaches of parallelizing code are many.</p>
 </div>
 <div class="section" id="Why-is-Paralleism-important?">
 <h2>Why is Paralleism important?<a class="headerlink" href="#Why-is-Paralleism-important?" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="Types-of-Parallelism">
-<h2>Types of Parallelism<a class="headerlink" href="#Types-of-Parallelism" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="How-do-I-paralleize?">
-<h2>How do I paralleize?<a class="headerlink" href="#How-do-I-paralleize?" title="Permalink to this headline">¶</a></h2>
+<p>Moore’s law kinda <em>is</em> dead! see: single thread performance</p>
+<p><img alt="images/42-years-processor-trend.png" src="_images/42-years-processor-trend.png" /></p>
+<p>Source: <a class="reference external" href="https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/">https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/</a></p>
+<p>Further reading / resources:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=zX4ZNfvw1cw">https://www.youtube.com/watch?v=zX4ZNfvw1cw</a></p>
 </div>
 <div class="section" id="Limits-of-Parallelism">
 <h2>Limits of Parallelism<a class="headerlink" href="#Limits-of-Parallelism" title="Permalink to this headline">¶</a></h2>
+<p>Most task are at least partially serial, and that limits speed up. If your program is 90% parallelizable, all the cores in the world will only get you a 10x speed-up!</p>
 <div class="section" id="Amdahl’s-Law">
 <h3>Amdahl’s Law<a class="headerlink" href="#Amdahl’s-Law" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[\frac{1}{(1-P)+\frac{P}{N}}\]</div>
+</div>
+</div>
+<div class="section" id="Types-of-Parallelism">
+<h2>Types of Parallelism<a class="headerlink" href="#Types-of-Parallelism" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Multi-processing">
+<h3>Multi-processing<a class="headerlink" href="#Multi-processing" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="Multi-threading">
+<h3>Multi-threading<a class="headerlink" href="#Multi-threading" title="Permalink to this headline">¶</a></h3>
+<p>DANGER! HERE BE DRAGONS! RACE CONDITIONS!</p>
+</div>
+</div>
+<div class="section" id="How-do-I-paralleize?">
+<h2>How do I paralleize?<a class="headerlink" href="#How-do-I-paralleize?" title="Permalink to this headline">¶</a></h2>
+<p>joblib</p>
+<p><a class="reference external" href="https://sebastianraschka.com/Articles/2014_multiprocessing.html">https://sebastianraschka.com/Articles/2014_multiprocessing.html</a></p>
+<p><a class="reference external" href="https://wiki.python.org/moin/ParallelProcessing">https://wiki.python.org/moin/ParallelProcessing</a></p>
+<p>dask</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -263,20 +281,6 @@ Solutions</span></a>), and the headaches of parallelizing code are many.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
-</div>
-</div>
-<p>Further reading / resources:</p>
-<p><a class="reference external" href="https://www.youtube.com/watch?v=zX4ZNfvw1cw">https://www.youtube.com/watch?v=zX4ZNfvw1cw</a></p>
-<p><img alt="images/42-years-processor-trend.png" src="_images/42-years-processor-trend.png" /></p>
-<p>Source: <a class="reference external" href="https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/">https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/</a></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -300,7 +304,7 @@ Solutions</span></a>), and the headaches of parallelizing code are many.</p>
 
 <h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="class_schedule.html">Class Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class_schedule.html">CLASS SCHEDULE</a></li>
 </ul>
 <p class="caption"><span class="caption-text">PYTHON &amp; PANDAS</span></p>
 <ul>
@@ -332,9 +336,9 @@ Solutions</span></a>), and the headaches of parallelizing code are many.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Parallel Computing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#What-is-Parallelism">What <em>is</em> Parallelism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Why-is-Paralleism-important?">Why is Paralleism important?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Limits-of-Parallelism">Limits of Parallelism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Types-of-Parallelism">Types of Parallelism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#How-do-I-paralleize?">How do I paralleize?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Limits-of-Parallelism">Limits of Parallelism</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="defensive_programming.html">Defensive Programming</a></li>

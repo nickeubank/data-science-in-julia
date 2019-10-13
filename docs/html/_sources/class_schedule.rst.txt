@@ -3,7 +3,7 @@ Class Schedule
 
 .. csv-table::
    :file: class_schedule.csv
-   :widths: 13, 7, 5, 30, 32, 7
+   :widths: 10, 32, 32, 5
    :header-rows: 1
 
 Reminders:

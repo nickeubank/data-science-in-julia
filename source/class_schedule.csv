@@ -1,60 +1,60 @@
-﻿Date,Day,Rm,Topic,Do Before Class,In-Class Exercise
-27-Aug,Tues,270,Intro,N/A,
-29-Aug,Thurs,CC,Command Line Basics,"- `Command Line Basics <command_line_part1.ipynb>`_
+﻿"Date, Rm",Topic,Do Before Class,In-Class Exercise
+"Tues, Aug 27, rm 270",Intro,N/A,
+"Thurs, Aug 29, rm CC",Command Line Basics,"- `Command Line Basics <command_line_part1.ipynb>`_
 - Read and sign syllabus
 - `Register with IPUMS <https://uma.pop.umn.edu/usa/user/new>`_
 - `Register for DataCamp <https://www.datacamp.com/home>`_",`Link <exercises/Exercise_CommandLine_1_Basics.ipynb>`_
-3-Sep,Tues,270,"- Advanced Command Line
+"Tues, Sep 03, rm 270","- Advanced Command Line
 - Jupyter Lab / Notebooks","- `Advanced Command Line <command_line_part2.ipynb>`_
 - `Setup Python <setup_environment.ipynb>`_
 - `Jupyter Tutorial <jupyter.ipynb>`_
 ","`Link <exercises/Exercise_CommandLine_2_Advanced.ipynb>`_
 `Link 2 <exercises/Exercise_jupyterlab.ipynb>`_"
-5-Sep,Thurs,270,"- Ipython
+"Thurs, Sep 05, rm 270","- Ipython
 - Packages
 - Python v. R / variables as pointers","- `Follow this link <https://gke.mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb>`_ , then click ""Ipython - Beyond plain python"" and read that notebook. 
 - `Python packages <managing_python_packages.ipynb>`_
 - `variables v objects <vars_v_objects.ipynb>`_",`Link <exercises/Exercise_variables_v_objects.ipynb>`_
-10-Sep,Tues,330,Numpy Basics,"- JVP pp 33-77
+"Tues, Sep 10, rm 330",Numpy Basics,"- JVP pp 33-77
 - IF did not complete DataCamp: Do Numpy Section
 - `Numbers in Computer <ints_and_floats.ipynb>`_",`Link <exercises/Exercise_numpy.ipynb>`_
-12-Sep,Thurs,270,Pandas: Series,- `Pandas 1: Series <pandas_series.ipynb>`_,`Link <exercises/Exercise_series.ipynb>`_
-17-Sep,Tues,CC,Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_dataframe.ipynb>`_
-19-Sep,Thurs,CC,Intro to Plotting with PlotNine,"- `Plotting in Python, Part 1 <plotting_part1.ipynb>`_",`Link <exercises/Exercise_plotting_part1.ipynb>`_
-24-Sep,Tues,330,Advanced Plotting,"- `Plotting in Python, Part 2 <plotting_part2.ipynb>`_",`Link <exercises/Exercise_plotting_part2.ipynb>`_
-26-Sep,Thurs,270,Pandas: Indices & Missing,"- WM pp 136-142
+"Thurs, Sep 12, rm 270",Pandas: Series,- `Pandas 1: Series <pandas_series.ipynb>`_,`Link <exercises/Exercise_series.ipynb>`_
+"Tues, Sep 17, rm CC",Pandas: DataFrames,- `Pandas 2: DataFrames <pandas_dataframes.ipynb>`_,`Link <exercises/Exercise_dataframe.ipynb>`_
+"Thurs, Sep 19, rm CC",Intro to Plotting with PlotNine,"- `Plotting in Python, Part 1 <plotting_part1.ipynb>`_",`Link <exercises/Exercise_plotting_part1.ipynb>`_
+"Tues, Sep 24, rm 330",Advanced Plotting,"- `Plotting in Python, Part 2 <plotting_part2.ipynb>`_",`Link <exercises/Exercise_plotting_part2.ipynb>`_
+"Thurs, Sep 26, rm 270",Pandas: Indices & Missing,"- WM pp 136-142
 - JVP pp 115-139
 - `Views and Copies in Pandas <views_and_copies_in_pandas.ipynb>`_","`Link 1 <exercises/Exercise_indices.ipynb>`_
 `Link 2 <exercises/Exercise_missing.ipynb>`_"
-1-Oct,Tues,270,"- Pandas: Loading and saving data
+"Tues, Oct 01, rm 270","- Pandas: Loading and saving data
 - Pandas: Cleaning","- WM Chapter 6
 - WM Chapter 7
 - `Python Strings <https://realpython.com/python-data-types/#strings>`_",`Link <exercises/Exercise_cleaning.ipynb>`_
-3-Oct,Thurs,330,- Pandas: Merging,- JVP pp 149 - 157,`Link <exercises/Exercise_merging.ipynb>`_
-8-Oct,Tues,,FALL BREAK,,
-10-Oct,Thurs,330,Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,"`Link <exercises/Exercise_git.ipynb>`_
+"Thurs, Oct 03, rm 330",- Pandas: Merging,- JVP pp 149 - 157,`Link <exercises/Exercise_merging.ipynb>`_
+"Tues, Oct 08, rm ",FALL BREAK,,
+"Thurs, Oct 10, rm 330",Collaborating using Github,- `Git and Github <git_and_github.ipynb>`_,"`Link <exercises/Exercise_git.ipynb>`_
 `Link <exercises/Exercise_git_2.ipynb>`_"
-15-Oct,Tues,270,Git and Github 2,,
-17-Oct,Thurs,330,"Big Data: What is it, how do I work with it?","- `What is Big Data? <what_is_big_data.ipynb>`_
+"Tues, Oct 15, rm 270",Git and Github 2,,
+"Thurs, Oct 17, rm 330","Big Data: What is it, how do I work with it?","- `What is Big Data? <what_is_big_data.ipynb>`_
 - `Strategies for Big Data <big_data_strategies.ipynb>`_
 - Download the dataset linked at the top of the linked exercise before class.",`Link <exercises/Exercise_bigdata.ipynb>`_
-22-Oct,Tues,330,"- Defensive Programming
+"Tues, Oct 22, rm 330","- Defensive Programming
 - Workflow
 - Getting Help Online","- `Defensive Programming <defensive_programming.ipynb>`_
 - `Workflow Management <workflow.ipynb>`_
 - `Getting Help <getting_help.ipynb>`_",[Discuss mid-semester project in class]
-24-Oct,Thurs,330,Groupby / Split-Apply-Combine,- JVP pp 212-228,`Link <exercises/Exercise_groupby.ipynb>`_
-29-Oct,Tues,270,Pandas: Reshaping,"- WM 8.3
+"Thurs, Oct 24, rm 330",Groupby / Split-Apply-Combine,- JVP pp 212-228,`Link <exercises/Exercise_groupby.ipynb>`_
+"Tues, Oct 29, rm 270",Pandas: Reshaping,"- WM 8.3
 - `Pandas reshaping (with pics!) <https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html>`_
 - `What is goal of reshaping? <https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf>`_",`Link <exercises/Exercise_reshaping.ipynb>`_
-31-Oct,Thurs,330,Speed and Performance in Python,"- `Understanding Performance <performance_understanding.ipynb>`_
+"Thurs, Oct 31, rm 330",Speed and Performance in Python,"- `Understanding Performance <performance_understanding.ipynb>`_
 - `Improving Performance <performance_solutions.ipynb>`_",
-5-Nov,Tues,270,Parallelism,- `Parallel Computing <parallelism.ipynb>`_,
-7-Nov,Thurs,330,Pandas: Categorical Data; Eval and Query,"- WM 12.1
+"Tues, Nov 05, rm 270",Parallelism,- `Parallel Computing <parallelism.ipynb>`_,
+"Thurs, Nov 07, rm 330",Pandas: Categorical Data; Eval and Query,"- WM 12.1
 - JVP pp 208 - 213",
-12-Nov,Tues,330,Statistics with statsmodels,- WM Chapter 13,
-14-Nov,Thurs,330,Machine Learning with sckikit-learn,- JVP pp 331 - 359,
-19-Nov,Tues,270,Data Science: Questions,,
-21-Nov,Thurs,330,Data Science: Backwards Design,,
-26-Nov,Tues,270,Project Proposal Workshopping,,
-28-Nov,Thurs,,THANKSGIVING BREAK,,
+"Tues, Nov 12, rm 330",Statistics with statsmodels,- WM Chapter 13,
+"Thurs, Nov 14, rm 330",Machine Learning with sckikit-learn,- JVP pp 331 - 359,
+"Tues, Nov 19, rm 270",Data Science: Questions,,
+"Thurs, Nov 21, rm 330",Data Science: Backwards Design,,
+"Tues, Nov 26, rm 270",Project Proposal Workshopping,,
+"Thurs, Nov 28, rm ",THANKSGIVING BREAK,,

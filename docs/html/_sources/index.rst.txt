@@ -33,7 +33,7 @@ This portion of the course will culminate in students picking a topic, developin
    :maxdepth: 2
    :hidden:
 
-   Class Schedule <class_schedule>
+   CLASS SCHEDULE <class_schedule>
 
 .. toctree:: 
    :maxdepth: 2
