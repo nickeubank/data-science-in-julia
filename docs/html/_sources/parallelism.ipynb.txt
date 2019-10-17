@@ -68,7 +68,7 @@
     "\n",
     "Source: [Wikipedia](https://en.wikipedia.org/wiki/Amdahl%27s_law)\n",
     "\n",
-    "As this figure shows, even for a tasks that is *95\\% parallelizable*, the biggest possible performance gain you will ever get (with infinite cores), even ignoring any real-world overheads required to execute that parallelization is 20x. \n",
+    "As this figure shows, even for a task that is *95\\% parallelizable*, the biggest possible performance gain you will ever get (with infinite cores), even ignoring any real-world overheads required to execute that parallelization is 20x. \n",
     "\n",
     "Now, to be clear, that doesn't mean there aren't situations where the best strategy is parallelism. If you've exhausted all your other opportunities to speed up your code, parallelism may be all that's left. And in data science, it's not uncommon to have code that can be much more than 95\\% parallelizable -- for example, if you need to run a simulation 1,000,000 times, and each run is relatively short, you can get close to 100\\% parallelizable. But the point is that parallelism is no silver bullet, and it's important to think hard about whether your problem is suited to parallelizing before you invest in trying to parallelize your code!"
    ]
