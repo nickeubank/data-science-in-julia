@@ -279,7 +279,7 @@ In writing your report, remember that much of the focus of this project is on \e
 \subsection*{Tips}
 \begin{itemize}
   \item Keep your \emph{source} datasets in a common dropbox folder. You should \emph{only} ever read data from your source data, not modify it directly. This is to ensure that your source files never get corrupted. Because of that, it's fine to have it live outside your github repo.
-  \item Store your intermediate files (the results of reading data from the source files and making modifications) in your repository using git-lfs. Store the files in \texttt{hdf} format with \texttt{complevel=9} (compression level) to minimize memory use.
+  \item Store your intermediate files (the results of reading data from the source files and making modifications) in your repository using git-lfs. Store the files in \texttt{parquet} format with to minimize memory use.
 \end{itemize}
 
 \appendix
