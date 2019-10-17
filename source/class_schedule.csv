@@ -49,8 +49,8 @@
 - `Pandas reshaping (with pics!) <https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html>`_
 - `What is goal of reshaping? <https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf>`_
 - Categoricals: WM 12.1",`Link <exercises/Exercise_reshaping.ipynb>`_
-"Thurs, Oct 31, Rm 330",Speed and PerfoRmance in Python,"- `Understanding PerfoRmance <perfoRmance_understanding.ipynb>`_
-- `Improving PerfoRmance <perfoRmance_solutions.ipynb>`_",
+"Thurs, Oct 31, Rm 330",Speed and Performance in Python,"- `Understanding Performance <performance_understanding.ipynb>`_
+- `Improving Performance <performance_solutions.ipynb>`_",
 "Tues, Nov 05, Rm 270",Parallelism,- `Parallel Computing <parallelism.ipynb>`_,
 "Thurs, Nov 07, Rm 330",Statistics with statsmodels,- WM Chapter 13,
 "Tues, Nov 12, Rm 330",Machine Learning with sckikit-learn,- JVP pp 331 - 359,

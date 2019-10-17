@@ -26,7 +26,7 @@
    "source": [
     "## Why is Paralleism important?\n",
     "\n",
-    "Given all that, why is parallelism all the range?\n",
+    "Given all that, why is parallelism all the rage?\n",
     "\n",
     "The simple answer is that, when it comes to running a serial program (a problem where you run your code in sequence, one step at a time), processors stop getting faster in about the mid-2000s. \n",
     "\n",
