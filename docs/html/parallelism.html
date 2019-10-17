@@ -291,7 +291,7 @@ and it’s important to think hard about whether your problem is suited to paral
 additional performance, but much less than actually having an actual additional independent core, and actual performance depends on the nature of the job being run (I’ve heard data science people say if two cores gets you 2x performance, then hyperthreading gets you about 1.25x performance, which seems roughly consistent with my experience. But again this depends <em>hugely</em> on the nature of the job you’re parallelizing).</p>
 <p>Confusingly, though, the way hyperthreading manifests is by telling your operating system that you have two cores for every physical core on your computer. So for example, while my computer has only 8 physical cores, if I open Python and run:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -301,7 +301,7 @@ additional performance, but much less than actually having an actual additional 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -317,11 +317,307 @@ additional performance, but much less than actually having an actual additional 
 <li><p>On most computers, expect the operating system to think that you have twice as many cores (sometimes referred to as “logical cores”) as you have actual “physical cores”, but expect your performance to reflect the number of physical cores you actually have.</p></li>
 </ul>
 </div>
+<div class="section" id="Parallel-Processing-with-Joblib">
+<h2>Parallel Processing with Joblib<a class="headerlink" href="#Parallel-Processing-with-Joblib" title="Permalink to this headline">¶</a></h2>
+<p>We won’t get into really sophisticated parallel processing in this tuturial – writing parallelized code is a discipline unto itself – be we can do a little “embarassingly parallel” computing.</p>
+<p>An “embarassingly parallel” task is one where each component of your parallel job is entirely independent of every other part. For example, consider the weather simulation we discussed above – while Day 2 is not independent of Day 1, each attempt to simulate 7 days of weather <em>is</em> fully independent from every other run, making it embarassingly parallel.</p>
+<p>So let’s develop an embarassingly parallel simulation, and run it in parallel using the <code class="docutils literal notranslate"><span class="pre">Joblib</span></code> library (FYI: R has an analogous library called <a class="reference external" href="https://www.rdocumentation.org/packages/foreach/versions/1.4.7/topics/foreach">foreach</a>).</p>
+<p>First, let’s develop a dumb little weather simulation with a central tendency so the temperature tomorrow is the function of some anchor temperature (let’s say 72 degrees farenheit) and the realized temperature today (so if it’s hot today, it’s likely to be hot tomorrow, but if it’s above the long-term average of 72, it’s also likely to be closer to 72 than the temp today).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
+
+<span class="k">def</span> <span class="nf">weather_at_t_plus_one</span><span class="p">(</span><span class="n">temp_at_t</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">npr</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">72</span> <span class="o">+</span> <span class="n">temp_at_t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">simulate_weather</span><span class="p">(</span><span class="n">starting_temp</span><span class="p">,</span> <span class="n">weather_std_dev</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">weather_at_time_t</span> <span class="o">=</span> <span class="n">starting_temp</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="n">weather_at_time_t</span> <span class="o">=</span> <span class="n">weather_at_t_plus_one</span><span class="p">(</span><span class="n">weather_at_time_t</span><span class="p">,</span> <span class="n">weather_std_dev</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">weather_at_time_t</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">simulate_weather</span><span class="p">(</span><span class="mi">72</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>82.56669873391075
+</pre></div>
+</div>
+</div>
+<p>Now suppose we want to see what the weather is likely to be like in 10 days. Even if this simulation were realistic, we wouldn’t be able to answer that question by just running it once, since every time we run the simulation we get different data. Instead, we want to run the simulation over and over and look at the distribution of outcomes.</p>
+<p>The simpliest way to do this would be with a little for-loop:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simulate_weather</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 21.5 s, sys: 68.5 ms, total: 21.5 s
+Wall time: 21.3 s
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>72.0096841595076
+</pre></div>
+</div>
+</div>
+<p>But look how slow this is! If we want to run this 1,000,000 times, it takes a full 24 seconds on average!</p>
+<p>So let’s try parallelizing these simulations using <code class="docutils literal notranslate"><span class="pre">joblib</span></code>. (Make sure to install joblib if you haven’t yet with <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>!)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="k">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span> <span class="c1">#Import the relevant tools</span>
+
+<span class="c1"># Joblib wants a function that only takes a single argument.</span>
+<span class="c1"># Since we&#39;re not changing our parameters with each run, we just create a</span>
+<span class="c1"># &quot;little barrier function&quot; that takes one argument.</span>
+
+<span class="k">def</span> <span class="nf">run_simulation</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">simulate_weather</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_simulation</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>72.00584856772745
+</pre></div>
+</div>
+</div>
+<p>And that’s it!</p>
+<p>OK, so that line of code is kinda inscrutible, so let’s unpack it:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Parallel(n_jobs=10)</span></code>: this is where you specify how many processes you want to spin up. You don’t want to parallelize to more logical cores than are available on your computer (generally, two times the number of physical cores on your computer if you have an Intel chip). If you try and parallelize to 4 cores but your computer only has 2, then your operating system will just keep forcing your cores to stop and switch from running one pair of processes to running the other pair, back and forth,
+and that switching takes time. To see how many cores you have, run:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>16
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">delayed(run_simulation)(i)</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(1000000)</span></code>: This specifies what you want executed on all these parallel processes. In this case, we’re saying “we want to execute the function <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code> with the argument <code class="docutils literal notranslate"><span class="pre">i</span></code> for all values of <code class="docutils literal notranslate"><span class="pre">i</span></code> from 0 to 1,000,000.</p>
+<p>So that’s all you have to type, but that kinda obscures what all is happening.</p>
+<p>When you run this code, here’s what happens:</p>
+<ol class="arabic simple">
+<li><p>Joblib starts up as many new Python sessions as you hnave specified in <code class="docutils literal notranslate"><span class="pre">n_jobs</span></code>. These are fully independent, just as though you had openned a bunch of new terminal windows and typed Python into each one.</p></li>
+<li><p>Joblib then passes each of these separate processes the function (in this case <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code>) you want to run. Remember because each process is it’s own unique and beautiful snowflake, it doesn’t know what your current Python session knows! Joblib will also pass data to these processes if your job uses data. That means that if, instead of just an index like <code class="docutils literal notranslate"><span class="pre">i</span></code>, you were passing a dataframe in as an argument, Joblib would make a new copy of your dataframe in everyone one of these
+processes (which means if your dataframe takes up 30% of your RAM, and you try and parallelize over 8 processes, you’re run out of memory when joblib makes 8 copies!).</p></li>
+<li><p>Joblib then starts telling these processes to run your function (<code class="docutils literal notranslate"><span class="pre">run_simulation</span></code>) for different values of <code class="docutils literal notranslate"><span class="pre">i</span></code>. It takes care of making sure that all your <code class="docutils literal notranslate"><span class="pre">i</span></code> values run somewhere.</p></li>
+<li><p>Then when each process finishes running <code class="docutils literal notranslate"><span class="pre">run_simulation(i)</span></code>, it passes the results back to joblib in your primary process, and puts them in a list.</p></li>
+<li><p>Then when all values of <code class="docutils literal notranslate"><span class="pre">i</span></code> have been used, <code class="docutils literal notranslate"><span class="pre">joblib</span></code> closes all those processes.</p></li>
+</ol>
+<p>So, how much speed benefit does this get us? Previously we saw that running our simulation 1 million times took approximately 24 seconds to run. Let’s see how it looks with a 10 core parallelization (note my computer has 8 physical cores, so we’re using a little hyperthreading. I’m just doing 10 since the math is easy. :)).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_simulation</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 15.1 s, sys: 207 ms, total: 15.3 s
+Wall time: 15.5 s
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>72.00663479045383
+</pre></div>
+</div>
+</div>
+<p>15 seconds!</p>
+<p>Yeah…</p>
+<p>So this is what I mean about parallel processing: there’s a lot of fixed costs to getting this independent processes running and passing things back and forth, as a result of which the benefits of parallelism are almost always sub-linear (i.e. using 10 processors instead of 1 will result in &lt;10x speedups).</p>
+<p>Now to be clear, the benefits won’t always be so small. Since the “cost” of setting up these processes is pretty constant, the longer each simulation runs, the larger the gains. For example, let’s compare performance if we simulate for 100 days instead of 10 (so there are more actual simulation steps taking place for each message passed back and forth between processes).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simulate_weather</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 3min 30s, sys: 102 ms, total: 3min 30s
+Wall time: 3min 30s
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>
+<span class="k">def</span> <span class="nf">run_simulation</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">simulate_weather</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_simulation</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 30.7 s, sys: 504 ms, total: 31.2 s
+Wall time: 42.9 s
+</pre></div></div>
+</div>
+<p>Much better. From 180 seconds to 31 seconds. But still that’s only a 5x speed up with 10 cores!</p>
+<p>But at the risk of beating a dead horse, we can get far better performance benefits just by using the tips in the <a class="reference internal" href="performance_understanding.html"><span class="doc">performance section</span></a> like vectorizing:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>
+<span class="n">sims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1000000</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">std_dev</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">sims</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">72</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="n">sims</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="n">sims</span><span class="p">[:,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">72</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 6.21 s, sys: 253 ms, total: 6.47 s
+Wall time: 6.47 s
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sims</span><span class="p">[:,</span><span class="mi">99</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>71.98881644218754
+</pre></div>
+</div>
+</div>
+<p>THAT only took 6 seconds…</p>
+</div>
+<div class="section" id="Multi-threading-versus-Multi-processing">
+<h2>Multi-threading versus Multi-processing<a class="headerlink" href="#Multi-threading-versus-Multi-processing" title="Permalink to this headline">¶</a></h2>
+<p>This type of parallelism – where we create entirely new processes to run our code, and we have to copy over our data to each new process – is what’s called “multiprocessing”. Multiprocessing is nice because (a) you can use it on big server clusters where different processes may be running on different computers,</p>
+</div>
 <div class="section" id="Types-of-Parallelism">
 <h2>Types of Parallelism<a class="headerlink" href="#Types-of-Parallelism" title="Permalink to this headline">¶</a></h2>
+<p>Enough theory, let’s talk about implementation!</p>
+<p>Parallel computing in Python is all what is called “multi-processing” parallelism, meaning that the way we parallelize things is by starting up lots of unique instances of Python, all with their own memory allocations and private existance. Then we pass data and commands back and forth between these distinct processes.</p>
 <div class="section" id="Multi-threading">
 <h3>Multi-threading<a class="headerlink" href="#Multi-threading" title="Permalink to this headline">¶</a></h3>
-<p>Fast, but: DANGER! HERE BE DRAGONS! RACE CONDITIONS!</p>
+<p>Multi-threading is the most efficient way to parallelize code, but it’s also (a) very complicated in most programs, (b) potentially dangerous (easy to get nonsense results), and (c) not something you can do in Python anyway.</p>
+<p>So let’s move on!</p>
 </div>
 <div class="section" id="Multi-processing">
 <h3>Multi-processing<a class="headerlink" href="#Multi-processing" title="Permalink to this headline">¶</a></h3>
@@ -403,6 +699,8 @@ additional performance, but much less than actually having an actual additional 
 <li class="toctree-l2"><a class="reference internal" href="#Why-is-Paralleism-important?">Why is Paralleism important?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Limits-of-Parallelism">Limits of Parallelism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Vocabulary">Vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Parallel-Processing-with-Joblib">Parallel Processing with Joblib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Multi-threading-versus-Multi-processing">Multi-threading versus Multi-processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Types-of-Parallelism">Types of Parallelism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#How-do-I-paralleize?">How do I paralleize?</a></li>
 </ul>
