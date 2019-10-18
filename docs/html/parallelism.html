@@ -619,11 +619,12 @@ Wall time: 6.47 s
 <li><p>You generally can’t use multi-thread parallelism in Python because of a <a class="reference external" href="https://realpython.com/python-gil">fundamental component of its architecture (the GIL)</a>.</p></li>
 </ul>
 <p>So… multi-threading isn’t something you’re like likely to try and implement yourself. But if you <em>do</em> need to get into multi-threading, consider jumping to a language like Julia, which allows for <a class="reference external" href="https://julialang.org/blog/2019/07/multithreading">easy multi-threading, complete with security features.</a></p>
+<p>But that isn’t to say you may not <em>benefit</em> from multi-threading. More and more tools are implementing parallelism (even Python packages, by building in the multi-threading into the C code that underlies that package you use in Python), so you may just get some benefits for free!</p>
 </div>
 <div class="section" id="GPU-Parallelism">
 <h2>GPU Parallelism<a class="headerlink" href="#GPU-Parallelism" title="Permalink to this headline">¶</a></h2>
 <p>Something related to general parallelism is GPU parallelism. GPU parallelism is the practice of using Graphical Processing Units (GPUs) to do <em>extremely</em> parallel computing.</p>
-<p>GPUs are basically computers onto themselves designed for the sole purpose of, as the name suggests, processing graphics. As it turns out, however, most of what one does when processing graphics is <em>lots</em> of matrix algebra in parallel. And so in recent years researchers, have started using GPUs for scientific research.</p>
+<p>GPUs are basically computers onto themselves designed for the sole purpose of, as the name suggests, processing graphics. As it turns out, however, most of what one does when processing graphics is <em>lots</em> of matrix algebra. And so in recent years researchers, have started using GPUs for scientific research.</p>
 <p>GPU processors aren’t “general purpose” processors – they only do a few things, and as a result of that specialization, what they do they do <em>fast</em>. Moreover, they are massively parallel: while your CPU (your Intel chip) may have ~4-8 cores, a modern GPU has either hundreds or thousands of cores.</p>
 <p>But because GPUs are basically computers onto themselves, to use them you have to write special code to both manage all those cores and also manage the movement of data from your regular computer to the GPU. All of which is to say: you probably won’t write your own GPU parallel algorithm, but if you end up in an area that uses them a lot (i.e. training neural networks), the libraries you use will.</p>
 </div>

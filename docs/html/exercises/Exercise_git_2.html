@@ -73,9 +73,12 @@ that line of code, then it would delete those changes to use 2015 instead of 201
 <p>Dealing with this situation requires several steps:</p>
 <ol class="arabic simple">
 <li><p>Pull from the repository (so that all the new edits to the master branch are stored in your master branch)</p></li>
+<li><p>Make sure you’re currently on the branch <code class="docutils literal notranslate"><span class="pre">this_is_gonna_be_a_problem</span></code></p></li>
 <li><p>Run “git rebase master”.</p></li>
 </ol>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> is a command to try and “move” the point from which your branch diverts from master by integrating all the changes that have happened since you first created your branch. Visually, you can imagine it like:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> is a command to try and “move” the point from which your branch diverts from master by integrating all the changes that have happened since you first created your branch. It’s <em>basically</em> like merging your current branch with the (now updated) master branch, except that it does it in a way that re-organizes the branch history so it looks like all the changes you’ve made in your branch occurred <em>after</em> the most recent changes that have happened in the master branch.</p>
+<p>Note it’s important that you’ve checked out your <code class="docutils literal notranslate"><span class="pre">this_is_gonna_be_a_problem</span></code> branch before you do this! <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">master</span></code> says to git “rebase the currently active branch off of master”. If the branch you have open is master, it will just announce that the rebase is done, since master is already up to date with… master (trivially!).</p>
+<p>Visually, you can imagine it like:</p>
 <p><img alt="rebase" src="../_images/rebase.png" /></p>
 <p>Rebase can be useful for several things, not just conflicts. If you’ve been working on a branch for a while and you just want to bring all the features and updates from master into that branch, <code class="docutils literal notranslate"><span class="pre">rebase</span></code> pulls all those in.</p>
 <p>But in this case, <code class="docutils literal notranslate"><span class="pre">rebase</span></code> will <em>try</em> and integrate your branch with the master branch, and in doing so will give you a chance to address all the conflicts that have appeared (in this case, both you and your teammates editing the first line of the README.md at the same time).</p>
