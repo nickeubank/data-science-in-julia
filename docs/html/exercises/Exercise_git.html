@@ -36,6 +36,16 @@
 <h1>Git and Github, Part 1<a class="headerlink" href="#Git-and-Github,-Part-1" title="Permalink to this headline">¶</a></h1>
 <p>In these exercises, we’ll be practicing creating and contributing to projects using the “Github Flow” workflow you can <a class="reference external" href="https://guides.github.com/introduction/flow/">find summarized here</a>. Note this is not the only workflow out there – different companies or groups will often develop their own modification of this basic strategy – but most are pretty similar to this approach.</p>
 <p>In these exercises, for the first time we’ll want to use the computers of BOTH people working in each pair, so label one computer as Computer A, and one as Computer B.</p>
+<div class="section" id="Part-0:-Change-your-default-editor!">
+<h2>Part 0: Change your default editor!<a class="headerlink" href="#Part-0:-Change-your-default-editor!" title="Permalink to this headline">¶</a></h2>
+<p>By default, when git needs you to label a commit, it will open an editor called <a class="reference external" href="https://www.vim.org/">vim</a> that is very hard to work with (it’s not just weird – it’s even hard to get out of once it’s openned!)</p>
+<p>So before you do anything else, first change your default editor. You can do this with the command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;COMMANDTOLAUNCHYOUREDITOR&quot;</span></code></p>
+<p>If you have Atom installed <em>and the command line tool setup</em> (i.e. you set up Atom so that if you type <code class="docutils literal notranslate"><span class="pre">atom</span></code> in the command line, Atom opens, <a class="reference internal" href="../atom_text_editor.html"><span class="doc">as discussed here</span></a>), then I would do:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;atom&quot;</span></code></p>
+<p>If not, then the best option is probably to use <code class="docutils literal notranslate"><span class="pre">nano</span></code>, which is an in-terminal editor we’ve discussed <a class="reference internal" href="../command_line_part2.html"><span class="doc">before</span></a> that’s much easier to use than vim, and which you should already have if you’re using a bash console:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;nano&quot;</span></code></p>
+</div>
 <div class="section" id="Part-1:-Making-a-New-Repo!">
 <h2>Part 1: Making a New Repo!<a class="headerlink" href="#Part-1:-Making-a-New-Repo!" title="Permalink to this headline">¶</a></h2>
 <p>To begin, we will create a repository where we will use data from the World Development Indicators to quickly plots GDP per capita against infant mortality.</p>

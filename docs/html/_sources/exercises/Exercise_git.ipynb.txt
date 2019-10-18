@@ -15,6 +15,27 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Part 0: Change your default editor!\n",
+    "\n",
+    "By default, when git needs you to label a commit, it will open an editor called [vim](https://www.vim.org/) that is very hard to work with (it's not just weird -- it's even hard to get out of once it's openned!)\n",
+    "\n",
+    "So before you do anything else, first change your default editor. You can do this with the command: \n",
+    "\n",
+    "`git config --global core.editor \"COMMANDTOLAUNCHYOUREDITOR\"`\n",
+    "\n",
+    "If you have Atom installed *and the command line tool setup* (i.e. you set up Atom so that if you type `atom` in the command line, Atom opens, [as discussed here](../atom_text_editor.ipynb)), then I would do:\n",
+    "\n",
+    "`git config --global core.editor \"atom\"`\n",
+    "\n",
+    "If not, then the best option is probably to use `nano`, which is an in-terminal editor we've discussed [before](../command_line_part2.ipynb) that's much easier to use than vim, and which you should already have if you're using a bash console:\n",
+    "\n",
+    "`git config --global core.editor \"nano\"`"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Part 1: Making a New Repo!\n",
     "\n",
     "To begin, we will create a repository where we will use data from the World Development Indicators to quickly plots GDP per capita against infant mortality.\n",
