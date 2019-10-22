@@ -43,7 +43,7 @@
 - Getting Help Online","- `Defensive Programming <defensive_programming.ipynb>`_
 - `Workflow Management <workflow.ipynb>`_
 - `Getting Help <getting_help.ipynb>`_",[Discuss mid-semester project in class]
-"Thurs, Oct 24, Rm 330",Groupby / Split-Apply-Combine,- JVP pp 212-228,`Link <exercises/Exercise_groupby.ipynb>`_
+"Thurs, Oct 24, Rm 330",Groupby / Split-Apply-Combine,"- WM pp Chpt 10, 10.1, 10.2, 10.3",`Link <exercises/Exercise_groupby.ipynb>`_
 "Tues, Oct 29, Rm 270","- Pandas: Reshaping
 - Pandas: Categoricals","- WM 8.3
 - `Pandas reshaping (with pics!) <https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html>`_
