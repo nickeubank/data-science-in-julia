@@ -17,7 +17,8 @@
     "- [Plotting, Advanced Solutions](exercises/Solutions_plotting_part2.ipynb)\n",
     "- [Indices Solutions](exercises/Solutions_indices.ipynb)\n",
     "- [Missing Data Solutions](exercises/Solutions_missing.ipynb)\n",
-    "- [Cleaning Solutions](exercises/Solutions_cleaning.ipynb)"
+    "- [Cleaning Solutions](exercises/Solutions_cleaning.ipynb)\n",
+    "- [Merging Solutions](exercises/Solutions_merging.ipynb)"
    ]
   }
  ],
