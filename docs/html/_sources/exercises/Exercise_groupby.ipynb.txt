@@ -357,7 +357,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(11)** Because the US Census occurs once every 10 years, we only have population data for once every 10 years. To fill in the gaps in our data, we can *interpolate* the values between each census wave. For example, if a county is 75% White in 1990 and 25% in 2000, we could infer it was likely about 50% White in 1995.\n",
+    "**(11)** Because the US Census occurs once every 10 years, we only have population data for once every 10 years (ok, that's not quite true -- the [census bureau publishes their own interpolations using data they collect between censuses](https://www.census.gov/programs-surveys/popest.html) -- but let's pretend it is for this exercise). To fill in the gaps in our data, we can *interpolate* the values between each census wave. For example, if a county is 75% White in 1990 and 25% in 2000, we could infer it was likely about 50% White in 1995.\n",
     "\n",
     "`pandas` offers an `interpolate` method that will do this for you, but `interpolate` just doesn't interpolations for one set of observations. In this case, however, we need to do our interpolations *within each group*, so you'll have to figure out how to use `interpolate` with groupby. (*Hint:* this is probably a job for `apply`). "
    ]

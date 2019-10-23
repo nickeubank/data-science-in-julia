@@ -50,7 +50,7 @@
 - `What is goal of reshaping? <https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf>`_
 - Categoricals: WM 12.1",`Link <exercises/Exercise_reshaping.ipynb>`_
 "Thurs, Oct 31, Rm 330",Speed and Performance in Python,"- `Understanding Performance <performance_understanding.ipynb>`_
-- `Improving Performance <performance_solutions.ipynb>`_",
+- `Improving Performance <performance_solutions.ipynb>`_",Finish Groupby / Reshaping Exercises
 "Tues, Nov 05, Rm 270",Parallelism,- `Parallel Computing <parallelism.ipynb>`_,
 "Thurs, Nov 07, Rm 330",Statistics with statsmodels,- WM Chapter 13,
 "Tues, Nov 12, Rm 330",Machine Learning with sckikit-learn,- JVP pp 331 - 359,
