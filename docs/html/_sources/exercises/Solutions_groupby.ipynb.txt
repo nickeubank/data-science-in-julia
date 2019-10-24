@@ -636,7 +636,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(5)** Given your answer from 3, what groups where you collapsing in question 4?"
+    "**(5)** Given your answer from 3, what groups were you collapsing in question 4?"
    ]
   },
   {
@@ -652,7 +652,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(6)** Does the racial composition of arrests in each county by arrest type? In other words, do Blacks make up a larger portion of the people arrested for drug offenses than violent offenses? To answer this question, you will need to compute the proportion of all arrests in a county-year that occur within each age group. \n",
+    "**(6)** Does the racial composition of arrests in each county vary by arrest type? In other words, do Blacks make up a larger portion of the people arrested for drug offenses than violent offenses? To answer this question, you will need to compute the proportion of all arrests in a county-year that occur within each age group. \n",
     "\n",
     "In trying to do this, break the problem down into pieces: \n",
     "\n",
