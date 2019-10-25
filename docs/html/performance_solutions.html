@@ -316,33 +316,33 @@ the result of my analysis is: 3
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>      44 function calls in 6.008 seconds
+<span></span>      44 function calls in 6.007 seconds
 
 Ordered by: internal time
 
 ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-     2    6.008    3.004    6.008    3.004 {built-in method time.sleep}
+     2    6.007    3.003    6.007    3.003 {built-in method time.sleep}
      3    0.000    0.000    0.000    0.000 socket.py:337(send)
-     1    0.000    0.000    6.008    6.008 {built-in method builtins.exec}
-     1    0.000    0.000    6.008    6.008 &lt;ipython-input-1-2718bcdb1d57&gt;:14(my_analysis)
+     1    0.000    0.000    6.007    6.007 &lt;ipython-input-1-2718bcdb1d57&gt;:14(my_analysis)
      3    0.000    0.000    0.000    0.000 iostream.py:197(schedule)
      2    0.000    0.000    0.000    0.000 iostream.py:384(write)
+     1    0.000    0.000    6.007    6.007 {built-in method builtins.exec}
      1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
      3    0.000    0.000    0.000    0.000 threading.py:1080(is_alive)
+     1    0.000    0.000    1.002    1.002 &lt;ipython-input-1-2718bcdb1d57&gt;:7(a_medium_function)
      3    0.000    0.000    0.000    0.000 threading.py:1038(_wait_for_tstate_lock)
-     3    0.000    0.000    0.000    0.000 {method &#39;acquire&#39; of &#39;_thread.lock&#39; objects}
-     2    0.000    0.000    0.000    0.000 iostream.py:309(_is_master_process)
-     1    0.000    0.000    1.003    1.003 &lt;ipython-input-1-2718bcdb1d57&gt;:7(a_medium_function)
-     2    0.000    0.000    0.000    0.000 iostream.py:322(_schedule_flush)
      1    0.000    0.000    5.005    5.005 &lt;ipython-input-1-2718bcdb1d57&gt;:3(a_slow_function)
-     2    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+     2    0.000    0.000    0.000    0.000 iostream.py:309(_is_master_process)
+     3    0.000    0.000    0.000    0.000 {method &#39;acquire&#39; of &#39;_thread.lock&#39; objects}
      3    0.000    0.000    0.000    0.000 iostream.py:93(_event_pipe)
+     2    0.000    0.000    0.000    0.000 iostream.py:322(_schedule_flush)
+     2    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
      2    0.000    0.000    0.000    0.000 {built-in method posix.getpid}
-     3    0.000    0.000    0.000    0.000 {method &#39;append&#39; of &#39;collections.deque&#39; objects}
-     1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
      3    0.000    0.000    0.000    0.000 threading.py:507(is_set)
+     1    0.000    0.000    6.007    6.007 &lt;string&gt;:1(&lt;module&gt;)
+     1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
      1    0.000    0.000    0.000    0.000 &lt;ipython-input-1-2718bcdb1d57&gt;:11(a_fast_function)
-     1    0.000    0.000    6.008    6.008 &lt;string&gt;:1(&lt;module&gt;)
+     3    0.000    0.000    0.000    0.000 {method &#39;append&#39; of &#39;collections.deque&#39; objects}
 </pre></div>
 </div>
 </div>
@@ -357,7 +357,7 @@ that function was in the process of executing when <code class="docutils literal
 <h2>Speeding Code with Cython<a class="headerlink" href="#Speeding-Code-with-Cython" title="Permalink to this headline">¶</a></h2>
 <p>There are two libraries designed to allow you to massively speed up Python code. The first is called <code class="docutils literal notranslate"><span class="pre">Cython</span></code>, and it is a way of writing code that is basically Python with type declarations. For example, if you wanted to add up all the numbers to a million in Python, you could write something like the following (obviously not the most concise way to do it, but you get the idea):</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -394,8 +394,8 @@ that function was in the process of executing when <code class="docutils literal
 <p>Then you can call your Cythonized function (<code class="docutils literal notranslate"><span class="pre">avg_number_up_to</span></code>) in your normal Python script, but you’ll now find it runs ~10x - 100x faster! (Note that this speedup is only likely when compared to <em>pure python</em> code. If you’re comparing Cython to a library function that was already written in C, youre Cythonized Python is unlikely be any faster (and may be slower) than that library function.</p>
 <p>Also, note that <strong>in Cythonized code, loops are just as fast as vectorized code!</strong></p>
 <p>To illustrate, we can actually compile Cython code directly in Jupyter Notebooks with the %%cythonize magic. This is good for teaching, but is not how you should plan on using Cython yourself – it’s just not robust to rely on jupyter magics for core functionality in your programs (and you should only cythonize something if it’s a core part of your code!).</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -403,17 +403,8 @@ that function was in the process of executing when <code class="docutils literal
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The Cython extension is already loaded. To reload it, use:
-  %reload_ext Cython
-</pre></div></div>
-</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-cython notranslate"><div class="highlight"><pre>
@@ -432,7 +423,7 @@ The Cython extension is already loaded. To reload it, use:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -445,11 +436,11 @@ The Cython extension is already loaded. To reload it, use:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-49.6 s ± 611 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+45.4 s ± 1.4 s per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -462,13 +453,13 @@ The Cython extension is already loaded. To reload it, use:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-45.4 ns ± 0.258 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+46.1 ns ± 0.751 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
 </pre></div></div>
 </div>
 <p>But while Cython is nice, it does have lots of limitations!</p>
 <p>The biggest is that can get integer overflows in Cython! Moreover, be aware that <code class="docutils literal notranslate"><span class="pre">int</span></code> is a C integer (32 bit, which overflows at about 2 billion), so super prone to overflowing. <code class="docutils literal notranslate"><span class="pre">long</span></code> is what you need to use to get a 64 bit integer! So if I made the accumulator an <code class="docutils literal notranslate"><span class="pre">int</span></code> rather than a <code class="docutils literal notranslate"><span class="pre">long</span></code>…</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-cython notranslate"><div class="highlight"><pre>
@@ -487,7 +478,7 @@ The Cython extension is already loaded. To reload it, use:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -496,7 +487,7 @@ The Cython extension is already loaded. To reload it, use:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -546,7 +537,7 @@ The Cython extension is already loaded. To reload it, use:
 <p>The only catch is that <code class="docutils literal notranslate"><span class="pre">numba</span></code> can’t always compile code in <code class="docutils literal notranslate"><span class="pre">nopython</span></code> mode. For example, <code class="docutils literal notranslate"><span class="pre">numba</span></code> isn’t compatible with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, so if you put <code class="docutils literal notranslate"><span class="pre">pandas</span></code> code in a function you pass to <code class="docutils literal notranslate"><span class="pre">numba</span></code>, it can’t work in <code class="docutils literal notranslate"><span class="pre">nopython</span></code> mode.</p>
 <p>But when it does work, it’s magic, because instead of making a new file that has to be compiled seperately and which won’t “just work” on other computers, to make <code class="docutils literal notranslate"><span class="pre">numba</span></code> work you just add a “decorator” to the function you want to speed up. For example:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -559,8 +550,8 @@ The Cython extension is already loaded. To reload it, use:
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -568,8 +559,16 @@ The Cython extension is already loaded. To reload it, use:
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+45.3 ms ± 598 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -595,8 +594,7 @@ The Cython extension is already loaded. To reload it, use:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The slowest run took 7.83 times longer than the fastest. This could mean that an intermediate result is being cached.
-481 ns ± 507 ns per loop (mean ± std. dev. of 7 runs, 1 loop each)
+114 ns ± 0.883 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
 </pre></div></div>
 </div>
 <p>Not bad, huh? Add one line of code, and this speeds up by 600x!</p>
@@ -607,7 +605,7 @@ The slowest run took 7.83 times longer than the fastest. This could mean that an
 <p>If you want <code class="docutils literal notranslate"><span class="pre">numba</span></code> to work well, there is one overriding rule: your code must be “type-stable”. Type stability means that <em>conditional on the types of the input arguments</em>, the types of all variables in your code must be fully predictable.</p>
 <p>For example, consider the following code:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -622,7 +620,7 @@ The slowest run took 7.83 times longer than the fastest. This could mean that an
 <p>In other words, <em>conditional on the type of the input arguments</em>, this function is type stable.</p>
 <p>But now consider the following code:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -637,7 +635,7 @@ The slowest run took 7.83 times longer than the fastest. This could mean that an
 </div>
 <p>This code is <strong>not</strong> type stable because the fact that <code class="docutils literal notranslate"><span class="pre">x</span></code> is an integer does not guarantee the type of <code class="docutils literal notranslate"><span class="pre">y</span></code>’. If <code class="docutils literal notranslate"><span class="pre">x</span></code> is an even integer, than <code class="docutils literal notranslate"><span class="pre">y</span></code> will also be an integer; and if <code class="docutils literal notranslate"><span class="pre">x</span></code> is an odd integer, then <code class="docutils literal notranslate"><span class="pre">y</span></code> will be a string. As a result, <code class="docutils literal notranslate"><span class="pre">numba</span></code> can’t predict the type of <code class="docutils literal notranslate"><span class="pre">y</span></code> in advance of running the code, and so can’t be as efficient.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -652,7 +650,7 @@ The slowest run took 7.83 times longer than the fastest. This could mean that an
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -667,7 +665,7 @@ The slowest run took 7.83 times longer than the fastest. This could mean that an
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypingError</span>                               Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-64-d6ab8c8f87e7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-16-d6ab8c8f87e7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>is_this_even<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">~/miniconda3/lib/python3.7/site-packages/numba/dispatcher.py</span> in <span class="ansi-cyan-fg">_compile_for_args</span><span class="ansi-blue-fg">(self, *args, **kws)</span>
@@ -692,18 +690,18 @@ The slowest run took 7.83 times longer than the fastest. This could mean that an
 <span class="ansi-green-intense-fg ansi-bold">    660</span>
 
 <span class="ansi-red-fg">TypingError</span>: Failed in nopython mode pipeline (step: nopython frontend)
-Cannot unify int64 and Literal[str](not even, sorry!) for &#39;y&#39;, defined at &lt;ipython-input-63-9cd2f2682352&gt; (4)
+Cannot unify int64 and Literal[str](not even, sorry!) for &#39;y&#39;, defined at &lt;ipython-input-15-9cd2f2682352&gt; (4)
 
-File &#34;&lt;ipython-input-63-9cd2f2682352&gt;&#34;, line 4:
+File &#34;&lt;ipython-input-15-9cd2f2682352&gt;&#34;, line 4:
 def is_this_even(x):
     &lt;source elided&gt;
     if x % 2 == 0:
         y = x
         ^
 
-[1] During: typing of assignment at &lt;ipython-input-63-9cd2f2682352&gt; (6)
+[1] During: typing of assignment at &lt;ipython-input-15-9cd2f2682352&gt; (6)
 
-File &#34;&lt;ipython-input-63-9cd2f2682352&gt;&#34;, line 6:
+File &#34;&lt;ipython-input-15-9cd2f2682352&gt;&#34;, line 6:
 def is_this_even(x):
     &lt;source elided&gt;
     else:
