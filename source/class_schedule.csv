@@ -49,13 +49,13 @@
 - `Pandas reshaping (with pics!) <https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html>`_
 - `What is goal of reshaping? <https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf>`_
 - Categoricals: WM 12.1",`Link <exercises/Exercise_reshaping.ipynb>`_
-"Thurs, Oct 31, Rm 330",Statistics with statsmodels,"- WM Chapter 13, 13.1, 13.2, 13.3
+"Thurs, Oct 31, Rm 330",Speed and Performance in Python,"- `Understanding Performance <performance_understanding.ipynb>`_
+- `Improving Performance <performance_solutions.ipynb>`_",[finish groupby and reshaping exercises]
+"Tues, Nov 05, Rm 270",Statistics with statsmodels,"- WM Chapter 13, 13.1, 13.2, 13.3
 - `Skim ""Linear Models"" <https://www.statsmodels.org/stable/regression.html>`_
 - `Skim ""Discrete Dep Var Models"" <https://www.statsmodels.org/stable/discretemod.html>`_
 - `Patsy: Differences from R <https://patsy.readthedocs.io/en/latest/R-comparison.html>`_",`Link <exercises/Exercise_statsmodels.ipynb>`_
-"Tues, Nov 05, Rm 270",Machine Learning with sckikit-learn,- JVP pp 331 - 359,
-"Thurs, Nov 07, Rm 330",Speed and Performance in Python,"- `Understanding Performance <performance_understanding.ipynb>`_
-- `Improving Performance <performance_solutions.ipynb>`_",
+"Thurs, Nov 07, Rm 330",Machine Learning with sckikit-learn,- JVP pp 331 - 359,
 "Tues, Nov 12, Rm 330",Parallelism,- `Parallel Computing <parallelism.ipynb>`_,
 "Thurs, Nov 14, Rm 330",Data Science: Questions,,
 "Tues, Nov 19, Rm 270",Data Science: Tool Selection,,
