@@ -31,17 +31,6 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 1,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import pandas as pd\n",
-    "import numpy as np\n",
-    "smoking_and_bw = pd.read_csv('https://media.githubusercontent.com/media/nickeubank/MIDS_Data/master/smoking.csv')"
-   ]
-  },
-  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -82,80 +71,12 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 2,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Re-group race to be white (0), hispanic (6), black (7), other (8, 9, 99)\n",
-    "smoking_and_bw['race_recoded'] = -1\n",
-    "smoking_and_bw.loc[smoking_and_bw.mrace <= 5, 'race_recoded'] = 0\n",
-    "smoking_and_bw.loc[smoking_and_bw.mrace == 6, 'race_recoded'] = 1\n",
-    "smoking_and_bw.loc[smoking_and_bw.mrace == 7, 'race_recoded'] = 2\n",
-    "smoking_and_bw.loc[smoking_and_bw.mrace > 7, 'race_recoded'] = 3\n",
-    "assert (smoking_and_bw['race_recoded'] != -1).all()\n",
-    "\n",
-    "# Fix birth weight var name\n",
-    "smoking_and_bw = smoking_and_bw.rename({'bwt.oz': 'bwt_oz'}, axis='columns')"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import patsy\n",
-    "y , X = patsy.dmatrices('bwt_oz ~ C(race_recoded) + smoke + mage + mpregwt + mht', smoking_and_bw)"
-   ]
-  },
-  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
     "**(3)** Look at your features matrix `X`. How many columns does it have? How does that compare to the number of variables you used as inputs? (if they're the same, you probably did something wrong...). Can you explain the difference? \n",
     "\n",
     "If not [read this!](https://hackernoon.com/what-is-one-hot-encoding-why-and-when-do-you-have-to-use-it-e3c6186d008f). This is one of the very nice things that `patsy` does for us!"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "(869, 8)"
-      ]
-     },
-     "execution_count": 4,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "X.shape"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 5,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# I had 6 features going in, but I have 9 variables!\n",
-    "# that's because the categorical variable \"race\" \n",
-    "# was recoded into 3 indicator variables, so that \n",
-    "# all 3 are zero if the person is white, \n",
-    "# the first is 1 and the others are zero if the\n",
-    "# person is hispanic, the second is 1 and the \n",
-    "# others are zero if the person is black, \n",
-    "# and the third is 1 and the others are zero if the\n",
-    "# person is \"other\". \n",
-    "\n",
-    "# This is called one-hot-encoding, and it's how we \n",
-    "# represent categorical variables. "
    ]
   },
   {
@@ -191,20 +112,6 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 6,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from sklearn.model_selection import train_test_split\n",
-    "\n",
-    "X_train, X_test, y_train, y_test = train_test_split(X, y, \n",
-    "                                                    test_size=0.5, \n",
-    "                                                    train_size=0.5,\n",
-    "                                                    random_state=42)"
-   ]
-  },
-  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -233,17 +140,6 @@
     "from sklearn.linear_model import LinearRegression\n",
     "my_model = LinearRegression()\n",
     "```"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 7,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from sklearn.linear_model import LinearRegression\n",
-    "\n",
-    "my_model = LinearRegression()"
    ]
   },
   {
@@ -306,15 +202,6 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 9,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "predictions = my_model.predict(X_test)"
-   ]
-  },
-  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -333,26 +220,6 @@
     "As you get more sophisticated, you will discover these basic scores are often inadequate for evaluating models, and you can turn to other evaluation functions found in [sklearn.metrics](https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter). But for now we'll just use the default `score` output of R-squared. \n",
     "\n",
     "**(8)** What is the score of your model?"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 10,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "0.11574796516106944"
-      ]
-     },
-     "execution_count": 10,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "my_model.score(X_test, y_test)"
    ]
   },
   {
@@ -411,37 +278,6 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 11,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/Nick/miniconda3/lib/python3.7/site-packages/sklearn/svm/base.py:193: FutureWarning: The default value of gamma will change from 'auto' to 'scale' in version 0.22 to account better for unscaled features. Set gamma explicitly to 'auto' or 'scale' to avoid this warning.\n",
-      "  \"avoid this warning.\", FutureWarning)\n"
-     ]
-    },
-    {
-     "data": {
-      "text/plain": [
-       "0.007397249096226743"
-      ]
-     },
-     "execution_count": 11,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "from sklearn.svm import SVR\n",
-    "my_svr_model = SVR()\n",
-    "my_svr_model.fit(X_train, y_train[:,0]) # Otherwise get annoying warning, but doesn't actually matter. \n",
-    "my_svr_model.score(X_test, y_test)"
-   ]
-  },
-  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -449,56 +285,10 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 12,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "0.10234916441731523"
-      ]
-     },
-     "execution_count": 12,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "from sklearn.svm import SVR\n",
-    "my_svr_model = SVR(kernel='linear')\n",
-    "my_svr_model.fit(X_train, y_train[:,0]) # Otherwise get annoying warning, but doesn't actually matter. \n",
-    "my_svr_model.score(X_test, y_test)"
-   ]
-  },
-  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
     "**(11)** Now pick whatever regression model you'd like and see how it performs ([some suggestions](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html)). Play with your model specifications and see how well you can do with your new model of one of the ones we used above. "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 15,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "0.1163671199667089"
-      ]
-     },
-     "execution_count": 15,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "from sklearn.linear_model import Ridge\n",
-    "my_ridge_model = Ridge()\n",
-    "my_ridge_model.fit(X_train, y_train)\n",
-    "my_ridge_model.score(X_test, y_test)"
    ]
   },
   {

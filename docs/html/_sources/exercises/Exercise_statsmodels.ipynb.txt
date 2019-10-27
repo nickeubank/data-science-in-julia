@@ -23,7 +23,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(1)** Load the data \"smoking.csv\", which includes information on both biometrics of infants at birth, and information on mothers (variables prefixed with the letter \"m\"), from [this MIDS repo](https://github.com/nickeubank/MIDS_Data): "
+    "**(1)** Load the data \"smoking.csv\", which includes information on both biometrics of infants at birth, and information on mothers (variables prefixed with the letter \"m\"), from [this MIDS repo](https://github.com/nickeubank/MIDS_Data). (Yup, I'm giving you CLEAN DATA! I think this is the only time I've done this in this course! Enjoy it. :))."
    ]
   },
   {

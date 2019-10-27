@@ -246,17 +246,6 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 <p>And so as a result, this machine learning algorithm resulted in black patients receiving fewer preventative medical interventions than white patients, even after taking into account other (medically relevant) factors.</p>
 <p>So: in this exercise we’ll play with predict birth weights in infants. But do <strong>NOT</strong> think that just because it’s this easy to fit a model, it is appropriate to then go use these in the real world in contexts where people’s lives are affected.</p>
 <p><strong>(1)</strong> Load the data “smoking.csv”, which includes information on both biometrics of infants at birth, and information on mothers (variables prefixed with the letter “m”), from <a class="reference external" href="https://github.com/nickeubank/MIDS_Data">this MIDS repo</a>. We’ll be working with this data in this exercise.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">smoking_and_bw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://media.githubusercontent.com/media/nickeubank/MIDS_Data/master/smoking.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="Formatting-Your-Data">
 <h2>Formatting Your Data<a class="headerlink" href="#Formatting-Your-Data" title="Permalink to this headline">¶</a></h2>
 <p>Unlike in <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, we can’t use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames in scikit-learn, so the first step in nearly any machine learning workflow (if you haven’t already been given a nice giant numpy array) is to convert our heterogeneous pandas array (which includes strings, categorical variables, integers, and floating point numbers) into a single large matrix that consists only of floating point numbers.</p>
@@ -281,74 +270,8 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 </div>
 <p>(We’re ignoring <code class="docutils literal notranslate"><span class="pre">gestation</span></code> because we don’t really know the value of <code class="docutils literal notranslate"><span class="pre">gestation</span></code> before the child is born, so we can’t use it to predict the birthweight of not-yet-born children!)</p>
 <p><strong>(2)</strong> Begin by using <code class="docutils literal notranslate"><span class="pre">patsy.dmatrices()</span></code> to create two datasets (<code class="docutils literal notranslate"><span class="pre">y</span></code>, which is the birth weights, and <code class="docutils literal notranslate"><span class="pre">X</span></code>, which is a matrix with all your “features” in a nice numpy array).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Re-group race to be white (0), hispanic (6), black (7), other (8, 9, 99)</span>
-<span class="n">smoking_and_bw</span><span class="p">[</span><span class="s1">&#39;race_recoded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">mrace</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;race_recoded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">mrace</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;race_recoded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">mrace</span> <span class="o">==</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;race_recoded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">mrace</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;race_recoded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">smoking_and_bw</span><span class="p">[</span><span class="s1">&#39;race_recoded&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-
-<span class="c1"># Fix birth weight var name</span>
-<span class="n">smoking_and_bw</span> <span class="o">=</span> <span class="n">smoking_and_bw</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;bwt.oz&#39;</span><span class="p">:</span> <span class="s1">&#39;bwt_oz&#39;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">patsy</span>
-<span class="n">y</span> <span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s1">&#39;bwt_oz ~ C(race_recoded) + smoke + mage + mpregwt + mht&#39;</span><span class="p">,</span> <span class="n">smoking_and_bw</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <p><strong>(3)</strong> Look at your features matrix <code class="docutils literal notranslate"><span class="pre">X</span></code>. How many columns does it have? How does that compare to the number of variables you used as inputs? (if they’re the same, you probably did something wrong…). Can you explain the difference?</p>
 <p>If not <a class="reference external" href="https://hackernoon.com/what-is-one-hot-encoding-why-and-when-do-you-have-to-use-it-e3c6186d008f">read this!</a>. This is one of the very nice things that <code class="docutils literal notranslate"><span class="pre">patsy</span></code> does for us!</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>(869, 8)
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># I had 6 features going in, but I have 9 variables!</span>
-<span class="c1"># that&#39;s because the categorical variable &quot;race&quot;</span>
-<span class="c1"># was recoded into 3 indicator variables, so that</span>
-<span class="c1"># all 3 are zero if the person is white,</span>
-<span class="c1"># the first is 1 and the others are zero if the</span>
-<span class="c1"># person is hispanic, the second is 1 and the</span>
-<span class="c1"># others are zero if the person is black,</span>
-<span class="c1"># and the third is 1 and the others are zero if the</span>
-<span class="c1"># person is &quot;other&quot;.</span>
-
-<span class="c1"># This is called one-hot-encoding, and it&#39;s how we</span>
-<span class="c1"># represent categorical variables.</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Splitting-Your-Data">
 <h2>Splitting Your Data<a class="headerlink" href="#Splitting-Your-Data" title="Permalink to this headline">¶</a></h2>
@@ -372,20 +295,6 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">X_train</span></code> is your training features, <code class="docutils literal notranslate"><span class="pre">Y_train</span></code> are your training birth weights, <code class="docutils literal notranslate"><span class="pre">X_test</span></code> are your test features, and <code class="docutils literal notranslate"><span class="pre">Y_test</span></code> are your test birth weights. The <code class="docutils literal notranslate"><span class="pre">random_state</span></code> var just ensures that you can re-create this split if you have to re-run your code (helpful for debugging).</p>
 <p><strong>(4)</strong> So start by splitting YOUR data.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
-
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
-                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                                                    <span class="n">train_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Training-your-Model">
 <h2>Training your Model<a class="headerlink" href="#Training-your-Model" title="Permalink to this headline">¶</a></h2>
@@ -399,17 +308,6 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
 <span class="n">my_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 </pre></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
-
-<span class="n">my_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-</pre></div>
-</div>
 </div>
 <p><strong>(6)</strong> Now fit your model against X and y. (If you’re unsure how to do this, read the docs for the model and look at the examples at the bottom!</p>
 <p><strong>Note:</strong> In <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method returned a new fitted model. In <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, by contrast, <code class="docutils literal notranslate"><span class="pre">.fit</span></code> modifies (mutates) the model in place.</p>
@@ -440,15 +338,6 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 <p>Which I think we can all agree is not nearly as informative a print-out!</p>
 <p>To be clear, you can recover many of the diagnostics for LinearRegression by digging around in other corners of <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, but what is made available speaks to the prioritizes of different users: <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> is for making predictions; <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> is for statistics and understanding mechanisms (i.e. seeing if the coefficient on smoking is significant).</p>
 <p><strong>(7)</strong> OK, but we’re in the world of sklearn, so let’s do some prediction! Now that you’ve fit your model, use the <code class="docutils literal notranslate"><span class="pre">predict</span></code> method your data to create a set of predictions.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">my_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Evaluating-your-Model">
 <h2>Evaluating your Model<a class="headerlink" href="#Evaluating-your-Model" title="Permalink to this headline">¶</a></h2>
@@ -460,24 +349,6 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 <p>If you’re doing a classification model (something that tries to guess the category for each observation, like a model that evalutes a set of pictures and tries to figure out if the pictures are of cats, dogs, or humans), <code class="docutils literal notranslate"><span class="pre">score</span></code> will return an “accuracy” score (the percentage of observations you properly classified). For a regression model (trying to guess a continuous variable) it will give an R-squared score.</p>
 <p>As you get more sophisticated, you will discover these basic scores are often inadequate for evaluating models, and you can turn to other evaluation functions found in <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter">sklearn.metrics</a>. But for now we’ll just use the default <code class="docutils literal notranslate"><span class="pre">score</span></code> output of R-squared.</p>
 <p><strong>(8)</strong> What is the score of your model?</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">my_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.11574796516106944
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Machine-Learning-Workflow-Summary">
 <h2>Machine Learning Workflow Summary<a class="headerlink" href="#Machine-Learning-Workflow-Summary" title="Permalink to this headline">¶</a></h2>
@@ -526,80 +397,8 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 <h2>Comparing Models<a class="headerlink" href="#Comparing-Models" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have a baseline estimate for the performance of <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> for this set of features and outputs, let’s try a different model and see how it compares!</p>
 <p><strong>(9)</strong> Now repeat your analysis using a Support Vector Regression (<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.svm</span> <span class="pre">import</span> <span class="pre">SVR</span></code>). How does the model perform? Is it better or worse than LinearRegression?</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
-<span class="n">my_svr_model</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
-<span class="n">my_svr_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Otherwise get annoying warning, but doesn&#39;t actually matter.</span>
-<span class="n">my_svr_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/Nick/miniconda3/lib/python3.7/site-packages/sklearn/svm/base.py:193: FutureWarning: The default value of gamma will change from &#39;auto&#39; to &#39;scale&#39; in version 0.22 to account better for unscaled features. Set gamma explicitly to &#39;auto&#39; or &#39;scale&#39; to avoid this warning.
-  &#34;avoid this warning.&#34;, FutureWarning)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.007397249096226743
-</pre></div>
-</div>
-</div>
 <p><strong>(10)</strong> One choice parameter for SVRs is the kernel it uses for weighting (again, this isn’t a class on machine learning, so don’t worry too much about what this means – just know that it’s a parameter of the model). Check the SVR documentation to figure out how to set the kernel to <code class="docutils literal notranslate"><span class="pre">linear</span></code> and see how it performs now.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
-<span class="n">my_svr_model</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
-<span class="n">my_svr_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Otherwise get annoying warning, but doesn&#39;t actually matter.</span>
-<span class="n">my_svr_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.10234916441731523
-</pre></div>
-</div>
-</div>
 <p><strong>(11)</strong> Now pick whatever regression model you’d like and see how it performs (<a class="reference external" href="https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html">some suggestions</a>). Play with your model specifications and see how well you can do with your new model of one of the ones we used above.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">Ridge</span>
-<span class="n">my_ridge_model</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span>
-<span class="n">my_ridge_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">my_ridge_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.1163671199667089
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="Want-More-Practice?">
 <h2>Want More Practice?<a class="headerlink" href="#Want-More-Practice?" title="Permalink to this headline">¶</a></h2>
@@ -701,7 +500,7 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/exercises/Solutions_scikit_learn.ipynb.txt"
+      <a href="../_sources/exercises/Exercise_scikit_learn.ipynb.txt"
           rel="nofollow">Page source</a>
     </div>
 
