@@ -75,6 +75,14 @@ here</a>. In this exercise, we will attempt to use this data to answer the follo
 </div>
 <p>Using the model you ran above with gestation, smoke, mpregwt, white, and the interaction of white and smoke, predict birth weights for these newborns.</p>
 </div>
+<div class="section" id="statsmodels-versus-R">
+<h2>statsmodels versus R<a class="headerlink" href="#statsmodels-versus-R" title="Permalink to this headline">¶</a></h2>
+<p>A quick but important note: the tools that are made available in different packages is often a function of who uses those packages, and how they use them. By and large, nearly all statisticians use R, and so many stats tools (like automatic forward-model-selection or backwards-model-selection) have “convenience implementations” (single functions that do all the things you’d want to accomplish) in R, but aren’t available as convenience packages in <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>. That’s because <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>
+was mostly written by economists and social scientists who tend to feel model selection should be a function of theory not statistical performance (not taking sides: just reporting a difference that exists).</p>
+<p>To be clear, you can still implement things like forward model selection yourself in Python – just write a loop that tries different regressors and plots the resulting AICs! – but it will often take a little more work. (Indeed, you can find examples of people <a class="reference external" href="https://planspace.org/20150423-forward_selection_with_statsmodels/">writing these loops on the web</a>).</p>
+<p>This is one of the reasons that languages are sticky: once a group of people have invested in adding all the bells and whistles they like to a language, there are good reasons to not move to another language, even if the other language has some advantages. A statistician who likes the basic language organization of Python more than R, for example, may still stay with R because the packages already do everything a statistician wants to do, and so it’s not worth having to re-implement common tasks
+in a new language.</p>
+</div>
 <div class="section" id="Logistic-Regression">
 <h2>Logistic Regression<a class="headerlink" href="#Logistic-Regression" title="Permalink to this headline">¶</a></h2>
 <p><strong>(8)</strong> Now, using statsmodels, evaluate the impact of smoking on the likelihood a child is born prematurely (where “premature” is defined as gestation of less than 252 days).</p>

@@ -450,7 +450,7 @@ Name: smoke, dtype: int64
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;ggplot: (8787045126583)&gt;
+&lt;ggplot: (-9223363256612037127)&gt;
 </pre></div></div>
 </div>
 <p>Yup. Those linear models cross out past 315 days or so, but there’s basically no data there, so doesn’t mean much. Through the bulk of the distribution the children of smoking mothers weigh less.</p>
@@ -487,10 +487,10 @@ Name: smoke, dtype: int64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   113.2</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, 23 Oct 2019</td> <th>  Prob (F-statistic):</th> <td>2.15e-44</td>
+  <th>Date:</th>             <td>Mon, 28 Oct 2019</td> <th>  Prob (F-statistic):</th> <td>2.15e-44</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>20:08:39</td>     <th>  Log-Likelihood:    </th> <td> -3645.8</td>
+  <th>Time:</th>                 <td>10:37:13</td>     <th>  Log-Likelihood:    </th> <td> -3645.8</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   869</td>      <th>  AIC:               </th> <td>   7298.</td>
@@ -563,10 +563,10 @@ Name: smoke, dtype: int64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   24.27</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, 23 Oct 2019</td> <th>  Prob (F-statistic):</th> <td>4.88e-47</td>
+  <th>Date:</th>             <td>Mon, 28 Oct 2019</td> <th>  Prob (F-statistic):</th> <td>4.88e-47</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>20:08:39</td>     <th>  Log-Likelihood:    </th> <td> -3619.5</td>
+  <th>Time:</th>                 <td>10:37:13</td>     <th>  Log-Likelihood:    </th> <td> -3619.5</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   869</td>      <th>  AIC:               </th> <td>   7265.</td>
@@ -684,10 +684,10 @@ Name: smoke, dtype: int64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   55.23</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, 23 Oct 2019</td> <th>  Prob (F-statistic):</th> <td>7.75e-50</td>
+  <th>Date:</th>             <td>Mon, 28 Oct 2019</td> <th>  Prob (F-statistic):</th> <td>7.75e-50</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>20:08:39</td>     <th>  Log-Likelihood:    </th> <td> -3626.1</td>
+  <th>Time:</th>                 <td>10:37:13</td>     <th>  Log-Likelihood:    </th> <td> -3626.1</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   869</td>      <th>  AIC:               </th> <td>   7264.</td>
@@ -811,6 +811,14 @@ dtype: float64
 </div>
 </div>
 </div>
+<div class="section" id="statsmodels-versus-R">
+<h2>statsmodels versus R<a class="headerlink" href="#statsmodels-versus-R" title="Permalink to this headline">¶</a></h2>
+<p>A quick but important note: the tools that are made available in different packages is often a function of who uses those packages, and how they use them. By and large, nearly all statisticians use R, and so many stats tools (like automatic forward-model-selection or backwards-model-selection) have “convenience implementations” (single functions that do all the things you’d want to accomplish) in R, but aren’t available as convenience packages in <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>. That’s because <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>
+was mostly written by economists and social scientists who tend to feel model selection should be a function of theory not statistical performance (not taking sides: just reporting a difference that exists).</p>
+<p>To be clear, you can still implement things like forward model selection yourself in Python – just write a loop that tries different regressors and plots the resulting AICs! – but it will often take a little more work. (Indeed, you can find examples of people <a class="reference external" href="https://planspace.org/20150423-forward_selection_with_statsmodels/">writing these loops on the web</a>).</p>
+<p>This is one of the reasons that languages are sticky: once a group of people have invested in adding all the bells and whistles they like to a language, there are good reasons to not move to another language, even if the other language has some advantages. A statistician who likes the basic language organization of Python more than R, for example, may still stay with R because the packages already do everything a statistician wants to do, and so it’s not worth having to re-implement common tasks
+in a new language.</p>
+</div>
 <div class="section" id="Logistic-Regression">
 <h2>Logistic Regression<a class="headerlink" href="#Logistic-Regression" title="Permalink to this headline">¶</a></h2>
 <p><strong>(8)</strong> Now, using statsmodels, evaluate the impact of smoking on the likelihood a child is born prematurely (where “premature” is defined as gestation of less than 252 days).</p>
@@ -881,10 +889,10 @@ Optimization terminated successfully.
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>  <td>     3</td>
 </tr>
 <tr>
-  <th>Date:</th>            <td>Wed, 23 Oct 2019</td> <th>  Pseudo R-squ.:     </th>  <td>0.04614</td>
+  <th>Date:</th>            <td>Mon, 28 Oct 2019</td> <th>  Pseudo R-squ.:     </th>  <td>0.04614</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>20:08:39</td>     <th>  Log-Likelihood:    </th> <td> -163.28</td>
+  <th>Time:</th>                <td>10:37:13</td>     <th>  Log-Likelihood:    </th> <td> -163.28</td>
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -171.18</td>
@@ -969,84 +977,84 @@ should “count more” in our analysis.</p>
   </thead>
   <tbody>
     <tr>
-      <th>35</th>
-      <td>Lassen County</td>
-      <td>2018</td>
-      <td>0.001303</td>
-      <td>31470.0</td>
-      <td>0.003654</td>
-    </tr>
-    <tr>
-      <th>108</th>
-      <td>Tuolumne County</td>
+      <th>68</th>
+      <td>San Benito County</td>
       <td>2009</td>
-      <td>0.003748</td>
-      <td>55761.0</td>
-      <td>0.002869</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Amador County</td>
-      <td>2018</td>
-      <td>0.000831</td>
-      <td>37306.0</td>
-      <td>0.001930</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>Los Angeles County</td>
-      <td>2009</td>
-      <td>0.003290</td>
-      <td>9785295.0</td>
-      <td>0.003609</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Amador County</td>
-      <td>2009</td>
-      <td>0.002655</td>
-      <td>38039.0</td>
-      <td>0.002629</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>Marin County</td>
-      <td>2009</td>
-      <td>0.001840</td>
-      <td>246711.0</td>
       <td>0.002027</td>
+      <td>54752.0</td>
+      <td>0.003817</td>
     </tr>
     <tr>
-      <th>95</th>
-      <td>Solano County</td>
+      <th>49</th>
+      <td>Modoc County</td>
       <td>2018</td>
-      <td>0.001113</td>
-      <td>434981.0</td>
-      <td>0.003439</td>
+      <td>0.001109</td>
+      <td>9017.0</td>
+      <td>0.007320</td>
     </tr>
     <tr>
-      <th>85</th>
-      <td>Santa Clara County</td>
+      <th>15</th>
+      <td>Del Norte County</td>
       <td>2018</td>
-      <td>0.000460</td>
-      <td>1911226.0</td>
-      <td>0.002180</td>
+      <td>0.001567</td>
+      <td>27442.0</td>
+      <td>0.005503</td>
     </tr>
     <tr>
-      <th>47</th>
-      <td>Merced County</td>
-      <td>2018</td>
-      <td>0.000621</td>
-      <td>267390.0</td>
-      <td>0.003848</td>
+      <th>20</th>
+      <td>Glenn County</td>
+      <td>2009</td>
+      <td>0.003729</td>
+      <td>27891.0</td>
+      <td>0.003729</td>
     </tr>
     <tr>
-      <th>67</th>
-      <td>Sacramento County</td>
+      <th>9</th>
+      <td>Calaveras County</td>
       <td>2018</td>
-      <td>0.000948</td>
-      <td>1495400.0</td>
-      <td>0.003400</td>
+      <td>0.000644</td>
+      <td>45057.0</td>
+      <td>0.003263</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Modoc County</td>
+      <td>2009</td>
+      <td>0.001091</td>
+      <td>9162.0</td>
+      <td>0.005130</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Santa Barbara County</td>
+      <td>2009</td>
+      <td>0.002179</td>
+      <td>402025.0</td>
+      <td>0.003214</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Monterey County</td>
+      <td>2009</td>
+      <td>0.002388</td>
+      <td>404922.0</td>
+      <td>0.003420</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Butte County</td>
+      <td>2009</td>
+      <td>0.002487</td>
+      <td>217917.0</td>
+      <td>0.002941</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Contra Costa County</td>
+      <td>2018</td>
+      <td>0.000708</td>
+      <td>1123678.0</td>
+      <td>0.002326</td>
     </tr>
   </tbody>
 </table>
@@ -1203,10 +1211,10 @@ should “count more” in our analysis.</p>
   <th>Method:</th>              <td>Least Squares</td>    <th>  F-statistic:       </th> <td>   4.166</td>
 </tr>
 <tr>
-  <th>Date:</th>              <td>Wed, 23 Oct 2019</td>   <th>  Prob (F-statistic):</th>  <td>0.00773</td>
+  <th>Date:</th>              <td>Mon, 28 Oct 2019</td>   <th>  Prob (F-statistic):</th>  <td>0.00773</td>
 </tr>
 <tr>
-  <th>Time:</th>                  <td>20:08:39</td>       <th>  Log-Likelihood:    </th> <td>  630.00</td>
+  <th>Time:</th>                  <td>10:37:13</td>       <th>  Log-Likelihood:    </th> <td>  630.00</td>
 </tr>
 <tr>
   <th>No. Observations:</th>       <td>   116</td>        <th>  AIC:               </th> <td>  -1252.</td>
@@ -1284,10 +1292,10 @@ should “count more” in our analysis.</p>
   <th>Method:</th>              <td>Least Squares</td>    <th>  F-statistic:       </th> <td>   2.674</td>
 </tr>
 <tr>
-  <th>Date:</th>              <td>Wed, 23 Oct 2019</td>   <th>  Prob (F-statistic):</th>  <td>0.0508</td>
+  <th>Date:</th>              <td>Mon, 28 Oct 2019</td>   <th>  Prob (F-statistic):</th>  <td>0.0508</td>
 </tr>
 <tr>
-  <th>Time:</th>                  <td>20:08:39</td>       <th>  Log-Likelihood:    </th> <td>  627.87</td>
+  <th>Time:</th>                  <td>10:37:13</td>       <th>  Log-Likelihood:    </th> <td>  627.87</td>
 </tr>
 <tr>
   <th>No. Observations:</th>       <td>   116</td>        <th>  AIC:               </th> <td>  -1248.</td>
@@ -1364,10 +1372,10 @@ should “count more” in our analysis.</p>
   <th>Method:</th>              <td>Least Squares</td>    <th>  F-statistic:       </th> <td>   24.52</td>
 </tr>
 <tr>
-  <th>Date:</th>              <td>Wed, 23 Oct 2019</td>   <th>  Prob (F-statistic):</th> <td>2.86e-12</td>
+  <th>Date:</th>              <td>Mon, 28 Oct 2019</td>   <th>  Prob (F-statistic):</th> <td>2.86e-12</td>
 </tr>
 <tr>
-  <th>Time:</th>                  <td>20:08:39</td>       <th>  Log-Likelihood:    </th> <td>  608.13</td>
+  <th>Time:</th>                  <td>10:37:13</td>       <th>  Log-Likelihood:    </th> <td>  608.13</td>
 </tr>
 <tr>
   <th>No. Observations:</th>       <td>   116</td>        <th>  AIC:               </th> <td>  -1208.</td>

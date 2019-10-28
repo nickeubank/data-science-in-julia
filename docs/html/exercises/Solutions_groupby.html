@@ -606,7 +606,7 @@ dtype: bool
 <p><strong>(4)</strong> Once you have a handle on how the data looks now, please <strong>collapse the data</strong> to be one observation per county-year-racial group.</p>
 <p><strong>Hint:</strong> Think carefully about the most appropriate aggregation function given the data we’re working with!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -616,7 +616,7 @@ dtype: bool
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -729,7 +729,7 @@ dtype: bool
 <p><strong>Note:</strong> By default, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> likes to make your grouping variables into a hierarchical index. Personally, I find hierarchical indices very weird and not worth dealing with. To avoid this, use the <code class="docutils literal notranslate"><span class="pre">as_index=False</span></code> option in <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p>
 <p><strong>(5)</strong> Given your answer from 3, what groups were you collapsing in question 4?</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -746,8 +746,8 @@ dtype: bool
 </ul>
 <p>There is a temptation to try and use a function like <code class="docutils literal notranslate"><span class="pre">apply</span></code> to do this all in one big swing, but it’s much safer, easier, and actually faster to do the problem in smaller steps.</p>
 <p><strong>Hint:</strong> <code class="docutils literal notranslate"><span class="pre">transform</span></code> should probably make an appearance…</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -758,9 +758,132 @@ dtype: bool
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>RACE</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+      <th>VIOLENT_TOTAL</th>
+      <th>F_DRUGOFF_TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Alameda County</td>
+      <td>2594</td>
+      <td>5138</td>
+      <td>1489</td>
+      <td>94</td>
+      <td>541</td>
+      <td>9856</td>
+      <td>24081</td>
+      <td>555</td>
+      <td>4504</td>
+      <td>3569</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Butte County</td>
+      <td>32</td>
+      <td>33</td>
+      <td>5</td>
+      <td>0</td>
+      <td>7</td>
+      <td>77</td>
+      <td>139</td>
+      <td>0</td>
+      <td>306</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Calaveras County</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0</td>
+      <td>52</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Colusa County</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>13</td>
+      <td>0</td>
+      <td>28</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Contra Costa County</td>
+      <td>720</td>
+      <td>1422</td>
+      <td>368</td>
+      <td>24</td>
+      <td>257</td>
+      <td>2791</td>
+      <td>5201</td>
+      <td>40</td>
+      <td>1596</td>
+      <td>1089</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 <p>This merges are an easy place to do things wrong, so I’d also recommend eye-balling your data to be sure you did things right!</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -769,8 +892,131 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>RACE</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+      <th>VIOLENT_TOTAL</th>
+      <th>F_DRUGOFF_TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Alameda County</td>
+      <td>2594</td>
+      <td>5138</td>
+      <td>1489</td>
+      <td>94</td>
+      <td>541</td>
+      <td>9856</td>
+      <td>24081</td>
+      <td>555</td>
+      <td>4504</td>
+      <td>3569</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>1980</td>
+      <td>Hispanic</td>
+      <td>Alameda County</td>
+      <td>592</td>
+      <td>903</td>
+      <td>361</td>
+      <td>34</td>
+      <td>279</td>
+      <td>2169</td>
+      <td>10120</td>
+      <td>333</td>
+      <td>4504</td>
+      <td>3569</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alameda County</td>
+      <td>139</td>
+      <td>233</td>
+      <td>69</td>
+      <td>10</td>
+      <td>64</td>
+      <td>515</td>
+      <td>2686</td>
+      <td>92</td>
+      <td>4504</td>
+      <td>3569</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Alameda County</td>
+      <td>1179</td>
+      <td>3103</td>
+      <td>1650</td>
+      <td>119</td>
+      <td>767</td>
+      <td>6818</td>
+      <td>34455</td>
+      <td>1358</td>
+      <td>4504</td>
+      <td>3569</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alpine County</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -778,8 +1024,17 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>4504
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -789,25 +1044,188 @@ dtype: bool
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>RACE</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+      <th>VIOLENT_TOTAL</th>
+      <th>F_DRUGOFF_TOTAL</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Black</td>
+      <td>Alameda County</td>
+      <td>2594</td>
+      <td>5138</td>
+      <td>1489</td>
+      <td>94</td>
+      <td>541</td>
+      <td>9856</td>
+      <td>24081</td>
+      <td>555</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>0.575933</td>
+      <td>0.417204</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>1980</td>
+      <td>Hispanic</td>
+      <td>Alameda County</td>
+      <td>592</td>
+      <td>903</td>
+      <td>361</td>
+      <td>34</td>
+      <td>279</td>
+      <td>2169</td>
+      <td>10120</td>
+      <td>333</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>0.131439</td>
+      <td>0.101149</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alameda County</td>
+      <td>139</td>
+      <td>233</td>
+      <td>69</td>
+      <td>10</td>
+      <td>64</td>
+      <td>515</td>
+      <td>2686</td>
+      <td>92</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>0.030861</td>
+      <td>0.019333</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Alameda County</td>
+      <td>1179</td>
+      <td>3103</td>
+      <td>1650</td>
+      <td>119</td>
+      <td>767</td>
+      <td>6818</td>
+      <td>34455</td>
+      <td>1358</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>0.261767</td>
+      <td>0.462314</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>1980</td>
+      <td>Other</td>
+      <td>Alpine County</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 <p><strong>(7)</strong> Plot the share of violent arrestees that are Black against the share of felony drug arrestees that are Black. Do they look proportionate?</p>
 <p><strong>Hint:</strong> You can add a reference line with the code <code class="docutils literal notranslate"><span class="pre">geom_abline()</span></code>. Just specify an intercept and slope (<code class="docutils literal notranslate"><span class="pre">intercept=</span></code> and <code class="docutils literal notranslate"><span class="pre">slope=</span></code>) as keyword arguments.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">black_arrests</span> <span class="o">=</span> <span class="n">arrests_collapsed</span><span class="p">[</span><span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">RACE</span> <span class="o">==</span> <span class="s2">&quot;Black&quot;</span><span class="p">]</span>
+<span></span><span class="kn">from</span> <span class="nn">plotnine</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">black_arrests</span> <span class="o">=</span> <span class="n">arrests_collapsed</span><span class="p">[</span><span class="n">arrests_collapsed</span><span class="o">.</span><span class="n">RACE</span> <span class="o">==</span> <span class="s2">&quot;Black&quot;</span><span class="p">]</span>
 <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">black_arrests</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;PCT_VIOLENT&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PCT_F_DRUGOFF&#39;</span><span class="p">))</span>
         <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">)</span>
         <span class="o">+</span> <span class="n">geom_abline</span><span class="p">(</span><span class="n">intercept</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/layer.py:452: PlotnineWarning: geom_point : Removed 1 rows containing missing values.
+  self.data = self.geom.handle_na(self.data)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_groupby_32_1.png" src="../_images/exercises_Solutions_groupby_32_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (8793353928596)&gt;
+</pre></div>
+</div>
+</div>
 <p>(A quick note of warning on interpretation: these results can tell you whether Black Californians make up a larger proportion of <em>arrests</em> for certain types of crimes, not whether they make up a larger proportion of people who <em>commit</em> a give type of crime! Those <em>might</em> be the same, but they might not… this data just can’t answer that question.)</p>
 <p><strong>(8)</strong> Let’s look at look at trends in arrests over time. For example, is the proportion of arrests for drug use that are Californians of Color categories changing over time? (for non-Americans: “people of color” is a term for people who do not identify as White, and includes a range of identities, including Black, Hispanic, Asian, Middle Eastern, etc…)</p>
 <p>Plot the proportion of drug arrestees that are White over time.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -815,6 +1233,33 @@ dtype: bool
 
 <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">white_arrests</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PCT_F_DRUGOFF&#39;</span><span class="p">))</span>
         <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/layer.py:452: PlotnineWarning: geom_point : Removed 5 rows containing missing values.
+  self.data = self.geom.handle_na(self.data)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_groupby_35_1.png" src="../_images/exercises_Solutions_groupby_35_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (-9223363243487645338)&gt;
 </pre></div>
 </div>
 </div>
@@ -826,8 +1271,8 @@ dtype: bool
 <p><strong>Note:</strong> You will probably hit a problem when you try and import the CSV. The error you will likely get is something like <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError:</span> <span class="pre">'utf-8'</span> <span class="pre">codec</span> <span class="pre">can't</span> <span class="pre">decode</span> <span class="pre">byte</span> <span class="pre">0xf1</span> <span class="pre">in</span> <span class="pre">position</span> <span class="pre">2:</span> <span class="pre">invalid</span> <span class="pre">continuation</span> <span class="pre">byte</span></code>.</p>
 <p>This error occurs when file that pandas is trying to read isn’t encoded with the format it expects by default (<code class="docutils literal notranslate"><span class="pre">utf-8</span></code>). You can learn more about string encodings by <a class="reference external" href="https://www.youtube.com/watch?v=MijmeoH9LT4">watching this</a>!</p>
 <p>To fix this, you normally have to guess and check different formats by passing different encodings to the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> option for <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> and seeing what works. In this case, I’ll tell you the encoding is ‘latin-1’, so pass that to `encoding’.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -837,8 +1282,180 @@ dtype: bool
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GISJOIN</th>
+      <th>YEAR</th>
+      <th>STATE</th>
+      <th>STATEFP</th>
+      <th>STATENH</th>
+      <th>COUNTY</th>
+      <th>COUNTYFP</th>
+      <th>COUNTYNH</th>
+      <th>NAME</th>
+      <th>B18AA</th>
+      <th>...</th>
+      <th>CV4AA</th>
+      <th>CV4AB</th>
+      <th>CV4AC</th>
+      <th>CV4AD</th>
+      <th>CV4AE</th>
+      <th>CV4AF</th>
+      <th>CV4AG</th>
+      <th>CV4AH</th>
+      <th>CV4AI</th>
+      <th>CV4AJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>G0100010</td>
+      <td>1970</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>10</td>
+      <td>Autauga County</td>
+      <td>1</td>
+      <td>10</td>
+      <td>Autauga</td>
+      <td>17511</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>G0100030</td>
+      <td>1970</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>10</td>
+      <td>Baldwin County</td>
+      <td>3</td>
+      <td>30</td>
+      <td>Baldwin</td>
+      <td>48650</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>G0100050</td>
+      <td>1970</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>10</td>
+      <td>Barbour County</td>
+      <td>5</td>
+      <td>50</td>
+      <td>Barbour</td>
+      <td>12134</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>G0100070</td>
+      <td>1970</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>10</td>
+      <td>Bibb County</td>
+      <td>7</td>
+      <td>70</td>
+      <td>Bibb</td>
+      <td>9953</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>G0100090</td>
+      <td>1970</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>10</td>
+      <td>Blount County</td>
+      <td>9</td>
+      <td>90</td>
+      <td>Blount</td>
+      <td>26205</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div></div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -847,8 +1464,8 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -856,8 +1473,21 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Index([&#39;GISJOIN&#39;, &#39;YEAR&#39;, &#39;STATE&#39;, &#39;STATEFP&#39;, &#39;STATENH&#39;, &#39;COUNTY&#39;, &#39;COUNTYFP&#39;,
+       &#39;COUNTYNH&#39;, &#39;NAME&#39;, &#39;B18AA&#39;, &#39;B18AB&#39;, &#39;B18AC&#39;, &#39;B18AD&#39;, &#39;B18AE&#39;,
+       &#39;CV4AA&#39;, &#39;CV4AB&#39;, &#39;CV4AC&#39;, &#39;CV4AD&#39;, &#39;CV4AE&#39;, &#39;CV4AF&#39;, &#39;CV4AG&#39;, &#39;CV4AH&#39;,
+       &#39;CV4AI&#39;, &#39;CV4AJ&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -865,8 +1495,28 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>514559.0    1
+265294.0    1
+17996.0     1
+103958.0    1
+41887.0     1
+           ..
+744282.0    1
+130795.0    1
+244309.0    1
+21154.0     1
+884.0       1
+Name: CV4AA, Length: 232, dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -875,8 +1525,255 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>COUNTY</th>
+      <th>B18AA</th>
+      <th>B18AB</th>
+      <th>B18AC</th>
+      <th>B18AD</th>
+      <th>B18AE</th>
+      <th>CV4AA</th>
+      <th>CV4AB</th>
+      <th>CV4AC</th>
+      <th>CV4AD</th>
+      <th>CV4AE</th>
+      <th>CV4AF</th>
+      <th>CV4AG</th>
+      <th>CV4AH</th>
+      <th>CV4AI</th>
+      <th>CV4AJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12794</th>
+      <td>2010</td>
+      <td>Stanislaus County</td>
+      <td>337342</td>
+      <td>14721</td>
+      <td>5902</td>
+      <td>128701</td>
+      <td>27787.0</td>
+      <td>240423.0</td>
+      <td>13065.0</td>
+      <td>30598.0</td>
+      <td>842.0</td>
+      <td>13867.0</td>
+      <td>96919.0</td>
+      <td>1656.0</td>
+      <td>4795.0</td>
+      <td>98368.0</td>
+      <td>13920.0</td>
+    </tr>
+    <tr>
+      <th>3360</th>
+      <td>1980</td>
+      <td>Santa Barbara County</td>
+      <td>252523</td>
+      <td>8142</td>
+      <td>3173</td>
+      <td>9206</td>
+      <td>NaN</td>
+      <td>224200.0</td>
+      <td>7915.0</td>
+      <td>10564.0</td>
+      <td>751.0</td>
+      <td>NaN</td>
+      <td>28323.0</td>
+      <td>227.0</td>
+      <td>1815.0</td>
+      <td>24899.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6474</th>
+      <td>1990</td>
+      <td>Kings County</td>
+      <td>65166</td>
+      <td>8243</td>
+      <td>1133</td>
+      <td>26927</td>
+      <td>NaN</td>
+      <td>54426.0</td>
+      <td>7747.0</td>
+      <td>4313.0</td>
+      <td>432.0</td>
+      <td>NaN</td>
+      <td>10740.0</td>
+      <td>496.0</td>
+      <td>414.0</td>
+      <td>22901.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12764</th>
+      <td>2010</td>
+      <td>Madera County</td>
+      <td>94456</td>
+      <td>5629</td>
+      <td>4136</td>
+      <td>40344</td>
+      <td>6300.0</td>
+      <td>57380.0</td>
+      <td>5009.0</td>
+      <td>4430.0</td>
+      <td>649.0</td>
+      <td>2405.0</td>
+      <td>37076.0</td>
+      <td>620.0</td>
+      <td>2670.0</td>
+      <td>36731.0</td>
+      <td>3895.0</td>
+    </tr>
+    <tr>
+      <th>6493</th>
+      <td>1990</td>
+      <td>San Benito County</td>
+      <td>25617</td>
+      <td>204</td>
+      <td>353</td>
+      <td>10523</td>
+      <td>NaN</td>
+      <td>18793.0</td>
+      <td>167.0</td>
+      <td>863.0</td>
+      <td>74.0</td>
+      <td>NaN</td>
+      <td>6824.0</td>
+      <td>37.0</td>
+      <td>294.0</td>
+      <td>9645.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12772</th>
+      <td>2010</td>
+      <td>Napa County</td>
+      <td>97525</td>
+      <td>2668</td>
+      <td>1058</td>
+      <td>29653</td>
+      <td>5580.0</td>
+      <td>76967.0</td>
+      <td>2440.0</td>
+      <td>9843.0</td>
+      <td>221.0</td>
+      <td>3003.0</td>
+      <td>20558.0</td>
+      <td>228.0</td>
+      <td>810.0</td>
+      <td>19837.0</td>
+      <td>2577.0</td>
+    </tr>
+    <tr>
+      <th>12795</th>
+      <td>2010</td>
+      <td>Sutter County</td>
+      <td>57749</td>
+      <td>1919</td>
+      <td>1365</td>
+      <td>28407</td>
+      <td>5297.0</td>
+      <td>47782.0</td>
+      <td>1713.0</td>
+      <td>14623.0</td>
+      <td>190.0</td>
+      <td>3178.0</td>
+      <td>9967.0</td>
+      <td>206.0</td>
+      <td>686.0</td>
+      <td>14273.0</td>
+      <td>2119.0</td>
+    </tr>
+    <tr>
+      <th>9644</th>
+      <td>2000</td>
+      <td>Santa Clara County</td>
+      <td>905660</td>
+      <td>47182</td>
+      <td>11350</td>
+      <td>639956</td>
+      <td>78437.0</td>
+      <td>744282.0</td>
+      <td>44475.0</td>
+      <td>437081.0</td>
+      <td>3522.0</td>
+      <td>49824.0</td>
+      <td>161378.0</td>
+      <td>2707.0</td>
+      <td>10137.0</td>
+      <td>200566.0</td>
+      <td>28613.0</td>
+    </tr>
+    <tr>
+      <th>12769</th>
+      <td>2010</td>
+      <td>Modoc County</td>
+      <td>8084</td>
+      <td>82</td>
+      <td>370</td>
+      <td>779</td>
+      <td>371.0</td>
+      <td>7649.0</td>
+      <td>77.0</td>
+      <td>384.0</td>
+      <td>14.0</td>
+      <td>220.0</td>
+      <td>435.0</td>
+      <td>5.0</td>
+      <td>85.0</td>
+      <td>666.0</td>
+      <td>151.0</td>
+    </tr>
+    <tr>
+      <th>3352</th>
+      <td>1980</td>
+      <td>Sacramento County</td>
+      <td>636129</td>
+      <td>58596</td>
+      <td>9938</td>
+      <td>40941</td>
+      <td>NaN</td>
+      <td>602223.0</td>
+      <td>57511.0</td>
+      <td>47713.0</td>
+      <td>2016.0</td>
+      <td>NaN</td>
+      <td>33906.0</td>
+      <td>1085.0</td>
+      <td>3166.0</td>
+      <td>35761.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -884,8 +1781,20 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Index([&#39;YEAR&#39;, &#39;COUNTY&#39;, &#39;B18AA&#39;, &#39;B18AB&#39;, &#39;B18AC&#39;, &#39;B18AD&#39;, &#39;B18AE&#39;, &#39;CV4AA&#39;,
+       &#39;CV4AB&#39;, &#39;CV4AC&#39;, &#39;CV4AD&#39;, &#39;CV4AE&#39;, &#39;CV4AF&#39;, &#39;CV4AG&#39;, &#39;CV4AH&#39;, &#39;CV4AI&#39;,
+       &#39;CV4AJ&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -894,8 +1803,19 @@ dtype: bool
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Index([&#39;CV4AA&#39;, &#39;CV4AB&#39;, &#39;CV4AC&#39;, &#39;CV4AD&#39;, &#39;CV4AE&#39;, &#39;CV4AF&#39;, &#39;CV4AG&#39;, &#39;CV4AH&#39;,
+       &#39;CV4AI&#39;, &#39;CV4AJ&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -905,7 +1825,7 @@ dtype: bool
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -915,8 +1835,8 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -924,8 +1844,22 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>3319    1105379.0
+3320       1097.0
+3321      19314.0
+3322     143851.0
+3323      20710.0
+Name: total_population, dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -934,8 +1868,22 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>3319    0.615945
+3320    0.805834
+3321    0.922181
+3322    0.909239
+3323    0.931965
+Name: share_white, dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -944,8 +1892,21 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>2010    58
+2000    58
+1990    58
+1980    58
+Name: YEAR, dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -954,8 +1915,20 @@ dtype: bool
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>left_only     2030
+both           232
+right_only       0
+Name: _merge, dtype: int64
+</pre></div>
+</div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -964,8 +1937,8 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -973,10 +1946,151 @@ dtype: bool
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>RACE</th>
+      <th>COUNTY</th>
+      <th>VIOLENT</th>
+      <th>PROPERTY</th>
+      <th>F_DRUGOFF</th>
+      <th>F_SEXOFF</th>
+      <th>F_ALLOTHER</th>
+      <th>F_TOTAL</th>
+      <th>M_TOTAL</th>
+      <th>S_TOTAL</th>
+      <th>VIOLENT_TOTAL</th>
+      <th>F_DRUGOFF_TOTAL</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+      <th>share_white</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Alameda County</td>
+      <td>1179</td>
+      <td>3103</td>
+      <td>1650</td>
+      <td>119</td>
+      <td>767</td>
+      <td>6818</td>
+      <td>34455</td>
+      <td>1358</td>
+      <td>4504</td>
+      <td>3569</td>
+      <td>0.261767</td>
+      <td>0.462314</td>
+      <td>0.615945</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Alpine County</td>
+      <td>1</td>
+      <td>9</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13</td>
+      <td>117</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.805834</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Amador County</td>
+      <td>9</td>
+      <td>58</td>
+      <td>12</td>
+      <td>3</td>
+      <td>5</td>
+      <td>87</td>
+      <td>283</td>
+      <td>0</td>
+      <td>10</td>
+      <td>12</td>
+      <td>0.900000</td>
+      <td>1.000000</td>
+      <td>0.922181</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Butte County</td>
+      <td>235</td>
+      <td>614</td>
+      <td>136</td>
+      <td>18</td>
+      <td>184</td>
+      <td>1187</td>
+      <td>3897</td>
+      <td>3</td>
+      <td>306</td>
+      <td>149</td>
+      <td>0.767974</td>
+      <td>0.912752</td>
+      <td>0.909239</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1980</td>
+      <td>White</td>
+      <td>Calaveras County</td>
+      <td>44</td>
+      <td>117</td>
+      <td>81</td>
+      <td>3</td>
+      <td>27</td>
+      <td>272</td>
+      <td>628</td>
+      <td>3</td>
+      <td>52</td>
+      <td>83</td>
+      <td>0.846154</td>
+      <td>0.975904</td>
+      <td>0.931965</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 <p><strong>(11)</strong> Because the US Census occurs once every 10 years, we only have population data for once every 10 years. To fill in the gaps in our data, we can <em>interpolate</em> the values between each census wave. For example, if a county is 75% White in 1990 and 25% in 2000, we could infer it was likely about 50% White in 1995.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> offers an <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> method that will do this for you, but <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> just doesn’t interpolations for one set of observations. In this case, however, we need to do our interpolations <em>within each group</em>, so you’ll have to figure out how to use <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> with groupby. (<em>Hint:</em> this is probably a job for <code class="docutils literal notranslate"><span class="pre">apply</span></code>).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -986,8 +2100,83 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>COUNTY</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+      <th>share_white</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Alameda County</td>
+      <td>0.261767</td>
+      <td>0.462314</td>
+      <td>0.615945</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1980</td>
+      <td>Alpine County</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.805834</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1980</td>
+      <td>Amador County</td>
+      <td>0.900000</td>
+      <td>1.000000</td>
+      <td>0.922181</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1980</td>
+      <td>Butte County</td>
+      <td>0.767974</td>
+      <td>0.912752</td>
+      <td>0.909239</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1980</td>
+      <td>Calaveras County</td>
+      <td>0.846154</td>
+      <td>0.975904</td>
+      <td>0.931965</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -997,8 +2186,89 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>COUNTY</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+      <th>share_white</th>
+      <th>int_share_white</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Alameda County</td>
+      <td>0.261767</td>
+      <td>0.462314</td>
+      <td>0.615945</td>
+      <td>0.615945</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>1981</td>
+      <td>Alameda County</td>
+      <td>0.247712</td>
+      <td>0.495925</td>
+      <td>NaN</td>
+      <td>0.607511</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>1982</td>
+      <td>Alameda County</td>
+      <td>0.228070</td>
+      <td>0.451758</td>
+      <td>NaN</td>
+      <td>0.599077</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>1983</td>
+      <td>Alameda County</td>
+      <td>0.222444</td>
+      <td>0.391270</td>
+      <td>NaN</td>
+      <td>0.590643</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>1984</td>
+      <td>Alameda County</td>
+      <td>0.232095</td>
+      <td>0.344845</td>
+      <td>NaN</td>
+      <td>0.582208</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1007,8 +2277,395 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>COUNTY</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+      <th>share_white</th>
+      <th>int_share_white</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1980</td>
+      <td>Alameda County</td>
+      <td>0.261767</td>
+      <td>0.462314</td>
+      <td>0.615945</td>
+      <td>0.615945</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>1981</td>
+      <td>Alameda County</td>
+      <td>0.247712</td>
+      <td>0.495925</td>
+      <td>NaN</td>
+      <td>0.607511</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>1982</td>
+      <td>Alameda County</td>
+      <td>0.228070</td>
+      <td>0.451758</td>
+      <td>NaN</td>
+      <td>0.599077</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>1983</td>
+      <td>Alameda County</td>
+      <td>0.222444</td>
+      <td>0.391270</td>
+      <td>NaN</td>
+      <td>0.590643</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>1984</td>
+      <td>Alameda County</td>
+      <td>0.232095</td>
+      <td>0.344845</td>
+      <td>NaN</td>
+      <td>0.582208</td>
+    </tr>
+    <tr>
+      <th>290</th>
+      <td>1985</td>
+      <td>Alameda County</td>
+      <td>0.220529</td>
+      <td>0.279031</td>
+      <td>NaN</td>
+      <td>0.573774</td>
+    </tr>
+    <tr>
+      <th>348</th>
+      <td>1986</td>
+      <td>Alameda County</td>
+      <td>0.228077</td>
+      <td>0.253238</td>
+      <td>NaN</td>
+      <td>0.565340</td>
+    </tr>
+    <tr>
+      <th>406</th>
+      <td>1987</td>
+      <td>Alameda County</td>
+      <td>0.206735</td>
+      <td>0.209716</td>
+      <td>NaN</td>
+      <td>0.556906</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>1988</td>
+      <td>Alameda County</td>
+      <td>0.214861</td>
+      <td>0.206140</td>
+      <td>NaN</td>
+      <td>0.548471</td>
+    </tr>
+    <tr>
+      <th>522</th>
+      <td>1989</td>
+      <td>Alameda County</td>
+      <td>0.221942</td>
+      <td>0.173449</td>
+      <td>NaN</td>
+      <td>0.540037</td>
+    </tr>
+    <tr>
+      <th>580</th>
+      <td>1990</td>
+      <td>Alameda County</td>
+      <td>0.197693</td>
+      <td>0.163435</td>
+      <td>0.531603</td>
+      <td>0.531603</td>
+    </tr>
+    <tr>
+      <th>638</th>
+      <td>1991</td>
+      <td>Alameda County</td>
+      <td>0.194547</td>
+      <td>0.145512</td>
+      <td>NaN</td>
+      <td>0.519385</td>
+    </tr>
+    <tr>
+      <th>696</th>
+      <td>1992</td>
+      <td>Alameda County</td>
+      <td>0.196689</td>
+      <td>0.186240</td>
+      <td>NaN</td>
+      <td>0.507166</td>
+    </tr>
+    <tr>
+      <th>754</th>
+      <td>1993</td>
+      <td>Alameda County</td>
+      <td>0.216570</td>
+      <td>0.219035</td>
+      <td>NaN</td>
+      <td>0.494948</td>
+    </tr>
+    <tr>
+      <th>812</th>
+      <td>1994</td>
+      <td>Alameda County</td>
+      <td>0.217899</td>
+      <td>0.252253</td>
+      <td>NaN</td>
+      <td>0.482729</td>
+    </tr>
+    <tr>
+      <th>870</th>
+      <td>1995</td>
+      <td>Alameda County</td>
+      <td>0.323881</td>
+      <td>0.583155</td>
+      <td>NaN</td>
+      <td>0.470511</td>
+    </tr>
+    <tr>
+      <th>928</th>
+      <td>1996</td>
+      <td>Alameda County</td>
+      <td>0.201070</td>
+      <td>0.241737</td>
+      <td>NaN</td>
+      <td>0.458293</td>
+    </tr>
+    <tr>
+      <th>986</th>
+      <td>1997</td>
+      <td>Alameda County</td>
+      <td>0.204150</td>
+      <td>0.268768</td>
+      <td>NaN</td>
+      <td>0.446074</td>
+    </tr>
+    <tr>
+      <th>1044</th>
+      <td>1998</td>
+      <td>Alameda County</td>
+      <td>0.206352</td>
+      <td>0.228732</td>
+      <td>NaN</td>
+      <td>0.433856</td>
+    </tr>
+    <tr>
+      <th>1102</th>
+      <td>1999</td>
+      <td>Alameda County</td>
+      <td>0.205302</td>
+      <td>0.198219</td>
+      <td>NaN</td>
+      <td>0.421637</td>
+    </tr>
+    <tr>
+      <th>1160</th>
+      <td>2000</td>
+      <td>Alameda County</td>
+      <td>0.208678</td>
+      <td>0.219450</td>
+      <td>0.409419</td>
+      <td>0.409419</td>
+    </tr>
+    <tr>
+      <th>1218</th>
+      <td>2001</td>
+      <td>Alameda County</td>
+      <td>0.209245</td>
+      <td>0.242522</td>
+      <td>NaN</td>
+      <td>0.402548</td>
+    </tr>
+    <tr>
+      <th>1276</th>
+      <td>2002</td>
+      <td>Alameda County</td>
+      <td>0.202758</td>
+      <td>0.229810</td>
+      <td>NaN</td>
+      <td>0.395676</td>
+    </tr>
+    <tr>
+      <th>1334</th>
+      <td>2003</td>
+      <td>Alameda County</td>
+      <td>0.206570</td>
+      <td>0.242993</td>
+      <td>NaN</td>
+      <td>0.388805</td>
+    </tr>
+    <tr>
+      <th>1392</th>
+      <td>2004</td>
+      <td>Alameda County</td>
+      <td>0.205301</td>
+      <td>0.246878</td>
+      <td>NaN</td>
+      <td>0.381934</td>
+    </tr>
+    <tr>
+      <th>1450</th>
+      <td>2005</td>
+      <td>Alameda County</td>
+      <td>0.191198</td>
+      <td>0.285872</td>
+      <td>NaN</td>
+      <td>0.375063</td>
+    </tr>
+    <tr>
+      <th>1508</th>
+      <td>2006</td>
+      <td>Alameda County</td>
+      <td>0.181593</td>
+      <td>0.274877</td>
+      <td>NaN</td>
+      <td>0.368191</td>
+    </tr>
+    <tr>
+      <th>1566</th>
+      <td>2007</td>
+      <td>Alameda County</td>
+      <td>0.191537</td>
+      <td>0.240323</td>
+      <td>NaN</td>
+      <td>0.361320</td>
+    </tr>
+    <tr>
+      <th>1624</th>
+      <td>2008</td>
+      <td>Alameda County</td>
+      <td>0.164668</td>
+      <td>0.204480</td>
+      <td>NaN</td>
+      <td>0.354449</td>
+    </tr>
+    <tr>
+      <th>1682</th>
+      <td>2009</td>
+      <td>Alameda County</td>
+      <td>0.176471</td>
+      <td>0.225604</td>
+      <td>NaN</td>
+      <td>0.347578</td>
+    </tr>
+    <tr>
+      <th>1740</th>
+      <td>2010</td>
+      <td>Alameda County</td>
+      <td>0.165315</td>
+      <td>0.236140</td>
+      <td>0.340706</td>
+      <td>0.340706</td>
+    </tr>
+    <tr>
+      <th>1798</th>
+      <td>2011</td>
+      <td>Alameda County</td>
+      <td>0.188071</td>
+      <td>0.317918</td>
+      <td>NaN</td>
+      <td>0.340706</td>
+    </tr>
+    <tr>
+      <th>1856</th>
+      <td>2012</td>
+      <td>Alameda County</td>
+      <td>0.197592</td>
+      <td>0.319588</td>
+      <td>NaN</td>
+      <td>0.340706</td>
+    </tr>
+    <tr>
+      <th>1914</th>
+      <td>2013</td>
+      <td>Alameda County</td>
+      <td>0.184103</td>
+      <td>0.350012</td>
+      <td>NaN</td>
+      <td>0.340706</td>
+    </tr>
+    <tr>
+      <th>1972</th>
+      <td>2014</td>
+      <td>Alameda County</td>
+      <td>0.188198</td>
+      <td>0.319875</td>
+      <td>NaN</td>
+      <td>0.340706</td>
+    </tr>
+    <tr>
+      <th>2030</th>
+      <td>2015</td>
+      <td>Alameda County</td>
+      <td>0.185110</td>
+      <td>0.231244</td>
+      <td>NaN</td>
+      <td>0.340706</td>
+    </tr>
+    <tr>
+      <th>2088</th>
+      <td>2016</td>
+      <td>Alameda County</td>
+      <td>0.179903</td>
+      <td>0.244041</td>
+      <td>NaN</td>
+      <td>0.340706</td>
+    </tr>
+    <tr>
+      <th>2146</th>
+      <td>2017</td>
+      <td>Alameda County</td>
+      <td>0.182598</td>
+      <td>0.260360</td>
+      <td>NaN</td>
+      <td>0.340706</td>
+    </tr>
+    <tr>
+      <th>2204</th>
+      <td>2018</td>
+      <td>Alameda County</td>
+      <td>0.169409</td>
+      <td>0.270245</td>
+      <td>NaN</td>
+      <td>0.340706</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1016,15 +2673,429 @@ dtype: bool
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>COUNTY</th>
+      <th>PCT_VIOLENT</th>
+      <th>PCT_F_DRUGOFF</th>
+      <th>share_white</th>
+      <th>int_share_white</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18</th>
+      <td>1980</td>
+      <td>Los Angeles County</td>
+      <td>0.208724</td>
+      <td>0.369931</td>
+      <td>0.532935</td>
+      <td>0.532935</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>1981</td>
+      <td>Los Angeles County</td>
+      <td>0.203589</td>
+      <td>0.358114</td>
+      <td>NaN</td>
+      <td>0.520472</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>1982</td>
+      <td>Los Angeles County</td>
+      <td>0.203449</td>
+      <td>0.309230</td>
+      <td>NaN</td>
+      <td>0.508008</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>1983</td>
+      <td>Los Angeles County</td>
+      <td>0.194548</td>
+      <td>0.266211</td>
+      <td>NaN</td>
+      <td>0.495545</td>
+    </tr>
+    <tr>
+      <th>250</th>
+      <td>1984</td>
+      <td>Los Angeles County</td>
+      <td>0.200323</td>
+      <td>0.252284</td>
+      <td>NaN</td>
+      <td>0.483082</td>
+    </tr>
+    <tr>
+      <th>308</th>
+      <td>1985</td>
+      <td>Los Angeles County</td>
+      <td>0.190359</td>
+      <td>0.213859</td>
+      <td>NaN</td>
+      <td>0.470619</td>
+    </tr>
+    <tr>
+      <th>366</th>
+      <td>1986</td>
+      <td>Los Angeles County</td>
+      <td>0.197971</td>
+      <td>0.191808</td>
+      <td>NaN</td>
+      <td>0.458155</td>
+    </tr>
+    <tr>
+      <th>424</th>
+      <td>1987</td>
+      <td>Los Angeles County</td>
+      <td>0.188809</td>
+      <td>0.197236</td>
+      <td>NaN</td>
+      <td>0.445692</td>
+    </tr>
+    <tr>
+      <th>482</th>
+      <td>1988</td>
+      <td>Los Angeles County</td>
+      <td>0.187942</td>
+      <td>0.193230</td>
+      <td>NaN</td>
+      <td>0.433229</td>
+    </tr>
+    <tr>
+      <th>540</th>
+      <td>1989</td>
+      <td>Los Angeles County</td>
+      <td>0.166356</td>
+      <td>0.190707</td>
+      <td>NaN</td>
+      <td>0.420766</td>
+    </tr>
+    <tr>
+      <th>598</th>
+      <td>1990</td>
+      <td>Los Angeles County</td>
+      <td>0.149745</td>
+      <td>0.183835</td>
+      <td>0.408302</td>
+      <td>0.408302</td>
+    </tr>
+    <tr>
+      <th>656</th>
+      <td>1991</td>
+      <td>Los Angeles County</td>
+      <td>0.155841</td>
+      <td>0.195501</td>
+      <td>NaN</td>
+      <td>0.398563</td>
+    </tr>
+    <tr>
+      <th>714</th>
+      <td>1992</td>
+      <td>Los Angeles County</td>
+      <td>0.152428</td>
+      <td>0.214848</td>
+      <td>NaN</td>
+      <td>0.388823</td>
+    </tr>
+    <tr>
+      <th>772</th>
+      <td>1993</td>
+      <td>Los Angeles County</td>
+      <td>0.153725</td>
+      <td>0.239091</td>
+      <td>NaN</td>
+      <td>0.379083</td>
+    </tr>
+    <tr>
+      <th>830</th>
+      <td>1994</td>
+      <td>Los Angeles County</td>
+      <td>0.160080</td>
+      <td>0.240734</td>
+      <td>NaN</td>
+      <td>0.369344</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>1995</td>
+      <td>Los Angeles County</td>
+      <td>0.159288</td>
+      <td>0.230240</td>
+      <td>NaN</td>
+      <td>0.359604</td>
+    </tr>
+    <tr>
+      <th>946</th>
+      <td>1996</td>
+      <td>Los Angeles County</td>
+      <td>0.154904</td>
+      <td>0.221396</td>
+      <td>NaN</td>
+      <td>0.349864</td>
+    </tr>
+    <tr>
+      <th>1004</th>
+      <td>1997</td>
+      <td>Los Angeles County</td>
+      <td>0.160817</td>
+      <td>0.241252</td>
+      <td>NaN</td>
+      <td>0.340124</td>
+    </tr>
+    <tr>
+      <th>1062</th>
+      <td>1998</td>
+      <td>Los Angeles County</td>
+      <td>0.159045</td>
+      <td>0.228161</td>
+      <td>NaN</td>
+      <td>0.330385</td>
+    </tr>
+    <tr>
+      <th>1120</th>
+      <td>1999</td>
+      <td>Los Angeles County</td>
+      <td>0.153797</td>
+      <td>0.231459</td>
+      <td>NaN</td>
+      <td>0.320645</td>
+    </tr>
+    <tr>
+      <th>1178</th>
+      <td>2000</td>
+      <td>Los Angeles County</td>
+      <td>0.157740</td>
+      <td>0.228813</td>
+      <td>0.310905</td>
+      <td>0.310905</td>
+    </tr>
+    <tr>
+      <th>1236</th>
+      <td>2001</td>
+      <td>Los Angeles County</td>
+      <td>0.156479</td>
+      <td>0.212839</td>
+      <td>NaN</td>
+      <td>0.307602</td>
+    </tr>
+    <tr>
+      <th>1294</th>
+      <td>2002</td>
+      <td>Los Angeles County</td>
+      <td>0.157388</td>
+      <td>0.215696</td>
+      <td>NaN</td>
+      <td>0.304299</td>
+    </tr>
+    <tr>
+      <th>1352</th>
+      <td>2003</td>
+      <td>Los Angeles County</td>
+      <td>0.151288</td>
+      <td>0.217728</td>
+      <td>NaN</td>
+      <td>0.300996</td>
+    </tr>
+    <tr>
+      <th>1410</th>
+      <td>2004</td>
+      <td>Los Angeles County</td>
+      <td>0.145279</td>
+      <td>0.216131</td>
+      <td>NaN</td>
+      <td>0.297692</td>
+    </tr>
+    <tr>
+      <th>1468</th>
+      <td>2005</td>
+      <td>Los Angeles County</td>
+      <td>0.139888</td>
+      <td>0.210365</td>
+      <td>NaN</td>
+      <td>0.294389</td>
+    </tr>
+    <tr>
+      <th>1526</th>
+      <td>2006</td>
+      <td>Los Angeles County</td>
+      <td>0.140939</td>
+      <td>0.194284</td>
+      <td>NaN</td>
+      <td>0.291086</td>
+    </tr>
+    <tr>
+      <th>1584</th>
+      <td>2007</td>
+      <td>Los Angeles County</td>
+      <td>0.139614</td>
+      <td>0.190215</td>
+      <td>NaN</td>
+      <td>0.287782</td>
+    </tr>
+    <tr>
+      <th>1642</th>
+      <td>2008</td>
+      <td>Los Angeles County</td>
+      <td>0.132119</td>
+      <td>0.187769</td>
+      <td>NaN</td>
+      <td>0.284479</td>
+    </tr>
+    <tr>
+      <th>1700</th>
+      <td>2009</td>
+      <td>Los Angeles County</td>
+      <td>0.135366</td>
+      <td>0.212966</td>
+      <td>NaN</td>
+      <td>0.281176</td>
+    </tr>
+    <tr>
+      <th>1758</th>
+      <td>2010</td>
+      <td>Los Angeles County</td>
+      <td>0.136030</td>
+      <td>0.224057</td>
+      <td>0.277873</td>
+      <td>0.277873</td>
+    </tr>
+    <tr>
+      <th>1816</th>
+      <td>2011</td>
+      <td>Los Angeles County</td>
+      <td>0.141508</td>
+      <td>0.240645</td>
+      <td>NaN</td>
+      <td>0.277873</td>
+    </tr>
+    <tr>
+      <th>1874</th>
+      <td>2012</td>
+      <td>Los Angeles County</td>
+      <td>0.146583</td>
+      <td>0.247520</td>
+      <td>NaN</td>
+      <td>0.277873</td>
+    </tr>
+    <tr>
+      <th>1932</th>
+      <td>2013</td>
+      <td>Los Angeles County</td>
+      <td>0.147575</td>
+      <td>0.249944</td>
+      <td>NaN</td>
+      <td>0.277873</td>
+    </tr>
+    <tr>
+      <th>1990</th>
+      <td>2014</td>
+      <td>Los Angeles County</td>
+      <td>0.146968</td>
+      <td>0.244529</td>
+      <td>NaN</td>
+      <td>0.277873</td>
+    </tr>
+    <tr>
+      <th>2048</th>
+      <td>2015</td>
+      <td>Los Angeles County</td>
+      <td>0.149252</td>
+      <td>0.195427</td>
+      <td>NaN</td>
+      <td>0.277873</td>
+    </tr>
+    <tr>
+      <th>2106</th>
+      <td>2016</td>
+      <td>Los Angeles County</td>
+      <td>0.145303</td>
+      <td>0.199443</td>
+      <td>NaN</td>
+      <td>0.277873</td>
+    </tr>
+    <tr>
+      <th>2164</th>
+      <td>2017</td>
+      <td>Los Angeles County</td>
+      <td>0.143637</td>
+      <td>0.208162</td>
+      <td>NaN</td>
+      <td>0.277873</td>
+    </tr>
+    <tr>
+      <th>2222</th>
+      <td>2018</td>
+      <td>Los Angeles County</td>
+      <td>0.142803</td>
+      <td>0.204148</td>
+      <td>NaN</td>
+      <td>0.277873</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 <p><strong>(12)</strong> Now that we have the share of the population in each county that is White, and the share of drug arrestees who are White all in one dataset, we can look at how the <em>ratio</em> of these two numbers changes over time. Plot the trend, over time, in this ratio.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">white_arrests_w_pop</span><span class="p">[</span><span class="s1">&#39;arrest_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">white_arrests_w_pop</span><span class="o">.</span><span class="n">PCT_F_DRUGOFF</span> <span class="o">/</span> <span class="n">white_arrests_w_pop</span><span class="o">.</span><span class="n">int_share_white</span>
 <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">white_arrests_w_pop</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;arrest_ratio&#39;</span><span class="p">))</span>
         <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;lowess&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/stats/smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+  &#34;for lowess smoothings.&#34;, PlotnineWarning)
+/Users/Nick/miniconda3/lib/python3.7/site-packages/plotnine/layer.py:452: PlotnineWarning: geom_point : Removed 5 rows containing missing values.
+  self.data = self.geom.handle_na(self.data)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/exercises_Solutions_groupby_59_1.png" src="../_images/exercises_Solutions_groupby_59_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>&lt;ggplot: (-9223363243487615614)&gt;
 </pre></div>
 </div>
 </div>
