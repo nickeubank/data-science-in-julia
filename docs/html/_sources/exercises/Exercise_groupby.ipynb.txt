@@ -340,7 +340,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(10)** To address this, let's merge in demographic data for California over time. Download [this file](with racial demographic breakdowns for the US). In the zipped folder you download, you will find both data *and* a codebook you'll need to interpret your data. \n",
+    "**(10)** To address this, let's merge in demographic data for California over time. Download [this file with racial demographic breakdowns for the US](https://www.dropbox.com/s/3f4mnl6869je2pf/County_Demographics.zip?dl=0). In the zipped folder you download, you will find both data *and* a codebook you'll need to interpret your data. \n",
     "\n",
     "**Note:** In interpreting these variables, bear in mind that the US government considers \"Hispanic\" to be an identity that is distinct from \"race\". As such, most hispanic Americans are classified as \"White\". So if it is not explicitly stated otherwise, \"White\" includes Hispanic Californias. In our analysis, we wish to consider \"Hispanic\" as it's own category. \n",
     "\n",

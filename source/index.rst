@@ -51,7 +51,6 @@ This portion of the course will culminate in students picking a topic, developin
    Plotting, Advanced <plotting_part2>
    Pandas 3: Views <views_and_copies_in_pandas>
 
-
 .. toctree:: 
    :maxdepth: 2
    :hidden:
