@@ -1,0 +1,736 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Coding Your Own Linear Regression Model\n",
+    "\n",
+    "One task that you will almost certainly be required to do other data science courses (especially if you are a MIDS student) is to write up some of your statistical / machine learning models from scratch. This can be a very valuable exercise, as it ensures that you understand what is actually going on behind the scenes of the models you use ever day, and that you don't just think of them as \"black boxes\". \n",
+    "\n",
+    "To get a little practice doing this, today you will be coding up your own linear regression model! \n",
+    "\n",
+    "(If you are using this site but aren't actually in this class, you are welcome to skip this exercise if you'd like -- this is more about practicing Python in anticipation of the requirements of other courses than developing your applied data science skills.) \n",
+    "\n",
+    "There are, broadly speaking, two approaches you can take to coding up your own model: \n",
+    "\n",
+    "1. you can write the model by defining a new function, or \n",
+    "2. you can write the model by defining a new class with associated methods (making a model that works the way a model works in `scikit-learn`). \n",
+    "\n",
+    "Whether you do 1 or 2 is very much a matter of choice and style. Approach one, for example, is more consistent with what is called a *functional* style of programming, while approach two is more consistent with an *object-oriented* style of programming. Python can readily support both approaches, so either would work fine. \n",
+    "\n",
+    "In these exercises, however, I will ask you to use approach number 2 as this *tends* to be the more difficult approach, and so practicing approach 2 will be extra useful in preparing you for other classes (HA! Pun...). In particular, our goal is to implement a linear regression model that has the same \"initialize-fit-predict-score\" API (application programming interface -- a fancy name for the methods a class supports) as `scikit-learn` models. That means your model should be able to do all of the following:\n",
+    "\n",
+    "1. **Initialize** a new model. \n",
+    "2. **Fit** a linear model when given a numpy vector (`y`) and a numpy matrix (`X`) with the syntax `my_model.fit(X, y)`. \n",
+    "3. **Predict** values when given a new `numpy` matrix (`X_test`) with the syntax `my_model.predict(X_test)`. \n",
+    "4. Return the **model coefficients** through the property `my_model.coefficients` (not quite what is used in `sklearn`, but let's use that interface). \n",
+    "\n",
+    "Also, bear in mind that throughout these exercises, we'll be working in `numpy` instead of `pandas`, just as we do in `scikit-learn`. So assume that before using your model, your user has already converted their data from `pandas` into `numpy` arrays. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(1)** Define a new Class called `MyLinearModel` with methods for `__init__`, `fit`, `predict`, and an attribute for `coefficients`. For now, we don't need any initialization *arguments*, just an `__init__` function. \n",
+    "\n",
+    "As you get your code outline going, start by just having each method `pass`:\n",
+    "\n",
+    "```python\n",
+    "def my_method(self):\n",
+    "    pass\n",
+    "```\n",
+    "\n",
+    "This will allow your methods to run without errors (they just don't do anything). Then we can double back to each method to get them working one by one."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# First we define just the skeleton. \n",
+    "# Then we can start filling in the elements. \n",
+    "\n",
+    "class MyLinearModel:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        # Initialize!\n",
+    "        pass\n",
+    "    \n",
+    "    def fit(self, X, y):\n",
+    "        # Fit the model using regressors X and outcomes y\n",
+    "        pass\n",
+    "\n",
+    "    def predict(self, X_test):\n",
+    "        # Make predictions on X_test\n",
+    "        pass"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(2)** Now define your `fit` method. This is the method that should actually run your linear regression. \n",
+    "\n",
+    "Note that once you have written the code to do a linear regression, you'll need to put your outputs (your coefficents) somewhere. I recommend making an attribute for your class where you can store your coefficients. \n",
+    "\n",
+    "(As a reminder: the normal multiply operator (`*`) in `numpy` implies scalar multiplication. Use `@` for matrix multiplication). \n",
+    "\n",
+    "**HINT:** Remember that linear regressions usually include a constant term. As in most packages, you should assume that users want this included, even if there isn't a vector of 1s in their `X`. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "class MyLinearModel:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        # Initialize!\n",
+    "        self.coefficients = None\n",
+    "        \n",
+    "    def fit(self, X, y):\n",
+    "        # Fit the model using regressors X and outcomes y\n",
+    "        X_transposed = np.transpose(X)\n",
+    "        self.coefficients = np.linalg.inv(X_transposed @ X) @ X_transposed @ y\n",
+    "\n",
+    "    def predict(self, X_test):\n",
+    "        # Make predictions on X_test\n",
+    "        pass"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(3)** As you write code, it is good to test your code as you work. With that in mind, let's create some toy data. First, create a 100 x 2 matrix where each column is normally distributed. Then create a vector `y` that is a linear combination of those two columns plus a vector of normally distributed noise. \n",
+    "\n",
+    "In other words, we want to create data where we *know* exactly what coefficients we should see so when we test our regression, we know if the results are accurate!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 7.79550231, 10.27452301],\n",
+       "       [ 7.93927259,  7.20980899],\n",
+       "       [ 7.81616362,  8.29920086],\n",
+       "       [ 6.78466291,  4.95012429],\n",
+       "       [ 5.64956002,  9.69213698],\n",
+       "       [ 8.87924551,  5.30053119],\n",
+       "       [ 5.46997058,  7.31147559],\n",
+       "       [ 6.58558252,  6.64350068],\n",
+       "       [ 4.48934351,  5.99892008],\n",
+       "       [ 9.08657056,  7.41990037],\n",
+       "       [ 3.44205842,  9.85023224],\n",
+       "       [ 9.0630007 ,  7.88603973],\n",
+       "       [ 5.5968465 ,  8.66335364],\n",
+       "       [ 7.29944328,  5.61493995],\n",
+       "       [ 4.30312701,  3.62408403],\n",
+       "       [ 6.52653256,  8.20508323],\n",
+       "       [ 6.44687757,  5.47172265],\n",
+       "       [ 3.15845838,  5.96438425],\n",
+       "       [ 8.14550639,  8.28806167],\n",
+       "       [ 8.65142015,  3.63601172],\n",
+       "       [ 7.41729388,  1.56338433],\n",
+       "       [ 8.92529438,  2.58229175],\n",
+       "       [ 7.06559218,  8.56286792],\n",
+       "       [10.29273977,  7.36506752],\n",
+       "       [ 3.15829754,  8.54001736],\n",
+       "       [ 7.31864471,  7.56125874],\n",
+       "       [ 8.92991586,  5.00773204],\n",
+       "       [12.83481253, 10.09373204],\n",
+       "       [ 6.63597799,  7.79824906],\n",
+       "       [ 7.72048961,  5.58946866],\n",
+       "       [ 5.12161864,  6.2768853 ],\n",
+       "       [ 7.69863194,  8.23572722],\n",
+       "       [10.20503453,  5.31055885],\n",
+       "       [ 6.84828036,  4.54890967],\n",
+       "       [ 9.80598315,  7.47077574],\n",
+       "       [ 7.6459174 ,  8.64029055],\n",
+       "       [ 8.28452543,  6.81016102],\n",
+       "       [ 7.49440659,  7.27260518],\n",
+       "       [ 3.49791695,  2.28399309],\n",
+       "       [11.25360571,  7.79413683],\n",
+       "       [ 3.77532865,  8.40573685],\n",
+       "       [ 7.66882025,  7.44856899],\n",
+       "       [ 7.5925353 , 10.90874724],\n",
+       "       [ 8.70029021,  3.73144442],\n",
+       "       [ 7.8512152 ,  8.77704994],\n",
+       "       [ 7.94080899,  9.30740848],\n",
+       "       [ 5.54414216, 11.95642289],\n",
+       "       [ 6.05450658,  4.37514709],\n",
+       "       [ 4.93802676,  7.41381469],\n",
+       "       [ 2.41670511,  3.5112624 ],\n",
+       "       [ 8.23331265,  5.62655279],\n",
+       "       [ 5.80426546,  8.43612405],\n",
+       "       [ 6.28580527,  8.83452987],\n",
+       "       [ 5.78196904, 11.18820465],\n",
+       "       [ 3.99072387,  8.2475378 ],\n",
+       "       [ 7.58472314,  5.75095287],\n",
+       "       [ 6.32931351,  7.64664531],\n",
+       "       [ 8.78513035,  5.92335695],\n",
+       "       [ 1.9250477 ,  5.48470253],\n",
+       "       [ 3.35174147,  5.75435036],\n",
+       "       [ 5.62247863,  5.14561396],\n",
+       "       [ 8.70444432,  6.4734458 ],\n",
+       "       [ 9.38781153,  6.6394156 ],\n",
+       "       [ 8.97064721,  4.38212263],\n",
+       "       [ 7.70803797,  8.52006316],\n",
+       "       [ 3.37431307,  6.4948049 ],\n",
+       "       [ 7.2281169 ,  7.72223093],\n",
+       "       [ 3.48025419,  5.16494438],\n",
+       "       [ 4.07107211,  9.23078169],\n",
+       "       [ 7.33374716,  5.6950678 ],\n",
+       "       [ 5.86459323,  7.17581668],\n",
+       "       [ 5.01742556,  8.64139704],\n",
+       "       [ 5.3923235 ,  3.63506765],\n",
+       "       [ 7.19529234,  4.37707498],\n",
+       "       [ 4.86086425,  5.22231827],\n",
+       "       [ 6.31015634,  7.34300321],\n",
+       "       [ 5.41731552,  5.54688966],\n",
+       "       [ 4.78414571,  3.61093926],\n",
+       "       [ 8.83940202,  6.12453864],\n",
+       "       [ 6.94610971,  6.23535199],\n",
+       "       [ 5.03592942,  5.51507657],\n",
+       "       [ 5.9041018 ,  7.61579425],\n",
+       "       [ 3.60639869, 11.32290783],\n",
+       "       [ 6.22022146,  8.39604495],\n",
+       "       [ 7.33810888,  6.20348511],\n",
+       "       [ 7.63920379,  6.75341533],\n",
+       "       [ 5.61201169,  2.98282839],\n",
+       "       [ 8.25556291,  6.01586198],\n",
+       "       [ 4.71785703,  5.05792517],\n",
+       "       [ 7.31350653, 10.21375945],\n",
+       "       [ 5.39224181,  7.97791225],\n",
+       "       [ 8.88803553,  5.65813136],\n",
+       "       [ 8.47343424,  8.01871956],\n",
+       "       [ 7.41541077,  7.09213466],\n",
+       "       [ 5.50029356,  6.05117954],\n",
+       "       [ 8.54459203,  4.93489628],\n",
+       "       [ 7.94666899,  5.71103525],\n",
+       "       [ 8.65795299,  3.89202463],\n",
+       "       [ 3.51920277,  7.72287742],\n",
+       "       [ 5.33702213,  8.86729704]])"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy.random as npr\n",
+    "X_train = npr.normal(7, 2, (100, 2))\n",
+    "X_train"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Coefficients are 7 and -2.\n",
+    "y_train = 10 + (X_train[:,0] * 7) + (X_train[:,1] * -2) + npr.normal(0, 1, (100))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(100,)"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y_train.shape"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(4)** Now test whether you `fit` method generates the correct coefficients. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 7.72472472, -1.29547309])"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_model = MyLinearModel()\n",
+    "my_model.fit(X_train, y_train)\n",
+    "my_model.coefficients # I'd better get back 7 and -2!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(5)** Now let's make the statisticians proud, and in addition to storing the coefficients, let's store the standard errors for our estimated coefficients as another attribute. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "class MyLinearModel:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        # Initialize!\n",
+    "        self.coefficients = None\n",
+    "        self.standard_errors = None\n",
+    "        \n",
+    "    def fit(self, X, y):\n",
+    "        # Fit the model using regressors X and outcomes y\n",
+    "        X = np.concatenate([np.ones((X.shape[0], 1)), X], axis=1)\n",
+    "        X_transposed = np.transpose(X)\n",
+    "        self.coefficients = np.linalg.inv(X_transposed @ X) @ (X_transposed @ y)\n",
+    "        errors = (y - X @ self.coefficients)\n",
+    "        errors_squared = (errors @ np.transpose(errors))\n",
+    "        errors_times_coefficients_sq_inv = errors_squared * np.linalg.inv(X_transposed @ X)\n",
+    "        self.standard_errors = np.sqrt(np.diagonal(errors_times_coefficients_sq_inv))\n",
+    "                                 \n",
+    "    def predict(self, X_test):\n",
+    "        # Make predictions on X_test\n",
+    "        pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([4.50538673, 0.46829577, 0.45862425])"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_model = MyLinearModel()\n",
+    "my_model.fit(X_train, y_train)\n",
+    "my_model.standard_errors"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(6)** Now let's also add an R-squarded attribute to the model."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "class MyLinearModel:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        # Initialize!\n",
+    "        self.coefficients = None\n",
+    "        self.standard_errors = None\n",
+    "        self.r_squared = None\n",
+    "        \n",
+    "    def fit(self, X, y):\n",
+    "        # Fit the model using regressors X and outcomes y\n",
+    "        X = np.concatenate([np.ones((X.shape[0], 1)), X], axis=1)\n",
+    "        X_transposed = np.transpose(X)\n",
+    "        self.coefficients = np.linalg.inv(X_transposed @ X) @ (X_transposed @ y)\n",
+    "        \n",
+    "        # Get Standard errors\n",
+    "        errors = (y - X @ self.coefficients)\n",
+    "        errors_squared = (errors @ np.transpose(errors))\n",
+    "        errors_times_coefficients_sq_inv = errors_squared * np.linalg.inv(X_transposed @ X)\n",
+    "        self.standard_errors = np.sqrt(np.diagonal(errors_times_coefficients_sq_inv))\n",
+    "                            \n",
+    "        # Get Rsquared\n",
+    "        self.r_squared = 1 - np.sum(errors_squared) / np.sum( (y - np.mean(y))**2 )\n",
+    "            \n",
+    "    def predict(self, X_test):\n",
+    "        # Make predictions on X_test\n",
+    "        pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.9958737977563957"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_model = MyLinearModel()\n",
+    "my_model.fit(X_train, y_train)\n",
+    "my_model.r_squared"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(7)** Now we'll go ahead and cheat a little. Use `statsmodels` to see if your standard errors and r-squared are correct!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"simpletable\">\n",
+       "<caption>OLS Regression Results</caption>\n",
+       "<tr>\n",
+       "  <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared:         </th> <td>   0.996</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.996</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>1.171e+04</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Date:</th>             <td>Mon, 04 Nov 2019</td> <th>  Prob (F-statistic):</th> <td>2.26e-116</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Time:</th>                 <td>12:00:47</td>     <th>  Log-Likelihood:    </th> <td> -136.82</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>No. Observations:</th>      <td>   100</td>      <th>  AIC:               </th> <td>   279.6</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Df Residuals:</th>          <td>    97</td>      <th>  BIC:               </th> <td>   287.5</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Df Model:</th>              <td>     2</td>      <th>                     </th>     <td> </td>    \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>    \n",
+       "</tr>\n",
+       "</table>\n",
+       "<table class=\"simpletable\">\n",
+       "<tr>\n",
+       "      <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Intercept</th> <td>   10.1947</td> <td>    0.457</td> <td>   22.286</td> <td> 0.000</td> <td>    9.287</td> <td>   11.103</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>x1</th>        <td>    6.9909</td> <td>    0.048</td> <td>  147.028</td> <td> 0.000</td> <td>    6.897</td> <td>    7.085</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>x2</th>        <td>   -2.0077</td> <td>    0.047</td> <td>  -43.115</td> <td> 0.000</td> <td>   -2.100</td> <td>   -1.915</td>\n",
+       "</tr>\n",
+       "</table>\n",
+       "<table class=\"simpletable\">\n",
+       "<tr>\n",
+       "  <th>Omnibus:</th>       <td> 1.577</td> <th>  Durbin-Watson:     </th> <td>   1.611</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Prob(Omnibus):</th> <td> 0.455</td> <th>  Jarque-Bera (JB):  </th> <td>   1.628</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Skew:</th>          <td>-0.259</td> <th>  Prob(JB):          </th> <td>   0.443</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Kurtosis:</th>      <td> 2.649</td> <th>  Cond. No.          </th> <td>    46.7</td>\n",
+       "</tr>\n",
+       "</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+      ],
+      "text/plain": [
+       "<class 'statsmodels.iolib.summary.Summary'>\n",
+       "\"\"\"\n",
+       "                            OLS Regression Results                            \n",
+       "==============================================================================\n",
+       "Dep. Variable:                      y   R-squared:                       0.996\n",
+       "Model:                            OLS   Adj. R-squared:                  0.996\n",
+       "Method:                 Least Squares   F-statistic:                 1.171e+04\n",
+       "Date:                Mon, 04 Nov 2019   Prob (F-statistic):          2.26e-116\n",
+       "Time:                        12:00:47   Log-Likelihood:                -136.82\n",
+       "No. Observations:                 100   AIC:                             279.6\n",
+       "Df Residuals:                      97   BIC:                             287.5\n",
+       "Df Model:                           2                                         \n",
+       "Covariance Type:            nonrobust                                         \n",
+       "==============================================================================\n",
+       "                 coef    std err          t      P>|t|      [0.025      0.975]\n",
+       "------------------------------------------------------------------------------\n",
+       "Intercept     10.1947      0.457     22.286      0.000       9.287      11.103\n",
+       "x1             6.9909      0.048    147.028      0.000       6.897       7.085\n",
+       "x2            -2.0077      0.047    -43.115      0.000      -2.100      -1.915\n",
+       "==============================================================================\n",
+       "Omnibus:                        1.577   Durbin-Watson:                   1.611\n",
+       "Prob(Omnibus):                  0.455   Jarque-Bera (JB):                1.628\n",
+       "Skew:                          -0.259   Prob(JB):                        0.443\n",
+       "Kurtosis:                       2.649   Cond. No.                         46.7\n",
+       "==============================================================================\n",
+       "\n",
+       "Warnings:\n",
+       "[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.\n",
+       "\"\"\""
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import statsmodels.formula.api as smf \n",
+    "df = pd.DataFrame({'y': y_train, 'x1': X_train[:,0], 'x2': X_train[:,1]})\n",
+    "df_model = smf.ols('y ~ x1 + x2', df).fit()\n",
+    "df_model.summary()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(8)** Now implement `predict`! Then test it against your original `X` data -- do you get back something very close to your true `y`?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "class MyLinearModel:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        # Initialize!\n",
+    "        self.coefficients = None\n",
+    "        self.standard_errors = None\n",
+    "        self.r_squared = None\n",
+    "        \n",
+    "    def fit(self, X, y):\n",
+    "        # Fit the model using regressors X and outcomes y\n",
+    "        X = np.concatenate([np.ones((X.shape[0], 1)), X], axis=1)\n",
+    "        X_transposed = np.transpose(X)\n",
+    "        self.coefficients = np.linalg.inv(X_transposed @ X) @ (X_transposed @ y)\n",
+    "        \n",
+    "        # Get Standard errors\n",
+    "        errors = (y - X @ self.coefficients)\n",
+    "        errors_squared = (errors @ np.transpose(errors))\n",
+    "        errors_times_coefficients_sq_inv = errors_squared * np.linalg.inv(X_transposed @ X)\n",
+    "        self.standard_errors = np.sqrt(np.diagonal(errors_times_coefficients_sq_inv))\n",
+    "                            \n",
+    "        # Get Rsquared\n",
+    "        self.r_squared = 1 - np.sum(errors_squared) / np.sum( (y - np.mean(y))**2 )\n",
+    "            \n",
+    "    def predict(self, X_test):\n",
+    "        # Return predicted values. \n",
+    "        X_test = np.concatenate([np.ones((X_test.shape[0], 1)), X_test], axis=1)\n",
+    "        return X_test @ self.coefficients"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "my_model = MyLinearModel()\n",
+    "my_model.fit(X_train, y_train)\n",
+    "y_test = my_model.predict(X_train)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-6.875613972568511e-17"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.mean(y_test - y_train) / np.mean(y_train)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(9)** Finally, create the *option* of fitting the model with or without a constant term. As in `scikit-learn`, make this an option you set during initialization. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "class MyLinearModel:\n",
+    "\n",
+    "    def __init__(self, add_constant=True):\n",
+    "        # Initialize!\n",
+    "        self.coefficients = None\n",
+    "        self.standard_errors = None\n",
+    "        self.r_squared = None\n",
+    "        self.add_constant = add_constant\n",
+    "        \n",
+    "    def fit(self, X, y):\n",
+    "        # Fit the model using regressors X and outcomes y\n",
+    "        \n",
+    "        # Add constants column if desired\n",
+    "        if self.add_constant:\n",
+    "            X = np.concatenate([np.ones((X.shape[0], 1)), X], axis=1)\n",
+    "\n",
+    "        X_transposed = np.transpose(X)\n",
+    "        self.coefficients = np.linalg.inv(X_transposed @ X) @ (X_transposed @ y)\n",
+    "        \n",
+    "        # Get Standard errors\n",
+    "        errors = (y - X @ self.coefficients)\n",
+    "        errors_squared = (errors @ np.transpose(errors))\n",
+    "        errors_times_coefficients_sq_inv = errors_squared * np.linalg.inv(X_transposed @ X)\n",
+    "        self.standard_errors = np.sqrt(np.diagonal(errors_times_coefficients_sq_inv))\n",
+    "                            \n",
+    "        # Get Rsquared\n",
+    "        self.r_squared = 1 - np.sum(errors_squared) / np.sum( (y - np.mean(y))**2 )\n",
+    "            \n",
+    "    def predict(self, X_test):\n",
+    "        # Return predicted values. \n",
+    "        \n",
+    "        # Add constants column if desired\n",
+    "        if self.add_constant:\n",
+    "            X_test = np.concatenate([np.ones((X_test.shape[0], 1)), X_test], axis=1)\n",
+    "\n",
+    "        X_test = np.concatenate([np.ones((X_test.shape[0], 1)), X_test], axis=1)\n",
+    "        return X_test @ self.coefficients"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([10.19466648,  6.99092105, -2.00768505])"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_model = MyLinearModel(add_constant=True)\n",
+    "my_model.fit(X_train, y_train)\n",
+    "my_model.coefficients"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 7.72472472, -1.29547309])"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_model = MyLinearModel(add_constant=False)\n",
+    "my_model.fit(X_train, y_train)\n",
+    "my_model.coefficients"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
