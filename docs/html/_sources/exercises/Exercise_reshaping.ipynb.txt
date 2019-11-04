@@ -93,6 +93,17 @@
    "source": [
     "**(7)** It's important to not always rely too much on a single measure of something like inequality. To check the robustness of our result, let's be sure to also look at the relationship between inequality and income by using the income share of the richest 10% instead of just the GINI coefficient. Plot that relationship. "
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Absolutely positively need the solutions?\n",
+    "\n",
+    "*Don't use this link until you've really, really spent time struggling with your code!* Doing so only results in you cheating yourself. \n",
+    "\n",
+    "[Link](../solutions_warning.ipynb)"
+   ]
   }
  ],
  "metadata": {
