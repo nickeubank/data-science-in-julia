@@ -271,7 +271,16 @@
     "\n",
     "![statsmodel_output](../images/statsmodel_output.png)\n",
     "\n",
-    "A full printout of various dignostics, all your coefficients, estimates of confidence intervals for each coefficient, etc. etc. By contrast, `LinearRegression` from `sklearn` has no `summary` method. Indeed, the only output you really get for what the model has actually fit is `my_model.coef_"
+    "A full printout of various dignostics, all your coefficients, estimates of confidence intervals for each coefficient, etc. etc. By contrast, `LinearRegression` from `sklearn` has no `summary` method. Indeed, the only output you really get for what the model has actually fit is `my_model.coef_`, which looks like:\n",
+    "\n",
+    "```python\n",
+    "> my_model.fit(X_train, y_train)\n",
+    "> my_model.coef_\n",
+    "\n",
+    "array([[ 0.00000000e+00,  4.88967789e+00, -9.57549359e+00,\n",
+    "        -7.78152768e+00, -8.15196740e+00,  8.70134871e-03,\n",
+    "         1.31058392e-01,  1.01948361e+00]])\n",
+    "```"
    ]
   },
   {

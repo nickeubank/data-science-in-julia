@@ -235,16 +235,19 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Machine-Learning-with-Scikit-Learn">
 <h1>Machine Learning with Scikit-Learn<a class="headerlink" href="#Machine-Learning-with-Scikit-Learn" title="Permalink to this headline">¶</a></h1>
 <p>In these exercises, we’ll learn to fit and evaluate (in a basic way) machine learning models using the package <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p>
-<p>The emphasis of these exercises is to help you get comfortable with the data wrangling component of machine learning so that in future machine learning courses you can focus on the theory underling machine learning rather than struggling to figure out how to get your code to work. With that in mind, we will be quite cavalier with model fitting and evaluation. As with our <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> exercises, in which we quickly ran through a few models to practice <em>implementing</em> different models without
-thinking too much about model selection and specification, this is not to suggest that this is how you should do your data science work!</p>
-<p>Indeed, that is double true in the context of the exercises here, in which we will apply machine learning algorithms to the birth-weight data we used for our <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> exercises to predict birth weights. That is because machine learning algorithms are usually intrinsically opaque, meaning you can’t really tell <em>how</em> they are making their predictions, and that means they can be hard to audit. In school exercises, that’s rarely a big deal, but not being certain what your machine learning
-algorithm is doing in the real world can literally kill people.</p>
-<p>Take, for example, the case of a model distributed by the company Optum to providers who served millions of people. The goal of the model was to predict which patients who would be likely to consume more medical services in the future so doctors could give these patients – who presumably were having more health problems – extra preventive care.</p>
-<p>The problem with this strategy, <a class="reference external" href="https://www.washingtonpost.com/health/2019/10/24/racial-bias-medical-algorithm-favors-white-patients-over-sicker-black-patients/">as was recently described in a paper in the journal Science</a>, is that Black patients in the United States tend to use the medical system less for a variety of non-medical reasons (e.g. the history of Black Americans being used as <a class="reference external" href="https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment">unknowing test subjects for medical
-studies</a>, or the fact that Black Americans tend to have lower incomes and are less likely to be insured than White Americans). And so because these patients were less likely to return to doctors for financial or social reasons, the algorithm interpreted that as evidence they were healthier (not poorer, or skeptical of the medical system), and so were less likely to recommend additional preventative care for black patients.</p>
-<p>(<strong>Note: race wasn’t even a variable in the model.</strong> Presumably, the model simply found various inputs that were correlated with race, and when it saw those predicted lower need for extra medical attention. A variable that often implicitly codes for race, for example, is a person’s zipcode (that general area where they live).)</p>
-<p>And so as a result, this machine learning algorithm resulted in black patients receiving fewer preventative medical interventions than white patients, even after taking into account other (medically relevant) factors.</p>
-<p>So: in this exercise we’ll play with predict birth weights in infants. But do <strong>NOT</strong> think that just because it’s this easy to fit a model, it is appropriate to then go use these in the real world in contexts where people’s lives are affected.</p>
+<p>The emphasis of these exercises is to help you get comfortable with the data wrangling component of machine learning so that in future courses you can focus on the <em>theory</em> underlying machine learning. With that in mind, we will be quite cavalier with model fitting and evaluation. As with our <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> exercises, in which we quickly ran through a few models to practice model <em>implemention</em> without thinking too much about model selection and specification, this is <strong>not</strong> how you should do
+your actual data science analyses!</p>
+<p>Though this is true generally, it is doubly true in the context of these exercises: the application of machine learning to medicine.</p>
+<p>In these exercises, we will use the birth-weight data we used for our <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> exercises to predict birth weights. As you will see, implementing a machine learning model to predict birth weights is actually surprisingly straight-forward. But that ease is deceptive, because while machine learning algorithms are easy to use, they’re hard to use <em>well</em>, and if you get them wrong in contexts where they impact real people, poorly implemented machine learning models can literally kill people.</p>
+<p>Lest you think I’m being hyperbolic, consider the case of a machine learning model used by medical providers across the US to make treatment decisions for millions of people. The goal of the model (distributed by a company called Optum) was to help providers figure out what patients were especially likely to face health problems down the road so they could provide these patients extra preventative care.</p>
+<p>The problem, though, is that the way Optum did this was by training a supervised machine learning model to predict future health care use by patients. Patients the model predicted would consume more healthcare in the future, the model implicitly assumed, were those who should get extra care today.</p>
+<p>But <a class="reference external" href="https://www.washingtonpost.com/health/2019/10/24/racial-bias-medical-algorithm-favors-white-patients-over-sicker-black-patients/">as was recently described in a paper in the journal Science</a>, the problem is that the model had a large racial bias, and was less likely to recommend extra preventative care for black patients.</p>
+<p>The reason was that Black patients in the United States tend to use the medical system less than White patients <em>for non-medical reasons</em> (likely including skepticism towards the medical establishment due to the history of Black Americans being used as <a class="reference external" href="https://en.wikipedia.org/wiki/Tuskegee_syphilis_experiment">unknowing test subjects for medical studies</a>, or the fact that Black Americans tend to have lower incomes and are less likely to be insured than White Americans).</p>
+<p>But when this model saw that Black patients didn’t consume as much healthcare in the future, the algorithm interpreted that as evidence that Black patients were healthier (not poorer, or skeptical of the medical system). As a result, it became less likely to recommend future care for these patients.</p>
+<p><strong>Crucially, this occurred even though race wasn’t even a variable in the model.</strong> Machine learning models are very good at picking up subtle signals, and so even though patient race wasn’t an explicit factor in the model, the model was nevertheless able to differential Black and White patients. Though it’s not clear exactly how it did so, this can happen whenever variables are included in models that are <em>correlated</em> with race. For example, people’s zip codes (which identify where people live)
+are notorious for proxying for race in machine learning algorithms since residential segration in the US means that most people in a given zipcode are of the same race.</p>
+<p>And so as a result, this well-meaning machine learning algorithm resulted in black patients receiving fewer preventative medical interventions than white patients, even after taking into account other (medically relevant) factors.</p>
+<p>So: in this exercise we’ll play with predict birth weights in infants. But do <strong>NOT</strong> think that just because it’s this easy to fit a model, it is appropriate to then go use these in the real world in contexts where people’s lives are affected!</p>
 <p><strong>(1)</strong> Load the data “smoking.csv”, which includes information on both biometrics of infants at birth, and information on mothers (variables prefixed with the letter “m”), from <a class="reference external" href="https://github.com/nickeubank/MIDS_Data">this MIDS repo</a>. We’ll be working with this data in this exercise.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -330,11 +333,11 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># I had 6 features going in, but I have 9 variables!</span>
+<span></span><span class="c1"># I had 5 features going in, but I have 8 variables!</span>
 <span class="c1"># that&#39;s because the categorical variable &quot;race&quot;</span>
 <span class="c1"># was recoded into 3 indicator variables, so that</span>
 <span class="c1"># all 3 are zero if the person is white,</span>
@@ -580,7 +583,7 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 </div>
 <p><strong>(11)</strong> Now pick whatever regression model you’d like and see how it performs (<a class="reference external" href="https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html">some suggestions</a>). Play with your model specifications and see how well you can do with your new model of one of the ones we used above.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -592,7 +595,7 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -600,6 +603,10 @@ studies</a>, or the fact that Black Americans tend to have lower incomes and are
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="Want-More-Practice?">
+<h2>Want More Practice?<a class="headerlink" href="#Want-More-Practice?" title="Permalink to this headline">¶</a></h2>
+<p>Try replicating our attempts to predict whether infants would be born premature from the <a class="reference internal" href="Exercise_statsmodels.html"><span class="doc">statsmodels exercises</span></a> in scikit-learn. Start with a LogisticRegression, then try some different “classification models” for comparison!</p>
 </div>
 </div>
 
