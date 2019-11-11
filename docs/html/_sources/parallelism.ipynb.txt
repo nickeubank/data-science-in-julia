@@ -45,7 +45,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Limits of Parallelism\n",
+    "## Theoretical Limits of Parallelism\n",
     "\n",
     "OK, now let's talk about the theoretical limits of parallelism. \n",
     "\n",
@@ -139,7 +139,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Parallel Processing with Joblib\n",
+    "## An Example: Parallel Processing with Joblib\n",
     "\n",
     "We won't get into really sophisticated parallel processing in this tuturial -- writing parallelized code is a discipline unto itself -- be we can do a little \"embarassingly parallel\" computing. \n",
     "\n",
@@ -507,19 +507,19 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Multi-threading versus Multi-processing\n",
+    "## Multi-processing versus Multi-threading\n",
     "\n",
-    "This type of parallelism -- where we create entirely new processes to run our code, and we have to copy over our data to each new process -- is what's called \"multiprocessing\". Multiprocessing is nice because (a) you can use it on big server clusters where different processes may be running on different computers, and (b) it's quite safe. \n",
+    "This type of parallelism -- where we create entirely new processes to run our code, and we have to copy over our data to each new process -- is what's called \"multiprocessing\". Multiprocessing is nice because (a) you can use it on big server clusters where different processes may be running on different computers, and (b) it's quite safe. As a result, *most* parallelism you're like to encounter will be multi-processing. \n",
     "\n",
-    "But there is another type of parallelism to be aware of called multi-threading. In multi-threading, all the code being run (each sequence execution of which is called a \"thread\") exists within a single process, meaning that all the different threads have access to the same objects in memory. This massively reduces duplication because you don't have to copy your code and data and pass it around -- all the threads can see the same parts of memory. \n",
+    "However, there is another type of parallelism to be aware of called multi-threading. In multi-threading, all the code being run (each sequence execution of which is called a \"thread\") exists within a single process, meaning that all the different threads have access to the same objects in memory. This massively reduces duplication because you don't have to copy your code and data and pass it around -- all the threads can see the same parts of memory. \n",
     "\n",
-    "Because it doesn't entail moving and copying data, multi-threading is *much* faster than multi-processing, but it has three major shortcomings: \n",
+    "But multi-threading has three major shortcomings: \n",
     "\n",
     "- It is *very* easy to run into very subtle but profound problems that lead to corruption (the biggest of which is something called [Race Conditions](https://youtu.be/7ENFeb-J75k)). \n",
     "- Multi-threading can only distribute a job over the cores *on a single computer*, meaning it can't be used to distribute a job over hundreds of cores in a large computing cluster. \n",
     "- You generally can't use multi-thread parallelism in Python because of a [fundamental component of its architecture (the GIL)](https://realpython.com/python-gil). \n",
     "\n",
-    "So... multi-threading isn't something you're like likely to try and implement yourself. But if you *do* need to get into multi-threading, consider jumping to a language like Julia, which allows for [easy multi-threading, complete with security features.](https://julialang.org/blog/2019/07/multithreading) \n",
+    "So... multi-threading isn't something you're like likely to try and implement yourself. But if you *do* need to get into multi-threading, consider jumping to a language like Julia, which allows for [easy multi-threading, complete with security features.](https://julialang.org/blog/2019/07/multithreading)\n",
     "\n",
     "But that isn't to say you may not *benefit* from multi-threading. More and more tools are implementing parallelism (even Python packages, by building in the multi-threading into the C code that underlies that package you use in Python), so you may just get some benefits for free!"
    ]
@@ -537,6 +537,17 @@
     "GPU processors aren't \"general purpose\" processors -- they only do a few things, and as a result of that specialization, what they do they do *fast*. Moreover, they are massively parallel: while your CPU (your Intel chip) may have ~4-8 cores, a modern GPU has either hundreds or thousands of cores.\n",
     "\n",
     "But because GPUs are basically computers onto themselves, to use them you have to write special code to both manage all those cores and also manage the movement of data from your regular computer to the GPU. All of which is to say: you probably won't write your own GPU parallel algorithm, but if you end up in an area that uses them a lot (i.e. training neural networks), the libraries you use will. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Parallelism and Distributed Computing\n",
+    "\n",
+    "In this reading, we've mostly focused on discussing the *principles* of parallelism -- the goal, the fundamental problems, and some basic examples of parallelism. \n",
+    "\n",
+    "In a future class, we'll discuss some packages that are designed to make parallelism as easy as possible in situations where you really need parallelism. In particular, we'll focus on tools for *distributed computer*: situations where you don't just want to parallelize across the cores in your computer, but across many computers (e.g. in the cloud). But when we get to these tools -- like `pyspark` and `dask` -- try to keep in mind the lessons we've learned here, because everything you've learned here applies to those packages as well!"
    ]
   },
   {

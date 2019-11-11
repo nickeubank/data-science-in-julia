@@ -94,7 +94,7 @@ in a new language.</p>
 should “count more” in our analysis.</p>
 <p>Here, let’s use weighted least squares to weight observations based on population. This will allow bigger counties to influence our estimates more.</p>
 <p><strong>(1)</strong> To begin, download our data on California arrest rates and population from <a class="reference external" href="https://github.com/nickeubank/MIDS_Data/blob/master/arrest_rates_and_population.parquet">github</a>. You will see I’ve reshaped the data to long format for convenience.</p>
-<p><strong>(2)</strong> To run our difference-in-difference in a regression framework, we need both an indicator variable for observations that occur after legalization (i.e. year == 2018), and an indicator for the population we consider treated (those who had high drug arrest rates in 2008). Re-create those here.</p>
+<p><strong>(2)</strong> To run our difference-in-difference in a regression framework, we need both an indicator variable for observations that occur after legalization (i.e. year == 2018), and an indicator for the population we consider treated (those who had high drug arrest rates in 2009). Re-create those here.</p>
 <p><em>Note:</em> if you want, you can also use the 2009 drug arrest rates as a continuous variable. This is a kind of “generalized difference-in-difference”, in which we’re just doing the continuous analogue of the thing we do when we split the sample into “high” and “low” 2009 arrest rates.</p>
 <p><strong>(3)</strong> Now regression the violent arrest rate on your two indicators and their interaction. The coefficient on the interaction is your “difference-in-difference” estimate! If you go back to your old homeworks, you should find the coefficient is exactly what you calculated.</p>
 <p><strong>(4)</strong> Now let’s do the same analysis, but this time using county population as a weight in a Weighted Least Squares regression (<code class="docutils literal notranslate"><span class="pre">smf.wls</span></code>). Just pass the keyword argument <code class="docutils literal notranslate"><span class="pre">weights</span></code> a vector fo weights (in this case, <code class="docutils literal notranslate"><span class="pre">arrests['total_population']</span></code>). Note that the weights argument is outside of the formula, so you have to pass an actual vector of values, not just the name of a column.</p>
@@ -191,7 +191,7 @@ should “count more” in our analysis.</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

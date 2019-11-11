@@ -27,3 +27,8 @@ source/exercises/.ipynb_checkpoints/*
 
 Solutions_*.ipynb
 .DS_Store
+
+example_data/dask_data/arcos_all_washingtonpost.tsv
+**/dask-worker-space/
+
+

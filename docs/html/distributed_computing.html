@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Distributed Computing &#8212; Practical Data Science</title>
+    <title>Distributed Computing with dask &#8212; Practical Data Science</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -232,8 +232,185 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="Distributed-Computing">
-<h1>Distributed Computing<a class="headerlink" href="#Distributed-Computing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Distributed-Computing-with-dask">
+<h1>Distributed Computing with dask<a class="headerlink" href="#Distributed-Computing-with-dask" title="Permalink to this headline">¶</a></h1>
+<p>In this portion of the course, we’ll explore distributed computing with a Python library called <code class="docutils literal notranslate"><span class="pre">dask</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">dask</span></code> is a library designed to help facilitate (a) manipulation of very large datasets, and (b) distribution of computation across lots of cores or physical computers. It is very similar to Apache Spark in the functionality it provides, but it is tightly integrated into <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, making it <em>much</em> easier to learn than spark for users of those libraries.</p>
+<div class="section" id="What-can-dask-do-for-me?">
+<h2>What can dask do for me?<a class="headerlink" href="#What-can-dask-do-for-me?" title="Permalink to this headline">¶</a></h2>
+<p>To get a sense of why <code class="docutils literal notranslate"><span class="pre">dask</span></code> is so nice, let’s begin with a demonstration. Suppose I have a pretty big dataset (say, records of all drug shipments in the United States from 2006 to 2012). This data is too large for me to load into ram on my laptop directly, so if I were to work with it on my own, I’d do so by <a class="reference internal" href="big_data_strategies.html"><span class="doc">chunking the data by hand</span></a>. But using <code class="docutils literal notranslate"><span class="pre">dask</span></code>, I can do the following:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Standard setups</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/users/nick/github/practicaldatascience/example_data/dask_data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Here we start up a dask cluster.</span>
+<span class="c1"># This creates a set of &quot;workers&quot;.</span>
+<span class="c1"># In this case, these workers are all on</span>
+<span class="c1"># my computer, but if we wanted to connect</span>
+<span class="c1"># to a cluster, we&#39;d just past an IP address</span>
+<span class="c1"># to `Client()`.</span>
+
+<span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="k">import</span> <span class="n">Client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>tcp://127.0.0.1:62038</li>
+  <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>
+</ul>
+</td>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>7</li>
+  <li><b>Cores: </b>21</li>
+  <li><b>Memory: </b>34.36 GB</li>
+</ul>
+</td>
+</tr>
+</table></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># ARCOS Data on all drug shipments in US from 2006 to 2012</span>
+
+<span class="c1"># Note that only the compressed version of this data</span>
+<span class="c1"># is available in the practical data science repo,</span>
+<span class="c1"># and while pandas can read compressed files like this,</span>
+<span class="c1"># `dask` can not. So if you want to do this at home,</span>
+<span class="c1"># you have to decompress the data.</span>
+
+<span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ACTION_INDICATOR&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;ORDER_FORM_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;REPORTER_ADDRESS2&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;REPORTER_ADDL_CO_INFO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;NDC_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;UNIT&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">TRANSACTION_DATE</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%m</span><span class="si">%d</span><span class="s2">%Y&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;morphine_equivalent_g&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CALC_BASE_WT_IN_GM&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MME_Conversion_Factor&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;morphine_equivalent_g&#39;</span><span class="p">,</span> <span class="s1">&#39;BUYER_STATE&#39;</span><span class="p">,</span> <span class="s1">&#39;BUYER_COUNTY&#39;</span><span class="p">]]</span>
+<span class="n">collapsed</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;BUYER_STATE&#39;</span><span class="p">,</span> <span class="s1">&#39;BUYER_COUNTY&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">morphine_equivalent_g</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">collapsed</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Dask Series Structure:
+npartitions=1
+    float64
+        ...
+Name: morphine_equivalent_g, dtype: float64
+Dask Name: series-groupby-sum-agg, 18931 tasks
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>
+<span class="n">final</span> <span class="o">=</span> <span class="n">collapsed</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">final</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Voila! I get back my thinned out dataset with the new variable I wanted, all while never using more than about 2gb of RAM at any point.</p>
+<p>So let’s discuss what just happened.</p>
+<ol class="arabic simple">
+<li><p>First, when I ran <code class="docutils literal notranslate"><span class="pre">Client()</span></code>, <code class="docutils literal notranslate"><span class="pre">dask</span></code> started up a set of 4 new python processes on my computer (called “workers”) it could call on for help. These are fully independent agents that <em>could</em> be running on different machines in a true cluster (though in this case, they’re all on my laptop).</p></li>
+<li><p>It then collected all the instructions I gave it for reading in the file, generating a new column, deleting extra columns, and grouping. <strong>But it didn’t actually execute any code</strong>. That’s why when I typed <code class="docutils literal notranslate"><span class="pre">collapsed</span></code>, what I got back was a dataframe with structure but no data – <code class="docutils literal notranslate"><span class="pre">dask</span></code> had figured out roughly what the result of my commands would look like, but hadn’t actually computed the result.</p></li>
+<li><p>Then, when I ran <code class="docutils literal notranslate"><span class="pre">collapsed.compute()</span></code>, <code class="docutils literal notranslate"><span class="pre">dask</span></code> came up with a set of assignments it could give to its workers to get me what I wanted and it started to actually compute the table I requested. In particular:</p>
+<ul class="simple">
+<li><p>each worker loaded a chunk of the data, did the observation-level manipulations I wanted, and dropped extra columns.</p></li>
+<li><p>then to execute the groupby, it then collapsed the data in each chunk, passed those collapsed chunks to a common worker who then re-collapsed them further, then gathered them again under (potentially) another worker and collapsed further until all the data had been collapsed.</p></li>
+<li><p>Finally, after all the data had been collapsed, the data was passed back to me (the client session) as the variable <code class="docutils literal notranslate"><span class="pre">final</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="Um…-why-didn’t-you-tell-us-about-this-before?">
+<h2>Um… why didn’t you tell us about this before?<a class="headerlink" href="#Um…-why-didn’t-you-tell-us-about-this-before?" title="Permalink to this headline">¶</a></h2>
+<p>It sure seems like this is easier than <a class="reference external" href="big_data_strategies">chunking by hand</a>!</p>
+<p>For a few reasons.</p>
+<ol class="arabic simple">
+<li><p>This example was carefully chosen. This type of distributed processing is very good at <em>certain</em> manipulations, but it can also be very fragile. Do the wrong things, and you can easily crash your computer.</p></li>
+<li><p>The biggest challenge with a tool like <code class="docutils literal notranslate"><span class="pre">dask</span></code> or <code class="docutils literal notranslate"><span class="pre">pyspark</span></code> is that you have to understand what the software is doing in order to be able to give it commands that won’t overwhelm your system. And the best way to do that is to get experience chunking by hand.</p></li>
+</ol>
+<p>For example, one of the key features of distributing computing is that they don’t run code as soon as you type it. Instead, they just keep track of what you want and wait until you run <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> to actually execute your code. Why? Because if <code class="docutils literal notranslate"><span class="pre">dask</span></code> had run each command as I entered it and pass the result back to me, it would have crashed my computer.</p>
+<p>Recall that the whole reason we’re using dask is precisely because we knew that loading the whole dataset at once would take up more memory than I have available. It’s only because we only loaded chunks of the data, thinned out those chunks by dropping variables, and then collapsed by county-state-year that we ended up with a dataset that was small enough that it would fit in memory.</p>
+<p>In other words, this only worked because I knew that the steps after the intial load would reduce the size of the dataset enough that when I ran <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, the result I got back would be small enough to fit in memory. Had I just run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ACTION_INDICATOR&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;ORDER_FORM_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;REPORTER_ADDRESS2&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;REPORTER_ADDL_CO_INFO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;NDC_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;UNIT&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">dask</span></code> would have tried to hand the full dataset back to me, and my computer would have crashed, just as it would had I tried to read the full dataset with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<p>So understanding the <em>intuition</em> of chunking is basically a pre-requisite to using these tools effectively.</p>
+</div>
+<div class="section" id="Vocabulary">
+<h2>Vocabulary<a class="headerlink" href="#Vocabulary" title="Permalink to this headline">¶</a></h2>
+<p>Now that we’ve seen this example, let’s formally introduce some distributed computing vocabulary:</p>
+<ul class="simple">
+<li><p><strong>Delayed Execution</strong> (also sometimes called “lazy evaluation”): The practice of not executing code as soon as you type it, but rather accumulating a set of requests, then executing them when instructed. This allows distributing computing systems to optimize how they move around data and get things done, and ensures that you don’t end up with the system trying to shove a massive dataset into ram that’s too small.</p></li>
+<li><p><strong>Client</strong>: The central process (here, Python process) where code is being entered.</p></li>
+<li><p><strong>Workers</strong>: Other processes that are assigned work, and which eventually pass results back to the client.</p></li>
+<li><p><strong>Scheduler</strong>: The part of the system that manages the assignment of tasks to different workers.</p></li>
+<li><p><strong>map-reduce</strong>: The name for the process of distributing sub-problems to workers (<code class="docutils literal notranslate"><span class="pre">map</span></code>), then processing them in a way that allows the results to be recombined (<code class="docutils literal notranslate"><span class="pre">reduce</span></code>). <code class="docutils literal notranslate"><span class="pre">map</span></code>s and <code class="docutils literal notranslate"><span class="pre">reduce</span></code>s are kind of the building blocks of distributed systems, though when working with <code class="docutils literal notranslate"><span class="pre">dask</span></code> you won’t usually have to manage the assignment or recombination of tasks yourself (they’re happening behind the scenes).</p></li>
+</ul>
+</div>
+<div class="section" id="Let’s-Learn-More-dask!">
+<h2>Let’s Learn More dask!<a class="headerlink" href="#Let’s-Learn-More-dask!" title="Permalink to this headline">¶</a></h2>
+<p>OK, now that we have the basic idea of <code class="docutils literal notranslate"><span class="pre">dask</span></code> in hand, please watch the following (<em>very</em> well organized) talk on <code class="docutils literal notranslate"><span class="pre">dask</span></code>. Then come back here and we can talk some more!</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=RA_2qdipVng">Matthew Rocklin on Dask</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -241,6 +418,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -335,7 +513,7 @@ div.rendered_html tbody tr:hover {
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

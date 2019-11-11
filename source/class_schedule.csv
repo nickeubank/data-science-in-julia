@@ -55,12 +55,18 @@
 - `Skim ""Linear Models"" <https://www.statsmodels.org/stable/regression.html>`_
 - `Skim ""Discrete Dep Var Models"" <https://www.statsmodels.org/stable/discretemod.html>`_
 - `Patsy: Differences from R <https://patsy.readthedocs.io/en/latest/R-comparison.html>`_",`Link <exercises/Exercise_statsmodels.ipynb>`_
-"Thurs, Nov 07, Rm 330",,,Statsmodels Day 2
+"Thurs, Nov 07, Rm 330",Statsmodels Day 2,,
 "Tues, Nov 12, Rm 330",Machine Learning with sckikit-learn,- JVP pp 331 - 359,`Link <exercises/Exercise_scikit_learn.ipynb>`_
-"Thurs, Nov 14, Rm 330",Parallelism,"- `Parallel Computing <parallelism.ipynb>`_
-- Review Linear Regression Matrix Algebra
-- Review Defining Classes",`Link <exercises/Exercise_codeyourownlinearregression.ipynb>`_
-"Tues, Nov 19, Rm 270",Data Science: Questions,,
-"Thurs, Nov 21, Rm 330",Data Science: Backwards Design,,
-"Tues, Nov 26, Rm 270",Project Proposal Workshopping,,
+"Thurs, Nov 14, Rm 330","- Parallelism
+- Defining Your Own Estimators","- `Parallel Computing <parallelism.ipynb>`_
+- Review linear regression as matrix manipulations. `Here's a nice review. <https://www.stat.purdue.edu/~boli/stat512/lectures/topic3.pdf>`_
+- `Review how to define classes <https://realpython.com/python3-object-oriented-programming/>`_",`Link <exercises/Exercise_codeyourownlinearregression.ipynb>`_
+"Tues, Nov 19, Rm 270","- Data Science: Backwards Design
+- Regular Expressions",- `Regular Expressions Tutorial <https://scotch.io/tutorials/an-introduction-to-regex-in-python>`_,
+"Thurs, Nov 21, Rm 330","Distributed Computing, Part 1","- `Parallel ML with Dask <https://www.youtube.com/watch?v=tQBovBvSDvA&list=PLsT4-aZA6_bgaRhsc0JaZXSi5kt-RIJgQ>`_
+- `What is Dask? <scaling_parallelism_and_distributedcomputing.ipynb>`_
+- `OPTIONAL: Full Dask Tutorial (3+ Hours) <https://www.youtube.com/watch?v=mqdglv9GnM8&list=PLsT4-aZA6_bgaRhsc0JaZXSi5kt-RIJgQ>`_",
+"Tues, Nov 26, Rm 270","Distributed Computing, Part 2",,
 "Thurs, Nov 28, Rm ",THANKSGIVING BREAK,,
+,,,
+,Regular Expressions,,

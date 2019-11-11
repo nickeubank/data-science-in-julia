@@ -259,8 +259,8 @@ Solutions</span></a>), and the headaches of parallelizing code are many.</p>
 <p>Source: <a class="reference external" href="https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/">karlrupp.net</a></p>
 <p>And so since chip makers have lost the ability to make their processors faster, they’ve turned to just giving us more and more processors in the form or more “cores”: components of chips that are capable of independent operation. And leveraging the availability of massive numbers of cores (either in single machines, or for huge datasets, across lots of computers) has become the only place left to go for performance!</p>
 </div>
-<div class="section" id="Limits-of-Parallelism">
-<h2>Limits of Parallelism<a class="headerlink" href="#Limits-of-Parallelism" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Theoretical-Limits-of-Parallelism">
+<h2>Theoretical Limits of Parallelism<a class="headerlink" href="#Theoretical-Limits-of-Parallelism" title="Permalink to this headline">¶</a></h2>
 <p>OK, now let’s talk about the theoretical limits of parallelism.</p>
 <p>The biggest problem with parallelism is that it’s very hard to break some problems into smaller pieces you can work on simultaneously. Somethings you do on computers are fundamentally <em>serial</em> / <em>sequential</em>, and thus cannot be broken up.</p>
 <p>For example, suppose you want to simulate how weather evolves over time. The only way to simulate how weather will evolve on day 2 of your simulation is to wait till you’ve finished simulating day 1 so you can use those results as the starting point for your simulation in day 2. That means there’s no way to fully parallelize a weather simulation, since the results at time <span class="math notranslate nohighlight">\(t\)</span> will always depend on the results generated at time <span class="math notranslate nohighlight">\(t-1\)</span>.</p>
@@ -320,8 +320,8 @@ additional performance, but much less than actually having an actual additional 
 <li><p>On most computers, expect the operating system to think that you have twice as many cores (sometimes referred to as “logical cores”) as you have actual “physical cores”, but expect your performance to reflect the number of physical cores you actually have.</p></li>
 </ul>
 </div>
-<div class="section" id="Parallel-Processing-with-Joblib">
-<h2>Parallel Processing with Joblib<a class="headerlink" href="#Parallel-Processing-with-Joblib" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="An-Example:-Parallel-Processing-with-Joblib">
+<h2>An Example: Parallel Processing with Joblib<a class="headerlink" href="#An-Example:-Parallel-Processing-with-Joblib" title="Permalink to this headline">¶</a></h2>
 <p>We won’t get into really sophisticated parallel processing in this tuturial – writing parallelized code is a discipline unto itself – be we can do a little “embarassingly parallel” computing.</p>
 <p>An “embarassingly parallel” task is one where each component of your parallel job is entirely independent of every other part. For example, consider the weather simulation we discussed above – while Day 2 is not independent of Day 1, each attempt to simulate 7 days of weather <em>is</em> fully independent from every other run, making it embarassingly parallel.</p>
 <p>So let’s develop an embarassingly parallel simulation, and run it in parallel using the <code class="docutils literal notranslate"><span class="pre">Joblib</span></code> library (FYI: R has an analogous library called <a class="reference external" href="https://www.rdocumentation.org/packages/foreach/versions/1.4.7/topics/foreach">foreach</a>).</p>
@@ -611,11 +611,11 @@ Wall time: 6.47 s
 </div>
 <p>THAT only took 6 seconds…</p>
 </div>
-<div class="section" id="Multi-threading-versus-Multi-processing">
-<h2>Multi-threading versus Multi-processing<a class="headerlink" href="#Multi-threading-versus-Multi-processing" title="Permalink to this headline">¶</a></h2>
-<p>This type of parallelism – where we create entirely new processes to run our code, and we have to copy over our data to each new process – is what’s called “multiprocessing”. Multiprocessing is nice because (a) you can use it on big server clusters where different processes may be running on different computers, and (b) it’s quite safe.</p>
-<p>But there is another type of parallelism to be aware of called multi-threading. In multi-threading, all the code being run (each sequence execution of which is called a “thread”) exists within a single process, meaning that all the different threads have access to the same objects in memory. This massively reduces duplication because you don’t have to copy your code and data and pass it around – all the threads can see the same parts of memory.</p>
-<p>Because it doesn’t entail moving and copying data, multi-threading is <em>much</em> faster than multi-processing, but it has three major shortcomings:</p>
+<div class="section" id="Multi-processing-versus-Multi-threading">
+<h2>Multi-processing versus Multi-threading<a class="headerlink" href="#Multi-processing-versus-Multi-threading" title="Permalink to this headline">¶</a></h2>
+<p>This type of parallelism – where we create entirely new processes to run our code, and we have to copy over our data to each new process – is what’s called “multiprocessing”. Multiprocessing is nice because (a) you can use it on big server clusters where different processes may be running on different computers, and (b) it’s quite safe. As a result, <em>most</em> parallelism you’re like to encounter will be multi-processing.</p>
+<p>However, there is another type of parallelism to be aware of called multi-threading. In multi-threading, all the code being run (each sequence execution of which is called a “thread”) exists within a single process, meaning that all the different threads have access to the same objects in memory. This massively reduces duplication because you don’t have to copy your code and data and pass it around – all the threads can see the same parts of memory.</p>
+<p>But multi-threading has three major shortcomings:</p>
 <ul class="simple">
 <li><p>It is <em>very</em> easy to run into very subtle but profound problems that lead to corruption (the biggest of which is something called <a class="reference external" href="https://youtu.be/7ENFeb-J75k">Race Conditions</a>).</p></li>
 <li><p>Multi-threading can only distribute a job over the cores <em>on a single computer</em>, meaning it can’t be used to distribute a job over hundreds of cores in a large computing cluster.</p></li>
@@ -630,6 +630,12 @@ Wall time: 6.47 s
 <p>GPUs are basically computers onto themselves designed for the sole purpose of, as the name suggests, processing graphics. As it turns out, however, most of what one does when processing graphics is <em>lots</em> of matrix algebra. And so in recent years researchers, have started using GPUs for scientific research.</p>
 <p>GPU processors aren’t “general purpose” processors – they only do a few things, and as a result of that specialization, what they do they do <em>fast</em>. Moreover, they are massively parallel: while your CPU (your Intel chip) may have ~4-8 cores, a modern GPU has either hundreds or thousands of cores.</p>
 <p>But because GPUs are basically computers onto themselves, to use them you have to write special code to both manage all those cores and also manage the movement of data from your regular computer to the GPU. All of which is to say: you probably won’t write your own GPU parallel algorithm, but if you end up in an area that uses them a lot (i.e. training neural networks), the libraries you use will.</p>
+</div>
+<div class="section" id="Parallelism-and-Distributed-Computing">
+<h2>Parallelism and Distributed Computing<a class="headerlink" href="#Parallelism-and-Distributed-Computing" title="Permalink to this headline">¶</a></h2>
+<p>In this reading, we’ve mostly focused on discussing the <em>principles</em> of parallelism – the goal, the fundamental problems, and some basic examples of parallelism.</p>
+<p>In a future class, we’ll discuss some packages that are designed to make parallelism as easy as possible in situations where you really need parallelism. In particular, we’ll focus on tools for <em>distributed computer</em>: situations where you don’t just want to parallelize across the cores in your computer, but across many computers (e.g. in the cloud). But when we get to these tools – like <code class="docutils literal notranslate"><span class="pre">pyspark</span></code> and <code class="docutils literal notranslate"><span class="pre">dask</span></code> – try to keep in mind the lessons we’ve learned here, because everything you’ve
+learned here applies to those packages as well!</p>
 </div>
 <div class="section" id="Want-to-Learn-More?">
 <h2>Want to Learn More?<a class="headerlink" href="#Want-to-Learn-More?" title="Permalink to this headline">¶</a></h2>
@@ -687,11 +693,12 @@ Wall time: 6.47 s
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Parallel Computing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#What-is-Parallelism">What <em>is</em> Parallelism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Why-is-Paralleism-important?">Why is Paralleism important?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Limits-of-Parallelism">Limits of Parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Theoretical-Limits-of-Parallelism">Theoretical Limits of Parallelism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Vocabulary">Vocabulary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Parallel-Processing-with-Joblib">Parallel Processing with Joblib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Multi-threading-versus-Multi-processing">Multi-threading versus Multi-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#An-Example:-Parallel-Processing-with-Joblib">An Example: Parallel Processing with Joblib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Multi-processing-versus-Multi-threading">Multi-processing versus Multi-threading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#GPU-Parallelism">GPU Parallelism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Parallelism-and-Distributed-Computing">Parallelism and Distributed Computing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Want-to-Learn-More?">Want to Learn More?</a></li>
 </ul>
 </li>
@@ -739,7 +746,7 @@ Wall time: 6.47 s
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
