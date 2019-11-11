@@ -27,7 +27,10 @@ This portion of the course will culminate in students picking a topic, developin
 `The full syllabus for this course can be downloaded here <https://github.com/nickeubank/practicaldatascience/raw/master/syllabus/Syllabus_PracticalDataScience.pdf>`_. Please note that this syllabus is subject to change up until he first day of class.
 
 
+Questions or comments?
+-----------------------
 
+Please let me know! All source files (and underlying jupyter notebooks) for this site can be `found on github <https://github.com/nickeubank/practicaldatascience/>`_, and you can raise issues there by creating a new issue, or by emailing me at `nick@nickeubank.com <mailto:nick@nickeubank.com>`_. 
 
 .. toctree:: 
    :maxdepth: 2
