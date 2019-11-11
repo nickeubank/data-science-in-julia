@@ -238,13 +238,15 @@ div.rendered_html tbody tr:hover {
 <p><code class="docutils literal notranslate"><span class="pre">dask</span></code> is a library designed to help facilitate (a) manipulation of very large datasets, and (b) distribution of computation across lots of cores or physical computers. It is very similar to Apache Spark in the functionality it provides, but it is tightly integrated into <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, making it <em>much</em> easier to learn than spark for users of those libraries.</p>
 <div class="section" id="What-can-dask-do-for-me?">
 <h2>What can dask do for me?<a class="headerlink" href="#What-can-dask-do-for-me?" title="Permalink to this headline">¶</a></h2>
-<p>To get a sense of why <code class="docutils literal notranslate"><span class="pre">dask</span></code> is so nice, let’s begin with a demonstration. Suppose I have a pretty big dataset (say, records of all drug shipments in the United States from 2006 to 2012). This data is too large for me to load into ram on my laptop directly, so if I were to work with it on my own, I’d do so by <a class="reference internal" href="big_data_strategies.html"><span class="doc">chunking the data by hand</span></a>. But using <code class="docutils literal notranslate"><span class="pre">dask</span></code>, I can do the following:</p>
+<p>To get a sense of why <code class="docutils literal notranslate"><span class="pre">dask</span></code> is so nice, let’s begin with a demonstration. Suppose I have a pretty big dataset (say, <a class="reference external" href="https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/">records of all drug shipments in the United States from 2006 to 2012</a>). This data is too large for me to load into ram on my laptop directly, so if I were to work with it on my own, I’d do so by <a class="reference internal" href="big_data_strategies.html"><span class="doc">chunking the data by hand</span></a>. But using <code class="docutils literal notranslate"><span class="pre">dask</span></code>, I can do the
+following:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Standard setups</span>
+
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/users/nick/github/practicaldatascience/example_data/dask_data&#39;</span><span class="p">)</span>
@@ -252,7 +254,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -261,7 +263,8 @@ div.rendered_html tbody tr:hover {
 <span class="c1"># In this case, these workers are all on</span>
 <span class="c1"># my computer, but if we wanted to connect</span>
 <span class="c1"># to a cluster, we&#39;d just past an IP address</span>
-<span class="c1"># to `Client()`.</span>
+<span class="c1"># to `Client()` (the `n_workers` specifies</span>
+<span class="c1"># the number of workers, so here I use 7)</span>
 
 <span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="k">import</span> <span class="n">Client</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
@@ -269,8 +272,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/distributed/dashboard/core.py:72: UserWarning:
+Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the diagnostics dashboard on a random port instead.
+  warnings.warn(&#34;\n&#34; + msg)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -279,8 +294,8 @@ div.rendered_html tbody tr:hover {
 <td style="vertical-align: top; border: 0px solid white">
 <h3 style="text-align: left;">Client</h3>
 <ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
-  <li><b>Scheduler: </b>tcp://127.0.0.1:62038</li>
-  <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>
+  <li><b>Scheduler: </b>tcp://127.0.0.1:62484</li>
+  <li><b>Dashboard: </b><a href='http://127.0.0.1:62485/status' target='_blank'>http://127.0.0.1:62485/status</a>
 </ul>
 </td>
 <td style="vertical-align: top; border: 0px solid white">
@@ -300,11 +315,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># ARCOS Data on all drug shipments in US from 2006 to 2012</span>
+<span class="c1"># I was unable to get this data</span>
+<span class="c1"># into my repo, but you can download it here:</span>
+<span class="c1"># https://d2ty8gaf6rmowa.cloudfront.net/dea-pain-pill-database/bulk/arcos_all_washpost.tsv.gz</span>
 
-<span class="c1"># Note that only the compressed version of this data</span>
-<span class="c1"># is available in the practical data science repo,</span>
-<span class="c1"># and while pandas can read compressed files like this,</span>
-<span class="c1"># `dask` can not. So if you want to do this at home,</span>
+<span class="c1"># Note that while pandas can read compressed files like this .tsv.gz,</span>
+<span class="c1"># file, `dask` cannot. So if you want to do this at home,</span>
 <span class="c1"># you have to decompress the data.</span>
 
 <span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
@@ -347,14 +363,43 @@ Dask Name: series-groupby-sum-agg, 18931 tasks
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%time</span>
 <span class="n">final</span> <span class="o">=</span> <span class="n">collapsed</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 <span class="n">final</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPU times: user 57.6 s, sys: 5.93 s, total: 1min 3s
+Wall time: 6min 7s
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>year  BUYER_STATE  BUYER_COUNTY
+2009  VT           ESSEX               20.280900
+2007  PA           JUNIATA           6110.984137
+2011  VA           JAMES CITY       18805.485283
+2010  CA           SAN DIEGO       827663.705501
+2006  MS           JACKSON          47401.596348
+      SD           BRULE              318.922052
+      TX           HAMILTON          2016.924225
+2008  CA           COLUSA            5944.490901
+2010  AR           ASHLEY            5957.966666
+2007  GA           WARREN             444.468788
+Name: morphine_equivalent_g, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -371,15 +416,14 @@ Dask Name: series-groupby-sum-agg, 18931 tasks
 </ul>
 </li>
 </ol>
+<p>And it did it all in 6 minutes!</p>
 </div>
 <div class="section" id="Um…-why-didn’t-you-tell-us-about-this-before?">
 <h2>Um… why didn’t you tell us about this before?<a class="headerlink" href="#Um…-why-didn’t-you-tell-us-about-this-before?" title="Permalink to this headline">¶</a></h2>
 <p>It sure seems like this is easier than <a class="reference external" href="big_data_strategies">chunking by hand</a>!</p>
-<p>For a few reasons.</p>
-<ol class="arabic simple">
-<li><p>This example was carefully chosen. This type of distributed processing is very good at <em>certain</em> manipulations, but it can also be very fragile. Do the wrong things, and you can easily crash your computer.</p></li>
-<li><p>The biggest challenge with a tool like <code class="docutils literal notranslate"><span class="pre">dask</span></code> or <code class="docutils literal notranslate"><span class="pre">pyspark</span></code> is that you have to understand what the software is doing in order to be able to give it commands that won’t overwhelm your system. And the best way to do that is to get experience chunking by hand.</p></li>
-</ol>
+<p>Because these distributed computing tools are very fragile, and it’s easy for them to crash your computer.</p>
+<p>This example was carefully chosen. Distributed processing tools are very good at <em>certain</em> manipulations, but do the wrong things, and you can easily crash your computer.</p>
+<p>Moreover, the biggest challenge in using a tool like <code class="docutils literal notranslate"><span class="pre">dask</span></code> or <code class="docutils literal notranslate"><span class="pre">pyspark</span></code> is that to prevent crashes, you have to understand what the software is doing behind the scenes. And the best way to do that is to get experience chunking by hand.</p>
 <p>For example, one of the key features of distributing computing is that they don’t run code as soon as you type it. Instead, they just keep track of what you want and wait until you run <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> to actually execute your code. Why? Because if <code class="docutils literal notranslate"><span class="pre">dask</span></code> had run each command as I entered it and pass the result back to me, it would have crashed my computer.</p>
 <p>Recall that the whole reason we’re using dask is precisely because we knew that loading the whole dataset at once would take up more memory than I have available. It’s only because we only loaded chunks of the data, thinned out those chunks by dropping variables, and then collapsed by county-state-year that we ended up with a dataset that was small enough that it would fit in memory.</p>
 <p>In other words, this only worked because I knew that the steps after the intial load would reduce the size of the dataset enough that when I ran <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, the result I got back would be small enough to fit in memory. Had I just run:</p>
@@ -411,15 +455,6 @@ Dask Name: series-groupby-sum-agg, 18931 tasks
 <h2>Let’s Learn More dask!<a class="headerlink" href="#Let’s-Learn-More-dask!" title="Permalink to this headline">¶</a></h2>
 <p>OK, now that we have the basic idea of <code class="docutils literal notranslate"><span class="pre">dask</span></code> in hand, please watch the following (<em>very</em> well organized) talk on <code class="docutils literal notranslate"><span class="pre">dask</span></code>. Then come back here and we can talk some more!</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=RA_2qdipVng">Matthew Rocklin on Dask</a></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 

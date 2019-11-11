@@ -67,13 +67,14 @@ This portion of the course will culminate in students picking a topic, developin
    :caption: SKILLS
 
    Getting Help Online <getting_help>
+   Defensive Programming <defensive_programming>
+   Workflow Management <workflow>
    What is Big Data? <what_is_big_data>
    Working with Big Data <big_data_strategies>
    Understanding Performance <performance_understanding>
    Solving Performance Probs <performance_solutions>
    Parallel Computing <parallelism>
-   Defensive Programming <defensive_programming>
-   Workflow Management <workflow>
+   Distributed Computing <distributed_computing>
 
 .. toctree::
    :maxdepth: 2
