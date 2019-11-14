@@ -12,12 +12,12 @@
     "\n",
     "## What can dask do for me?\n",
     "\n",
-    "To get a sense of why `dask` is so nice, let's begin with a demonstration. Suppose I have a pretty big dataset (say, [records of all drug shipments in the United States from 2006 to 2012](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/)). This data is too large for me to load into ram on my laptop directly, so if I were to work with it on my own, I'd do so by [chunking the data by hand](big_data_strategies.ipynb). But using `dask`, I can do the following: "
+    "To get a sense of why `dask` is so nice, let's begin with a demonstration. Suppose I have a pretty big dataset (say, [an 80GB CSV of all drug shipments in the United States from 2006 to 2012](https://www.washingtonpost.com/graphics/2019/investigations/dea-pain-pill-database/)). This data is too large for me to load into ram on my laptop directly, so if I were to work with it on my own, I'd do so by [chunking the data by hand](big_data_strategies.ipynb). But using `dask`, I can do the following: "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -30,20 +30,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/Nick/miniconda3/lib/python3.7/site-packages/distributed/dashboard/core.py:72: UserWarning: \n",
-      "Port 8787 is already in use. \n",
-      "Perhaps you already have a cluster running?\n",
-      "Hosting the diagnostics dashboard on a random port instead.\n",
-      "  warnings.warn(\"\\n\" + msg)\n"
-     ]
-    },
     {
      "data": {
       "text/html": [
@@ -52,8 +41,8 @@
        "<td style=\"vertical-align: top; border: 0px solid white\">\n",
        "<h3 style=\"text-align: left;\">Client</h3>\n",
        "<ul style=\"text-align: left; list-style: none; margin: 0; padding: 0;\">\n",
-       "  <li><b>Scheduler: </b>tcp://127.0.0.1:62484</li>\n",
-       "  <li><b>Dashboard: </b><a href='http://127.0.0.1:62485/status' target='_blank'>http://127.0.0.1:62485/status</a>\n",
+       "  <li><b>Scheduler: </b>tcp://127.0.0.1:58911</li>\n",
+       "  <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>\n",
        "</ul>\n",
        "</td>\n",
        "<td style=\"vertical-align: top; border: 0px solid white\">\n",
@@ -68,10 +57,10 @@
        "</table>"
       ],
       "text/plain": [
-       "<Client: 'tcp://127.0.0.1:62484' processes=7 threads=21, memory=34.36 GB>"
+       "<Client: 'tcp://127.0.0.1:58911' processes=7 threads=21, memory=34.36 GB>"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 2,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -92,7 +81,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -118,7 +107,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
@@ -132,51 +121,58 @@
        "Dask Name: series-groupby-sum-agg, 18931 tasks"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
+    "# Extract year\n",
     "df['date'] = dd.to_datetime(df.TRANSACTION_DATE, format=\"%m%d%Y\")\n",
     "df['year'] = df.date.dt.year\n",
+    "\n",
+    "# Make an estimate of total morphine equivalent shipments\n",
     "df['morphine_equivalent_g'] = (df['CALC_BASE_WT_IN_GM']) * df['MME_Conversion_Factor']\n",
+    "\n",
+    "# Drop extra vars\n",
     "df = df[['year', 'morphine_equivalent_g', 'BUYER_STATE', 'BUYER_COUNTY']]\n",
+    "\n",
+    "# Collapse to total shipments to each county in each year.\n",
     "collapsed = df.groupby(['year', 'BUYER_STATE', 'BUYER_COUNTY']).morphine_equivalent_g.sum()\n",
     "collapsed"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 57.6 s, sys: 5.93 s, total: 1min 3s\n",
-      "Wall time: 6min 7s\n"
+      "CPU times: user 37.6 s, sys: 4.32 s, total: 41.9 s\n",
+      "Wall time: 5min 29s\n"
      ]
     },
     {
      "data": {
       "text/plain": [
        "year  BUYER_STATE  BUYER_COUNTY\n",
-       "2009  VT           ESSEX               20.280900\n",
-       "2007  PA           JUNIATA           6110.984137\n",
-       "2011  VA           JAMES CITY       18805.485283\n",
-       "2010  CA           SAN DIEGO       827663.705501\n",
-       "2006  MS           JACKSON          47401.596348\n",
-       "      SD           BRULE              318.922052\n",
-       "      TX           HAMILTON          2016.924225\n",
-       "2008  CA           COLUSA            5944.490901\n",
-       "2010  AR           ASHLEY            5957.966666\n",
-       "2007  GA           WARREN             444.468788\n",
+       "2010  IA           FAYETTE           3706.820738\n",
+       "2011  NE           PAWNEE             752.424975\n",
+       "2008  IA           WINNESHIEK        1377.444495\n",
+       "2010  IL           WINNEBAGO        76916.264490\n",
+       "2011  MI           SAINT CLAIR      66984.248557\n",
+       "2010  WA           CLARK           178062.059867\n",
+       "2008  NE           CHASE              514.295437\n",
+       "      OH           HURON            16368.201742\n",
+       "      NH           COOS             14207.464249\n",
+       "2007  SD           PERKINS            191.063475\n",
        "Name: morphine_equivalent_g, dtype: float64"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -209,15 +205,15 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Um... why didn't you tell us about this before?\n",
+    "## Um... why didn't you tell us about this before? I hear you say...\n",
     "\n",
-    "It sure seems like this is easier than [chunking by hand](big_data_strategies)!\n",
+    "This sure seems like this is easier than [chunking by hand](big_data_strategies)!!!!\n",
     "\n",
-    "Because these distributed computing tools are very fragile, and it's easy for them to crash your computer. \n",
+    "The answer is that these distributed computing tools are often very fragile and opaque, and it's easy to get in trouble using them, and hard to figure out why if you don't understand the underlying principles that govern their operation.  \n",
     "\n",
-    "This example was carefully chosen. Distributed processing tools are very good at *certain* manipulations, but do the wrong things, and you can easily crash your computer. \n",
+    "This example was carefully chosen. I used only manipulations that `dask` is really good at, and I have the experience to implement them in a way that works. But do what I did above in slightly different ways, and chaos would ensure. Ok, not chaos. But you're computer would probably crash. \n",
     "\n",
-    "Moreover, the biggest challenge in using a tool like `dask` or `pyspark` is that to prevent crashes, you have to understand what the software is doing behind the scenes. And the best way to do that is to get experience chunking by hand. \n",
+    "The biggest challenge in using a tool like `dask` or `pyspark` is that to prevent crashes, you have to understand how and why dask is chunking your data. And the best way to do that is to get experience chunking by hand. \n",
     "\n",
     "For example, one of the key features of distributing computing is that they don't run code as soon as you type it. Instead, they just keep track of what you want and wait until you run `.compute()` to actually execute your code. Why? Because if `dask` had run each command as I entered it and pass the result back to me, it would have crashed my computer. \n",
     "\n",
@@ -265,6 +261,30 @@
     "OK, now that we have the basic idea of `dask` in hand, please watch the following (*very* well organized) talk on `dask`. Then come back here and we can talk some more!\n",
     "\n",
     "[Matthew Rocklin on Dask](https://www.youtube.com/watch?v=RA_2qdipVng)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## There is no magic here\n",
+    "\n",
+    "\n",
+    "[IN PROGRESS]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## dask versus Spark"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## What else can dask do?"
    ]
   }
  ],
