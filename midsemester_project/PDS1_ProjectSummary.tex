@@ -296,17 +296,84 @@ of the following form (where $c$ is an index for US Counties (a geographic unit 
 
 Where $Y_{c,t}$ is a county-year-level outcome (either overdoses per capita or opioid shipments),  $\psi_c$ are county fixed effects, $post_{t}$ is an indicator for whether we are in a period after implementation of the policy change, and $policy\_state_{c}$ is an indicator for whether a given county is in a state that experienced a policy change. Our ``difference-in-difference'' estimate is the coefficient $\beta_2$.
 
-However, note that the analysis in Figure~\ref{figure_diffindiff_examples} allows for time trends, which do not appear in this specification \ref{diff_in_diff_notime}. It just compares differences in average levels of overdoses before and after the policy change. If we also want to allow for differential time trends (as pictured above) we'd use specification \ref{diff_in_diff_wtime}.
+However, note that the analysis in Figure~\ref{figure_diffindiff_examples} allows for time trends, which do not appear in this specification \ref{diff_in_diff_notime}. It just compares differences in average levels of overdoses before and after the policy change. If we also want to allow for differential time trends (as pictured above) we'd use specification \ref{diff_in_diff_wtime}:
 
 \emph{Allowing for both changes in levels and for changes in trends (analogous to what we plotted above):}
 \begin{eqnarray}
- Y_{c,t} &=& \alpha + \psi_{c} + \label{diff_in_diff_wtime}\\
- && \beta_1 year_{t} + \beta_2 post_{t} + \beta_3 post_{t} * year_{t} + \nonumber \\
- && \beta_4 post_{t} * policy\_state_{c} +\beta_5 policy\_state_{c} * year_t + \nonumber \\
- && \beta_6 post_{t} * year_{t} * policy\_state_{c} + \epsilon_{c,t} \nonumber
+ Y_{c,t} &=& \alpha + \label{diff_in_diff_wtime}\\
+ && \beta_1 policy\_state_{c} + \nonumber\\
+ && \beta_2 year_{t} + \beta_3 year * policy\_state_{c} + \nonumber\\
+ && \beta_4 post_{t} + \beta_5 post_{t} * policy\_state_{t} + \nonumber \\
+ && \beta_6 post_{t} * year + \nonumber\\
+ && \beta_7 post_{t} * year_{t} * policy\_state_{c} + \epsilon_{c,t} \nonumber
 \end{eqnarray}
 
- Here the specific outcome of interest is a little more complicated and does not drop nicely from the regression. In the simplest terms, if we adjust $year_{t}$ so that it has a value of 0 in the year the policy goes into effect, then $\beta_4-\beta_2$ tells us if there's a \emph{level} change in $Y$ right after the policy change, and $\beta_6 - \beta_3$ tells us if there is a change in the \emph{time trend} after the policy change.
+Where $year_{t}$ has been adjusted to take on a value of 0 at the year of the policy change.
+
+
+We can interpret these as follows, where for simplicity I'll just call our policy-change state ``Treated,'' and non-policy change states as ``Controls.''
+
+\begin{itemize}
+  \item $\alpha$ is the intercept for the Controls in the pre-policy change period (note that the intercept occurs at the year of the policy chance, since that's where $t=0$).
+  $\alpha + \beta_{1}$ is the intercept for Treated in the pre-policy change period.
+  \begin{itemize}
+    \item Consequently, $\beta_1$ is the \emph{difference} in intercepts at $t=0$ for the pre-policy change period.
+  \end{itemize}
+  \item $\alpha + \beta_4$ is the intercept for the Controls in the pre-policy change period. $\alpha + \beta_1 + \beta_4 + \beta_5$ is the intercept for Treated in the pre-policy change period.
+  \begin{itemize}
+    \item Consequently, $\beta_1 + \beta_5$ is the \emph{difference} in intercepts at $t=0$ for the post-policy change period.
+  \end{itemize}
+  \item $\beta_2$ is the slope for Controls before the policy change. $\beta_2 + \beta_3$ is the slope for Treated before the policy change.
+\begin{itemize}
+  \item Consequently, $\beta_{3}$ is the \emph{difference} in slopes in the pre-policy change period.
+\end{itemize}
+  \item $\beta_{2} + \beta_{6}$ is the slope in the post-policy change period for Control states. $\beta_{2} + \beta_{3} + \beta_{6} + \beta_{7}$ is the slope for Treated in the post-change period.
+  \begin{itemize}
+    \item Consequently, $\beta_{3} + \beta_{7}$ is the difference in slopes in the post-policy change period.
+  \end{itemize}
+  \item The \emph{difference-in-difference} estimate for the change in intercepts is therefore: \\
+   $(\beta_1 + \beta_5) - (\beta_1) = \beta_5$
+  \item The \emph{difference-in-difference} estimate for the change in slopes is therefore:\\
+   $(\beta_{3} + \beta_{7}) - (\beta_{3}) = \beta_7$.
+\end{itemize}
+
+So far so good! But we are often interested in asking about how things look \emph{on the whole} at some point after a policy has changed, not right at the moment of the policy change.
+
+This is also helpful in situations where level shifts go one way (say, seem to make stuff worse), but the slope change goes the other (seems to make stuff better). At what point do those offset? After 2 years, for example, is everyone better off?
+
+These quantities are quite tricky because you have to estimate them \emph{at a point in time}, which means bringing in specific values of $t$. (Again: this is after we've normalized $year$ so that $t=0$ occurs at the year of the policy change. )
+
+Suppose, for example, we wanted to compare outcomes 2 years after the policy to 1 year before the policy change. Here are the predicted values (note how we now have to fill in values for $year$'):
+
+\begin{itemize}
+  \item Treated at 2 years after policy change: \\
+  $\alpha + \beta_1 + \beta_2 * 2 + \beta_3 * 2 + \beta_4 + \beta_5 + \beta_6 * 2 + \beta_7 * 2$
+  \item Control at 2 years after policy change: \\
+  $\alpha + \beta_2 * 2 + \beta_4 + \beta_6 * 2$
+  \item Treated 1 year before policy change: \\
+  $\alpha + \beta_1 + \beta_2 * -1 + \beta_3 * -1$
+  \item Control 1 year before policy change: \\
+  $\alpha + \beta_2 * -1$
+\end{itemize}
+
+Now differencing:
+
+\begin{itemize}
+  \item Difference (T - C) two years out: \\
+  $\beta_1  + \beta_3 * 2+ \beta_5 + \beta_7 * 2$
+  \item Difference (T-C) one year before: \\
+  $\beta_1  + \beta_3 * -1$
+  \item Difference-in-difference from two years after minus one year before: \\
+  $\beta_7 * 2 + \beta_5 + \beta_3$
+\end{itemize}
+
+Yeah... see? That doesn't just drop out of the regression table, and nor does an estimate of significance. And that's why we use post-regression tests!
+
+\subsection*{Fixed-Effects}
+
+It is also normal to do the difference-in-difference regression described above with fixed-effects. Note, however, that this changes the specification somewhat because $policy\_state_{c}$ is non-time-varying,  and so will be co-linear with county fixed effects, and so it won't be possible to estimate it. That doesn't change the diff-in-diff estimates, but it does make reading the equations a little trickier, so I did the writeup above without fixed effects. In general, though, its best to use fixed effects when you can!
+
+
 
 
 \end{document}
