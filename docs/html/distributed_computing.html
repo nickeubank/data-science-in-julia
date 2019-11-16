@@ -415,7 +415,7 @@ Name: morphine_equivalent_g, dtype: float64
 <p>Voila! I get back my thinned out dataset with the new variable I wanted, all while never using more than about 2gb of RAM at any point.</p>
 <p>So let’s discuss what just happened.</p>
 <ol class="arabic simple">
-<li><p>First, when I ran <code class="docutils literal notranslate"><span class="pre">Client()</span></code>, <code class="docutils literal notranslate"><span class="pre">dask</span></code> started up a set of 4 new python processes on my computer (called “workers”) it could call on for help. These are fully independent agents that <em>could</em> be running on different machines in a true cluster (though in this case, they’re all on my laptop).</p></li>
+<li><p>First, when I ran <code class="docutils literal notranslate"><span class="pre">Client()</span></code>, <code class="docutils literal notranslate"><span class="pre">dask</span></code> started up a set of 7 new python processes on my computer (called “workers”) it could call on for help. These are fully independent agents that <em>could</em> be running on different machines in a true cluster (though in this case, they’re all on my laptop).</p></li>
 <li><p>It then collected all the instructions I gave it for reading in the file, generating a new column, deleting extra columns, and grouping. <strong>But it didn’t actually execute any code</strong>. That’s why when I typed <code class="docutils literal notranslate"><span class="pre">collapsed</span></code>, what I got back was a dataframe with structure but no data – <code class="docutils literal notranslate"><span class="pre">dask</span></code> had figured out roughly what the result of my commands would look like, but hadn’t actually computed the result.</p></li>
 <li><p>Then, when I ran <code class="docutils literal notranslate"><span class="pre">collapsed.compute()</span></code>, <code class="docutils literal notranslate"><span class="pre">dask</span></code> came up with a set of assignments it could give to its workers to get me what I wanted and it started to actually compute the table I requested. In particular:</p>
 <ul class="simple">
@@ -427,14 +427,14 @@ Name: morphine_equivalent_g, dtype: float64
 </ol>
 <p>And it did it all in 6 minutes!</p>
 </div>
-<div class="section" id="Um…-why-didn’t-you-tell-us-about-this-before?-I-hear-you-say…">
-<h2>Um… why didn’t you tell us about this before? I hear you say…<a class="headerlink" href="#Um…-why-didn’t-you-tell-us-about-this-before?-I-hear-you-say…" title="Permalink to this headline">¶</a></h2>
-<p>This sure seems like this is easier than <a class="reference external" href="big_data_strategies">chunking by hand</a>!!!!</p>
+<div class="section" id="“Um…-why-didn’t-you-tell-us-about-this-before?”-I-hear-you-say…">
+<h2>“Um… why didn’t you tell us about this before?” I hear you say…<a class="headerlink" href="#“Um…-why-didn’t-you-tell-us-about-this-before?”-I-hear-you-say…" title="Permalink to this headline">¶</a></h2>
+<p>“This sure seems like this is easier than <a class="reference external" href="big_data_strategies">chunking by hand</a>!!!!”</p>
 <p>The answer is that these distributed computing tools are often very fragile and opaque, and it’s easy to get in trouble using them, and hard to figure out why if you don’t understand the underlying principles that govern their operation.</p>
 <p>This example was carefully chosen. I used only manipulations that <code class="docutils literal notranslate"><span class="pre">dask</span></code> is really good at, and I have the experience to implement them in a way that works. But do what I did above in slightly different ways, and chaos would ensure. Ok, not chaos. But you’re computer would probably crash.</p>
-<p>The biggest challenge in using a tool like <code class="docutils literal notranslate"><span class="pre">dask</span></code> or <code class="docutils literal notranslate"><span class="pre">pyspark</span></code> is that to prevent crashes, you have to understand how and why dask is chunking your data. And the best way to do that is to get experience chunking by hand.</p>
-<p>For example, one of the key features of distributing computing is that they don’t run code as soon as you type it. Instead, they just keep track of what you want and wait until you run <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> to actually execute your code. Why? Because if <code class="docutils literal notranslate"><span class="pre">dask</span></code> had run each command as I entered it and pass the result back to me, it would have crashed my computer.</p>
-<p>Recall that the whole reason we’re using dask is precisely because we knew that loading the whole dataset at once would take up more memory than I have available. It’s only because we only loaded chunks of the data, thinned out those chunks by dropping variables, and then collapsed by county-state-year that we ended up with a dataset that was small enough that it would fit in memory.</p>
+<p>The biggest challenge in using a tool like <code class="docutils literal notranslate"><span class="pre">dask</span></code> or <code class="docutils literal notranslate"><span class="pre">spark</span></code> (they operate on the same principles – more on that below) is that to prevent crashes, you have to understand how and why dask is chunking your data. And the best way to do that is to get experience chunking by hand.</p>
+<p>For example, one of the key features of distributing computing is that they don’t run code as soon as you type it. Instead, they just keep track of what you want and wait until you run <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> to actually execute your code. Why? Because if <code class="docutils literal notranslate"><span class="pre">dask</span></code> had run each command as I entered it and passed the result back to me, it would have crashed my computer.</p>
+<p>Recall that the whole reason we’re using dask is precisely because we knew that loading the whole dataset at once would take up more memory than I have available. It’s only because we only loaded a few chunks of the data at a time, thinned out those chunks by dropping variables, and then collapsed by county-state-year that we ended up with a dataset that was small enough that it would fit in memory.</p>
 <p>In other words, this only worked because I knew that the steps after the intial load would reduce the size of the dataset enough that when I ran <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, the result I got back would be small enough to fit in memory. Had I just run:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ACTION_INDICATOR&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
@@ -480,6 +480,8 @@ Name: morphine_equivalent_g, dtype: float64
 
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/users/nick/github/practicaldatascience/example_data/dask_data&#39;</span><span class="p">)</span>
 
+<span class="c1"># Create an interator of the data so</span>
+<span class="c1"># it doesn&#39;t all load at once</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span>
                  <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
                  <span class="n">iterator</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -487,16 +489,15 @@ Name: morphine_equivalent_g, dtype: float64
                  <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CALC_BASE_WT_IN_GM&#39;</span><span class="p">,</span> <span class="s1">&#39;MME_Conversion_Factor&#39;</span><span class="p">]</span>
                 <span class="p">)</span>
 
-<span class="n">max_candidates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
 <span class="c1"># Find the max from each chunk</span>
+<span class="n">max_candidates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">df</span><span class="p">:</span>
     <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;morphine_equivalent_g&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;CALC_BASE_WT_IN_GM&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;MME_Conversion_Factor&#39;</span><span class="p">]</span>
     <span class="n">max_candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;morphine_equivalent_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 
 <span class="c1"># Now gather those candidates together and</span>
 <span class="c1"># find the maximum of all the chunk maximums.</span>
-
 <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">max_candidates</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -510,7 +511,7 @@ Name: morphine_equivalent_g, dtype: float64
 </pre></div>
 </div>
 </div>
-<p>Wow… that is a LOT of morphine equivalents in one shipment… (Obviously that’s a bulk raw materials shipment…)</p>
+<p>Wow… that is a LOT of morphine equivalents in one shipment… that’s 34 metric tons. (Obviously that’s a bulk raw materials shipment…)</p>
 <p>Now suppose we asked dask to do the same thing:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -539,9 +540,10 @@ Name: morphine_equivalent_g, dtype: float64
 </pre></div>
 </div>
 </div>
-<p>What dask is actually doing is exactly what you just did! It reads in chunks of the dataset, calculates <code class="docutils literal notranslate"><span class="pre">morphine_equivalent_g</span></code> for each chunk, and calculates the maximum value for that chunk. Then it gathers all those maximium values, and finds the maximum of all those chunk maximums. The only difference is that it loads and evaluations chunks in parallel, then workers have to pass their maximum value candidates to a central node for the final evaluation.</p>
+<p>What dask is actually doing is exactly what you just did! It reads in chunks of the dataset, calculates <code class="docutils literal notranslate"><span class="pre">morphine_equivalent_g</span></code> for each chunk, then calculates the maximum value for that chunk. Then it gathers all those maximium values, and finds the maximum of all those chunk maximums. The only difference is that it loads and evaluations chunks in parallel, and it’s parallel workers then have to pass their maximum value candidates to a central node for the final evaluation.</p>
 <p>Moreover, when I said that’s exactly what <code class="docutils literal notranslate"><span class="pre">dask</span></code> did, I don’t just mean that you and dask are doing the same thing <em>in principle</em> – <code class="docutils literal notranslate"><span class="pre">dask</span></code> is built on pandas, so it really is calling <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>, and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">.max()</span></code> method, just like you.</p>
-<p>Dask’s developers were smart, and didn’t want to reinvent the wheel – they just created something that makes (a) recipes for dividing tasks into smaller pieces it can distribute (map) to different workers (like finding a maximum value), and (b) recipes for recombining the results of sub-problems to give you a single answer. But those recipes are executed using the pandas and numpy you know and love.</p>
+<p>Dask’s developers were smart, and didn’t want to reinvent the wheel – they just created a package full or recipes for using numpy/pandas to (a) divide tasks into smaller pieces it can distribute to different workers (map), and to (b) recombine the results of sub-problems to give you a single answer (reduce).</p>
+<p>But those recipes are just made of the pandas and numpy code you know and love. Or at least tolerate begrudingly.</p>
 </div>
 <div class="section" id="dask-versus-Spark">
 <h2>dask versus Spark<a class="headerlink" href="#dask-versus-Spark" title="Permalink to this headline">¶</a></h2>
@@ -584,15 +586,6 @@ Name: morphine_equivalent_g, dtype: float64
 <p>First, go to the <a class="reference external" href="https://github.com/dask/dask-tutorial">github repo for dask tutorials</a> and download the <code class="docutils literal notranslate"><span class="pre">04_dataframe.ipynb</span></code> notebook (Go to the github page for the notebook, click <code class="docutils literal notranslate"><span class="pre">raw</span></code>, right-click in the window and <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">as...</span></code>, keep the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> suffix, and open in jupyter lab).</p>
 <p>(Note: all these tutorials are great, but as the focus of this class is on real world tabular data, we’re gonna focus on those exercises).</p>
 <p><cite>When you’re done, you can find a ``dask`</cite> cheatsheet here for future reference! &lt;cheatsheets.ipynb&gt;`__</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -648,7 +641,7 @@ Name: morphine_equivalent_g, dtype: float64
 <li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallel Computing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Distributed Computing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#What-can-dask-do-for-me?">What can dask do for me?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Um…-why-didn’t-you-tell-us-about-this-before?-I-hear-you-say…">Um… why didn’t you tell us about this before? I hear you say…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#“Um…-why-didn’t-you-tell-us-about-this-before?”-I-hear-you-say…">“Um… why didn’t you tell us about this before?” I hear you say…</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Vocabulary">Vocabulary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Let’s-Learn-More-dask!">Let’s Learn More dask!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#There-is-no-magic-here">There is no magic here</a></li>
