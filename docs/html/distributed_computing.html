@@ -556,7 +556,7 @@ Name: morphine_equivalent_g, dtype: float64
 </ul>
 <p>The differences instead come down to implementation details. <code class="docutils literal notranslate"><span class="pre">dask</span></code>, for example, is for Python users. It’s written in Python, and it’s a relatively simple library that just creates recipes for parallelizing <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> functions (and uses <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to execute those recipes). <strong>And because it was designed for Python users, the syntax almost always matches that of numpy and pandas.</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">spark</span></code> is a stand-alone system. It’s built to run on Java virtual machines, and <code class="docutils literal notranslate"><span class="pre">spark</span></code> itself is written in a language called <code class="docutils literal notranslate"><span class="pre">Scala</span></code>. It is not a tool for pandas users per se, and so it has its own syntax for manipulating datasets that is distinct from that of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
-<p>As for which is more popular, as is so often the case with software, it depends on where you’re working. In this class, I’ve decided to teach <code class="docutils literal notranslate"><span class="pre">dask</span></code> because you don’t have to learn a new syntax, and you can instead just focus on learning how distributed computing works. But if get a job someday that requires you to work with <code class="docutils literal notranslate"><span class="pre">spark</span></code>, don’t panic – you’ll find that all the concepts you’ve learned for using <code class="docutils literal notranslate"><span class="pre">dask</span></code> also apply to <code class="docutils literal notranslate"><span class="pre">spark</span></code> – you’ll just have to learn some new syntax.</p>
+<p>As for which is more popular, as is so often the case with software, it depends on where you’re working. In this class, I’ve decided to teach <code class="docutils literal notranslate"><span class="pre">dask</span></code> because you don’t have to learn a new syntax, so you can instead just focus on learning how distributed computing works. But if you get a job someday that requires you to work with <code class="docutils literal notranslate"><span class="pre">spark</span></code>, don’t panic – you’ll find that all the concepts you’ve learned for using <code class="docutils literal notranslate"><span class="pre">dask</span></code> also apply to <code class="docutils literal notranslate"><span class="pre">spark</span></code> – you’ll just have to learn some new syntax.</p>
 </div>
 <div class="section" id="What-else-can-dask-do?">
 <h2>What else can dask do?<a class="headerlink" href="#What-else-can-dask-do?" title="Permalink to this headline">¶</a></h2>
@@ -565,7 +565,7 @@ Name: morphine_equivalent_g, dtype: float64
 <li><p>Working with dask arrays: dask has a parallelized version of numpy arrays</p></li>
 <li><p>Parallelizing arbitrary functions: you can write your own parallelized functions with <code class="docutils literal notranslate"><span class="pre">delayed</span></code></p></li>
 <li><p>Distributed machine learning: dask has parallelized SOME machine learning methods in <a class="reference external" href="https://dask-ml.readthedocs.io/en/latest/">dask-ml</a></p></li>
-<li><p>dask can be used with different tools for parallelization other than <code class="docutils literal notranslate"><span class="pre">distributed</span></code> (for example if you want to parallelize using multi-threading). However… it seems like everyone seems to agree at this point you should just use <code class="docutils literal notranslate"><span class="pre">distributed</span></code> all the time.</p></li>
+<li><p>dask can be used with different tools for parallelization other than <code class="docutils literal notranslate"><span class="pre">distributed</span></code> (for example, it can do some parallelism through multi-threading). However… it seems like everyone seems to agree at this point you should just use <code class="docutils literal notranslate"><span class="pre">distributed</span></code> all the time.</p></li>
 </ul>
 </div>
 <div class="section" id="What-can’t-dask-do?">
@@ -578,14 +578,24 @@ Name: morphine_equivalent_g, dtype: float64
 </div>
 <div class="section" id="If-you-really-want-to-get-into-dask…">
 <h2>If you really want to get into dask…<a class="headerlink" href="#If-you-really-want-to-get-into-dask…" title="Permalink to this headline">¶</a></h2>
-<p>Then <em>after</em> doing the exercise below (which I think is actually the most accessible to those taking this class), I would suggest following along with <a class="reference external" href="https://www.youtube.com/watch?v=mqdglv9GnM8">this three hour tutorial</a> that goes through dask from its most basic tools up through dask arrays and dask dataframes. Then also be sure to check out <a class="reference external" href="https://docs.dask.org/en/latest/best-practices.html">dask best practices here</a>.</p>
+<p>Then <em>after</em> doing the exercise below (which I think is actually the most accessible to those taking this class), I would suggest following along with <a class="reference external" href="https://www.youtube.com/watch?v=mqdglv9GnM8">this three hour tutorial</a> that goes through dask from its most basic tools up through dask arrays and dask dataframes (with exercises!).</p>
+<p>Then also be sure to check out <a class="reference external" href="https://docs.dask.org/en/latest/best-practices.html">dask best practices here</a>.</p>
 </div>
 <div class="section" id="Exercises">
 <h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
 <p>Great news! For once I don’t have to write any exercises because the wonderful people at <code class="docutils literal notranslate"><span class="pre">dask</span></code> have already put together some terrific tutorials!</p>
 <p>First, go to the <a class="reference external" href="https://github.com/dask/dask-tutorial">github repo for dask tutorials</a> and download the <code class="docutils literal notranslate"><span class="pre">04_dataframe.ipynb</span></code> notebook (Go to the github page for the notebook, click <code class="docutils literal notranslate"><span class="pre">raw</span></code>, right-click in the window and <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">as...</span></code>, keep the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> suffix, and open in jupyter lab).</p>
 <p>(Note: all these tutorials are great, but as the focus of this class is on real world tabular data, we’re gonna focus on those exercises).</p>
-<p><cite>When you’re done, you can find a ``dask`</cite> cheatsheet here for future reference! &lt;cheatsheets.ipynb&gt;`__</p>
+<p><a class="reference internal" href="cheatsheets.html"><span class="doc">When you’re done, you can find a dask cheatsheet here for future reference!</span></a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

@@ -408,7 +408,7 @@
     "\n",
     "`spark` is a stand-alone system. It's built to run on Java virtual machines, and `spark` itself is written in a language called `Scala`. It is not a tool for pandas users per se, and so it has its own syntax for manipulating datasets that is distinct from that of `numpy` and `pandas`. \n",
     "\n",
-    "As for which is more popular, as is so often the case with software, it depends on where you're working. In this class, I've decided to teach `dask` because you don't have to learn a new syntax, and you can instead just focus on learning how distributed computing works. But if get a job someday that requires you to work with `spark`, don't panic -- you'll find that all the concepts you've learned for using `dask` also apply to `spark` -- you'll just have to learn some new syntax. "
+    "As for which is more popular, as is so often the case with software, it depends on where you're working. In this class, I've decided to teach `dask` because you don't have to learn a new syntax, so you can instead just focus on learning how distributed computing works. But if you get a job someday that requires you to work with `spark`, don't panic -- you'll find that all the concepts you've learned for using `dask` also apply to `spark` -- you'll just have to learn some new syntax. "
    ]
   },
   {
@@ -422,7 +422,7 @@
     "- Working with dask arrays: dask has a parallelized version of numpy arrays\n",
     "- Parallelizing arbitrary functions: you can write your own parallelized functions with `delayed`\n",
     "- Distributed machine learning: dask has parallelized SOME machine learning methods in [dask-ml](https://dask-ml.readthedocs.io/en/latest/)\n",
-    "- dask can be used with different tools for parallelization other than `distributed` (for example if you want to parallelize using multi-threading). However... it seems like everyone seems to agree at this point you should just use `distributed` all the time. "
+    "- dask can be used with different tools for parallelization other than `distributed` (for example, it can do some parallelism through multi-threading). However... it seems like everyone seems to agree at this point you should just use `distributed` all the time. "
    ]
   },
   {
@@ -443,7 +443,9 @@
    "source": [
     "## If you really want to get into dask...\n",
     "\n",
-    "Then *after* doing the exercise below (which I think is actually the most accessible to those taking this class), I would suggest following along with [this three hour tutorial](https://www.youtube.com/watch?v=mqdglv9GnM8) that goes through dask from its most basic tools up through dask arrays and dask dataframes. Then also be sure to check out [dask best practices here](https://docs.dask.org/en/latest/best-practices.html)."
+    "Then *after* doing the exercise below (which I think is actually the most accessible to those taking this class), I would suggest following along with [this three hour tutorial](https://www.youtube.com/watch?v=mqdglv9GnM8) that goes through dask from its most basic tools up through dask arrays and dask dataframes (with exercises!). \n",
+    "\n",
+    "Then also be sure to check out [dask best practices here](https://docs.dask.org/en/latest/best-practices.html)."
    ]
   },
   {
@@ -458,7 +460,7 @@
     "\n",
     "(Note: all these tutorials are great, but as the focus of this class is on real world tabular data, we're gonna focus on those exercises). \n",
     "\n",
-    "[When you're done, you can find a `dask` cheatsheet here for future reference!](cheatsheets.ipynb)"
+    "[When you're done, you can find a dask cheatsheet here for future reference!](cheatsheets.ipynb)"
    ]
   }
  ],
