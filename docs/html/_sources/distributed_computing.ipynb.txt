@@ -41,7 +41,7 @@
        "<td style=\"vertical-align: top; border: 0px solid white\">\n",
        "<h3 style=\"text-align: left;\">Client</h3>\n",
        "<ul style=\"text-align: left; list-style: none; margin: 0; padding: 0;\">\n",
-       "  <li><b>Scheduler: </b>tcp://127.0.0.1:64324</li>\n",
+       "  <li><b>Scheduler: </b>tcp://127.0.0.1:51648</li>\n",
        "  <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>\n",
        "</ul>\n",
        "</td>\n",
@@ -57,7 +57,7 @@
        "</table>"
       ],
       "text/plain": [
-       "<Client: 'tcp://127.0.0.1:64324' processes=7 threads=21, memory=34.36 GB>"
+       "<Client: 'tcp://127.0.0.1:51648' processes=7 threads=21, memory=34.36 GB>"
       ]
      },
      "execution_count": 2,
@@ -151,24 +151,24 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 43.5 s, sys: 5.44 s, total: 48.9 s\n",
-      "Wall time: 6min 24s\n"
+      "CPU times: user 36.6 s, sys: 4.48 s, total: 41.1 s\n",
+      "Wall time: 5min 21s\n"
      ]
     },
     {
      "data": {
       "text/plain": [
-       "year  BUYER_STATE  BUYER_COUNTY  \n",
-       "2007  TX           CAMERON            24581.830020\n",
-       "2009  LA           IBERVILLE          21688.963036\n",
-       "2010  IA           WINNEBAGO           2875.997475\n",
-       "2009  IN           MONROE             43983.236287\n",
-       "2011  WY           SHERIDAN           10172.526818\n",
-       "2007  MD           PRINCE GEORGES    138509.871276\n",
-       "2008  WI           TREMPEALEAU         4515.065631\n",
-       "2011  WV           ROANE               5582.849220\n",
-       "2010  TX           GARZA                578.931465\n",
-       "2009  IL           CUMBERLAND           872.938275\n",
+       "year  BUYER_STATE  BUYER_COUNTY\n",
+       "2010  KY           MONROE            6647.042730\n",
+       "2008  WI           LAFAYETTE          805.367603\n",
+       "2010  TX           ERATH             9607.819440\n",
+       "2008  AL           CLEBURNE          2148.062175\n",
+       "2009  NH           ROCKINGHAM      126879.972002\n",
+       "2010  TX           WARD              2277.728025\n",
+       "2006  IL           WARREN            1508.187783\n",
+       "2012  ME           OXFORD           21837.219420\n",
+       "2008  MT           MEAGHER            220.736779\n",
+       "      OH           HAMILTON        360608.079718\n",
        "Name: morphine_equivalent_g, dtype: float64"
       ]
      },
@@ -272,7 +272,7 @@
     "\n",
     "As noted in that video, one of the very nice things about `dask` (and one of the reasons it's been able to offer so much functionality so quickly) is that it really is just an extension of `numpy` and `pandas`. There is no magic here. \n",
     "\n",
-    "For example, suppose we wanted to find the county that received the largest shipment of opioids in our ARCOS dataset, but we don't have the memory to load the whole dataset into memory at once. How would we get that number? Probably by doing something like:"
+    "For example, suppose we wanted to find the largest number of pills in a single shipment in our ARCOS dataset, but we don't have the memory to load the whole dataset into memory at once. How would we get that number? Probably by doing something like:"
    ]
   },
   {
@@ -283,7 +283,7 @@
     {
      "data": {
       "text/plain": [
-       "34053751.7026875"
+       "3115000.0"
       ]
      },
      "execution_count": 6,
@@ -304,15 +304,18 @@
     "                 delimiter='\\t', \n",
     "                 iterator=True, \n",
     "                 chunksize=100000,\n",
-    "                 usecols=['CALC_BASE_WT_IN_GM', 'MME_Conversion_Factor']\n",
+    "                 usecols=['DOSAGE_UNIT', 'Measure']\n",
     "                )\n",
     "\n",
     "\n",
     "# Find the max from each chunk\n",
     "max_candidates = list()\n",
     "for chunk in df:\n",
-    "    chunk['morphine_equivalent_g'] = chunk['CALC_BASE_WT_IN_GM'] * chunk['MME_Conversion_Factor']\n",
-    "    max_candidates.append(chunk['morphine_equivalent_g'].max())\n",
+    "    # Subset for pill shipments\n",
+    "    chunk = chunk[chunk['Measure'] == \"TAB\"] \n",
+    "\n",
+    "    # Find largest in this chunk\n",
+    "    max_candidates.append(chunk['DOSAGE_UNIT'].max())\n",
     "\n",
     "# Now gather those candidates together and \n",
     "# find the maximum of all the chunk maximums. \n",
@@ -323,7 +326,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Wow... that is a LOT of morphine equivalents in one shipment... that's 34 metric tons. (Obviously that's a bulk raw materials shipment...)"
+    "Wow... that is a LOT of pills!"
    ]
   },
   {
@@ -341,7 +344,7 @@
     {
      "data": {
       "text/plain": [
-       "34053751.7026875"
+       "3115000.0"
       ]
      },
      "execution_count": 7,
@@ -357,8 +360,9 @@
     "                       'REPORTER_ADDL_CO_INFO': 'object',\n",
     "                       'NDC_NO': 'object',\n",
     "                       'UNIT': 'object'})\n",
-    "df['morphine_equivalent_g'] = df['CALC_BASE_WT_IN_GM'] * df['MME_Conversion_Factor']\n",
-    "max_shipment = df['morphine_equivalent_g'].max()\n",
+    "\n",
+    "df = df[df['Measure'] == \"TAB\"] \n",
+    "max_shipment = df['DOSAGE_UNIT'].max()\n",
     "max_shipment.compute()"
    ]
   },

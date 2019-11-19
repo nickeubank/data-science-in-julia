@@ -284,7 +284,7 @@ following:</p>
 <td style="vertical-align: top; border: 0px solid white">
 <h3 style="text-align: left;">Client</h3>
 <ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
-  <li><b>Scheduler: </b>tcp://127.0.0.1:64324</li>
+  <li><b>Scheduler: </b>tcp://127.0.0.1:51648</li>
   <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>
 </ul>
 </td>
@@ -376,8 +376,8 @@ Dask Name: series-groupby-sum-agg, 18931 tasks
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 43.5 s, sys: 5.44 s, total: 48.9 s
-Wall time: 6min 24s
+CPU times: user 36.6 s, sys: 4.48 s, total: 41.1 s
+Wall time: 5min 21s
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -386,16 +386,16 @@ Wall time: 6min 24s
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>year  BUYER_STATE  BUYER_COUNTY
-2007  TX           CAMERON            24581.830020
-2009  LA           IBERVILLE          21688.963036
-2010  IA           WINNEBAGO           2875.997475
-2009  IN           MONROE             43983.236287
-2011  WY           SHERIDAN           10172.526818
-2007  MD           PRINCE GEORGES    138509.871276
-2008  WI           TREMPEALEAU         4515.065631
-2011  WV           ROANE               5582.849220
-2010  TX           GARZA                578.931465
-2009  IL           CUMBERLAND           872.938275
+2010  KY           MONROE            6647.042730
+2008  WI           LAFAYETTE          805.367603
+2010  TX           ERATH             9607.819440
+2008  AL           CLEBURNE          2148.062175
+2009  NH           ROCKINGHAM      126879.972002
+2010  TX           WARD              2277.728025
+2006  IL           WARREN            1508.187783
+2012  ME           OXFORD           21837.219420
+2008  MT           MEAGHER            220.736779
+      OH           HAMILTON        360608.079718
 Name: morphine_equivalent_g, dtype: float64
 </pre></div>
 </div>
@@ -456,7 +456,7 @@ Name: morphine_equivalent_g, dtype: float64
 <div class="section" id="There-is-no-magic-here">
 <h2>There is no magic here<a class="headerlink" href="#There-is-no-magic-here" title="Permalink to this headline">¶</a></h2>
 <p>As noted in that video, one of the very nice things about <code class="docutils literal notranslate"><span class="pre">dask</span></code> (and one of the reasons it’s been able to offer so much functionality so quickly) is that it really is just an extension of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. There is no magic here.</p>
-<p>For example, suppose we wanted to find the county that received the largest shipment of opioids in our ARCOS dataset, but we don’t have the memory to load the whole dataset into memory at once. How would we get that number? Probably by doing something like:</p>
+<p>For example, suppose we wanted to find the largest number of pills in a single shipment in our ARCOS dataset, but we don’t have the memory to load the whole dataset into memory at once. How would we get that number? Probably by doing something like:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -474,15 +474,18 @@ Name: morphine_equivalent_g, dtype: float64
                  <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
                  <span class="n">iterator</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                  <span class="n">chunksize</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span>
-                 <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CALC_BASE_WT_IN_GM&#39;</span><span class="p">,</span> <span class="s1">&#39;MME_Conversion_Factor&#39;</span><span class="p">]</span>
+                 <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">,</span> <span class="s1">&#39;Measure&#39;</span><span class="p">]</span>
                 <span class="p">)</span>
 
 
 <span class="c1"># Find the max from each chunk</span>
 <span class="n">max_candidates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">df</span><span class="p">:</span>
-    <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;morphine_equivalent_g&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;CALC_BASE_WT_IN_GM&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;MME_Conversion_Factor&#39;</span><span class="p">]</span>
-    <span class="n">max_candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;morphine_equivalent_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="c1"># Subset for pill shipments</span>
+    <span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">[</span><span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;Measure&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TAB&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Find largest in this chunk</span>
+    <span class="n">max_candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 
 <span class="c1"># Now gather those candidates together and</span>
 <span class="c1"># find the maximum of all the chunk maximums.</span>
@@ -495,11 +498,11 @@ Name: morphine_equivalent_g, dtype: float64
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>34053751.7026875
+<span></span>3115000.0
 </pre></div>
 </div>
 </div>
-<p>Wow… that is a LOT of morphine equivalents in one shipment… that’s 34 metric tons. (Obviously that’s a bulk raw materials shipment…)</p>
+<p>Wow… that is a LOT of pills!</p>
 <p>Now suppose we asked dask to do the same thing:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -513,8 +516,9 @@ Name: morphine_equivalent_g, dtype: float64
                        <span class="s1">&#39;REPORTER_ADDL_CO_INFO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;NDC_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;UNIT&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">})</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;morphine_equivalent_g&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CALC_BASE_WT_IN_GM&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;MME_Conversion_Factor&#39;</span><span class="p">]</span>
-<span class="n">max_shipment</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;morphine_equivalent_g&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Measure&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TAB&quot;</span><span class="p">]</span>
+<span class="n">max_shipment</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">max_shipment</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -524,7 +528,7 @@ Name: morphine_equivalent_g, dtype: float64
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>34053751.7026875
+<span></span>3115000.0
 </pre></div>
 </div>
 </div>

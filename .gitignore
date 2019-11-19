@@ -17,8 +17,10 @@ source/.ipynb_checkpoints/*
 *.out
 *(busy)
 *.log
-*.nav 
-*.toc 
+*.nav
+*.toc
+*.snm
+*.xdv
 
 .ipynb_checkpoints/*
 **/.ipynb_checkpoints/*
@@ -30,5 +32,3 @@ Solutions_*.ipynb
 
 example_data/dask_data/*
 **/dask-worker-space/
-
-
