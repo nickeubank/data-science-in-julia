@@ -262,7 +262,7 @@ div.rendered_html tbody tr:hover {
 <p>to create a 4 worker cluster on your computer. This cluster is running only on your own computer, but it operates exactly the way it would work on a cloud cluster where these workers live on other computers.</p>
 <p><strong>Note:</strong> these workers communication via networking protocols, so your firewall / anti-virus may ask if it’s ok to let Python accept connections (it is!). If you can’t get your system running, it may be due to your firewall / anti-virus. In that case, try <code class="docutils literal notranslate"><span class="pre">client</span> <span class="pre">=</span> <span class="pre">Client(processes=False)</span></code>. This will create four workers hiding in the same process (obviating the need for network protocols for communication).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -272,8 +272,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/distributed/dashboard/core.py:72: UserWarning:
+Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the diagnostics dashboard on a random port instead.
+  warnings.warn(&#34;\n&#34; + msg)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -282,8 +294,8 @@ div.rendered_html tbody tr:hover {
 <td style="vertical-align: top; border: 0px solid white">
 <h3 style="text-align: left;">Client</h3>
 <ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
-  <li><b>Scheduler: </b>tcp://127.0.0.1:60968</li>
-  <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>
+  <li><b>Scheduler: </b>tcp://127.0.0.1:65080</li>
+  <li><b>Dashboard: </b><a href='http://127.0.0.1:65081/status' target='_blank'>http://127.0.0.1:65081/status</a>
 </ul>
 </td>
 <td style="vertical-align: top; border: 0px solid white">
@@ -1132,7 +1144,7 @@ Wall time: 2.45 s
 </div>
 <p><strong>(6)</strong> Now use <code class="docutils literal notranslate"><span class="pre">.visualize()</span></code> on that variable to see the <em>plan</em> dask has for getting you the maximimum value if you were to run your code right now.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1142,57 +1154,20 @@ Wall time: 2.45 s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <img alt="../_images/exercises_Solutions_dask_21_0.png" src="../_images/exercises_Solutions_dask_21_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="Let’s-do-some-manipulations!">
+<h2>Let’s do some manipulations!<a class="headerlink" href="#Let’s-do-some-manipulations!" title="Permalink to this headline">¶</a></h2>
 <p>In this section we do a few <code class="docutils literal notranslate"><span class="pre">dask.dataframe</span></code> computations. If you are comfortable with Pandas then these should be familiar. You will have to think about when to call <code class="docutils literal notranslate"><span class="pre">compute</span></code>.</p>
-<p><strong>(7)</strong> How many rows are in our dataset?</p>
-<p>If you aren’t familiar with pandas, how would you check how many records are in a list of tuples?</p>
+<p><strong>(7)</strong> In total, what is the average delay (<code class="docutils literal notranslate"><span class="pre">DepDelay</span></code>) for non-canceled flights?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>2611892
-</pre></div>
-</div>
-</div>
-<p>Note you probably found you didn’t need to run <code class="docutils literal notranslate"><span class="pre">.compute</span></code>. This is one of the oddities of <code class="docutils literal notranslate"><span class="pre">dask</span></code> – some functions (like <code class="docutils literal notranslate"><span class="pre">len</span></code>) run as soon as you execute them, and don’t wait for <code class="docutils literal notranslate"><span class="pre">compute</span></code>. So be careful about using them! An alternative that <em>won’t</em> execute until you run <code class="docutils literal notranslate"><span class="pre">compute</span></code> is <code class="docutils literal notranslate"><span class="pre">df.shape[0]</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>2611892
-</pre></div>
-</div>
-</div>
-<p><strong>(8)</strong> In total, how many non-canceled flights were taken?</p>
-<p>With pandas, you would use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/indexing.html#boolean-indexing">boolean indexing</a>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1201,7 +1176,7 @@ Wall time: 2.45 s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1214,25 +1189,25 @@ Wall time: 2.45 s
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cancelled&#39;</span><span class="p">]])</span>
+<span></span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cancelled&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">DepDelay</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>2540961
+<span></span>9.206602541321965
 </pre></div>
 </div>
 </div>
-<p><strong>(9)</strong> In total, how many non-cancelled flights were taken from each airport?</p>
-<p><em>Hint</em>: use <code class="docutils literal notranslate"><span class="pre">`df.groupby</span></code> &lt;<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/groupby.html">https://pandas.pydata.org/pandas-docs/stable/groupby.html</a>&gt;`__.</p>
+<p><strong>(8)</strong> In total, how many non-cancelled flights were taken from each airport?</p>
+<p><em>Hint</em>: use <code class="docutils literal notranslate"><span class="pre">df.groupby</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -1255,7 +1230,7 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<p><strong>(10)</strong> What was the average departure delay from each airport? (<code class="docutils literal notranslate"><span class="pre">DepDelay</span></code>)</p>
+<p><strong>(9)</strong> What was the average departure delay from each airport? (<code class="docutils literal notranslate"><span class="pre">DepDelay</span></code>)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -1275,6 +1250,47 @@ EWR    10.295469
 JFK    10.351299
 LGA     7.431142
 Name: DepDelay, dtype: float64
+</pre></div>
+</div>
+</div>
+<p><strong>(10)</strong> How many rows are in our dataset?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>2540961
+</pre></div>
+</div>
+</div>
+<p>Note you’ve just found what I think is one of the trickiest things to figure out with a distributed computing system like dask: <em>some</em> functions don’t follow the rules of delayed evaluation, and when you run them, dask executes immediately. <code class="docutils literal notranslate"><span class="pre">len</span></code> is one of those functions.</p>
+<p>As we’ll discuss below, a good rule of thumb is that anything that isn’t either (a) a method on the dask dataframe (i.e. something that isn’t of the form <code class="docutils literal notranslate"><span class="pre">df.METHOD()</span></code>), or an explicit dask function (something you call from the dask library, like <code class="docutils literal notranslate"><span class="pre">dd.to_parquet</span></code>), it will probably execute immediately.</p>
+<p><code class="docutils literal notranslate"><span class="pre">len</span></code> is pretty safe since all it returns is a single number, so it’s unlikely to blow up your computer if it runs before you want, but you have to be careful with other functions, because if you were to us a pandas function like <code class="docutils literal notranslate"><span class="pre">pd.to_numeric(df)</span></code>, it will execute immediately, and it will do so by pulling all the data into your client session as a single giant dataframe, and with a larger dataset, it is likely to crash you computer when you do so.</p>
+<p>An alternative that <em>won’t</em> execute until you run <code class="docutils literal notranslate"><span class="pre">compute</span></code> is <code class="docutils literal notranslate"><span class="pre">df.shape[0]</span></code> (see how it takes the form of a method on our dask dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code>?) Try it to see!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>2540961
 </pre></div>
 </div>
 </div>
@@ -1367,7 +1383,7 @@ Wall time: 2 s
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/exercises_Solutions_dask_40_0.png" src="../_images/exercises_Solutions_dask_40_0.png" />
+<img alt="../_images/exercises_Solutions_dask_41_0.png" src="../_images/exercises_Solutions_dask_41_0.png" />
 </div>
 </div>
 <p><strong>(11)</strong> Now you try – for each airport, get both the average delay and the maximum delay in the data for flights that weren’t cancelled.</p>

@@ -188,45 +188,52 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Exercises\n",
+    "## Let's do some manipulations!\n",
     "\n",
-    "In this section we do a few `dask.dataframe` computations. If you are comfortable with Pandas then these should be familiar. You will have to think about when to call `compute`.\n",
-    "\n",
-    "**(7)** How many rows are in our dataset?\n",
-    "\n",
-    "If you aren't familiar with pandas, how would you check how many records are in a list of tuples?"
+    "In this section we do a few `dask.dataframe` computations. If you are comfortable with Pandas then these should be familiar. You will have to think about when to call `compute`."
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Note you probably found you didn't need to run `.compute`. This is one of the oddities of `dask` -- some functions (like `len`) run as soon as you execute them, and don't wait for `compute`. So be careful about using them! An alternative that *won't* execute until you run `compute` is `df.shape[0]`."
+    "**(7)** In total, what is the average delay (`DepDelay`) for non-canceled flights?"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(8)** In total, how many non-canceled flights were taken?\n",
+    "**(8)** In total, how many non-cancelled flights were taken from each airport?\n",
     "\n",
-    "With pandas, you would use [boolean indexing](https://pandas.pydata.org/pandas-docs/stable/indexing.html#boolean-indexing)."
+    "*Hint*: use `df.groupby` and `size`."
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(9)** In total, how many non-cancelled flights were taken from each airport?\n",
+    "**(9)** What was the average departure delay from each airport? (`DepDelay`)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**(10)** How many rows are in our dataset?\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Note you've probably just found what I think is one of the trickiest things to figure out with a distributed computing system like dask: *some* functions don't follow the rules of delayed evaluation, and when you run them, dask executes immediately. `len` is one of those functions. \n",
     "\n",
-    "*Hint*: use [`df.groupby`](https://pandas.pydata.org/pandas-docs/stable/groupby.html)."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "**(10)** What was the average departure delay from each airport? (`DepDelay`)\n"
+    "As we'll discuss below, a good rule of thumb is that anything that isn't either (a) a method on the dask dataframe (i.e. something that isn't of the form `df.METHOD()`), or an explicit dask function (something you call from the dask library, like `dd.to_parquet`), it will probably execute immediately. \n",
+    "\n",
+    "`len` is pretty safe since all it returns is a single number, so it's unlikely to blow up your computer if it runs before you want, but you have to be careful with other functions, because if you were to us a pandas function like `pd.to_numeric(df)`, it will execute immediately, and it will do so by pulling all the data into your client session as a single giant dataframe, and with a larger dataset, it is likely to crash you computer when you do so. \n",
+    "\n",
+    "An alternative that *won't* execute until you run `compute` is `df.shape[0]` (see how it takes the form of a method on our dask dataframe `df`?) Try it to see!"
    ]
   },
   {
@@ -376,9 +383,30 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 22,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0    1540\n",
+       "1    1540\n",
+       "2    1540\n",
+       "3    1540\n",
+       "4    1540\n",
+       "5    1540\n",
+       "6    1540\n",
+       "7    1540\n",
+       "8    1540\n",
+       "9    1540\n",
+       "Name: CRSDepTime, dtype: int64"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "crs_dep_time = df.CRSDepTime.head(10)\n",
     "crs_dep_time"
@@ -397,9 +425,30 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 23,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0   1990-01-01 15:40:00\n",
+       "1   1990-01-02 15:40:00\n",
+       "2   1990-01-03 15:40:00\n",
+       "3   1990-01-04 15:40:00\n",
+       "4   1990-01-05 15:40:00\n",
+       "5   1990-01-06 15:40:00\n",
+       "6   1990-01-07 15:40:00\n",
+       "7   1990-01-08 15:40:00\n",
+       "8   1990-01-09 15:40:00\n",
+       "9   1990-01-10 15:40:00\n",
+       "dtype: datetime64[ns]"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "import pandas as pd\n",
     "\n",
@@ -431,9 +480,9 @@
     "\n",
     "`dask.dataframe` provides a few methods to make applying custom functions to Dask DataFrames easier:\n",
     "\n",
-    "- [`map_partitions`](http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_partitions): Apply function to each chunk. \n",
-    "- [`map_overlap`](http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_overlap): Allows you to apply to each chunk AND roll over a few rows (for things like rolling averages)\n",
-    "- [`reduction`](http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.reduction): Allows you to write a full, custom reduction function (where you specify how you'd reduce each chunk, then how you'd re-combine those reduced chunks).\n",
+    "- [map_partitions](http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_partitions): Apply function to each chunk. \n",
+    "- [map_overlap](http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_overlap): Allows you to apply to each chunk AND roll over a few rows (for things like rolling averages)\n",
+    "- [reduction](http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.reduction): Allows you to write a full, custom reduction function (where you specify how you'd reduce each chunk, then how you'd re-combine those reduced chunks).\n",
     "\n",
     "Of these, `map_partition` is the easiest. It says \"just apply this function to each chunk\". Any operation that operates on each row individually can work with `map_partition`!"
    ]
@@ -448,7 +497,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -465,9 +514,28 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 26,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Dask Series Structure:\n",
+       "npartitions=10\n",
+       "    datetime64[ns]\n",
+       "               ...\n",
+       "         ...      \n",
+       "               ...\n",
+       "               ...\n",
+       "dtype: datetime64[ns]\n",
+       "Dask Name: add, 110 tasks"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "departure_timestamp"
    ]
@@ -481,9 +549,25 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 27,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0   1990-01-01 15:40:00\n",
+       "1   1990-01-02 15:40:00\n",
+       "2   1990-01-03 15:40:00\n",
+       "3   1990-01-04 15:40:00\n",
+       "4   1990-01-05 15:40:00\n",
+       "dtype: datetime64[ns]"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "departure_timestamp.compute().head()"
    ]
@@ -492,7 +576,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(11)** Rewrite above to use a single call to `map_partitions`\n",
+    "**(11)** Rewrite what I did above to use a single call to `map_partitions` so that everything is done at once. \n",
     "\n",
     "This will be slightly more efficient than two separate calls, as it reduces the number of tasks in the graph.\n",
     "\n",
@@ -502,35 +586,6 @@
     "def compute_departure_timestamp(df):\n",
     "     # Do conversions here\n",
     "```"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "def compute_departure_timestamp(df):\n",
-    "    df['Date'] = df['Date'] + pd.to_timedelta(df['CRSDepTime'] // 100, unit='h') + pd.to_timedelta(df['CRSDepTime'] % 100, unit='m')\n",
-    "    return df"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "departure_timestamp = df.map_partitions(compute_departure_timestamp)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "departure_timestamp.head()"
    ]
   },
   {

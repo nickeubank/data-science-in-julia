@@ -337,17 +337,18 @@ Wall time: 2.45 s
 <p><strong>(5)</strong> Want to know more about what dask is doing? First, just store <code class="docutils literal notranslate"><span class="pre">df.DepDelay.max()</span></code> as a new variable and look at it. Can you see the placeholder? It tells you what it will eventually be (a scalar (single value) float64). But you don’t see the actual maximum value.</p>
 <p><strong>(6)</strong> Now use <code class="docutils literal notranslate"><span class="pre">.visualize()</span></code> on that variable to see the <em>plan</em> dask has for getting you the maximimum value if you were to run your code right now.</p>
 </div>
-<div class="section" id="Exercises">
-<h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Let’s-do-some-manipulations!">
+<h2>Let’s do some manipulations!<a class="headerlink" href="#Let’s-do-some-manipulations!" title="Permalink to this headline">¶</a></h2>
 <p>In this section we do a few <code class="docutils literal notranslate"><span class="pre">dask.dataframe</span></code> computations. If you are comfortable with Pandas then these should be familiar. You will have to think about when to call <code class="docutils literal notranslate"><span class="pre">compute</span></code>.</p>
-<p><strong>(7)</strong> How many rows are in our dataset?</p>
-<p>If you aren’t familiar with pandas, how would you check how many records are in a list of tuples?</p>
-<p>Note you probably found you didn’t need to run <code class="docutils literal notranslate"><span class="pre">.compute</span></code>. This is one of the oddities of <code class="docutils literal notranslate"><span class="pre">dask</span></code> – some functions (like <code class="docutils literal notranslate"><span class="pre">len</span></code>) run as soon as you execute them, and don’t wait for <code class="docutils literal notranslate"><span class="pre">compute</span></code>. So be careful about using them! An alternative that <em>won’t</em> execute until you run <code class="docutils literal notranslate"><span class="pre">compute</span></code> is <code class="docutils literal notranslate"><span class="pre">df.shape[0]</span></code>.</p>
-<p><strong>(8)</strong> In total, how many non-canceled flights were taken?</p>
-<p>With pandas, you would use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/indexing.html#boolean-indexing">boolean indexing</a>.</p>
-<p><strong>(9)</strong> In total, how many non-cancelled flights were taken from each airport?</p>
-<p><em>Hint</em>: use <code class="docutils literal notranslate"><span class="pre">`df.groupby</span></code> &lt;<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/groupby.html">https://pandas.pydata.org/pandas-docs/stable/groupby.html</a>&gt;`__.</p>
-<p><strong>(10)</strong> What was the average departure delay from each airport? (<code class="docutils literal notranslate"><span class="pre">DepDelay</span></code>)</p>
+<p><strong>(7)</strong> In total, what is the average delay (<code class="docutils literal notranslate"><span class="pre">DepDelay</span></code>) for non-canceled flights?</p>
+<p><strong>(8)</strong> In total, how many non-cancelled flights were taken from each airport?</p>
+<p><em>Hint</em>: use <code class="docutils literal notranslate"><span class="pre">df.groupby</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
+<p><strong>(9)</strong> What was the average departure delay from each airport? (<code class="docutils literal notranslate"><span class="pre">DepDelay</span></code>)</p>
+<p><strong>(10)</strong> How many rows are in our dataset?</p>
+<p>Note you’ve probably just found what I think is one of the trickiest things to figure out with a distributed computing system like dask: <em>some</em> functions don’t follow the rules of delayed evaluation, and when you run them, dask executes immediately. <code class="docutils literal notranslate"><span class="pre">len</span></code> is one of those functions.</p>
+<p>As we’ll discuss below, a good rule of thumb is that anything that isn’t either (a) a method on the dask dataframe (i.e. something that isn’t of the form <code class="docutils literal notranslate"><span class="pre">df.METHOD()</span></code>), or an explicit dask function (something you call from the dask library, like <code class="docutils literal notranslate"><span class="pre">dd.to_parquet</span></code>), it will probably execute immediately.</p>
+<p><code class="docutils literal notranslate"><span class="pre">len</span></code> is pretty safe since all it returns is a single number, so it’s unlikely to blow up your computer if it runs before you want, but you have to be careful with other functions, because if you were to us a pandas function like <code class="docutils literal notranslate"><span class="pre">pd.to_numeric(df)</span></code>, it will execute immediately, and it will do so by pulling all the data into your client session as a single giant dataframe, and with a larger dataset, it is likely to crash you computer when you do so.</p>
+<p>An alternative that <em>won’t</em> execute until you run <code class="docutils literal notranslate"><span class="pre">compute</span></code> is <code class="docutils literal notranslate"><span class="pre">df.shape[0]</span></code> (see how it takes the form of a method on our dask dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code>?) Try it to see!</p>
 </div>
 <div class="section" id="Sharing-Intermediate-Results">
 <h2>Sharing Intermediate Results<a class="headerlink" href="#Sharing-Intermediate-Results" title="Permalink to this headline">¶</a></h2>
@@ -437,7 +438,7 @@ Wall time: 2 s
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/exercises_Exercise_dask_24_0.png" src="../_images/exercises_Exercise_dask_24_0.png" />
+<img alt="../_images/exercises_Exercise_dask_25_0.png" src="../_images/exercises_Exercise_dask_25_0.png" />
 </div>
 </div>
 <p>But lets try by passing both to a single <code class="docutils literal notranslate"><span class="pre">compute</span></code> call.</p>
@@ -447,8 +448,8 @@ Wall time: 2 s
 <div class="section" id="Converting-Scheduled-Departure-Time-(CRSDepTime)-to-a-timestamp">
 <h2>Converting Scheduled Departure Time (<code class="docutils literal notranslate"><span class="pre">CRSDepTime</span></code>) to a timestamp<a class="headerlink" href="#Converting-Scheduled-Departure-Time-(CRSDepTime)-to-a-timestamp" title="Permalink to this headline">¶</a></h2>
 <p>This dataset stores the scheduled departure times of flights in the format <code class="docutils literal notranslate"><span class="pre">HHMM</span></code>, which are read in as integers in <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -457,11 +458,30 @@ Wall time: 2 s
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0    1540
+1    1540
+2    1540
+3    1540
+4    1540
+5    1540
+6    1540
+7    1540
+8    1540
+9    1540
+Name: CRSDepTime, dtype: int64
+</pre></div>
+</div>
+</div>
 <p>To combine the data we have on flight dates with these departure times into a single column that includes all that information in a single <code class="docutils literal notranslate"><span class="pre">datetime</span></code> format, we have to convert the time of day into a Timedelta type, then add those Timedeltas to our Date column to get a single column that knows the date AND time of day of departures. (Implicitly, dates think of themselves as living at midnight, so adding a timedelta of 10 hours moves them to 10am).</p>
 <p>To convert these to timestamps of scheduled departure time, we need to convert these integers into <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> objects, and then combine them with the <code class="docutils literal notranslate"><span class="pre">Date</span></code> column.</p>
 <p>In pandas we’d do this using the <code class="docutils literal notranslate"><span class="pre">pd.to_timedelta</span></code> function, and a bit of arithmetic:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -484,20 +504,39 @@ Wall time: 2 s
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0   1990-01-01 15:40:00
+1   1990-01-02 15:40:00
+2   1990-01-03 15:40:00
+3   1990-01-04 15:40:00
+4   1990-01-05 15:40:00
+5   1990-01-06 15:40:00
+6   1990-01-07 15:40:00
+7   1990-01-08 15:40:00
+8   1990-01-09 15:40:00
+9   1990-01-10 15:40:00
+dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
 <div class="section" id="Custom-code-and-Dask-Dataframe">
 <h3>Custom code and Dask Dataframe<a class="headerlink" href="#Custom-code-and-Dask-Dataframe" title="Permalink to this headline">¶</a></h3>
 <p>Notice that we never had to call <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>! That’s because when we call a non-dask function on a dask dataframe, dask doesn’t know how to do it in parallel, so it brings in the whole dataframe and then passes it to your non-dask function. We can get away with that here because our data is small, but with a big dataset, your computer would crash!</p>
 <p>Now we could swap out <code class="docutils literal notranslate"><span class="pre">pd.to_timedelta</span></code> for <code class="docutils literal notranslate"><span class="pre">dd.to_timedelta</span></code> (the dask implementation of <code class="docutils literal notranslate"><span class="pre">to_timedelta</span></code>), and we’d be fine. But let’s say that Dask hadn’t implemented a <code class="docutils literal notranslate"><span class="pre">dd.to_timedelta</span></code> that works on Dask DataFrames. What would you do then?</p>
 <p><code class="docutils literal notranslate"><span class="pre">dask.dataframe</span></code> provides a few methods to make applying custom functions to Dask DataFrames easier:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">`map_partitions</span></code> &lt;<a class="reference external" href="http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_partitions">http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_partitions</a>&gt;`__: Apply function to each chunk.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">`map_overlap</span></code> &lt;<a class="reference external" href="http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_overlap">http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_overlap</a>&gt;`__: Allows you to apply to each chunk AND roll over a few rows (for things like rolling averages)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">`reduction</span></code> &lt;<a class="reference external" href="http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.reduction">http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.reduction</a>&gt;`__: Allows you to write a full, custom reduction function (where you specify how you’d reduce each chunk, then how you’d re-combine those reduced chunks).</p></li>
+<li><p><a class="reference external" href="http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_partitions">map_partitions</a>: Apply function to each chunk.</p></li>
+<li><p><a class="reference external" href="http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.map_overlap">map_overlap</a>: Allows you to apply to each chunk AND roll over a few rows (for things like rolling averages)</p></li>
+<li><p><a class="reference external" href="http://dask.pydata.org/en/latest/dataframe-api.html#dask.dataframe.DataFrame.reduction">reduction</a>: Allows you to write a full, custom reduction function (where you specify how you’d reduce each chunk, then how you’d re-combine those reduced chunks).</p></li>
 </ul>
 <p>Of these, <code class="docutils literal notranslate"><span class="pre">map_partition</span></code> is the easiest. It says “just apply this function to each chunk”. Any operation that operates on each row individually can work with <code class="docutils literal notranslate"><span class="pre">map_partition</span></code>!</p>
 <p>The basic idea is to apply a function that operates on a DataFrame to each partition. In this case, we’ll apply <code class="docutils literal notranslate"><span class="pre">pd.to_timedelta</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -513,8 +552,8 @@ Wall time: 2 s
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -522,9 +561,26 @@ Wall time: 2 s
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>Dask Series Structure:
+npartitions=10
+    datetime64[ns]
+               ...
+         ...
+               ...
+               ...
+dtype: datetime64[ns]
+Dask Name: add, 110 tasks
+</pre></div>
+</div>
+</div>
 <p>And you’ll see <em>this</em> time not everything ran all at once!</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -532,41 +588,26 @@ Wall time: 2 s
 </pre></div>
 </div>
 </div>
-<p><strong>(11)</strong> Rewrite above to use a single call to <code class="docutils literal notranslate"><span class="pre">map_partitions</span></code></p>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>0   1990-01-01 15:40:00
+1   1990-01-02 15:40:00
+2   1990-01-03 15:40:00
+3   1990-01-04 15:40:00
+4   1990-01-05 15:40:00
+dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+<p><strong>(11)</strong> Rewrite what I did above to use a single call to <code class="docutils literal notranslate"><span class="pre">map_partitions</span></code> so that everything is done at once.</p>
 <p>This will be slightly more efficient than two separate calls, as it reduces the number of tasks in the graph.</p>
 <p>Do so by writing a single function that accomplishes what you want:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_departure_timestamp</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
      <span class="c1"># Do conversions here</span>
 </pre></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">compute_departure_timestamp</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CRSDepTime&#39;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">100</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CRSDepTime&#39;</span><span class="p">]</span> <span class="o">%</span> <span class="mi">100</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">departure_timestamp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">map_partitions</span><span class="p">(</span><span class="n">compute_departure_timestamp</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">departure_timestamp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
