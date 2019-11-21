@@ -63,6 +63,6 @@
 - `Review how to define classes <https://realpython.com/python3-object-oriented-programming/>`_",`Link <exercises/Exercise_codeyourownlinearregression.ipynb>`_
 "Tues, Nov 19, Rm 270","- Data Science: Backwards Design
 - Regular Expressions",- `Regular Expressions Tutorial <https://scotch.io/tutorials/an-introduction-to-regex-in-python>`_,
-"Thurs, Nov 21, Rm 330","Distributed Computing, Part 1",- `Distributed Computing with dask <distributed_computing.ipynb>`_,`Link <https://www.practicaldatascience.org/html/distributed_computing.html#Exercises>`_
+"Thurs, Nov 21, Rm 330","Distributed Computing, Part 1",- `Distributed Computing with dask <distributed_computing.ipynb>`_,`Link <exercises/Exercise_dask.ipynb>`_
 "Tues, Nov 26, Rm 270","Distributed Computing, Part 2",,
 "Thurs, Nov 28, Rm ",THANKSGIVING BREAK,,
