@@ -1,0 +1,1183 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Importing ARCOS Data with Dask &#8212; Practical Data Science</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Importing-ARCOS-Data-with-Dask">
+<h1>Importing ARCOS Data with Dask<a class="headerlink" href="#Importing-ARCOS-Data-with-Dask" title="Permalink to this headline">¶</a></h1>
+<p>Last week, we used dask to play with a few datasets to get a feel for how dask works. In order to help us develop code that would run quickly, however, we worked with very small, safe datasets.</p>
+<p>Today, we will continue to work with dask, but this time using much larger datasets. This means that (a) doing things incorrectly may lead to your computer crashing (So save all your open files before you start!), and (b) many of the commands you are being asked run will take several minutes each.</p>
+<p>For familiarity, and so you can see what advantages dask can bring to your workflow, today we’ll be working with the DEA ARCOS drug shipment database published by the Washington Post! However, to strike a balance between size and speed, we’ll be working with a slightly thinned version that has only the last two years of data, instead of all six.</p>
+<p><strong>(1)</strong> Download the thinned ARCOS data <a class="reference external" href="https://www.dropbox.com/s/w1p9fegst1uaur6/arcos_2011_2012_2.tsv.zip?dl=0">from this link</a>. It should be about 2GB zipped, 25 GB unzipped.</p>
+<p><strong>(2)</strong> Our goal today is going to be to find the pharmaceutical company that has shipped the most pills (<code class="docutils literal notranslate"><span class="pre">DOSAGE_UNIT</span></code>) in the US.</p>
+<p>When working with large datasets, it is good practice to begin by prototyping your code with a subset of your data. So begin by using <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to read in the first 100,000 lines of the ARCOS data and write pandas code to compute the shipments from each shipper (the group that reported the shipment).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/users/nick/downloads/&quot;</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_2011_2012.tsv&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/Nick/miniconda3/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3058: DtypeWarning: Columns (4,6,27) have mixed types. Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>97618</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Unnamed: 0</th>
+      <td>60845</td>
+    </tr>
+    <tr>
+      <th>REPORTER_DEA_NO</th>
+      <td>PM0018425</td>
+    </tr>
+    <tr>
+      <th>REPORTER_BUS_ACT</th>
+      <td>DISTRIBUTOR</td>
+    </tr>
+    <tr>
+      <th>REPORTER_NAME</th>
+      <td>MCKESSON CORPORATION</td>
+    </tr>
+    <tr>
+      <th>REPORTER_ADDL_CO_INFO</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>REPORTER_ADDRESS1</th>
+      <td>DBA MCKESSON DRUG CO.</td>
+    </tr>
+    <tr>
+      <th>REPORTER_ADDRESS2</th>
+      <td>14500 E 39TH AVE</td>
+    </tr>
+    <tr>
+      <th>REPORTER_CITY</th>
+      <td>AURORA</td>
+    </tr>
+    <tr>
+      <th>REPORTER_STATE</th>
+      <td>CO</td>
+    </tr>
+    <tr>
+      <th>REPORTER_ZIP</th>
+      <td>80011</td>
+    </tr>
+    <tr>
+      <th>REPORTER_COUNTY</th>
+      <td>ADAMS</td>
+    </tr>
+    <tr>
+      <th>BUYER_DEA_NO</th>
+      <td>BS7043350</td>
+    </tr>
+    <tr>
+      <th>BUYER_BUS_ACT</th>
+      <td>CHAIN PHARMACY</td>
+    </tr>
+    <tr>
+      <th>BUYER_NAME</th>
+      <td>SAFEWAY INC</td>
+    </tr>
+    <tr>
+      <th>BUYER_ADDL_CO_INFO</th>
+      <td>SAFEWAY PHARMACY #1791</td>
+    </tr>
+    <tr>
+      <th>BUYER_ADDRESS1</th>
+      <td>1535 MAIN ST</td>
+    </tr>
+    <tr>
+      <th>BUYER_ADDRESS2</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>BUYER_CITY</th>
+      <td>WINDSOR</td>
+    </tr>
+    <tr>
+      <th>BUYER_STATE</th>
+      <td>CO</td>
+    </tr>
+    <tr>
+      <th>BUYER_ZIP</th>
+      <td>80550</td>
+    </tr>
+    <tr>
+      <th>BUYER_COUNTY</th>
+      <td>WELD</td>
+    </tr>
+    <tr>
+      <th>TRANSACTION_CODE</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>DRUG_CODE</th>
+      <td>9143</td>
+    </tr>
+    <tr>
+      <th>NDC_NO</th>
+      <td>10702005601</td>
+    </tr>
+    <tr>
+      <th>DRUG_NAME</th>
+      <td>OXYCODONE</td>
+    </tr>
+    <tr>
+      <th>QUANTITY</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>UNIT</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>ACTION_INDICATOR</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>ORDER_FORM_NO</th>
+      <td>116609681</td>
+    </tr>
+    <tr>
+      <th>CORRECTION_NO</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>STRENGTH</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>TRANSACTION_DATE</th>
+      <td>2152012</td>
+    </tr>
+    <tr>
+      <th>CALC_BASE_WT_IN_GM</th>
+      <td>1.793</td>
+    </tr>
+    <tr>
+      <th>DOSAGE_UNIT</th>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>TRANSACTION_ID</th>
+      <td>1202021235</td>
+    </tr>
+    <tr>
+      <th>Product_Name</th>
+      <td>OXYCODONE HCI 10MG TABLETS USP</td>
+    </tr>
+    <tr>
+      <th>Ingredient_Name</th>
+      <td>OXYCODONE HYDROCHLORIDE</td>
+    </tr>
+    <tr>
+      <th>Measure</th>
+      <td>TAB</td>
+    </tr>
+    <tr>
+      <th>MME_Conversion_Factor</th>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>Combined_Labeler_Name</th>
+      <td>KVK-Tech, Inc.</td>
+    </tr>
+    <tr>
+      <th>Revised_Company_Name</th>
+      <td>KVK-Tech, Inc.</td>
+    </tr>
+    <tr>
+      <th>Reporter_family</th>
+      <td>McKesson Corporation</td>
+    </tr>
+    <tr>
+      <th>dos_str</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>date</th>
+      <td>2012-02-15</td>
+    </tr>
+    <tr>
+      <th>year</th>
+      <td>2012</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;REPORTER_NAME&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>REPORTER_NAME</th>
+      <th>DOSAGE_UNIT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>21616840.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AMERISOURCEBERGEN DRUG CORP</td>
+      <td>4154600.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>CARDINAL HEALTH 110, LLC</td>
+      <td>4013680.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>KINRAY INC</td>
+      <td>1713820.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>LOUISIANA WHOLESALE DRUG CO</td>
+      <td>1270180.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>KAISER FOUNDATION HOSPITALS</td>
+      <td>1185850.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>FRANK W KERR INC</td>
+      <td>887120.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AMERICAN SALES COMPANY</td>
+      <td>840070.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>H D SMITH WHOLESALE DRUG CO</td>
+      <td>690380.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>DIK DRUG CO</td>
+      <td>492860.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>KPH HEALTHCARE SERVICES, INC.</td>
+      <td>429900.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>KAISER FNDTN HEALTH PLAN NW</td>
+      <td>377320.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BLOODWORTH WHOLESALE DRUGS</td>
+      <td>349750.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>DISCOUNT DRUG MART</td>
+      <td>347910.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>BURLINGTON DRUG COMPANY</td>
+      <td>302880.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>H J HARKINS COMPANY INC</td>
+      <td>75968.6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CAPITAL WHOLESALE DRUG &amp; CO</td>
+      <td>26800.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>APOTHECA INC</td>
+      <td>6250.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>HALS MED DENT SUPPLY CO., INC.</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>CESAR CASTILLO INC</td>
+      <td>700.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>MERRITT VETERINARY SUPPLIES INC</td>
+      <td>600.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>ACE SURGICAL SUPPLY CO INC</td>
+      <td>100.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><strong>(3)</strong> Now let’s turn to dask. Re-write your code for dask, and calculate the total shipments by reporting company. Remember:</p>
+<ul class="simple">
+<li><p>Start by spinning up a cluster</p></li>
+<li><p>Dask won’t read compressed files, so you have to unzip your ARCOS data.</p></li>
+<li><p>Start your cluster in a cell all by itself since you don’t want to keep re-running the “start a cluster” code.</p></li>
+</ul>
+<p>If you need to review dask basic code, <a class="reference internal" href="../distributed_computing.html"><span class="doc">check here</span></a>.</p>
+<p>As you run your code, make sure to click on the Dashboard link below where you created your cluster:</p>
+<p><img alt="dask_dashboard" src="../_images/dask_dashboard.png" /></p>
+<p>Among other things, the bar across the bottom should give you a sense of how long your task will take:</p>
+<p><img alt="dask_progress" src="../_images/dask_progress.png" /></p>
+<p>(For context, my core (which has 8 physical cores that present as 16 with hyperthreading) took about 30 seconds. My computer is fast, but most computers should be done within a couple minutes).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="k">import</span> <span class="n">Client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>tcp://127.0.0.1:53975</li>
+  <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>
+</ul>
+</td>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>4</li>
+  <li><b>Cores: </b>16</li>
+  <li><b>Memory: </b>34.36 GB</li>
+</ul>
+</td>
+</tr>
+</table></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/users/nick/downloads/arcos_2011_2012.tsv&#39;</span><span class="p">,</span>
+            <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;REPORTER_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">])</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;REPORTER_NAME&#39;</span><span class="p">])[</span><span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>REPORTER_NAME
+MCKESSON CORPORATION                             4.708292e+06
+WALGREEN CO                                      3.973797e+06
+CARDINAL HEALTH                                  3.451575e+06
+AMERISOURCEBERGEN DRUG CORP                      2.256760e+06
+CVS INDIANA                                      5.982532e+05
+                                                     ...
+SOUTHERN MEDICAL LASERS DBA SML MEDICAL SALES    1.000000e-01
+CEPHALON, INC.                                   8.000000e-02
+MIKART                                           5.600000e-02
+REMEDYREPACK                                     4.000000e-02
+ARK BUSINESS SERVICES INC                        4.000000e-02
+Name: DOSAGE_UNIT, Length: 316, dtype: float64
+</pre></div>
+</div>
+</div>
+<p><strong>(4)</strong> Now let’s calculate, <em>for each state</em>, what company shipped the most pills?</p>
+<p>Note you will quickly find that you can’t sort in dask – sorting in parallel is <em>really</em> tricky! So you’ll have to work around that. Do what you need to do on the big dataset first, then compute it all so you get it as a regular pandas dataframe, then finish.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/users/nick/downloads/arcos_2011_2012.tsv&#39;</span><span class="p">,</span>
+            <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;REPORTER_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">,</span> <span class="s1">&#39;BUYER_STATE&#39;</span><span class="p">])</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;REPORTER_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;BUYER_STATE&#39;</span><span class="p">])[</span><span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;DOSAGE_UNIT&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">state_maxes</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;BUYER_STATE&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">nth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">state_maxes</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>REPORTER_NAME</th>
+      <th>DOSAGE_UNIT</th>
+    </tr>
+    <tr>
+      <th>BUYER_STATE</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AK</th>
+      <td>CARDINAL HEALTH</td>
+      <td>12912712.0</td>
+    </tr>
+    <tr>
+      <th>AL</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>210395190.0</td>
+    </tr>
+    <tr>
+      <th>AR</th>
+      <td>AMERISOURCEBERGEN DRUG CORPORATION</td>
+      <td>57196800.0</td>
+    </tr>
+    <tr>
+      <th>AZ</th>
+      <td>WALGREEN CO</td>
+      <td>176419710.0</td>
+    </tr>
+    <tr>
+      <th>CA</th>
+      <td>AMERISOURCEBERGEN DRUG CORP</td>
+      <td>449992280.0</td>
+    </tr>
+    <tr>
+      <th>CO</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>74987840.0</td>
+    </tr>
+    <tr>
+      <th>CT</th>
+      <td>CARDINAL HEALTH</td>
+      <td>56635720.0</td>
+    </tr>
+    <tr>
+      <th>DC</th>
+      <td>CARDINAL HEALTH</td>
+      <td>9694400.0</td>
+    </tr>
+    <tr>
+      <th>DE</th>
+      <td>WALGREEN CO</td>
+      <td>29274900.0</td>
+    </tr>
+    <tr>
+      <th>FL</th>
+      <td>WALGREEN CO</td>
+      <td>459455250.0</td>
+    </tr>
+    <tr>
+      <th>GA</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>127935540.0</td>
+    </tr>
+    <tr>
+      <th>GU</th>
+      <td>AMERISOURCEBERGEN DRUG CORP</td>
+      <td>964500.0</td>
+    </tr>
+    <tr>
+      <th>HI</th>
+      <td>AMERISOURCEBERGEN DRUG CORP</td>
+      <td>27102040.0</td>
+    </tr>
+    <tr>
+      <th>IA</th>
+      <td>WALGREEN CO</td>
+      <td>40055380.0</td>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>34168720.0</td>
+    </tr>
+    <tr>
+      <th>IL</th>
+      <td>WALGREEN CO</td>
+      <td>265412740.0</td>
+    </tr>
+    <tr>
+      <th>IN</th>
+      <td>CVS INDIANA</td>
+      <td>193518900.0</td>
+    </tr>
+    <tr>
+      <th>KS</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>76247270.0</td>
+    </tr>
+    <tr>
+      <th>KY</th>
+      <td>AMERISOURCEBERGEN DRUG CORP</td>
+      <td>149117060.0</td>
+    </tr>
+    <tr>
+      <th>LA</th>
+      <td>WALGREEN CO</td>
+      <td>91262050.0</td>
+    </tr>
+    <tr>
+      <th>MA</th>
+      <td>CARDINAL HEALTH</td>
+      <td>132415210.0</td>
+    </tr>
+    <tr>
+      <th>MD</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>142428820.0</td>
+    </tr>
+    <tr>
+      <th>ME</th>
+      <td>CARDINAL HEALTH</td>
+      <td>44604490.0</td>
+    </tr>
+    <tr>
+      <th>MI</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>196841400.0</td>
+    </tr>
+    <tr>
+      <th>MN</th>
+      <td>MCKESSON DRUG COMPANY</td>
+      <td>77370860.0</td>
+    </tr>
+    <tr>
+      <th>MO</th>
+      <td>WALGREEN CO</td>
+      <td>128879010.0</td>
+    </tr>
+    <tr>
+      <th>MP</th>
+      <td>AMERISOURCEBERGEN DRUG CORP</td>
+      <td>287900.0</td>
+    </tr>
+    <tr>
+      <th>MS</th>
+      <td>AMERISOURCEBERGEN DRUG CORP</td>
+      <td>65602720.0</td>
+    </tr>
+    <tr>
+      <th>MT</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>34330100.0</td>
+    </tr>
+    <tr>
+      <th>NC</th>
+      <td>CARDINAL HEALTH</td>
+      <td>186727600.0</td>
+    </tr>
+    <tr>
+      <th>ND</th>
+      <td>MCKESSON DRUG COMPANY</td>
+      <td>10297650.0</td>
+    </tr>
+    <tr>
+      <th>NE</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>31205240.0</td>
+    </tr>
+    <tr>
+      <th>NH</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>21763450.0</td>
+    </tr>
+    <tr>
+      <th>NJ</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>98708550.0</td>
+    </tr>
+    <tr>
+      <th>NM</th>
+      <td>WALGREEN ARIZONA DRUG CO</td>
+      <td>31751330.0</td>
+    </tr>
+    <tr>
+      <th>NV</th>
+      <td>WALGREEN CO</td>
+      <td>96501610.0</td>
+    </tr>
+    <tr>
+      <th>NY</th>
+      <td>CARDINAL HEALTH 110, LLC</td>
+      <td>259680450.0</td>
+    </tr>
+    <tr>
+      <th>OH</th>
+      <td>CARDINAL HEALTH</td>
+      <td>238501750.0</td>
+    </tr>
+    <tr>
+      <th>OK</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>121119950.0</td>
+    </tr>
+    <tr>
+      <th>OR</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>129109660.0</td>
+    </tr>
+    <tr>
+      <th>PA</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>250514560.0</td>
+    </tr>
+    <tr>
+      <th>PR</th>
+      <td>DROGUERIA BETANCES, LLC</td>
+      <td>11419040.0</td>
+    </tr>
+    <tr>
+      <th>RI</th>
+      <td>CARDINAL HEALTH</td>
+      <td>19344120.0</td>
+    </tr>
+    <tr>
+      <th>SC</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>237201700.0</td>
+    </tr>
+    <tr>
+      <th>SD</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>13952560.0</td>
+    </tr>
+    <tr>
+      <th>TN</th>
+      <td>WALGREEN CO</td>
+      <td>131097140.0</td>
+    </tr>
+    <tr>
+      <th>TX</th>
+      <td>WALGREEN CO</td>
+      <td>376538690.0</td>
+    </tr>
+    <tr>
+      <th>UT</th>
+      <td>AMERISOURCEBERGEN DRUG CORP</td>
+      <td>58896360.0</td>
+    </tr>
+    <tr>
+      <th>VA</th>
+      <td>CARDINAL HEALTH</td>
+      <td>113905462.0</td>
+    </tr>
+    <tr>
+      <th>VI</th>
+      <td>CARDINAL HEALTH P.R. 120, INC.</td>
+      <td>622220.0</td>
+    </tr>
+    <tr>
+      <th>VT</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>12777210.0</td>
+    </tr>
+    <tr>
+      <th>WA</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>169188860.0</td>
+    </tr>
+    <tr>
+      <th>WI</th>
+      <td>WALGREEN CO</td>
+      <td>171923190.0</td>
+    </tr>
+    <tr>
+      <th>WV</th>
+      <td>CARDINAL HEALTH</td>
+      <td>70562930.0</td>
+    </tr>
+    <tr>
+      <th>WY</th>
+      <td>MCKESSON CORPORATION</td>
+      <td>10089750.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Does this seem like a situation where a single company is responsible for the opioid epidemic?</p>
+<p><strong>(5)</strong> Now go ahead and try and re-do the chunking you did by hand for your project – calculate, for each year, the total morphine equivalents sent to each county in the US.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Practical DS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../class_schedule.html">CLASS SCHEDULE</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PYTHON &amp; PANDAS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup_environment.html">Setting Up Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_python_packages.html">Managing Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_v_r.html">Python / R Differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vars_v_objects.html">Python: Vars v Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ints_and_floats.html">Numbers in Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas_series.html">Pandas 1: Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas_dataframes.html">Pandas 2: DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting_part1.html">Plotting, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting_part2.html">Plotting, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views_and_copies_in_pandas.html">Pandas 3: Views</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER TOOLS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part1.html">Command Line, Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_line_part2.html">Command Line, Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git_and_github.html">Git and Github</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SKILLS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help.html">Getting Help Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../defensive_programming.html">Defensive Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">Workflow Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../what_is_big_data.html">What is Big Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../big_data_strategies.html">Working with Big Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance_understanding.html">Understanding Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance_solutions.html">Solving Performance Probs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallelism.html">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distributed_computing.html">Distributed Computing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../not_a_mids_student.html">Not a MIDS Student?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheatsheets.html">Cheat Sheets</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nick Eubank.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/exercises/Solutions_dask_realdata.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-133829453-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
