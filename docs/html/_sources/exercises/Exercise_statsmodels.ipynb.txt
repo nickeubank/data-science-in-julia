@@ -171,6 +171,17 @@
    "source": [
     "**(4)** Now let's do the same analysis, but this time using county population as a weight in a Weighted Least Squares regression (`smf.wls`). Just pass the keyword argument `weights` a vector fo weights (in this case, `arrests['total_population']`). Note that the weights argument is outside of the formula, so you have to pass an actual vector of values, not just the name of a column. "
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Absolutely positively need the solutions?\n",
+    "\n",
+    "*Don't use this link until you've really, really spent time struggling with your code!* Doing so only results in you cheating yourself. \n",
+    "\n",
+    "[Link](../solutions_warning.ipynb)"
+   ]
   }
  ],
  "metadata": {
