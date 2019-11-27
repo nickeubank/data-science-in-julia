@@ -668,7 +668,6 @@
     "        if self.add_constant:\n",
     "            X_test = np.concatenate([np.ones((X_test.shape[0], 1)), X_test], axis=1)\n",
     "\n",
-    "        X_test = np.concatenate([np.ones((X_test.shape[0], 1)), X_test], axis=1)\n",
     "        return X_test @ self.coefficients"
    ]
   },
