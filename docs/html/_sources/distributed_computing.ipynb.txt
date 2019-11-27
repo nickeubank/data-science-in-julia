@@ -41,7 +41,7 @@
        "<td style=\"vertical-align: top; border: 0px solid white\">\n",
        "<h3 style=\"text-align: left;\">Client</h3>\n",
        "<ul style=\"text-align: left; list-style: none; margin: 0; padding: 0;\">\n",
-       "  <li><b>Scheduler: </b>tcp://127.0.0.1:51648</li>\n",
+       "  <li><b>Scheduler: </b>tcp://127.0.0.1:55435</li>\n",
        "  <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>\n",
        "</ul>\n",
        "</td>\n",
@@ -57,7 +57,7 @@
        "</table>"
       ],
       "text/plain": [
-       "<Client: 'tcp://127.0.0.1:51648' processes=7 threads=21, memory=34.36 GB>"
+       "<Client: 'tcp://127.0.0.1:55435' processes=7 threads=21, memory=34.36 GB>"
       ]
      },
      "execution_count": 2,
@@ -96,7 +96,7 @@
     "\n",
     "import dask.dataframe as dd\n",
     "\n",
-    "df = dd.read_csv('arcos_all_washpost.tsv', delimiter='\\t', \n",
+    "df = dd.read_csv('arcos_all_washpost.tsv', sep='\\t', \n",
     "                dtype={'ACTION_INDICATOR': 'object',\n",
     "                       'ORDER_FORM_NO': 'object',\n",
     "                       'REPORTER_ADDRESS2': 'object',\n",
@@ -151,24 +151,24 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "CPU times: user 36.6 s, sys: 4.48 s, total: 41.1 s\n",
-      "Wall time: 5min 21s\n"
+      "CPU times: user 36.4 s, sys: 4.24 s, total: 40.6 s\n",
+      "Wall time: 5min 24s\n"
      ]
     },
     {
      "data": {
       "text/plain": [
-       "year  BUYER_STATE  BUYER_COUNTY\n",
-       "2010  KY           MONROE            6647.042730\n",
-       "2008  WI           LAFAYETTE          805.367603\n",
-       "2010  TX           ERATH             9607.819440\n",
-       "2008  AL           CLEBURNE          2148.062175\n",
-       "2009  NH           ROCKINGHAM      126879.972002\n",
-       "2010  TX           WARD              2277.728025\n",
-       "2006  IL           WARREN            1508.187783\n",
-       "2012  ME           OXFORD           21837.219420\n",
-       "2008  MT           MEAGHER            220.736779\n",
-       "      OH           HAMILTON        360608.079718\n",
+       "year  BUYER_STATE  BUYER_COUNTY  \n",
+       "2011  CA           YOLO              49404.964955\n",
+       "2008  TX           CROCKETT            268.007700\n",
+       "2009  MO           SAINT FRANCOIS    51986.416907\n",
+       "2012  NE           CASS               2784.156097\n",
+       "2006  TX           CARSON              247.579725\n",
+       "2009  GA           CHEROKEE          65421.975288\n",
+       "      VA           NORTHUMBERLAND     1248.428104\n",
+       "2011  OH           COSHOCTON          9384.518407\n",
+       "2010  IN           JACKSON           27157.612188\n",
+       "2007  AR           SHARP              7973.241897\n",
        "Name: morphine_equivalent_g, dtype: float64"
       ]
      },
@@ -222,7 +222,7 @@
     "In other words, this only worked because I knew that the steps after the intial load would reduce the size of the dataset enough that when I ran `.compute()`, the result I got back would be small enough to fit in memory. Had I just run:\n",
     "\n",
     "```python\n",
-    "df = dd.read_csv('arcos_all_washpost.tsv', delimiter='\\t', \n",
+    "df = dd.read_csv('arcos_all_washpost.tsv', sep='\\t', \n",
     "                dtype={'ACTION_INDICATOR': 'object',\n",
     "                       'ORDER_FORM_NO': 'object',\n",
     "                       'REPORTER_ADDRESS2': 'object',\n",
@@ -353,7 +353,7 @@
     }
    ],
    "source": [
-    "df = dd.read_csv('arcos_all_washpost.tsv', delimiter='\\t', \n",
+    "df = dd.read_csv('arcos_all_washpost.tsv', sep='\\t', \n",
     "                dtype={'ACTION_INDICATOR': 'object',\n",
     "                       'ORDER_FORM_NO': 'object',\n",
     "                       'REPORTER_ADDRESS2': 'object',\n",

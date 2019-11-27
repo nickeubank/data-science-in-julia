@@ -22,7 +22,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**(1)** Download the thinned ARCOS data [from this link](https://www.dropbox.com/s/w1p9fegst1uaur6/arcos_2011_2012_2.tsv.zip?dl=0). It should be about 2GB zipped, 25 GB unzipped. "
+    "**(1)** Download the thinned ARCOS data [from this link](https://www.dropbox.com/s/o7nc6yvrwog4ozi/arcos_2011_2012.tsv.zip?dl=0). It should be about 2GB zipped, 25 GB unzipped. "
    ]
   },
   {

@@ -284,7 +284,7 @@ following:</p>
 <td style="vertical-align: top; border: 0px solid white">
 <h3 style="text-align: left;">Client</h3>
 <ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
-  <li><b>Scheduler: </b>tcp://127.0.0.1:51648</li>
+  <li><b>Scheduler: </b>tcp://127.0.0.1:55435</li>
   <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a>
 </ul>
 </td>
@@ -315,7 +315,7 @@ following:</p>
 
 <span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ACTION_INDICATOR&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;ORDER_FORM_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;REPORTER_ADDRESS2&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
@@ -376,8 +376,8 @@ Dask Name: series-groupby-sum-agg, 18931 tasks
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 36.6 s, sys: 4.48 s, total: 41.1 s
-Wall time: 5min 21s
+CPU times: user 36.4 s, sys: 4.24 s, total: 40.6 s
+Wall time: 5min 24s
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -386,16 +386,16 @@ Wall time: 5min 21s
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>year  BUYER_STATE  BUYER_COUNTY
-2010  KY           MONROE            6647.042730
-2008  WI           LAFAYETTE          805.367603
-2010  TX           ERATH             9607.819440
-2008  AL           CLEBURNE          2148.062175
-2009  NH           ROCKINGHAM      126879.972002
-2010  TX           WARD              2277.728025
-2006  IL           WARREN            1508.187783
-2012  ME           OXFORD           21837.219420
-2008  MT           MEAGHER            220.736779
-      OH           HAMILTON        360608.079718
+2011  CA           YOLO              49404.964955
+2008  TX           CROCKETT            268.007700
+2009  MO           SAINT FRANCOIS    51986.416907
+2012  NE           CASS               2784.156097
+2006  TX           CARSON              247.579725
+2009  GA           CHEROKEE          65421.975288
+      VA           NORTHUMBERLAND     1248.428104
+2011  OH           COSHOCTON          9384.518407
+2010  IN           JACKSON           27157.612188
+2007  AR           SHARP              7973.241897
 Name: morphine_equivalent_g, dtype: float64
 </pre></div>
 </div>
@@ -424,7 +424,7 @@ Name: morphine_equivalent_g, dtype: float64
 <p>For example, one of the key features of distributing computing is that they don’t run code as soon as you type it. Instead, they just keep track of what you want and wait until you run <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> to actually execute your code. Why? Because if <code class="docutils literal notranslate"><span class="pre">dask</span></code> had run each command as I entered it and passed the result back to me, it would have crashed my computer.</p>
 <p>Recall that the whole reason we’re using dask is precisely because we knew that loading the whole dataset at once would take up more memory than I have available. It’s only because we only loaded a few chunks of the data at a time, thinned out those chunks by dropping variables, and then collapsed by county-state-year that we ended up with a dataset that was small enough that it would fit in memory.</p>
 <p>In other words, this only worked because I knew that the steps after the intial load would reduce the size of the dataset enough that when I ran <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, the result I got back would be small enough to fit in memory. Had I just run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ACTION_INDICATOR&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;ORDER_FORM_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;REPORTER_ADDRESS2&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
@@ -509,7 +509,7 @@ Name: morphine_equivalent_g, dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;arcos_all_washpost.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ACTION_INDICATOR&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;ORDER_FORM_NO&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;REPORTER_ADDRESS2&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
