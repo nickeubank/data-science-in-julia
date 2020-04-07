@@ -12,6 +12,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -37,16 +38,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -55,13 +56,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -69,35 +70,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -105,56 +106,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -254,8 +255,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[ 80842, 333008, 202553, 140037,  81969],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 80842, 333008, 202553, 140037,  81969],
        [ 63857,  42105, 261540, 481981, 176739],
        [489984, 326386, 110795, 394863,  25024],
        [ 38317,  49982, 408830, 485118,  16119],
@@ -275,8 +277,7 @@ div.rendered_html tbody tr:hover {
        [ 52547, 180346, 178760, 305186, 262153],
        [ 11835, 449971, 494184, 472031, 353049],
        [476442,  35455, 191553, 384154,  29917]])
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Exercise-2">
@@ -297,10 +298,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>214895.8
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+214895.8
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -317,10 +318,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>254579.25
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+254579.25
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Exercise-3">
@@ -340,10 +341,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>286058.5
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+286058.5
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -363,10 +364,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>367843.75
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+367843.75
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Exercise-4">
@@ -425,11 +426,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[2, 4, 6],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[2, 4, 6],
        [5, 7, 9]])
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Execise-5">
@@ -485,10 +486,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([1, 2, 3, 4])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 2, 3, 4])
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -504,10 +505,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([2, 3])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2, 3])
+</pre></div></div>
 </div>
 <p>Since <code class="docutils literal notranslate"><span class="pre">my_array</span></code> and <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> are both pointing to the same array, changes to one will propagate to the other. For example, if I modify the <code class="docutils literal notranslate"><span class="pre">2</span></code> entry in <code class="docutils literal notranslate"><span class="pre">my_slice</span></code>, it will appear in <code class="docutils literal notranslate"><span class="pre">my_array</span></code>:</p>
 <div class="nbinput docutils container">
@@ -524,10 +525,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([-1,  3])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([-1,  3])
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -542,10 +543,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([ 1, -1,  3,  4])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 1, -1,  3,  4])
+</pre></div></div>
 </div>
 <p>But while <code class="docutils literal notranslate"><span class="pre">my_array</span></code> and <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> are accessing the same underlying data, they are indexed differently. We changed the first item (index <code class="docutils literal notranslate"><span class="pre">0</span></code> in <code class="docutils literal notranslate"><span class="pre">my_slice</span></code>, but that change impacted the entry in the second position of <code class="docutils literal notranslate"><span class="pre">my_array</span></code> (index <code class="docutils literal notranslate"><span class="pre">1</span></code>):</p>
 <div class="nbinput docutils container">
@@ -561,10 +562,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>-1
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-1
+</pre></div></div>
 </div>
 <p>It is also worth emphasizing at this point that while slices will get you a view of an array, <strong>if you slice a Python list, you get a new object.</strong> This behavior is entirely limited to <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <div class="nbinput docutils container">
@@ -583,10 +584,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;a change&#39;, 2]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;a change&#39;, 2]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -601,10 +602,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[1, 2, 3]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="When-do-you-get-a-view,-and-when-do-you-get-a-copy?">
@@ -633,10 +634,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([ 1, -1,  3])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 1, -1,  3])
+</pre></div></div>
 </div>
 <p>But if you use “fancy indexing” (where you pass a list when making your slice), you will NOT get a view:</p>
 <div class="nbinput docutils container">
@@ -655,10 +656,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([1, 2, 3])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 2, 3])
+</pre></div></div>
 </div>
 <p>Similarly, if you edit using basic indexing (like we did above), those edits will propogate from the slice back to the originally array (or the other way around). But if you modify a slice without using basic indexing, you get a copy, so changes won’t propagate:</p>
 <div class="nbinput docutils container">
@@ -677,10 +678,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([4, 6])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([4, 6])
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -695,10 +696,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([1, 2, 3])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 2, 3])
+</pre></div></div>
 </div>
 <p>(If you want to do a full-array manipulation and preserve your view, always use square brackets on the left side of the assignment operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>):</p>
 <div class="nbinput docutils container">
@@ -717,10 +718,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([4, 6])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([4, 6])
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -735,10 +736,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([1, 4, 6])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 4, 6])
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="How-to-Manage-Views-In-Your-Work">
@@ -808,11 +809,11 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[ 4,  6],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 4,  6],
        [10, 12]])
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Exercise-9">
@@ -832,11 +833,11 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[ 4,  6],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 4,  6],
        [10, 12]])
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Exercise-10">
@@ -903,10 +904,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
 </div>
 <p>But not always. Here’s an example where <code class="docutils literal notranslate"><span class="pre">my_array</span></code> and <code class="docutils literal notranslate"><span class="pre">my_slice</span></code> point to the same data, but <code class="docutils literal notranslate"><span class="pre">my_slice.base</span> <span class="pre">is</span> <span class="pre">my_array</span></code> returns false.</p>
 <div class="nbinput docutils container">
@@ -925,10 +926,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>False
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
@@ -943,10 +944,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([3])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([3])
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -961,10 +962,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([2, 3])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2, 3])
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
@@ -981,10 +982,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([ 2, -1])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 2, -1])
+</pre></div></div>
 </div>
 <p>(The reason is that the <code class="docutils literal notranslate"><span class="pre">.base</span></code> property can be defined recursively. In this case, the slicing of <code class="docutils literal notranslate"><span class="pre">my_array</span></code> made <code class="docutils literal notranslate"><span class="pre">my_array</span></code> a view on data you can no longer access, so they actually do both point to the same data, but that data is not <code class="docutils literal notranslate"><span class="pre">my_array</span></code>, it’s <code class="docutils literal notranslate"><span class="pre">my_array.base</span></code>. So:</p>
 <div class="nbinput docutils container">
@@ -1000,10 +1001,10 @@ present it differently. For example:</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
 </div>
 <p>In practice, you can get infinite chains of <code class="docutils literal notranslate"><span class="pre">.base.base...</span></code>.</p>
 <p>And yes, if this is making your head hurt, that’s because you’re doing it right. :)</p>
@@ -1102,7 +1103,7 @@ present it differently. For example:</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

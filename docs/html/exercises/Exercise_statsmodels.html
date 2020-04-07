@@ -12,6 +12,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -67,8 +68,8 @@ here</a>. In this exercise, we will attempt to use this data to answer the follo
 <p><strong>(6)</strong> Using <a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLSResults.t_test.html">post-regression test syntax</a> (not by running a new regression on a subpopulation), recover the coefficient and t-statistic for whether smoking reduces birth weight for white mothers. How does this coefficient compare to that for non-white mothers?</p>
 <p>The reduction in birth weight associated with smoking for white mothers appears to be about 40% that of the penalty of black mothers.</p>
 <p><strong>(7)</strong> Now let’s use this model to predict some values. Let’s generate some hypothetical newborns:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">newborns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;smoke&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
-                         <span class="s1">&#39;white&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">newborns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;smoke&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+                         <span class="s1">&#39;white&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
                          <span class="s1">&#39;gestation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">253</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">248</span><span class="p">,</span> <span class="mi">287</span><span class="p">],</span>
                          <span class="s1">&#39;mpregwt&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">132</span><span class="p">,</span> <span class="mi">129</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">139</span><span class="p">]})</span>
 </pre></div>
@@ -197,7 +198,7 @@ should “count more” in our analysis.</p>
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

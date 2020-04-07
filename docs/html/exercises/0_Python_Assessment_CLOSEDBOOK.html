@@ -12,6 +12,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -37,16 +38,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -55,13 +56,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -69,35 +70,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -105,56 +106,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -261,10 +262,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>5050
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5050
+</pre></div></div>
 </div>
 <p><strong>Question 2:</strong> Add up all the <strong>even</strong> numbers from 1 to 100 (e.g. 2, 4, 6, … 98, 100).</p>
 <div class="nbinput docutils container">
@@ -294,10 +295,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>2550
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2550
+</pre></div></div>
 </div>
 <p><strong>Question 3:</strong> What is the type of the variable x defined as <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42.0</span></code>?</p>
 <div class="nbinput docutils container">
@@ -314,10 +315,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>float
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+float
+</pre></div></div>
 </div>
 <p><strong>Question 4:</strong> Consider the list <code class="docutils literal notranslate"><span class="pre">my_list</span> <span class="pre">=</span> <span class="pre">[42,</span> <span class="pre">47,</span> <span class="pre">1.168,</span> <span class="pre">3.14,</span> <span class="pre">8,</span> <span class="pre">-5]</span></code>. What code would return the first three entries of <code class="docutils literal notranslate"><span class="pre">my_list</span></code>?</p>
 <div class="nbinput docutils container">
@@ -334,10 +335,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[42, 47, 1.168]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[42, 47, 1.168]
+</pre></div></div>
 </div>
 <p><strong>Question 5:</strong> What code would return the last entry of <code class="docutils literal notranslate"><span class="pre">my_list</span></code>?</p>
 <div class="nbinput docutils container">
@@ -359,10 +360,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>-5
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-5
+</pre></div></div>
 </div>
 <p><strong>Question 6:</strong> What is the value of <span class="math notranslate nohighlight">\(2^{8} / 23\)</span> (rounded to two decimal places)</p>
 <div class="nbinput docutils container">
@@ -378,10 +379,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>11.13
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+11.13
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Numpy">
@@ -403,8 +404,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([[117356,  79193, 402701, 117143, 285000],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[117356,  79193, 402701, 117143, 285000],
        [306938, 482663, 340715, 187037, 489099],
        [361681, 301630, 237033, 384878, 202395],
        [455706,  66008, 310263, 272876, 121377],
@@ -504,8 +506,7 @@ div.rendered_html tbody tr:hover {
        [427003,   5406, 313027,  79199, 397995],
        [ 98327, 323324,  68021, 211022, 331601],
        [187769, 479679, 227348,   5848, 382203]])
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p><strong>Question 7:</strong> What is the average value of the second column (to two decimal places)</p>
 <div class="nbinput docutils container">
@@ -523,10 +524,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>238200.99
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+238200.99
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
@@ -543,10 +544,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>256103.74
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+256103.74
+</pre></div></div>
 </div>
 <p><strong>Question 8:</strong> What is the average value of the first 20 rows of the third and fourth columns?</p>
 <div class="nbinput docutils container">
@@ -563,10 +564,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>251968.92
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+251968.92
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
@@ -586,10 +587,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>253175.47
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+253175.47
+</pre></div></div>
 </div>
 <div class="section" id="Pandas">
 <h3>Pandas<a class="headerlink" href="#Pandas" title="Permalink to this headline">¶</a></h3>
@@ -610,10 +611,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>145
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+145
+</pre></div></div>
 </div>
 <p><strong>Question 10:</strong> In alphabetical order, what countries had GDP per Capita values in 2008 (the variable <code class="docutils literal notranslate"><span class="pre">gdppcap08</span></code>) above 17,000 and below 20,000.</p>
 <p>Please just type the country names with the same capitalization as is found in the original data using only spaces to separate values.</p>
@@ -630,15 +631,15 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>31       Croatia
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+31       Croatia
 57       Hungary
 74        Latvia
 78     Lithuania
 105       Poland
 Name: country, dtype: object
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p><strong>Question 11</strong>: What country in this data has the lowest GDP Per Capita?</p>
 <div class="nbinput docutils container">
@@ -654,11 +655,11 @@ Name: country, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>144    Zimbabwe
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+144    Zimbabwe
 Name: country, dtype: object
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p><strong>Question 12</strong>: The <code class="docutils literal notranslate"><span class="pre">polityIV</span></code> variable in this data is an <a class="reference external" href="http://www.systemicpeace.org/polityproject.html">expert score for a country’s authoritarianism</a>. Values of -10 are extreme autocracies, while values of 10 are consolidated liberal democracies. What is the average polity score for the 10 poorest countries in this data?</p>
 <div class="nbinput docutils container">
@@ -806,7 +807,7 @@ Name: country, dtype: object
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

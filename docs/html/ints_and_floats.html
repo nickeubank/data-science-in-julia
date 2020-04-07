@@ -12,6 +12,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -39,16 +40,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -57,13 +58,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -71,35 +72,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -107,56 +108,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -352,10 +353,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([9223372036854775807, 9223372036854775807])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([9223372036854775807, 9223372036854775807])
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -370,10 +371,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([-9223372036854775808, -9223372036854775808])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([-9223372036854775808, -9223372036854775808])
+</pre></div></div>
 </div>
 <p>It’s also important to understand that with <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, you control the size of integers, and thus how big of an integer you can make before you have overflow problems. By default, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> will make your integers the size your system processor works with natively (usually 64 bits on a modern computer, but sometimes 32 bits on an older computer). But <code class="docutils literal notranslate"><span class="pre">numpy</span></code> also let’s you make arrays that are 16 bits (<code class="docutils literal notranslate"><span class="pre">int16</span></code>), 32 bits (<code class="docutils literal notranslate"><span class="pre">int32</span></code>) or 64 bits (<code class="docutils literal notranslate"><span class="pre">int64</span></code>). This can be very
 useful when working with big datasets: smaller integers take up less memory, and sometimes calculations with smaller integers can be faster due to some intricacies of how computers use memory. But if you do use smaller integer sizes, then you really need to be careful with your overflows! <code class="docutils literal notranslate"><span class="pre">int16</span></code> can only store numbers up to 32,768!</p>
@@ -391,10 +392,10 @@ useful when working with big datasets: smaller integers take up less memory, and
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>-32767
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-32767
+</pre></div></div>
 </div>
 <p>Also, note that <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> have “unsigned” integers (<code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>). These are like regular integers, except they don’t allocate half their values to negative numbers, so their upper limit is 2x the same sized regular integer. In general, though, it’s good to avoid <code class="docutils literal notranslate"><span class="pre">uints</span></code>, as it’s too easy to <em>underflow</em> by hitting the <em>bottom</em> of the values it can tolerate (i.e. going below zero):</p>
 <div class="nbinput docutils container">
@@ -411,10 +412,10 @@ useful when working with big datasets: smaller integers take up less memory, and
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([2], dtype=uint64)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2], dtype=uint64)
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -429,10 +430,10 @@ useful when working with big datasets: smaller integers take up less memory, and
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([18446744073709551615], dtype=uint64)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([18446744073709551615], dtype=uint64)
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -452,10 +453,10 @@ useful when working with big datasets: smaller integers take up less memory, and
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>False
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
 </div>
 <p>and</p>
 <div class="nbinput docutils container">
@@ -471,10 +472,10 @@ useful when working with big datasets: smaller integers take up less memory, and
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
 </div>
 <p>But you also get weird things like 7.5 rounding up and 10.5 rounding down:</p>
 <div class="nbinput docutils container">
@@ -490,10 +491,10 @@ useful when working with big datasets: smaller integers take up less memory, and
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>8
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+8
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -508,10 +509,10 @@ useful when working with big datasets: smaller integers take up less memory, and
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>10
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10
+</pre></div></div>
 </div>
 <p>So just remember: whatever you’re doing with floating point numbers, exact, knife-edge tests may do weird things.</p>
 <p><strong>If you want protections against this</strong>, consider using the <code class="docutils literal notranslate"><span class="pre">isclose</span></code> function from <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library, which will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the two arguments it is passed are <em>really</em> close. (by <em>really</em> close, I mean that <code class="docutils literal notranslate"><span class="pre">np.isclose(a,</span> <span class="pre">b)</span></code> checks for whether <span class="math notranslate nohighlight">\(absolute(a - b) &lt;= (atol + rtol * absolute(b))\)</span> where the relative tolerance (<span class="math notranslate nohighlight">\(rtol\)</span>) is <span class="math notranslate nohighlight">\(10^{-5}\)</span>, and the absolute tolerance (<span class="math notranslate nohighlight">\(atol\)</span>) is <span class="math notranslate nohighlight">\(10^{-8}\)</span> by default. You can also change these tolerances if you want,
@@ -529,10 +530,10 @@ as shown in the help file).</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Random-Numbers">
@@ -558,10 +559,10 @@ the interval [0, 9999]. (Today the algorithms are <em>much</em> more sophisticat
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.1881472802204951
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.1881472802204951
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -576,10 +577,10 @@ the interval [0, 9999]. (Today the algorithms are <em>much</em> more sophisticat
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.6660582051378752
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.6660582051378752
+</pre></div></div>
 </div>
 <p>But if we want reproducibility, we can “seed” our random number generator, which effectively means we’re setting the number it is starting with, and thus ensuring that we always get the same numbers. So here’s a sequence generated when <em>seed</em> is set to 42:</p>
 <div class="nbinput docutils container">
@@ -646,10 +647,10 @@ the interval [0, 9999]. (Today the algorithms are <em>much</em> more sophisticat
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([3, 4, 2, 1])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([3, 4, 2, 1])
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -667,10 +668,10 @@ the interval [0, 9999]. (Today the algorithms are <em>much</em> more sophisticat
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>array([3, 4, 2, 1])
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([3, 4, 2, 1])
+</pre></div></div>
 </div>
 <div class="section" id="Cautionary-Notes">
 <h3>Cautionary Notes<a class="headerlink" href="#Cautionary-Notes" title="Permalink to this headline">¶</a></h3>
@@ -792,7 +793,7 @@ the interval [0, 9999]. (Today the algorithms are <em>much</em> more sophisticat
       &copy;2019, Nick Eubank.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

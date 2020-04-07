@@ -32,3 +32,4 @@ Solutions_*.ipynb
 
 example_data/dask_data/*
 **/dask-worker-space/
+docs/html/solutions_savedaway.html
